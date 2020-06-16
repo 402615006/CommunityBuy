@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--系统用户操作日志--><Msg Code="tl_operatelog_Menu">系统用户操作日志</Msg>
+<Msg Code="tl_operatelog_TName">系统用户操作日志</Msg>
+<Msg Code="tl_operatelog_Export">字段1,字段2</Msg>
+</Msgs>

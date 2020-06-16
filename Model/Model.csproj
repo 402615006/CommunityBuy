@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{883EB676-CEE8-4FDA-9ED8-B48898A36BB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseModel.cs" />
+    <Compile Include="CateringStore\TB_BackOrderEntity.cs" />
+    <Compile Include="CateringStore\TB_BillCouponEntity.cs" />
+    <Compile Include="CateringStore\TB_BillEntity.cs" />
+    <Compile Include="CateringStore\TB_BillInvoiceEntity.cs" />
+    <Compile Include="CateringStore\TB_BillPayEntity.cs" />
+    <Compile Include="CateringStore\TB_ComTableEntity.cs" />
+    <Compile Include="CateringStore\TB_OrderDishEntity.cs" />
+    <Compile Include="CateringStore\TB_OrderEntity.cs" />
+    <Compile Include="CateringStore\TB_UserDiscountSchemeEntity.cs" />
+    <Compile Include="CateringWeb\memcardlevelEntity.cs" />
+    <Compile Include="CateringWeb\memcardtypeEntity.cs" />
+    <Compile Include="CateringWeb\TB_AdminsEntity.cs" />
+    <Compile Include="CateringWeb\TB_BackReasonEntity.cs" />
+    <Compile Include="CateringWeb\TB_CommonRemarksEntity.cs" />
+    <Compile Include="CateringWeb\TB_DisComGroupEntity.cs" />
+    <Compile Include="CateringWeb\TB_DiscountSchemeEntity.cs" />
+    <Compile Include="CateringWeb\TB_DishEntity.cs" />
+    <Compile Include="CateringWeb\TB_DishTypeEntity.cs" />
+    <Compile Include="CateringWeb\TB_FunctionsEntity.cs" />
+    <Compile Include="CateringWeb\TB_RoleFunctionEntity.cs" />
+    <Compile Include="CateringWeb\TB_RolesEntity.cs" />
+    <Compile Include="CateringWeb\TB_SetEntity.cs" />
+    <Compile Include="CateringWeb\TB_ShoppingCartEntity.cs" />
+    <Compile Include="CateringWeb\TB_UserRoleEntity.cs" />
+    <Compile Include="CateringWeb\TB_UserSigSchemeEntity.cs" />
+    <Compile Include="CateringWeb\TM_DisPriceLogsEntity.cs" />
+    <Compile Include="CateringWeb\TM_PresetSettingsEntity.cs" />
+    <Compile Include="CateringWeb\TM_SystemSettingsEntity.cs" />
+    <Compile Include="CateringWeb\TR_ComboInfoEntity.cs" />
+    <Compile Include="CateringWeb\TR_DiscountSchemeRateEntity.cs" />
+    <Compile Include="CateringWeb\TR_DishImageEntity.cs" />
+    <Compile Include="CateringWeb\WXsqinfoEntity.cs" />
+    <Compile Include="CateringWeb\WXStoreEntity.cs" />
+    <Compile Include="membercard\couponpresentDetailEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="membercard\couponpresentEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="membercard\membersEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="membercard\MemCardEntity.cs" />
+    <Compile Include="membercard\memcardordersEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="membercard\opencardcouponEntity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="membercard\opencardinfoEntity.cs" />
+    <Compile Include="membercard\sto_adminsEntity.cs" />
+    <Compile Include="membercard\sto_functionsEntity.cs" />
+    <Compile Include="membercard\MemcardtypeEntity.cs" />
+    <Compile Include="membercard\memCouponpresentEntity.cs" />
+    <Compile Include="operatelogEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonBasic\CommonBasic.csproj">
+      <Project>{afd34b08-3b73-45ba-8e34-238e2fcb43d2}</Project>
+      <Name>CommonBasic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

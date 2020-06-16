@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <Info>基本信息</Info>
+  <submit>提交</submit> 
+  <search>搜索</search>
+  <BusCode>商户标识</BusCode>
+<BusCode_placeholder>请输入商户标识</BusCode_placeholder>
+<StoCode>门店编号</StoCode>
+<StoCode_placeholder>请输入门店编号</StoCode_placeholder>
+<CCname>记录创建人姓名</CCname>
+<CCname_placeholder>请输入记录创建人姓名</CCname_placeholder>
+<TStatus>状态  0无效   1有效</TStatus>
+<TStatus_placeholder>请输入状态  0无效   1有效</TStatus_placeholder>
+<UCname>记录修改人姓名</UCname>
+<UCname_placeholder>请输入记录修改人姓名</UCname_placeholder>
+<SCope>角色范围</SCope>
+<SCope_placeholder>请输入角色范围</SCope_placeholder>
+<RoleName>角色名称</RoleName>
+<RoleName_placeholder>请输入角色名称</RoleName_placeholder>
+<RoleParent>所属角色</RoleParent>
+<RoleParent_placeholder>请输入所属角色</RoleParent_placeholder>
+<RoleDescr>角色描述</RoleDescr>
+<RoleDescr_placeholder>请输入角色描述</RoleDescr_placeholder>
+<RoleDisCount>折扣方案ID</RoleDisCount>
+<RoleDisCount_placeholder>请输入折扣方案ID</RoleDisCount_placeholder>
+<RoleEnable>启用</RoleEnable>
+<RoleEnable_placeholder>请输入启用</RoleEnable_placeholder>
+<MaxDiffPrice>可换菜最大差额</MaxDiffPrice>
+<MaxDiffPrice_placeholder>请输入可换菜最大差额</MaxDiffPrice_placeholder>
+<MaxPrefePrice>优免最大金额</MaxPrefePrice>
+<MaxPrefePrice_placeholder>请输入优免最大金额</MaxPrefePrice_placeholder>
+<IsSig>是否允许签单</IsSig>
+<IsSig_placeholder>请输入是否允许签单</IsSig_placeholder>
+<Sigcredit>签单金额</Sigcredit>
+<Sigcredit_placeholder>请输入签单金额</Sigcredit_placeholder>
+<RoleType>角色类别编号</RoleType>
+<RoleType_placeholder>请输入角色类别编号</RoleType_placeholder>
+<TerminalType>终端类别</TerminalType>
+<TerminalType_placeholder>请输入终端类别</TerminalType_placeholder>
+
+</Pages>

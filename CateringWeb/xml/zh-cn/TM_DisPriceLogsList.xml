@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <Info>基本信息</Info>
+  <submit>提交</submit> 
+  <search>搜索</search>
+  <BusCode>商户标识</BusCode>
+<BusCode_placeholder>请输入商户标识</BusCode_placeholder>
+<StoCode>门店编号</StoCode>
+<StoCode_placeholder>请输入门店编号</StoCode_placeholder>
+<CCname>记录创建人姓名</CCname>
+<CCname_placeholder>请输入记录创建人姓名</CCname_placeholder>
+<UpdateReason>修改原因</UpdateReason>
+<UpdateReason_placeholder>请输入修改原因</UpdateReason_placeholder>
+<DisCode>菜品编号</DisCode>
+<DisCode_placeholder>请输入菜品编号</DisCode_placeholder>
+<MenuCode>菜谱</MenuCode>
+<MenuCode_placeholder>请输入菜谱</MenuCode_placeholder>
+<OldPrice>原价</OldPrice>
+<OldPrice_placeholder>请输入原价</OldPrice_placeholder>
+<NewPrice>现价</NewPrice>
+<NewPrice_placeholder>请输入现价</NewPrice_placeholder>
+<OldMemPrice>会员原价</OldMemPrice>
+<OldMemPrice_placeholder>请输入会员原价</OldMemPrice_placeholder>
+<NewMemPrice>会员现价</NewMemPrice>
+<NewMemPrice_placeholder>请输入会员现价</NewMemPrice_placeholder>
+<TStatus>状态</TStatus>
+<TStatus_placeholder>请输入状态</TStatus_placeholder>
+<AStatus>审核状态</AStatus>
+<AStatus_placeholder>请输入审核状态</AStatus_placeholder>
+
+</Pages>

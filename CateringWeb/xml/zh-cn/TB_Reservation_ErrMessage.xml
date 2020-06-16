@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--预定信息--><Msg Code="TB_Reservation_Menu">预定信息</Msg>
+<Msg Code="TB_Reservation_TName">预定信息</Msg>
+<Msg Code="TB_Reservation_Export">字段1,字段2</Msg>
+</Msgs>

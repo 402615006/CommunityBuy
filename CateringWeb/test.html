@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        function test() {
+            //var info = {
+            //    "actionname": "getlist",
+            //    "parameters": "{'GUID':'','USER_ID': '','CurrentPage':'1','PageSize':'10'}"
+            //};
+
+            var info = {
+                "actionname": "refundcouponpay",
+                "parameters": "{'GUID':'','USER_ID': '','billcode':'04_19120358665','pkcode':'04_19120358666'}"
+            };
+
+            //http://220.171.2.50:7777
+            commonAjax('/IServices/WSTB_BillReturn.ashx', info, true, function (data) {
+                console.log(data);
+                $(data).each(function (i) {
+                    //alert(data.data);
+                });
+            });
+            //commonAjax('/IStore/stock/StockOut.ashx', info, true, function (data) {
+            //    $(data).each(function (i) {
+            //        alert(data.status + "-" + data.mes + "-" + data.data[0].outcode);
+            //    });
+            //});
+        }
+    </script>
+</head>
+<body onload="test()">
+    <form id="form1" runat="server">
+        <div id="div1" style="width: 600px; height: 100%;">
+        </div>
+    </form>
+</body>
+</html>

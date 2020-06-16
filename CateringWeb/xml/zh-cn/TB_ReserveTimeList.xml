@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <Info>基本信息</Info>
+  <submit>提交</submit> 
+  <search>搜索</search>
+  <BusCode>商户标识</BusCode>
+<BusCode_placeholder>请输入商户标识</BusCode_placeholder>
+<StoCode>门店编号</StoCode>
+<StoCode_placeholder>请输入门店编号</StoCode_placeholder>
+<MealTime>到店时间</MealTime>
+<MealTime_placeholder>请输入到店时间</MealTime_placeholder>
+
+</Pages>

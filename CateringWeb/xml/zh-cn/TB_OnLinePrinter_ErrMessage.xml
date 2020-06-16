@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--线上结账出单设置--><Msg Code="TB_OnLinePrinter_Menu">线上结账出单设置</Msg>
+<Msg Code="TB_OnLinePrinter_TName">线上结账出单设置</Msg>
+<Msg Code="TB_OnLinePrinter_Export">字段1,字段2</Msg>
+</Msgs>

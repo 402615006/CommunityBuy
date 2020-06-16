@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!----><Msg Code="TB_CouponCheckLog_Menu"></Msg>
+<Msg Code="TB_CouponCheckLog_TName"></Msg>
+<Msg Code="TB_CouponCheckLog_Export">字段1,字段2</Msg>
+</Msgs>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--到店时间管理--><Msg Code="TB_ReserveTime_Menu">到店时间管理</Msg>
+<Msg Code="TB_ReserveTime_TName">到店时间管理</Msg>
+<Msg Code="TB_ReserveTime_Export">字段1,字段2</Msg>
+</Msgs>

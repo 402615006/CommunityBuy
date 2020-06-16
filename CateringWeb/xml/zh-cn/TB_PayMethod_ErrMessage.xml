@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--支付方式禁用表--><Msg Code="TB_PayMethod_Menu">支付方式禁用表</Msg>
+<Msg Code="TB_PayMethod_TName">支付方式禁用表</Msg>
+<Msg Code="TB_PayMethod_Export">字段1,字段2</Msg>
+</Msgs>

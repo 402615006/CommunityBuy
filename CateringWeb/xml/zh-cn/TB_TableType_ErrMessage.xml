@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--桌台类型表--><Msg Code="TB_TableType_Menu">桌台类型表</Msg>
+<Msg Code="TB_TableType_TName">桌台类型表</Msg>
+<Msg Code="TB_TableType_Export">字段1,字段2</Msg>
+</Msgs>

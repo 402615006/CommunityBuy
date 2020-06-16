@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <Info>基本信息</Info>
+  <submit>提交</submit> 
+  <search>搜索</search>
+  <Id>Id</Id>
+<Id_placeholder>请输入Id</Id_placeholder>
+<BusCode>商户标识</BusCode>
+<BusCode_placeholder>请输入商户标识</BusCode_placeholder>
+<StoCode>门店编号</StoCode>
+<StoCode_placeholder>请输入门店编号</StoCode_placeholder>
+<CCname>记录创建人姓名</CCname>
+<CCname_placeholder>请输入记录创建人姓名</CCname_placeholder>
+<UCname>记录修改人姓名</UCname>
+<UCname_placeholder>请输入记录修改人姓名</UCname_placeholder>
+<TStatus>状态</TStatus>
+<TStatus_placeholder>请输入状态</TStatus_placeholder>
+<AStatus>审核状态</AStatus>
+<AStatus_placeholder>请输入审核状态</AStatus_placeholder>
+<DishesCode>菜品编号</DishesCode>
+<DishesCode_placeholder>请输入菜品编号</DishesCode_placeholder>
+<GuQingNum>沽清数量</GuQingNum>
+<GuQingNum_placeholder>请输入沽清数量</GuQingNum_placeholder>
+<GuQingType>沽清类型</GuQingType>
+<GuQingType_placeholder>请输入沽清类型</GuQingType_placeholder>
+<CateringType>餐别类型</CateringType>
+<CateringType_placeholder>请输入餐别类型</CateringType_placeholder>
+<StartTime>开始日期</StartTime>
+<StartTime_placeholder>请输入开始日期</StartTime_placeholder>
+<EndTime>结束日期</EndTime>
+<EndTime_placeholder>请输入结束日期</EndTime_placeholder>
+<QuQingReason>沽清原因</QuQingReason>
+<QuQingReason_placeholder>请输入沽清原因</QuQingReason_placeholder>
+
+</Pages>

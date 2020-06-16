@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--排队信息--><Msg Code="TB_Queue_Menu">排队信息</Msg>
+<Msg Code="TB_Queue_TName">排队信息</Msg>
+<Msg Code="TB_Queue_Export">字段1,字段2</Msg>
+</Msgs>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <Info>基本信息</Info>
+  <submit>提交</submit> 
+  <search>搜索</search>
+  <Id>Id主键自增</Id>
+<Id_placeholder>请输入Id主键自增</Id_placeholder>
+<BusCode>商户标识</BusCode>
+<BusCode_placeholder>请输入商户标识</BusCode_placeholder>
+<CCname>记录创建人姓名</CCname>
+<CCname_placeholder>请输入记录创建人姓名</CCname_placeholder>
+<TStatus>状态  0无效   1有效</TStatus>
+<TStatus_placeholder>请输入状态  0无效   1有效</TStatus_placeholder>
+<AutoDelTime>自动删除时间</AutoDelTime>
+<AutoDelTime_placeholder>请输入自动删除时间</AutoDelTime_placeholder>
+<IsAutoDelete>是否自动删除</IsAutoDelete>
+<IsAutoDelete_placeholder>请输入是否自动删除</IsAutoDelete_placeholder>
+<MaxNum>商品最大数量</MaxNum>
+<MaxNum_placeholder>请输入商品最大数量</MaxNum_placeholder>
+
+</Pages>

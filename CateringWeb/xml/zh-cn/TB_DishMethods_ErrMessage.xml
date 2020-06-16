@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--菜品做法表--><Msg Code="TB_DishMethods_Menu">菜品做法表</Msg>
+<Msg Code="TB_DishMethods_TName">菜品做法表</Msg>
+<Msg Code="TB_DishMethods_Export">字段1,字段2</Msg>
+</Msgs>

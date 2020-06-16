@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--门店权限管理--><Msg Code="TB_RoleFunction_Menu">门店权限管理</Msg>
+<Msg Code="TB_RoleFunction_TName">门店权限管理</Msg>
+<Msg Code="TB_RoleFunction_Export">字段1,字段2</Msg>
+</Msgs>

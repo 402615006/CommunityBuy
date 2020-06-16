@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--问题设置--><Msg Code="TM_ProblemType_Menu">问题设置</Msg>
+<Msg Code="TM_ProblemType_TName">问题设置</Msg>
+<Msg Code="TM_ProblemType_Export">字段1,字段2</Msg>
+</Msgs>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--菜价修改记录表--><Msg Code="TM_DisPriceLogs_Menu">菜价修改记录表</Msg>
+<Msg Code="TM_DisPriceLogs_TName">菜价修改记录表</Msg>
+<Msg Code="TM_DisPriceLogs_Export">字段1,字段2</Msg>
+</Msgs>

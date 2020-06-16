@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <Info>基本信息</Info>
+  <submit>提交</submit> 
+  <search>搜索</search>
+  <Id>Id</Id>
+<Id_placeholder>请输入Id</Id_placeholder>
+<BusCode>商户编号</BusCode>
+<BusCode_placeholder>请输入商户编号</BusCode_placeholder>
+<StoCode>门店编号</StoCode>
+<StoCode_placeholder>请输入门店编号</StoCode_placeholder>
+<CCname>记录创建人名称</CCname>
+<CCname_placeholder>请输入记录创建人名称</CCname_placeholder>
+<TStatus>状态</TStatus>
+<TStatus_placeholder>请输入状态</TStatus_placeholder>
+<TableName>桌台名称</TableName>
+<TableName_placeholder>请输入桌台名称</TableName_placeholder>
+<Sort>排序</Sort>
+<Sort_placeholder>请输入排序</Sort_placeholder>
+<TableTypeCode>桌台类型</TableTypeCode>
+<TableTypeCode_placeholder>请输入桌台类型</TableTypeCode_placeholder>
+<MaxNumber>最大人数</MaxNumber>
+<MaxNumber_placeholder>请输入最大人数</MaxNumber_placeholder>
+<Remarks>备注</Remarks>
+<Remarks_placeholder>请输入备注</Remarks_placeholder>
+
+</Pages>

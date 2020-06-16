@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--常用备注管理--><Msg Code="TB_CommonRemarks_Menu">常用备注管理</Msg>
+<Msg Code="TB_CommonRemarks_TName">常用备注管理</Msg>
+<Msg Code="TB_CommonRemarks_Export">字段1,字段2</Msg>
+</Msgs>

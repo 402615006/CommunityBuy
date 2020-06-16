@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CateringYun</RootNamespace>
+    <AssemblyName>CateringWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bins\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bins\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.html" />
+    <Content Include="ISTest.aspx" />
+    <Content Include="js\ban.js" />
+    <Content Include="js\common.js" />
+    <Content Include="js\jquery-1.7.2.min.js" />
+    <Content Include="test.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\ErrMessage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\TB_BackReason_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_CommonRemarksList.xml" />
+    <Content Include="xml\zh-cn\TB_CommonRemarks_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_CouponCheckLogList.xml" />
+    <Content Include="xml\zh-cn\TB_CouponCheckLog_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_DisComGroupList.xml" />
+    <Content Include="xml\zh-cn\TB_DisComGroup_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_DiscountSchemeList.xml" />
+    <Content Include="xml\zh-cn\TB_DiscountScheme_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_DishList.xml" />
+    <Content Include="xml\zh-cn\TB_DishMenuList.xml" />
+    <Content Include="xml\zh-cn\TB_DishMenu_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_DishMethodsList.xml" />
+    <Content Include="xml\zh-cn\TB_DishMethods_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_DishTypeList.xml" />
+    <Content Include="xml\zh-cn\TB_DishType_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_Dish_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_FlavorList.xml" />
+    <Content Include="xml\zh-cn\TB_Flavor_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_Functions_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_KitchenList.xml" />
+    <Content Include="xml\zh-cn\TB_Kitchen_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_MealSetList.xml" />
+    <Content Include="xml\zh-cn\TB_MealSet_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_OnLinePrinterList.xml" />
+    <Content Include="xml\zh-cn\TB_OnLinePrinter_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_PayMethodList.xml" />
+    <Content Include="xml\zh-cn\TB_PayMethod_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_PrinterList.xml" />
+    <Content Include="xml\zh-cn\TB_Printer_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_QueueList.xml" />
+    <Content Include="xml\zh-cn\TB_Queue_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_QueuingList.xml" />
+    <Content Include="xml\zh-cn\TB_Queuing_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_ReservationList.xml" />
+    <Content Include="xml\zh-cn\TB_Reservation_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_ReserveList.xml" />
+    <Content Include="xml\zh-cn\TB_ReserveTimeList.xml" />
+    <Content Include="xml\zh-cn\TB_ReserveTime_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_Reserve_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_RoleFunctionList.xml" />
+    <Content Include="xml\zh-cn\TB_RoleFunction_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_Roles_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_FunctionsList.xml" />
+    <Content Include="xml\zh-cn\TB_RolesList.xml" />
+    <Content Include="xml\zh-cn\TB_SetList.xml" />
+    <Content Include="xml\zh-cn\TB_Set_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_ShoppingCartList.xml" />
+    <Content Include="xml\zh-cn\TB_ShoppingCart_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_SpecialOfferList.xml" />
+    <Content Include="xml\zh-cn\TB_SpecialOffer_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_TableList.xml" />
+    <Content Include="xml\zh-cn\TB_TableTypeList.xml" />
+    <Content Include="xml\zh-cn\TB_TableType_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_Table_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TB_UserRoleList.xml" />
+    <Content Include="xml\zh-cn\TB_UserRole_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\tl_operatelogList.xml" />
+    <Content Include="xml\zh-cn\tl_operatelog_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TM_DisPriceLogsList.xml" />
+    <Content Include="xml\zh-cn\TM_DisPriceLogs_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TM_DisSellOutList.xml" />
+    <Content Include="xml\zh-cn\TM_DisSellOut_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TM_PresetSettingsList.xml" />
+    <Content Include="xml\zh-cn\TM_PresetSettings_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TM_ProblemTypeList.xml" />
+    <Content Include="xml\zh-cn\TM_ProblemType_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TM_SignatureSchemeList.xml" />
+    <Content Include="xml\zh-cn\TM_SignatureScheme_ErrMessage.xml" />
+    <Content Include="xml\zh-cn\TM_SystemSettingsList.xml" />
+    <Content Include="xml\zh-cn\TM_SystemSettings_ErrMessage.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\WS_Bill.ashx.cs">
+      <DependentUpon>WS_Bill.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App\WS_Order.ashx.cs">
+      <DependentUpon>WS_Order.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App\WS_Table.ashx.cs">
+      <DependentUpon>WS_Table.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App\WS_Store.ashx.cs">
+      <DependentUpon>WS_Store.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App\WS_Dish.ashx.cs">
+      <DependentUpon>WS_Dish.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\OrderHelper.cs" />
+    <Compile Include="Helper\PrintAdapter.cs" />
+    <Compile Include="IServices\ts_Dicts.ashx.cs">
+      <DependentUpon>ts_Dicts.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSCreateQRCode.ashx.cs">
+      <DependentUpon>WSCreateQRCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_BackOrder.ashx.cs">
+      <DependentUpon>WSTB_BackOrder.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_Bill.ashx.cs">
+      <DependentUpon>WSTB_Bill.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_BillCoupon.ashx.cs">
+      <DependentUpon>WSTB_BillCoupon.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_BillPay.ashx.cs">
+      <DependentUpon>WSTB_BillPay.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_BillReturn.ashx.cs">
+      <DependentUpon>WSTB_BillReturn.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_Functions.ashx.cs">
+      <DependentUpon>WSTB_Functions.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_FinType.ashx.cs">
+      <DependentUpon>WS_FinType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_OrderReport.ashx.cs">
+      <DependentUpon>WS_OrderReport.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_MpCoupon.ashx.cs">
+      <DependentUpon>WS_TB_MpCoupon.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_Order.ashx.cs">
+      <DependentUpon>WSTB_Order.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_OrderDish.ashx.cs">
+      <DependentUpon>WSTB_OrderDish.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_UserDiscountScheme.ashx.cs">
+      <DependentUpon>WSTB_UserDiscountScheme.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_FinTypeReport.ashx.cs">
+      <DependentUpon>WS_FinTypeReport.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_Common.ashx.cs">
+      <DependentUpon>WS_Common.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_Set.ashx.cs">
+      <DependentUpon>WS_TB_Set.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_tl_operatelog.ashx.cs">
+      <DependentUpon>WS_tl_operatelog.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_Memcardorders.ashx.cs">
+      <DependentUpon>WS_Memcardorders.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_BackReason.ashx.cs">
+      <DependentUpon>WS_TB_BackReason.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_CommonRemarks.ashx.cs">
+      <DependentUpon>WS_TB_CommonRemarks.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_Dish.ashx.cs">
+      <DependentUpon>WS_TB_Dish.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_DishType.ashx.cs">
+      <DependentUpon>WS_TB_DishType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_MemCard.ashx.cs">
+      <DependentUpon>WS_TB_MemCard.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_ShoppingCart.ashx.cs">
+      <DependentUpon>WS_TB_ShoppingCart.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_Store.ashx.cs">
+      <DependentUpon>WS_Store.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_SystemCommon.ashx.cs">
+      <DependentUpon>WS_SystemCommon.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_SystemEnum.ashx.cs">
+      <DependentUpon>WS_SystemEnum.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_Admins.ashx.cs">
+      <DependentUpon>WS_TB_Admins.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_DiscountScheme.ashx.cs">
+      <DependentUpon>WS_TB_DiscountScheme.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_Functions.ashx.cs">
+      <DependentUpon>WS_TB_Functions.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_RoleFunction.ashx.cs">
+      <DependentUpon>WS_TB_RoleFunction.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_Roles.ashx.cs">
+      <DependentUpon>WS_TB_Roles.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TB_UserRole.ashx.cs">
+      <DependentUpon>WS_TB_UserRole.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WS_TM_SystemSettings.ashx.cs">
+      <DependentUpon>WS_TM_SystemSettings.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IServices\WSTB_OnlineBill.ashx.cs">
+      <DependentUpon>WSTB_OnlineBill.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ISTest.aspx.cs">
+      <DependentUpon>ISTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ISTest.aspx.designer.cs">
+      <DependentUpon>ISTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberCard\MemCard.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\TodayNotOrder.ashx.cs">
+      <DependentUpon>TodayNotOrder.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\TodayOrder.ashx.cs">
+      <DependentUpon>TodayOrder.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WSTB_BusinessAnalysisReport.ashx.cs">
+      <DependentUpon>WSTB_BusinessAnalysisReport.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\WS_StoreTodayReport.ashx.cs">
+      <DependentUpon>WS_StoreTodayReport.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceBase.cs" />
+    <Compile Include="WeiXinSercices\WXsqinfo.ashx.cs">
+      <DependentUpon>WXsqinfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="WeiXinSercices\WXStore.ashx.cs">
+      <DependentUpon>WXStore.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Adapter\Adapter.csproj">
+      <Project>{0b5a2f3b-76fe-4d94-93fa-46f8dc66eb16}</Project>
+      <Name>Adapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{659dff14-e429-4768-8d7b-759ed06cf5c2}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBasic\CommonBasic.csproj">
+      <Project>{afd34b08-3b73-45ba-8e34-238e2fcb43d2}</Project>
+      <Name>CommonBasic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{883eb676-cee8-4fda-9ed8-b48898a36bb0}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IServices\WS_TB_Admins.ashx" />
+    <Content Include="IServices\WS_SystemEnum.ashx" />
+    <Content Include="IServices\WS_TB_DiscountScheme.ashx" />
+    <Content Include="IServices\WS_TB_Functions.ashx" />
+    <Content Include="IServices\WS_TB_RoleFunction.ashx" />
+    <Content Include="IServices\WS_TB_Roles.ashx" />
+    <Content Include="IServices\WS_SystemCommon.ashx" />
+    <Content Include="IServices\WS_TB_UserRole.ashx" />
+    <Content Include="IServices\WS_Store.ashx" />
+    <Content Include="IServices\WS_TB_Dish.ashx" />
+    <Content Include="IServices\WSTB_Order.ashx" />
+    <Content Include="IServices\WSTB_OrderDish.ashx" />
+    <Content Include="IServices\WS_TB_DishType.ashx" />
+    <Content Include="IServices\WS_TB_BackReason.ashx" />
+    <Content Include="IServices\WS_TB_CommonRemarks.ashx" />
+    <Content Include="IServices\WS_TB_ShoppingCart.ashx" />
+    <Content Include="IServices\WS_TM_SystemSettings.ashx" />
+    <Content Include="IServices\ts_Dicts.ashx" />
+    <Content Include="IServices\WS_tl_operatelog.ashx" />
+    <Content Include="IServices\WSTB_BackOrder.ashx" />
+    <Content Include="IServices\WSTB_Bill.ashx" />
+    <Content Include="IServices\WSTB_BillCoupon.ashx" />
+    <Content Include="IServices\WSTB_BillPay.ashx" />
+    <Content Include="IServices\WSTB_Functions.ashx" />
+    <Content Include="IServices\WS_TB_MemCard.ashx" />
+    <Content Include="IServices\WS_Memcardorders.ashx" />
+    <Content Include="templateData\dishePackageInfo.xlsx" />
+    <Content Include="templateData\dishesInfo.xlsx" />
+    <Content Include="templateData\dishtemplate.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UpDishImages\" />
+    <Folder Include="uploads\UpDishImages\" />
+    <Folder Include="uploadtemplate\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IServices\WS_TB_Set.ashx" />
+    <Content Include="App\WS_Store.ashx" />
+    <Content Include="App\WS_Table.ashx" />
+    <Content Include="App\WS_Dish.ashx" />
+    <Content Include="App\WS_Order.ashx" />
+    <Content Include="App\WS_Bill.ashx" />
+    <Content Include="IServices\WS_FinTypeReport.ashx" />
+    <Content Include="IServices\WSTB_UserDiscountScheme.ashx" />
+    <Content Include="IServices\WS_Common.ashx" />
+    <Content Include="IServices\WSTB_OnlineBill.ashx" />
+    <Content Include="IServices\WS_FinType.ashx" />
+    <Content Include="IServices\WS_OrderReport.ashx" />
+    <Content Include="IServices\WSTB_BillReturn.ashx" />
+    <Content Include="IServices\WSCreateQRCode.ashx" />
+    <Content Include="IServices\WS_TB_MpCoupon.ashx" />
+    <Content Include="libman.json" />
+    <None Include="Properties\PublishProfiles\111.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FTP.pubxml" />
+    <Content Include="WeiXinSercices\WXsqinfo.ashx" />
+    <Content Include="WeiXinSercices\WXStore.ashx" />
+    <Content Include="Report\WSTB_BusinessAnalysisReport.ashx" />
+    <Content Include="templateData\SaveAndTakeWineInfo.xlsx" />
+    <Content Include="templateData\OverdueRecoverySummary.xlsx" />
+    <Content Include="templateData\OverdueRecoveryDetail.xlsx" />
+    <Content Include="Report\WS_StoreTodayReport.ashx" />
+    <Content Include="Report\TodayOrder.ashx" />
+    <Content Include="Report\TodayNotOrder.ashx" />
+    <Content Include="templateData\cardrechage.xlsx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>
+          </DevelopmentServerVPath>
+          <IISUrl>http://localhost:50595/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--厨房维护--><Msg Code="TB_Kitchen_Menu">厨房维护</Msg>
+<Msg Code="TB_Kitchen_TName">厨房维护</Msg>
+<Msg Code="TB_Kitchen_Export">字段1,字段2</Msg>
+</Msgs>

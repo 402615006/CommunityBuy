@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--购物车设置--><Msg Code="TB_ShoppingCart_Menu">购物车设置</Msg>
+<Msg Code="TB_ShoppingCart_TName">购物车设置</Msg>
+<Msg Code="TB_ShoppingCart_Export">字段1,字段2</Msg>
+</Msgs>

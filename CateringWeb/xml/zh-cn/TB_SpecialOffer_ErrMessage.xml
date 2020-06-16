@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  
+<!--时价特价--><Msg Code="TB_SpecialOffer_Menu">时价特价</Msg>
+<Msg Code="TB_SpecialOffer_TName">时价特价</Msg>
+<Msg Code="TB_SpecialOffer_Export">字段1,字段2</Msg>
+</Msgs>

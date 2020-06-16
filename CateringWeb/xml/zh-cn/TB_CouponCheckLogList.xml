@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <Info>基本信息</Info>
+  <submit>提交</submit> 
+  <search>搜索</search>
+  <BusCode></BusCode>
+<BusCode_placeholder>请输入</BusCode_placeholder>
+<StoCode></StoCode>
+<StoCode_placeholder>请输入</StoCode_placeholder>
+<MCCode></MCCode>
+<MCCode_placeholder>请输入</MCCode_placeholder>
+<SerialNo></SerialNo>
+<SerialNo_placeholder>请输入</SerialNo_placeholder>
+<CheckCode></CheckCode>
+<CheckCode_placeholder>请输入</CheckCode_placeholder>
+<CouName></CouName>
+<CouName_placeholder>请输入</CouName_placeholder>
+<SingleMoney></SingleMoney>
+<SingleMoney_placeholder>请输入</SingleMoney_placeholder>
+<TicType></TicType>
+<TicType_placeholder>请输入</TicType_placeholder>
+<UCname></UCname>
+<UCname_placeholder>请输入</UCname_placeholder>
+<ShiftId></ShiftId>
+<ShiftId_placeholder>请输入</ShiftId_placeholder>
+<SecType></SecType>
+<SecType_placeholder>请输入</SecType_placeholder>
+
+</Pages>
