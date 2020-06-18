@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Msgs>
-  
-<!--菜品沽清--><Msg Code="TM_DisSellOut_Menu">菜品沽清</Msg>
-<Msg Code="TM_DisSellOut_TName">菜品沽清</Msg>
-<Msg Code="TM_DisSellOut_Export">字段1,字段2</Msg>
-</Msgs>

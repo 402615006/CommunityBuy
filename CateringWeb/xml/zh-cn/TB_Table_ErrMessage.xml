@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Msgs>
-  
-<!--桌台管理--><Msg Code="TB_Table_Menu">桌台管理</Msg>
-<Msg Code="TB_Table_TName">桌台管理</Msg>
-<Msg Code="TB_Table_Export">字段1,字段2</Msg>
-</Msgs>

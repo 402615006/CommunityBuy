@@ -19,7 +19,6 @@ namespace CommunityBuy.IServices
     {
 
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -70,8 +69,8 @@ namespace CommunityBuy.IServices
             {
                 return;
             }
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             string order = "";
             string name = "";
@@ -131,7 +130,7 @@ namespace CommunityBuy.IServices
                 }
                 StringBuilder postStr = new StringBuilder();
                 //获取参数信息
-                string uname = Helper.ReplaceString(dicPar["uname"].ToString());
+                string uname = dicPar["uname"].ToString();
                 string userid = dicPar["userid"].ToString();
                 string tertype = dicPar["tertype"].ToString();
                 string ShortMesUrl = Helper.GetAppSettings("ServiceUrl") + "/WSadmins.ashx";
@@ -160,17 +159,17 @@ namespace CommunityBuy.IServices
                         dtAdmin.AcceptChanges();
 
                         //清除之前的缓存信息
-                        if (WebCache.IsExist(dr["userid"].ToString()+"CommunityBuy_LoginInfo"))
+                        if (HttpContext.Current.Cache.Get(dr["userid"].ToString()+"CommunityBuy_LoginInfo")!=null)
                         {
-                            WebCache.Remove(dr["userid"].ToString()+"CommunityBuy_LoginInfo");
+                            HttpContext.Current.Cache.Remove(dr["userid"].ToString()+"CommunityBuy_LoginInfo");
                         }
-                        if (WebCache.IsExist(dr["userid"].ToString() + tertype))
+                        if (HttpContext.Current.Cache.Get(dr["userid"].ToString() + tertype)!=null)
                         {
-                            WebCache.Remove(dr["userid"].ToString() + tertype);
+                            HttpContext.Current.Cache.Remove(dr["userid"].ToString() + tertype);
                         }
-                        if (WebCache.IsExist(dr["userid"].ToString() + "_buscode"))
+                        if (HttpContext.Current.Cache.Get(dr["userid"].ToString() + "_buscode")!=null)
                         {
-                            WebCache.Remove(dr["userid"].ToString() + "_buscode");
+                            HttpContext.Current.Cache.Remove(dr["userid"].ToString() + "_buscode");
                         }
                         SetUserLoginRoleCodeToCache(dr["userid"].ToString(), dr["rolecode"].ToString());//缓存用户门店权限
                         //获取用户的门店下的角色
@@ -180,7 +179,7 @@ namespace CommunityBuy.IServices
                         {
                             RoleIds = dtUserRole.Rows[0]["roleids"].ToString();
                         }
-                        WebCache.Insert(dr["userid"].ToString() + tertype, RoleIds);//保存用户角色ID到缓存中，多个使用，分隔
+                        HttpContext.Current.Cache.Insert(dr["userid"].ToString() + tertype, RoleIds);//保存用户角色ID到缓存中，多个使用，分隔
                         SetUserBusCodeToCache(dr["userid"].ToString(), dr["buscode"].ToString());//缓存用户商户编号
                         ReturnListJson(dtAdmin);
                     }
@@ -281,11 +280,11 @@ namespace CommunityBuy.IServices
                         //添加登陆记录，如果存在则为修改，主要作用与单点登陆
                         string id = "0";
                         new bllTB_SingleLogin().Add(dtAdmin.Rows[0]["GUID"].ToString(), "", out id, dr["buscode"].ToString(), stocode, dtAdmin.Rows[0]["uname"].ToString(), dtAdmin.Rows[0]["uname"].ToString(), "1", depart, null);
-                        if (WebCache.IsExist("empcodesing" +stocode+ depart + dtAdmin.Rows[0]["uname"].ToString()))
+                        if (HttpContext.Current.Cache.IsExist("empcodesing" +stocode+ depart + dtAdmin.Rows[0]["uname"].ToString()))
                         {
-                            WebCache.Remove("empcodesing" + stocode + depart + dtAdmin.Rows[0]["uname"].ToString());
+                            HttpContext.Current.Cache.Remove("empcodesing" + stocode + depart + dtAdmin.Rows[0]["uname"].ToString());
                         }
-                        WebCache.Insert("empcodesing"+ stocode + depart + dtAdmin.Rows[0]["uname"].ToString(), dtAdmin.Rows[0]["GUID"].ToString());
+                        HttpContext.Current.Cache.Insert("empcodesing"+ stocode + depart + dtAdmin.Rows[0]["uname"].ToString(), dtAdmin.Rows[0]["GUID"].ToString());
                         
                         //获取用户的门店下的角色
                         DataTable dtUserRole = new bllTB_UserRole().GetUserStoreRole(dr["userid"].ToString());
@@ -313,7 +312,7 @@ namespace CommunityBuy.IServices
                         }
 
 
-                        WebCache.Insert(dr["userid"].ToString() + "1", RoleIds);//保存用户角色ID到缓存中，多个使用，分隔
+                        HttpContext.Current.Cache.Insert(dr["userid"].ToString() + "1", RoleIds);//保存用户角色ID到缓存中，多个使用，分隔
                         SetUserBusCodeToCache(dr["userid"].ToString(), dr["buscode"].ToString());//缓存用户商户编号
                         ReturnListJson(dtReturn);
                     }
@@ -346,8 +345,8 @@ namespace CommunityBuy.IServices
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0 && filter != "[]")
@@ -465,7 +464,7 @@ namespace CommunityBuy.IServices
             {
                 BusCode = dicPar["BusCode"].ToString();
             }
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             int recordCount = 0;
             int totalPage = 0;
             dt = new bllEmployee().GetEmpStoList(GUID, USER_ID, 1, 1, "where t.userid=" + userid + "", "", out recordCount, out totalPage);
@@ -497,7 +496,7 @@ namespace CommunityBuy.IServices
             int recordCount1 = 0;
             int totalPage1 = 0;
             DataTable dtuser = new bllEmployee().GetEmpStoList("", "", 1, 1, "where t.userid=" + userid, "", out recordCount1, out totalPage1);
-            decimal TotalMoney = Helper.StringToDecimal(dtuser.Rows[0]["msigmoney"].ToString());
+            decimal TotalMoney = StringHelper.StringToDecimal(dtuser.Rows[0]["msigmoney"].ToString());
             DataTable dt_Sig = new bllTB_UserRole().GetUserSigList(" where uss.usercode='" + userid + "'");
             if (dt_Sig != null && dt_Sig.Rows.Count > 0)
             {
@@ -610,7 +609,7 @@ namespace CommunityBuy.IServices
                         {
                             RoleIds = dtUserRole.Rows[0]["roleids"].ToString();
                         }
-                        WebCache.Insert(dr["userid"].ToString() + "1", RoleIds);//保存用户角色ID到缓存中，多个使用，分隔
+                        HttpContext.Current.Cache.Insert(dr["userid"].ToString() + "1", RoleIds);//保存用户角色ID到缓存中，多个使用，分隔
                         SetUserBusCodeToCache(dr["userid"].ToString(), dr["buscode"].ToString());//缓存用户商户编号
                         ReturnListJson(dtAdmin);
                     }
@@ -644,8 +643,8 @@ namespace CommunityBuy.IServices
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0 && filter != "[]")
@@ -721,7 +720,7 @@ namespace CommunityBuy.IServices
                 }
                 StringBuilder postStr = new StringBuilder();
                 //获取参数信息
-                string uname = Helper.ReplaceString(dicPar["uname"].ToString());
+                string uname = dicPar["uname"].ToString();
                 string password = dicPar["password"].ToString();
                 string depart = dicPar["depart"].ToString();
                 string stocode = dicPar["strcode"].ToString();
@@ -793,7 +792,7 @@ namespace CommunityBuy.IServices
                         drAdd["RoleType"] = RoleTypes;
                         dtReturn.Rows.Add(drAdd);
 
-                        WebCache.Insert(dr["userid"].ToString() + "1", RoleIds);//保存用户角色ID到缓存中，多个使用，分隔
+                        HttpContext.Current.Cache.Insert(dr["userid"].ToString() + "1", RoleIds);//保存用户角色ID到缓存中，多个使用，分隔
                         ReturnListJson(dtReturn);
                     }
                 }

@@ -98,7 +98,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return null;
             }
             return ds;
@@ -134,22 +134,22 @@ namespace CommunityBuy.CommonBasic
                             break;
                         case "limit":
                         case "pagesize":
-                            pageSize = Helper.StringToInt(item.Value.ToString());
+                            pageSize = StringHelper.StringToInt(item.Value.ToString());
                             Flag = true;
                             break;
                         case "count":
                         case "recordcount":
-                            recordCount = Helper.StringToInt(item.Value.ToString());
+                            recordCount = StringHelper.StringToInt(item.Value.ToString());
                             Flag = true;
                             break;
                         case "curpage":
                         case "currentpage":
-                            currentPage = Helper.StringToInt(item.Value.ToString());
+                            currentPage = StringHelper.StringToInt(item.Value.ToString());
                             Flag = true;
                             break;
                         case "totpage":
                         case "totalpage":
-                            totalPage = Helper.StringToInt(item.Value.ToString());
+                            totalPage = StringHelper.StringToInt(item.Value.ToString());
                             Flag = true;
                             break;
                         case "isnextpage":
@@ -182,7 +182,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return null;
             }
         }
@@ -226,7 +226,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
         }
 
@@ -263,7 +263,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
         }
 
@@ -417,7 +417,6 @@ namespace CommunityBuy.CommonBasic
             catch (Exception ex)
             {
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, json);
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
             }
             result = dataTable;
             return result;
@@ -548,10 +547,10 @@ namespace CommunityBuy.CommonBasic
                     {
                         if (dataColumn.DataType.Name.ToLower() == "datetime")
                         {
-                            dictionary.Add(dataColumn.ColumnName + "str", Helper.StringToDateTime(dataRow[dataColumn.ColumnName].ToString()).ToString("yyyy-MM-dd HH:mm:ss"));
+                            dictionary.Add(dataColumn.ColumnName + "str", StringHelper.StringToDateTime(dataRow[dataColumn.ColumnName].ToString()).ToString("yyyy-MM-dd HH:mm:ss"));
                             if (dataRow[dataColumn.ColumnName] == null || dataRow[dataColumn.ColumnName].ToString().Length == 0)
                             {
-                                dictionary.Add(dataColumn.ColumnName, Helper.StringToDateTime("1900-01-01"));
+                                dictionary.Add(dataColumn.ColumnName, StringHelper.StringToDateTime("1900-01-01"));
                             }
                             else
                             {
@@ -602,7 +601,7 @@ namespace CommunityBuy.CommonBasic
                             dictionary.Add(dataColumn.ColumnName + "str", dr[dataColumn.ColumnName].ToString());
                             if (dr[dataColumn.ColumnName] == null || dr[dataColumn.ColumnName].ToString().Length == 0)
                             {
-                                dictionary.Add(dataColumn.ColumnName, Helper.StringToDateTime("1900-01-01"));
+                                dictionary.Add(dataColumn.ColumnName, StringHelper.StringToDateTime("1900-01-01"));
                             }
                             else
                             {
@@ -654,7 +653,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
             return Val;
         }
@@ -785,7 +784,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
             finally
             {
@@ -887,7 +886,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
             return dt;
         }
@@ -916,7 +915,7 @@ namespace CommunityBuy.CommonBasic
             catch (Exception ex)
             {
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, json);
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
             finally
             {
@@ -936,13 +935,13 @@ namespace CommunityBuy.CommonBasic
                                 case ">":
                                 case "<>":
                                 case "<":
-                                    where = " and " + dr["col"].ToString() + " " + dr["exp"].ToString() + " '" + Helper.ReplaceString(dr["filter"].ToString()) + "'";
+                                    where = " and " + dr["col"].ToString() + " " + dr["exp"].ToString() + " '" + StringHelper.ReplaceString(dr["filter"].ToString()) + "'";
                                     break;
                                 case "%":
-                                    where = " and " + dr["col"].ToString() + " like '%" + Helper.ReplaceString(dr["filter"].ToString()) + "'";
+                                    where = " and " + dr["col"].ToString() + " like '%" + StringHelper.ReplaceString(dr["filter"].ToString()) + "'";
                                     break;
                                 case "%%":
-                                    where = " and " + dr["col"].ToString() + " like '%" + Helper.ReplaceString(dr["filter"].ToString()) + "%'";
+                                    where = " and " + dr["col"].ToString() + " like '%" + StringHelper.ReplaceString(dr["filter"].ToString()) + "%'";
                                     break;
                             }
                             strReturn.Append(where);
@@ -977,7 +976,7 @@ namespace CommunityBuy.CommonBasic
             catch (Exception ex)
             {
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, json);
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
             finally
             {
@@ -999,19 +998,19 @@ namespace CommunityBuy.CommonBasic
                                 case "<":
                                     if (string.IsNullOrEmpty(dr["cus"].ToString()))
                                     {
-                                        where = " and " + dr["col"].ToString() + " " + dr["exp"].ToString() + " '" + Helper.ReplaceString(dr["filter"].ToString()) + "'";
+                                        where = " and " + dr["col"].ToString() + " " + dr["exp"].ToString() + " '" + StringHelper.ReplaceString(dr["filter"].ToString()) + "'";
                                     }
                                     break;
                                 case "%":
                                     if (string.IsNullOrEmpty(dr["cus"].ToString()))
                                     {
-                                        where = " and " + dr["col"].ToString() + " like '%" + Helper.ReplaceString(dr["filter"].ToString()) + "'";
+                                        where = " and " + dr["col"].ToString() + " like '%" + StringHelper.ReplaceString(dr["filter"].ToString()) + "'";
                                     }
                                     break;
                                 case "%%":
                                     if (string.IsNullOrEmpty(dr["cus"].ToString()))
                                     {
-                                        where = " and " + dr["col"].ToString() + " like '%" + Helper.ReplaceString(dr["filter"].ToString()) + "%'";
+                                        where = " and " + dr["col"].ToString() + " like '%" + StringHelper.ReplaceString(dr["filter"].ToString()) + "%'";
                                     }
                                     break;
                             }

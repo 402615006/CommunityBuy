@@ -12,7 +12,6 @@ namespace CommunityBuy.Model
         /// <summary>
         ///引用商户表Business的商户编号字段buscode的值
         /// <summary>
-        [ModelInfo(Name = "商户编号", ControlName = "txt_buscode", NotEmpty = false, Length = 16, RType = RegularExpressions.RegExpType.Normal)]
         public string buscode
         {
             get { return _buscode; }

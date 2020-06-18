@@ -17,7 +17,6 @@ namespace CommunityBuy.IServices
         public HttpContext Pagcontext = null;
         public string actionname = string.Empty;
         public string usercode = string.Empty; //授权用户账号
-        public operatelogEntity entity = null;
         public virtual void ProcessRequest(HttpContext context)
         {
         }
@@ -326,19 +325,19 @@ namespace CommunityBuy.IServices
         public void SetUserLoginRoleCodeToCache(string UserId, string RoleCode)
         {
             Hashtable ht = new Hashtable();
-            if (WebCache.IsExist(UserId + "CommunityBuy_LoginInfo"))
+            if (HttpContext.Current.Cache.IsExist(UserId + "CommunityBuy_LoginInfo"))
             {
-                ht = (Hashtable)WebCache.GetCache(UserId + "CommunityBuy_LoginInfo");
+                ht = (Hashtable)HttpContext.Current.Cache.GetCache(UserId + "CommunityBuy_LoginInfo");
                 if (ht[UserId] == null)
                 {
                     ht.Add(UserId, RoleCode);
-                    WebCache.Insert(UserId + "CommunityBuy_LoginInfo", ht);
+                    HttpContext.Current.Cache.Insert(UserId + "CommunityBuy_LoginInfo", ht);
                 }
             }
             else
             {
                 ht.Add(UserId, RoleCode);
-                WebCache.Insert(UserId + "CommunityBuy_LoginInfo", ht);
+                HttpContext.Current.Cache.Insert(UserId + "CommunityBuy_LoginInfo", ht);
             }
         }
 
@@ -350,7 +349,7 @@ namespace CommunityBuy.IServices
         /// <param name="buscode"></param>
         public void SetUserBusCodeToCache(string userid, string buscode)
         {
-            WebCache.Insert(userid + "_buscode", buscode);
+            HttpContext.Current.Cache.Insert(userid + "_buscode", buscode);
         }
 
         /// <summary>
@@ -360,9 +359,9 @@ namespace CommunityBuy.IServices
         /// <returns></returns>
         public string GetCacheToUserBusCode(string userid)
         {
-            if (WebCache.IsExist(userid + "_buscode"))
+            if (HttpContext.Current.Cache.IsExist(userid + "_buscode"))
             {
-                return WebCache.GetCache(userid + "_buscode").ToString();
+                return HttpContext.Current.Cache.GetCache(userid + "_buscode").ToString();
             }
             else
             {
@@ -371,62 +370,6 @@ namespace CommunityBuy.IServices
         }
         #endregion
 
-
-        /// <summary>
-        /// 获取权限范围条件
-        /// </summary>
-        /// <param name="ColName">查询列名</param>
-        /// <param name="RoleStoCode">拥有权限的门店Codes,多个逗号隔开</param>
-        /// <returns></returns>
-        protected string GetAuthoritywhere(string ColName, string UserId)
-        {
-            string where = string.Empty;
-            string RoleStoCode = string.Empty;
-
-            Hashtable ht = new Hashtable();
-            if (WebCache.IsExist(UserId + "CommunityBuy_LoginInfo"))
-            {
-                ht = (Hashtable)WebCache.GetCache(UserId + "CommunityBuy_LoginInfo");
-                if (ht[UserId] == null)
-                {
-                    RoleStoCode = GetUserRoleCodes(UserId);
-                    ht.Add(UserId, RoleStoCode);
-                    WebCache.Insert(UserId + "CommunityBuy_LoginInfo", ht);
-                }
-                else
-                {
-                    RoleStoCode = ht[UserId].ToString();
-                }
-            }
-            else
-            {
-                RoleStoCode = GetUserRoleCodes(UserId);
-                ht.Add(UserId, RoleStoCode);
-                WebCache.Insert(UserId + "CommunityBuy_LoginInfo", ht);
-            }
-            if (RoleStoCode.Trim().Length > 0)
-            {
-                //if (!ColName.Contains("."))
-                //{
-                //    where = " and " + ColName + " in('" + RoleStoCode.Replace(",", "','") + "') and buscode='" + GetCacheToUserBusCode(UserId) + "' ";
-                //}
-                //else
-                //{
-                //    string asname = ColName.Substring(0, ColName.IndexOf("."));
-                //    where = " and " + ColName + " in('" + RoleStoCode.Replace(",", "','") + "') and " + asname + ".buscode='" + GetCacheToUserBusCode(UserId) + "' ";
-                //}
-                if (!ColName.Contains("."))
-                {
-                    where = " and " + ColName + " in('" + RoleStoCode.Replace(",", "','") + "') ";
-                }
-                else
-                {
-                    string asname = ColName.Substring(0, ColName.IndexOf("."));
-                    where = " and " + ColName + " in('" + RoleStoCode.Replace(",", "','") + "') ";
-                }
-            }
-            return where;
-        }
 
         /// <summary>
         /// 获取BusCode条件
@@ -473,7 +416,6 @@ namespace CommunityBuy.IServices
             string rolecode = "x#";
             StringBuilder postStr = new StringBuilder();
             //获取参数信息
-            UserId = Helper.ReplaceString(UserId);
             string ShortMesUrl = Helper.GetAppSettings("ServiceUrl") + "/WSadmins.ashx";
             postStr.Append("actionname=getrolestocoe&parameters={" +
                                            string.Format("'userid':'{0}'", UserId) +
@@ -497,325 +439,5 @@ namespace CommunityBuy.IServices
             }
             return rolecode;
         }
-
-
-        #region 缓存商户门店信息 包括门店编号、门店名称
-        /// <summary>
-        /// 根据登陆的用户的编号缓存该商户所有门店信息
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public void SetStoreToCache(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtStore = null;
-            if (!WebCache.IsExist(busCode + "_sto"))
-            {
-                dtStore = GetAllStoreList(busCode);
-                WebCache.Insert(busCode + "_sto", dtStore,5);
-            }
-        }
-
-        /// <summary>
-        /// 根据用户编号从缓存中取门店信息
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public DataTable GetCacheToStore(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtStore = null;
-            if (WebCache.IsExist(busCode+"_sto"))
-            {
-                dtStore = (DataTable)WebCache.GetCache(busCode + "_sto");
-            }
-            else
-            {
-                dtStore = GetAllStoreList(busCode);
-                WebCache.Insert(busCode + "_sto", dtStore,5);
-            }
-            if(dtStore==null)
-            {
-                dtStore = GetAllStoreList(busCode);
-                WebCache.Insert(busCode + "_sto", dtStore, 5);
-            }
-            return dtStore;
-        }
-
-        /// <summary>
-        /// 根据商户编号获取门店信息
-        /// </summary>
-        /// <param name="buscode">商户编号</param>
-        /// <returns></returns>
-        private DataTable GetAllStoreList(string busCode)
-        {
-            DataTable dt = new bllStore().GetBusCodeToAllStore(busCode);
-            return dt;
-        }
-
-        #endregion
-
-        #region 缓存商户部门信息 包括部门编号、部门名称
-        /// <summary>
-        /// 根据登陆的用户的编号缓存该商户所有部门信息
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public void SetDepartmentToCache(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtStore = null;
-            if (!WebCache.IsExist(busCode + "_dep"))
-            {
-                dtStore = GetAllDepartmentList(busCode);
-                WebCache.Insert(busCode + "_dep", dtStore,5);
-            }
-        }
-
-        /// <summary>
-        /// 根据用户编号从缓存中取部门信息
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public DataTable GetCacheToDepartment(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            if (string.IsNullOrEmpty(busCode))
-            {
-                busCode = Helper.GetAppSettings("BusCode").ToString();
-            }
-            DataTable dtDepartment = null;
-            if (WebCache.IsExist(busCode + "_dep"))
-            {
-                dtDepartment = (DataTable)WebCache.GetCache(busCode + "_dep");
-            }
-            else
-            {
-                dtDepartment = GetAllDepartmentList(busCode);
-                WebCache.Insert(busCode + "_dep", dtDepartment,5);
-            }
-            if(dtDepartment==null)
-            {
-                dtDepartment = GetAllDepartmentList(busCode);
-                WebCache.Insert(busCode + "_dep", dtDepartment, 5);
-            }
-            return dtDepartment;
-        }
-        /// <summary>
-        /// 根据商户编号获取部门信息
-        /// </summary>
-        /// <param name="buscode">商户编号</param>
-        /// <returns></returns>
-        private DataTable GetAllDepartmentList(string busCode)
-        {
-            DataTable dt = new bllDepartment().GetBusCodeToAllDep(busCode);
-            return dt;
-        }
-        #endregion
-
-        #region 缓存商户的财务类别 包括财务类别编号、财务类别名称
-        /// <summary>
-        /// 根据登陆的用户的编号缓存该商户所有财务类别信息
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public void SetFinTypeToCache(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-
-            DataTable dtStore = null;
-            if (!WebCache.IsExist(busCode + "_finType"))
-            {
-                dtStore = GetAllFinTypeList(busCode);
-                WebCache.Insert(busCode + "_finType", dtStore,5);
-            }
-        }
-
-        /// <summary>
-        /// 根据用户编号从缓存中取财务类别信息
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public DataTable GetCacheToFinType(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtFinType = null;
-            if (WebCache.IsExist(busCode + "_finType"))
-            {
-                dtFinType = (DataTable)WebCache.GetCache(busCode + "_finType");
-            }
-            else
-            {
-                dtFinType = GetAllFinTypeList(busCode);
-                WebCache.Insert(busCode + "_finType", dtFinType,5);
-            }
-            if(dtFinType==null)
-            {
-                dtFinType = GetAllFinTypeList(busCode);
-                WebCache.Insert(busCode + "_finType", dtFinType, 5);
-            }
-            return dtFinType;
-        }
-        /// <summary>
-        /// 根据商户编号获取财务类别信息
-        /// </summary>
-        /// <param name="buscode">商户编号</param>
-        /// <returns></returns>
-        private DataTable GetAllFinTypeList(string busCode)
-        {
-            DataTable dt = new bllFinanceType().GetBusCodeToAllFin(busCode);
-            return dt;
-        }
-        #endregion
-
-        #region 缓存商户的员工信息,包括门店、姓名、员工编号、部门编号
-        /// <summary>
-        /// 根据登陆的用户的编号缓存该商户所有财务类别信息
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public void SetEmployeeToCache(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtStore = null;
-            if (!WebCache.IsExist(busCode + "_Employee"))
-            {
-                dtStore = GetAllDepartmentList(busCode);
-                WebCache.Insert(busCode + "_Employee", dtStore,5);
-            }
-        }
-
-        /// <summary>
-        /// 根据用户编号从缓存中取员工信息
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public DataTable GetCacheToEmployee(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtFinType = null;
-            if (WebCache.IsExist(busCode + "_Employee"))
-            {
-                dtFinType = (DataTable)WebCache.GetCache(busCode + "_Employee");
-            }
-            else
-            {
-                dtFinType = GetAllEmployeeList(busCode);
-                WebCache.Insert(busCode + "_Employee", dtFinType,5);
-            }
-            if(dtFinType==null)
-            {
-                dtFinType = GetAllEmployeeList(busCode);
-                WebCache.Insert(busCode + "_Employee", dtFinType, 5);
-            }
-            return dtFinType;
-        }
-        /// <summary>
-        /// 根据商户编号获取财务类别信息
-        /// </summary>
-        /// <param name="buscode">商户编号</param>
-        /// <returns></returns>
-        private DataTable GetAllEmployeeList(string busCode)
-        {
-            DataTable dt = new bllEmployee().GetBusCodeToAllEmp(busCode);
-            return dt;
-        }
-        #endregion
-
-        #region 缓存总部的下的计量单位信息;
-        /// <summary>
-        /// 综合版获取总部的下的计量单位信息;
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public void SetDictsToCache(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtStore = null;
-            if (!WebCache.IsExist(busCode + "_Dicts"))
-            {
-                dtStore = GetAllDepartmentList(busCode);
-                WebCache.Insert(busCode + "_Dicts", dtStore,5);
-            }
-        }
-
-        /// <summary>
-        /// 综合版获取总部的下的计量单位信息;
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public DataTable GetCacheToDicts(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtDicts = null;
-            if (WebCache.IsExist(busCode + "_Dicts"))
-            {
-                dtDicts = (DataTable)WebCache.GetCache(busCode + "_Dicts");
-            }
-            else
-            {
-                dtDicts = GetAllDictsList(busCode);
-                WebCache.Insert(busCode + "_Dicts", dtDicts,5);
-            }
-            if(dtDicts==null)
-            {
-                dtDicts = GetAllDictsList(busCode);
-                WebCache.Insert(busCode + "_Dicts", dtDicts, 5);
-            }
-            return dtDicts;
-        }
-        /// <summary>
-        /// 综合版获取总部的下的计量单位信息;
-        /// </summary>
-        /// <param name="buscode">商户编号</param>
-        /// <returns></returns>
-        private DataTable GetAllDictsList(string busCode)
-        {
-            DataTable dt = new bllDicts().GetBusCodeToDicts(busCode);
-            return dt;
-        }
-        #endregion
-
-        #region 缓存会员卡等级信息;
-        /// <summary>
-        /// 综合版获取会员卡等级信息;
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public void SetMemcardLevelToCache(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            DataTable dtStore = null;
-            if (!WebCache.IsExist(busCode + "_memcardtypeList"))
-            {
-                dtStore = GetAllDepartmentList(busCode);
-                WebCache.Insert(busCode + "_memcardtypeList", dtStore,5);
-            }
-        }
-
-        /// <summary>
-        /// 综合版获取会员卡等级信息;
-        /// </summary>
-        /// <param name="userid">用户id</param>
-        public memcardtypeEntityList GetCacheToMemcardLevel(string userid)
-        {
-            string busCode = GetCacheToUserBusCode(userid);
-            memcardtypeEntityList dtDicts = null;
-            if (WebCache.IsExist(busCode + "_memcardtypeList"))
-            {
-                dtDicts = (memcardtypeEntityList)WebCache.GetCache(busCode + "_memcardtypeList");
-            }
-            else
-            {
-                dtDicts = GetAllMemcardLevelList(busCode);
-                WebCache.Insert(busCode + "_memcardtypeList", dtDicts,5);
-            }
-            if(dtDicts==null)
-            {
-                dtDicts = GetAllMemcardLevelList(busCode);
-                WebCache.Insert(busCode + "_memcardtypeList", dtDicts, 5);
-            }
-            return dtDicts;
-        }
-        /// <summary>
-        /// 综合版获取会员卡等级信息;
-        /// </summary>
-        /// <param name="buscode">商户编号</param>
-        /// <returns></returns>
-        private memcardtypeEntityList GetAllMemcardLevelList(string buscode)
-        {
-            return new bllMemcardLevel().GetMemcardLevel(buscode);
-        }
-        #endregion
-               
     }
 }

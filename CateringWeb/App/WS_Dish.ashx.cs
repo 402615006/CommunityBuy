@@ -17,7 +17,6 @@ namespace CommunityBuy.App
     {
         bllTB_Dish bll = new bllTB_Dish();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>

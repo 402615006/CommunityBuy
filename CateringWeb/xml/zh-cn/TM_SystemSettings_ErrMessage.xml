@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Msgs>
-  
-<!--系统设置--><Msg Code="TM_SystemSettings_Menu">系统设置</Msg>
-<Msg Code="TM_SystemSettings_TName">系统设置</Msg>
-<Msg Code="TM_SystemSettings_Export">字段1,字段2</Msg>
-</Msgs>

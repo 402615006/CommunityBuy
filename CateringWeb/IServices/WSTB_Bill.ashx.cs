@@ -17,7 +17,6 @@ namespace CommunityBuy.WServices
     {
         bllTB_Bill bll = new bllTB_Bill();
         DataTable dt = new DataTable();
-		operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -199,8 +198,8 @@ namespace CommunityBuy.WServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0)
@@ -290,7 +289,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
             logentity.pageurl ="TB_BillEdit.html";
 			logentity.logcontent = "新增账单信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Add;
             dt = bll.Add(GUID, USER_ID, out  Id, BusCode, StoCode, CCode, CCname, TStatus, OrderCodeList, PKCode, BillMoney, PayMoney, ZeroCutMoney, ShiftCode, Remar, FTime, OpenDate, DiscountName, DiscountMoney, AUCode, AUName, PointMoney, VirMoney, BillType, PayWay, CStatus, entity);
 			
@@ -336,7 +335,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
             logentity.pageurl ="TB_BillEdit.html";
 			logentity.logcontent = "修改id为:"+Id+"的账单信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Edit;
             dt = bll.Update(GUID, USER_ID,  Id, BusCode, StoCode, CCode, CCname, TStatus, OrderCodeList, PKCode, BillMoney, PayMoney, ZeroCutMoney, ShiftCode, Remar, FTime, OpenDate, DiscountName, DiscountMoney, AUCode, AUName, PointMoney, VirMoney,BillType,PayWay, CStatus, entity);
             
@@ -381,10 +380,10 @@ namespace CommunityBuy.WServices
                     {
                         drAdd[dc.ColumnName] = dr[dc.ColumnName];
                     }
-                    drAdd["disnum"] = Helper.StringToDecimal(dr["disnum"].ToString()) + Helper.StringToDecimal(dr["returnnum"].ToString());
-                    drAdd["totalmoney"]=(Helper.StringToDecimal(drAdd["discountprice"].ToString()) * Helper.StringToDecimal(drAdd["disnum"].ToString())).ToString("f2");
+                    drAdd["disnum"] = StringHelper.StringToDecimal(dr["disnum"].ToString()) + StringHelper.StringToDecimal(dr["returnnum"].ToString());
+                    drAdd["totalmoney"]=(StringHelper.StringToDecimal(drAdd["discountprice"].ToString()) * StringHelper.StringToDecimal(drAdd["disnum"].ToString())).ToString("f2");
                     dtDish.Rows.Add(drAdd);
-                    decimal returnnum = Helper.StringToDecimal(dr["returnnum"].ToString());
+                    decimal returnnum = StringHelper.StringToDecimal(dr["returnnum"].ToString());
                     if (returnnum > 0)
                     {
                         DataRow drBack= dtDish.NewRow();
@@ -393,7 +392,7 @@ namespace CommunityBuy.WServices
                             drBack[dc.ColumnName] = dr[dc.ColumnName];
                         }
                         drBack["disnum"] = "-" + dr["returnnum"].ToString();
-                        drBack["totalmoney"] = (-1*Helper.StringToDecimal(dr["discountprice"].ToString()) * Helper.StringToDecimal(dr["returnnum"].ToString())).ToString("f2");
+                        drBack["totalmoney"] = (-1*StringHelper.StringToDecimal(dr["discountprice"].ToString()) * StringHelper.StringToDecimal(dr["returnnum"].ToString())).ToString("f2");
                         dtDish.Rows.Add(drBack);
                     }
                 }
@@ -450,7 +449,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
 			logentity.pageurl ="TB_BillList.html";
 			logentity.logcontent = "删除id为:"+Id+"的账单信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Delete;
             dt = bll.Delete(GUID, USER_ID, Id, entity);
             ReturnListJson(dt);
@@ -478,7 +477,7 @@ namespace CommunityBuy.WServices
 
             logentity.pageurl ="TB_BillList.html";
 			logentity.logcontent = "修改状态编号为:"+ billCode + "的账单信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
             DataTable dt = bll.UpdateStatus(GUID, USER_ID, billCode,stoCode, status);
 
             ReturnListJson(dt);

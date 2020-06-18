@@ -35,7 +35,7 @@ namespace CommunityBuy.CommonBasic
             ShortMsg = 1,
 
 
-            [EnumAttribute(Name = "微信支付")]
+            [EnumAttribute(Name = "微信服务")]
             WxError = 1
         }
 

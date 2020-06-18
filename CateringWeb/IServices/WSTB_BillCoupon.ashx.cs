@@ -16,7 +16,6 @@ namespace CommunityBuy.WServices
     {
         bllTB_BillCoupon bll = new bllTB_BillCoupon();
         DataTable dt = new DataTable();
-		operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -92,13 +91,13 @@ namespace CommunityBuy.WServices
             string CouponName = dicPar["CouponName"].ToString();
             string OrderDishId = dicPar["OrderDishId"].ToString();
             string McCode = dicPar["McCode"].ToString();
-            decimal DiscountPrice = Helper.StringToDecimal(dicPar["DiscountPrice"].ToString());
+            decimal DiscountPrice = StringHelper.StringToDecimal(dicPar["DiscountPrice"].ToString());
             string tictype= dicPar["TicType"].ToString();
             string ticway = dicPar["TicWay"].ToString();
             //调用逻辑
             logentity.pageurl ="TB_BillCouponEdit.html";
 			logentity.logcontent = "新增账单优惠券信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Add;
 
             if (ticway != "1")//如果是卖品券，不用再调用网络验券接口
@@ -171,7 +170,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
             logentity.pageurl ="TB_BillCouponEdit.html";
 			logentity.logcontent = "修改id为:"+Id+"的账单优惠券信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Edit;
             dt = bll.Update(GUID, USER_ID, Id, BusCode, StoCode, CCode, CCname, TStatus, BillCode, CouponCode, CouponMoney, MemberCardCode, RealPay, VIMoney, Remark, UseType, ShiftCode, CouponName, McCode, "","",entity);
             
@@ -283,8 +282,8 @@ namespace CommunityBuy.WServices
             string USER_ID = dicPar["USER_ID"].ToString();
             string StoCode = dicPar["StoCode"].ToString();
             string BillCode = dicPar["BillCode"].ToString();
-            int page=Helper.StringToInt(dicPar["page"].ToString());
-            int pagesize = Helper.StringToInt(dicPar["pagesize"].ToString());
+            int page=StringHelper.StringToInt(dicPar["page"].ToString());
+            int pagesize = StringHelper.StringToInt(dicPar["pagesize"].ToString());
             int recunms = 0;
             int pagenums = 0;
             //调用逻辑			

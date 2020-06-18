@@ -11,6 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web.Script.Serialization;
 using CommunityBuy.CommonBasic;
+using System.Windows.Forms;
 
 namespace CommunityBuy.CommonBasic
 {
@@ -22,10 +23,10 @@ namespace CommunityBuy.CommonBasic
 
         public static String product = "Dysmsapi";
         //产品域名,开发者无需替换
-        public static String domain = GetAppSettings("Ali_ShortMesUrl");//dysmsapi.aliyuncs.com
+        public static String domain =Helper.GetAppSettings("Ali_ShortMesUrl");//dysmsapi.aliyuncs.com
         // TODO 此处需要替换成开发者自己的AK(在阿里云访问控制台寻找)
-        public static String accessKeyId = GetAppSettings("Ali_AppKey");//"LTAIRQGtZiXzFU4Z";
-        public static String accessKeySecret = GetAppSettings("Ali_AppSecret");// "MOSi0rGbyxaucFzl6esh4JuOnsJw7Y";
+        public static String accessKeyId = Helper.GetAppSettings("Ali_AppKey");//"LTAIRQGtZiXzFU4Z";
+        public static String accessKeySecret = Helper.GetAppSettings("Ali_AppSecret");// "MOSi0rGbyxaucFzl6esh4JuOnsJw7Y";
 
         /// <summary>
         /// 验证类型
@@ -111,7 +112,7 @@ namespace CommunityBuy.CommonBasic
                 //必填:待发送手机号。支持以逗号分隔的形式进行批量调用，批量上限为1000个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式
                 request.PhoneNumbers = mobs;
                 //必填:短信模板-可在短信控制台中找到
-                tempid = GetAppSettings(templateid);
+                tempid =Helper.GetAppSettings(templateid);
                 request.TemplateCode = "SMS_" + tempid;
                 switch (type)
                 {
@@ -298,8 +299,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                string s = ex.Message;
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.)
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.ShortMsg, ex.Message);
                 return "";
             }
         }

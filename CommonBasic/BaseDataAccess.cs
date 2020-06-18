@@ -360,13 +360,13 @@ namespace CommunityBuy.CommonBasic
                 sqlParameters[8].Direction = ParameterDirection.Output;
                 sqlParameters[9].Direction = ParameterDirection.Output;
                 Dt = ExecuteDataTable("dbo.pPagingLarge", CommandType.StoredProcedure, sqlParameters);
-                recnums = Helper.StringToInt(sqlParameters[8].Value.ToString());
-                pagenums = Helper.StringToInt(sqlParameters[9].Value.ToString());
+                recnums = StringHelper.StringToInt(sqlParameters[8].Value.ToString());
+                pagenums = StringHelper.StringToInt(sqlParameters[9].Value.ToString());
                 return Dt;
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog,ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 recnums = 0;
                 pagenums = 0;
                 return Dt;

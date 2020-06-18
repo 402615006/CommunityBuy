@@ -18,7 +18,6 @@ namespace CommunityBuy.IServices
     {
         bllTB_Roles bll = new bllTB_Roles();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -79,8 +78,8 @@ namespace CommunityBuy.IServices
                 //获取参数信息
                 string GUID = dicPar["GUID"].ToString();
                 string userid = dicPar["userid"].ToString();
-                int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-                int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+                int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+                int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
                 string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
                 DataTable dtFilter = new DataTable();
                 if (filter.Length > 0 && filter != "[]")
@@ -122,13 +121,11 @@ namespace CommunityBuy.IServices
                 dt = bll.GetPagingListInfo(GUID, userid, pageSize, currentPage, filter, order, out recordCount, out totalPage);
                 if (dt != null && dt.Rows.Count > 0)
                 {
-                    DataTable dtRoleType = Helper.GetDataTableEnumInfoByEnumType(typeof(SystemEnum.RolesType));
                     foreach (DataRow dr in dt.Rows)
                     {
-                        dr["TerminalTypeName"] = Enum.GetName(typeof(SystemEnum.SysTerminalType), Helper.StringToInt(dr["TerminalType"].ToString()));
-                        if (dtRoleType.Select("enumcode='" + Helper.StringToInt(dr["RoleType"].ToString()) + "'").Length > 0)
+                        if (dtRoleType.Select("enumcode='" + StringHelper.StringToInt(dr["RoleType"].ToString()) + "'").Length > 0)
                         {
-                            dr["RoleTypeName"] = dtRoleType.Select("enumcode='" + Helper.StringToInt(dr["RoleType"].ToString()) + "'")[0]["enumname"].ToString();
+                            dr["RoleTypeName"] = dtRoleType.Select("enumcode='" + StringHelper.StringToInt(dr["RoleType"].ToString()) + "'")[0]["enumname"].ToString();
                         }
 
                     }
@@ -188,7 +185,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "TB_RolesEdit.html";
             logentity.logcontent = "新增门店角色信息信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Add;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Add(GUID, userid, out Id, BusCode, StoCode, CCname, TStatus, UCname, SCope, RoleName, RoleParent, RoleDescr, RoleDisCount, RoleEnable, MaxDiffPrice, MaxPrefePrice, IsSig, Sigcredit, RoleType, TerminalType, CCode, UCode, FunctionIds, logentity);
@@ -235,7 +232,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "TB_RolesEdit.html";
             logentity.logcontent = "修改id为:" + Id + "的门店角色信息信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Edit;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Update(GUID, userid, Id, BusCode, StoCode, CCname, TStatus, UCname, SCope, RoleName, RoleParent, RoleDescr, RoleDisCount, RoleEnable, MaxDiffPrice, MaxPrefePrice, IsSig, Sigcredit, RoleType, TerminalType, CCode, UCode, FunctionIds, logentity);
@@ -277,7 +274,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "TB_RolesList.html";
             logentity.logcontent = "删除id为:" + Id + "的门店角色信息信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Delete;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Delete(GUID, userid, Id, logentity);
@@ -306,7 +303,7 @@ namespace CommunityBuy.IServices
             string Id = dicPar["ids"].ToString().Trim(',');
             logentity.pageurl = "TB_RolesList.html";
             logentity.logcontent = "修改状态id为:" + Id + "的门店角色信息信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             DataTable dt = bll.UpdateStatus(GUID, userid, Id, status);
 
             ReturnListJson(dt);

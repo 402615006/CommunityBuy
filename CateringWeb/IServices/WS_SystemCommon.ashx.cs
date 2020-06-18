@@ -86,12 +86,6 @@ namespace CommunityBuy.IServices
 
             //调用逻辑
             DataTable dt = new DataTable();
-            switch (enumcode)
-            {
-                case "status"://日志操作类型
-                    dt = Helper.GetDataTableEnumInfoByEnumType(typeof(SystemEnum.Status));
-                    break;
-            }
             ReturnListJson(dt);
         }
 

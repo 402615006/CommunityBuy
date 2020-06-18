@@ -14,7 +14,6 @@ namespace CommunityBuy.IServices
     {
         bllTB_DishType bll = new bllTB_DishType();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -26,7 +25,6 @@ namespace CommunityBuy.IServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-                    logentity.module = "菜品类别表";
                     switch (actionname.ToLower())
                     {
                         case "getlist"://列表
@@ -76,8 +74,8 @@ namespace CommunityBuy.IServices
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
             string userid = dicPar["userid"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0 && filter != "[]")
@@ -202,12 +200,7 @@ namespace CommunityBuy.IServices
             string TStatus = dicPar["TStatus"].ToString();
             string CCode = dicPar["CCode"].ToString();
             //调用逻辑
-            logentity.pageurl = "TB_DishTypeEdit.html";
-            logentity.logcontent = "新增菜品类别表信息";
-            logentity.cuser = Helper.StringToLong(USER_ID);
-            logentity.otype = SystemEnum.LogOperateType.Add;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Add(GUID, USER_ID, Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus, CCode, logentity);
+            dt = bll.Add(GUID, USER_ID, Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus, CCode);
 
             ReturnListJson(dt);
         }
@@ -235,12 +228,7 @@ namespace CommunityBuy.IServices
             string TStatus = dicPar["TStatus"].ToString();
             string CCode = dicPar["CCode"].ToString();
             //调用逻辑
-            logentity.pageurl = "TB_DishTypeEdit.html";
-            logentity.logcontent = "修改id为:" + PKCode + "的菜品类别表信息";
-            logentity.cuser = Helper.StringToLong(USER_ID);
-            logentity.otype = SystemEnum.LogOperateType.Edit;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Update(GUID, USER_ID, Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus, CCode, logentity);
+            dt = bll.Update(GUID, USER_ID, Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus, CCode);
 
             ReturnListJson(dt);
         }
@@ -297,12 +285,7 @@ namespace CommunityBuy.IServices
             string USER_ID = dicPar["USER_ID"].ToString();
             string PKCode = dicPar["id"].ToString();
             //调用逻辑
-            logentity.pageurl = "TB_DishTypeList.html";
-            logentity.logcontent = "删除id为:" + PKCode + "的菜品类别表信息";
-            logentity.cuser = Helper.StringToLong(USER_ID);
-            logentity.otype = SystemEnum.LogOperateType.Delete;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Delete(GUID, USER_ID, PKCode, logentity);
+            bll.Delete(GUID, USER_ID, PKCode);
             ReturnListJson(dt);
         }
 
@@ -326,10 +309,6 @@ namespace CommunityBuy.IServices
             string status = dicPar["status"].ToString();
 
             string PKCode = dicPar["id"].ToString().Trim(',');
-            logentity.pageurl = "TB_DishTypeList.html";
-            logentity.logcontent = "修改状态id为:" + PKCode + "的菜品类别表信息";
-            logentity.cuser = Helper.StringToLong(USER_ID);
-            DataTable dt = bll.UpdateStatus(GUID, USER_ID, PKCode, status);
 
             ReturnListJson(dt);
         }

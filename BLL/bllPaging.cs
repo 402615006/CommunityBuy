@@ -51,13 +51,13 @@ namespace CommunityBuy.BLL
                 //只读服务器
                 Obj = new MSSqlDataAccess("DBConnectionStringR");
                 Dt = Obj.ExecuteDataTable("dbo.pPagingLarge", CommandType.StoredProcedure, sqlParameters);
-                recnums = Helper.StringToInt(sqlParameters[8].Value.ToString());
-                pagenums = Helper.StringToInt(sqlParameters[9].Value.ToString());
+                recnums = StringHelper.StringToInt(sqlParameters[8].Value.ToString());
+                pagenums = StringHelper.StringToInt(sqlParameters[9].Value.ToString());
                 return Dt;
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, fields + "->" + tableName + "->" + filter);
                 recnums = 0;
                 pagenums = 0;
@@ -101,13 +101,13 @@ namespace CommunityBuy.BLL
                 sqlParameters[9].Direction = ParameterDirection.Output;
                 
                 Dt = Obj.ExecuteDataTable("dbo.pPagingLarge", CommandType.StoredProcedure, sqlParameters);
-                recnums = Helper.StringToInt(sqlParameters[8].Value.ToString());
-                pagenums = Helper.StringToInt(sqlParameters[9].Value.ToString());
+                recnums = StringHelper.StringToInt(sqlParameters[8].Value.ToString());
+                pagenums = StringHelper.StringToInt(sqlParameters[9].Value.ToString());
                 return Dt;
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, fields + "->" + tableName + "->" + filter);
                 recnums = 0;
                 pagenums = 0;
@@ -132,7 +132,7 @@ namespace CommunityBuy.BLL
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return Dt;
             }
         }
@@ -153,7 +153,7 @@ namespace CommunityBuy.BLL
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return ds;
             }
         }
@@ -224,7 +224,7 @@ namespace CommunityBuy.BLL
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
             return rel;
         }
@@ -265,13 +265,13 @@ namespace CommunityBuy.BLL
                 sqlParameters[9].Direction = ParameterDirection.Output;
                 //只读服务器
                 Dt = LS_Obj.ExecuteDataTable("dbo.pPagingLarge", CommandType.StoredProcedure, sqlParameters);
-                recnums = Helper.StringToInt(sqlParameters[8].Value.ToString());
-                pagenums = Helper.StringToInt(sqlParameters[9].Value.ToString());
+                recnums = StringHelper.StringToInt(sqlParameters[8].Value.ToString());
+                pagenums = StringHelper.StringToInt(sqlParameters[9].Value.ToString());
                 return Dt;
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, fields + "->" + tableName + "->" + filter);
                 recnums = 0;
                 pagenums = 0;

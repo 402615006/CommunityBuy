@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Msgs>
-  
-<!--菜品信息--><Msg Code="TB_Dish_Menu">菜品信息</Msg>
-<Msg Code="TB_Dish_TName">菜品信息</Msg>
-<Msg Code="TB_Dish_Export">字段1,字段2</Msg>
-</Msgs>

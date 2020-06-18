@@ -76,80 +76,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="xml\zh-cn\ErrMessage.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="xml\zh-cn\TB_BackReason_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_CommonRemarksList.xml" />
-    <Content Include="xml\zh-cn\TB_CommonRemarks_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_CouponCheckLogList.xml" />
-    <Content Include="xml\zh-cn\TB_CouponCheckLog_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_DisComGroupList.xml" />
-    <Content Include="xml\zh-cn\TB_DisComGroup_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_DiscountSchemeList.xml" />
-    <Content Include="xml\zh-cn\TB_DiscountScheme_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_DishList.xml" />
-    <Content Include="xml\zh-cn\TB_DishMenuList.xml" />
-    <Content Include="xml\zh-cn\TB_DishMenu_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_DishMethodsList.xml" />
-    <Content Include="xml\zh-cn\TB_DishMethods_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_DishTypeList.xml" />
-    <Content Include="xml\zh-cn\TB_DishType_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_Dish_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_FlavorList.xml" />
-    <Content Include="xml\zh-cn\TB_Flavor_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_Functions_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_KitchenList.xml" />
-    <Content Include="xml\zh-cn\TB_Kitchen_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_MealSetList.xml" />
-    <Content Include="xml\zh-cn\TB_MealSet_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_OnLinePrinterList.xml" />
-    <Content Include="xml\zh-cn\TB_OnLinePrinter_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_PayMethodList.xml" />
-    <Content Include="xml\zh-cn\TB_PayMethod_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_PrinterList.xml" />
-    <Content Include="xml\zh-cn\TB_Printer_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_QueueList.xml" />
-    <Content Include="xml\zh-cn\TB_Queue_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_QueuingList.xml" />
-    <Content Include="xml\zh-cn\TB_Queuing_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_ReservationList.xml" />
-    <Content Include="xml\zh-cn\TB_Reservation_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_ReserveList.xml" />
-    <Content Include="xml\zh-cn\TB_ReserveTimeList.xml" />
-    <Content Include="xml\zh-cn\TB_ReserveTime_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_Reserve_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_RoleFunctionList.xml" />
-    <Content Include="xml\zh-cn\TB_RoleFunction_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_Roles_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_FunctionsList.xml" />
-    <Content Include="xml\zh-cn\TB_RolesList.xml" />
-    <Content Include="xml\zh-cn\TB_SetList.xml" />
-    <Content Include="xml\zh-cn\TB_Set_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_ShoppingCartList.xml" />
-    <Content Include="xml\zh-cn\TB_ShoppingCart_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_SpecialOfferList.xml" />
-    <Content Include="xml\zh-cn\TB_SpecialOffer_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_TableList.xml" />
-    <Content Include="xml\zh-cn\TB_TableTypeList.xml" />
-    <Content Include="xml\zh-cn\TB_TableType_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_Table_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TB_UserRoleList.xml" />
-    <Content Include="xml\zh-cn\TB_UserRole_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\tl_operatelogList.xml" />
-    <Content Include="xml\zh-cn\tl_operatelog_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TM_DisPriceLogsList.xml" />
-    <Content Include="xml\zh-cn\TM_DisPriceLogs_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TM_DisSellOutList.xml" />
-    <Content Include="xml\zh-cn\TM_DisSellOut_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TM_PresetSettingsList.xml" />
-    <Content Include="xml\zh-cn\TM_PresetSettings_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TM_ProblemTypeList.xml" />
-    <Content Include="xml\zh-cn\TM_ProblemType_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TM_SignatureSchemeList.xml" />
-    <Content Include="xml\zh-cn\TM_SignatureScheme_ErrMessage.xml" />
-    <Content Include="xml\zh-cn\TM_SystemSettingsList.xml" />
-    <Content Include="xml\zh-cn\TM_SystemSettings_ErrMessage.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\WS_Bill.ashx.cs">
@@ -157,9 +83,6 @@
     </Compile>
     <Compile Include="App\WS_Order.ashx.cs">
       <DependentUpon>WS_Order.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="App\WS_Table.ashx.cs">
-      <DependentUpon>WS_Table.ashx</DependentUpon>
     </Compile>
     <Compile Include="App\WS_Store.ashx.cs">
       <DependentUpon>WS_Store.ashx</DependentUpon>
@@ -184,23 +107,11 @@
     <Compile Include="IServices\WSTB_BillCoupon.ashx.cs">
       <DependentUpon>WSTB_BillCoupon.ashx</DependentUpon>
     </Compile>
-    <Compile Include="IServices\WSTB_BillPay.ashx.cs">
-      <DependentUpon>WSTB_BillPay.ashx</DependentUpon>
-    </Compile>
     <Compile Include="IServices\WSTB_BillReturn.ashx.cs">
       <DependentUpon>WSTB_BillReturn.ashx</DependentUpon>
     </Compile>
     <Compile Include="IServices\WSTB_Functions.ashx.cs">
       <DependentUpon>WSTB_Functions.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_FinType.ashx.cs">
-      <DependentUpon>WS_FinType.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_OrderReport.ashx.cs">
-      <DependentUpon>WS_OrderReport.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_TB_MpCoupon.ashx.cs">
-      <DependentUpon>WS_TB_MpCoupon.ashx</DependentUpon>
     </Compile>
     <Compile Include="IServices\WSTB_Order.ashx.cs">
       <DependentUpon>WSTB_Order.ashx</DependentUpon>
@@ -211,26 +122,8 @@
     <Compile Include="IServices\WSTB_UserDiscountScheme.ashx.cs">
       <DependentUpon>WSTB_UserDiscountScheme.ashx</DependentUpon>
     </Compile>
-    <Compile Include="IServices\WS_FinTypeReport.ashx.cs">
-      <DependentUpon>WS_FinTypeReport.ashx</DependentUpon>
-    </Compile>
     <Compile Include="IServices\WS_Common.ashx.cs">
       <DependentUpon>WS_Common.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_TB_Set.ashx.cs">
-      <DependentUpon>WS_TB_Set.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_tl_operatelog.ashx.cs">
-      <DependentUpon>WS_tl_operatelog.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_Memcardorders.ashx.cs">
-      <DependentUpon>WS_Memcardorders.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_TB_BackReason.ashx.cs">
-      <DependentUpon>WS_TB_BackReason.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_TB_CommonRemarks.ashx.cs">
-      <DependentUpon>WS_TB_CommonRemarks.ashx</DependentUpon>
     </Compile>
     <Compile Include="IServices\WS_TB_Dish.ashx.cs">
       <DependentUpon>WS_TB_Dish.ashx</DependentUpon>
@@ -249,9 +142,6 @@
     </Compile>
     <Compile Include="IServices\WS_SystemCommon.ashx.cs">
       <DependentUpon>WS_SystemCommon.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_SystemEnum.ashx.cs">
-      <DependentUpon>WS_SystemEnum.ashx</DependentUpon>
     </Compile>
     <Compile Include="IServices\WS_TB_Admins.ashx.cs">
       <DependentUpon>WS_TB_Admins.ashx</DependentUpon>
@@ -284,27 +174,8 @@
     <Compile Include="ISTest.aspx.designer.cs">
       <DependentUpon>ISTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MemberCard\MemCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\TodayNotOrder.ashx.cs">
-      <DependentUpon>TodayNotOrder.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Report\TodayOrder.ashx.cs">
-      <DependentUpon>TodayOrder.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Report\WSTB_BusinessAnalysisReport.ashx.cs">
-      <DependentUpon>WSTB_BusinessAnalysisReport.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Report\WS_StoreTodayReport.ashx.cs">
-      <DependentUpon>WS_StoreTodayReport.ashx</DependentUpon>
-    </Compile>
     <Compile Include="ServiceBase.cs" />
-    <Compile Include="WeiXinSercices\WXsqinfo.ashx.cs">
-      <DependentUpon>WXsqinfo.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="WeiXinSercices\WXStore.ashx.cs">
-      <DependentUpon>WXStore.ashx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Adapter\Adapter.csproj">
@@ -326,7 +197,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IServices\WS_TB_Admins.ashx" />
-    <Content Include="IServices\WS_SystemEnum.ashx" />
     <Content Include="IServices\WS_TB_DiscountScheme.ashx" />
     <Content Include="IServices\WS_TB_Functions.ashx" />
     <Content Include="IServices\WS_TB_RoleFunction.ashx" />
@@ -338,19 +208,14 @@
     <Content Include="IServices\WSTB_Order.ashx" />
     <Content Include="IServices\WSTB_OrderDish.ashx" />
     <Content Include="IServices\WS_TB_DishType.ashx" />
-    <Content Include="IServices\WS_TB_BackReason.ashx" />
-    <Content Include="IServices\WS_TB_CommonRemarks.ashx" />
     <Content Include="IServices\WS_TB_ShoppingCart.ashx" />
     <Content Include="IServices\WS_TM_SystemSettings.ashx" />
     <Content Include="IServices\ts_Dicts.ashx" />
-    <Content Include="IServices\WS_tl_operatelog.ashx" />
     <Content Include="IServices\WSTB_BackOrder.ashx" />
     <Content Include="IServices\WSTB_Bill.ashx" />
     <Content Include="IServices\WSTB_BillCoupon.ashx" />
-    <Content Include="IServices\WSTB_BillPay.ashx" />
     <Content Include="IServices\WSTB_Functions.ashx" />
     <Content Include="IServices\WS_TB_MemCard.ashx" />
-    <Content Include="IServices\WS_Memcardorders.ashx" />
     <Content Include="templateData\dishePackageInfo.xlsx" />
     <Content Include="templateData\dishesInfo.xlsx" />
     <Content Include="templateData\dishtemplate.xlsx" />
@@ -361,34 +226,22 @@
     <Folder Include="uploadtemplate\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="IServices\WS_TB_Set.ashx" />
     <Content Include="App\WS_Store.ashx" />
-    <Content Include="App\WS_Table.ashx" />
     <Content Include="App\WS_Dish.ashx" />
     <Content Include="App\WS_Order.ashx" />
     <Content Include="App\WS_Bill.ashx" />
-    <Content Include="IServices\WS_FinTypeReport.ashx" />
     <Content Include="IServices\WSTB_UserDiscountScheme.ashx" />
     <Content Include="IServices\WS_Common.ashx" />
     <Content Include="IServices\WSTB_OnlineBill.ashx" />
-    <Content Include="IServices\WS_FinType.ashx" />
-    <Content Include="IServices\WS_OrderReport.ashx" />
     <Content Include="IServices\WSTB_BillReturn.ashx" />
     <Content Include="IServices\WSCreateQRCode.ashx" />
-    <Content Include="IServices\WS_TB_MpCoupon.ashx" />
     <Content Include="libman.json" />
     <None Include="Properties\PublishProfiles\111.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />
-    <Content Include="WeiXinSercices\WXsqinfo.ashx" />
-    <Content Include="WeiXinSercices\WXStore.ashx" />
-    <Content Include="Report\WSTB_BusinessAnalysisReport.ashx" />
     <Content Include="templateData\SaveAndTakeWineInfo.xlsx" />
     <Content Include="templateData\OverdueRecoverySummary.xlsx" />
     <Content Include="templateData\OverdueRecoveryDetail.xlsx" />
-    <Content Include="Report\WS_StoreTodayReport.ashx" />
-    <Content Include="Report\TodayOrder.ashx" />
-    <Content Include="Report\TodayNotOrder.ashx" />
     <Content Include="templateData\cardrechage.xlsx" />
   </ItemGroup>
   <PropertyGroup>

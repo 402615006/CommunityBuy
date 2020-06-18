@@ -15,7 +15,6 @@ namespace CommunityBuy.IServices
     public class WSTB_BillReturn : ServiceBase
     {
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
 
         public override void ProcessRequest(HttpContext context)
         {

@@ -41,61 +41,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
-    <Compile Include="CateringStore\TB_BackOrderEntity.cs" />
-    <Compile Include="CateringStore\TB_BillCouponEntity.cs" />
-    <Compile Include="CateringStore\TB_BillEntity.cs" />
-    <Compile Include="CateringStore\TB_BillInvoiceEntity.cs" />
-    <Compile Include="CateringStore\TB_BillPayEntity.cs" />
-    <Compile Include="CateringStore\TB_ComTableEntity.cs" />
-    <Compile Include="CateringStore\TB_OrderDishEntity.cs" />
-    <Compile Include="CateringStore\TB_OrderEntity.cs" />
-    <Compile Include="CateringStore\TB_UserDiscountSchemeEntity.cs" />
-    <Compile Include="CateringWeb\memcardlevelEntity.cs" />
-    <Compile Include="CateringWeb\memcardtypeEntity.cs" />
-    <Compile Include="CateringWeb\TB_AdminsEntity.cs" />
-    <Compile Include="CateringWeb\TB_BackReasonEntity.cs" />
-    <Compile Include="CateringWeb\TB_CommonRemarksEntity.cs" />
-    <Compile Include="CateringWeb\TB_DisComGroupEntity.cs" />
-    <Compile Include="CateringWeb\TB_DiscountSchemeEntity.cs" />
-    <Compile Include="CateringWeb\TB_DishEntity.cs" />
-    <Compile Include="CateringWeb\TB_DishTypeEntity.cs" />
-    <Compile Include="CateringWeb\TB_FunctionsEntity.cs" />
-    <Compile Include="CateringWeb\TB_RoleFunctionEntity.cs" />
-    <Compile Include="CateringWeb\TB_RolesEntity.cs" />
-    <Compile Include="CateringWeb\TB_SetEntity.cs" />
-    <Compile Include="CateringWeb\TB_ShoppingCartEntity.cs" />
-    <Compile Include="CateringWeb\TB_UserRoleEntity.cs" />
-    <Compile Include="CateringWeb\TB_UserSigSchemeEntity.cs" />
-    <Compile Include="CateringWeb\TM_DisPriceLogsEntity.cs" />
-    <Compile Include="CateringWeb\TM_PresetSettingsEntity.cs" />
-    <Compile Include="CateringWeb\TM_SystemSettingsEntity.cs" />
-    <Compile Include="CateringWeb\TR_ComboInfoEntity.cs" />
-    <Compile Include="CateringWeb\TR_DiscountSchemeRateEntity.cs" />
-    <Compile Include="CateringWeb\TR_DishImageEntity.cs" />
-    <Compile Include="CateringWeb\WXsqinfoEntity.cs" />
-    <Compile Include="CateringWeb\WXStoreEntity.cs" />
-    <Compile Include="membercard\couponpresentDetailEntity.cs">
+    <Compile Include="TB_BackOrderEntity.cs" />
+    <Compile Include="TB_BillCouponEntity.cs" />
+    <Compile Include="TB_BillEntity.cs" />
+    <Compile Include="TB_BillPayEntity.cs" />
+    <Compile Include="TB_OrderDishEntity.cs" />
+    <Compile Include="TB_OrderEntity.cs" />
+    <Compile Include="memcardlevelEntity.cs" />
+    <Compile Include="memcardtypeEntity.cs" />
+    <Compile Include="TB_AdminsEntity.cs" />
+    <Compile Include="TB_BackReasonEntity.cs" />
+    <Compile Include="TB_DiscountSchemeEntity.cs" />
+    <Compile Include="TB_DishEntity.cs" />
+    <Compile Include="TB_DishTypeEntity.cs" />
+    <Compile Include="TB_FunctionsEntity.cs" />
+    <Compile Include="TB_RoleFunctionEntity.cs" />
+    <Compile Include="TB_RolesEntity.cs" />
+    <Compile Include="TB_ShoppingCartEntity.cs" />
+    <Compile Include="TB_UserRoleEntity.cs" />
+    <Compile Include="TM_SystemSettingsEntity.cs" />
+    <Compile Include="TR_DiscountSchemeRateEntity.cs" />
+    <Compile Include="TR_DishImageEntity.cs" />
+    <Compile Include="membersEntity.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="membercard\couponpresentEntity.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="membercard\membersEntity.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="membercard\MemCardEntity.cs" />
-    <Compile Include="membercard\memcardordersEntity.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="membercard\opencardcouponEntity.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="membercard\opencardinfoEntity.cs" />
-    <Compile Include="membercard\sto_adminsEntity.cs" />
-    <Compile Include="membercard\sto_functionsEntity.cs" />
-    <Compile Include="membercard\MemcardtypeEntity.cs" />
-    <Compile Include="membercard\memCouponpresentEntity.cs" />
-    <Compile Include="operatelogEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

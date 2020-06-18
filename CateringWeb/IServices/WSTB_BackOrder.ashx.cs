@@ -15,7 +15,6 @@ namespace CommunityBuy.WServices
     {
         bllTB_BackOrder bll = new bllTB_BackOrder();
         DataTable dt = new DataTable();
-		operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -67,8 +66,8 @@ namespace CommunityBuy.WServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0)
@@ -133,7 +132,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
             logentity.pageurl ="TB_BackOrderEdit.html";
 			logentity.logcontent = "新增退单信息信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Add;
 
             //如果是签送，返还签送额度
@@ -200,7 +199,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
 			logentity.pageurl ="TB_BackOrderEdit.html";
 			logentity.logcontent = "修改id为:"+Id+"的退单信息信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Edit;
             dt = bll.Update(GUID, USER_ID,  Id, BusCode, StoCode, CCode, CCname, AuthCode, AuthName, TStatus, OrderCode, OrderDisCode, ReasonCode, ReasonName, Remar, BackNum, entity);
             
@@ -241,7 +240,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
 			logentity.pageurl ="TB_BackOrderList.html";
 			logentity.logcontent = "删除id为:"+Id+"的退单信息信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Delete;
             dt = bll.Delete(GUID, USER_ID, Id, entity);
             ReturnListJson(dt);
@@ -269,7 +268,7 @@ namespace CommunityBuy.WServices
             string Id = dicPar["ids"].ToString().Trim(',');
             logentity.pageurl ="TB_BackOrderList.html";
 			logentity.logcontent = "修改状态id为:"+Id+"的退单信息信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
             DataTable dt = bll.UpdateStatus(GUID, USER_ID, Id, status);
 
             ReturnListJson(dt);

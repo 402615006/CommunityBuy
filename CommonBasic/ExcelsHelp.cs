@@ -929,7 +929,7 @@ namespace CommunityBuy.CommonBasic
                     }
                     catch (Exception ex)
                     {
-                        ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                        ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                         return null;
                     }
                     finally
@@ -1504,7 +1504,7 @@ namespace CommunityBuy.CommonBasic
                     }
                     catch (Exception ex)
                     {
-                        ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                        ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                     }
                 }
             }

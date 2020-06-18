@@ -15,7 +15,6 @@ namespace CommunityBuy.IServices
     public class ts_Dicts : ServiceBase
     {
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -77,7 +76,7 @@ namespace CommunityBuy.IServices
                     ToCustomerJson("2", "获取失败 x001");
                     return;
                 }
-                ReturnListJson(ds.Tables[0], Helper.StringToInt(limit), Helper.StringToInt(count), Helper.StringToInt(curpage), Helper.StringToInt(totpage));
+                ReturnListJson(ds.Tables[0], StringHelper.StringToInt(limit), StringHelper.StringToInt(count), StringHelper.StringToInt(curpage), StringHelper.StringToInt(totpage));
             }
             else
             {

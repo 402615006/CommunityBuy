@@ -69,7 +69,7 @@ namespace CommunityBuy
                 foreach (DataRow dr in drs)
                 {
                     //菜品售价
-                    decimal Price = Helper.StringToDecimal(dr["Price"].ToString());
+                    decimal Price = StringHelper.StringToDecimal(dr["Price"].ToString());
                     //菜品类别编号
                     string DisTypeCode = dr["TypeCode"].ToString();
                     //菜品编号
@@ -79,7 +79,7 @@ namespace CommunityBuy
                     //菜品折扣类型
                     string DiscountType = dr["DiscountType"].ToString();
                     //菜品折扣价
-                    decimal DiscountPrice = Helper.StringToDecimal(dr["DiscountPrice"].ToString());
+                    decimal DiscountPrice = StringHelper.StringToDecimal(dr["DiscountPrice"].ToString());
                     if (dr["DiscountType"].ToString() != "1")//没有进行任何折扣
                     {
                         dr["DiscountType"] = "2";
@@ -103,7 +103,7 @@ namespace CommunityBuy
                 foreach (DataRow dr in drs)
                 {
                     //菜品售价
-                    decimal Price = Helper.StringToDecimal(dr["Price"].ToString());
+                    decimal Price = StringHelper.StringToDecimal(dr["Price"].ToString());
                     //菜品类别编号
                     string DisTypeCode = dr["TypeCode"].ToString();
                     //菜品编号
@@ -113,9 +113,9 @@ namespace CommunityBuy
                     //菜品折扣类型
                     string DiscountType = dr["DiscountType"].ToString();
                     //菜品折扣价
-                    decimal DiscountPrice = Helper.StringToDecimal(dr["DiscountPrice"].ToString());
+                    decimal DiscountPrice = StringHelper.StringToDecimal(dr["DiscountPrice"].ToString());
                     //会员价
-                    decimal MemPrice = Helper.StringToDecimal(dr["MemPrice"].ToString());
+                    decimal MemPrice = StringHelper.StringToDecimal(dr["MemPrice"].ToString());
                     //菜品是否允许会员价
 
                     if (IsMemPrice == "1")
@@ -149,7 +149,7 @@ namespace CommunityBuy
                 foreach (DataRow dr in drs)
                 {
                     //菜品售价
-                    decimal Price = Helper.StringToDecimal(dr["Price"].ToString());
+                    decimal Price = StringHelper.StringToDecimal(dr["Price"].ToString());
                     //菜品类别编号
                     string DisTypeCode = dr["DisTypeCode"].ToString();
                     //菜品编号
@@ -159,7 +159,7 @@ namespace CommunityBuy
                     //菜品折扣类型
                     string DiscountType = dr["DiscountType"].ToString();
                     //菜品折扣价
-                    decimal DiscountPrice = Helper.StringToDecimal(dr["DiscountPrice"].ToString());
+                    decimal DiscountPrice = StringHelper.StringToDecimal(dr["DiscountPrice"].ToString());
                     dr["DiscountType"] = "";
                     dr["DiscountPrice"] =dr["Price"];
                 }
@@ -180,9 +180,9 @@ namespace CommunityBuy
             {
                 decimal DiscountMoney = SumDiscountMoney(dtDish);
                 decimal CouponMoney = SumCouponMoney(dtCoupon);
-                decimal ZeroCutMoney = Helper.StringToDecimal(dtBill.Rows[0]["ZeroCutMoney"].ToString());
-                decimal BillMoney = Helper.StringToDecimal(dtBill.Rows[0]["BillMoney"].ToString());
-                decimal PayMoney = Helper.StringToDecimal(dtBill.Rows[0]["PayMoney"].ToString());
+                decimal ZeroCutMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["ZeroCutMoney"].ToString());
+                decimal BillMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["BillMoney"].ToString());
+                decimal PayMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["PayMoney"].ToString());
                 decimal ToPayMoney = BillMoney - DiscountMoney - CouponMoney;
                 ZeroCutMoney = GetMaLingByMoney(ToPayMoney, ZeroType);
                 ToPayMoney = ToPayMoney - ZeroCutMoney- PayMoney;
@@ -210,7 +210,7 @@ namespace CommunityBuy
                     //商品券、时价特价、签送的不算作折扣金额
                     if (dr["DiscountType"].ToString() != "4" && dr["DiscountType"].ToString() != "5" && dr["DiscountType"].ToString() != "6")
                     {
-                        rel += (Helper.StringToDecimal(dr["price"].ToString()) - Helper.StringToDecimal(dr["DiscountPrice"].ToString())) * (Helper.StringToDecimal(dr["DisNum"].ToString()));
+                        rel += (StringHelper.StringToDecimal(dr["price"].ToString()) - StringHelper.StringToDecimal(dr["DiscountPrice"].ToString())) * (StringHelper.StringToDecimal(dr["DisNum"].ToString()));
                     }
                 }
             }
@@ -229,7 +229,7 @@ namespace CommunityBuy
             {
                 foreach (DataRow dr in dtCoupon.Rows)
                 {
-                     rel += Helper.StringToDecimal(dr["RealPay"].ToString());
+                     rel += StringHelper.StringToDecimal(dr["RealPay"].ToString());
                 }
             }
             return rel;
@@ -254,14 +254,14 @@ namespace CommunityBuy
                 DataRow[] drs = dtDiscountSchemeRate.Select("DisCode='" + discode + "'");
                 if (drs.Length > 0)//走菜品折扣
                 {
-                    dis = Math.Round((Helper.StringToDouble(drs[0]["DiscountRate"].ToString()) / 100.0 * disprice), 2);
+                    dis = Math.Round((StringHelper.StringToDouble(drs[0]["DiscountRate"].ToString()) / 100.0 * disprice), 2);
                 }
                 else
                 {
                     drs = dtDiscountSchemeRate.Select("DisTypeCode='" + DisTypeCode + "'");
                     if (drs.Length > 0)//走菜品类别折扣
                     {
-                        dis = Math.Round((Helper.StringToDouble(drs[0]["DiscountRate"].ToString()) / 100.0 * disprice), 2);
+                        dis = Math.Round((StringHelper.StringToDouble(drs[0]["DiscountRate"].ToString()) / 100.0 * disprice), 2);
                     }
                     else
                     {
@@ -291,10 +291,10 @@ namespace CommunityBuy
                 {
                     bigclass = "'" + bigclass.TrimStart(',').TrimEnd(',').Replace(",", "','") + "'";
                 }
-                decimal maxmoney = Helper.StringToDecimal(coupon["maxmoney"].ToString());//消费满金额
-                int uselimit = Helper.StringToInt(coupon["uselimit"].ToString());//使用上限
-                decimal singlemoney = Helper.StringToDecimal(coupon["singlemoney"].ToString());//优惠券金额
-                decimal disuselack = Helper.StringToDecimal(coupon["disuselack"].ToString());//补差金额
+                decimal maxmoney = StringHelper.StringToDecimal(coupon["maxmoney"].ToString());//消费满金额
+                int uselimit = StringHelper.StringToInt(coupon["uselimit"].ToString());//使用上限
+                decimal singlemoney = StringHelper.StringToDecimal(coupon["singlemoney"].ToString());//优惠券金额
+                decimal disuselack = StringHelper.StringToDecimal(coupon["disuselack"].ToString());//补差金额
                 string Remark = CouponCode;
                 string McCode = coupon["mccode"].ToString();
 
@@ -349,7 +349,7 @@ namespace CommunityBuy
                             DiscountPrice = disuselack;
                             OrderDishId = drYes["orderdiscode"].ToString();
                         }
-                        RealPay = Helper.StringToDecimal(drDish[index]["Price"].ToString()) - disuselack;
+                        RealPay = StringHelper.StringToDecimal(drDish[index]["Price"].ToString()) - disuselack;
                         VIMoney = 0;
                         UseType = "4";
                         break;
@@ -453,7 +453,7 @@ namespace CommunityBuy
             {
                 for (int i = dtNewDish.Rows.Count - 1; i >= 0;i-- )
                 {
-                    if (Helper.StringToDecimal(dtNewDish.Rows[i]["DisNum"].ToString()) <= 0)
+                    if (StringHelper.StringToDecimal(dtNewDish.Rows[i]["DisNum"].ToString()) <= 0)
                     {
                         dtNewDish.Rows.RemoveAt(i);
                     }
@@ -474,7 +474,7 @@ namespace CommunityBuy
             int index = 0;
             for (int i = 0; i <drDish.Length; i++)
             {
-                decimal n=Helper.StringToDecimal(drDish[i]["Price"].ToString());
+                decimal n=StringHelper.StringToDecimal(drDish[i]["Price"].ToString());
                 if ( n> maxP)
                 {
                     index =i;
@@ -506,7 +506,7 @@ namespace CommunityBuy
             {
                 foreach (DataRow dr in drDish)
                 {
-                    decReturn += Helper.StringToDecimal(dr["DiscountPrice"].ToString()) * (Helper.StringToDecimal(dr["DisNum"].ToString()));
+                    decReturn += StringHelper.StringToDecimal(dr["DiscountPrice"].ToString()) * (StringHelper.StringToDecimal(dr["DisNum"].ToString()));
                 }
             }
 
@@ -529,7 +529,7 @@ namespace CommunityBuy
             {
                 foreach (DataRow dr in drCoupon)
                 {
-                    decReturn += Helper.StringToDecimal(dr["RealPay"].ToString());
+                    decReturn += StringHelper.StringToDecimal(dr["RealPay"].ToString());
                 }
             }
 
@@ -548,7 +548,7 @@ namespace CommunityBuy
             {
                 //获取折扣名称
                 DiscountName = dtDiscountSchemeRate.Rows[0]["SchName"].ToString();
-                DiscountRate = Helper.StringToDecimal(dtDiscountSchemeRate.Rows[0]["NDiscountRate"].ToString());
+                DiscountRate = StringHelper.StringToDecimal(dtDiscountSchemeRate.Rows[0]["NDiscountRate"].ToString());
                 //执行折扣模板
                 GetDiscountByDishes(ref dtOrderDish, dtDiscountSchemeRate, DiscountRate);
             }
@@ -587,7 +587,7 @@ namespace CommunityBuy
         {
             if (dtBill != null && dtBill.Rows.Count > 0)
             {
-                if (string.IsNullOrWhiteSpace(dtBill.Rows[0]["DiscountName"].ToString()) && Helper.StringToDecimal(dtBill.Rows[0]["DiscountMoney"].ToString()) == 0)
+                if (string.IsNullOrWhiteSpace(dtBill.Rows[0]["DiscountName"].ToString()) && StringHelper.StringToDecimal(dtBill.Rows[0]["DiscountMoney"].ToString()) == 0)
                 {
                     if (dtOrderDish != null)
                     {

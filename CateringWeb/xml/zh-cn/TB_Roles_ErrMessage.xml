@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Msgs>
-  
-<!--门店角色信息--><Msg Code="TB_Roles_Menu">门店角色信息</Msg>
-<Msg Code="TB_Roles_TName">门店角色信息</Msg>
-<Msg Code="TB_Roles_Export">字段1,字段2</Msg>
-</Msgs>

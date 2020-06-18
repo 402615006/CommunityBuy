@@ -18,7 +18,6 @@ namespace CommunityBuy.IServices
     public class WS_Store : ServiceBase
     {
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -111,7 +110,7 @@ namespace CommunityBuy.IServices
             int recordCount = 0;
             int totalPage = 0;
             DataTable dtuser = new bllEmployee().GetEmpStoList("", "", 1, 1, "where t.userid=" + touserid, "", out recordCount, out totalPage);
-            string loginUserRoleStoCode = ((Hashtable)WebCache.GetCache(userid + "CommunityBuy_LoginInfo"))[userid].ToString();
+            string loginUserRoleStoCode = ((Hashtable)HttpContext.Current.Cache.GetCache(userid + "CommunityBuy_LoginInfo"))[userid].ToString();
             string userRoleStoCode = string.Empty;
             if (dtuser.Rows[0]["sigstocodes"] != null)
             {
@@ -164,7 +163,7 @@ namespace CommunityBuy.IServices
             int recordCount = 0;
             int totalPage = 0;
             DataTable dtuser = new bllEmployee().GetEmpStoList("", "", 1, 1, "where t.userid=" + touserid, "", out recordCount, out totalPage);
-            //string loginUserRoleStoCode = ((Hashtable)WebCache.GetCache(userid + "CommunityBuy_LoginInfo"))[userid].ToString();
+            //string loginUserRoleStoCode = ((Hashtable)HttpContext.Current.Cache.GetCache(userid + "CommunityBuy_LoginInfo"))[userid].ToString();
             string userRoleStoCode = GetUserRoleCodes(touserid);
             //if (string.IsNullOrEmpty(loginUserRoleStoCode))
             //{
@@ -267,8 +266,8 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0 && filter != "[]")

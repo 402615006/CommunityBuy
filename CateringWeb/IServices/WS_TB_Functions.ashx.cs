@@ -17,7 +17,6 @@ namespace CommunityBuy.IServices
     {
         bllTB_Functions bll = new bllTB_Functions();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -81,8 +80,8 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0)
@@ -147,7 +146,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "TB_FunctionsEdit.html";
             logentity.logcontent = "新增系统功能管理信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Add;
             dt = bll.Add(GUID, userid, out Id, BusCode, StoCode, CCname, TStatus, FType, ParentId, Code, Cname, BtnCode, Orders, ImgName, Url, Level, Descr, CCode, entity);
 
@@ -185,7 +184,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "TB_FunctionsEdit.html";
             logentity.logcontent = "修改id为:" + Id + "的系统功能管理信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Edit;
             dt = bll.Update(GUID, userid, Id, BusCode, StoCode, CCname, TStatus, FType, ParentId, Code, Cname, BtnCode, Orders, ImgName, Url, Level, Descr, CCode, entity);
 
@@ -226,7 +225,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "TB_FunctionsList.html";
             logentity.logcontent = "删除id为:" + Id + "的系统功能管理信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Delete;
             dt = bll.Delete(GUID, userid, Id, entity);
             ReturnListJson(dt);
@@ -254,7 +253,7 @@ namespace CommunityBuy.IServices
             string Id = dicPar["ids"].ToString().Trim(',');
             logentity.pageurl = "TB_FunctionsList.html";
             logentity.logcontent = "修改状态id为:" + Id + "的系统功能管理信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             DataTable dt = bll.UpdateStatus(GUID, userid, Id, status);
 
             ReturnListJson(dt);
@@ -280,14 +279,14 @@ namespace CommunityBuy.IServices
             string parentid = dicPar["parentid"].ToString();
             string stocode = string.Empty;
             Hashtable ht = new Hashtable();
-            if (WebCache.IsExist(userid + "CommunityBuy_LoginInfo"))
+            if (HttpContext.Current.Cache.IsExist(userid + "CommunityBuy_LoginInfo"))
             {
-                ht = (Hashtable)WebCache.GetCache(userid + "CommunityBuy_LoginInfo");
+                ht = (Hashtable)HttpContext.Current.Cache.GetCache(userid + "CommunityBuy_LoginInfo");
                 if (ht[userid] == null)
                 {
                     stocode = GetUserRoleCodes(userid);
                     ht.Add(userid, stocode);
-                    WebCache.Insert(userid + "CommunityBuy_LoginInfo", ht);
+                    HttpContext.Current.Cache.Insert(userid + "CommunityBuy_LoginInfo", ht);
                 }
                 else
                 {
@@ -298,7 +297,7 @@ namespace CommunityBuy.IServices
             {
                 stocode = GetUserRoleCodes(userid);
                 ht.Add(userid, stocode);
-                WebCache.Insert(userid + "CommunityBuy_LoginInfo", ht);
+                HttpContext.Current.Cache.Insert(userid + "CommunityBuy_LoginInfo", ht);
             }
 
             dt = bll.GetFunctionListByParentId(GUID, userid, parentid, stocode);
@@ -346,7 +345,7 @@ namespace CommunityBuy.IServices
                 //获取参数信息
                 string GUID = dicPar["GUID"].ToString();
                 string userid = dicPar["userid"].ToString();
-                string stocode = ((Hashtable)WebCache.GetCache(userid + "CommunityBuy_LoginInfo"))[userid].ToString();
+                string stocode = ((Hashtable)HttpContext.Current.Cache.GetCache(userid + "CommunityBuy_LoginInfo"))[userid].ToString();
                 dt = bll.GetFirFunction(GUID, userid, stocode);
                 ReturnListJson(dt);
             }

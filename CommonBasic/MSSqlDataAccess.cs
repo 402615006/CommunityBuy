@@ -118,7 +118,7 @@ namespace CommunityBuy.CommonBasic
                 {
                     RollBack();
                 }
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return -1;
             }
             finally
@@ -164,7 +164,7 @@ namespace CommunityBuy.CommonBasic
                 {
                     RollBack();
                 }
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return -1;
             }
             finally
@@ -201,7 +201,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return null;
             }
             finally
@@ -250,7 +250,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, commandText);
                 return null;
             }
@@ -292,7 +292,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, commandText);
                 return null;
             }
@@ -329,7 +329,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, commandText);
                 return null;
             }
@@ -373,7 +373,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (SqlException ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return false;
             }
             finally

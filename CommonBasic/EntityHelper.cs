@@ -13,7 +13,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using CommunityBuy.CommonBasic;
 
 namespace CommunityBuy.CommonBasic
 {
@@ -115,7 +114,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch(Exception ex) 
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog,ex.ToString());
             }
             return list;
         }

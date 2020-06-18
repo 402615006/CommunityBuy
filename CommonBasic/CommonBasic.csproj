@@ -103,15 +103,14 @@
     <Compile Include="AliYunSendMessage.cs" />
     <Compile Include="AsponseHelper.cs" />
     <Compile Include="BaseDataAccess.cs" />
+    <Compile Include="EntityHelper.cs" />
+    <Compile Include="StringHelper.cs" />
     <Compile Include="IpPrinter.cs" />
     <Compile Include="ComputerHelper.cs" />
-    <Compile Include="EntityHelper.cs" />
-    <Compile Include="ErrMessage.cs" />
     <Compile Include="ErrorLog.cs" />
     <Compile Include="ExcelsHelp.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ffmpegHelper.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="MemCached.cs" />
@@ -119,10 +118,7 @@
     <Compile Include="OEncryp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="pwHelper.cs" />
-    <Compile Include="RegistryHelper.cs" />
     <Compile Include="RegularExpressions.cs" />
-    <Compile Include="StocksalesHelper.cs" />
-    <Compile Include="Synchronize.cs" />
     <Compile Include="ZipHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Msgs>
-  
-<!--用户角色关系表--><Msg Code="TB_UserRole_Menu">用户角色关系表</Msg>
-<Msg Code="TB_UserRole_TName">用户角色关系表</Msg>
-<Msg Code="TB_UserRole_Export">字段1,字段2</Msg>
-</Msgs>

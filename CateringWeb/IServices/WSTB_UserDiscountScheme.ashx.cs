@@ -11,9 +11,7 @@ namespace CommunityBuy.IServices
     /// </summary>
     public class WSTB_UserDiscountScheme : ServiceBase
     {
-        bllTB_UserDiscountScheme bll = new bllTB_UserDiscountScheme();
         DataTable dt = new DataTable();
-		operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -65,8 +63,8 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0)
@@ -121,11 +119,7 @@ namespace CommunityBuy.IServices
 			string DisCountCode = dicPar["DisCountCode"].ToString();
 			string UserCode = dicPar["UserCode"].ToString();
             //调用逻辑
-			logentity.pageurl ="TB_UserDiscountSchemeEdit.html";
-			logentity.logcontent = "新增信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Add;
-            dt = bll.Add(GUID, USER_ID, out  Id, BusCode, StoCode, CCode, CCname, DisCountCode, UserCode, entity);
+            dt = bll.Add(GUID, USER_ID, out  Id, BusCode, StoCode, CCode, CCname, DisCountCode, UserCode);
 			
             ReturnListJson(dt);
         }
@@ -153,7 +147,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
 			logentity.pageurl ="TB_UserDiscountSchemeEdit.html";
 			logentity.logcontent = "修改id为:"+Id+"的信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Edit;
             dt = bll.Update(GUID, USER_ID,  Id, BusCode, StoCode, CCode, CCname, DisCountCode, UserCode, entity);
             
@@ -194,7 +188,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
 			logentity.pageurl ="TB_UserDiscountSchemeList.html";
 			logentity.logcontent = "删除id为:"+Id+"的信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Delete;
             dt = bll.Delete(GUID, USER_ID, Id, entity);
             ReturnListJson(dt);
@@ -222,7 +216,7 @@ namespace CommunityBuy.IServices
             string Id = dicPar["ids"].ToString().Trim(',');
             logentity.pageurl ="TB_UserDiscountSchemeList.html";
 			logentity.logcontent = "修改状态id为:"+Id+"的信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
             DataTable dt = bll.UpdateStatus(GUID, USER_ID, Id, status);
 
             ReturnListJson(dt);

@@ -18,7 +18,6 @@ namespace CommunityBuy.IServices
     {
         bllTB_DiscountScheme bll = new bllTB_DiscountScheme();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -82,8 +81,8 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0 && filter != "[]")
@@ -258,12 +257,7 @@ namespace CommunityBuy.IServices
             string UCode = dicPar["UCode"].ToString();
             string discountschemerateJson = dicPar["discountschemerateJson"].ToString();
             //调用逻辑
-            logentity.pageurl = "TB_DiscountSchemeEdit.html";
-            logentity.logcontent = "新增折扣方案信息";
-            logentity.cuser = Helper.StringToLong(userid);
-            logentity.otype = SystemEnum.LogOperateType.Add;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Add(GUID, userid, out PKCode, BusCode, StoCode, CCname, UCname, TStatus, Sort, InsideCode, DiscountRate, MenuCode, LevelCode, SchName, CCode, UCode, discountschemerateJson, logentity);
+            dt = bll.Add(GUID, userid, out PKCode, BusCode, StoCode, CCname, UCname, TStatus, Sort, InsideCode, DiscountRate, MenuCode, LevelCode, SchName, CCode, UCode, discountschemerateJson);
 
             ReturnListJson(dt);
         }
@@ -298,7 +292,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "TB_DiscountSchemeEdit.html";
             logentity.logcontent = "修改id为:" + PKCode + "的折扣方案信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Edit;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Update(GUID, userid, BusCode, StoCode, CCname, UCname, TStatus, Sort, PKCode, InsideCode, DiscountRate, MenuCode, LevelCode, SchName, CCode, UCode, discountschemerateJson, logentity);
@@ -412,7 +406,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "TB_DiscountSchemeList.html";
             logentity.logcontent = "删除id为:" + PKCode + "的折扣方案信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Delete;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Delete(GUID, userid, PKCode, logentity);
@@ -441,7 +435,7 @@ namespace CommunityBuy.IServices
             string PKCode = dicPar["id"].ToString().Trim(',');
             logentity.pageurl = "TB_DiscountSchemeList.html";
             logentity.logcontent = "修改状态id为:" + PKCode + "的折扣方案信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             DataTable dt = bll.UpdateStatus(GUID, userid, PKCode, status);
 
             ReturnListJson(dt);
@@ -543,8 +537,8 @@ namespace CommunityBuy.IServices
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
             string stocodes = dicPar["stocodes"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0 && filter != "[]")

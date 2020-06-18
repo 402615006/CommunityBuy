@@ -31,28 +31,6 @@ namespace CommunityBuy.CommonBasic
     public sealed class Helper
     {
         /// <summary>
-        /// 获取中英文混排字符串的实际长度(字节数)
-        /// </summary>
-        /// <param name="str">要获取长度的字符串</param>
-        /// <returns>字符串的实际长度值（字节数）</returns>
-        public static int getStringLength(string str)
-        {
-            if (str.Equals(string.Empty))
-                return 0;
-            int strlen = 0;
-            ASCIIEncoding strData = new ASCIIEncoding();
-            //将字符串转换为ASCII编码的字节数字
-            byte[] strBytes = strData.GetBytes(str);
-            for (int i = 0; i <= strBytes.Length - 1; i++)
-            {
-                if (strBytes[i] == 63)  //中文都将编码为ASCII编码63,即"?"号
-                    strlen++;
-                strlen++;
-            }
-            return strlen;
-        }
-
-        /// <summary>
         /// Web请求
         /// </summary>
         /// <param name="serverUrl">地址</param>
@@ -96,274 +74,6 @@ namespace CommunityBuy.CommonBasic
             return result;
         }
 
-
-        #region 字符串格式转换
-        /// <summary>
-        /// SQL字符串过滤
-        /// </summary>
-        /// <param name="Text">待过滤的内容</param>
-        /// <returns>返回：过滤后字符串</returns>
-        public static string ReplaceString(string Text)
-        {
-            if (Text != null)
-            {
-                return Text.Trim().Replace("'", "‘").Replace(@"\", @"");
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
-
-
-        /// <summary>
-        /// 字符串转Int
-        /// </summary>
-        /// <param name="Text">带转换的内容</param>
-        /// <returns>返回：Int结果，非法返回0</returns>
-        public static int StringToInt(string Text)
-        {
-            if (Text != null)
-            {
-                int temp;
-                int.TryParse(Text, out temp);
-
-                #region 处理字符串是1.00是返回来是0 tsg 2017-05-06
-                if (temp == 0)
-                {
-                    try
-                    {
-                        string[] arrText = Text.Split('.');
-                        int iResult = Convert.ToInt32(arrText[0]);
-                        if (iResult > 0)
-                        {
-                            temp = iResult;
-                        }
-                    }
-                    catch { }
-                }
-                #endregion
-
-                return temp;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-        /// <summary>
-        /// 字符串转Long
-        /// </summary>
-        /// <param name="Text">带转换的内容</param>
-        /// <returns>返回：Long结果，非法返回0</returns>
-        public static long StringToLong(string Text)
-        {
-            if (!string.IsNullOrWhiteSpace(Text))
-            {
-                string value = System.Text.RegularExpressions.Regex.Replace(Text, @"[^\d]*", "");
-                long temp;
-                long.TryParse(value, out temp);
-                return temp;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-        /// <summary>
-        /// 字符串转Double
-        /// </summary>
-        /// <param name="Text">带转换的内容</param>
-        /// <returns>返回：Double结果，非法返回0</returns>
-        public static double StringToDouble(string Text)
-        {
-            if (Text != null)
-            {
-                double temp;
-                double.TryParse(Text, out temp);
-                return temp;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-        /// <summary>
-        /// 字符串转Decimal
-        /// </summary>
-        /// <param name="Text">带转换的内容</param>
-        /// <returns>返回：Decimal结果，非法返回0</returns>
-        public static decimal StringToDecimal(string Text)
-        {
-            if (Text != null)
-            {
-                decimal temp;
-                decimal.TryParse(Text, out temp);
-                return temp;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-
-        /// <summary>
-        /// 字符串转Float
-        /// </summary>
-        /// <param name="Text">带转换的内容</param>
-        /// <returns>返回：Float结果，非法返回0</returns>
-        public static float StringToFloat(string Text)
-        {
-            if (Text != null)
-            {
-                float temp;
-                float.TryParse(Text, out temp);
-                return temp;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
-        /// <summary>
-        /// 字符串转DateTime
-        /// </summary>
-        /// <param name="Text">带转换的内容</param>
-        /// <returns>返回：DateTime结果，非法返回1900-01-01</returns>
-        public static DateTime StringToDateTime(string Text)
-        {
-            if (Text != null && Text.Length > 0)
-            {
-                DateTime temp;
-                DateTime.TryParse(Text, out temp);
-                return temp;
-            }
-            else
-            {
-                return DateTime.Parse("1900-01-01");
-            }
-        }
-
-        /// <summary>
-        /// Base64字符串转Byte
-        /// </summary>
-        /// <param name="Text">带转换的内容</param>
-        /// <returns>返回：Byte结果，非法返回null</returns>
-        public static byte[] Base64StringToByte(string Text)
-        {
-            if (Text != null && Text.Length > 0)
-            {
-                byte[] buf = Convert.FromBase64String(Text);//把字符串读到字节数组中
-                return buf;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Byte[]转Image
-        /// </summary>
-        /// <param name="by">字节数组</param>
-        /// <returns>返回：Image对象</returns>
-        public static System.Drawing.Image ByteToImage(byte[] by)
-        {
-            if (by != null)
-            {
-                MemoryStream ms = new MemoryStream(by);
-                return System.Drawing.Image.FromStream(ms);
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Image转Byte[]
-        /// </summary>
-        /// <param name="by">Image对象</param>
-        /// <returns>返回：Byte[]对象</returns>
-        public static byte[] ImageToByte(System.Drawing.Image image)
-        {
-            if (image != null)
-            {
-                MemoryStream ms = new MemoryStream();
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(ms, (object)image);
-                ms.Close();
-                return ms.ToArray();
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Image转Base64String
-        /// </summary>
-        /// <param name="image">Image对象</param>
-        /// <returns>返回：Base64String</returns>
-        public static string ImageToBase64String(System.Drawing.Image image)
-        {
-            if (image != null)
-            {
-                MemoryStream ms = new MemoryStream();
-                image.Save(ms, ImageFormat.Jpeg);
-                string mes = Convert.ToBase64String(ms.ToArray());
-                ms.Close();
-                return mes;
-            }
-            return string.Empty;
-        }
-
-        /// <summary>
-        /// byte[]转Base64String
-        /// </summary>
-        /// <param name="bytes">字节数组</param>
-        /// <returns>返回：Base64String</returns>
-        public static string ByteToBase64String(byte[] bytes)
-        {
-            if (bytes != null)
-            {
-                string mes = Convert.ToBase64String(bytes);
-                return mes;
-            }
-            return string.Empty;
-        }
-
-        /// <summary>
-        /// byte[]转String
-        /// </summary>
-        /// <param name="bytes">字节数组</param>
-        /// <returns>返回：String</returns>
-        public static string ByteToString(byte[] bytes)
-        {
-            StringBuilder strBuilder = new StringBuilder();
-            foreach (byte bt in bytes)
-            {
-                strBuilder.AppendFormat("{0:X2}", bt);
-            }
-            return strBuilder.ToString();
-        }
-
-        /// <summary>
-        /// Stream转Bytes
-        /// </summary>
-        /// <param name="stream"></param>
-        /// <returns></returns>
-        public static byte[] StreamToBytes(Stream stream)
-        {
-            byte[] bytes = new byte[stream.Length];
-            stream.Read(bytes, 0, bytes.Length);
-            // 设置当前流的位置为流的开始 
-            stream.Seek(0, SeekOrigin.Begin);
-            return bytes;
-        }
-
-        # endregion
-
         /// <summary>
         /// 获取App.config文件Key的值
         /// </summary>
@@ -390,10 +100,10 @@ namespace CommunityBuy.CommonBasic
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public static void AddAppSetting(string key,string value)
+        public static void AddAppSetting(string key, string value)
         {
             XmlDocument xmlDoc = new System.Xml.XmlDocument();
-            string FullFilePath = AppDomain.CurrentDomain.BaseDirectory +AppDomain.CurrentDomain.FriendlyName+ ".config";
+            string FullFilePath = AppDomain.CurrentDomain.BaseDirectory + AppDomain.CurrentDomain.FriendlyName + ".config";
             if (File.Exists(FullFilePath))
             {
                 xmlDoc.Load(FullFilePath);
@@ -496,9 +206,6 @@ namespace CommunityBuy.CommonBasic
         }
 
         #endregion
-
-
-
 
         /// <summary>
         /// 获取两个时间之间的时长
@@ -674,129 +381,11 @@ namespace CommunityBuy.CommonBasic
         }
 
         /// <summary>
-        /// datatable 数据求和
-        /// </summary>
-        /// <param name="dt"></param>
-        /// <param name="colNames"></param>
-        /// <param name="expression"></param>
-        /// <param name="filters"></param>
-        /// <returns></returns>
-        public static decimal SumDataTableColumn(DataTable dt, string[] colNames, string expression, string filters)
-        {
-            decimal sumVal = 0;
-            try
-            {
-                DataTable dtSum = dt.Clone();
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (string colName in colNames)
-                    {
-                        dtSum.Columns[colName].DataType = typeof(decimal);
-                    }
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        DataRow drAdd = dtSum.NewRow();
-                        for (int i = 0; i < dt.Columns.Count; i++)
-                        {
-                            string colName = dt.Columns[i].ColumnName;
-                            if (colNames.Contains(colName))
-                            {
-                                drAdd[colName] = StringToDecimal(dr[colName].ToString());
-                            }
-                            else
-                            {
-                                drAdd[colName] = dr[colName];
-                            }
-                        }
-                        dtSum.Rows.Add(drAdd);
-                    }
-                sumVal = (decimal)dtSum.Compute(expression, filters);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return sumVal;
-        }
-
-        /// <summary>
-        /// 字符串转二进制
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
-        public static string StringToBinary(string str)
-        {
-            string rel = "";
-            byte[] data = Encoding.Unicode.GetBytes(str);
-            StringBuilder sb = new StringBuilder(data.Length * 8);
-            foreach (byte item in data)
-            {
-                sb.Append(Convert.ToString(item, 2).PadLeft(8, '0'));
-                rel = sb.ToString();
-            }
-            return rel;
-        }
-        /// <summary>
-        /// 二进制转字符串
-        /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
-        public static string BinaryToString(string str)
-        {
-            System.Text.RegularExpressions.CaptureCollection cs = System.Text.RegularExpressions.Regex.Match(str, @"([01]{8})+").Groups[1].Captures;
-            byte[] data = new byte[cs.Count];
-            for (int i = 0; i < cs.Count; i++)
-            {
-                data[i] = Convert.ToByte(cs[i].Value, 2);
-            }
-            return Encoding.Unicode.GetString(data, 0, data.Length);
-        }
-
-        /// <summary>
-        /// 字符串转16进制
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="encode"></param>
-        /// <returns></returns>
-        public static string StringToHexString(string s, Encoding encode)
-        {
-            byte[] b = encode.GetBytes(s);//按照指定编码将string编程字节数组
-            string result = string.Empty;
-            for (int i = 0; i < b.Length; i++)//逐字节变为16进制字符，以%隔开
-            {
-                result += "%" + Convert.ToString(b[i], 16);
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// 16进制转字符串
-        /// </summary>
-        /// <param name="hs"></param>
-        /// <param name="encode"></param>
-        /// <returns></returns>
-        public static string HexStringToString(string hs, Encoding encode)
-        {
-            //以%分割字符串，并去掉空字符
-            string[] chars = hs.Split(new char[] { '%' }, StringSplitOptions.RemoveEmptyEntries);
-            byte[] b = new byte[chars.Length];
-            //逐个字符变为16进制字节数据
-            for (int i = 0; i < chars.Length; i++)
-            {
-                b[i] = Convert.ToByte(chars[i], 16);
-            }
-            //按照指定编码将字节数组变为字符串
-            return encode.GetString(b);
-        }
-
-
-        /// <summary>
         /// bitmap转换为base64
         /// </summary>
         /// <param name="bmp"></param>
         /// <returns></returns>
-        public static  string BitmapToBase64(Bitmap bmp)
+        public static string BitmapToBase64(Bitmap bmp)
         {
             try
             {
@@ -835,4 +424,5 @@ namespace CommunityBuy.CommonBasic
                 return null;
             }
         }
+    }
 }

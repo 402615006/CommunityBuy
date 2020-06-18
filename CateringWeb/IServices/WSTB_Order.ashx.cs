@@ -17,7 +17,6 @@ namespace CommunityBuy.WServices
     {
         bllTB_Order bll = new bllTB_Order();
         DataTable dt = new DataTable();
-		operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -82,8 +81,8 @@ namespace CommunityBuy.WServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0)
@@ -133,8 +132,8 @@ namespace CommunityBuy.WServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0)
@@ -212,7 +211,7 @@ namespace CommunityBuy.WServices
                     DataRow drResult = dtResult.NewRow();
                     DataRow drOrder = dt.Select("code='" + dr["code"] + "'")[0];
                     drResult["code"] = drOrder["code"];
-                    drResult["ctime"] = Helper.StringToDateTime(drOrder["ctime"].ToString()).ToString("HH:mm");
+                    drResult["ctime"] = StringHelper.StringToDateTime(drOrder["ctime"].ToString()).ToString("HH:mm");
                     drResult["money"] = drOrder["money"];
                     drResult["disnum"] = drOrder["disnum"];
                     drResult["distypenum"] = drOrder["distypenum"];
@@ -301,81 +300,6 @@ namespace CommunityBuy.WServices
             ReturnListJson(dtResult);
         }
 
-        /// <summary>
-        /// 获取会员卡账单
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void GetMemOrderList(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "page", "limit", "filters", "orders" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
-            string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
-            DataTable dtFilter = new DataTable();
-            if (filter.Length > 0)
-            {
-                filter = JsonHelper.JsonToFilterByString(filter, out dtFilter);
-                if (dtFilter != null)
-                {
-                    DataRow[] drArr = dtFilter.Select("cus<>''");
-                    foreach (DataRow dr in drArr)
-                    {
-                        string col = dr["col"].ToString();
-                        switch (col)
-                        {
-                            case "":
-                                filter += "";
-                                break;
-                        }
-                    }
-                }
-            }
-            string BusCode = string.Empty;
-            if (dicPar.ContainsKey("BusCode"))
-            {
-                BusCode = dicPar["BusCode"].ToString();
-            }
-            if (!filter.ToLower().Contains("buscode"))
-            {
-                if (!string.IsNullOrEmpty(BusCode))
-                {
-                    if (string.IsNullOrEmpty(filter))
-                    {
-                        filter = "where buscode='" + BusCode + "'";
-                    }
-                    else
-                    {
-                        filter += " and buscode='" + BusCode + "'";
-                    }
-                }
-            }
-            string order = JsonHelper.ObjectToJSON(dicPar["orders"]);
-            if (order.Length > 0)
-            {
-                order = JsonHelper.JsonToOrderByString(order);
-            }
-            int recordCount = 0;
-            int totalPage = 0;
-            //调用逻辑
-            dt = new bllmemcardorders().GetPagingListInfo(GUID, USER_ID, pageSize, currentPage, filter, order, out recordCount, out totalPage);
-            foreach (DataRow dr in dt.Rows)
-            {
-                dr["otype"] = Helper.GetEnumNameByValue(typeof(SystemEnum.MemCardStatus), dr["otype"].ToString());
-            }
-            ReturnListJson(dt);
-        }
-
         private void Add(Dictionary<string, object> dicPar)
         {
             //要检测的参数信息
@@ -404,17 +328,14 @@ namespace CommunityBuy.WServices
             string BillCode = "";
 
             string dishlistBin = dicPar["OrderDishList"].ToString();
-            string dishlistJson = Helper.BinaryToString(dishlistBin);
+            string dishlistJson = StringHelper.BinaryToString(dishlistBin);
 
             string OrderDishListJson = dishlistJson;
             string OrderType = dicPar["OrderType"].ToString();
             string DepartCode= dicPar["DepartCode"].ToString();
             //调用逻辑
-            logentity.pageurl ="TB_OrderEdit.html";
-			logentity.logcontent = "新增订单信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Add;
-            dt = bll.Add(OrderDishListJson,GUID, USER_ID,Id, BusCode, StoCode, CCode, CCname, TStatus, out PKCode, OpenCodeList, OrderMoney, DisNum, DisTypeNum, Remar, CheckTime, BillCode,OrderType,DepartCode, logentity);
+
+            dt = bll.Add(OrderDishListJson,GUID, USER_ID,Id, BusCode, StoCode, CCode, CCname, TStatus, out PKCode, OpenCodeList, OrderMoney, DisNum, DisTypeNum, Remar, CheckTime, BillCode,OrderType,DepartCode);
             ReturnListJson(dt);
         }
 
@@ -450,7 +371,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
             logentity.pageurl ="TB_OrderEdit.html";
 			logentity.logcontent = "修改id为:"+Id+"的订单信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Edit;
             dt = bll.Update(GUID, USER_ID,  Id, BusCode, StoCode, CCode, CCname, TStatus, PKCode, OpenCodeList, OrderMoney, DisNum, DisTypeNum, Remar, CheckTime, BillCode, OrderType, DepartCode, entity);
             
@@ -493,7 +414,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
             logentity.pageurl ="TB_OrderList.html";
 			logentity.logcontent = "删除编号为:"+ pkcode + "的订单信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Delete;
             dt = bll.Delete(GUID, USER_ID, pkcode,stocode, logentity);
             ReturnListJson(dt);
@@ -521,7 +442,7 @@ namespace CommunityBuy.WServices
             string stocode = dicPar["stocode"].ToString().Trim(',');
             logentity.pageurl ="TB_OrderList.html";
 			logentity.logcontent = "修改状态id为:"+ ids + "的订单信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
             DataTable dt = bll.UpdateStatus(GUID, USER_ID, ids, status, stocode);
 
             ReturnListJson(dt);
@@ -545,8 +466,8 @@ namespace CommunityBuy.WServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             string bcode = dicPar["bcode"].ToString();
             DataTable dtFilter = new DataTable();

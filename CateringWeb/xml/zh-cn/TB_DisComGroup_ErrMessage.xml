@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Msgs>
-  
-<!--套餐组别管理--><Msg Code="TB_DisComGroup_Menu">套餐组别管理</Msg>
-<Msg Code="TB_DisComGroup_TName">套餐组别管理</Msg>
-<Msg Code="TB_DisComGroup_Export">字段1,字段2</Msg>
-</Msgs>

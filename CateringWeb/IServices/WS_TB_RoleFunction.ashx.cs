@@ -16,7 +16,6 @@ namespace CommunityBuy.IServices
     {
         bllTB_RoleFunction bll = new bllTB_RoleFunction();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -141,8 +140,8 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["pageSize"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["currentPage"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["pageSize"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["currentPage"].ToString());
             string filter = dicPar["filter"].ToString();
             //filter = CombinationFilter(new List<string>() { "id","roleid","funid" }, dicPar, typeof(string), filter);
             string order = dicPar["order"].ToString();
@@ -172,7 +171,7 @@ namespace CommunityBuy.IServices
             ////调用逻辑
             //logentity.pageurl = "sto_rolefunctionEdit.html";
             //logentity.logcontent = "新增角色权限详细表信息";
-            //logentity.cuser = Helper.StringToLong(userid);
+            //logentity.cuser = StringHelper.StringToLong(userid);
             //logentity.otype = SystemEnum.LogOperateType.Add;
             //dt = bll.Add(GUID, userid, out  id, roleid, funid, entity);
             ////table添加一个id，防止多次提交
@@ -200,7 +199,7 @@ namespace CommunityBuy.IServices
             ////调用逻辑
             //logentity.pageurl = "sto_rolefunctionEdit.html";
             //logentity.logcontent = "修改id为:" + id + "的角色权限详细表信息";
-            //logentity.cuser = Helper.StringToLong(userid);
+            //logentity.cuser = StringHelper.StringToLong(userid);
             //logentity.otype = SystemEnum.LogOperateType.Edit;
             //dt = bll.Update(GUID, userid, id, roleid, funid, logentity);
             ////table添加一个id，防止多次提交
@@ -243,7 +242,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl = "sto_rolefunctionList.html";
             logentity.logcontent = "删除id为:" + id + "的角色权限详细表信息";
-            logentity.cuser = Helper.StringToLong(userid);
+            logentity.cuser = StringHelper.StringToLong(userid);
             logentity.otype = SystemEnum.LogOperateType.Delete;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Delete(GUID, userid, id, logentity);

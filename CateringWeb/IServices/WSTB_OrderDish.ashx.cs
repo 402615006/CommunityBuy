@@ -14,7 +14,6 @@ namespace CommunityBuy.WServices
     {
         bllTB_OrderDish bll = new bllTB_OrderDish();
         DataTable dt = new DataTable();
-		operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -75,8 +74,8 @@ namespace CommunityBuy.WServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0)
@@ -162,7 +161,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
 			logentity.pageurl ="TB_OrderDishEdit.html";
 			logentity.logcontent = "新增订单菜品信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Add;
             dt = bll.Add(GUID, USER_ID, out  Id, BusCode, StoCode, CCode, CCname, OrderCode, FinCode, DisTypeCode, DisCode, DisName, MemPrice, Price, DisUite, DisNum, ReturnNum, IsPackage, PDisCode, Remar, PKCode, DiscountPrice, DiscountRemark, DiscountType, DisCase, Favor, ItemNum, ItemPrice, CookName, CookMoney, TotalMoney, entity);
 			
@@ -214,7 +213,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
 			logentity.pageurl ="TB_OrderDishEdit.html";
 			logentity.logcontent = "修改id为:"+Id+"的订单菜品信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Edit;
             dt = bll.Update(GUID, USER_ID,  Id, BusCode, StoCode, CCode, CCname, OrderCode, FinCode, DisTypeCode, DisCode, DisName, MemPrice, Price, DisUite, DisNum, ReturnNum, IsPackage, PDisCode, Remar, PKCode, DiscountPrice, DiscountRemark, DiscountType, DisCase, Favor, ItemNum, ItemPrice, CookName, CookMoney, TotalMoney, entity);
             
@@ -279,7 +278,7 @@ namespace CommunityBuy.WServices
             //调用逻辑
 			logentity.pageurl ="TB_OrderDishList.html";
 			logentity.logcontent = "删除id为:"+Id+"的订单菜品信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Delete;
             dt = bll.Delete(GUID, USER_ID, Id, entity);
             ReturnListJson(dt);
@@ -307,7 +306,7 @@ namespace CommunityBuy.WServices
             string Id = dicPar["ids"].ToString().Trim(',');
             logentity.pageurl ="TB_OrderDishList.html";
 			logentity.logcontent = "修改状态id为:"+Id+"的订单菜品信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
             DataTable dt = bll.UpdateStatus(GUID, USER_ID, Id, status);
 
             ReturnListJson(dt);
@@ -330,7 +329,7 @@ namespace CommunityBuy.WServices
 
             logentity.pageurl = "TB_OrderDishList.html";
             logentity.logcontent = "编号为:" + orderdishcode + "的订单菜品退菜";
-            logentity.cuser = Helper.StringToLong(USER_ID);
+            logentity.cuser = StringHelper.StringToLong(USER_ID);
             logentity.otype = SystemEnum.LogOperateType.Edit;
             DataTable dt = bll.BackOrderDish(GUID, USER_ID, stocode, orderdishcode, logentity);
             ReturnListJson(dt);
@@ -350,8 +349,8 @@ namespace CommunityBuy.WServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string stocode =dicPar["StoCode"].ToString();
             string tablecode = dicPar["TableCode"].ToString();
             int recordCount = 0;

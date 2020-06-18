@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Msgs>
-  
-<!--折扣方案--><Msg Code="TB_DiscountScheme_Menu">折扣方案</Msg>
-<Msg Code="TB_DiscountScheme_TName">折扣方案</Msg>
-<Msg Code="TB_DiscountScheme_Export">字段1,字段2</Msg>
-</Msgs>

@@ -13,7 +13,6 @@ namespace CommunityBuy.IServices
     {
         bllTB_ShoppingCart bll = new bllTB_ShoppingCart();
         DataTable dt = new DataTable();
-		operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -65,8 +64,8 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0 && filter != "[]")
@@ -127,7 +126,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
 			logentity.pageurl ="TB_ShoppingCartEdit.html";
 			logentity.logcontent = "新增购物车设置信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Add;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Add(GUID, USER_ID,BusCode, CCname, TStatus, PKCode, AutoDelTime, IsAutoDelete, MaxNum, CCode, logentity);
@@ -159,7 +158,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
 			logentity.pageurl ="TB_ShoppingCartEdit.html";
 			logentity.logcontent = "修改PKCode为:"+PKCode+"的购物车设置信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Edit;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Update(GUID, USER_ID,BusCode, CCname, TStatus, PKCode, AutoDelTime, IsAutoDelete, MaxNum, CCode, logentity);
@@ -201,7 +200,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
 			logentity.pageurl ="TB_ShoppingCartList.html";
 			logentity.logcontent = "删除PKCode为:"+PKCode+"的购物车设置信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Delete;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Delete(GUID, USER_ID, PKCode, logentity);
@@ -230,7 +229,7 @@ namespace CommunityBuy.IServices
             string PKCode = dicPar["id"].ToString().Trim(',');
             logentity.pageurl ="TB_ShoppingCartList.html";
 			logentity.logcontent = "修改状态PKCode为:"+PKCode+"的购物车设置信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
             DataTable dt = bll.UpdateStatus(GUID, USER_ID, PKCode, status);
 
             ReturnListJson(dt);

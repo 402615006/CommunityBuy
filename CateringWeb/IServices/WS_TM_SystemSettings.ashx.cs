@@ -13,7 +13,6 @@ namespace CommunityBuy.IServices
     {
         bllTM_SystemSettings bll = new bllTM_SystemSettings();
         DataTable dt = new DataTable();
-		operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -65,8 +64,8 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0 && filter!="[]")
@@ -127,7 +126,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
             logentity.pageurl ="TM_SystemSettingsEdit.html";
 			logentity.logcontent = "新增系统设置信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Add;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Add(GUID, USER_ID, out  Id, BusCode, StoCode, CCname, UCname, TStatus, AStatus, KeyName, DataValue, CCode,UCode, logentity);
@@ -153,12 +152,7 @@ namespace CommunityBuy.IServices
             string DataValue = dicPar["DataValue"].ToString();
             string UCode = dicPar["UCode"].ToString();
             //调用逻辑
-            logentity.pageurl ="TM_SystemSettingsEdit.html";
-			logentity.logcontent = "修改id为:"+Id+"的系统设置信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Edit;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Update(GUID, USER_ID,  Id, string.Empty, string.Empty, string.Empty, UCname, TStatus, "1", string.Empty, DataValue, string.Empty, UCode, logentity);
+            dt = bll.Update(GUID, USER_ID,  Id, string.Empty, string.Empty, string.Empty, UCname, TStatus, "1", string.Empty, DataValue, string.Empty, UCode);
             
             ReturnListJson(dt);
         }
@@ -212,7 +206,7 @@ namespace CommunityBuy.IServices
             //调用逻辑
 			logentity.pageurl ="TM_SystemSettingsList.html";
 			logentity.logcontent = "删除id为:"+Id+"的系统设置信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
 			logentity.otype = SystemEnum.LogOperateType.Delete;
             logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
             dt = bll.Delete(GUID, USER_ID, Id, logentity);
@@ -241,7 +235,7 @@ namespace CommunityBuy.IServices
             string Id = dicPar["id"].ToString().Trim(',');
             logentity.pageurl ="TM_SystemSettingsList.html";
 			logentity.logcontent = "修改状态id为:"+Id+"的系统设置信息";
-			logentity.cuser = Helper.StringToLong(USER_ID);
+			logentity.cuser = StringHelper.StringToLong(USER_ID);
             DataTable dt = bll.UpdateStatus(GUID, USER_ID, Id, status);
 
             ReturnListJson(dt);

@@ -17,7 +17,6 @@ namespace CommunityBuy.WServices
     {
         bllTB_Bill bll = new bllTB_Bill();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -69,8 +68,8 @@ namespace CommunityBuy.WServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            int pageSize = Helper.StringToInt(dicPar["limit"].ToString());
-            int currentPage = Helper.StringToInt(dicPar["page"].ToString());
+            int pageSize = StringHelper.StringToInt(dicPar["limit"].ToString());
+            int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
             DataTable dtFilter = new DataTable();
             if (filter.Length > 0)
@@ -169,7 +168,7 @@ namespace CommunityBuy.WServices
 
             logentity.pageurl = "onlinebill.html";
             logentity.logcontent = "修改取餐状态编号为:" + billCode + "的账单信息";
-            logentity.cuser = Helper.StringToLong(USER_ID);
+            logentity.cuser = StringHelper.StringToLong(USER_ID);
             DataTable dt = bll.UpdateCStatus(GUID, USER_ID, billCode, stoCode, CStatus, ccode, ccname);
             if (dt != null && dt.Rows.Count > 0)
             {

@@ -123,7 +123,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
 
             return strhtml;
@@ -232,7 +232,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.lsback,ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog,ex.ToString());
             }
             return strLocalPath;
         }
@@ -299,7 +299,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.lsback, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
             return strLocalPath;
         }
@@ -426,7 +426,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 return false;
             }
         }
@@ -587,7 +587,7 @@ namespace CommunityBuy.CommonBasic
                 }
                 catch (Exception ex)
                 {
-                    ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                    ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                 }
             }
 
@@ -641,13 +641,13 @@ namespace CommunityBuy.CommonBasic
             {
                 if (System.IO.Directory.Exists(Path))
                 {
-                    int nowtime = Helper.StringToInt(DateTime.Now.AddDays(-3).ToString("yyyyMMdd"));
+                    int nowtime = StringHelper.StringToInt(DateTime.Now.AddDays(-3).ToString("yyyyMMdd"));
                     DirectoryInfo Dir = new DirectoryInfo(Path);
                     DirectoryInfo[] dis = Dir.GetDirectories();
 
                     foreach (DirectoryInfo di in dis)
                     {
-                        if (Helper.StringToInt(di.Name) < nowtime)
+                        if (StringHelper.StringToInt(di.Name) < nowtime)
                         {
                             di.Delete(true);
                         }
@@ -656,7 +656,7 @@ namespace CommunityBuy.CommonBasic
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
         }
     }

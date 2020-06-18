@@ -18,7 +18,6 @@ namespace CommunityBuy.App
     {
         bllTB_Dish bll = new bllTB_Dish();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -30,7 +29,6 @@ namespace CommunityBuy.App
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-                    logentity.module = "菜品信息";
                     switch (actionname.ToLower())
                     {
                         case "i_addbill"://添加账单
@@ -140,10 +138,6 @@ namespace CommunityBuy.App
                 CStatus = "2";
             }
              //调用逻辑
-            logentity.pageurl = "WS_Bill.ashx";
-            logentity.logcontent = "新增账单信息";
-            logentity.cuser = Helper.StringToLong(USER_ID);
-            logentity.otype = SystemEnum.LogOperateType.Add;
             if (string.IsNullOrWhiteSpace(billcode))
             {
                 dt = new bllTB_Bill().Add(GUID, USER_ID, out Id, BusCode, StoCode, CCode, CCname, TStatus, OrderCodeList, PKCode, BillMoney, PayMoney, ZeroCutMoney, ShiftCode, Remar, FTime, OpenDate, DiscountName, DiscountMoney, AUCode, AUName, PointMoney, VirMoney, BillType, PayWay, CStatus, entity);
@@ -249,12 +243,8 @@ namespace CommunityBuy.App
             string MemCard = dicPar["memcard"].ToString();//会员卡
             string coupons = dicPar["coupons"].ToString();//会员卡使用的优惠券
             //调用逻辑
-            logentity.pageurl = "TB_BillPayEdit.html";
-            logentity.logcontent = "新增账单支付信息";
-            logentity.cuser = Helper.StringToLong(USER_ID);
-            logentity.otype = SystemEnum.LogOperateType.Add;
             bllTB_BillPay bllPay = new bllTB_BillPay();
-            dt = bllPay.Add(GUID, USER_ID, Id, BusCode, StoCode, CCode, CCname, TStatus, out PKCode, BillCode, PayMoney, PayMethodName, PayMethodCode, Remar, OutOrderCode, PPKCode,"","0","0","","","","","","","", logentity);
+            dt = bllPay.Add(GUID, USER_ID, Id, BusCode, StoCode, CCode, CCname, TStatus, out PKCode, BillCode, PayMoney, PayMethodName, PayMethodCode, Remar, OutOrderCode, PPKCode,"","0","0","","","","","","","");
             //
             if (PKCode.Length > 4)
             {
@@ -551,16 +541,6 @@ namespace CommunityBuy.App
             ReturnListJson("0", msg, arr, names);
 
             string billstatus = dtBill.Rows[0]["Tstatus"].ToString();
-            if (billstatus == "1" && paytype == "0")
-            {
-                //插入结账单打印表
-                logentity.pageurl = "WS_Bill.ashx";
-                logentity.logcontent = "新增账单打印";
-                logentity.cuser = 0;
-                logentity.otype = SystemEnum.LogOperateType.Add;
-                string id = "";
-            }
-
         }
 
         /// <summary>
@@ -620,15 +600,6 @@ namespace CommunityBuy.App
             arr.Add(dtCoupon);
             string[] names = { "bill", "pay", "dish", "table", "coupon" };
             string billstatus = dtBill.Rows[0]["Tstatus"].ToString();
-            if (billstatus == "1" && paytype =="0")
-            {
-                //插入结账单打印表
-                logentity.pageurl = "WS_Bill.ashx";
-                logentity.logcontent = "新增账单打印";
-                logentity.cuser = 0;
-                logentity.otype = SystemEnum.LogOperateType.Add;
-                string id = "";
-            }
             ReturnListJson("0", "成功", arr, names);
         }
 
@@ -693,8 +664,8 @@ namespace CommunityBuy.App
                 string BillCode = dtBill.Rows[0]["PKCode"].ToString();
                 string ShiftCode = dtBill.Rows[0]["ShiftCode"].ToString();
                 memcode = dtBill.Rows[0]["CCode"].ToString();
-                decimal ToPayMoney = Helper.StringToDecimal(dtBill.Rows[0]["ToPayMoney"].ToString());
-                decimal PayMoney = Helper.StringToDecimal(dtBill.Rows[0]["PayMoney"].ToString());
+                decimal ToPayMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["ToPayMoney"].ToString());
+                decimal PayMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["PayMoney"].ToString());
                 if (PayMoney > 0)
                 {
                     ToCustomerJson("1", "账单已有支付，无法使用优惠券");
@@ -736,12 +707,7 @@ namespace CommunityBuy.App
                         {
                             //添加使用券记录
                             string id = "";
-                            operatelogEntity logentity = new operatelogEntity();
-                            logentity.pageurl = "TB_BillCouponEdit.html";
-                            logentity.logcontent = "新增账单优惠券信息";
-                            logentity.cuser = 0;
-                            logentity.otype = SystemEnum.LogOperateType.Add;
-                            DataTable dtAdd = new BLL.bllTB_BillCoupon().Add("", "", out id, buscode, stocode, "", "线上点餐", "1", CouponEntity.BillCode, CouponEntity.CouponCode, CouponEntity.CouponMoney.ToString(), "", CouponEntity.RealPay.ToString(), CouponEntity.VIMoney.ToString(), CouponEntity.Remark, CouponEntity.UseType, ShiftCode, CouponEntity.CouponName, CouponEntity.McCode, CouponEntity.TicType,CouponEntity.TicWay, logentity);
+                            DataTable dtAdd = new BLL.bllTB_BillCoupon().Add("", "", out id, buscode, stocode, "", "线上点餐", "1", CouponEntity.BillCode, CouponEntity.CouponCode, CouponEntity.CouponMoney.ToString(), "", CouponEntity.RealPay.ToString(), CouponEntity.VIMoney.ToString(), CouponEntity.Remark, CouponEntity.UseType, ShiftCode, CouponEntity.CouponName, CouponEntity.McCode, CouponEntity.TicType,CouponEntity.TicWay);
                             string restatus = "1";
                             string remsg = "优惠券使用失败";
                             if (dtAdd != null && dtAdd.Rows.Count > 0)
@@ -872,10 +838,10 @@ namespace CommunityBuy.App
             //使用会员价
             if (dtBill != null && dtBill.Rows.Count > 0)
             {
-                decimal ToPayMoney = Helper.StringToDecimal(dtBill.Rows[0]["ToPayMoney"].ToString());
+                decimal ToPayMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["ToPayMoney"].ToString());
                 memcode = dtBill.Rows[0]["CCode"].ToString();
                 string discountname = "";
-                decimal DiscountMoney = Helper.StringToDecimal(dtBill.Rows[0]["DiscountMoney"].ToString());
+                decimal DiscountMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["DiscountMoney"].ToString());
                 if (ToPayMoney <= 0)
                 {
                     ToCustomerJson("1", "付款金额为0，无法支付");
@@ -910,7 +876,7 @@ namespace CommunityBuy.App
                 string payid = "";
                 string billPayCode = "";
                 string paymoney = dtBill.Rows[0]["ToPayMoney"].ToString();
-                decimal paymoneyd = Helper.StringToDecimal(paymoney);
+                decimal paymoneyd = StringHelper.StringToDecimal(paymoney);
                 string discountmoney = dtBill.Rows[0]["DiscountMoney"].ToString();
                 string zerocutmoney = dtBill.Rows[0]["ZeroCutMoney"].ToString();
 
@@ -921,11 +887,11 @@ namespace CommunityBuy.App
                 string MemberLeve = memcardObj["levelname"].ToString();//会员卡等级
                 string MemberDiscount = discountname;//会员卡折扣方案名称
 
-                if (paymoneyd > Helper.StringToDecimal(memcardObj["balance"].ToString()))
+                if (paymoneyd > StringHelper.StringToDecimal(memcardObj["balance"].ToString()))
                 {
                     paymoney = memcardObj["balance"].ToString();
                 }
-                dt = new bllTB_BillPay().Add(guid, uid, payid, buscode, stocode, memcode, "小程序", "1", out billPayCode, billcode, paymoney, "会员卡", "7", memcardObj["cardCode"].ToString(), "", "", discountname, discountmoney, zerocutmoney, "", "",MemberCard, MemberName, MemberBalance, MemberLeve, MemberDiscount,logentity);
+                dt = new bllTB_BillPay().Add(guid, uid, payid, buscode, stocode, memcode, "小程序", "1", out billPayCode, billcode, paymoney, "会员卡", "7", memcardObj["cardCode"].ToString(), "", "", discountname, discountmoney, zerocutmoney, "", "",MemberCard, MemberName, MemberBalance, MemberLeve, MemberDiscount);
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     string status = dt.Rows[0]["type"].ToString();
@@ -1029,12 +995,7 @@ namespace CommunityBuy.App
             string AuthCode = "";
             string AuthName = "";
             //调用逻辑
-            operatelogEntity logentity = new operatelogEntity();
-            logentity.pageurl = "TB_BillPayEdit.html";
-            logentity.logcontent = "新增账单支付信息";
-            logentity.cuser = Helper.StringToLong(USER_ID);
-            logentity.otype = SystemEnum.LogOperateType.Add;
-            dt = new bllTB_BillPay().Add(GUID, USER_ID, Id, BusCode, StoCode, CCode, CCname, TStatus, out PKCode, BillCode, PayMoney, PayMethodName, PayMethodCode, Remar, OutOrderCode, PPKCode, DiscountName, DiscountMoney, ZeroCutMoney, AuthCode, AuthName ,"","","0","","", logentity);
+            dt = new bllTB_BillPay().Add(GUID, USER_ID, Id, BusCode, StoCode, CCode, CCname, TStatus, out PKCode, BillCode, PayMoney, PayMethodName, PayMethodCode, Remar, OutOrderCode, PPKCode, DiscountName, DiscountMoney, ZeroCutMoney, AuthCode, AuthName ,"","","0","","");
             if (PKCode.Length > 4)
             {
                 switch (PayMethodCode)
@@ -1130,9 +1091,9 @@ namespace CommunityBuy.App
                     dtBill.Columns.Add("StoreName");
                     dtBill.Columns.Add("DisNum");
 
-                    int recnum = Helper.StringToInt(dtBill.Rows[0]["recnum"].ToString());
-                    int pagenum = Helper.StringToInt(dtBill.Rows[0]["pagenum"].ToString());
-                    int nextpage = pagenum - Helper.StringToInt(page);
+                    int recnum = StringHelper.StringToInt(dtBill.Rows[0]["recnum"].ToString());
+                    int pagenum = StringHelper.StringToInt(dtBill.Rows[0]["pagenum"].ToString());
+                    int nextpage = pagenum - StringHelper.StringToInt(page);
                     foreach (DataRow dr in dtBill.Rows)
                     {
                         string stocode = dr["stocode"].ToString();
@@ -1151,7 +1112,7 @@ namespace CommunityBuy.App
                         {
                             foreach (DataRow drDish in drs)
                             {
-                                disnum += Helper.StringToDecimal(dr["DisNum"].ToString());
+                                disnum += StringHelper.StringToDecimal(dr["DisNum"].ToString());
                             }
                             string disJson = JsonHelper.DataTableToJSON(drs.CopyToDataTable());
                             dr["DishList"] = disJson;
@@ -1255,7 +1216,7 @@ namespace CommunityBuy.App
                     string PayMethodCode = "";
                     string memcard = dr["MemberCard"].ToString();
 
-                    dt =new bllTB_BillPay().Back("", "", buscode, stocode, memcode, "小程序", "2", out PKCode, PayMoney, Remar, out OutOrderCode, PPKCode, logentity, out PayMethodCode);
+                    new bllTB_BillPay().Back("", "", buscode, stocode, memcode, "小程序", "2", out PKCode, PayMoney, Remar, out OutOrderCode, PPKCode, out PayMethodCode);
                     if (PKCode.Length > 4)
                     {
                         string MemUrl = Helper.GetAppSettings("ServiceUrl") + "/memcardpay/memcardreturn.ashx";

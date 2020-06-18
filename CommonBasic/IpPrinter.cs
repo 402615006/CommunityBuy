@@ -52,7 +52,7 @@ namespace CommunityBuy.CommonBasic
                 CanConnected = true;
             }
             catch (Exception ex) {
-                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
             }
         }
 

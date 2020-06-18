@@ -18,7 +18,6 @@ namespace CommunityBuy.App
     {
         bllTB_Dish bll = new bllTB_Dish();
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -77,7 +76,7 @@ namespace CommunityBuy.App
 
             logentity.pageurl = "WS_Order.ashx";
             logentity.logcontent = "小程序下单";
-            logentity.cuser = Helper.StringToLong("0");
+            logentity.cuser = StringHelper.StringToLong("0");
             logentity.otype = SystemEnum.LogOperateType.Add;
 
             //判断门店是先支付，还是后支付
@@ -224,7 +223,7 @@ namespace CommunityBuy.App
 
                     DataRow drOrder = dt.Select("code='" + dr["code"] + "'")[0];
                     drResult["code"] = drOrder["code"];
-                    drResult["ctime"] = Helper.StringToDateTime(drOrder["ctime"].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
+                    drResult["ctime"] = StringHelper.StringToDateTime(drOrder["ctime"].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
                     drResult["money"] = drOrder["money"];
                     drResult["disnum"] = drOrder["disnum"];
                     drResult["distypenum"] = drOrder["distypenum"];
@@ -311,7 +310,7 @@ namespace CommunityBuy.App
                     string tablename = dtOpenTable.Rows[0]["tablename"].ToString();
                     foreach (DataRow dr in dtDish.Rows)
                     {
-                        if (Helper.StringToDecimal(dr["disnum"].ToString()) > 0)
+                        if (StringHelper.StringToDecimal(dr["disnum"].ToString()) > 0)
                         {
                             DataRow drAdd = dtPrint.NewRow();
                             drAdd["BusCode"] = "88888888";

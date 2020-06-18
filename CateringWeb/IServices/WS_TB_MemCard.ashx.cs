@@ -18,7 +18,6 @@ namespace CommunityBuy.IServices
     {
 
         DataTable dt = new DataTable();
-        operatelogEntity logentity = new operatelogEntity();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -30,7 +29,6 @@ namespace CommunityBuy.IServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-                    logentity.module = "用户信息表";
                     switch (actionname.ToLower())
                     {
                         case "getinfo"://列表
@@ -44,18 +42,6 @@ namespace CommunityBuy.IServices
                             break;
                         case "add"://开卡
                             AddMemberCard(dicPar);
-                            break;
-                        case "recharge"://充值
-                            RechargeMemCard(dicPar);
-                            break;
-                        case "repaire"://补卡
-                            RepaireMemCard(dicPar);
-                            break;
-                        case "change"://换卡
-                            ChangeMemCard(dicPar);
-                            break;
-                        case "退卡"://换卡
-                            BackMemCard(dicPar);
                             break;
                         case "checkmembymob"://换卡
                             CheckIsWxMem(dicPar);
@@ -138,35 +124,6 @@ namespace CommunityBuy.IServices
             }
         }
 
-        /// <summary>
-        /// 获取折扣金额
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void GetDiscountMoney(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "stocode", "billcode", "levelcode" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            StringBuilder postStr = new StringBuilder();
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string stocode = dicPar["stocode"].ToString();
-            string billcode = dicPar["billcode"].ToString();
-            string levelcode = dicPar["levelcode"].ToString();
-
-            //调用逻辑
-            string sql =string.Format("select [dbo].[p_getMemcardDiscount]('{0}','{1}','{2}')",stocode,billcode,levelcode);
-            string dmoney = new bllPaging().ExecuteScalarBySQL(sql);
-
-            ToCustomerJson("0", dmoney);
-        
-        }
 
         /// <summary>
         /// 会员卡开卡
@@ -189,125 +146,11 @@ namespace CommunityBuy.IServices
             string stocode = dicPar["stocode"].ToString();
             string ordercode = dicPar["ordercode"].ToString();
             string mac = dicPar["mac"].ToString();
-            decimal invoice = Helper.StringToDecimal(dicPar["invoice"].ToString());
+            decimal invoice = StringHelper.StringToDecimal(dicPar["invoice"].ToString());
             string msg = "";
 
-            MemCard memCard = new MemCard(GUID, USER_ID, buscode, stocode, mac);
+            blltb_mem memCard = new MemCard(GUID, USER_ID, buscode, stocode, mac);
             DataTable dt= memCard.SYOpenCard("", ordercode, invoice, ref msg);
-            ReturnListJson(dt);
-        }
-
-        /// <summary>
-        /// 会员卡充值
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void RechargeMemCard(Dictionary<string, object> dicPar)
-        {
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "buscode", "stocode", "ordercode", "invoice", "mac" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            StringBuilder postStr = new StringBuilder();
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string buscode = dicPar["buscode"].ToString();
-            string stocode = dicPar["stocode"].ToString();
-            string ordercode = dicPar["ordercode"].ToString();
-            string mac = dicPar["mac"].ToString();
-            decimal invoice = Helper.StringToDecimal(dicPar["invoice"].ToString());
-            string msg = "";
-
-            MemCard memCard = new MemCard(GUID, USER_ID, buscode, stocode, mac);
-            DataTable dt = memCard.CardRecharge("", ordercode, invoice, ref msg);
-            ReturnListJson(dt);
-        }
-
-        /// <summary>
-        /// 会员卡补卡
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void RepaireMemCard(Dictionary<string, object> dicPar)
-        {
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "buscode", "stocode", "ordercode", "mac" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            StringBuilder postStr = new StringBuilder();
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string buscode = dicPar["buscode"].ToString();
-            string stocode = dicPar["stocode"].ToString();
-            string ordercode = dicPar["ordercode"].ToString();
-            string mac = dicPar["mac"].ToString();
-            string msg = "";
-
-            MemCard memCard = new MemCard(GUID, USER_ID, buscode, stocode, mac);
-            DataTable dt = memCard.MemCardSupple("", ordercode, ref msg);
-            ReturnListJson(dt);
-        }
-
-
-        /// <summary>
-        /// 会员卡换卡
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void ChangeMemCard(Dictionary<string, object> dicPar)
-        {
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "buscode", "stocode", "ordercode", "mac" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            StringBuilder postStr = new StringBuilder();
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string buscode = dicPar["buscode"].ToString();
-            string stocode = dicPar["stocode"].ToString();
-            string ordercode = dicPar["ordercode"].ToString();
-            string mac = dicPar["mac"].ToString();
-            string msg = "";
-
-            MemCard memCard = new MemCard(GUID, USER_ID, buscode, stocode, mac);
-            DataTable dt = memCard.MemCardReplace("", ordercode, ref msg);
-            ReturnListJson(dt);
-        }
-
-        /// <summary>
-        /// 会员卡退看
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void BackMemCard(Dictionary<string, object> dicPar)
-        {
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "buscode", "stocode", "ordercode", "mac" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            StringBuilder postStr = new StringBuilder();
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string buscode = dicPar["buscode"].ToString();
-            string stocode = dicPar["stocode"].ToString();
-            string ordercode = dicPar["ordercode"].ToString();
-            string mac = dicPar["mac"].ToString();
-            string msg = "";
-
-            MemCard memCard = new MemCard(GUID, USER_ID, buscode, stocode, mac);
-            DataTable dt = memCard.MemCardReplace("", ordercode, ref msg);
             ReturnListJson(dt);
         }
 
