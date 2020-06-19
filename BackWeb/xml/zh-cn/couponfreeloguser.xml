@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡管理</MainMenu>
+  <SubMenu>活动优惠券赠送</SubMenu>
+  <Menu>活动优惠券赠送</Menu>
+  <Title>活动优惠券赠送</Title>
+  <GoBack>活动优惠券赠送</GoBack>
+  <Edittitle>活动优惠券赠送</Edittitle>
+  <free_btn>赠送优惠券</free_btn>
+  <readcard>查询信息</readcard>
+
+  <!--优惠券赠送日志列表-条件-->
+  <givedate_where>赠送时间：</givedate_where>
+  <cardno_where>卡面卡号：</cardno_where>
+  <tablecode_where>批次号：</tablecode_where>
+  <pcode_where>优惠活动：</pcode_where>
+
+  <!--优惠券赠送日志列表-Grid-->
+  <cardno_list>卡面卡号</cardno_list>
+  <cardtype_list>卡类型</cardtype_list>
+  <cardlevel_list>卡等级</cardlevel_list>
+  <memcode_list>会员姓名</memcode_list>
+  <pname_list>优惠活动名称</pname_list>
+  <Coupon_list>赠送优惠券</Coupon_list>
+  <opstore_list>赠送门店</opstore_list>
+  <cuser_list>操作员</cuser_list>
+  <givedate_list>赠送时间</givedate_list>
+  <status_list>赠送状态</status_list>
+
+  <!--优惠券赠送日志-新增-->
+  <tab1>基本信息</tab1>
+  <span_mobile>用户手机号：</span_mobile>
+  <mobile_placeholder>请输入手机号</mobile_placeholder>
+  <span_ctype>会员卡类型：</span_ctype>
+  <span_balance>可用金额：</span_balance>
+  <span_scid>赠送优惠方案：</span_scid>
+  <span_memcardoutnum>选择优惠券与可赠送优惠券种类不符,请检查</span_memcardoutnum>
+  <span_memcardnonum>请选择卡优惠方案</span_memcardnonum>
+  <span_userinfo>会员信息：</span_userinfo>
+</Pages>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>短信模板</MainMenu>
+<SubMenu>短信模板</SubMenu>
+<Menu>短信模板</Menu>
+<Title>短信模板</Title>
+<GoBack>短信模板</GoBack>
+<!--短信模板列表-条件-->
+
+<tcode_where>模板编号：</tcode_where>
+<tname_where>模板名称：</tname_where>
+<ttype_where>模板类型：</ttype_where>
+  status_where
+  <!--短信模板列表-Grid-->
+<tcode_list>模板编号</tcode_list>
+<tname_list>模板名称</tname_list>
+<ttype_list>模板类型</ttype_list>
+<status_list>状态</status_list>
+<cuser_list>创建人标识</cuser_list>
+<ctime_list>创建时间</ctime_list><MainMenu>短信模板</MainMenu>
+<SubMenu>短信模板</SubMenu>
+<Menu>短信模板</Menu>
+<Title>短信模板</Title>
+<GoBack>短信模板</GoBack>
+<!--短信模板列表-条件-->
+
+<tcode_where>模板编号：</tcode_where>
+<tname_where>模板名称：</tname_where>
+<status_where>状态：</status_where><!--短信模板-新增-->
+<tab1>基本信息</tab1>
+<span_notid>标识：</span_notid>
+<span_buscode>商户编号：</span_buscode>
+<buscode_placeholder>请输入商户编号</buscode_placeholder>
+<span_stocode>门店编号：</span_stocode>
+<stocode_placeholder>请输入门店编号</stocode_placeholder>
+<span_tcode>模板编号：</span_tcode>
+<tcode_placeholder>请输入模板编号</tcode_placeholder>
+<span_tname>模板名称：</span_tname>
+<tname_placeholder>请输入模板名称</tname_placeholder>
+<span_ttype>模板类型：</span_ttype>
+<span_status>状态：</span_status>
+<span_remark>备注/模板信息：</span_remark>
+<remark_placeholder>请输入备注/模板信息</remark_placeholder>
+<span_cuser>创建人标识：</span_cuser>
+<span_ctime>创建时间：</span_ctime>
+<span_uuser>更新人标识：</span_uuser>
+<span_utime>更新时间：</span_utime>
+
+</Pages>

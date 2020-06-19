@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>新开续充统计表</MainMenu>
+  <SubMenu>新开续充统计表</SubMenu>
+  <Menu>新开续充统计表</Menu>
+  <Title>新开续充统计表</Title>
+  <GoBack>新开续充统计表</GoBack>
+  <!--优惠券列表-条件-->
+  <startdate_where>开始时间：</startdate_where>
+  <enddate_where>结束时间：</enddate_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <cracode_where>会员卡等级：</cracode_where>
+  <stocode_where>门店：</stocode_where>
+  <!--优惠券列表-Grid-->
+
+  <!--优惠券列表-条件-->
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+  <storerefer>门店选择</storerefer>
+</Pages>

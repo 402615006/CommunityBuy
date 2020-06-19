@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="WS_Dish.ashx.cs" Class="CommunityBuy.App.WS_Dish" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="WS_Dish.ashx.cs" Class="CateringYun.Ar.WS_Dish" %>

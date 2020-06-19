@@ -1,0 +1,11 @@
+﻿/* 开关 */
+.btn-recyble {
+    width: 53px;
+    height: 22px;
+    border: 0px;
+    outline: none;
+    vertical-align: middle;
+    cursor:pointer;
+}
+    .btn-recyble .on {
+    }

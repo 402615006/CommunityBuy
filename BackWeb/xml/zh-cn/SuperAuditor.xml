@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>超级审核人</MainMenu>
+<SubMenu>超级审核人</SubMenu>
+<Menu>超级审核人</Menu>
+<Title>超级审核人</Title>
+<GoBack>超级审核人</GoBack>
+<Edittitle>超级审核人</Edittitle>
+<!--超级审核人列表-条件-->
+
+<ctype_where>类型：</ctype_where>
+  <userid_where>用户名：</userid_where>
+  <empname_where>员工姓名：</empname_where>
+  <empmob_where>员工手机号：</empmob_where>
+<!--超级审核人列表-Grid-->
+<ctype_list>类型</ctype_list>
+  <userid_list>用户名</userid_list>
+  <empname_list>员工姓名</empname_list>
+  <empmob_list>员工手机号</empmob_list>
+  <remark_list>备注</remark_list>
+<status_list>状态</status_list>
+<cuser_list>创建人</cuser_list>
+<ctime_list>创建时间</ctime_list><MainMenu>超级审核人</MainMenu>
+<SubMenu>超级审核人</SubMenu>
+<Menu>超级审核人</Menu>
+<Title>超级审核人</Title>
+<GoBack>超级审核人</GoBack>
+<!--超级审核人列表-条件-->
+
+<ctype_where>类型：</ctype_where>
+<userid_where>用户ID：</userid_where><!--超级审核人-新增-->
+<tab1>基本信息</tab1>
+<span_sauid>标识：</span_sauid>
+<span_ctype>审批类型：</span_ctype>
+<span_userid>选择用户：</span_userid>
+<userid_placeholder>请选择用户</userid_placeholder>
+<span_remark>备注：</span_remark>
+<remark_placeholder>请输入备注</remark_placeholder>
+<span_status>状态：</span_status>
+<span_cuser>创建人标识：</span_cuser>
+<span_ctime>创建时间：</span_ctime>
+ <adminrefer>选择用户</adminrefer>
+</Pages>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>系统字典信息</MainMenu>
+  <SubMenu>系统字典信息</SubMenu>
+  <Menu>系统字典信息</Menu>
+  <!--系统字典信息列表-条件-->
+
+  <dicid_where>标识：</dicid_where>
+
+  <!--系统字典信息列表-Grid-->
+  <parentName_list>父级名称：</parentName_list>
+  <diccode_list>字典编号：</diccode_list>
+  <dicname_list>字典名称：</dicname_list>
+  <orderno_list>排序：</orderno_list>
+  <status_list>状态：</status_list>
+  <remark_list>备注：</remark_list>
+  <parentName_list>父级名称：</parentName_list>
+  <tab1>基本信息</tab1>
+  <span_dicid>标识：</span_dicid>
+
+  <span_strcode>门店编号：</span_strcode>
+  <strcode_placeholder>请输入门店编号</strcode_placeholder>
+  <span_dictype>类别：</span_dictype>
+  <dictype_placeholder>请输入类别</dictype_placeholder>
+  <span_lng>语言代码：</span_lng>
+  <lng_placeholder>请输入语言代码</lng_placeholder>
+  <span_pdicid>父节点：</span_pdicid>
+  <pdicid_placeholder>请输入父节点</pdicid_placeholder>
+  <span_diccode>字典编号：</span_diccode>
+  <diccode_placeholder>请输入字典编号</diccode_placeholder>
+  <span_dicname>字典名称：</span_dicname>
+  <dicname_placeholder>请输入字典名称</dicname_placeholder>
+  <span_dicvalue>字典值：</span_dicvalue>
+  <dicvalue_placeholder>请输入字典值</dicvalue_placeholder>
+  <span_orderno>排序号：</span_orderno>
+  <orderno_placeholder>请输入排序号</orderno_placeholder>
+  <span_remark>备注：</span_remark>
+  <remark_placeholder>请输入备注</remark_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>状态</status_placeholder>
+  <span_cuser>引用系统用户表ts_admins的userid字段值：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_isdelete>是否删除（0未删除，1已删除，默认值为0）：</span_isdelete>
+
+</Pages>

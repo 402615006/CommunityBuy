@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title data-code="PageTitle">主界面</title>
+    <link href="css/easyui.css" rel="stylesheet" />
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/xmlhelper.js"></script>
+    <script src="js/layer/layer.js"></script>
+    <script src="js/layerhelper.js"></script>
+    <script src="js/jquery.easyui.js"></script>
+    <!--<script src="js/frame.js"></script>-->
+    <script src="js/index.js"></script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            font-size: 13px;
+            font-family: "微软雅黑";
+            color: #666;
+        }
+
+        html, body {
+            height: 100%;
+            border:0px;
+        }
+
+        .listPage {
+            min-width: 1200px;
+        }
+        /*上*/
+        .mainhead {
+            width: 100%;
+            min-width: 1200px;
+            height: 60px;
+            background-color: #2c344c;
+            padding-right:10px;
+            /*position: relative;*/
+        }
+
+            .mainhead div {
+                float: left;
+            }
+
+        .header {
+            width: 300px;
+            height: 60px;
+            background-color: #2c344c;
+            background-image: url(/img/logo.png);
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+
+        .head_title {
+            width: 300px;
+            height: 60px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 85px;
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .headList {
+            min-width: 200px;
+            position: absolute;
+            right: 0px;
+        }
+
+       .head_div {
+				width: 110px;
+				margin-left: 1px;
+				text-align: center;
+				height: 60px;
+				line-height: 60px;
+				/*padding-top: 20px;*/
+				background-color: #2c344c;
+				cursor: pointer;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.head_div img {
+				width: 30px;
+				height: 30px;
+				margin-right: 5px;
+			}
+			
+			.head_div p {
+				color: white;
+			}
+
+        .home {
+            background-color: #2c344c;
+        }
+        /*左*/
+        .mainleft {
+            width: 220px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .leftclose {
+            width: 100%;
+            text-align: right;
+            padding-top: 10px;
+        }
+
+            .leftclose img {
+                margin-right: 10px;
+            }
+
+        .leftuser {
+            width: 100%;
+            height: 70px;
+        }
+
+            .leftuser img {
+                height: 70px;
+                width: 70px;
+                border-radius: 50%;
+            }
+
+            .leftuser div {
+                float: left;
+                height: 70px;
+                margin-left: 10px;
+                line-height: 23px;
+            }
+
+        #showname {
+            color: #3E4560;
+            font-size: 15px;
+            font-weight: bold;
+            padding-top: 10px;
+        }
+
+        .userlogout {
+            width: 100%;
+            height: 30px;
+            text-align: right;
+            position: relative;
+        }
+
+        .logout {
+            float: none;
+            clear: both;
+            height: 30px;
+            width: 70px;
+            line-height: 35px;
+            font-size: 12px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+        }
+
+            .logout img {
+                vertical-align: middle;
+            }
+
+        .height10 {
+            clear: both;
+            float: none;
+            height: 10px;
+            line-height: 10px;
+            width: 100%;
+        }
+
+        .height20 {
+            clear: both;
+            float: none;
+            height: 20px;
+            line-height: 20px;
+            width: 100%;
+        }
+
+        .mainbtn {
+            height: 45px;
+            width: 100%;
+            background-color: #fff;
+            font-size: 18px;
+            color: #565656;
+            line-height: 45px;
+            background-image: url(img/down.png);
+            background-position: 90% center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            /*border-top: 1px solid #bcbcbc;*/
+            border-bottom: 1px solid #bdbdbd;
+            text-indent: 20px;
+        }
+
+            .mainbtn img {
+                vertical-align: middle;
+                margin-left: 10px;
+                height: 25px;
+                width: 25px;
+            }
+
+        .subclass {
+            height: 40px;
+            width: 100%;
+            /*background-color: #32323A;*/
+            /*background-color: white;*/
+            border-bottom: 1px solid #fff;
+            /*color: white;*/
+            font-size: 16px;
+            color: #616161;
+            line-height: 40px;
+            text-indent: 40px;
+            cursor: pointer;
+            border-bottom: 1px solid #bdbdbd;
+        }
+
+
+        .imgshow {
+            background-repeat: no-repeat;
+            height: 14px;
+            width: 21px;
+            float: left;
+            margin-right: 2px;
+            /*display: none;*/
+        }
+
+        /*右*/
+        .leftclose, .leftuser, .height10, .userlogout {
+            background-color: #F2F2F2;
+        }
+
+        .mainleft {
+            float: left;
+            /*bottom: 35px;*/
+        }
+
+        .mainright {
+            float: left;
+            min-width: 980px;
+            position: absolute;
+            /*left: 220px;
+            top: 100px;*/
+        }
+        /*下*/
+        .foot {
+            height: 30px;
+            line-height: 30px;
+            background-color: #3E4560;
+            width: 100%;
+            color: white;
+            text-align: center;
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+        }
+
+        .popcircle, .together {
+            cursor: pointer;
+        }
+
+        #frame {
+            border: 0px;
+            width: 100%;
+            min-width: 780px;
+        }
+
+        .message {
+            position: absolute;
+            right: 90px;
+            top: 7px;
+            cursor: pointer;
+        }
+
+        .mainleft #btnlist {
+            overflow-y: auto;
+            bottom: 30px;
+        }
+    </style>
+</head>
+<body data-pagecode="login" class="easyui-layout" style="overflow-y: hidden">
+    <noscript>
+        <div style="position: absolute; z-index: 100000; height: 2046px; top: 0px; left: 0px; width: 100%; background: white; text-align: center;">
+            <img src="/images/noscript.gif" alt='抱歉，请开启脚本支持！' />
+        </div>
+    </noscript>
+    <div region="north" class="mainhead" split="true" border="false">
+        <div class="header">
+            <div class="head_title"></div>
+        </div>
+        <div class="headList">
+        </div>
+    </div>
+    <div region="south" split="true" style="height: 30px; background: #D2E0F2;">
+        <div data-code="Common_Copyright" class="foot">copyright@2018 新疆万众 版权所有</div>
+    </div>
+    <div class="mainleft" region="west" split="true" id="west" style="width: 220px;">
+        <div class="easyui-accordion" fit="true" border="false">
+            <div class="leftclose">
+                <img class="together" onclick="shrink()" src="/img/Together.png" />
+            </div>
+            <div class="leftuser">
+                <div>
+                    <img src="img/sys.jpg" />
+                </div>
+                <div>
+                    <p id="showname"></p>
+                    <p data-code="Welcome">Welcome!</p>
+                </div>
+            </div>
+            <div class="height10">&nbsp;</div>
+            <div class="userlogout">
+                <div class="logout" onclick="confirmlogout();">
+                    <img src="img/logout.png" />
+                </div>
+            </div>
+            <div class="height10">&nbsp;</div>
+            <div id="btnlist" class="easyui-accordion" fit="true" border="false">
+            </div>
+        </div>
+    </div>
+    <div id="mainPanle" class="mainright" region="center" style="background: #eee; overflow-y: hidden">
+        <div class="easyui-tabs" id="tabs" fit="true" border="false">
+            <!--<div title="欢迎使用" style="padding: 20px; overflow: hidden;" id="home">
+                <iframe id="frame" src="welcomePage.aspx" style="width: 100%; height: 100%; border: 0px;"></iframe>
+            </div>-->
+        </div>
+    </div>
+    <div id="mm" class="easyui-menu" style="width: 150px;">
+        <div id="mm-tabclose">
+            关闭
+        </div>
+        <div id="mm-tabcloseall">
+            全部关闭
+        </div>
+        <div id="mm-tabcloseother">
+            除此之外全部关闭
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    document.onkeydown = function (e) {
+        if (e.which) {
+            if (e.which == 116) {
+                $('#frame').attr('src', 'welcomePage.aspx');
+            }
+        }
+        else if (event.keyCode) {
+            if (event.keyCode == 116) {
+                $('#frame').attr('src', 'welcomePage.aspx');
+            }
+        }
+    }
+    //setInterval("searchmess()", 10000);
+</script>
+</html>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>品项销售统计-财务类别</MainMenu>
+  <SubMenu>品项销售统计-财务类别</SubMenu>
+  <Menu>品项销售统计-财务类别</Menu>
+  <Title>品项销售统计-财务类别</Title>
+  <GoBack>品项销售统计-财务类别</GoBack>
+  <!--财务类别列表-条件-->
+  <date_list>日期：</date_list>
+  <disname_list>菜品名称：</disname_list>
+  <scm_list>速查码：</scm_list>
+  <distype_list>财务类别：</distype_list>
+  <stoname_list>所属门店：</stoname_list>
+  <war_list>所属门店：</war_list>
+  <storerefer>选择门店</storerefer>
+  <financetyperefer>选择财务类别</financetyperefer>
+  <starttime_placeholder>请输入开始日期</starttime_placeholder>
+  <endtime_placeholder>请输入结束日期</endtime_placeholder>
+</Pages>

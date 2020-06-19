@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>其他管理</MainMenu>
+  <SubMenu>帮助中心管理</SubMenu>
+  <Menu>帮助中心管理</Menu>
+  <storerefer>帮助中心管理</storerefer>
+  <!--列表-条件-->
+  <title_where>标题：</title_where>
+  <pcontent_where>内容：</pcontent_where>
+  <title_placeholder>输入部分标题查询</title_placeholder>
+  <pcontent_placeholder>输入部分内容查询</pcontent_placeholder>
+
+  <!--列表-Grid-->
+  <title_list>标题</title_list>
+  <hcontent_list>内容</hcontent_list>
+  <status_list>状态</status_list>
+
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <title_placeholder1>请输入标题</title_placeholder1>
+  <hcontent_placeholder1>请输入内容</hcontent_placeholder1>
+  <span_title>标题：</span_title>
+  <span_hcontent>内容：</span_hcontent>
+</Pages>

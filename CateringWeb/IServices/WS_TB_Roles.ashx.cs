@@ -29,7 +29,6 @@ namespace CommunityBuy.IServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-                    logentity.module = "门店角色信息";
                     switch (actionname.ToLower())
                     {
                         case "getlist"://列表
@@ -104,7 +103,6 @@ namespace CommunityBuy.IServices
                 {
                     filter = "";
                 }
-                filter = GetBusCodeWhere(dicPar, filter, "buscode");
                 string order = JsonHelper.ObjectToJSON(dicPar["orders"]);
                 if (order.Length > 0)
                 {
@@ -119,23 +117,11 @@ namespace CommunityBuy.IServices
                 int totalPage = 0;
                 //调用逻辑
                 dt = bll.GetPagingListInfo(GUID, userid, pageSize, currentPage, filter, order, out recordCount, out totalPage);
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        if (dtRoleType.Select("enumcode='" + StringHelper.StringToInt(dr["RoleType"].ToString()) + "'").Length > 0)
-                        {
-                            dr["RoleTypeName"] = dtRoleType.Select("enumcode='" + StringHelper.StringToInt(dr["RoleType"].ToString()) + "'")[0]["enumname"].ToString();
-                        }
-
-                    }
-                    dt.AcceptChanges();
-                }
                 ReturnListJson(dt, pageSize, recordCount, currentPage, totalPage);
             }
             catch (Exception ex)
             {
-                ToCustomerJson("2", ex.Message);
+                ReturnResultJson("2", ex.Message);
                 return;
             }
 
@@ -183,19 +169,14 @@ namespace CommunityBuy.IServices
                 FunctionIds = dicPar["FunctionIds"].ToString().Trim(',');
             }
             //调用逻辑
-            logentity.pageurl = "TB_RolesEdit.html";
-            logentity.logcontent = "新增门店角色信息信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            logentity.otype = SystemEnum.LogOperateType.Add;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Add(GUID, userid, out Id, BusCode, StoCode, CCname, TStatus, UCname, SCope, RoleName, RoleParent, RoleDescr, RoleDisCount, RoleEnable, MaxDiffPrice, MaxPrefePrice, IsSig, Sigcredit, RoleType, TerminalType, CCode, UCode, FunctionIds, logentity);
-            ReturnListJson(dt);
+            bll.Add(GUID, userid, Id, BusCode, StoCode, CCname, TStatus, UCname, SCope, RoleName, RoleParent, RoleDescr, RoleDisCount, RoleEnable, MaxDiffPrice, MaxPrefePrice, IsSig, Sigcredit, RoleType, TerminalType, CCode, UCode, FunctionIds);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         private void Update(Dictionary<string, object> dicPar)
         {
             //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "userid", "Id", "BusCode", "StoCode", "CCname", "TStatus", "UCname", "SCope", "RoleName", "RoleParent", "RoleDescr", "RoleDisCount", "RoleEnable", "MaxDiffPrice", "MaxPrefePrice", "IsSig", "Sigcredit", "RoleType", "TerminalType", "CCode", "UCode", "FunctionIds" };
+            List<string> pra = new List<string>() { "GUID", "userid", "Id", "BusCode", "RoleName", "RoleDescr", "RoleEnable", "RoleType", "FunctionIds" };
             //检测方法需要的参数
             if (!CheckActionParameters(dicPar, pra))
             {
@@ -204,40 +185,27 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
-            string Id = dicPar["Id"].ToString();
-            string BusCode = dicPar["BusCode"].ToString();
-            string StoCode = Helper.GetAppSettings("StoCode");
-            string CCname = dicPar["CCname"].ToString();
-            string TStatus = dicPar["TStatus"].ToString();
-            string UCname = dicPar["UCname"].ToString();
-            string SCope = dicPar["SCope"].ToString();
+            string id = dicPar["Id"].ToString();
             string RoleName = dicPar["RoleName"].ToString();
-            string RoleParent = dicPar["RoleParent"].ToString();
             string RoleDescr = dicPar["RoleDescr"].ToString();
-            string RoleDisCount = dicPar["RoleDisCount"].ToString().Trim(',');
             string RoleEnable = dicPar["RoleEnable"].ToString();
-            string MaxDiffPrice = dicPar["MaxDiffPrice"].ToString();
-            string MaxPrefePrice = dicPar["MaxPrefePrice"].ToString();
-            string IsSig = dicPar["IsSig"].ToString();
-            string Sigcredit = dicPar["Sigcredit"].ToString();
             string RoleType = dicPar["RoleType"].ToString();
-            string TerminalType = dicPar["TerminalType"].ToString();
-            string CCode = dicPar["CCode"].ToString();
-            string UCode = dicPar["UCode"].ToString();
             string FunctionIds = string.Empty;
             if (dicPar["FunctionIds"] != null)
             {
                 FunctionIds = dicPar["FunctionIds"].ToString().TrimEnd(',');
             }
-            //调用逻辑
-            logentity.pageurl = "TB_RolesEdit.html";
-            logentity.logcontent = "修改id为:" + Id + "的门店角色信息信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            logentity.otype = SystemEnum.LogOperateType.Edit;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Update(GUID, userid, Id, BusCode, StoCode, CCname, TStatus, UCname, SCope, RoleName, RoleParent, RoleDescr, RoleDisCount, RoleEnable, MaxDiffPrice, MaxPrefePrice, IsSig, Sigcredit, RoleType, TerminalType, CCode, UCode, FunctionIds, logentity);
 
-            ReturnListJson(dt);
+            TB_RolesEntity UEntity = bll.GetEntitySigInfo(" where id="+ id);
+
+            UEntity.RoleName = RoleName;
+            UEntity.RoleEnable = RoleEnable;
+            UEntity.RoleType = RoleType;
+            UEntity.RoleDescr = RoleDescr;
+            //调用逻辑
+            bll.Update(GUID, userid, UEntity, FunctionIds);
+
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         private void Detail(Dictionary<string, object> dicPar)
@@ -255,7 +223,7 @@ namespace CommunityBuy.IServices
             string Id = dicPar["Id"].ToString();
             //调用逻辑			
             dt = bll.GetPagingSigInfo(GUID, userid, "where Id=" + Id);
-            ReturnListJson(dt);
+            ReturnListJson(dt,null,null,null,null);
         }
 
         private void Delete(Dictionary<string, object> dicPar)
@@ -272,13 +240,8 @@ namespace CommunityBuy.IServices
             string userid = dicPar["userid"].ToString();
             string Id = dicPar["id"].ToString();
             //调用逻辑
-            logentity.pageurl = "TB_RolesList.html";
-            logentity.logcontent = "删除id为:" + Id + "的门店角色信息信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            logentity.otype = SystemEnum.LogOperateType.Delete;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Delete(GUID, userid, Id, logentity);
-            ReturnListJson(dt);
+            bll.Delete(GUID, userid, Id);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         /// <summary>
@@ -301,12 +264,10 @@ namespace CommunityBuy.IServices
             string status = dicPar["tstatus"].ToString();
 
             string Id = dicPar["ids"].ToString().Trim(',');
-            logentity.pageurl = "TB_RolesList.html";
-            logentity.logcontent = "修改状态id为:" + Id + "的门店角色信息信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            DataTable dt = bll.UpdateStatus(GUID, userid, Id, status);
-
-            ReturnListJson(dt);
+            TB_RolesEntity UEntity = bll.GetEntitySigInfo(" where id=" + Id);
+            UEntity.TStatus = status;
+            bll.Update(GUID, userid, UEntity,"");
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         /// <summary>
@@ -347,11 +308,11 @@ namespace CommunityBuy.IServices
                 arrData.Add(data1);
                 arrData.Add(data2);
                 arrData.Add(data3);
-                ReturnListJson("0", "", arrData, arrTBName);
+                ReturnManyListJson("0", "", arrData, arrTBName,null,null,null,null);
             }
             catch (Exception ex)
             {
-                ToCustomerJson("2", ex.Message);
+                ReturnResultJson("2", ex.Message);
                 return;
             }
 
@@ -375,7 +336,7 @@ namespace CommunityBuy.IServices
             string userid = dicPar["USER_ID"].ToString();
             //调用逻辑			
             dt = bll.GetbtnRoleData(GUID, userid);
-            ReturnListJson(dt);
+            ReturnListJson(dt,null,null,null,null);
         }
     }
 }

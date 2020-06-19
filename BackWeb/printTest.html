@@ -1,0 +1,1064 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="js/LodopFuncs.js"></script>
+    <script language="javascript" type="text/javascript">
+        var LODOP; //声明为全局变量 
+        function prn1_preview() {
+            PrintMytable();
+            LODOP.PREVIEW();
+        };
+        function prn1_print() {
+            PrintMytable();
+            LODOP.PRINT();
+        };
+
+        function PrintMytable() {
+            LODOP = getLodop();
+            LODOP.PRINT_INIT("123");
+
+            LODOP.SET_PRINT_PAGESIZE(1, "210mm", "140mm", '');
+            LODOP.ADD_PRINT_TEXT(0, 0, 100, 39, "");
+
+            LODOP.SET_PRINT_PAGESIZE(1, "210mm", "140mm", '');
+            LODOP.ADD_PRINT_TEXT(0, 0, 100, 39, "");
+            LODOP.ADD_PRINT_TEXT(10, 720, 160, 20, "第#页/共&页");
+            LODOP.SET_PRINT_STYLEA(2, "ItemType", 2);
+            LODOP.SET_PRINT_STYLEA(2, "HOrient", 1);
+            LODOP.ADD_PRINT_TABLE('0%', '0%', '100%', '100%', document.getElementById("printdiv").innerHTML);
+            //LODOP.ADD_PRINT_TABLE(110, 33, 750, 900, document.getElementById("printdiv").innerHTML);
+        };
+
+    </script>
+</head>
+<body>
+    <input id="Button1" onclick="prn1_preview();" type="button" value="print" />
+    <div id="printdiv">
+        <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">  <head> <meta http-equiv=Content-Type content=text/html; charset=utf-8> <meta name=ProgId content=Excel.Sheet> <meta name=Generator > <link rel=File-List href=/filelist.xml> <link rel=Edit-Time-Data href=/editdata.mso> <link rel=OLE-Object-Data href=/oledata.mso> <!--[if gte mso 9]><xml>  <o:DocumentProperties>   <o:Author>cgd</o:Author>   <o:LastPrinted>2017-05-27T02:13:44Z</o:LastPrinted>   <o:Created>2017-05-26T12:33:43Z</o:Created>   <o:LastSaved>2017-06-16T15:45:20Z</o:LastSaved> </o:DocumentProperties> </xml><![endif]--> 
+            <style>
+                <!-- 
+
+                @page {
+                    margin: 0.196850393700787in 0.118110236220472in 0.393700787401575in 0.511811023622047in;
+                    mso-header-margin: 0in;
+                    mso-footer-margin: 0in;
+                    mso-page-orientation: Portrait;
+                }
+
+                tr {
+                    mso-height-source: auto;
+                    mso-ruby-visibility: none;
+                }
+
+                col {
+                    mso-width-source: auto;
+                    mso-ruby-visibility: none;
+                }
+
+                br {
+                    mso-data-placement: same-cell;
+                }
+
+                ruby {
+                    ruby-align: left;
+                }
+
+                .style0 {
+                    mso-number-format: General;
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                    mso-style-name: Normal;
+                    mso-style-id: 0;
+                }
+
+                .font0 {
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                }
+
+                .font1 {
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                }
+
+                .font2 {
+                    color: #000000;
+                    font-size: 14pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                }
+
+                .font3 {
+                    color: #000000;
+                    font-size: 9pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                }
+
+                .font4 {
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                }
+
+                .font5 {
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                }
+
+                td {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                    mso-ignore: padding;
+                }
+
+                .style0 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                    mso-style-name: Normal;
+                }
+
+                .style1 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style2 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style3 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style4 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style5 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style6 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style7 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style8 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style9 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style10 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style11 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style12 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style13 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style14 {
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .x15 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .style16 {
+                    mso-number-format: 0%;
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                    mso-style-name: Percent;
+                }
+
+                .style17 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                    mso-style-name: Currency;
+                }
+
+                .style18 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                    mso-style-name: Currency [0];
+                }
+
+                .style19 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                    mso-style-name: Comma;
+                }
+
+                .style20 {
+                    mso-number-format: _ * \\#\\,\\#\\#0_ \\;
+                    _ * -\\#\\,\\#\\#0_ \\;
+                    _ * \\0022-\\0022_ \\;
+                    _ \\@_ ;
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                    mso-style-name: Comma [0];
+                }
+
+                .style21 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style22 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style23 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style24 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style25 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style26 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style27 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style28 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style29 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style30 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style31 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style32 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style33 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .style34 {
+                    text-align: general;
+                    vertical-align: bottom;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: Arial,sans-serif;
+                    mso-protection: locked visible;
+                }
+
+                .x35 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 14pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x36 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: right;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 14pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x37 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x38 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border-top: .5pt solid windowtext;
+                    border-right: .5pt solid windowtext;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: .5pt solid windowtext;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+
+                .x39 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: left;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border-top: .5pt solid windowtext;
+                    border-right: .5pt solid windowtext;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: .5pt solid windowtext;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+
+                .x40 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: general;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x41 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: left;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x42 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: left;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x43 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: #F2F2F2;
+                    mso-pattern: auto none;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border-top: .5pt solid windowtext;
+                    border-right: .5pt solid windowtext;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: .5pt solid windowtext;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+
+                .x44 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: right;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x45 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x46 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x47 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: right;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x48 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: #F2F2F2;
+                    mso-pattern: auto none;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border-top: .5pt solid windowtext;
+                    border-right: .5pt solid windowtext;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: .5pt solid windowtext;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+
+                .x49 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: left;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x50 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: left;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border-top: none;
+                    border-right: none;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: none;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+
+                .x51 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: left;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 11pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,sans-serif;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x52 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: left;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 14pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border: none;
+                    mso-protection: locked visible;
+                }
+
+                .x53 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: #F2F2F2;
+                    mso-pattern: auto none;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border-top: .5pt solid windowtext;
+                    border-right: none;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: .5pt solid windowtext;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+
+                .x54 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: #F2F2F2;
+                    mso-pattern: auto none;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 700;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border-top: .5pt solid windowtext;
+                    border-right: .5pt solid windowtext;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: none;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+
+                .x55 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border-top: .5pt solid windowtext;
+                    border-right: none;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: .5pt solid windowtext;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+
+                .x56 {
+                    mso-style-parent: style0;
+                    mso-number-format: General;
+                    text-align: center;
+                    vertical-align: middle;
+                    white-space: nowrap;
+                    background: auto;
+                    mso-pattern: auto;
+                    color: #000000;
+                    font-size: 10pt;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 宋体,monospace;
+                    border-top: .5pt solid windowtext;
+                    border-right: .5pt solid windowtext;
+                    border-bottom: .5pt solid windowtext;
+                    border-left: none;
+                    mso-diagonal-down: none;
+                    mso-diagonal-up: none;
+                    mso-protection: locked visible;
+                }
+                -->
+            </style> 
+            <!--[if gte mso 9]><xml>  <x:ExcelWorkbook>   <x:ExcelWorksheets>    <x:ExcelWorksheet>     <x:Name>Sheet1</x:Name> <x:WorksheetOptions>  <x:StandardWidth>2304</x:StandardWidth>  <x:Print>   <x:ValidPrinterInfo/>   <x:PaperSizeIndex>9</x:PaperSizeIndex>   <x:HorizontalResolution>180</x:HorizontalResolution>   <x:VerticalResolution>180</x:VerticalResolution>  </x:Print>  <x:Selected/> </x:WorksheetOptions>    </x:ExcelWorksheet>   </x:ExcelWorksheets>   <x:WindowHeight>8925</x:WindowHeight>   <x:WindowWidth>28800</x:WindowWidth>   <x:WindowTopX>0</x:WindowTopX>   <x:WindowTopY>0</x:WindowTopY>   <x:RefModeR1C1/>   <x:TabRatio>600</x:TabRatio>   <x:ActiveSheet>0</x:ActiveSheet>  </x:ExcelWorkbook>  <x:ExcelName>   <x:Name>PRINT_TITLES</x:Name>   <x:SheetIndex>1</x:SheetIndex>   <x:Formula>=Sheet1!$1:$4</x:Formula>  </x:ExcelName> </xml><![endif]--> </head> 
+            <body link=blue vlink=purple >  
+                <table border=0 cellpadding=0 cellspacing=0 width=849 style='border-collapse:   collapse;table-layout:fixed;width:636pt'>  <col width=38 style='mso-width-source:userset;width:28pt'>  <col width=253 style='mso-width-source:userset;width:189pt'>  <col width=78 style='mso-width-source:userset;width:58pt'>  <col width=61 style='mso-width-source:userset;width:45pt'>  <col width=53 style='mso-width-source:userset;width:39pt'>  <col width=88 style='mso-width-source:userset;width:66pt'>  <col width=175 style='mso-width-source:userset;width:131pt'>  <col width=103 style='mso-width-source:userset;width:77pt'>  
+                    <tbody>
+                    <thead>
+                    <tr height=34 style='mso-height-source:userset;height:25.5pt'> <td height=34 class=x35 width=38 style='height:25.5pt;width:28.5pt;'></td> <td class=x36 width=253 style='width:189.75pt;'>采购申请单—</td> <td colspan=6 class=x52>万众总库</td>  </tr> 
+                        <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 style='height:16.5pt;'></td> <td colspan=4 class=x51>供应商：原物料商品店</td> <td class=x44>单据编号：</td> <td>SQ2017061200033</td> <td></td>  </tr>  
+                        <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 style='height:16.5pt;'></td> <td class=x41>入库仓库：万众总库</td> <td colspan=3 class=x50>预付款：是</td> <td colspan=2 class=x50>单据日期：2017-06-12</td> <td class=x37></td>  </tr>  
+                        <tr height=28 style='mso-height-source:userset;height:21pt'> <td height=28 class=x43 style='height:21pt;'>序号</td> <td class=x43>货品</td> <td class=x43>单位</td> <td colspan=2 class=x53>申请单价</td> <td class=x48>申请数量</td> <td class=x48>金额</td> <td></td>  </tr> 
+                       </thead> 
+                         <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>1</td> <td class=x39>波士草莓700ml/瓶</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.111</td> <td class=x38 align=right>1</td> <td class=x38 align=right>0.111</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>2</td> <td class=x39>君度力娇酒700ml/瓶</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.126</td> <td class=x38 align=right>3</td> <td class=x38 align=right>0.378</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>3</td> <td class=x39>马天尼干威末酒1L/瓶</td> <td class=x38>瓶</td> <td colspan=2 class=x55 align=right>89</td> <td class=x38 align=right>2</td> <td class=x38 align=right>178</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>4</td> <td class=x39>马天尼干威末酒1L/瓶</td> <td class=x38>瓶</td> <td colspan=2 class=x55 align=right>89</td> <td class=x38 align=right>2</td> <td class=x38 align=right>178</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>5</td> <td class=x39>波士荔枝700ml</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.111</td> <td class=x38 align=right>1</td> <td class=x38 align=right>0.111</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>6</td> <td class=x39>波士白可可700ml</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.126</td> <td class=x38 align=right>3</td> <td class=x38 align=right>0.378</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>7</td> <td class=x39>波士黑加仑700ml</td> <td class=x38>瓶</td> <td colspan=2 class=x55 align=right>89</td> <td class=x38 align=right>2</td> <td class=x38 align=right>178</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>8</td> <td class=x39>波士橙皮700ml</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.111</td> <td class=x38 align=right>1</td> <td class=x38 align=right>0.111</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>9</td> <td class=x39>占边威700ml</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.126</td> <td class=x38 align=right>3</td> <td class=x38 align=right>0.378</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>10</td> <td class=x39>帝萨诺杏仁酒700ml</td> <td class=x38>瓶</td> <td colspan=2 class=x55 align=right>89</td> <td class=x38 align=right>2</td> <td class=x38 align=right>178</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>11</td> <td class=x39>野格利口酒700ml</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.111</td> <td class=x38 align=right>1</td> <td class=x38 align=right>0.111</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>12</td> <td class=x39>波士杏仁700ml</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.126</td> <td class=x38 align=right>3</td> <td class=x38 align=right>0.378</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>13</td> <td class=x39>波士香蕉700ml</td> <td class=x38>瓶</td> <td colspan=2 class=x55 align=right>89</td> <td class=x38 align=right>2</td> <td class=x38 align=right>178</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>14</td> <td class=x39>莫林草莓糖浆700ml</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.111</td> <td class=x38 align=right>1</td> <td class=x38 align=right>0.111</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>15</td> <td class=x39>莫林芒果糖浆700ml</td> <td class=x38>克</td> <td colspan=2 class=x55 align=right>0.126</td> <td class=x38 align=right>3</td> <td class=x38 align=right>0.378</td> <td class=x46></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x38 align=right style='height:16.5pt;'>16</td> <td class=x39>莫林西柚糖浆700ml</td> <td class=x38>瓶</td> <td colspan=2 class=x55 align=right>89</td> <td class=x38 align=right>2</td> <td class=x38 align=right>178</td> <td class=x46></td>  </tr>  <tr height=16 style='mso-height-source:userset;height:12pt'> <td height=16 class=x45 style='height:12pt;'></td> <td class=x42></td> <td class=x45></td> <td class=x45></td> <td class=x45></td> <td class=x45></td> <td class=x45></td> <td></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x45 style='height:16.5pt;'></td> <td colspan=2 class=x49>合计金额（小写）：￥1070.45</td> <td colspan=4 class=x49>合计金额（大写）：壹仟零柒拾元零肆角肆分</td> <td class=x40></td>  </tr>  <tr height=24 style='mso-height-source:userset;height:18pt'> <td height=24 style='height:18pt;'></td> <td>制单人：刘凯</td> <td class=x47>申报人员：</td> <td colspan=2 class=x49>刘凯</td> <td class=x37>复核人：</td> <td class=x37>刘凯</td> <td class=x37></td>  </tr>  <tr height=22 style='mso-height-source:userset;height:16.5pt'> <td height=22 class=x37 style='height:16.5pt;'></td> <td colspan=6 class=x49>备注：</td> <td class=x40></td>  </tr>  <tr height=18 style='mso-height-source:userset;height:13.5pt'> <td height=18 style='height:13.5pt;'></td> <td colspan=6 class=x51>审核人：刘凯(O24)</td> <td></td>  </tr> <![if supportMisalignedColumns]>  <tr height=0 style='display:none'>   <td width=38 style='width:28.5pt'></td>   <td width=253 style='width:189.75pt'></td>   <td width=78 style='width:58.5pt'></td>   <td width=61 style='width:45.75pt'></td>   <td width=53 style='width:39.75pt'></td>   <td width=88 style='width:66pt'></td>   <td width=175 style='width:131.25pt'></td>   <td width=103 style='width:77.25pt'></td>  </tr> </tbody> <![endif]> </table> 
+                </body>
+            </html>
+        </div>
+</body>
+</html>

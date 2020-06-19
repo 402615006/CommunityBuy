@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表统计</MainMenu>
+  <SubMenu>入库按日期汇总</SubMenu>
+  <Menu>入库按日期汇总</Menu>
+  <!--用户管理列表-条件-->
+  <inware_where>仓库：</inware_where>
+  <class_where>物料分类：</class_where>
+  <warrefer>选择仓库</warrefer>
+  <classrefer>选择物料分类</classrefer>
+  <date_where>单据审核起止日期：</date_where>
+  <data_show>查看入库按分类汇总</data_show>
+</Pages>

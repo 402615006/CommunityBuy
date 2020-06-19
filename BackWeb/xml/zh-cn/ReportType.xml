@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <!--报表项目分类 导航栏-->
+  <MainMenu>报表设置</MainMenu>
+  <SubMenu>项目分类</SubMenu>
+  <Menu>项目分类</Menu>
+  <!--报表项目分类  -->
+  <type_where>类型：</type_where>
+  <!--部门-新增-->
+  <tab1>基本信息</tab1>
+  <span_dtype>所属类型：</span_dtype>
+  <dtype_placeholder>请输入数据类型</dtype_placeholder>
+  <span_pitemcode>父分类名称：</span_pitemcode>
+  <pitemcode_placeholder>请输入父分类代码</pitemcode_placeholder>
+  <span_classtype>分类类型：</span_classtype>
+  <span_itemcode>分类代码：</span_itemcode>
+  <itemcode_placeholder>系统自动生成</itemcode_placeholder>
+  <span_itemname>分类名称：</span_itemname>
+  <itemname_placeholder>请输入分类名称</itemname_placeholder>
+  <span_finextcode>外部代码：</span_finextcode>
+  <finextcode_placeholder>请输入外部代码</finextcode_placeholder>
+  <span_bussort>排序号：</span_bussort>
+  <bussort_placeholder>请输入排序号</bussort_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入状态</status_placeholder>
+</Pages>

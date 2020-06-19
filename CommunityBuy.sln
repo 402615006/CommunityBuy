@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CateringWeb", "CateringWeb\CateringWeb.csproj", "{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackWeb", "BackWeb\BackWeb.csproj", "{29F012D9-465D-49F9-9779-F80D3B2547EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29F012D9-465D-49F9-9779-F80D3B2547EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F012D9-465D-49F9-9779-F80D3B2547EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F012D9-465D-49F9-9779-F80D3B2547EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F012D9-465D-49F9-9779-F80D3B2547EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

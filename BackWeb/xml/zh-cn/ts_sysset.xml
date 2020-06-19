@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>系统设置</MainMenu>
+  <SubMenu>系统设置</SubMenu>
+  <Menu>系统设置</Menu>
+  <!--系统设置列表-条件-->
+
+  <key_where>键：</key_where>
+  <val_where>值：</val_where>
+  <descr_where>描述：</descr_where>
+  <ctime_where>创建时间：</ctime_where>
+  <!--系统设置列表-Grid-->
+  <key_list>键</key_list>
+  <val_list>值</val_list>
+  <descr_list>描述</descr_list>
+  <ctime_list>创建时间</ctime_list>
+  <!--系统设置-新增-->
+  <tab1>基本信息</tab1>
+
+  <span_key>键：</span_key>
+  <key_placeholder>请输入键</key_placeholder>
+  <span_val>值：</span_val>
+  <val_placeholder>请输入值</val_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入有效状态（0无效，1有效）</status_placeholder>
+  <span_descr>描述：</span_descr>
+  <descr_placeholder>请输入描述</descr_placeholder>
+  <span_ctime>创建时间：</span_ctime>
+  <span_explain>说明：</span_explain>
+  <explain_placeholder>请输入说明</explain_placeholder>
+</Pages>

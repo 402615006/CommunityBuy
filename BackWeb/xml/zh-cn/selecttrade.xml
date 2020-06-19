@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表管理</MainMenu>
+  <SubMenu>选择交易类型</SubMenu>
+  <Menu>选择交易类型</Menu>
+  <!--用户管理列表-条件-->
+  <cname_where>交易类型：</cname_where>
+  <!--用户管理列表-Grid-->
+  <username_list>用户名</username_list>
+  <cname_list>角色名称</cname_list>
+  <scope_list>权限范围</scope_list>
+  <stocode_list>权限门店</stocode_list>
+  <rolename_list>所属角色</rolename_list>
+  <status_list>状态</status_list>
+  <descr_list>角色描述</descr_list>
+  <ctime_list>创建时间</ctime_list>
+</Pages>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>优惠券回收汇总报表</MainMenu>
+  <SubMenu>优惠券回收汇总报表</SubMenu>
+  <Menu>优惠券回收汇总报表</Menu>
+  <Title>优惠券回收汇总报表</Title>
+  <GoBack>优惠券回收汇总报表</GoBack>
+  <!--优惠券列表-条件-->
+  <coutype_where>优惠券类型：</coutype_where>
+  <couname_where>优惠券名称：</couname_where>
+  <ffstoname_where>发放门店：</ffstoname_where>
+  <hsstoname_where>回收门店：</hsstoname_where>
+  <hsdate_where>回收日期：</hsdate_where>
+  <sumname_where>活动名称：</sumname_where>
+  <!--优惠券列表-Grid-->
+  <ffstoname_list>发放门店</ffstoname_list>
+  <hsstoname_list>回收门店</hsstoname_list>
+  <sumname_list>活动名称</sumname_list>
+  <couname_list>优惠券名称</couname_list>
+  <coutype_list>优惠券类型</coutype_list>
+  <recnum_list>回收张数</recnum_list>
+  <singlemoney_list>优惠券金额</singlemoney_list>
+  <costprice_list>优惠券成本金额</costprice_list>
+  <settleprice_list>优惠券结算价</settleprice_list>
+  <!--优惠券列表-条件-->
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+  <storerefer>门店选择</storerefer>
+</Pages>

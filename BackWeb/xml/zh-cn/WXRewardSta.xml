@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>其他管理</MainMenu>
+  <SubMenu>打赏统计</SubMenu>
+  <Menu>打赏统计</Menu>
+  <storerefer>打赏统计</storerefer>
+  <!--列表-条件-->
+  <stoName_where>所属门店：</stoName_where>
+  <empname_where>员工姓名：</empname_where>
+
+  <!--列表-Grid-->
+  <empcode_list>员工编号</empcode_list>
+  <empname_list>员工姓名</empname_list>
+  <rewardCount_list>打赏次数</rewardCount_list>
+  <commentCount_list>评论次数</commentCount_list>
+  <curMoney_list>本月累计打赏金额</curMoney_list>
+  <pastMoney_list>历史累计打赏金额</pastMoney_list>
+
+  <!--列表-->
+  <rewardYear_where>年份：</rewardYear_where>
+  <rewardMonth_where>月份：</rewardMonth_where>
+  <year_list>年份</year_list>
+  <month_list>月份</month_list>
+  <rewards_list>总金额</rewards_list>
+</Pages>

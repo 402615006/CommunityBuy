@@ -1,0 +1,258 @@
+/* reset 样式*/
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #747474;
+    font-family: 'Microsoft Yahei', Arial;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a,
+a:hover {
+    color: #747474;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+iframe {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin-bottom: -4px;
+}
+
+table thead tr th {
+    font-weight: normal;
+}
+
+
+/* 表单 */
+
+label {
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 5px;
+    box-sizing: border-box;
+    width: 142px;
+    height: 28px;
+    border: 1px solid #d7d7d7;
+    border-radius: 3px;
+    outline: 0;
+}
+
+input[type="radio"] {
+    vertical-align: middle;
+}
+
+select {
+    width: 142px;
+    height: 28px;
+    color: #747474;
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    outline: 0;
+}
+
+button {
+    border: 0;
+    color: #fff;
+    background-color: #ea6969;
+    outline: none;
+}
+
+
+/* 模拟radio */
+
+div.radio {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 1px solid #b2b2b2;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+    div.radio.active {
+        background-color: #ea6969;
+    }
+
+
+/* 标题 */
+
+.title {
+    height: 48px;
+    width: 100%;
+    line-height: 48px;
+    color: #646464;
+    background-color: #fff;
+    /*position: absolute;*/
+}
+
+    .title.middle {
+        text-align: center;
+    }
+
+    .title h1 {
+        display: inline-block;
+        font-size: 22px;
+        margin-left: 24px;
+    }
+
+    .title h2 {
+        display: inline-block;
+        font-size: 22px;
+    }
+
+    .title h3 {
+        display: inline-block;
+        font-size: 18px;
+    }
+
+    .title .back {
+        float: left;
+        font-size: 16px;
+        color: #9f9f9f;
+        margin-left: 12px;
+        margin-right: -100%;
+    }
+
+        .title .back i {
+            display: inline-block;
+            width: 12px;
+            height: 20px;
+            background: url("../images/back.png") no-repeat 0 0;
+            position: relative;
+            top: 4px;
+        }
+
+    .title .icon-more {
+        float: right;
+        margin: 7px 29px 0 0;
+        width: 30px;
+        height: 30px;
+        background: url('../images/home/more.png') no-repeat 0 0;
+        cursor: pointer;
+    }
+
+
+    /* 头部 按钮 */
+
+    .title .option-list button {
+        height: 29px;
+        line-height: 29px;
+        font-size: 14px;
+        border-radius: 4px;
+        padding: 0 5px;
+        margin-right: 17px;
+        margin-bottom: 12px;
+        cursor: pointer;
+    }
+
+        .title .option-list button i {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            position: relative;
+            top: 3px;
+        }
+
+    .title .option-list .add i {
+        background: url("../images/option/add.png") no-repeat 0 0;
+    }
+
+    .title .option-list .delete i {
+        background: url("../images/option/delete.png") no-repeat 0 0;
+    }
+
+    .title .option-list .edit i {
+        background: url("../images/option/edit.png") no-repeat 0 0;
+    }
+
+
+/* right */
+
+.right {
+    position: relative;
+    height: 100%;
+}
+
+    .right .content {
+        height: 100%;
+        padding: 10px;
+        /*padding-top: 58px;*/
+        padding-bottom: 44px;
+        box-sizing: border-box;
+    }
+
+        /*.right .content>div:first-child {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+  min-height: 100%;
+}*/
+        .right .content .wrap {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px 5px 0 0;
+            min-height: 100%;
+        }
+
+        .right .content .bottom {
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            line-height: 44px;
+            background-color: #fff;
+            height: 64px;
+        }
+
+
+/* layer 弹出层 reset */
+
+.layui-layer .layui-layer-setwin {
+    top: 0;
+    left: 0;
+}
+
+    .layui-layer .layui-layer-setwin .layui-layer-close2 {
+        width: 16px;
+        height: 16px;
+        background-position: 0 -40px;
+        top: 12px;
+        left: 10px;
+    }
+
+        .layui-layer .layui-layer-setwin .layui-layer-close2:hover {
+            background-position: 0 -40px;
+        }

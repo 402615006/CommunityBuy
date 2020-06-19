@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>后台用户操作日志</MainMenu>
+  <SubMenu>后台用户操作日志</SubMenu>
+  <Menu>后台用户操作日志</Menu>
+  <!--后台用户操作日志列表-条件-->
+  <module_where>操作模块：</module_where>
+  <otype_where>操作类型：</otype_where>
+  <cuser_where>操作人：</cuser_where>
+  <ctime_where>操作时间：</ctime_where>
+  <!--后台用户操作日志列表-Grid-->
+  <module_list>操作模块</module_list>
+  <otype_list>操作类型</otype_list>
+  <logcontent_list>日志信息</logcontent_list>
+  <cuser_list>操作人</cuser_list>
+  <ctime_list>操作时间</ctime_list>
+  <!--后台用户操作日志-新增-->
+  <tab1>基本信息</tab1>
+  <span_id>标识：</span_id>
+  <span_module>操作模块：</span_module>
+  <module_placeholder>请输入操作模块</module_placeholder>
+  <span_pageurl>页面地址：</span_pageurl>
+  <pageurl_placeholder>请输入页面地址</pageurl_placeholder>
+  <span_otype>操作类型：</span_otype>
+  <otype_placeholder>请输入操作类型</otype_placeholder>
+  <span_logcontent>日志信息：</span_logcontent>
+  <logcontent_placeholder>请输入日志信息</logcontent_placeholder>
+  <span_ip>IP：</span_ip>
+  <ip_placeholder>请输入</ip_placeholder>
+  <span_cuser>操作人：</span_cuser>
+  <span_ctime>操作时间：</span_ctime>
+</Pages>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>添加奖品</MainMenu>
+<SubMenu>添加奖品</SubMenu>
+<Menu>添加奖品</Menu>
+<Title>添加奖品</Title>
+
+  <span_prize>*奖项：</span_prize>
+  <span_amounts>*名额：</span_amounts>
+  <span_coupon>优惠券：</span_coupon>
+  <span_new>*新用户：</span_new>
+  <span_normal>*普通用户：</span_normal>
+  <span_member>*会员：</span_member>
+  <prize_placeholder>请输入奖项名称</prize_placeholder>
+  <amounts_placeholder>请输入名额</amounts_placeholder>
+  <filmcoupon_placeholder>请选择优惠券</filmcoupon_placeholder>
+  <new_placeholder>请输入新用户中奖概率</new_placeholder>
+  <normal_placeholder>请输入普通用户中奖概率</normal_placeholder>
+  <member_placeholder>请输入会员中奖概率</member_placeholder>
+  <span_info>基本信息</span_info>
+  <span_prizeset>奖品设置</span_prizeset>
+  <span_PRset>中奖率设置</span_PRset>
+  <span_PRImage>奖项图片</span_PRImage>
+  <span_uploadImg>上传图片：</span_uploadImg>
+  <span_save>保存</span_save>
+  <span_tag>标签：</span_tag>
+</Pages>

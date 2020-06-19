@@ -19,20 +19,15 @@ namespace CommunityBuy.Model
 		private decimal _BillMoney = 0;
 		private decimal _PayMoney = 0;
 		private decimal _ZeroCutMoney = 0;
-		private string _ShiftCode = string.Empty;
         private string _Remar = string.Empty;
 		private DateTime _FTime = DateTime.Parse("1900-01-01");
 		private DateTime _OpenDate = DateTime.Parse("1900-01-01");
-		private string _DiscountName = string.Empty;
 		private decimal _DiscountMoney = 0;
 		private decimal _AUCode = 0;
-		private string _AUName = string.Empty;
 		private decimal _PointMoney = 0;
 		private decimal _VirMoney = 0;
         private string _BillType = string.Empty;
-        private string _PayWay = string.Empty;
-        private string _CStatus = string.Empty;
-        private string _DepartCode = string.Empty;
+
         /// <summary>
         ///Id
         /// <summary>
@@ -121,22 +116,7 @@ namespace CommunityBuy.Model
 			get { return _PayMoney; }
 			set { _PayMoney = value; }
 		}
-		/// <summary>
-		///抹零金额
-		/// <summary>
-		public decimal ZeroCutMoney
-		{
-			get { return _ZeroCutMoney; }
-			set { _ZeroCutMoney = value; }
-		}
-		/// <summary>
-		///班次号
-		/// <summary>
-		public string ShiftCode
-		{
-			get { return _ShiftCode; }
-			set { _ShiftCode = value; }
-		}
+
 		/// <summary>
 		///备注
 		/// <summary>
@@ -161,54 +141,6 @@ namespace CommunityBuy.Model
 			get { return _OpenDate; }
 			set { _OpenDate = value; }
 		}
-		/// <summary>
-		///折扣名称
-		/// <summary>
-		public string DiscountName
-		{
-			get { return _DiscountName; }
-			set { _DiscountName = value; }
-		}
-		/// <summary>
-		///折扣金额
-		/// <summary>
-		public decimal DiscountMoney
-		{
-			get { return _DiscountMoney; }
-			set { _DiscountMoney = value; }
-		}
-		/// <summary>
-		///授权用户编号
-		/// <summary>
-		public decimal AUCode
-		{
-			get { return _AUCode; }
-			set { _AUCode = value; }
-		}
-		/// <summary>
-		///授权用户名称
-		/// <summary>
-		public string AUName
-		{
-			get { return _AUName; }
-			set { _AUName = value; }
-		}
-		/// <summary>
-		///积分抵扣金额
-		/// <summary>
-		public decimal PointMoney
-		{
-			get { return _PointMoney; }
-			set { _PointMoney = value; }
-		}
-		/// <summary>
-		///虚拟币抵扣金额
-		/// <summary>
-		public decimal VirMoney
-		{
-			get { return _VirMoney; }
-			set { _VirMoney = value; }
-		}
 
         /// <summary>
         ///账单类型
@@ -217,32 +149,6 @@ namespace CommunityBuy.Model
         {
             get { return _BillType; }
             set { _BillType = value; }
-        }
-        /// <summary>
-        ///账单类型
-        /// <summary>
-        public string PayWay
-        {
-            get { return _PayWay; }
-            set { _PayWay = value; }
-        }
-
-        /// <summary>
-        ///账单类型
-        /// <summary>
-        public string CStatus
-        {
-            get { return _CStatus; }
-            set { _CStatus = value; }
-        }
-
-        /// <summary>
-        ///部门类型
-        /// <summary>
-        public string DepartCode
-        {
-            get { return _DepartCode; }
-            set { _DepartCode = value; }
         }
     }
 }

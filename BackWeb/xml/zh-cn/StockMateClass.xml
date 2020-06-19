@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>原料管理</MainMenu>
+  <SubMenu>原料分类</SubMenu>
+  <Menu>原料分类</Menu>
+  <Title>原料分类</Title>
+  <GoBack>原料分类</GoBack>
+  <!--门店_原料分类列表-条件-->
+  <pccode_where>一级父分类：</pccode_where>
+  <mcode_where>所属原料类别：</mcode_where>
+  <status_where>状态：</status_where>
+  <!--门店_原料分类列表-Grid-->
+  <pccode_list>一级父分类</pccode_list>
+  <mcode_list>所属原料类别</mcode_list>
+  <ccode_list>分类编号</ccode_list>
+  <cname_list>分类名称</cname_list>
+  <matclscolor_list>分类颜色</matclscolor_list>
+  <status_list>状态</status_list>
+  <cuser_list>创建人</cuser_list>
+  <ctime_list>创建时间</ctime_list>
+  <!--门店_原料分类-新增-->
+  <tab1>基本信息</tab1>
+  <span_mcid>标识id：</span_mcid>
+  <span_pccode>父分类名称：</span_pccode>
+  <pccode_placeholder>请输入父分类名称</pccode_placeholder>
+  <span_matpath>层级路径：</span_matpath>
+  <matpath_placeholder>请输入层级路径</matpath_placeholder>
+  <span_buscode>所属商户：</span_buscode>
+  <buscode_placeholder>请输入所属商户</buscode_placeholder>
+  <span_stocode>所属门店编号：</span_stocode>
+  <stocode_placeholder>请输入所属门店</stocode_placeholder>
+  <span_mcode>原料类别：</span_mcode>
+  <span_ccode>分类编号：</span_ccode>
+  <ccode_placeholder>请输入分类编号</ccode_placeholder>
+  <span_cname>分类名称：</span_cname>
+  <cname_placeholder>请输入分类名称</cname_placeholder>
+  <span_matclscolor>分类颜色：</span_matclscolor>
+  <matclscolor_placeholder>请输入分类颜色</matclscolor_placeholder>
+  <span_status>状态：</span_status>
+  <span_msort>排序号：</span_msort>
+  <msort_placeholder>请输入排序号</msort_placeholder>
+  <span_cuser>创建人：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_uuser>最后更新人：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+  <save_btn>保存</save_btn>
+</Pages>

@@ -1,0 +1,196 @@
+﻿
+.rightwhere p {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    margin-left: 17px;
+    width: 270px;
+}
+
+.rightwhere {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.wheretxt {
+    width: 130px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #999;
+}
+
+.datetxt {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+
+.wheresel {
+    width: 130px;
+    height: 30px;
+    border: 1px solid #999;
+}
+
+.gray {
+    background-color: #eee;
+}
+
+.operbtn {
+    display: block;
+    clear: both;
+    /*height: 35px;*/
+    width: 98%;
+    margin-left: 15px;
+    /*margin-left: 7px;*/
+}
+
+    .operbtn div {
+        float: left;
+        margin-left: 10px;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+        padding-right: 15px;
+        background-color: #009688;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 10px 5px 0px;
+    }
+
+    .operbtn a {
+        text-decoration: none;
+    }
+
+.fontcolor {
+    color: white;
+    text-decoration: none;
+}
+
+.operbtn div img {
+    vertical-align: middle;
+}
+
+.righttable {
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: white;
+    position: relative;
+    padding-bottom: 40px;
+    min-height: 260px;
+    z-index: 9;
+}
+
+.List_tab {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+.list_tab_tit td {
+    height: 35px;
+    border: 1px solid #ccc;
+    background-color: #E1E1E1;
+}
+
+.List_tab tr td {
+    height: 30px;
+    border: 1px solid #ccc;
+}
+
+.pagelist {
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+}
+
+    .pagelist span {
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 1px solid #009688;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
+.cpb {
+    background-color: #009688;
+    color: white;
+}
+
+.fixtop {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    background-color: white;
+}
+
+.fixtoph {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.rightcontent {
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.chooseclass {
+    width: 30px;
+    border-left-width: 0px;
+    border-left-style: none;
+    border-left-color: #9fbad5;
+}
+
+.hintmess {
+    clear: both;
+    float: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 20px;
+    line-height: 20px;
+    width: 300px;
+    margin-left: 17px;
+    color: red;
+}
+/*list搜索条件样式*/
+.rightwhere ul {
+    float: left;
+    margin-left: 15px;
+    min-height: 40px;
+}
+
+    .rightwhere ul li {
+        float: left;
+        height: 35px;
+        line-height: 35px;
+    }
+
+.wherename {
+    width: 120px;
+    text-align: right;
+}
+
+.wherevale {
+    width: 160px;
+    text-align: left;
+}
+
+.changecolor {
+    background-color: #009688 !important;
+}
+.changecolor td {
+      color: white !important;
+}
+.changecolor td a{
+    color: white !important;
+}

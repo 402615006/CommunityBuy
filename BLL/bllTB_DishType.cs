@@ -25,8 +25,6 @@ namespace CommunityBuy.BLL
                 Entity.Id = StringHelper.StringToLong(Id);
                 Entity.BusCode = BusCode;
                 Entity.StoCode = StoCode;
-                Entity.CCode = CCode;
-                Entity.CCname = CCname;
                 Entity.PKKCode = PKKCode;
                 Entity.PKCode = PKCode;
                 Entity.TypeName = TypeName;
@@ -170,8 +168,6 @@ namespace CommunityBuy.BLL
 			Entity.Id = StringHelper.StringToLong(dr["Id"].ToString());
 			Entity.BusCode = dr["BusCode"].ToString();
 			Entity.StoCode = dr["StoCode"].ToString();
-			Entity.CCode = dr["CCode"].ToString();
-			Entity.CCname = dr["CCname"].ToString();
             Entity.StoName = dr["StoName"].ToString();
             Entity.PKKCode = dr["PKKCode"].ToString();
 			Entity.PKCode = dr["PKCode"].ToString();

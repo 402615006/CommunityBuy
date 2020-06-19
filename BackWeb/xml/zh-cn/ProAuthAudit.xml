@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <!--小程序认证审核 导航栏-->
+  <MainMenu>供应商管理</MainMenu>
+  <SubMenu>小程序认证审核</SubMenu>
+  <Menu>小程序认证审核</Menu>
+  <!--小程序认证审核 Grid-->
+  <nickname-list>昵称</nickname-list>
+  <mobile-list>手机</mobile-list>
+  <username-list>姓名</username-list>
+  <sex-list>性别</sex-list>
+  <idno-list>身份证</idno-list>
+  <sqremark-list>申请备注</sqremark-list>
+  <status-list>状态</status-list>
+  <supname-list>关联供应商</supname-list>
+  <audremark-list>审核备注</audremark-list>
+  <ctime-list>提交时间</ctime-list>
+  <auduser-list>审核人</auduser-list>
+  <audtime-list>审核时间</audtime-list>
+  <!--门店_业务数据_小程序认证审核表-新增-->
+  <tab1>基本信息</tab1>
+  <tips5>请绑定供应商信息！</tips5>
+  <tips6>请添加审核备注！</tips6>
+  <span_Id>：</span_Id>
+  <span_nickname>：</span_nickname>
+  <nickname_placeholder>请输入</nickname_placeholder>
+  <span_mobile>：</span_mobile>
+  <mobile_placeholder>请输入</mobile_placeholder>
+  <span_username>：</span_username>
+  <username_placeholder>请输入</username_placeholder>
+  <span_sex>：</span_sex>
+  <sex_placeholder>请输入</sex_placeholder>
+  <span_idno>：</span_idno>
+  <idno_placeholder>请输入</idno_placeholder>
+  <span_sqremark>：</span_sqremark>
+  <sqremark_placeholder>请输入</sqremark_placeholder>
+  <span_status>：</span_status>
+  <status_placeholder>请输入</status_placeholder>
+  <span_supcode>：</span_supcode>
+  <supcode_placeholder>请输入</supcode_placeholder>
+  <span_audremark>：</span_audremark>
+  <audremark_placeholder>请输入</audremark_placeholder>
+  <span_cuser>：</span_cuser>
+  <span_ctime>：</span_ctime>
+  <span_auduser>：</span_auduser>
+  <auduser_placeholder>请输入</auduser_placeholder>
+  <span_audtime>：</span_audtime>
+  <audtime_placeholder>请输入</audtime_placeholder>
+  <span_openid>：</span_openid>
+  <openid_placeholder>请输入</openid_placeholder>
+  <!--小程序认证审核 查询条件-->
+  <username-where>姓名</username-where>
+  <mobile-where>手机</mobile-where>
+  <idno-where>身份证号</idno-where>
+  <supname-where>供应商</supname-where>
+  <status-where>状态</status-where>
+  <!--小程序认证审核 按钮-->
+  <loguser_button>注销用户</loguser_button>
+</Pages>

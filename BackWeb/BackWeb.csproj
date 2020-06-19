@@ -1,0 +1,2474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{29F012D9-465D-49F9-9779-F80D3B2547EA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XJWZCatering.BackWeb</RootNamespace>
+    <AssemblyName>XJWZCatering.BackWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PrecompileBeforePublish>false</PrecompileBeforePublish>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ajaxpro.2">
+      <HintPath>..\Bins\ajaxpro.2.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNetPager">
+      <HintPath>..\Bins\AspNetPager.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\Bins\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bins\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Kingdee.BOS.WebApi.Client">
+      <HintPath>..\Bins\Kingdee.BOS.WebApi.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bins\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Bins\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Bins\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\Bins\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\Bins\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Sam.WebControl">
+      <HintPath>..\Bins\Sam.WebControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\Bins\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="XJWZCatering.CardHelper">
+      <HintPath>..\Bins\XJWZCatering.CardHelper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="coupon\couponcheck.aspx" />
+    <Content Include="coupon\CouponDelay.aspx" />
+    <Content Include="coupon\GoToAuditing.aspx" />
+    <Content Include="coupon\repulse.aspx" />
+    <Content Include="coupon\sumcouponDetail.aspx" />
+    <Content Include="coupon\sumcouponEdit.aspx" />
+    <Content Include="coupon\sumcouponList.aspx" />
+    <Content Include="crossdomain.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="css\autocom.css" />
+    <Content Include="css\back\common.css" />
+    <Content Include="css\back\normalize.css" />
+    <Content Include="css\back\reportlist.css" />
+    <Content Include="css\dandelion.css" />
+    <Content Include="css\easyui.css" />
+    <Content Include="css\stock.css" />
+    <Content Include="css\stockreport.css" />
+    <Content Include="error.html" />
+    <Content Include="images\btn_delete.png" />
+    <Content Include="images\error-hanger.png" />
+    <Content Include="images\error-pin.png" />
+    <Content Include="images\layout_button_left.png" />
+    <Content Include="images\layout_button_right.png" />
+    <Content Include="images\panel_tool_collapse.png" />
+    <Content Include="images\panel_tool_expand.png" />
+    <Content Include="images\tabs_active.png" />
+    <Content Include="images\tabs_close.png" />
+    <Content Include="images\tabs_enabled.png" />
+    <Content Include="images\tabs_leftarrow.png" />
+    <Content Include="images\tabs_rightarrow.png" />
+    <Content Include="img\add1.png" />
+    <Content Include="img\Arrow.png" />
+    <Content Include="img\btn.gif" />
+    <Content Include="img\checkFail.png" />
+    <Content Include="img\checkNo.png" />
+    <Content Include="img\checkSuccess.png" />
+    <Content Include="img\close.png" />
+    <Content Include="img\menu\yyfw.png" />
+    <Content Include="img\operations\rebort.png" />
+    <Content Include="img\selecturl.png" />
+    <Content Include="js\cateringincome.js" />
+    <Content Include="js\dishes\common.js" />
+    <Content Include="js\dishes\css\common.css" />
+    <Content Include="js\dishes\css\edit.css" />
+    <Content Include="js\dishes\css\list.css" />
+    <Content Include="js\dishes\css\normalize.css" />
+    <Content Include="js\dishes\dishescommon.js" />
+    <Content Include="js\dishes\dishesedit.js" />
+    <Content Include="js\dishes\dishesedit1.js" />
+    <Content Include="js\dishes\dishesedit3.js" />
+    <Content Include="js\dishes\disheslist.js" />
+    <Content Include="js\dishes\jquery.min.js" />
+    <Content Include="js\dishes\listpage.js" />
+    <Content Include="js\dishes\pagehelper.js" />
+    <Content Include="js\dishes\permission.js" />
+    <Content Include="js\dishes\pinyinUtil.js" />
+    <Content Include="js\dishes\pinyin_dict_notone.js" />
+    <Content Include="js\dishes\pinyin_dict_withtone.js" />
+    <Content Include="js\dishes\SystemEnum.js" />
+    <Content Include="js\echarts.js" />
+    <Content Include="js\echartshelper.js" />
+    <Content Include="js\eleFixed.min.js" />
+    <Content Include="js\idcardinfo.js" />
+    <Content Include="img\infobox-bg-l-r.gif" />
+    <Content Include="img\infobox-bg-l.gif" />
+    <Content Include="img\infobox-bg.gif" />
+    <Content Include="img\menu\report.png" />
+    <Content Include="img\operations\bindmember.png" />
+    <Content Include="img\operations\chargoff.png" />
+    <Content Include="img\operations\copying.png" />
+    <Content Include="img\operations\daoru.png" />
+    <Content Include="img\operations\free.png" />
+    <Content Include="img\operations\freeze.png" />
+    <Content Include="img\operations\merge.png" />
+    <Content Include="img\operations\pandian.png" />
+    <Content Include="img\operations\scpandian.png" />
+    <Content Include="img\operations\thaw.png" />
+    <Content Include="img\operations\transfer.png" />
+    <Content Include="img\operations\xiazai.png" />
+    <Content Include="img\search_15.png" />
+    <Content Include="img\star-tips.gif" />
+    <Content Include="img\stars-all.gif" />
+    <Content Include="img\stars.jpg" />
+    <Content Include="js\base-loading.js" />
+    <Content Include="js\comment.js" />
+    <Content Include="js\FixTable.js" />
+    <Content Include="js\jquery.autocomplete.js" />
+    <Content Include="js\jquery.easyui.js" />
+    <Content Include="js\LodopFuncs.js" />
+    <Content Include="js\mouseShow.js" />
+    <Content Include="js\Pinyin.js" />
+    <Content Include="js\Pinyin\pinyinUtil.js" />
+    <Content Include="js\Pinyin\pinyin_dict_notone.js" />
+    <Content Include="js\Pinyin\pinyin_dict_withtone.js" />
+    <Content Include="js\spreadhelper.js" />
+    <Content Include="js\spreadhelper_web.js" />
+    <Content Include="js\SpreadJS\bootstrap.min.js" />
+    <Content Include="js\SpreadJS\Css\gc.spread.sheets.11.0.0.css" />
+    <Content Include="js\SpreadJS\Css\gc.spread.sheets.excel2013darkGray.11.0.0.css" />
+    <Content Include="js\SpreadJS\Css\gc.spread.sheets.excel2013lightGray.11.0.0.css" />
+    <Content Include="js\SpreadJS\Css\gc.spread.sheets.excel2013white.11.0.0.css" />
+    <Content Include="js\SpreadJS\Css\gc.spread.sheets.excel2016colorful.11.0.0.css" />
+    <Content Include="js\SpreadJS\Css\gc.spread.sheets.excel2016darkGray.11.0.0.css" />
+    <Content Include="js\SpreadJS\Css\images\bctb.png" />
+    <Content Include="js\SpreadJS\Css\images\borderpicker.png" />
+    <Content Include="js\SpreadJS\Css\images\chartIcon50-50.png" />
+    <Content Include="js\SpreadJS\Css\images\checkbox.png" />
+    <Content Include="js\SpreadJS\Css\images\formatslicer2013.png" />
+    <Content Include="js\SpreadJS\Css\images\formattable.png" />
+    <Content Include="js\SpreadJS\Css\images\formattable2013.png" />
+    <Content Include="js\SpreadJS\Css\images\icon32.png" />
+    <Content Include="js\SpreadJS\Css\images\icon64.png" />
+    <Content Include="js\SpreadJS\Css\images\icons.png" />
+    <Content Include="js\SpreadJS\Css\images\logo.png" />
+    <Content Include="js\SpreadJS\Css\images\splogo.png" />
+    <Content Include="js\SpreadJS\Css\images\ui-icons_222222_256x240.png" />
+    <Content Include="js\SpreadJS\FileSaver.min.js" />
+    <Content Include="js\SpreadJS\gc.spread.excelio.11.0.0.min.js" />
+    <Content Include="js\SpreadJS\gc.spread.excelio.11.2.2.js" />
+    <Content Include="js\SpreadJS\gc.spread.sheets.all.11.0.0.min.js" />
+    <Content Include="js\SpreadJS\gc.spread.sheets.all.11.2.2.min.js" />
+    <Content Include="js\SpreadJS\gc.spread.sheets.all.12.0.6.min.js" />
+    <Content Include="js\SpreadJS\gc.spread.sheets.charts.11.0.0.min.js" />
+    <Content Include="js\SpreadJS\gc.spread.sheets.print.11.0.0.min.js" />
+    <Content Include="js\SpreadJS\gc.spread.sheets.resources.zh.11.0.0.min.js" />
+    <Content Include="js\SpreadJS\gc.spread.sheets.resources.zh.11.2.2.min.js" />
+    <Content Include="js\SpreadJS\jquery-1.11.1.min.js" />
+    <Content Include="js\SpreadJS\jquery-2.2.4.min.js" />
+    <Content Include="js\SpreadJS\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="js\SpreadJS\license.js" />
+    <Content Include="js\SpreadJS\resources.js" />
+    <Content Include="js\SpreadJS\sample.js" />
+    <Content Include="js\tablefreeze.js" />
+    <Content Include="manage\DBBakSetlist.aspx" />
+    <Content Include="manage\dishesedit.aspx" />
+    <Content Include="manage\DishesFeedRateList.aspx" />
+    <Content Include="manage\dishesInportMate.aspx" />
+    <Content Include="manage\dishesList.aspx" />
+    <Content Include="manage\DisheTyperefer.aspx" />
+    <Content Include="manage\selectadminsRefer.aspx" />
+    <Content Include="manage\selectDishes.aspx" />
+    <Content Include="memberCard\membersPhoneEdit.aspx" />
+    <Content Include="memberCard\membercouponDetail.aspx" />
+    <Content Include="mycgd.aspx" />
+    <Content Include="report\membercard\memcardreport.aspx" />
+    <Content Include="Showbigpic.html" />
+    <Content Include="CheckCode\validateNum.aspx" />
+    <Content Include="css\editstyle.css" />
+    <Content Include="css\liststyle.css" />
+    <Content Include="css\select.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\switch.css" />
+    <Content Include="html\index.htm" />
+    <Content Include="img\addlist.png" />
+    <Content Include="img\cancel.png" />
+    <Content Include="img\commodity.png" />
+    <Content Include="img\datas.png" />
+    <Content Include="img\dellist.png" />
+    <Content Include="img\dict_chilren.png" />
+    <Content Include="img\dict_chilren2.png" />
+    <Content Include="img\dict_close.png" />
+    <Content Include="img\dict_open.png" />
+    <Content Include="img\down.png" />
+    <Content Include="img\menu\home.png" />
+    <Content Include="img\Login_button.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logout.png" />
+    <Content Include="img\log_back.png" />
+    <Content Include="img\member.png" />
+    <Content Include="img\menu\business.png" />
+    <Content Include="img\menu\member.png" />
+    <Content Include="img\menu\prefabricate.png" />
+    <Content Include="img\menu\stock.png" />
+    <Content Include="img\menu\system.png" />
+    <Content Include="img\menu\ticket.png" />
+    <Content Include="img\menu\wechat.png" />
+    <Content Include="img\messmark.png" />
+    <Content Include="img\name.png" />
+    <Content Include="img\off.png" />
+    <Content Include="img\on.png" />
+    <Content Include="img\operations\add.png" />
+    <Content Include="img\operations\again.png" />
+    <Content Include="img\operations\asc.png" />
+    <Content Include="img\operations\audit.png" />
+    <Content Include="img\operations\build.png" />
+    <Content Include="img\operations\delete.png" />
+    <Content Include="img\operations\desc.png" />
+    <Content Include="img\operations\export.png" />
+    <Content Include="img\operations\found.png" />
+    <Content Include="img\operations\instore.png" />
+    <Content Include="img\operations\invalid.png" />
+    <Content Include="img\operations\list.png" />
+    <Content Include="img\operations\nullify.png" />
+    <Content Include="img\operations\payment.png" />
+    <Content Include="img\operations\prefabricate.png" />
+    <Content Include="img\operations\print.png" />
+    <Content Include="img\operations\printsee.png" />
+    <Content Include="img\operations\recharge.png" />
+    <Content Include="img\operations\release.png" />
+    <Content Include="img\operations\repaircard.png" />
+    <Content Include="img\operations\restpwd.png" />
+    <Content Include="img\operations\review.png" />
+    <Content Include="img\operations\seabuild.png" />
+    <Content Include="img\operations\select.png" />
+    <Content Include="img\operations\send.png" />
+    <Content Include="img\operations\sendcard.png" />
+    <Content Include="img\operations\top.png" />
+    <Content Include="img\operations\update.png" />
+    <Content Include="img\operations\valid.png" />
+    <Content Include="img\order.png" />
+    <Content Include="img\pwd.png" />
+    <Content Include="img\redpoint.png" />
+    <Content Include="img\search.png" />
+    <Content Include="img\selectimg.png" />
+    <Content Include="img\sys.jpg" />
+    <Content Include="img\system.png" />
+    <Content Include="img\Together.png" />
+    <Content Include="img\Together1.png" />
+    <Content Include="img\toper.png" />
+    <Content Include="img\toper1.png" />
+    <Content Include="img\up.png" />
+    <Content Include="index.html" />
+    <Content Include="js\base64.js" />
+    <Content Include="js\card.js" />
+    <Content Include="js\CWebControl.js" />
+    <Content Include="js\default.js" />
+    <Content Include="js\index.js" />
+    <Content Include="js\jquery-1.7.2.min.js" />
+    <Content Include="js\jquery.colorpicker.js" />
+    <Content Include="js\jquery.uploadify\btn.png" />
+    <Content Include="js\jquery.uploadify\btnstart.png" />
+    <Content Include="js\jquery.uploadify\cancel.png" />
+    <Content Include="js\jquery.uploadify\jquery-1.4.2.min.js" />
+    <Content Include="js\jquery.uploadify\jquery.uploadify.v2.1.4.js" />
+    <Content Include="js\jquery.uploadify\swfobject.js" />
+    <Content Include="js\jquery.uploadify\uploadify.css" />
+    <Content Include="js\jquery.uploadify\uploadify.swf" />
+    <Content Include="js\layerhelper.js" />
+    <Content Include="js\layer\extend\layer.ext.js" />
+    <Content Include="js\layer\layer.js" />
+    <Content Include="js\layer\skin\default\icon-ext.png" />
+    <Content Include="js\layer\skin\default\icon.png" />
+    <Content Include="js\layer\skin\default\loading-0.gif" />
+    <Content Include="js\layer\skin\default\loading-1.gif" />
+    <Content Include="js\layer\skin\default\loading-2.gif" />
+    <Content Include="js\layer\skin\layer.css" />
+    <Content Include="js\layer\skin\layer.ext.css" />
+    <Content Include="js\listeditjs.js" />
+    <Content Include="js\MY97DATE\CALENDAR.JS" />
+    <Content Include="js\MY97DATE\LANG\EN.JS" />
+    <Content Include="js\MY97DATE\LANG\ZH-CN.JS" />
+    <Content Include="js\MY97DATE\LANG\ZH-TW.JS" />
+    <Content Include="js\MY97DATE\SKIN\datePicker.gif" />
+    <Content Include="js\MY97DATE\SKIN\DEFAULT\datepicker.css" />
+    <Content Include="js\MY97DATE\SKIN\DEFAULT\IMG.GIF" />
+    <Content Include="js\MY97DATE\SKIN\WdatePicker.css" />
+    <Content Include="js\MY97DATE\SKIN\whyGreen\BG.JPG" />
+    <Content Include="js\MY97DATE\SKIN\whyGreen\datepicker.css" />
+    <Content Include="js\MY97DATE\SKIN\whyGreen\IMG.GIF" />
+    <Content Include="js\MY97DATE\WdatePicker.js" />
+    <Content Include="js\RolmasChoice.js" />
+    <Content Include="js\vue\vue.js" />
+    <Content Include="js\xmlhelper.js" />
+    <Content Include="js\datehelper.js" />
+    <Content Include="js\zTree\api\apiCss\api.js" />
+    <Content Include="js\zTree\api\apiCss\common.css" />
+    <Content Include="js\zTree\api\apiCss\common_ie6.css" />
+    <Content Include="js\zTree\api\apiCss\img\apiMenu.gif" />
+    <Content Include="js\zTree\api\apiCss\img\apiMenu.png" />
+    <Content Include="js\zTree\api\apiCss\img\background.jpg" />
+    <Content Include="js\zTree\api\apiCss\img\chinese.png" />
+    <Content Include="js\zTree\api\apiCss\img\close.png" />
+    <Content Include="js\zTree\api\apiCss\img\contact-bg.png" />
+    <Content Include="js\zTree\api\apiCss\img\english.png" />
+    <Content Include="js\zTree\api\apiCss\img\header-bg.png" />
+    <Content Include="js\zTree\api\apiCss\img\lightbulb.png" />
+    <Content Include="js\zTree\api\apiCss\img\overlay_arrow.gif" />
+    <Content Include="js\zTree\api\apiCss\img\overlay_arrow.png" />
+    <Content Include="js\zTree\api\apiCss\img\overlay_bg.png" />
+    <Content Include="js\zTree\api\apiCss\img\overlay_close_IE6.gif" />
+    <Content Include="js\zTree\api\apiCss\img\zTreeStandard.gif" />
+    <Content Include="js\zTree\api\apiCss\img\zTreeStandard.png" />
+    <Content Include="js\zTree\api\apiCss\jquery-1.6.2.min.js" />
+    <Content Include="js\zTree\api\apiCss\jquery.ztree.core.js" />
+    <Content Include="js\zTree\api\apiCss\zTreeStyleForApi.css" />
+    <Content Include="js\zTree\api\API_cn.html" />
+    <Content Include="js\zTree\api\API_en.html" />
+    <Content Include="js\zTree\api\cn\fn.zTree.destroy.html" />
+    <Content Include="js\zTree\api\cn\fn.zTree.getZTreeObj.html" />
+    <Content Include="js\zTree\api\cn\fn.zTree.init.html" />
+    <Content Include="js\zTree\api\cn\fn.zTree._z.html" />
+    <Content Include="js\zTree\api\cn\setting.async.autoParam.html" />
+    <Content Include="js\zTree\api\cn\setting.async.contentType.html" />
+    <Content Include="js\zTree\api\cn\setting.async.dataFilter.html" />
+    <Content Include="js\zTree\api\cn\setting.async.dataType.html" />
+    <Content Include="js\zTree\api\cn\setting.async.enable.html" />
+    <Content Include="js\zTree\api\cn\setting.async.otherParam.html" />
+    <Content Include="js\zTree\api\cn\setting.async.type.html" />
+    <Content Include="js\zTree\api\cn\setting.async.url.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeAsync.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeCheck.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeCollapse.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeDblClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeDrag.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeDragOpen.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeDrop.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeEditName.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeExpand.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeMouseDown.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeMouseUp.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeRemove.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeRename.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.beforeRightClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onAsyncError.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onAsyncSuccess.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onCheck.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onCollapse.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onDblClick.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onDrag.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onDragMove.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onDrop.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onExpand.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onMouseDown.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onMouseUp.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onNodeCreated.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onRemove.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onRename.html" />
+    <Content Include="js\zTree\api\cn\setting.callback.onRightClick.html" />
+    <Content Include="js\zTree\api\cn\setting.check.autoCheckTrigger.html" />
+    <Content Include="js\zTree\api\cn\setting.check.chkboxType.html" />
+    <Content Include="js\zTree\api\cn\setting.check.chkDisabledInherit.html" />
+    <Content Include="js\zTree\api\cn\setting.check.chkStyle.html" />
+    <Content Include="js\zTree\api\cn\setting.check.enable.html" />
+    <Content Include="js\zTree\api\cn\setting.check.nocheckInherit.html" />
+    <Content Include="js\zTree\api\cn\setting.check.radioType.html" />
+    <Content Include="js\zTree\api\cn\setting.data.keep.leaf.html" />
+    <Content Include="js\zTree\api\cn\setting.data.keep.parent.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.checked.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.children.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.name.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.title.html" />
+    <Content Include="js\zTree\api\cn\setting.data.key.url.html" />
+    <Content Include="js\zTree\api\cn\setting.data.simpleData.enable.html" />
+    <Content Include="js\zTree\api\cn\setting.data.simpleData.idKey.html" />
+    <Content Include="js\zTree\api\cn\setting.data.simpleData.pIdKey.html" />
+    <Content Include="js\zTree\api\cn\setting.data.simpleData.rootPId.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.autoExpandTrigger.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.autoOpenTime.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.borderMax.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.borderMin.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.inner.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.isCopy.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.isMove.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.maxShowNodeNum.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.minMoveSize.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.next.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.drag.prev.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.editNameSelectAll.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.enable.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.removeTitle.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.renameTitle.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.showRemoveBtn.html" />
+    <Content Include="js\zTree\api\cn\setting.edit.showRenameBtn.html" />
+    <Content Include="js\zTree\api\cn\setting.treeId.html" />
+    <Content Include="js\zTree\api\cn\setting.treeObj.html" />
+    <Content Include="js\zTree\api\cn\setting.view.addDiyDom.html" />
+    <Content Include="js\zTree\api\cn\setting.view.addHoverDom.html" />
+    <Content Include="js\zTree\api\cn\setting.view.autoCancelSelected.html" />
+    <Content Include="js\zTree\api\cn\setting.view.dblClickExpand.html" />
+    <Content Include="js\zTree\api\cn\setting.view.expandSpeed.html" />
+    <Content Include="js\zTree\api\cn\setting.view.fontCss.html" />
+    <Content Include="js\zTree\api\cn\setting.view.nameIsHTML.html" />
+    <Content Include="js\zTree\api\cn\setting.view.removeHoverDom.html" />
+    <Content Include="js\zTree\api\cn\setting.view.selectedMulti.html" />
+    <Content Include="js\zTree\api\cn\setting.view.showIcon.html" />
+    <Content Include="js\zTree\api\cn\setting.view.showLine.html" />
+    <Content Include="js\zTree\api\cn\setting.view.showTitle.html" />
+    <Content Include="js\zTree\api\cn\setting.view.txtSelectedEnable.html" />
+    <Content Include="js\zTree\api\cn\treeNode.checked.html" />
+    <Content Include="js\zTree\api\cn\treeNode.checkedOld.html" />
+    <Content Include="js\zTree\api\cn\treeNode.check_Child_State.html" />
+    <Content Include="js\zTree\api\cn\treeNode.check_Focus.html" />
+    <Content Include="js\zTree\api\cn\treeNode.children.html" />
+    <Content Include="js\zTree\api\cn\treeNode.chkDisabled.html" />
+    <Content Include="js\zTree\api\cn\treeNode.click.html" />
+    <Content Include="js\zTree\api\cn\treeNode.diy.html" />
+    <Content Include="js\zTree\api\cn\treeNode.editNameFlag.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getCheckStatus.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getIndex.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getNextNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getParentNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getPath.html" />
+    <Content Include="js\zTree\api\cn\treeNode.getPreNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.halfCheck.html" />
+    <Content Include="js\zTree\api\cn\treeNode.icon.html" />
+    <Content Include="js\zTree\api\cn\treeNode.iconClose.html" />
+    <Content Include="js\zTree\api\cn\treeNode.iconOpen.html" />
+    <Content Include="js\zTree\api\cn\treeNode.iconSkin.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isAjaxing.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isFirstNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isHidden.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isHover.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isLastNode.html" />
+    <Content Include="js\zTree\api\cn\treeNode.isParent.html" />
+    <Content Include="js\zTree\api\cn\treeNode.level.html" />
+    <Content Include="js\zTree\api\cn\treeNode.name.html" />
+    <Content Include="js\zTree\api\cn\treeNode.nocheck.html" />
+    <Content Include="js\zTree\api\cn\treeNode.open.html" />
+    <Content Include="js\zTree\api\cn\treeNode.parentTId.html" />
+    <Content Include="js\zTree\api\cn\treeNode.target.html" />
+    <Content Include="js\zTree\api\cn\treeNode.tId.html" />
+    <Content Include="js\zTree\api\cn\treeNode.url.html" />
+    <Content Include="js\zTree\api\cn\treeNode.zAsync.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.addNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.cancelEditName.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.cancelSelectedNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.checkAllNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.checkNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.copyNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.destroy.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.editName.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.expandAll.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.expandNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getChangeCheckedNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getCheckedNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodeByParam.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodeByTId.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodeIndex.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodesByFilter.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodesByParam.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getNodesByParamFuzzy.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.getSelectedNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.hideNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.hideNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.moveNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.reAsyncChildNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.refresh.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.removeChildNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.removeNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.selectNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.setChkDisabled.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.setEditable.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.setting.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.showNode.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.showNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.transformToArray.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.transformTozTreeNodes.html" />
+    <Content Include="js\zTree\api\cn\zTreeObj.updateNode.html" />
+    <Content Include="js\zTree\api\en\fn.zTree.destroy.html" />
+    <Content Include="js\zTree\api\en\fn.zTree.getZTreeObj.html" />
+    <Content Include="js\zTree\api\en\fn.zTree.init.html" />
+    <Content Include="js\zTree\api\en\fn.zTree._z.html" />
+    <Content Include="js\zTree\api\en\setting.async.autoParam.html" />
+    <Content Include="js\zTree\api\en\setting.async.contentType.html" />
+    <Content Include="js\zTree\api\en\setting.async.dataFilter.html" />
+    <Content Include="js\zTree\api\en\setting.async.dataType.html" />
+    <Content Include="js\zTree\api\en\setting.async.enable.html" />
+    <Content Include="js\zTree\api\en\setting.async.otherParam.html" />
+    <Content Include="js\zTree\api\en\setting.async.type.html" />
+    <Content Include="js\zTree\api\en\setting.async.url.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeAsync.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeCheck.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeCollapse.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeDblClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeDrag.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeDragOpen.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeDrop.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeEditName.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeExpand.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeMouseDown.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeMouseUp.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeRemove.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeRename.html" />
+    <Content Include="js\zTree\api\en\setting.callback.beforeRightClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onAsyncError.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onAsyncSuccess.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onCheck.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onCollapse.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onDblClick.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onDrag.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onDragMove.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onDrop.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onExpand.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onMouseDown.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onMouseUp.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onNodeCreated.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onRemove.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onRename.html" />
+    <Content Include="js\zTree\api\en\setting.callback.onRightClick.html" />
+    <Content Include="js\zTree\api\en\setting.check.autoCheckTrigger.html" />
+    <Content Include="js\zTree\api\en\setting.check.chkboxType.html" />
+    <Content Include="js\zTree\api\en\setting.check.chkDisabledInherit.html" />
+    <Content Include="js\zTree\api\en\setting.check.chkStyle.html" />
+    <Content Include="js\zTree\api\en\setting.check.enable.html" />
+    <Content Include="js\zTree\api\en\setting.check.nocheckInherit.html" />
+    <Content Include="js\zTree\api\en\setting.check.radioType.html" />
+    <Content Include="js\zTree\api\en\setting.data.keep.leaf.html" />
+    <Content Include="js\zTree\api\en\setting.data.keep.parent.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.checked.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.children.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.name.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.title.html" />
+    <Content Include="js\zTree\api\en\setting.data.key.url.html" />
+    <Content Include="js\zTree\api\en\setting.data.simpleData.enable.html" />
+    <Content Include="js\zTree\api\en\setting.data.simpleData.idKey.html" />
+    <Content Include="js\zTree\api\en\setting.data.simpleData.pIdKey.html" />
+    <Content Include="js\zTree\api\en\setting.data.simpleData.rootPId.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.autoExpandTrigger.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.autoOpenTime.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.borderMax.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.borderMin.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.inner.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.isCopy.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.isMove.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.maxShowNodeNum.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.minMoveSize.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.next.html" />
+    <Content Include="js\zTree\api\en\setting.edit.drag.prev.html" />
+    <Content Include="js\zTree\api\en\setting.edit.editNameSelectAll.html" />
+    <Content Include="js\zTree\api\en\setting.edit.enable.html" />
+    <Content Include="js\zTree\api\en\setting.edit.removeTitle.html" />
+    <Content Include="js\zTree\api\en\setting.edit.renameTitle.html" />
+    <Content Include="js\zTree\api\en\setting.edit.showRemoveBtn.html" />
+    <Content Include="js\zTree\api\en\setting.edit.showRenameBtn.html" />
+    <Content Include="js\zTree\api\en\setting.treeId.html" />
+    <Content Include="js\zTree\api\en\setting.treeObj.html" />
+    <Content Include="js\zTree\api\en\setting.view.addDiyDom.html" />
+    <Content Include="js\zTree\api\en\setting.view.addHoverDom.html" />
+    <Content Include="js\zTree\api\en\setting.view.autoCancelSelected.html" />
+    <Content Include="js\zTree\api\en\setting.view.dblClickExpand.html" />
+    <Content Include="js\zTree\api\en\setting.view.expandSpeed.html" />
+    <Content Include="js\zTree\api\en\setting.view.fontCss.html" />
+    <Content Include="js\zTree\api\en\setting.view.nameIsHTML.html" />
+    <Content Include="js\zTree\api\en\setting.view.removeHoverDom.html" />
+    <Content Include="js\zTree\api\en\setting.view.selectedMulti.html" />
+    <Content Include="js\zTree\api\en\setting.view.showIcon.html" />
+    <Content Include="js\zTree\api\en\setting.view.showLine.html" />
+    <Content Include="js\zTree\api\en\setting.view.showTitle.html" />
+    <Content Include="js\zTree\api\en\setting.view.txtSelectedEnable.html" />
+    <Content Include="js\zTree\api\en\treeNode.checked.html" />
+    <Content Include="js\zTree\api\en\treeNode.checkedOld.html" />
+    <Content Include="js\zTree\api\en\treeNode.check_Child_State.html" />
+    <Content Include="js\zTree\api\en\treeNode.check_Focus.html" />
+    <Content Include="js\zTree\api\en\treeNode.children.html" />
+    <Content Include="js\zTree\api\en\treeNode.chkDisabled.html" />
+    <Content Include="js\zTree\api\en\treeNode.click.html" />
+    <Content Include="js\zTree\api\en\treeNode.diy.html" />
+    <Content Include="js\zTree\api\en\treeNode.editNameFlag.html" />
+    <Content Include="js\zTree\api\en\treeNode.getCheckStatus.html" />
+    <Content Include="js\zTree\api\en\treeNode.getIndex.html" />
+    <Content Include="js\zTree\api\en\treeNode.getNextNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.getParentNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.getPath.html" />
+    <Content Include="js\zTree\api\en\treeNode.getPreNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.halfCheck.html" />
+    <Content Include="js\zTree\api\en\treeNode.icon.html" />
+    <Content Include="js\zTree\api\en\treeNode.iconClose.html" />
+    <Content Include="js\zTree\api\en\treeNode.iconOpen.html" />
+    <Content Include="js\zTree\api\en\treeNode.iconSkin.html" />
+    <Content Include="js\zTree\api\en\treeNode.isAjaxing.html" />
+    <Content Include="js\zTree\api\en\treeNode.isFirstNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.isHidden.html" />
+    <Content Include="js\zTree\api\en\treeNode.isHover.html" />
+    <Content Include="js\zTree\api\en\treeNode.isLastNode.html" />
+    <Content Include="js\zTree\api\en\treeNode.isParent.html" />
+    <Content Include="js\zTree\api\en\treeNode.level.html" />
+    <Content Include="js\zTree\api\en\treeNode.name.html" />
+    <Content Include="js\zTree\api\en\treeNode.nocheck.html" />
+    <Content Include="js\zTree\api\en\treeNode.open.html" />
+    <Content Include="js\zTree\api\en\treeNode.parentTId.html" />
+    <Content Include="js\zTree\api\en\treeNode.target.html" />
+    <Content Include="js\zTree\api\en\treeNode.tId.html" />
+    <Content Include="js\zTree\api\en\treeNode.url.html" />
+    <Content Include="js\zTree\api\en\treeNode.zAsync.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.addNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.cancelEditName.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.cancelSelectedNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.checkAllNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.checkNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.copyNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.destroy.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.editName.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.expandAll.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.expandNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getChangeCheckedNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getCheckedNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodeByParam.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodeByTId.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodeIndex.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodesByFilter.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodesByParam.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getNodesByParamFuzzy.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.getSelectedNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.hideNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.hideNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.moveNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.reAsyncChildNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.refresh.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.removeChildNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.removeNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.selectNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.setChkDisabled.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.setEditable.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.setting.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.showNode.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.showNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.transformToArray.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.transformTozTreeNodes.html" />
+    <Content Include="js\zTree\api\en\zTreeObj.updateNode.html" />
+    <Content Include="js\zTree\css\awesomeStyle\awesome.css" />
+    <Content Include="js\zTree\css\awesomeStyle\img\loading.gif" />
+    <Content Include="js\zTree\css\demo.css" />
+    <Content Include="js\zTree\css\metroStyle\img\line_conn.png" />
+    <Content Include="js\zTree\css\metroStyle\img\loading.gif" />
+    <Content Include="js\zTree\css\metroStyle\img\metro.gif" />
+    <Content Include="js\zTree\css\metroStyle\img\metro.png" />
+    <Content Include="js\zTree\css\metroStyle\metroStyle.css" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\2.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\3.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\4.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\5.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\6.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\7.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\8.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\diy\9.png" />
+    <Content Include="js\zTree\css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="js\zTree\css\zTreeStyle\img\loading.gif" />
+    <Content Include="js\zTree\css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="js\zTree\css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="js\zTree\css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="js\zTree\js\jquery-1.4.4.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.all.js" />
+    <Content Include="js\zTree\js\jquery.ztree.all.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.core.js" />
+    <Content Include="js\zTree\js\jquery.ztree.core.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.excheck.js" />
+    <Content Include="js\zTree\js\jquery.ztree.excheck.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.exedit.js" />
+    <Content Include="js\zTree\js\jquery.ztree.exedit.min.js" />
+    <Content Include="js\zTree\js\jquery.ztree.exhide.js" />
+    <Content Include="js\zTree\js\jquery.ztree.exhide.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="logout.aspx" />
+    <Content Include="manage\adminsedit.aspx" />
+    <Content Include="manage\adminsdetail.aspx" />
+    <Content Include="manage\adminslist.aspx" />
+    <Content Include="manage\adminsRefer.aspx" />
+    <Content Include="manage\rolefunctionedit.aspx" />
+    <Content Include="manage\rolefunctionlist.aspx" />
+    <Content Include="manage\ResetPwd.aspx" />
+    <Content Include="manage\selectStroe.aspx" />
+    <Content Include="manage\tl_loginlogDetail.aspx" />
+    <Content Include="manage\tl_loginlogList.aspx" />
+    <Content Include="memberCard\membersRefer.aspx" />
+    <Content Include="memberCard\membersEdit.aspx" />
+    <Content Include="memberCard\membersList.aspx" />
+    <Content Include="memberCard\membersDetail.aspx" />
+    <Content Include="store\dishesRefer.aspx" />
+    <Content Include="store\IncomingMessageList.aspx" />
+    <Content Include="store\memcardconsumptionLists.aspx" />
+    <Content Include="store\MemCardLists.aspx" />
+    <Content Include="store\ChangePhoneNumRefer.aspx" />
+    <Content Include="store\R_DataSourceEdit.aspx" />
+    <Content Include="store\R_DataSourceList.aspx" />
+    <Content Include="store\showmsgList.aspx" />
+    <Content Include="store\StoreDetail.aspx" />
+    <Content Include="store\StoreEdit.aspx" />
+    <Content Include="store\StoreList.aspx" />
+    <Content Include="systemset\ts_DictsDetail.aspx" />
+    <Content Include="systemset\ts_DictsEdit.aspx" />
+    <Content Include="systemset\ts_DictsList.aspx" />
+    <Content Include="systemset\ts_syssetDetail.aspx" />
+    <Content Include="systemset\ts_syssetEdit.aspx" />
+    <Content Include="systemset\ts_syssetList.aspx" />
+    <Content Include="top.aspx" />
+    <Content Include="ueditor\dialogs\anchor\anchor.html" />
+    <Content Include="ueditor\dialogs\attachment\attachment.css" />
+    <Content Include="ueditor\dialogs\attachment\attachment.html" />
+    <Content Include="ueditor\dialogs\attachment\callbacks.js" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_chm.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_default.png" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_doc.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_exe.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_mv.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_psd.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_rar.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_txt.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\icon_xls.gif" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeMaps.js" />
+    <Content Include="ueditor\dialogs\code\code.html" />
+    <Content Include="ueditor\dialogs\emotion\emotion.css" />
+    <Content Include="ueditor\dialogs\emotion\emotion.html" />
+    <Content Include="ueditor\dialogs\emotion\emotion.js" />
+    <Content Include="ueditor\dialogs\emotion\images\0.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0001.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0002.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0003.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0004.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0005.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0006.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0007.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0008.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0009.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0010.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0011.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0012.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0013.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0014.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0015.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0016.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0017.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0018.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0019.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\C_0020.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0001.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0002.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0003.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0004.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0005.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0006.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0007.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0008.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0009.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0010.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0011.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0012.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0013.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0014.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0015.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0016.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0017.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0018.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0019.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0020.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0021.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0022.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0023.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0024.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0025.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0026.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0027.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0028.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0029.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0030.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0031.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0032.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0033.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0034.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0035.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0036.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0037.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0038.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0039.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0040.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0041.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0042.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0043.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0044.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0045.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0046.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0047.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0048.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0049.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0050.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0051.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0052.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0053.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0054.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0055.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0056.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0057.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0058.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0059.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0060.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0061.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0062.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\b_0063.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_01.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_02.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_03.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_04.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_05.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_06.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_07.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_08.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_09.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_10.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_11.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_12.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_13.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_14.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_15.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_16.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_17.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_18.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_19.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_20.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_21.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_22.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_23.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_24.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_25.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_26.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_27.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_28.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_29.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_30.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_31.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_32.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_33.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_34.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_35.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_36.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_37.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_38.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_39.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_40.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_41.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_42.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_43.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_44.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_45.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_46.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_47.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_48.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_49.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\face\i_f_50.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0001.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0002.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0003.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0004.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0005.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0006.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0007.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0008.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0009.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0010.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0011.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0012.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0013.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0014.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0015.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0016.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0017.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0018.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0019.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0020.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0021.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0022.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0023.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0024.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0025.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0026.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0027.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0028.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0029.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0030.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0031.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0032.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0033.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0034.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0035.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0036.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0037.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0038.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0039.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0040.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0041.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0042.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0043.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0044.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0045.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0046.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0047.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0048.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0049.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0050.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0051.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0052.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0053.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0054.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0055.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0056.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0057.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0058.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0059.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0060.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0061.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0062.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0063.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0064.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0065.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0066.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0067.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0068.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0069.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0070.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0071.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0072.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0073.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0074.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0075.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0076.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0077.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0078.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0079.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0080.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0081.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0082.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0083.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\j_0084.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0001.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0002.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0003.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0004.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0005.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0006.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0007.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0008.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0009.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0010.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0011.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0012.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0013.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0014.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0015.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0016.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0017.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0018.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0019.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0020.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0021.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0022.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0023.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0024.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0025.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0026.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0027.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0028.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0029.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0030.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0031.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0032.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0033.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0034.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0035.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0036.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0037.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0038.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0039.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0040.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0041.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0042.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0043.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0044.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0045.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0046.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0047.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0048.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0049.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0050.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0051.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\w_0052.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="ueditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0001.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0002.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0003.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0004.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0005.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0006.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0007.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0008.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0009.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0010.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0011.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0012.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0013.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0014.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0015.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0016.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0017.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0018.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0019.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0020.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0021.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0022.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0023.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0024.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0025.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0026.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0027.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0028.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0029.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0030.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0031.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0032.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0033.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0034.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0035.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0036.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0037.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0038.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0039.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\t_0040.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0001.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0002.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0003.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0004.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0005.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0006.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0007.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0008.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0009.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0010.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0011.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0012.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0013.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0014.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0015.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0016.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0017.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0018.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0019.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0020.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0021.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0022.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0023.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0024.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0025.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0026.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0027.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0028.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0029.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0030.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0031.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0032.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0033.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0034.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0035.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0036.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0037.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0038.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0039.gif" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\y_0040.gif" />
+    <Content Include="ueditor\dialogs\gmap\gmap.html" />
+    <Content Include="ueditor\dialogs\help\help.html" />
+    <Content Include="ueditor\dialogs\image\image.css" />
+    <Content Include="ueditor\dialogs\image\image.html" />
+    <Content Include="ueditor\dialogs\image\image.js" />
+    <Content Include="ueditor\dialogs\image\imageUploader.swf" />
+    <Content Include="ueditor\dialogs\insertframe\insertframe.html" />
+    <Content Include="ueditor\dialogs\internal.js" />
+    <Content Include="ueditor\dialogs\link\link.html" />
+    <Content Include="ueditor\dialogs\map\map.html" />
+    <Content Include="ueditor\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="ueditor\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="ueditor\dialogs\spechars\spechars.html" />
+    <Content Include="ueditor\dialogs\table\edittd.html" />
+    <Content Include="ueditor\dialogs\table\table.html" />
+    <Content Include="ueditor\dialogs\table\table.js" />
+    <Content Include="ueditor\dialogs\tangram.js" />
+    <Content Include="ueditor\dialogs\video\video.css" />
+    <Content Include="ueditor\dialogs\video\video.html" />
+    <Content Include="ueditor\dialogs\video\video.js" />
+    <Content Include="ueditor\dialogs\webapp\webapp.html" />
+    <Content Include="ueditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="ueditor\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="ueditor\dialogs\wordimage\wordimage.html" />
+    <Content Include="ueditor\dialogs\wordimage\wordimage.js" />
+    <Content Include="ueditor\editor_all.js" />
+    <Content Include="ueditor\editor_config.js" />
+    <Content Include="ueditor\themes\default\iframe.css" />
+    <Content Include="ueditor\themes\default\images\anchor.gif" />
+    <Content Include="ueditor\themes\default\images\arrow.png" />
+    <Content Include="ueditor\themes\default\images\button-bg.gif" />
+    <Content Include="ueditor\themes\default\images\cancelbutton.gif" />
+    <Content Include="ueditor\themes\default\images\center_focus.jpg" />
+    <Content Include="ueditor\themes\default\images\copy.png" />
+    <Content Include="ueditor\themes\default\images\dialog-title-bg.png" />
+    <Content Include="ueditor\themes\default\images\fileScan.png" />
+    <Content Include="ueditor\themes\default\images\icons-all.gif" />
+    <Content Include="ueditor\themes\default\images\icons.gif" />
+    <Content Include="ueditor\themes\default\images\icons.png" />
+    <Content Include="ueditor\themes\default\images\imgLable.png" />
+    <Content Include="ueditor\themes\default\images\left.jpg" />
+    <Content Include="ueditor\themes\default\images\left_focus.jpg" />
+    <Content Include="ueditor\themes\default\images\localimage.png" />
+    <Content Include="ueditor\themes\default\images\lock.gif" />
+    <Content Include="ueditor\themes\default\images\logo.png" />
+    <Content Include="ueditor\themes\default\images\menu\sparator_v.png" />
+    <Content Include="ueditor\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="ueditor\themes\default\images\none.jpg" />
+    <Content Include="ueditor\themes\default\images\none_focus.jpg" />
+    <Content Include="ueditor\themes\default\images\pagebreak.gif" />
+    <Content Include="ueditor\themes\default\images\right.jpg" />
+    <Content Include="ueditor\themes\default\images\right_focus.jpg" />
+    <Content Include="ueditor\themes\default\images\spacer.gif" />
+    <Content Include="ueditor\themes\default\images\tablepicker\highlighted.gif" />
+    <Content Include="ueditor\themes\default\images\tablepicker\unhighlighted.gif" />
+    <Content Include="ueditor\themes\default\images\toolbar_bg.png" />
+    <Content Include="ueditor\themes\default\images\topbottom.jpg" />
+    <Content Include="ueditor\themes\default\images\topbottom_focus.jpg" />
+    <Content Include="ueditor\themes\default\images\upload.png" />
+    <Content Include="ueditor\themes\default\images\videologo.gif" />
+    <Content Include="ueditor\themes\default\images\word.gif" />
+    <Content Include="ueditor\themes\default\ueditor.css" />
+    <Content Include="ueditor\third-party\codemirror2.15\codemirror.css" />
+    <Content Include="ueditor\third-party\codemirror2.15\codemirror.js" />
+    <Content Include="ueditor\third-party\snapscreen\setup.exe" />
+    <Content Include="ueditor\third-party\snapscreen\Snapsie.dll" />
+    <Content Include="ueditor\third-party\snapscreen\test.html" />
+    <Content Include="ueditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="ueditor\third-party\snapscreen\user_manual.txt" />
+    <Content Include="ueditor\third-party\swfupload\fileprogress.js" />
+    <Content Include="ueditor\third-party\swfupload\swfupload.cookies.js" />
+    <Content Include="ueditor\third-party\swfupload\swfupload.js" />
+    <Content Include="ueditor\third-party\swfupload\swfupload.proxy.js" />
+    <Content Include="ueditor\third-party\swfupload\swfupload.queue.js" />
+    <Content Include="ueditor\third-party\swfupload\swfupload.speed.js" />
+    <Content Include="ueditor\third-party\swfupload\swfupload.swf" />
+    <Content Include="ueditor\third-party\swfupload\swfupload_fp9.swf" />
+    <Content Include="ueditor\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="ueditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="UserControls\ToolBar.ascx" />
+    <Content Include="welcomePage.aspx" />
+    <Content Include="xml\zh-cn\activreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\AnnualTarget.xml" />
+    <Content Include="xml\zh-cn\AuditDescr.xml" />
+    <Content Include="xml\zh-cn\birthsent.xml" />
+    <Content Include="xml\zh-cn\busDestine.xml" />
+    <Content Include="xml\zh-cn\cateringincomeT.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\cateringincomeY.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\CostEntry.xml" />
+    <Content Include="xml\zh-cn\CostType.xml" />
+    <Content Include="xml\zh-cn\couponcheck.xml" />
+    <Content Include="xml\zh-cn\couponfreelog.xml" />
+    <Content Include="xml\zh-cn\coupontipsrule.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\csubsetlist.xml" />
+    <Content Include="xml\zh-cn\CvOutSetting.xml" />
+    <Content Include="xml\zh-cn\DBBakSet.xml" />
+    <Content Include="xml\zh-cn\depsetlist.xml" />
+    <Content Include="xml\zh-cn\discountpackage.xml" />
+    <Content Include="xml\zh-cn\DishesFeedRate.xml" />
+    <Content Include="xml\zh-cn\DishesMate.xml" />
+    <Content Include="xml\zh-cn\EmployeeCardBatch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\FinanceType.xml" />
+    <Content Include="xml\zh-cn\holidays.xml" />
+    <Content Include="xml\zh-cn\kitchenbusreport.xml" />
+    <Content Include="xml\zh-cn\MachRecord.xml" />
+    <Content Include="xml\zh-cn\MachRecordReportList.xml" />
+    <Content Include="xml\zh-cn\MaterialBackOut.xml" />
+    <Content Include="xml\zh-cn\MaterialTransfer.xml" />
+    <Content Include="xml\zh-cn\memberCardSales.xml" />
+    <Content Include="xml\zh-cn\DutyRank.xml" />
+    <Content Include="xml\zh-cn\EmpDuty.xml" />
+    <Content Include="xml\en-us\admins.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\en-us\common.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\en-us\login.xml" />
+    <Content Include="xml\zh-cn\CountingDef.xml" />
+    <Content Include="xml\zh-cn\coupon.xml" />
+    <Content Include="xml\zh-cn\couponpresent.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\couponpresentCardDetail.xml" />
+    <Content Include="xml\zh-cn\couponpresentDetail.xml" />
+    <Content Include="xml\zh-cn\Department.xml" />
+    <Content Include="xml\zh-cn\dishes.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\Employee.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\ErrMessage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\admins.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\common.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\languages.xml" />
+    <Content Include="xml\zh-cn\login.xml" />
+    <Content Include="xml\zh-cn\maincoupon.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memaccountadjust.xml" />
+    <Content Include="xml\zh-cn\memaccountPay.xml" />
+    <Content Include="xml\zh-cn\membatchcard.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\members.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MemCard.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardconsumption.xml" />
+    <Content Include="xml\zh-cn\memcardlevel.xml" />
+    <Content Include="xml\zh-cn\memcardlog.xml" />
+    <Content Include="xml\zh-cn\memcardLoss.xml" />
+    <Content Include="xml\zh-cn\memcardcreditList.xml" />
+    <Content Include="xml\zh-cn\memcardreturnList.xml" />
+    <Content Include="xml\zh-cn\memcardtype.xml" />
+    <Content Include="xml\zh-cn\memcustomer.xml" />
+    <Content Include="xml\zh-cn\memprebatch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memprefabricat.xml" />
+    <Content Include="xml\zh-cn\memsubcardreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVbanner.xml" />
+    <Content Include="xml\zh-cn\MVgoodsLevel.xml" />
+    <Content Include="xml\zh-cn\NoApplyStorage.xml" />
+    <Content Include="xml\zh-cn\NoteInfo.xml" />
+    <Content Include="xml\zh-cn\NoteTemplate.xml" />
+    <Content Include="xml\zh-cn\operatelog.xml" />
+    <Content Include="xml\zh-cn\paymethod.xml" />
+    <Content Include="xml\zh-cn\paymethodAlipay.xml" />
+    <Content Include="xml\zh-cn\paymethodwx.xml" />
+    <Content Include="xml\zh-cn\ProAuthAudit.xml" />
+    <Content Include="xml\zh-cn\problemclass.xml" />
+    <Content Include="xml\zh-cn\ProblemList.xml" />
+    <Content Include="xml\zh-cn\provinces.xml" />
+    <Content Include="xml\zh-cn\ReportType.xml" />
+    <Content Include="xml\zh-cn\ReportTypeRelation.xml" />
+    <Content Include="xml\zh-cn\R_DataSource.xml" />
+    <Content Include="xml\zh-cn\salespromotion.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\SCStockCountingDay.xml" />
+    <Content Include="xml\zh-cn\selecttrade.xml" />
+    <Content Include="xml\zh-cn\ShiftReport.xml" />
+    <Content Include="xml\zh-cn\StockApproval.xml" />
+    <Content Include="xml\zh-cn\StockBack.xml" />
+    <Content Include="xml\zh-cn\StockApply.xml" />
+    <Content Include="xml\zh-cn\StockBalanceList.xml" />
+    <Content Include="xml\zh-cn\StockCounting.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockCountingDay.xml" />
+    <Content Include="xml\zh-cn\StockGive.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockInOutList.xml" />
+    <Content Include="xml\zh-cn\StockInvoicing.xml" />
+    <Content Include="xml\zh-cn\StockJKlist.xml" />
+    <Content Include="xml\zh-cn\StockJKReturnlist.xml" />
+    <Content Include="xml\zh-cn\StockJKSumList.xml" />
+    <Content Include="xml\zh-cn\StockLoss.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockMateClass.xml" />
+    <Content Include="xml\zh-cn\StockMaterial.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockMateType.xml" />
+    <Content Include="xml\zh-cn\StockOut.xml" />
+    <Content Include="xml\zh-cn\StockPayOrder.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockPreApply.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockPreApplyDateSet.xml" />
+    <Content Include="xml\zh-cn\StockProHalf.xml" />
+    <Content Include="xml\zh-cn\StockProHalfOut.xml" />
+    <Content Include="xml\zh-cn\StockPurchase.xml" />
+    <Content Include="xml\zh-cn\StockPurchase_GYS.xml" />
+    <Content Include="xml\zh-cn\StockReturn.xml" />
+    <Content Include="xml\zh-cn\StockStaffMeals.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockStorage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockSupplier.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockTemplate.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockTransfer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockWareHouse.xml" />
+    <Content Include="xml\zh-cn\StorageSum.xml" />
+    <Content Include="xml\zh-cn\Store.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\storebusreport.xml" />
+    <Content Include="xml\zh-cn\StoreCostAnalysis.xml" />
+    <Content Include="xml\zh-cn\storedishesbenefitmonthreport.xml" />
+    <Content Include="xml\zh-cn\StoreDishesSell.xml" />
+    <Content Include="xml\zh-cn\storedistypereport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\storefintypereport.xml" />
+    <Content Include="xml\zh-cn\storegivereport.xml" />
+    <Content Include="xml\zh-cn\storemanagerreport.xml" />
+    <Content Include="xml\zh-cn\StoreMaterial.xml" />
+    <Content Include="xml\zh-cn\StoreMBenefit.xml" />
+    <Content Include="xml\zh-cn\storeorderclerkreport.xml" />
+    <Content Include="xml\zh-cn\storeraiserreport.xml" />
+    <Content Include="xml\zh-cn\storereturnreport.xml" />
+    <Content Include="xml\zh-cn\Storesell.xml" />
+    <Content Include="xml\zh-cn\StoresellColl.xml" />
+    <Content Include="xml\zh-cn\StoreYearBenefit.xml" />
+    <Content Include="xml\zh-cn\subcard.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\subcardfreelogUser.xml" />
+    <Content Include="xml\zh-cn\subcardinfo.xml" />
+    <Content Include="xml\zh-cn\sumcoupon.xml" />
+    <Content Include="xml\zh-cn\SupArrearsSec.xml" />
+    <Content Include="xml\zh-cn\SuperAuditor.xml" />
+    <Content Include="xml\zh-cn\SupplierStore.xml" />
+    <Content Include="xml\zh-cn\SupplierTicket.xml" />
+    <Content Include="xml\zh-cn\terminalNetwork.xml" />
+    <Content Include="xml\zh-cn\tl_loginlog.xml" />
+    <Content Include="xml\zh-cn\ts_Dicts.xml" />
+    <Content Include="xml\zh-cn\ts_ManAuthorization.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\ts_sysset.xml" />
+    <Content Include="xml\zh-cn\WarDayTarget.xml" />
+    <Content Include="xml\zh-cn\WarehouseMaterial.xml" />
+    <Content Include="xml\zh-cn\WareHouseMML.xml" />
+    <Content Include="xml\zh-cn\WareHouseYML.xml" />
+    <Content Include="xml\zh-cn\WarMonthTarget.xml" />
+    <Content Include="xml\zh-cn\ways.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXbusactivity.xml" />
+    <Content Include="xml\zh-cn\welcome.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXComplaints.xml" />
+    <Content Include="xml\zh-cn\WXdishesSelloff.xml" />
+    <Content Include="xml\zh-cn\WXlostFind.xml" />
+    <Content Include="xml\zh-cn\WXresume.xml" />
+    <Content Include="xml\zh-cn\WXresumedetail.xml" />
+    <Content Include="xml\zh-cn\WXBigbright.xml" />
+    <Content Include="xml\zh-cn\WXScreen.xml" />
+    <Content Include="xml\zh-cn\WXNewMovie.xml" />
+    <Content Include="xml\zh-cn\resetpwd.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\rolefunction.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MemCardBig.xml" />
+    <Content Include="xml\zh-cn\MemCardChangeList.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockCheck.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockStaffMealsaudit.xml" />
+    <Content Include="xml\zh-cn\couponBactfreelog.xml" />
+    <Content Include="xml\zh-cn\SCStockCounting.xml" />
+    <Content Include="xml\zh-cn\StockCostBalance.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockApplyTips.xml" />
+    <Content Include="xml\zh-cn\memCardStock.xml" />
+    <Content Include="xml\zh-cn\memCardStorage.xml" />
+    <Content Include="xml\zh-cn\memberCardTransfer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memberCardCounting.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\SCmemberCardCounting.xml" />
+    <Content Include="xml\zh-cn\IncomingMessage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MemInOutList.xml" />
+    <Content Include="xml\zh-cn\CaAccount.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockInventoryloss.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MaterialSFY.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MaterialSec.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MaterialThree.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\SupArrears.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StorageSec.xml" />
+    <Content Include="xml\zh-cn\StorageDateSum.xml" />
+    <Content Include="xml\zh-cn\StorageDateSec.xml" />
+    <Content Include="xml\zh-cn\MemberCardBatch.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardsignList.xml" />
+    <Content Include="xml\zh-cn\memlog.xml" />
+    <Content Include="xml\zh-cn\membercoupon.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memberBind.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StoConsumptionSum.xml" />
+    <Content Include="xml\zh-cn\couponsendreport.xml" />
+    <Content Include="xml\zh-cn\couponrecoverytotalreport.xml" />
+    <Content Include="xml\zh-cn\couponrecoverydetailreport.xml" />
+    <Content Include="xml\zh-cn\couponsearchreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\cardbalancebytypereport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\refillreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\couponteamsalesreport.xml" />
+    <Content Include="xml\zh-cn\creditreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\creditdetailreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\signreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\signdetailreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\mempointdetail.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\mempointbytype.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\mempointbycardcode.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\mempointreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardsalesreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardchargereport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardtradereport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\stosalechargereport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardchange.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\cardchargesale.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\ZhijieCardSearch.xml" />
+    <Content Include="xml\zh-cn\zdtotal.xml" />
+    <Content Include="xml\zh-cn\thirdpayreport.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardlevelset.xml" />
+    <Content Include="xml\zh-cn\StockStroReturn.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\ssubsetlist.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\supsetlist.xml" />
+    <Content Include="xml\zh-cn\stosetlist.xml" />
+    <Content Include="xml\zh-cn\cbsetlist.xml" />
+    <Content Include="xml\zh-cn\ycbsetlist.xml" />
+    <Content Include="xml\zh-cn\cbmanagelist.xml" />
+    <Content Include="xml\zh-cn\srmanagelist.xml" />
+    <Content Include="xml\zh-cn\srtypesetlist.xml" />
+    <Content Include="xml\zh-cn\stypesetlist.xml" />
+    <Content Include="xml\zh-cn\pznosetlist.xml" />
+    <Content Include="xml\zh-cn\empsetlist.xml" />
+    <Content Include="xml\zh-cn\buildsrmanage.xml" />
+    <Content Include="xml\zh-cn\cussetlist.xml" />
+    <Content Include="xml\zh-cn\SupArrMonth.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\StockTZ.xml" />
+    <Content Include="xml\zh-cn\cbtotalmanagelist.xml" />
+    <Content Include="xml\zh-cn\k3originaldatalist.xml" />
+    <Content Include="xml\zh-cn\memlikeclass.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXBasicSetting.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXReservationSet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXholidaySet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXRemarkSet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXsqinfoSet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXbusDestine.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXbusWait.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXComplaint.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXsetlineup.xml" />
+    <Content Include="xml\zh-cn\WXhelpSet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXReward.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXRewardSet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXMembers.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXUserMessage.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXRewardSta.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\WXdishesPic.xml" />
+    <Content Include="xml\zh-cn\WXdishescomboPic.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVgoods.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVcoupon.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVsumcoupon.xml" />
+    <Content Include="xml\zh-cn\MVmarketingactivity.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVticketsOrder.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVgoodsOrder.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVCinemas.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVComment.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVlatestActivity.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVScoreRel.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVSensitiveSet.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVfilmorder.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVfilms.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\halllist.xml" />
+    <Content Include="xml\zh-cn\versionlist.xml" />
+    <Content Include="xml\zh-cn\channellist.xml" />
+    <Content Include="xml\zh-cn\WXSelectDishRefer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\movieorderlist.xml" />
+    <Content Include="xml\zh-cn\MVmemBinding.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\sumcouponN.xml" />
+    <Content Include="xml\zh-cn\maincouponN.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\accountlist.xml" />
+    <Content Include="xml\zh-cn\N_Marketing.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVgoodsN.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\marketingN.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\kitsetlist.xml" />
+    <Content Include="xml\zh-cn\wxtableman.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\couponfreeloguser.xml" />
+    <Content Include="xml\zh-cn\srdetail.xml" />
+    <Content Include="xml\zh-cn\cateringincomeM.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\cateringincomeD.xml" />
+    <Content Include="xml\zh-cn\daycoudifreport.xml" />
+    <Content Include="xml\zh-cn\IncomeAdjust.xml" />
+    <Content Include="xml\zh-cn\WarYearTarget.xml" />
+    <Content Include="xml\zh-cn\OtherEnter.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\tb_terminalinfo.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\memcardbalancereport.xml" />
+    <Content Include="xml\zh-cn\AddPrize.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\couponrefer.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="xml\zh-cn\MVDraw.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ajax\Ajax.ashx.cs">
+      <DependentUpon>Ajax.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\card\CardReq.ashx.cs">
+      <DependentUpon>CardReq.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\coupon\conpon.ashx.cs">
+      <DependentUpon>conpon.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\Delete.ashx.cs">
+      <DependentUpon>Delete.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\deletefile.ashx.cs">
+      <DependentUpon>deletefile.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\dishes\WSdishes.ashx.cs">
+      <DependentUpon>WSdishes.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\dishes\WSStore.ashx.cs">
+      <DependentUpon>WSStore.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\dishes\WSsto_admins.ashx.cs">
+      <DependentUpon>WSsto_admins.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\dishes\WSsto_ts_Dicts.ashx.cs">
+      <DependentUpon>WSsto_ts_Dicts.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\getTableList.ashx.cs">
+      <DependentUpon>getTableList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\getuser.ashx.cs">
+      <DependentUpon>getuser.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\leftlist.ashx.cs">
+      <DependentUpon>leftlist.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\membercard\getmemberCard.ashx.cs">
+      <DependentUpon>getmemberCard.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\Picture.ashx.cs">
+      <DependentUpon>Picture.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\SelectDown.ashx.cs">
+      <DependentUpon>SelectDown.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\ServiceBase.cs" />
+    <Compile Include="ajax\system\S_dict.ashx.cs">
+      <DependentUpon>S_dict.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\system\S_Province.ashx.cs">
+      <DependentUpon>S_Province.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\toplist.ashx.cs">
+      <DependentUpon>toplist.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\uploadDisPic.ashx.cs">
+      <DependentUpon>uploadDisPic.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\UploadPicture.cs" />
+    <Compile Include="ajax\uploads.ashx.cs">
+      <DependentUpon>uploads.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\weixinset\weixinset.ashx.cs">
+      <DependentUpon>weixinset.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckCode\validateNum.aspx.cs">
+      <DependentUpon>validateNum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckCode\validateNum.aspx.designer.cs">
+      <DependentUpon>validateNum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BasePage.cs" />
+    <Compile Include="Common\DetailPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\EditPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\ListPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\StrHelp.cs" />
+    <Compile Include="coupon\couponcheck.aspx.cs">
+      <DependentUpon>couponcheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="coupon\couponcheck.aspx.designer.cs">
+      <DependentUpon>couponcheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="coupon\CouponDelay.aspx.cs">
+      <DependentUpon>CouponDelay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="coupon\CouponDelay.aspx.designer.cs">
+      <DependentUpon>CouponDelay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="coupon\GoToAuditing.aspx.cs">
+      <DependentUpon>GoToAuditing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="coupon\GoToAuditing.aspx.designer.cs">
+      <DependentUpon>GoToAuditing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="coupon\repulse.aspx.cs">
+      <DependentUpon>repulse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="coupon\repulse.aspx.designer.cs">
+      <DependentUpon>repulse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="coupon\sumcouponDetail.aspx.cs">
+      <DependentUpon>sumcouponDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="coupon\sumcouponDetail.aspx.designer.cs">
+      <DependentUpon>sumcouponDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="coupon\sumcouponEdit.aspx.cs">
+      <DependentUpon>sumcouponEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="coupon\sumcouponEdit.aspx.designer.cs">
+      <DependentUpon>sumcouponEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="coupon\sumcouponList.aspx.cs">
+      <DependentUpon>sumcouponList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="coupon\sumcouponList.aspx.designer.cs">
+      <DependentUpon>sumcouponList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\adminsedit.aspx.cs">
+      <DependentUpon>adminsedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\adminsedit.aspx.designer.cs">
+      <DependentUpon>adminsedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\adminsdetail.aspx.cs">
+      <DependentUpon>adminsdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\adminsdetail.aspx.designer.cs">
+      <DependentUpon>adminsdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\adminslist.aspx.cs">
+      <DependentUpon>adminslist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\adminslist.aspx.designer.cs">
+      <DependentUpon>adminslist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\adminsRefer.aspx.cs">
+      <DependentUpon>adminsRefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\adminsRefer.aspx.designer.cs">
+      <DependentUpon>adminsRefer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\DBBakSetlist.aspx.cs">
+      <DependentUpon>DBBakSetlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\DBBakSetlist.aspx.designer.cs">
+      <DependentUpon>DBBakSetlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\dishesedit.aspx.cs">
+      <DependentUpon>dishesedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\dishesedit.aspx.designer.cs">
+      <DependentUpon>dishesedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\DishesFeedRateList.aspx.cs">
+      <DependentUpon>DishesFeedRateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\DishesFeedRateList.aspx.designer.cs">
+      <DependentUpon>DishesFeedRateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\dishesInportMate.aspx.cs">
+      <DependentUpon>dishesInportMate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\dishesInportMate.aspx.designer.cs">
+      <DependentUpon>dishesInportMate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\dishesList.aspx.cs">
+      <DependentUpon>dishesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\dishesList.aspx.designer.cs">
+      <DependentUpon>dishesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\DisheTyperefer.aspx.cs">
+      <DependentUpon>DisheTyperefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\DisheTyperefer.aspx.designer.cs">
+      <DependentUpon>DisheTyperefer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\rolefunctionedit.aspx.cs">
+      <DependentUpon>rolefunctionedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\rolefunctionedit.aspx.designer.cs">
+      <DependentUpon>rolefunctionedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\rolefunctionlist.aspx.cs">
+      <DependentUpon>rolefunctionlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\rolefunctionlist.aspx.designer.cs">
+      <DependentUpon>rolefunctionlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\ResetPwd.aspx.cs">
+      <DependentUpon>ResetPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\ResetPwd.aspx.designer.cs">
+      <DependentUpon>ResetPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\selectadminsRefer.aspx.cs">
+      <DependentUpon>selectadminsRefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\selectadminsRefer.aspx.designer.cs">
+      <DependentUpon>selectadminsRefer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\selectDishes.aspx.cs">
+      <DependentUpon>selectDishes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\selectDishes.aspx.designer.cs">
+      <DependentUpon>selectDishes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\selectStroe.aspx.cs">
+      <DependentUpon>selectStroe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\selectStroe.aspx.designer.cs">
+      <DependentUpon>selectStroe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\tl_loginlogDetail.aspx.cs">
+      <DependentUpon>tl_loginlogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\tl_loginlogDetail.aspx.designer.cs">
+      <DependentUpon>tl_loginlogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\tl_loginlogList.aspx.cs">
+      <DependentUpon>tl_loginlogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\tl_loginlogList.aspx.designer.cs">
+      <DependentUpon>tl_loginlogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="memberCard\membersPhoneEdit.aspx.cs">
+      <DependentUpon>membersPhoneEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="memberCard\membersPhoneEdit.aspx.designer.cs">
+      <DependentUpon>membersPhoneEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="memberCard\membersRefer.aspx.cs">
+      <DependentUpon>membersRefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="memberCard\membersRefer.aspx.designer.cs">
+      <DependentUpon>membersRefer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="memberCard\membersEdit.aspx.cs">
+      <DependentUpon>membersEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="memberCard\membersEdit.aspx.designer.cs">
+      <DependentUpon>membersEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="memberCard\membersList.aspx.cs">
+      <DependentUpon>membersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="memberCard\membersList.aspx.designer.cs">
+      <DependentUpon>membersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="memberCard\membersDetail.aspx.cs">
+      <DependentUpon>membersDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="memberCard\membersDetail.aspx.designer.cs">
+      <DependentUpon>membersDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="memberCard\membercouponDetail.aspx.cs">
+      <DependentUpon>membercouponDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="memberCard\membercouponDetail.aspx.designer.cs">
+      <DependentUpon>membercouponDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mycgd.aspx.cs">
+      <DependentUpon>mycgd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mycgd.aspx.designer.cs">
+      <DependentUpon>mycgd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="report\membercard\memcardreport.aspx.cs">
+      <DependentUpon>memcardreport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="report\membercard\memcardreport.aspx.designer.cs">
+      <DependentUpon>memcardreport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\dishesRefer.aspx.cs">
+      <DependentUpon>dishesRefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\dishesRefer.aspx.designer.cs">
+      <DependentUpon>dishesRefer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\IncomingMessageList.aspx.cs">
+      <DependentUpon>IncomingMessageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\IncomingMessageList.aspx.designer.cs">
+      <DependentUpon>IncomingMessageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\memcardconsumptionLists.aspx.cs">
+      <DependentUpon>memcardconsumptionLists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\memcardconsumptionLists.aspx.designer.cs">
+      <DependentUpon>memcardconsumptionLists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\MemCardLists.aspx.cs">
+      <DependentUpon>MemCardLists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\MemCardLists.aspx.designer.cs">
+      <DependentUpon>MemCardLists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\ChangePhoneNumRefer.aspx.cs">
+      <DependentUpon>ChangePhoneNumRefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\ChangePhoneNumRefer.aspx.designer.cs">
+      <DependentUpon>ChangePhoneNumRefer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\R_DataSourceList.aspx.cs">
+      <DependentUpon>R_DataSourceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\R_DataSourceList.aspx.designer.cs">
+      <DependentUpon>R_DataSourceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\R_DataSourceEdit.aspx.cs">
+      <DependentUpon>R_DataSourceEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\R_DataSourceEdit.aspx.designer.cs">
+      <DependentUpon>R_DataSourceEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\showmsgList.aspx.cs">
+      <DependentUpon>showmsgList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\showmsgList.aspx.designer.cs">
+      <DependentUpon>showmsgList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\StoreDetail.aspx.cs">
+      <DependentUpon>StoreDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\StoreDetail.aspx.designer.cs">
+      <DependentUpon>StoreDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\StoreEdit.aspx.cs">
+      <DependentUpon>StoreEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\StoreEdit.aspx.designer.cs">
+      <DependentUpon>StoreEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="store\StoreList.aspx.cs">
+      <DependentUpon>StoreList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="store\StoreList.aspx.designer.cs">
+      <DependentUpon>StoreList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="systemset\ts_DictsDetail.aspx.cs">
+      <DependentUpon>ts_DictsDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="systemset\ts_DictsDetail.aspx.designer.cs">
+      <DependentUpon>ts_DictsDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="systemset\ts_DictsEdit.aspx.cs">
+      <DependentUpon>ts_DictsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="systemset\ts_DictsEdit.aspx.designer.cs">
+      <DependentUpon>ts_DictsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="systemset\ts_DictsList.aspx.cs">
+      <DependentUpon>ts_DictsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="systemset\ts_DictsList.aspx.designer.cs">
+      <DependentUpon>ts_DictsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="systemset\ts_syssetDetail.aspx.cs">
+      <DependentUpon>ts_syssetDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="systemset\ts_syssetDetail.aspx.designer.cs">
+      <DependentUpon>ts_syssetDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="systemset\ts_syssetEdit.aspx.cs">
+      <DependentUpon>ts_syssetEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="systemset\ts_syssetEdit.aspx.designer.cs">
+      <DependentUpon>ts_syssetEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="systemset\ts_syssetList.aspx.cs">
+      <DependentUpon>ts_syssetList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="systemset\ts_syssetList.aspx.designer.cs">
+      <DependentUpon>ts_syssetList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="top.aspx.cs">
+      <DependentUpon>top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="top.aspx.designer.cs">
+      <DependentUpon>top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ToolBar.ascx.cs">
+      <DependentUpon>ToolBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ToolBar.ascx.designer.cs">
+      <DependentUpon>ToolBar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="welcomePage.aspx.cs">
+      <DependentUpon>welcomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="welcomePage.aspx.designer.cs">
+      <DependentUpon>welcomePage.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{A1DB0F6F-A7A1-4390-BAD1-3FEEC0EA04BD}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonBasic\CommonBasic.csproj">
+      <Project>{afd34b08-3b73-45ba-8e34-238e2fcb43d2}</Project>
+      <Name>CommonBasic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{7db617c4-d87e-4c3d-937d-00dc006afd77}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{f75edbe4-e345-434a-b06b-ae2b06b1804a}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WXHelper\WXHelper.csproj">
+      <Project>{2f3d1637-f253-4519-9e0a-c00f6e3a7b41}</Project>
+      <Name>WXHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\toplist.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\leftlist.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\getuser.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\membercard\getmemberCard.ashx" />
+    <Content Include="ajax\Picture.ashx" />
+    <Content Include="ajax\Delete.ashx" />
+    <Content Include="ajax\weixinset\weixinset.ashx" />
+    <Content Include="ajax\uploadDisPic.ashx" />
+    <Content Include="ajax\Ajax.ashx" />
+    <Content Include="ajax\coupon\conpon.ashx" />
+    <Content Include="ajax\SelectDown.ashx" />
+    <Content Include="ajax\dishes\WSdishes.ashx" />
+    <Content Include="ajax\dishes\WSStore.ashx" />
+    <Content Include="ajax\dishes\WSsto_admins.ashx" />
+    <Content Include="ajax\dishes\WSsto_ts_Dicts.ashx" />
+    <None Include="Properties\PublishProfiles\111.pubxml" />
+    <None Include="Properties\PublishProfiles\backweb.pubxml" />
+    <Content Include="Template\StockChecks.xls" />
+    <None Include="Properties\PublishProfiles\back_website.pubxml" />
+    <Content Include="Template\EmployeeRecharge.xls" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Template\MembersRecharge.xls" />
+    <Content Include="Template\importyldata.xls" />
+    <Content Include="Template\CouponSend.xlsx" />
+    <Content Include="Template\couponRecoveryDetail.xlsx" />
+    <Content Include="Template\couponRecoveryTotal.xlsx" />
+    <Content Include="Template\CouponSearch.xlsx" />
+    <Content Include="Template\TeamCardSales.xlsx" />
+    <Content Include="Template\creditReport.xlsx" />
+    <Content Include="Template\creditDetailReport.xlsx" />
+    <Content Include="Template\signDetailReport.xlsx" />
+    <Content Include="Template\signReport.xlsx" />
+    <Content Include="Template\pointDetailReport.xlsx" />
+    <Content Include="Template\mempointbycardcode.xlsx" />
+    <Content Include="Template\mempointreport.xlsx" />
+    <Content Include="Template\memcardchargereport.xlsx" />
+    <Content Include="Template\memcardsalesreport.xlsx" />
+    <Content Include="Template\memcardtradereport.xlsx" />
+    <Content Include="Template\stosalechargereport.xlsx" />
+    <Content Include="Template\memcardchange.xlsx" />
+    <Content Include="Template\cardchargesale.xlsx" />
+    <Content Include="Template\thirdpayreport.xlsx" />
+    <Content Include="Template\stocksupplier.xlsx" />
+    <Content Include="Template\zhijiereport.xlsx" />
+    <Content Include="Template\k3Template.xls" />
+    <Content Include="Template\SensitiveWordSet.xls" />
+    <Content Include="Template\movieorderbycharge.xlsx" />
+    <Content Include="Template\movieorderbygoods.xlsx" />
+    <Content Include="Template\movieorderbytickets.xlsx" />
+    <Content Include="Template\MVticketsExport.xls" />
+    <Content Include="Template\MVmemBindingExport.xls" />
+    <Content Include="Template\stockloan.xlsx" />
+    <Content Include="Template\MVActivityExport.xls" />
+    <Content Include="Template\MVgoodsOrder.xls" />
+    <Content Include="Template\StockInvoicing.xlsx" />
+    <Content Include="Template\StockPurchase.xlsx" />
+    <Content Include="Template\StoreBenefitReport.xlsx" />
+    <Content Include="Template\StoreBenefitWeekReport.xlsx" />
+    <Content Include="Template\StoreDishesBenefitReport.xlsx" />
+    <Content Include="Template\StoreDishesBenefitWeekReport.xlsx" />
+    <Content Include="Template\StoreDishesCostVarianceReport.xlsx" />
+    <Content Include="Template\StoreDishesCostVarianceWeekReport.xlsx" />
+    <Content Include="Template\StoreGapAnalysisReport.xlsx" />
+    <Content Include="Template\StoreMonthBenefitReport.xlsx" />
+    <Content Include="Template\StoreYearCgpReport.xlsx" />
+    <Content Include="Template\成本卡模板.xlsx" />
+    <Content Include="Template\SubCardInfoExport.xls" />
+    <Content Include="Template\memsubcardreport.xlsx" />
+    <Content Include="Template\collwords.xlsx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="xml\zh-cn\goodorderlist.xml" />
+    <Content Include="xml\zh-cn\chargeorderlist.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\uploads.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="js\zTree\css\awesomeStyle\awesome.less" />
+    <Content Include="js\zTree\css\awesomeStyle\fa.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\system\S_dict.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\getTableList.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ueditor\dialogs\anchor\vssver2.scc" />
+    <Content Include="ueditor\dialogs\attachment\fileTypeImages\vssver2.scc" />
+    <Content Include="ueditor\dialogs\attachment\vssver2.scc" />
+    <Content Include="ueditor\dialogs\code\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\images\babycat\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\images\bobo\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\images\face\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\images\jx2\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\images\ldw\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\images\tsj\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\images\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\images\youa\vssver2.scc" />
+    <Content Include="ueditor\dialogs\emotion\vssver2.scc" />
+    <Content Include="ueditor\dialogs\gmap\vssver2.scc" />
+    <Content Include="ueditor\dialogs\help\vssver2.scc" />
+    <Content Include="ueditor\dialogs\image\vssver2.scc" />
+    <Content Include="ueditor\dialogs\insertframe\vssver2.scc" />
+    <Content Include="ueditor\dialogs\link\vssver2.scc" />
+    <Content Include="ueditor\dialogs\map\vssver2.scc" />
+    <Content Include="ueditor\dialogs\searchreplace\vssver2.scc" />
+    <Content Include="ueditor\dialogs\snapscreen\vssver2.scc" />
+    <Content Include="ueditor\dialogs\spechars\vssver2.scc" />
+    <Content Include="ueditor\dialogs\table\vssver2.scc" />
+    <Content Include="ueditor\dialogs\video\vssver2.scc" />
+    <Content Include="ueditor\dialogs\vssver2.scc" />
+    <Content Include="ueditor\dialogs\webapp\vssver2.scc" />
+    <Content Include="ueditor\dialogs\wordimage\vssver2.scc" />
+    <Content Include="ueditor\net\fileUp.ashx" />
+    <Content Include="ueditor\net\getContent.ashx" />
+    <Content Include="ueditor\net\getMovie.ashx" />
+    <Content Include="ueditor\net\getRemoteImage.ashx" />
+    <Content Include="ueditor\net\imageManager.ashx" />
+    <Content Include="ueditor\net\imageUp.ashx" />
+    <Content Include="ueditor\net\vssver2.scc" />
+    <Content Include="ueditor\themes\default\images\menu\vssver2.scc" />
+    <Content Include="ueditor\themes\default\images\tablepicker\vssver2.scc" />
+    <Content Include="ueditor\themes\default\images\vssver2.scc" />
+    <Content Include="ueditor\themes\default\vssver2.scc" />
+    <Content Include="ueditor\third-party\codemirror2.15\vssver2.scc" />
+    <Content Include="ueditor\third-party\snapscreen\vssver2.scc" />
+    <Content Include="ueditor\third-party\source code for imgupload with flash.zip" />
+    <Content Include="ueditor\third-party\swfupload\vssver2.scc" />
+    <Content Include="ueditor\third-party\SyntaxHighlighter\vssver2.scc" />
+    <Content Include="ueditor\third-party\vssver2.scc" />
+    <Content Include="ueditor\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\deletefile.ashx" />
+    <Content Include="ajax\card\CardReq.ashx" />
+    <Content Include="ajax\system\S_Province.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TemplateData\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!--<ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort></DevelopmentServerPort>
+          <DevelopmentServerVPath></DevelopmentServerVPath>
+          <IISUrl></IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡管理</MainMenu>
+  <SubMenu>会员卡日志表</SubMenu>
+  <Menu>会员卡日志表</Menu>
+  <Title>会员卡日志表</Title>
+  <GoBack>会员卡日志表</GoBack>
+  <!--会员卡日志表列表-条件-->
+
+  <ctime_where>操作时间：</ctime_where>
+
+  <cardcode_where>卡号：</cardcode_where>
+  <memcode_where>会员编号：</memcode_where>
+  <operate_where>操作类型：</operate_where>
+  <ctime_where>操作时间：</ctime_where>
+  <!--会员卡日志表列表-Grid-->
+  <memcode_list>会员编号</memcode_list>
+  <cardcode_list>会员卡编号</cardcode_list>
+  <logcontext_list>操作内容</logcontext_list>
+  <operatetype_list>操作类型</operatetype_list>
+  <stoname_list>操作门店</stoname_list>
+  <ucode_list>操作人编号</ucode_list>
+  <uname_list>操作人姓名</uname_list>
+  <ctime_list>操作时间</ctime_list>
+  <!--会员卡日志表列表-条件-->
+
+  <ctime_where>创建时间：</ctime_where>
+  <!--会员卡日志表-新增-->
+  <tab1>基本信息</tab1>
+  <span_cardlogid>卡日志标识：</span_cardlogid>
+  <span_memcode>会员编号：</span_memcode>
+  <memcode_placeholder>请输入会员编号</memcode_placeholder>
+  <span_cardcode>会员卡编号：</span_cardcode>
+  <cardcode_placeholder>请输入会员卡编号</cardcode_placeholder>
+  <span_logcontext>操作内容：</span_logcontext>
+  <logcontext_placeholder>请输入操作内容</logcontext_placeholder>
+  <span_operatetype>操作类型：</span_operatetype>
+  <operatetype_placeholder>请输入操作类型</operatetype_placeholder>
+  <span_ctime>创建时间：</span_ctime>
+  <span_uuser>最后更新人标识：</span_uuser>
+
+</Pages>

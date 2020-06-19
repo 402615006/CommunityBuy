@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>服务资讯</MainMenu>
+  <SubMenu>最新活动</SubMenu>
+  <Menu>最新活动</Menu>
+  <storerefer>最新活动</storerefer>
+  <!--列表-条件-->
+  <actname_where>活动名称：</actname_where>
+  <status_where>状态：</status_where>
+  <actdate_where>活动日期：</actdate_where>
+  
+  <!--列表-Grid-->
+  <actname_list>活动名称</actname_list>
+  <smallimg_list>TOP小图</smallimg_list>
+  <content_list>活动介绍</content_list>
+  <url_list>URL</url_list>
+  <statusname_list>状态</statusname_list>
+  <tag_list>标签</tag_list>
+  <bdate_list>活动开始时间</bdate_list>
+  <edate_list>活动截止时间</edate_list>
+  
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <actname_span>活动名称：</actname_span>
+  <actname_placeholder>请输入活动名称</actname_placeholder>
+  <status_span>状态：</status_span>
+  <tag_span>标签：</tag_span>
+  <index_span>排序：</index_span>
+  <index_placeholder>请生成排序值</index_placeholder>
+  <bdate_span>开始日期：</bdate_span>
+  <bDate_placeholder>请选择开始日期</bDate_placeholder>
+  <edate_span>结束日期：</edate_span>
+  <edate_placeholder>请选择结束日期</edate_placeholder>
+  <locate_span>显示位置：</locate_span>
+  <url_span>活动URL地址：</url_span>
+  <url_placeholder>请上传活动网页</url_placeholder>
+  <smallimg_span>上传TOP小图片：</smallimg_span>
+  <smallimgnote_span>推荐使用710*300的JPG图片</smallimgnote_span>
+  <content_span>活动内容：</content_span>
+  <save_edit>保存</save_edit>
+  <back_edit>返回</back_edit>
+</Pages>

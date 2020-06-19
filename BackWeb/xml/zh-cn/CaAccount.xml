@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表统计</MainMenu>
+  <SubMenu>往来账信息</SubMenu>
+  <Menu>往来账信息</Menu>
+  <!--用户管理列表-条件-->
+  <inware_where>入库仓库：</inware_where>
+  <outware_where>出库仓库：</outware_where>
+  <insupcode_where>收款供货商：</insupcode_where>
+  <outsupcode_where>付款供货商：</outsupcode_where>
+  <code_where>单据号：</code_where>
+  <catype_where>订单类型：</catype_where>
+  <!--用户管理列表-Grid-->
+  <paycode_list>往来账单号</paycode_list>
+  <payapplycode_list>采购/入库/付款单号</payapplycode_list>
+  <ordertype_list>订单类型</ordertype_list>
+  <inwarcode_list>入库仓库</inwarcode_list>
+  <outwarcode_list>出库仓库</outwarcode_list>
+  <outsupcode_list>付款供货商</outsupcode_list>
+  <insupcode_list>收款供货商</insupcode_list>
+  <money_list>金额</money_list>
+  <catype_list>往来类型</catype_list>
+  <ctime_list>审核日期</ctime_list>
+  <date_where>单据日期：</date_where>
+  <shdate_where>审核日期：</shdate_where>
+  <applydate_list>单据日期</applydate_list>
+</Pages>

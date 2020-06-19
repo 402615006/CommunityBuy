@@ -24,7 +24,6 @@ namespace CommunityBuy.IServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-					logentity.module = "购物车设置";
                     switch (actionname.ToLower())
                     {
                         case "getlist"://列表
@@ -86,7 +85,6 @@ namespace CommunityBuy.IServices
                     }
                 }
             }
-            filter = GetBusCodeWhere(dicPar, filter, "buscode");
             string order = JsonHelper.ObjectToJSON(dicPar["orders"]);
             if (order.Length > 0)
             {
@@ -124,14 +122,9 @@ namespace CommunityBuy.IServices
 			string IsAutoDelete = dicPar["IsAutoDelete"].ToString();
 			string MaxNum = dicPar["MaxNum"].ToString();
             //调用逻辑
-			logentity.pageurl ="TB_ShoppingCartEdit.html";
-			logentity.logcontent = "新增购物车设置信息";
-			logentity.cuser = StringHelper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Add;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Add(GUID, USER_ID,BusCode, CCname, TStatus, PKCode, AutoDelTime, IsAutoDelete, MaxNum, CCode, logentity);
-			
-            ReturnListJson(dt);
+
+            bll.Add(GUID, USER_ID,BusCode, CCname, TStatus, PKCode, AutoDelTime, IsAutoDelete, MaxNum, CCode);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         private void Update(Dictionary<string, object> dicPar)
@@ -156,14 +149,12 @@ namespace CommunityBuy.IServices
 			string MaxNum = dicPar["MaxNum"].ToString();
 
             //调用逻辑
-			logentity.pageurl ="TB_ShoppingCartEdit.html";
-			logentity.logcontent = "修改PKCode为:"+PKCode+"的购物车设置信息";
-			logentity.cuser = StringHelper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Edit;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Update(GUID, USER_ID,BusCode, CCname, TStatus, PKCode, AutoDelTime, IsAutoDelete, MaxNum, CCode, logentity);
-            
-            ReturnListJson(dt);
+            TB_ShoppingCartEntity UEntity = bll.GetEntitySigInfo(" where pkcode='"+ PKCode + "'");
+            UEntity.AutoDelTime =StringHelper.StringToDateTime(AutoDelTime);
+            UEntity.IsAutoDelete = IsAutoDelete;
+            UEntity.MaxNum = StringHelper.StringToInt(MaxNum);
+            bll.Update(GUID, USER_ID, UEntity);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         private void Detail(Dictionary<string, object> dicPar)
@@ -181,7 +172,7 @@ namespace CommunityBuy.IServices
             string PKCode = dicPar["PKCode"].ToString();
             //调用逻辑			
             dt = bll.GetPagingSigInfo(GUID, USER_ID, "where PKCode='" + PKCode+"'");
-            ReturnListJson(dt);
+            ReturnListJson(dt,null,null,null,null);
         }
 
         private void Delete(Dictionary<string, object> dicPar)
@@ -198,13 +189,9 @@ namespace CommunityBuy.IServices
             string USER_ID = dicPar["USER_ID"].ToString();
             string PKCode = dicPar["id"].ToString();
             //调用逻辑
-			logentity.pageurl ="TB_ShoppingCartList.html";
-			logentity.logcontent = "删除PKCode为:"+PKCode+"的购物车设置信息";
-			logentity.cuser = StringHelper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Delete;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Delete(GUID, USER_ID, PKCode, logentity);
-            ReturnListJson(dt);
+
+            bll.Delete(GUID, USER_ID, PKCode);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
 		/// <summary>
@@ -227,12 +214,6 @@ namespace CommunityBuy.IServices
             string status = dicPar["status"].ToString();
 
             string PKCode = dicPar["id"].ToString().Trim(',');
-            logentity.pageurl ="TB_ShoppingCartList.html";
-			logentity.logcontent = "修改状态PKCode为:"+PKCode+"的购物车设置信息";
-			logentity.cuser = StringHelper.StringToLong(USER_ID);
-            DataTable dt = bll.UpdateStatus(GUID, USER_ID, PKCode, status);
-
-            ReturnListJson(dt);
         }
     }
 }

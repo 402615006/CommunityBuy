@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>营销活动</MainMenu>
+  <SubMenu>营销活动</SubMenu>
+  <Menu>转盘抽奖</Menu>
+  <storerefer>转盘抽奖</storerefer>
+  <!--列表-条件-->
+  <actname_where>活动名称：</actname_where>
+  <status_where>状态：</status_where>
+  <auditstatus_where>审核状态：</auditstatus_where>
+  
+  <!--列表-Grid-->
+  <actname_list>活动名称</actname_list>
+  <actdate_list>活动时间</actdate_list>
+  <status_list>状态</status_list>
+  <auditstatus_list>审核状态</auditstatus_list>
+  <cusername_list>创建人</cusername_list>
+  <auditorname_list>审核人</auditorname_list>
+  
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <actname_span>活动名称：</actname_span>
+  <actname_placeholder>请输入活动名称</actname_placeholder>
+  <buydate_span>活动日期：</buydate_span>
+  <bDate_placeholder>请选择活动开始日期</bDate_placeholder>
+  <eDate_placeholder>请选择活动结束日期</eDate_placeholder>
+  <buytime_span>活动时间：</buytime_span>
+  <btime_placeholder>请选择活动时间</btime_placeholder>
+  <etime_placeholder>请选择活动时间</etime_placeholder>
+  <tag_span>活动标签：</tag_span>
+  <tag_placeholder>请输入活动标签</tag_placeholder>
+  <attachment_span>活动补充说明：</attachment_span>
+  <span_deftimes>默认次数：</span_deftimes>
+  <span_sharetimes>分享获得次数限制：</span_sharetimes>
+  <attachment_placeholder>请输入活动补充说明</attachment_placeholder>
+  <introduce_span>活动介绍：</introduce_span>
+  <external_span>活动对外说明：</external_span>
+  <showlocation_span>显示位置：</showlocation_span>
+  <item2_span>定价策略管理</item2_span>
+  <addPrize_span>添加奖品</addPrize_span>
+  <prizes_span>奖项</prizes_span>
+  <amounts_span>数量</amounts_span>
+  <opers_span>操作</opers_span>
+  <imgs_span>奖项图片</imgs_span>
+  <goods_span>奖品</goods_span>
+  <PR_span>中奖概率</PR_span>
+  <item1_span>条件管理</item1_span>
+  <item3_span>活动预算控制</item3_span>
+  <item4_span>补贴设置</item4_span>
+  <subsidy_span>补贴方：</subsidy_span>
+  <subsidyCal_span>补贴金额计算：</subsidyCal_span>
+  <stocode_span>活动门店：</stocode_span>
+  <stocode_placeholder>请选择活动门店</stocode_placeholder>
+
+  <save_edit>保存</save_edit>
+  <commit_edit>提交</commit_edit>
+  <back_edit>返回</back_edit>
+  <save_pass>审核通过</save_pass>
+  <save_nopass>审核不通过</save_nopass>
+</Pages>

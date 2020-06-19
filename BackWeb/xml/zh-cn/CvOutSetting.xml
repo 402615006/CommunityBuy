@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>卡券中心</MainMenu>
+  <SubMenu>卡券出库设置</SubMenu>
+  <Menu>卡券出库设置</Menu>
+  <Title>卡券出库设置</Title>
+  <GoBack>卡券出库设置</GoBack>
+  <Edittitle>卡券出库设置</Edittitle>
+  <!--列表-条件-->
+  <stocode_where>出库门店：</stocode_where>
+  <warecode_where>出库仓库：</warecode_where>
+  <!--列表-Grid-->
+  <stocode_list>出库门店</stocode_list>
+  <warcode_list>出库仓库</warcode_list>
+  <remark_list>备注</remark_list>
+  <cuser_list>创建人</cuser_list>
+  <ctime_list>创建时间</ctime_list>
+
+  <!--列表-条件-->
+  <storerefer>选择门店</storerefer>
+  <warrefer>选择仓库</warrefer>
+  <nullstocode>请先选择门店</nullstocode>
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <span_id>id：</span_id>
+  <span_buscode>商户编号：</span_buscode>
+  <buscode_placeholder>请输入商户编号</buscode_placeholder>
+  <span_stocode>出库门店：</span_stocode>
+  <stocode_placeholder>请选择出库门店</stocode_placeholder>
+  <span_warcode>出库仓库：</span_warcode>
+  <warcode_placeholder>请输入出库仓库</warcode_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入状态</status_placeholder>
+  <span_remark>备注：</span_remark>
+  <remark_placeholder>请输入备注</remark_placeholder>
+</Pages>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>其他管理</MainMenu>
+  <SubMenu>打赏设置</SubMenu>
+  <Menu>打赏设置</Menu>
+  <storerefer>打赏设置</storerefer>
+  <!--列表-条件-->
+
+  <stoName_where>门店名称：</stoName_where>
+
+  <!--列表-Grid-->
+  <stonames_list>门店名称</stonames_list>
+  <moneys_list>打赏金额</moneys_list>
+  <statusname_list>状态</statusname_list>
+
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <stoname_placeholder>请选择门店</stoname_placeholder>
+  <moneys_placeholder>请输入打赏金额（多个金额之间用,号隔开）</moneys_placeholder>
+  <span_stoName>门店名称：</span_stoName>
+  <span_moneys>打赏金额：</span_moneys>
+
+</Pages>

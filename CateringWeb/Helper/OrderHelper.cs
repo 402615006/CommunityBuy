@@ -14,207 +14,28 @@ namespace CommunityBuy
     public class OrderHelper
     {
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="PayMoney">支付金额</param>
-        /// <param name="MType">抹零类型</param>
-        /// <returns>抹零金额</returns>
-        public static decimal GetMaLingByMoney(decimal PayMoney, string MType)
-        {
-            if (PayMoney <= 0)
-            {
-                return PayMoney;
-            }
-            decimal NewPayMoney = PayMoney;
-            decimal MaL = 0;
-            //0-无；1-分向上；2-分向下；3-分四舍五入；4-角向上；5-角向下；6-角四舍五入；
-            switch (MType)
-            {
-                case "1":
-                    NewPayMoney = decimal.Parse((Math.Ceiling(PayMoney * 10) / 10).ToString("F2"));
-                    break;
-                case "2":
-                    NewPayMoney = decimal.Parse((Math.Floor(PayMoney * 10) / 10).ToString("F2"));
-                    break;
-                case "3":
-                    NewPayMoney = decimal.Parse((Math.Round(((int)(PayMoney * 100) * 1.0)) / 100).ToString("F1"));
-                    break;
-                case "4":
-                    NewPayMoney = decimal.Parse((Math.Ceiling(((int)(PayMoney * 10) * 1.0) / 10)).ToString("F1"));
-                    break;
-                case "5":
-                    NewPayMoney = decimal.Parse((Math.Floor(((int)(PayMoney * 10) * 1.0) / 10)).ToString("F1"));
-                    break;
-                case "6":
-                    NewPayMoney = decimal.Parse((Math.Round(((int)(PayMoney * 10) * 1.0)) / 10).ToString("F0"));
-                    break;
-            }
-            MaL = PayMoney - NewPayMoney;
-            return MaL;
-        }
-
-        /// <summary>
-        /// 获取已点菜品的折扣信息
-        /// </summary>
-        /// <param name="dtDish">已点菜品</param>
-        /// <param name="dtDiscountSchemeRate">折扣方案信息</param>
-        /// <param name="DiscountRate">一般折扣率</param>
-        /// <returns>打折后的已点菜品</returns>
-        public static void GetDiscountByDishes(ref DataTable dtOrderDish, DataTable dtDiscountSchemeRate, decimal DiscountRate)
-        {
-            //折扣类型1会员价2折扣模板3次卡4商品券5时价特价6签送
-            DataRow[] drs = dtOrderDish.Select("IsPackage<>'2' and DiscountType not in ('3','4','5','6')");
-            if (dtOrderDish != null && dtDiscountSchemeRate != null)
-            {
-                foreach (DataRow dr in drs)
-                {
-                    //菜品售价
-                    decimal Price = StringHelper.StringToDecimal(dr["Price"].ToString());
-                    //菜品类别编号
-                    string DisTypeCode = dr["TypeCode"].ToString();
-                    //菜品编号
-                    string DisCode = dr["DisCode"].ToString();
-                    //是否会员价
-                    string IsMemPrice = dr["IsMemPrice"].ToString();
-                    //菜品折扣类型
-                    string DiscountType = dr["DiscountType"].ToString();
-                    //菜品折扣价
-                    decimal DiscountPrice = StringHelper.StringToDecimal(dr["DiscountPrice"].ToString());
-                    if (dr["DiscountType"].ToString() != "1")//没有进行任何折扣
-                    {
-                        dr["DiscountType"] = "2";
-                        dr["DiscountPrice"] = getDisMoneyByDisCode(DisTypeCode, DisCode, (double)Price, (double)DiscountRate, dtDiscountSchemeRate);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// 打开会员价
-        /// </summary>
-        /// <param name="dtOrderDish"></param>
-        /// <param name="bolMemPrice"></param>
-        public static void AddMemberPrice(ref DataTable dtOrderDish)
-        {
-            //过滤时价特价、商品券、次卡菜品
-            DataRow[] drs = dtOrderDish.Select("DiscountType not in ('3','4','5','6')");
-            if (dtOrderDish != null)
-            {
-                foreach (DataRow dr in drs)
-                {
-                    //菜品售价
-                    decimal Price = StringHelper.StringToDecimal(dr["Price"].ToString());
-                    //菜品类别编号
-                    string DisTypeCode = dr["TypeCode"].ToString();
-                    //菜品编号
-                    string DisCode = dr["DisCode"].ToString();
-                    //是否会员价
-                    string IsMemPrice = dr["IsMemPrice"].ToString();
-                    //菜品折扣类型
-                    string DiscountType = dr["DiscountType"].ToString();
-                    //菜品折扣价
-                    decimal DiscountPrice = StringHelper.StringToDecimal(dr["DiscountPrice"].ToString());
-                    //会员价
-                    decimal MemPrice = StringHelper.StringToDecimal(dr["MemPrice"].ToString());
-                    //菜品是否允许会员价
-
-                    if (IsMemPrice == "1")
-                    {
-                        dr["DiscountType"] = "1";
-                        //DiscountType 5-时价特价，1-会员价，2-折扣模板，3-次卡，4-商品券
-                        if (Price >= MemPrice && MemPrice > 0)
-                        {
-                            dr["DiscountPrice"] = MemPrice;
-                        }
-                        else
-                        {
-                            dr["DiscountPrice"] = Price;
-                        }
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// 取消会员价
-        /// </summary>
-        /// <param name="dtOrderDish"></param>
-        /// <param name="bolMemPrice"></param>
-        public static void CancelMemberPrice(ref DataTable dtOrderDish)
-        {
-            if (dtOrderDish != null)
-            {
-                //DiscountType 5-时价特价，1-会员价，2-折扣模板，3-次卡，4-商品券
-                DataRow[] drs = dtOrderDish.Select("DiscountType='1'");
-                foreach (DataRow dr in drs)
-                {
-                    //菜品售价
-                    decimal Price = StringHelper.StringToDecimal(dr["Price"].ToString());
-                    //菜品类别编号
-                    string DisTypeCode = dr["DisTypeCode"].ToString();
-                    //菜品编号
-                    string DisCode = dr["DisCode"].ToString();
-                    //是否会员价
-                    string IsMemPrice = dr["IsMemPrice"].ToString();
-                    //菜品折扣类型
-                    string DiscountType = dr["DiscountType"].ToString();
-                    //菜品折扣价
-                    decimal DiscountPrice = StringHelper.StringToDecimal(dr["DiscountPrice"].ToString());
-                    dr["DiscountType"] = "";
-                    dr["DiscountPrice"] =dr["Price"];
-                }
-                dtOrderDish.AcceptChanges();
-            }
-        }
-
-        /// <summary>
         /// 重新计算账单金额
         /// </summary>
         /// <param name="dtBill"></param>
         /// <param name="dtDish"></param>
         /// <param name="ZeroType"></param>
         /// <param name=""></param>
-        public static void ResetBillMoney(ref DataTable dtBill, DataTable dtDish,DataTable dtCoupon,string ZeroType)
+        public static void ResetBillMoney(ref DataTable dtBill, DataTable dtDish,DataTable dtCoupon)
         {
             if (dtBill != null && dtBill.Rows.Count > 0)
             {
-                decimal DiscountMoney = SumDiscountMoney(dtDish);
+                decimal DiscountMoney = 0;
                 decimal CouponMoney = SumCouponMoney(dtCoupon);
-                decimal ZeroCutMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["ZeroCutMoney"].ToString());
                 decimal BillMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["BillMoney"].ToString());
                 decimal PayMoney = StringHelper.StringToDecimal(dtBill.Rows[0]["PayMoney"].ToString());
-                decimal ToPayMoney = BillMoney - DiscountMoney - CouponMoney;
-                ZeroCutMoney = GetMaLingByMoney(ToPayMoney, ZeroType);
-                ToPayMoney = ToPayMoney - ZeroCutMoney- PayMoney;
+                decimal ToPayMoney = BillMoney  - CouponMoney;
+                ToPayMoney = ToPayMoney - PayMoney;
                 
-                dtBill.Rows[0]["ZeroCutMoney"] = ZeroCutMoney;
                 dtBill.Rows[0]["DiscountMoney"] = DiscountMoney;
                 dtBill.Rows[0]["ToPayMoney"] = ToPayMoney;
                 dtBill.Rows[0]["CouponMoney"] = CouponMoney;
                 dtBill.AcceptChanges();
             }
-        }
-
-        /// <summary>
-        /// 计算折扣金额
-        /// </summary>
-        /// <param name="dtDish"></param>
-        /// <returns></returns>
-        public static decimal SumDiscountMoney(DataTable dtDish)
-        {
-            decimal rel = 0;
-            foreach (DataRow dr in dtDish.Rows)
-            {
-                if (!string.IsNullOrWhiteSpace(dr["DiscountType"].ToString()))
-                {
-                    //商品券、时价特价、签送的不算作折扣金额
-                    if (dr["DiscountType"].ToString() != "4" && dr["DiscountType"].ToString() != "5" && dr["DiscountType"].ToString() != "6")
-                    {
-                        rel += (StringHelper.StringToDecimal(dr["price"].ToString()) - StringHelper.StringToDecimal(dr["DiscountPrice"].ToString())) * (StringHelper.StringToDecimal(dr["DisNum"].ToString()));
-                    }
-                }
-            }
-            return rel;
         }
 
         /// <summary>
@@ -233,44 +54,6 @@ namespace CommunityBuy
                 }
             }
             return rel;
-        }
-
-        /// <summary>
-        /// 获取菜品折扣
-        /// </summary>
-        /// <param name="DisTypeCode"></param>
-        /// <param name="discode"></param>
-        /// <param name="disprice"></param>
-        /// <param name="DiscountRate">一般折扣率</param>
-        /// <param name="dtDiscountSchemeRate"></param>
-        /// <returns></returns>
-        private static decimal getDisMoneyByDisCode(string DisTypeCode, string discode, double disprice, double DiscountRate, DataTable dtDiscountSchemeRate)
-        {
-            double dis = 0.0;
-            //折扣率是整数，需缩小100倍
-            DiscountRate = DiscountRate / 100.0;
-            if (dtDiscountSchemeRate != null)
-            {
-                DataRow[] drs = dtDiscountSchemeRate.Select("DisCode='" + discode + "'");
-                if (drs.Length > 0)//走菜品折扣
-                {
-                    dis = Math.Round((StringHelper.StringToDouble(drs[0]["DiscountRate"].ToString()) / 100.0 * disprice), 2);
-                }
-                else
-                {
-                    drs = dtDiscountSchemeRate.Select("DisTypeCode='" + DisTypeCode + "'");
-                    if (drs.Length > 0)//走菜品类别折扣
-                    {
-                        dis = Math.Round((StringHelper.StringToDouble(drs[0]["DiscountRate"].ToString()) / 100.0 * disprice), 2);
-                    }
-                    else
-                    {
-                        dis = Math.Round((DiscountRate * disprice), 2);
-                    }
-                }
-            }
-
-            return (decimal)dis;
         }
 
         /// <summary>
@@ -317,38 +100,20 @@ namespace CommunityBuy
                 }
 
                 //筛选掉退菜和套内菜品
-
-                DataTable dtNewDish = GetActiveDishes(dtOrderDish);
-
-                if (dtNewDish==null || dtNewDish.Rows.Count == 0)
-                {
-                    Msg = "没有可优惠的菜品信息，请检查！";
-                return Msg;
-                }
-                DataRow[] drDish = null;
                 switch (sectype)
                 {
                     case "ProCoupon"://商品券
                         //按价格排序（先优惠最高金额的菜品）
                         dtOrderDish.DefaultView.Sort = "Price DESC";
-                        DataTable dtNewOrderDish = dtNewDish.DefaultView.ToTable();
-                        drDish = dtNewOrderDish.Select("DisCode in(" + discode + ")");
+                        DataTable dtNewOrderDish = dtOrderDish.DefaultView.ToTable();
+                        DataRow[] drDish = dtNewOrderDish.Select("DisCode in(" + discode + ")");
                         int index = 0;
                         if (drDish.Length == 0)
                         {
-                            Msg = "没有可优惠的菜品信息，请检查！";
-                        return Msg;
+                            Msg = "没有可优惠的商品信息，请检查！";
+                            return Msg;
                         }
-                        else
-                        {
-                            //取最大金额菜品
-                            index = GetMaxMoneyDish(drDish);
-                            DataRow drYes = drDish[index];
-                            //5-时价特价，1-会员价，2-折扣模板，3-次卡，4-商品券，6-赠送
-                            string DiscountType = drYes["DiscountType"].ToString();
-                            DiscountPrice = disuselack;
-                            OrderDishId = drYes["orderdiscode"].ToString();
-                        }
+
                         RealPay = StringHelper.StringToDecimal(drDish[index]["Price"].ToString()) - disuselack;
                         VIMoney = 0;
                         UseType = "4";
@@ -363,15 +128,6 @@ namespace CommunityBuy
                         decimal B_Dish_bigclass = 0;
 
                         decimal diff = 0;
-                        if (!string.IsNullOrWhiteSpace(bigclass))//财务类别判断
-                        {
-                            drDish = dtNewDish.Select("FinCode in(" + bigclass + ")");
-                            if (drDish.Length == 0)
-                            {
-                                Msg = "没有可优惠的菜品信息，请检查！";
-                            return Msg;
-                            }
-                        }
 
                         if (drCoupon.Length > 0)//该同类型券已使用金额
                         {
@@ -379,8 +135,7 @@ namespace CommunityBuy
                             B_TCouponMoney = GetConponRealMoney(dt_BCoupon, string.Empty);
                             B_CouponMoney = GetConponRealMoney(dt_BCoupon, McCode);
                         }
-                        B_TDish_bigclass = GetDishesRealMoney(dtNewDish, string.Empty);//已点菜品金额
-                        B_Dish_bigclass = GetDishesRealMoney(dtNewDish, bigclass);//该同类型券已点菜品金额
+                        B_TDish_bigclass = GetDishesRealMoney(dtOrderDish, McCode);//已点菜品金额
 
                         //获取订单菜品财务类别的合计金额
                         if (bigclass.Length > 0)
@@ -437,52 +192,34 @@ namespace CommunityBuy
         }
 
         /// <summary>
-        /// 获取有效的菜品信息（单菜及套餐主记录，可使用消费券）
+        /// 获取优惠券的实际使用金额
         /// </summary>
-        /// <param name="dtOrderDish"></param>
+        /// <param name="dtCoupon"></param>
+        /// <param name="McCode"></param>
         /// <returns></returns>
-        private static DataTable GetActiveDishes(DataTable dtOrderDish)
+        private static decimal GetConponRealMoney(DataTable dtCoupon, string McCode)
         {
-            DataTable dtNewDish = null;
-            DataRow[] dtRows = dtOrderDish.Select("isCoupon='1' and IsPackage<>'2' and DiscountType not in('3','4','5','6')");
-            if (dtRows != null && dtRows.Length > 0)
+            decimal decReturn = 0;
+            DataRow[] drCoupon;
+            if (McCode.Length > 0)
             {
-                dtNewDish = dtRows.CopyToDataTable();
+                drCoupon = dtCoupon.Select("McCode='" + McCode + "'");
             }
-            if (dtNewDish != null && dtNewDish.Rows.Count > 0)
+            else
             {
-                for (int i = dtNewDish.Rows.Count - 1; i >= 0;i-- )
+                drCoupon = dtCoupon.Select();
+            }
+            if (drCoupon != null && drCoupon.Length > 0)
+            {
+                foreach (DataRow dr in drCoupon)
                 {
-                    if (StringHelper.StringToDecimal(dtNewDish.Rows[i]["DisNum"].ToString()) <= 0)
-                    {
-                        dtNewDish.Rows.RemoveAt(i);
-                    }
+                    decReturn += StringHelper.StringToDecimal(dr["RealPay"].ToString());
                 }
             }
 
-            return dtNewDish;
+            return decReturn;
         }
 
-        /// <summary>
-        /// 获取菜品单价最高的序号
-        /// </summary>
-        /// <param name="drDish"></param>
-        /// <returns></returns>
-        private static int GetMaxMoneyDish(DataRow [] drDish)
-        {
-            decimal maxP = 0;
-            int index = 0;
-            for (int i = 0; i <drDish.Length; i++)
-            {
-                decimal n=StringHelper.StringToDecimal(drDish[i]["Price"].ToString());
-                if ( n> maxP)
-                {
-                    index =i;
-                    maxP=n;
-                }
-            }
-            return index;
-        }
 
         /// <summary>
         /// 获取菜品金额
@@ -512,97 +249,5 @@ namespace CommunityBuy
 
             return decReturn;
         }
-
-        private static decimal GetConponRealMoney(DataTable dtCoupon, string McCode)
-        {
-            decimal decReturn = 0;
-            DataRow[] drCoupon;
-            if (McCode.Length > 0)
-            {
-                drCoupon = dtCoupon.Select("McCode='" + McCode + "'");
-            }
-            else
-            {
-                drCoupon = dtCoupon.Select();
-            }
-            if (drCoupon != null && drCoupon.Length > 0)
-            {
-                foreach (DataRow dr in drCoupon)
-                {
-                    decReturn += StringHelper.StringToDecimal(dr["RealPay"].ToString());
-                }
-            }
-
-            return decReturn;
-        }
-
-        /// <summary>
-        /// 使用折扣模板
-        /// </summary>
-        public static void AddBillDiscount(ref DataTable dtOrderDish, DataTable dtDiscountSchemeRate, DataTable dtBill)
-        {
-            //一般折扣率
-            decimal DiscountRate = 0;
-            string DiscountName = string.Empty;
-            if (dtDiscountSchemeRate != null && dtDiscountSchemeRate.Rows.Count > 0)
-            {
-                //获取折扣名称
-                DiscountName = dtDiscountSchemeRate.Rows[0]["SchName"].ToString();
-                DiscountRate = StringHelper.StringToDecimal(dtDiscountSchemeRate.Rows[0]["NDiscountRate"].ToString());
-                //执行折扣模板
-                GetDiscountByDishes(ref dtOrderDish, dtDiscountSchemeRate, DiscountRate);
-            }
-            
-        }
-
-        /// <summary>
-        /// 取消折扣模板
-        /// </summary>
-        /// <param name="dtOrderDish"></param>
-        /// <param name="bolMemPrice"></param>
-        public static void CancelDiscount(ref DataTable dtOrderDish)
-        {
-            //过滤时价特价、商品券、次卡菜品、会员价
-            DataRow[] drs = dtOrderDish.Select("DiscountType not in ('1','3','4','5','6')");
-            if (dtOrderDish != null)
-            {
-                foreach (DataRow dr in drs)
-                {
-                    //菜品折扣类型
-                    string DiscountType = dr["DiscountType"].ToString();
-                    if (DiscountType == "2")//没有进行任何折扣
-                    {
-                        dr["DiscountType"] = "";
-                        dr["DiscountPrice"] = dr["Price"];
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// 根据账单设置菜品
-        /// </summary>
-        /// <param name="dtOrderDish"></param>
-        public void SetDishDiscountByBill(ref DataTable dtOrderDish,DataTable dtBill)
-        {
-            if (dtBill != null && dtBill.Rows.Count > 0)
-            {
-                if (string.IsNullOrWhiteSpace(dtBill.Rows[0]["DiscountName"].ToString()) && StringHelper.StringToDecimal(dtBill.Rows[0]["DiscountMoney"].ToString()) == 0)
-                {
-                    if (dtOrderDish != null)
-                    {
-                        foreach (DataRow dr in dtOrderDish.Rows)
-                        {
-                            if (dr["DiscountType"].ToString() == "2" || dr["DiscountType"].ToString() == "1")
-                            {
-                                dr["DiscountPrice"] = dr["Price"];
-                                dr["DiscountType"] = "";
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
     }
 }

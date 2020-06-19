@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>点餐设置</MainMenu>
+  <SubMenu>排队设置</SubMenu>
+  <Menu>排队设置</Menu>
+  <storerefer>排队设置</storerefer>
+  <!--列表-条件-->
+
+  <stoname_where>门店名称：</stoname_where>
+
+  <!--列表-Grid-->
+  <stoname_list>门店名称</stoname_list>
+  <ttname_list>桌台类型</ttname_list>
+  <maxperson_list>最大人数</maxperson_list>
+  <minperson_list>最小人数</minperson_list>
+  <ftzq_list>翻台周期</ftzq_list>
+  <remark_list>备注</remark_list>
+  <status_list>状态</status_list>
+  <uusername_list>操作人</uusername_list>
+  <opertime_list>操作时间</opertime_list>
+
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <stoname_placeholder>请输入门店</stoname_placeholder>
+  <lincode_placeholder>请输入排队编号</lincode_placeholder>
+  <ttcode_placeholder>请选择桌台类型</ttcode_placeholder>
+  <maxperson_placeholder>请输入最大人数</maxperson_placeholder>
+  <minperson_placeholder>请输入最小人数</minperson_placeholder>
+  <span_Name>门店名称：</span_Name>
+  <span_linecode>排队编号：</span_linecode>
+  <span_max>最大人数：</span_max>
+  <span_min>最小人数：</span_min>
+  <span_remark>备注：</span_remark>
+</Pages>

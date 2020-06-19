@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>订单管理</MainMenu>
+  <SubMenu>卖品订单</SubMenu>
+  <Menu>卖品订单</Menu>
+  <storerefer>卖品订单</storerefer>
+  <!--列表-条件-->
+  <account_where>下单账号：</account_where>
+  <account_placeholder>请输入下单手机号</account_placeholder>
+  <times_where>下单时间：</times_where>
+  <search_where>高级查询</search_where>
+  <status_where>状态：</status_where>
+  <orderno_where>订单编号：</orderno_where>
+  <goodsDesc_where>商品描述：</goodsDesc_where>
+  <paytype_where>支付方式：</paytype_where>
+  <ordernoex_where>关联订单编号：</ordernoex_where>
+  <cinema_where>售卖影院：</cinema_where>
+  <batchcode_where>交易流水号：</batchcode_where>
+  <memcardType_where>会员类型：</memcardType_where>
+  <gtype_where>商品类型：</gtype_where>
+
+  <!--列表-Grid-->
+  <orderno_list>订单编号</orderno_list>
+  <content_list>商品明细</content_list>
+  <amount_list>商品金额</amount_list>
+  <cinema_list>售卖影院</cinema_list>
+  <statusname_list>状态</statusname_list>
+  <checkcode_list>券码</checkcode_list>
+  <paytypename_list>支付方式</paytypename_list>
+  <payamount_list>支付金额</payamount_list>
+  <ordertime_list>下单时间</ordertime_list>
+  <paytime_list>支付时间</paytime_list>
+  <phoneno_list>下单账号</phoneno_list>
+
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <span_orderid>订单编号：</span_orderid>
+  <span_ordertime>下单时间：</span_ordertime>
+  <span_status>订单状态：</span_status>
+  <span_goodsno>卖品编号：</span_goodsno>
+  <span_goodsname>卖品名称：</span_goodsname>
+  <span_amount>卖品金额：</span_amount>
+  <span_way>渠道：</span_way>
+  <span_zfxx>支付信息</span_zfxx>
+  <span_phoneno>购买人：</span_phoneno>
+  <span_paytime>付款时间：</span_paytime>
+  <span_payamount>支付金额：</span_payamount>
+  <span_batchcode>交易流水号：</span_batchcode>
+  <span_paytype>支付方式：</span_paytype>
+  <span_chxx>出货信息</span_chxx>
+  <span_glddxx>关联订单</span_glddxx>
+  <span_ordernoex>关联订单号：</span_ordernoex>
+  <span_checkcode>出货码：</span_checkcode>
+  <span_syyh>使用优惠</span_syyh>
+
+
+  <back_edit>审核通过</back_edit>
+</Pages>

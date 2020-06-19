@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡管理</MainMenu>
+  <SubMenu>会员绑定审核</SubMenu>
+  <Menu>会员绑定审核</Menu>
+  <Title>会员绑定审核</Title>
+  <GoBack>会员绑定审核</GoBack>
+
+  <!--会员卡信息列表-条件-->
+  <cardcode_where>卡面卡号：</cardcode_where>
+  <affiliated_where>是否附属卡：</affiliated_where>
+  <cracode_where>会员卡等级：</cracode_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <status_where>状态：</status_where>
+
+  <!--会员卡信息列表-Grid-->
+  <cname_list>姓名</cname_list>
+  <mobile_list>手机号码</mobile_list>
+  <cardCode_list>会员卡号</cardCode_list>
+  <cracode_list>会员卡等级</cracode_list>
+  <ctype_list>会员卡类型</ctype_list>
+  <oldmemcode_list>旧会员编号</oldmemcode_list>
+  <newmemcode_list>新会员编号</newmemcode_list>  
+  
+  <strcodename_list>操作门店</strcodename_list>
+  <uname_list>操作人姓名</uname_list>
+  <ctime_list>操作时间</ctime_list>
+  <status_list>状态</status_list>
+  <aname_list>审核人姓名</aname_list>
+  <atime_list>审核时间</atime_list>
+  
+  <cardcode_where>会员卡号：</cardcode_where>
+  <atime_where>操作时间：</atime_where>
+  <stocode_where>操作门店：</stocode_where>
+  <uname_where>操作人姓名：</uname_where>  
+  <status_where>状态：</status_where>
+  <aname_where>审核人姓名：</aname_where>
+</Pages>

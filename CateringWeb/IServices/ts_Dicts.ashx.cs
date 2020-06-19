@@ -26,7 +26,6 @@ namespace CommunityBuy.IServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-                    logentity.module = "系统字典";
                     switch (actionname.ToLower())
                     {
                         case "getlist"://列表
@@ -73,14 +72,14 @@ namespace CommunityBuy.IServices
                 DataSet ds = JsonHelper.NewLinJsonToDataSet(strDictsJson, out code, out msg, out limit, out count, out curpage, out totpage);
                 if (code != "0")
                 {
-                    ToCustomerJson("2", "获取失败 x001");
+                    ReturnResultJson("2", "获取失败");
                     return;
                 }
                 ReturnListJson(ds.Tables[0], StringHelper.StringToInt(limit), StringHelper.StringToInt(count), StringHelper.StringToInt(curpage), StringHelper.StringToInt(totpage));
             }
             else
             {
-                ToCustomerJson("2", "获取失败 x001");
+                ReturnResultJson("2", "获取失败");
                 return;
             }
         }

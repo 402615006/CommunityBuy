@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--系统全局配置-->
+<Pages>
+  <position>Your position：</position>
+  <!--列表页分页-->
+  <PageCount1>A total of</PageCount1>
+  <PageCount2>Pages</PageCount2>
+  <RecordCount>records</RecordCount>
+  <FirstPage>Home</FirstPage>
+  <LastPage>Last</LastPage>
+  <PrevPage>Prev</PrevPage>
+  <NextPage>Next</NextPage>
+
+  <!--编辑页-->
+  <save_edit>Save</save_edit>
+  <back_edit>Back</back_edit>
+
+  <!--自定义按钮-->
+  <refresh_button>Refresh</refresh_button>
+  <search_button>Search</search_button>
+  <add_button>Add</add_button>
+  <edit_button>Edit</edit_button>
+  <delete_button>Delete</delete_button>
+  <valid_button>Valid</valid_button>
+  <invalid_button>Invalid</invalid_button>
+  <cancel_button>Cancel</cancel_button>
+  <pause_button>Pause</pause_button>
+  <continue_button>Continue</continue_button>
+  <hide_button>Hide</hide_button>
+  <import_button>Import</import_button>
+  <export_button>Export</export_button>
+  <build_button>生成</build_button>
+  <reabuild_button>重新生成</reabuild_button>
+  <buildtotal_button>生成凭证</buildtotal_button>
+  <seabuild_button>查看生成</seabuild_button>
+  <payment_button>生成付款单</payment_button>
+  <instore_button>入库</instore_button>
+  <review_button>复核</review_button>
+  <!--自定义按钮提示-->
+  <nochoose_button_tip>Please select a record to operate！</nochoose_button_tip>
+  <singlechoose_button_tip>Only the individual records！</singlechoose_button_tip>
+  <delete_button_tip>Sure you want to delete the selected data</delete_button_tip>
+
+  <!--其他-->
+  <title_layer_confirm>Message</title_layer_confirm>
+  <sure_layer_confirm>Sure</sure_layer_confirm>
+  <cancel_layer_confirm>Cancel</cancel_layer_confirm>
+</Pages>

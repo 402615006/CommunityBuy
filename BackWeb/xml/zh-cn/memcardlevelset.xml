@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡等级活动设置</MainMenu>
+  <SubMenu>会员卡等级活动设置</SubMenu>
+  <Menu>会员卡等级活动设置</Menu>
+  <!--会员卡等级列表-条件-->
+
+  <mctcode_where>卡类型：</mctcode_where>
+  <levelcode_where>等级编号：</levelcode_where>
+  <levelname_where>等级名称：</levelname_where>
+  <status_where>状态：</status_where>
+  <!--会员卡等级列表-Grid-->
+  <levelcode_list>卡等级</levelcode_list>
+  <stocode_list>适用门店</stocode_list>
+  <actname_list>活动名称</actname_list>
+  <date_list>活动日期区间</date_list>
+  <upglevelcode_list>可升降级卡等级</upglevelcode_list>
+  <chargemoney_list>充值区间</chargemoney_list>
+  <remark_list>备注</remark_list>
+  <status_list>状态</status_list>
+  <!--会员卡等级-新增-->
+  <tab1>基本信息</tab1>
+  <tab2>等级活动设置</tab2>
+  <span_actname>活动名称：</span_actname>
+  <span_levelcode>所属卡等级：</span_levelcode>
+  <span_date>活动时间区间：</span_date>
+  <span_stocode>适用门店：</span_stocode>
+  <span_conmin>充值区间：</span_conmin>
+  <span_upglevelcode>可升降级卡等级：</span_upglevelcode>
+  <save_edit>保存</save_edit>
+  <back_edit>返回</back_edit>
+  <span_remark>备注：</span_remark>
+  <remark_placeholder>请输入备注</remark_placeholder>
+  <span_status>状态：</span_status>
+  <span_orderno>排序号：</span_orderno>
+  <orderno_placeholder>请输入排序号</orderno_placeholder>
+  <span_cuser>创建人：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_uuser>最后更新人标识：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+  <span_isdelete>删除标志：</span_isdelete>
+  <storerefer>门店选择</storerefer>
+  <span_storetip>不选择适用所有门店</span_storetip>
+  <levelrefer>会员卡等级选择</levelrefer>
+</Pages>

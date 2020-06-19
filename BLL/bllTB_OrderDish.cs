@@ -31,7 +31,6 @@ namespace CommunityBuy.BLL
                 Entity.CCname = CCname;
 
                 Entity.OrderCode = OrderCode;
-                Entity.FinCode = FinCode;
                 Entity.DisTypeCode = DisTypeCode;
                 Entity.DisCode = DisCode;
                 Entity.DisName = DisName;
@@ -39,20 +38,11 @@ namespace CommunityBuy.BLL
                 Entity.Price = StringHelper.StringToDecimal(Price);
                 Entity.DisUite = DisUite;
                 Entity.DisNum = StringHelper.StringToDecimal(DisNum);
-                Entity.ReturnNum = StringHelper.StringToDecimal(ReturnNum);
-                Entity.IsPackage = IsPackage;
+
                 Entity.PDisCode = PDisCode;
                 Entity.Remar = Remar;
                 Entity.PKCode = PKCode;
-                Entity.DiscountPrice = StringHelper.StringToDecimal(DiscountPrice);
-                Entity.DiscountRemark = DiscountRemark;
-                Entity.DiscountType = DiscountType;
-                Entity.DisCase = DisCase;
-                Entity.Favor = Favor;
-                Entity.ItemNum = StringHelper.StringToDecimal(ItemNum);
-                Entity.ItemPrice = StringHelper.StringToDecimal(ItemPrice);
-                Entity.CookName = CookName;
-                Entity.CookMoney = StringHelper.StringToDecimal(CookMoney);
+
                 Entity.TotalMoney = StringHelper.StringToDecimal(TotalMoney);
                 rel = true;
             }
@@ -166,7 +156,6 @@ namespace CommunityBuy.BLL
 			Entity.CCname = dr["CCname"].ToString();
 			
 			Entity.OrderCode = dr["OrderCode"].ToString();
-			Entity.FinCode = dr["FinCode"].ToString();
 			Entity.DisTypeCode = dr["DisTypeCode"].ToString();
 			Entity.DisCode = dr["DisCode"].ToString();
 			Entity.DisName = dr["DisName"].ToString();
@@ -174,20 +163,11 @@ namespace CommunityBuy.BLL
 			Entity.Price = StringHelper.StringToDecimal(dr["Price"].ToString());
 			Entity.DisUite = dr["DisUite"].ToString();
 			Entity.DisNum = StringHelper.StringToDecimal(dr["DisNum"].ToString());
-			Entity.ReturnNum = StringHelper.StringToDecimal(dr["ReturnNum"].ToString());
-			Entity.IsPackage = dr["IsPackage"].ToString();
+
 			Entity.PDisCode = dr["PDisCode"].ToString();
 			Entity.Remar = dr["Remar"].ToString();
 			Entity.PKCode = dr["PKCode"].ToString();
-			Entity.DiscountPrice = StringHelper.StringToDecimal(dr["DiscountPrice"].ToString());
-			Entity.DiscountRemark = dr["DiscountRemark"].ToString();
-			Entity.DiscountType = dr["DiscountType"].ToString();
-			Entity.DisCase = dr["DisCase"].ToString();
-			Entity.Favor = dr["Favor"].ToString();
-			Entity.ItemNum = StringHelper.StringToDecimal(dr["ItemNum"].ToString());
-			Entity.ItemPrice = StringHelper.StringToDecimal(dr["ItemPrice"].ToString());
-			Entity.CookName = dr["CookName"].ToString();
-			Entity.CookMoney = StringHelper.StringToDecimal(dr["CookMoney"].ToString());
+
 			Entity.TotalMoney = StringHelper.StringToDecimal(dr["TotalMoney"].ToString());
             return Entity;
         }

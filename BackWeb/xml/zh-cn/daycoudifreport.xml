@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>门店部门报表</MainMenu>
+  <SubMenu>日盘差异分析</SubMenu>
+  <Menu>日盘差异分析</Menu>
+  <Title>日盘差异分析</Title>
+  <GoBack>日盘差异分析</GoBack>
+
+  <paidiandate_where>盘点日期：</paidiandate_where>
+  <scoucode_where>盘点单号：</scoucode_where>
+  <ware_where>盘点仓库：</ware_where>
+  <matname_where>原物料名称：</matname_where>
+  <mattypecode_where>原料类别：</mattypecode_where>
+  <matclscode_where>原料分类：</matclscode_where>
+
+  <scoutime_list>盘点日期</scoutime_list>
+  <backtime_list>上次日期</backtime_list>
+  <ware_list>盘点仓库</ware_list>
+  <cype_list>原物料类别</cype_list>
+  <class_list>原物料分类</class_list>
+  <matname_list>原物料</matname_list>
+  <backsp_list>上次实盘</backsp_list>
+  <currk_list>本次入库</currk_list>
+  <curck_list>本次出库</curck_list>
+  <llss_list>理论实数</llss_list>
+  <cursp_list>本次实盘</cursp_list>
+  <cy_list>差异数</cy_list>
+  <cyreson_list>差异原因</cyreson_list>
+
+  <warnrefer>仓库选择</warnrefer>
+</Pages>

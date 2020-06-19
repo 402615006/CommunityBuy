@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表统计</MainMenu>
+  <SubMenu>收入类别管理</SubMenu>
+  <Menu>收入类别管理</Menu>
+  <Title>收入类别管理</Title>
+  <GoBack>收入类别管理</GoBack>
+  <Edittitle>收入类别管理</Edittitle>
+
+  <code_where>k3收入类别编码：</code_where>
+  <name_where>k3收入类别名称：</name_where>
+  <fincode_where>对应财务类别：</fincode_where>
+
+  <code_list>k3收入类别编码</code_list>
+  <name_list>k3收入类别名称</name_list>
+  <classnams_list>对应财务类别</classnams_list>
+  <status_list>状态</status_list>
+  <cuser_list>创建人</cuser_list>
+  <ctime_list>创建时间</ctime_list>
+
+  <tab1>基本信息</tab1>
+
+  <matclassrefer>选择财务类别</matclassrefer>
+  <save_btn>保存</save_btn>
+  
+</Pages>

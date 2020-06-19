@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>账单明细</MainMenu>
+  <SubMenu>账单明细</SubMenu>
+  <Menu>账单明细</Menu>
+  <Title>账单明细</Title>
+  <GoBack>账单明细</GoBack>
+  <!--财务类别列表-条件-->
+  <date_list>日期：</date_list>
+  <stoname_list>所属门店：</stoname_list>
+  <depname_list>所属部门：</depname_list>
+  <cyy_list>所属收银员：</cyy_list>
+  <shiftcode_list>班次号：</shiftcode_list>
+  <Invmoney_list>开票金额：</Invmoney_list>
+  <Presdishemoney_list>赠送金额：</Presdishemoney_list>
+  <Paytype_list>支付方式：</Paytype_list>
+  <Orderno_list>账单号：</Orderno_list>
+  <starttime_placeholder>请输入开始日期</starttime_placeholder>
+  <endtime_placeholder>请输入结束日期</endtime_placeholder>
+</Pages>

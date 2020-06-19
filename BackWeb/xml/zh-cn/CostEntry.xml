@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>财务分析</MainMenu>
+  <SubMenu>费用录入</SubMenu>
+  <Menu>费用录入</Menu>
+  <Title>费用录入</Title>
+  <GoBack>费用录入</GoBack>
+  <!--费用录入 查询条件-->
+  <stocode_where>门店</stocode_where>
+  <yearmonth_where>月份</yearmonth_where>
+  <ctype_where>费用类别</ctype_where>
+  <cporject_where>项目费用</cporject_where>
+  <tab1>基本信息</tab1>
+  <!--费用录入 Grid-->
+  <stoname_list>门店</stoname_list>
+  <ctype_list>费用类别</ctype_list>
+  <cproject_list>项目费用</cproject_list>
+  <months_list>日期</months_list>
+  <data_list>费用日期</data_list>
+  <cmoney_list>金额</cmoney_list>
+  <oper_list>操作</oper_list>
+  <!--费用录入 按钮-->
+  <add-btn>添加</add-btn>
+</Pages>

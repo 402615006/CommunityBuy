@@ -26,11 +26,9 @@ namespace CommunityBuy.BLL
                 Entity.Id = StringHelper.StringToLong(Id);
                 Entity.BusCode = BusCode;
                 Entity.StoCode = StoCode;
-                Entity.RoleDisCount = RoleDisCount;
                 Entity.StrRoleId = StringHelper.ReplaceString(StrRoleId);
                 Entity.UserId = StringHelper.StringToLong(UserId);
                 Entity.RealName = RealName;
-                Entity.EmpCode = EmpCode;
                 rel = true;
             }
             catch (System.Exception)
@@ -140,7 +138,6 @@ namespace CommunityBuy.BLL
 			Entity.RoleId = StringHelper.StringToLong(dr["RoleId"].ToString());
 			Entity.UserId = StringHelper.StringToLong(dr["UserId"].ToString());
 			Entity.RealName = dr["RealName"].ToString();
-			Entity.EmpCode = dr["EmpCode"].ToString();
             return Entity;
         }
 

@@ -14,7 +14,6 @@ namespace CommunityBuy.Model
 		private string _CCname = string.Empty;
 		private DateTime _CTime = DateTime.Parse("1900-01-01");
 		private string _OrderCode = string.Empty;
-		private string _FinCode = string.Empty;
 		private string _DisTypeCode = string.Empty;
 		private string _DisCode = string.Empty;
 		private string _DisName = string.Empty;
@@ -22,20 +21,9 @@ namespace CommunityBuy.Model
 		private decimal _Price = 0;
 		private string _DisUite = string.Empty;
 		private decimal _DisNum = 0;
-		private decimal _ReturnNum = 0;
-		private string _IsPackage = string.Empty;
 		private string _PDisCode = string.Empty;
 		private string _Remar = string.Empty;
 		private string _PKCode = string.Empty;
-		private decimal _DiscountPrice = 0;
-		private string _DiscountRemark = string.Empty;
-		private string _DiscountType = string.Empty;
-		private string _DisCase = string.Empty;
-		private string _Favor = string.Empty;
-		private decimal _ItemNum = 0;
-		private decimal _ItemPrice = 0;
-		private string _CookName = string.Empty;
-		private decimal _CookMoney = 0;
 		private decimal _TotalMoney = 0;
 
 		/// <summary>
@@ -94,14 +82,7 @@ namespace CommunityBuy.Model
 			get { return _OrderCode; }
 			set { _OrderCode = value; }
 		}
-		/// <summary>
-		///财务类别编号
-		/// <summary>
-		public string FinCode
-		{
-			get { return _FinCode; }
-			set { _FinCode = value; }
-		}
+
 		/// <summary>
 		///菜品类别编号
 		/// <summary>
@@ -158,22 +139,7 @@ namespace CommunityBuy.Model
 			get { return _DisNum; }
 			set { _DisNum = value; }
 		}
-		/// <summary>
-		///退菜数量
-		/// <summary>
-		public decimal ReturnNum
-		{
-			get { return _ReturnNum; }
-			set { _ReturnNum = value; }
-		}
-		/// <summary>
-		///套餐类型0普通菜品1套餐2套餐内菜品
-		/// <summary>
-		public string IsPackage
-		{
-			get { return _IsPackage; }
-			set { _IsPackage = value; }
-		}
+
 		/// <summary>
 		///父菜品编号
 		/// <summary>
@@ -197,78 +163,6 @@ namespace CommunityBuy.Model
 		{
 			get { return _PKCode; }
 			set { _PKCode = value; }
-		}
-		/// <summary>
-		///折扣价格
-		/// <summary>
-		public decimal DiscountPrice
-		{
-			get { return _DiscountPrice; }
-			set { _DiscountPrice = value; }
-		}
-		/// <summary>
-		///折扣备注
-		/// <summary>
-		public string DiscountRemark
-		{
-			get { return _DiscountRemark; }
-			set { _DiscountRemark = value; }
-		}
-		/// <summary>
-		///折扣类型
-		/// <summary>
-		public string DiscountType
-		{
-			get { return _DiscountType; }
-			set { _DiscountType = value; }
-		}
-		/// <summary>
-		///菜品方案1普通2称重3条只
-		/// <summary>
-		public string DisCase
-		{
-			get { return _DisCase; }
-			set { _DisCase = value; }
-		}
-		/// <summary>
-		///口味信息
-		/// <summary>
-		public string Favor
-		{
-			get { return _Favor; }
-			set { _Favor = value; }
-		}
-		/// <summary>
-		///条只数量
-		/// <summary>
-		public decimal ItemNum
-		{
-			get { return _ItemNum; }
-			set { _ItemNum = value; }
-		}
-		/// <summary>
-		///条只单价
-		/// <summary>
-		public decimal ItemPrice
-		{
-			get { return _ItemPrice; }
-			set { _ItemPrice = value; }
-		}
-		/// <summary>
-		///做法名称
-		/// <summary>
-		public string CookName
-		{
-			get { return _CookName; }
-			set { _CookName = value; }
-		}
-		/// <summary>
-		///做法加价
-		/// <summary>
-		public decimal CookMoney
-		{
-			get { return _CookMoney; }
-			set { _CookMoney = value; }
 		}
 		/// <summary>
 		///总价

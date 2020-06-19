@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>库存管理</MainMenu>
+  <SubMenu>入库汇总</SubMenu>
+  <Menu>入库汇总</Menu>
+  <Title>入库汇总</Title>
+  <GoBack>入库汇总</GoBack>
+</Pages>

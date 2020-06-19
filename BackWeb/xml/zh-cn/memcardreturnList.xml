@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡管理</MainMenu>
+  <SubMenu>会员卡退卡</SubMenu>
+  <Menu>会员卡退卡</Menu>
+  <Title>会员卡退卡</Title>
+  <GoBack>会员卡退卡</GoBack>
+
+  <!--会员卡信息列表-条件-->
+  <cardcode_where>卡面卡号：</cardcode_where>
+  <span_uname>姓名：</span_uname>
+  <cracode_where>会员卡等级：</cracode_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <status_where>处理状态：</status_where>
+  <date_where>退卡日期：</date_where>
+
+  <!--会员卡信息列表-Grid-->
+  <cardCode_list>会员卡卡号</cardCode_list>
+  <cracode_list>会员卡等级</cracode_list>
+  <ctype_list>会员卡类型</ctype_list>
+  <cname_list>姓名</cname_list>
+  <mobile_list>手机号码</mobile_list>
+  <validate_list>卡有效期</validate_list>
+  <status_list>卡状态</status_list>
+  <rstatus_list>处理状态</rstatus_list>
+  <returntime_list>申请时间</returntime_list>
+  <returntime2_list>处理时间</returntime2_list>
+  <stocodename_list>申请门店</stocodename_list>
+  <appname_list>申请人</appname_list>
+  <returnname_list>处理人</returnname_list>
+  <totalbalance_list>可用余额</totalbalance_list>
+  <totalCZ_list>累计充值</totalCZ_list>
+  <totalZS_list>累计赠送</totalZS_list>
+  <paytype_list>退款支付方式</paytype_list>
+  <paymoney_list>退款金额</paymoney_list>
+  <returntime1_list>处理时间</returntime1_list>
+  <returnname_list>处理人</returnname_list>
+  <remark_list>备注</remark_list>
+
+  <available_balance>可用余额信息</available_balance>
+  <available_integral>累计充值信息</available_integral>
+  <to_invoice>累计赠送信息</to_invoice>
+
+  <span_cardcode>会员卡号：</span_cardcode>
+  <span_name>姓名：</span_name>
+  <span_phone>手机号：</span_phone>
+  <span_remark>备注：</span_remark>
+  <span_czmoney>累计充值金额：</span_czmoney>
+  <span_zsmoney>累计赠送金额：</span_zsmoney>
+  <span_tkmoney>退款金额：</span_tkmoney>
+
+  <tab1>基本信息</tab1>
+
+  <tkmoney_placeholder>退款金额不能为空</tkmoney_placeholder>
+  <tkmoney_savetip>退款金额与支付金额不一致</tkmoney_savetip>
+  <gbf_tip>请输入退款金额</gbf_tip>
+  <sucess_result>操作成功</sucess_result>
+  <error_result>操作失败，请稍后再试</error_result>
+</Pages>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>库存管理</MainMenu>
+  <SubMenu>库存出入库记录</SubMenu>
+  <Menu>库存出入库记录</Menu>
+  <Title>库存出入库记录</Title>
+  <GoBack>库存出入库记录</GoBack>
+  <Edittitle>库存出入库记录</Edittitle>
+  <!--库存出入库详细表列表-条件-->
+  <code_list>单据编号</code_list>
+  <type_list>出入库类型</type_list>
+  <date_list>出入库日期</date_list>
+  <war_list>所属仓库</war_list>
+  <supname_list>供应商</supname_list>
+  <mattype_list>原料类别</mattype_list>
+  <mattype2_list>原料分类</mattype2_list>
+  <matcode_list>原料编号</matcode_list>
+  <matname_list>原料名称</matname_list>
+  <unit_list>计量单位</unit_list>
+  <num_list>出/入库数量</num_list>
+  <price_list>库存价格</price_list>
+  <sumprice_list>总金额</sumprice_list>
+  <ctime_list>创建时间</ctime_list>
+  <remark_list>备注</remark_list>
+
+  <code_where>单据编号：</code_where>
+  <type_where>出入库类型：</type_where>
+  <war_where>所属仓库：</war_where>
+  <date_where>出入库日期：</date_where>
+  <matcode_where>原料编号：</matcode_where>
+  <matname_where>原料名称：</matname_where>
+  <gys_where>供应商：</gys_where>
+  <warnrefer>仓库选择</warnrefer>
+  <typerefer>类型选择</typerefer>
+</Pages>

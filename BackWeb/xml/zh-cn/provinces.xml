@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>省份信息表</MainMenu>
+<SubMenu>省份信息表</SubMenu>
+<Menu>省份信息表</Menu>
+<!--省份信息表列表-条件-->
+<province_where>省名称：</province_where>
+<letter_where>城市字母：</letter_where>
+<!--省份信息表列表-Grid-->
+<provinceid_list>省份ID</provinceid_list>
+<province_list>省名称</province_list>
+<letter_list>城市字母</letter_list>
+<descr_list>备注</descr_list><!--省份信息表-新增-->
+<tab1>基本信息</tab1>
+<span_id>标识：</span_id>
+<span_provinceid>省份ID：</span_provinceid>
+<provinceid_placeholder>请输入省份ID</provinceid_placeholder>
+<span_province>省名称：</span_province>
+<province_placeholder>请输入省名称</province_placeholder>
+<span_letter>城市字母：</span_letter>
+<letter_placeholder>3-16位数字字母组合</letter_placeholder>
+<span_descr>备注：</span_descr>
+<descr_placeholder>请输入备注</descr_placeholder>
+</Pages>

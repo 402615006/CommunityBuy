@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>公共假期</MainMenu>
+<SubMenu>公共假期</SubMenu>
+<Menu>公共假期</Menu>
+<Title>公共假期</Title>
+<!--列表-条件-->
+
+<cname_where>假期名称：</cname_where>
+<hyear_where>年份：</hyear_where>
+<!--列表-Grid-->
+<cname_list>假期名称</cname_list>
+<hyear_list>年份</hyear_list>
+<hdate_list>日期</hdate_list>
+<hbtime_list>开始时间</hbtime_list>
+<hetime_list>结束时间</hetime_list>
+<!--列表-条件-->
+
+<tab1>基本信息</tab1>
+<id_placeholder>请输入</id_placeholder>
+<span_cname>假期名称：</span_cname>
+<cname_placeholder>请输入假期名称</cname_placeholder>
+<span_hyear>年份：</span_hyear>
+<hyear_placeholder>请输入年份</hyear_placeholder>
+<span_hdate>日期：</span_hdate>
+<hdate_placeholder>请输入日期</hdate_placeholder>
+<span_hbtime>开始时间：</span_hbtime>
+<hbtime_placeholder>请输入开始时间</hbtime_placeholder>
+<span_hetime>结束时间：</span_hetime>
+<hetime_placeholder>请输入结束时间</hetime_placeholder>
+</Pages>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表设置</MainMenu>
+  <SubMenu>报表数据源</SubMenu>
+  <Menu>报表数据源</Menu>
+  <Title>报表数据源</Title>
+
+  <type_where>类型：</type_where>
+  <source_where>项目数据：</source_where>
+  <seltime_where>选择日期：</seltime_where>
+  <stocode_where>门店：</stocode_where>
+  <dishes_where>菜品：</dishes_where>
+
+  <dtype_list>类型</dtype_list>
+  <itemcode_list>数据项目</itemcode_list>
+  <stocode_list>门店</stocode_list>
+  <year_list>年</year_list>
+  <month_list>月</month_list>
+  <dday_list>日期</dday_list>
+  <discode_list>菜品</discode_list>
+  <disnum_list>数量</disnum_list>
+  <disaccount_list>金额(元)</disaccount_list>
+
+  <tab1>基本信息</tab1>
+  <span_stocode>门店：</span_stocode>
+  <span_date>选定日期：</span_date>
+</Pages>

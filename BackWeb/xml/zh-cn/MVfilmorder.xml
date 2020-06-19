@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>影片相关</MainMenu>
+  <SubMenu>预订片子</SubMenu>
+  <Menu>预订片子</Menu>
+  <storerefer>预订片子</storerefer>
+  <!--列表-条件-->
+  <name_where>片子名称：</name_where>
+
+  <!--列表-Grid-->
+  <filmname_list>片子名称</filmname_list>
+  <memcode_list>会员编号</memcode_list>
+  <memname_list>联系人</memname_list>
+  <tel_list>联系电话</tel_list>
+  <remark_list>备注</remark_list>
+  <ctime_list>创建时间</ctime_list>
+
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <filmname_span>片子名称：</filmname_span>
+  <memcode_span>会员编号：</memcode_span>
+  <memname_span>联系人：</memname_span>
+  <tel_span>联系电话：</tel_span>
+  <remark_span>备注：</remark_span>
+  <ctime_span>创建时间：</ctime_span>
+
+
+  <back_edit>返回</back_edit>
+  <save_edit>保存 </save_edit>
+</Pages>

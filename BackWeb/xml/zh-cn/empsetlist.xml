@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表统计</MainMenu>
+  <SubMenu>员工对应关系</SubMenu>
+  <Menu>员工对应关系</Menu>
+  <Title>员工对应关系</Title>
+  <GoBack>员工对应关系</GoBack>
+  <Edittitle>员工对应关系</Edittitle>
+
+  <k3code_where>k3编码：</k3code_where>
+  <k3name_where>k3名称：</k3name_where>
+  <newcode_where>新系统对应编码：</newcode_where>
+  <newname_where>新系统对应名称：</newname_where>
+  <emp_where>对应员工：</emp_where>
+
+  <k3code_list>k3编码</k3code_list>
+  <k3name_list>k3名称</k3name_list>
+  <newcode_list>新系统对应编码</newcode_list>
+  <newname_list>新系统对应名称</newname_list>
+  <status_list>状态</status_list>
+  <cuser_list>创建人</cuser_list>
+  <ctime_list>创建时间</ctime_list>
+
+  <tab1>基本信息</tab1>
+  <employeerefer>员工信息</employeerefer>
+
+  <save_btn>保存</save_btn>
+</Pages>

@@ -29,7 +29,6 @@ namespace CommunityBuy.IServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-                    logentity.module = "用户信息表";
                     switch (actionname.ToLower())
                     {
                         case "sendmessage"://列表
@@ -66,14 +65,14 @@ namespace CommunityBuy.IServices
                 string descr = dicPar["descr"].ToString();
                 if (mobile.Length == 0)
                 {
-                    ToCustomerJson("1", "手机号不能为空");
+                    ReturnResultJson("1", "手机号不能为空");
                     return;
                 }
                 else
                 {
                     if (!RegularExpressions.IsRegExpType(mobile, RegularExpressions.RegExpType.Mobile))
                     {
-                        ToCustomerJson("1", "手机号格式不正确请检查！");
+                        ReturnResultJson("1", "手机号格式不正确请检查！");
                         return;
                     }
                 }
@@ -93,7 +92,7 @@ namespace CommunityBuy.IServices
                     string mes= JsonHelper.GetJsonValByKey(strAdminJson, "mes");
                     if (status == "0")
                     {
-                        ReturnListJson(status, mes, null, null);
+                        ReturnResultJson(status, mes);
                     }
                 }
             }

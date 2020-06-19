@@ -1,0 +1,125 @@
+/* 编辑页 */
+.edit .title {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #ececec;
+}
+.edit .save {
+    float: right;
+    width: 65px;
+    height: 40px;
+    margin-left: -100%;
+    cursor:pointer;
+}
+ .saveadd {
+    float: right;
+    width: 100px;
+    height: 40px;
+    margin-right: 100px;
+    cursor:pointer;
+}
+.edit .content {
+    padding: 32px;
+    background-color: #fff;
+}
+/* 选项卡 */
+.edit .tab-nav {
+    overflow: hidden;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #bdbdbd;
+}
+.edit .tab-nav li {
+    float: left;
+    width: 25%;
+    text-align: center;
+    line-height: 36px;
+    text-align: center;
+    cursor:pointer;
+}
+
+.edit .tab-nav li a {
+    display: inline-block;
+    font-size: 18px;
+    width: 104px;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    top: 1px;
+}
+.edit .tab-nav li.active a {
+    border-color: #ea6969;
+}
+/*.edit .tab-nav li:nth-child(3),
+.edit .tab-nav li:nth-child(4) {
+    display: none;
+}*/
+.edit .tab-content > li {
+    display: none;
+}
+.edit .tab-content > li:first-child {
+    display: block;
+}
+.edit .tab-content .dishes-info {
+    overflow: hidden;
+}
+.edit .tab-content .dishes-info li {
+    float: left;
+    width: 230px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.edit .tab-content .dishes-info label {
+    width: 80px;
+    text-align:right;
+    margin-right:6px;
+}
+.edit .tab-content .dishes-info .small {
+    width: 66px;
+}
+.edit .tab-content .dishes-info li.block-li {
+    width: 100%;
+}
+.edit .tab-content .dishes-info .more-menu,
+.edit .tab-content .dishes-info .batching-scheme {
+    font-size: 14px;
+}
+.edit .tab-content .dishes-info li.upload-img,
+.edit .tab-content .dishes-info li.backup {
+    height: 140px;
+    width: 600px;
+    position: relative;
+}
+.edit .tab-content .dishes-info li.upload-img label {
+    line-height: 90px;
+}
+
+.edit .tab-content .dishes-info .full-row {
+    width: 100%;
+}
+.edit .tab-content .dishes-info .other-choose {
+    background-color: #fff;
+    color: #747474;
+    width: 116px;
+    height: 28px;
+    line-height:28px;
+    font-size: 14px;
+    border: 1px solid #ea6969;
+    border-radius: 10px;
+    margin-right: 60px;
+    margin-bottom: 20px;
+    cursor:pointer;
+    vertical-align:middle;
+}
+.edit .tab-content .dishes-info .other-choose.active {
+    background-color: #ea6969;
+    color: #fff;
+}
+
+input.empty {
+    background: #ffa;
+}
+
+input.requirederror {
+    background: #ffa;
+    border: 1px solid #ea6969;
+}

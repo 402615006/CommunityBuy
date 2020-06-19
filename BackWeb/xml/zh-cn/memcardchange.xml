@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡金额调整明细</MainMenu>
+  <SubMenu>会员卡金额调整明细</SubMenu>
+  <Menu>会员卡金额调整明细</Menu>
+  <Title>会员卡金额调整明细</Title>
+  <GoBack>会员卡金额调整明细</GoBack>
+  <!--优惠券列表-条件-->
+  <stime_where>开始时间：</stime_where>
+  <etime_where>结束时间：</etime_where>
+  <cardcode_where>会员卡号：</cardcode_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <cracode_where>会员卡等级：</cracode_where>
+  <acttype_where>调整类型：</acttype_where>
+  <remark_where>备注：</remark_where>
+  <!--优惠券列表-Grid-->
+  <cardcode_list>会员卡号</cardcode_list>
+  <ctypename_list>会员卡类型</ctypename_list>
+  <cracode_list>会员卡等级</cracode_list>
+  <actType_list>调整类型</actType_list>
+  <paymoney_list>调整金额</paymoney_list>
+  <remark_list>备注</remark_list>
+  <!--优惠券列表-条件-->
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+</Pages>

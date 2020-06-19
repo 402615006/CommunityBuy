@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>优惠券信息</MainMenu>
+<SubMenu>优惠券信息</SubMenu>
+<Menu>优惠券信息</Menu>
+<Title>优惠券信息</Title>
+
+  <couname_where>优惠券名称：</couname_where>
+<!--列表-Grid-->
+  <mccode_list>优惠券编号</mccode_list>
+  <couname_list>优惠券名称</couname_list>
+  <btime_list>有效日期起</btime_list>
+  <etime_list>有效日期止</etime_list>
+</Pages>

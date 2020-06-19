@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <PageTitle>Chain Background Management System</PageTitle>
+  <Common_Company>XJWZ</Common_Company>
+  <SystemName>XJWZ Chain Background Management System Login</SystemName>
+  <username_placeholder>Please enter your user name</username_placeholder>
+  <UserPwd_placeholder>Please enter your password</UserPwd_placeholder>
+  <UserCode_placeholder>Please enter the verification code</UserCode_placeholder>
+  <imgcode_title>Click the refresh</imgcode_title>
+  <ButtonLogin>Login</ButtonLogin>
+  <Common_Copyright>copyright@2018 XJWZ All rights reserved</Common_Copyright>
+  <Welcome>Welcome to login！</Welcome>
+  <!--其他-->
+  <loginout_prompt>Are you sure you log out</loginout_prompt>
+</Pages>

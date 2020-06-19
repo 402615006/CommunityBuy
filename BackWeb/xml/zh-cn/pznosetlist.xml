@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表统计</MainMenu>
+  <SubMenu>凭证号管理</SubMenu>
+  <Menu>凭证号管理</Menu>
+  <Title>凭证号管理</Title>
+  <GoBack>凭证号管理</GoBack>
+  <Edittitle>凭证号管理</Edittitle>
+
+  <stocode_where>门店名称：</stocode_where>
+  <pzno_where>凭证号：</pzno_where>
+
+  <stocode_list>门店编码</stocode_list>
+  <stoname_list>门店名称</stoname_list>
+  <maxsortno_list>当前凭证号</maxsortno_list>
+
+  <tab1>基本信息</tab1>
+
+  <cbcoderefer>选择门店</cbcoderefer>
+  <save_btn>保存</save_btn>
+</Pages>

@@ -1,0 +1,54 @@
+﻿.selectdiv {
+    width: 97%;
+    height: 65px;
+    margin: 0 auto;
+}
+
+#txtsel {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.btn_tab {
+    width: 97%;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.cancel_div, .save_div {
+    height: 30px;
+    line-height: 30px;
+    width: 75px;
+    float: left;
+    border: 1px solid #009688;
+    text-align: center;
+    margin-left: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn_tab_right {
+    width: 195px;
+}
+
+.save_div {
+    background-color: #009688;
+    color: #fff;
+}
+
+.searchbtn, .selectbtn {
+    width: 80px;
+    text-align: center;
+    height: 26px;
+    line-height: 26px;
+    background-color: #009688;
+    color: white;
+    float: left;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.selectbtn {
+    margin-left: 20px;
+}

@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡管理</MainMenu>
+  <SubMenu>会员卡补换卡信息</SubMenu>
+  <Menu>会员卡补换卡信息</Menu>
+  <Title>会员卡补换卡信息</Title>
+  <GoBack>会员卡补换卡信息</GoBack>
+  <!--会员卡信息列表-条件-->
+
+  <buscode_where>商户编号：</buscode_where>
+  <affiliated_where>附属卡：</affiliated_where>
+  <cracode_where>会员卡等级：</cracode_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <status_where>操作类型：</status_where>
+  <!--会员卡信息列表-Grid-->
+  <cardCode_list>会员卡卡号</cardCode_list>
+  <newcardCode_list>新会员卡卡号</newcardCode_list>
+  <buscode_list>所属商户</buscode_list>
+  <affiliated_list>附属卡</affiliated_list>
+  <surfacecode_list>卡面卡号</surfacecode_list>
+  <cracode_list>会员卡等级</cracode_list>
+  <ctype_list>会员卡类型</ctype_list>
+  <uname_list>姓名</uname_list>
+  <tel_list>电话号码</tel_list>
+  <validate_list>卡有效期</validate_list>
+  <status_list>操作类型</status_list>
+  <utime_list>补换卡时间</utime_list>
+  <stoname_list>操作门店</stoname_list>
+  <user_list>操作人</user_list>
+  <MainMenu>会员卡信息</MainMenu>
+  <SubMenu>会员卡信息</SubMenu>
+  <Menu>会员卡信息</Menu>
+  <Title>会员卡信息</Title>
+  <GoBack>会员卡信息</GoBack>
+  <totalbalance_list>可用余额</totalbalance_list>
+  <invoice_list>可用积分</invoice_list>
+  <integral_list>可开发票</integral_list>
+  <balcredit_list>可用额度</balcredit_list>
+  <authDate_list>激活时间</authDate_list>
+  <username_list>姓名</username_list>
+
+  <!--会员卡信息列表-条件-->
+  <chargecard_where>补换卡时间：</chargecard_where>
+  <buscode_where>商户编号：</buscode_where>
+  <maincard_where>卡号：</maincard_where>
+  <cracode_where>会员卡等级：</cracode_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <status_where>操作类型：</status_where>
+  <!--会员卡信息-新增-->
+  <tab1>基本信息</tab1>
+  <span_cardid>会员卡号：</span_cardid>
+  <span_cardCode>会员卡卡号：</span_cardCode>
+  <cardCode_placeholder>请输入会员卡卡号</cardCode_placeholder>
+
+  <span_strcode>门店编号：</span_strcode>
+  <strcode_placeholder>请输入门店编号</strcode_placeholder>
+  <span_affiliated>附属卡：</span_affiliated>
+  <affiliated_placeholder>请输入附属卡</affiliated_placeholder>
+  <span_mainCard>主卡卡号：</span_mainCard>
+  <mainCard_placeholder>请输入主卡卡号</mainCard_placeholder>
+  <span_bigcustomer>大客户：</span_bigcustomer>
+  <bigcustomer_placeholder>请输入大客户</bigcustomer_placeholder>
+  <span_surfacecode>卡面卡号：</span_surfacecode>
+  <surfacecode_placeholder>请输入卡面卡号</surfacecode_placeholder>
+  <span_cracode>会员卡等级：</span_cracode>
+  <cracode_placeholder>请输入会员卡等级</cracode_placeholder>
+  <span_ctype>会员卡类型：</span_ctype>
+  <ctype_placeholder>请输入会员卡类型</ctype_placeholder>
+  <span_sendMoney>赠送金额：</span_sendMoney>
+  <sendMoney_placeholder>请输入赠送金额</sendMoney_placeholder>
+  <span_creditLines>授信额度：</span_creditLines>
+  <creditLines_placeholder>请输入授信额度</creditLines_placeholder>
+  <span_uname>姓名：</span_uname>
+  <uname_placeholder>请输入姓名</uname_placeholder>
+  <span_tel>电话号码：</span_tel>
+  <tel_placeholder>请输入电话号码</tel_placeholder>
+  <span_validate>卡有效期：</span_validate>
+  <validate_placeholder>请输入卡有效期</validate_placeholder>
+  <span_generatemethod>卡密码生成方式：</span_generatemethod>
+  <generatemethod_placeholder>请输入卡密码生成方式</generatemethod_placeholder>
+  <span_idtype>证件类型：</span_idtype>
+  <idtype_placeholder>请输入证件类型</idtype_placeholder>
+  <span_IDNO>证件号码：</span_IDNO>
+  <IDNO_placeholder>请输入证件号码</IDNO_placeholder>
+  <span_birthday>生日：</span_birthday>
+  <birthday_placeholder>请输入生日</birthday_placeholder>
+  <span_sex>性别：</span_sex>
+  <sex_placeholder>请输入性别</sex_placeholder>
+  <span_email>邮箱地址：</span_email>
+  <email_placeholder>请输入邮箱地址</email_placeholder>
+  <span_password>卡密码：</span_password>
+  <password_placeholder>请输入卡密码</password_placeholder>
+  <span_isgive>是否赠送：</span_isgive>
+  <isgive_placeholder>请输入是否赠送</isgive_placeholder>
+  <span_scid>卡优惠方案：</span_scid>
+  <scid_placeholder>请输入卡优惠方案</scid_placeholder>
+  <span_couponIds>优惠券信息：</span_couponIds>
+  <couponIds_placeholder>请输入优惠券信息</couponIds_placeholder>
+  <span_nowritedoc>不填写资料：</span_nowritedoc>
+  <nowritedoc_placeholder>请输入不填写资料</nowritedoc_placeholder>
+  <span_minpaymoney>充值金额：</span_minpaymoney>
+  <minpaymoney_placeholder>请输入充值金额</minpaymoney_placeholder>
+  <span_salesmancode>提成人：</span_salesmancode>
+  <salesmancode_placeholder>请输入提成人</salesmancode_placeholder>
+
+  <span_ExpenseMoney>工本费：</span_ExpenseMoney>
+  <ExpenseMoney_placeholder>请输入工本费</ExpenseMoney_placeholder>
+  <span_realtrendMoney>实收工本费：</span_realtrendMoney>
+  <realtrendMoney_placeholder>请输入实收工本费</realtrendMoney_placeholder>
+  <span_totalPayMoney>合计充值金额：</span_totalPayMoney>
+  <totalPayMoney_placeholder>请输入合计充值金额</totalPayMoney_placeholder>
+  <span_totalMoney>总费用：</span_totalMoney>
+  <totalMoney_placeholder>请输入总费用</totalMoney_placeholder>
+  <span_authorizedPerson>授权人：</span_authorizedPerson>
+  <authorizedPerson_placeholder>请输入授权人</authorizedPerson_placeholder>
+  <span_authDate>授权时间：</span_authDate>
+  <span_totalExpense>工本费总额：</span_totalExpense>
+
+  <span_companyid>单位名称：</span_companyid>
+  <companyid_placeholder>请输入单位名称</companyid_placeholder>
+  <span_paymoney>充值金额：</span_paymoney>
+  <paymoney_placeholder>请输入充值金额</paymoney_placeholder>
+  <span_isopenticket>是否开票：</span_isopenticket>
+  <isopenticket_placeholder>请输入是否开票</isopenticket_placeholder>
+  <span_tieketmoney>开票金额：</span_tieketmoney>
+  <tieketmoney_placeholder>请输入开票金额</tieketmoney_placeholder>
+
+  <span_status>状态：</span_status>
+  <span_orderno>排序号：</span_orderno>
+  <orderno_placeholder>请输入排序号</orderno_placeholder>
+  <span_cuser>创建人：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_uuser>最后更新人标识：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+  <span_isdelete>删除标志：</span_isdelete>
+
+
+  <tabmember>会员信息</tabmember>
+  <tabcost>费用</tabcost>
+
+  <btn_next>下一步</btn_next>
+  <btn_cancle>取消</btn_cancle>
+
+  <expensemoney_savetip>工本费金额与付款工本费金额不符，请检查</expensemoney_savetip>
+
+  <paymoney_savetip>充值金额与付款金额不符，请检查 </paymoney_savetip>
+
+
+
+
+
+
+
+  <cname_where>姓名：</cname_where>
+  <mobile_where>手机号码：</mobile_where>
+  <IDNO_where>证件号码：</IDNO_where>
+  <provinceid_where>所属省：</provinceid_where>
+  <cityid_where>所属城市：</cityid_where>
+  <areaid_where>所属区域：</areaid_where>
+  <status_where>状态：</status_where>
+  <!--会员信息表列表-Grid-->
+  <buscode_list>商户编号</buscode_list>
+  <strcode_list>所属门店</strcode_list>
+  <cname_list>姓名</cname_list>
+  <sex_list>性别</sex_list>
+  <mobile_list>手机号码</mobile_list>
+  <idtype_list>证件类型：</idtype_list>
+  <IDNO_list>证件号码</IDNO_list>
+  <areaid_list>所属区域</areaid_list>
+  <status_list>操作类型</status_list>
+  <!--会员信息表-新增-->
+  <tab1>基本信息</tab1>
+  <span_memid>会员标识：</span_memid>
+  <memid_placeholder>请输入会员标识</memid_placeholder>
+  <span_memcode>会员编号：</span_memcode>
+  <span_source>会员来源：</span_source>
+  <source_placeholder>请输入会员来源</source_placeholder>
+  <span_buscode>所属商户：</span_buscode>
+
+  <span_strcode>所属门店：</span_strcode>
+  <strcode_placeholder>请输入门店编号</strcode_placeholder>
+  <span_wxaccount>微信账户：</span_wxaccount>
+  <wxaccount_placeholder>请输入微信账户</wxaccount_placeholder>
+  <span_bigcustomer>是否大客户：</span_bigcustomer>
+  <bigcustomer_placeholder>请输入是否大客户</bigcustomer_placeholder>
+  <span_cname>姓名：</span_cname>
+  <cname_placeholder>请输入姓名</cname_placeholder>
+  <span_birthday>生日：</span_birthday>
+  <birthday_placeholder>请输入生日</birthday_placeholder>
+  <span_sex>性别：</span_sex>
+  <sex_placeholder>请输入性别</sex_placeholder>
+  <span_mobile>手机号码：</span_mobile>
+  <mobile_placeholder>请输入手机号码</mobile_placeholder>
+  <span_email>邮箱地址：</span_email>
+  <email_placeholder>请输入邮箱地址</email_placeholder>
+  <span_tel>电话：</span_tel>
+  <tel_placeholder>请输入电话</tel_placeholder>
+  <span_idtype>证件类型：</span_idtype>
+  <span_IDNO>证件号码：</span_IDNO>
+  <IDNO_placeholder>请输入证件号码</IDNO_placeholder>
+  <span_provinceid>所属省：</span_provinceid>
+  <provinceid_placeholder>请输入所属省</provinceid_placeholder>
+  <span_cityid>所属城市：</span_cityid>
+  <cityid_placeholder>请输入所属城市</cityid_placeholder>
+  <span_areaid>所属区域：</span_areaid>
+  <span_photo>照片：</span_photo>
+  <photo_placeholder>请输入照片</photo_placeholder>
+  <span_signature>电子签名：</span_signature>
+  <signature_placeholder>请输入电子签名</signature_placeholder>
+  <span_address>会员地址：</span_address>
+  <address_placeholder>请输入会员地址</address_placeholder>
+  <span_hobby>特殊爱好：</span_hobby>
+  <hobby_placeholder>请输入特殊爱好</hobby_placeholder>
+  <span_remark>备注：</span_remark>
+  <remark_placeholder>请输入备注</remark_placeholder>
+
+  <span_nopwd>无密码：</span_nopwd>
+  <span_cracode>会员卡等级：</span_cracode>
+  <span_ctype>会员卡类型：</span_ctype>
+  <span_interval>充值区间：</span_interval>
+  <span_initScore>初始积分：</span_initScore>
+  <span_sendmoney>赠送金额：</span_sendmoney>
+
+  <txt_password_spanShow>密码默认身份证号码后6位，可编辑，未填写资料则密码默认888888</txt_password_spanShow>
+
+  <span_totalpaymoney>充值费用：</span_totalpaymoney>
+  <span_oldcard>原会员卡卡号：</span_oldcard>
+  <span_newcard>新会员卡卡号：</span_newcard>
+  <span_repairReson>补卡原因：</span_repairReson>
+  <span_changeReson>换卡原因：</span_changeReson>
+  <pepair_refer>会员卡补卡：</pepair_refer>
+  <replace_refer>会员卡换卡：</replace_refer>
+</Pages>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>营销活动</MainMenu>
+  <SubMenu>活动页广告</SubMenu>
+  <Menu>活动页广告</Menu>
+  <storerefer>广告活动</storerefer>
+  <pname_where>活动名称：</pname_where>
+  <status_where>状态：</status_where>
+  <!--列表-条件-->
+  <!--<btype_where>活动类型：</btype_where>-->
+
+  <!--列表-Grid-->
+  <pname_list>活动名称</pname_list>
+  <img_list>广告图片</img_list>
+  <status_list>状态</status_list>
+  <detail_list>活动介绍</detail_list>
+  <bannerUrl_list>广告地址</bannerUrl_list>
+  <type_list>活动类型</type_list>
+  <btime_list>活动开始时间</btime_list>
+  <etime_list>活动结束时间</etime_list>
+
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <actname_span>活动名称：</actname_span>
+  <actname_placeholder>请输入活动名称</actname_placeholder>
+  <bDate_placeholder>请输入开始日期</bDate_placeholder>
+  <eDate_placeholder>请输入结束日期</eDate_placeholder>
+  <span_goodtype>卖品类型：</span_goodtype>
+  <bannerUrl_placeholder>请输入购买地址</bannerUrl_placeholder>
+  <selectgoods_placeholder>请选择卖品</selectgoods_placeholder>
+  <acttype_span>活动类型：</acttype_span>
+  <bdate_span>开始日期：</bdate_span>
+  <edate_span>结束日期：</edate_span>
+  <desc_span>排序：</desc_span>
+  <bannerUrl_span>购买地址：</bannerUrl_span>
+  <span_selectgoods>选择卖品：</span_selectgoods>
+  <span_isShowbtn>显示购买按钮：</span_isShowbtn>
+  <span_stoname>卖品所属门店：</span_stoname>
+  <introduce_span>活动介绍：</introduce_span>
+  
+  <save_edit>保存</save_edit>
+  <!--<commit_edit>提交</commit_edit>-->
+</Pages>

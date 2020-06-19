@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>巨幕影讯</MainMenu>
+  <SubMenu>巨幕影讯</SubMenu>
+  <Menu>巨幕影讯</Menu>
+  <!--列表-条件-->
+
+
+
+  <actName_where>影讯标题：</actName_where>
+  <actDate_where>发布时间：</actDate_where>
+
+
+  <status_where>状态：</status_where>
+  <!--列表-Grid-->
+
+
+  <actName_list>影讯标题</actName_list>
+  <actDate_list>发布时间</actDate_list>
+  <aContent_list>活动内容</aContent_list>
+  <releasePerson_list>发布人</releasePerson_list>
+  <aTop_list>发布状态</aTop_list>
+  <orderno_list>排序</orderno_list>
+  <status_list>状态</status_list>
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <span_actId>：</span_actId>
+  <span_stocode>：</span_stocode>
+  <stocode_placeholder>请输入</stocode_placeholder>
+  <span_buscode>：</span_buscode>
+  <buscode_placeholder>请输入</buscode_placeholder>
+
+  <span_actName>影讯标题：</span_actName>
+  <actName_placeholder>请输入</actName_placeholder>
+  <span_actDate>活动日期：</span_actDate>
+  <actDate_placeholder>选择日期</actDate_placeholder>
+  <span_aContent>影讯内容：</span_aContent>
+  <aContent_placeholder>请输入</aContent_placeholder>
+  <span_aTop>是否置顶：</span_aTop>
+
+  <span_releasePerson>发布人：</span_releasePerson>
+  <releasePerson_placeholder>请输入</releasePerson_placeholder>
+  <span_orderno>排序：</span_orderno>
+  <orderno_placeholder>请输入</orderno_placeholder>
+  <span_img>活动图片：</span_img>
+  <img_placeholder>请输入</img_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入</status_placeholder>
+  <aTop_placeholder>
+    是
+  </aTop_placeholder>
+  <anotTop_placeholder>否</anotTop_placeholder>
+  <span_uuser>：</span_uuser>
+  <span_utime>：</span_utime>
+  <span_isdelete>：</span_isdelete>
+
+</Pages>

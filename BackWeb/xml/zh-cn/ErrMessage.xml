@@ -1,0 +1,825 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Msgs>
+  <!--全局参数-->
+  <Msg Code="Err_001">已操作成功!</Msg>
+  <Msg Code="Err_002">记录已存在，请检查!</Msg>
+  <Msg Code="Err_003">记录不存在，请检查！</Msg>
+  <Msg Code="Err_004">操作失败，请重试或联系管理员!</Msg>
+  <Msg Code="Err_005">请选择要操作的记录</Msg>
+  <Msg Code="Err_006">已选数据包含已采购数据</Msg>
+  <Msg Code="Err_007">只能对单条记录进行操作！</Msg>
+  <Msg Code="Err_008">审核数据不能修改</Msg>
+  <Msg Code="Err_009">不能重复进行入库操作</Msg>
+  <Msg Code="Err_010">请先进行入库操作</Msg>
+  <Msg Code="Err_011">不能重复进行复核操作</Msg>
+  <Msg Code="Err_012">请选择已审核的记录进行操作</Msg>
+  <Msg Code="Err_013">请选择完整的记录进行操作</Msg>
+  <Msg Code="Err_014">请选择同一供应商的记录进行操作</Msg>
+  <Msg Code="Err_015">请选择同一仓库的记录进行操作</Msg>
+  <Msg Code="Err_016">请选择未生成付款单的记录进行操作</Msg>
+  <Msg Code="Err_017">未知错误，请稍后再试</Msg>
+  <Msg Code="Err_018">请先进行付款操作</Msg>
+  <Msg Code="Err_019">该记录已经付款</Msg>
+  <Msg Code="Err_020">所择仓库有未审核的盘点数据</Msg>
+  <Msg Code="Err_021">请先进行盘点操作</Msg>
+  <Msg Code="Err_022">该数据已经盘点</Msg>
+  <Msg Code="Err_023">请上传模板文件</Msg>
+  <Msg Code="Err_024">上传模板文件类型错误</Msg>
+  <Msg Code="Err_025">上传模板文件无数据</Msg>
+  <Msg Code="Err_026">模板有误</Msg>
+  <Msg Code="Err_027">请选择已复核的记录进行操作</Msg>
+  <Msg Code="Err_028">请选择未复核的记录进行操作</Msg>
+  <Msg Code="Err_029">删除失败，已选择数据有正在使用的仓库数据</Msg>
+  <Msg Code="Err_030">删除失败，已选择数据有正在使用的原料类别数据</Msg>
+  <Msg Code="Err_031">删除失败，已选择数据有正在使用的原料分类数据</Msg>
+  <Msg Code="Err_032">删除失败，已选择数据有正在使用的原料数据</Msg>
+  <Msg Code="Err_033">当前选择仓库设置已存在</Msg>
+  <Msg Code="Err_034">审核数据不能删除</Msg>
+  <Msg Code="Err_035">当前审核状态不能进行付款</Msg>
+  <Msg Code="Err_036">请选择复核拒绝或已入库未复核的单据进行修改</Msg>
+  <Msg Code="Err_037">预付款单据已生成付款单</Msg>
+  <Msg Code="Err_038">参数错误</Msg>
+  <Msg Code="Err_039">请选择非预付款单据进行操作</Msg>
+  <Msg Code="Err_040">请选择未复核单据进行操作</Msg>
+  <Msg Code="Err_041">请选择预付款单据进行操作</Msg>
+  <Msg Code="Err_042">请选择复核通过单据进行操作</Msg>
+  <Msg Code="Err_043">请选择未退款单据进行操作</Msg>
+  <Msg Code="Err_044">请选择未审核的记录进行操作</Msg>
+  <Msg Code="Err_045">请选择未采购的记录进行操作</Msg>
+  <Msg Code="Err_046">预申请单据审核通过后方可进行付款审核操作</Msg>
+  <Msg Code="Err_047">请选择审核拒绝的记录进行操作</Msg>
+  <Msg Code="Err_048">请选择未入库的记录进行操作</Msg>
+  <Msg Code="Err_049">请选择已审核的数据进行操作</Msg>
+  <Msg Code="Err_050">未审核的数据不能进行此操作</Msg>
+  <Msg Code="Err_051">该盘点记录差异数据已处理</Msg>
+  <Msg Code="Err_052">该记录已处理</Msg>
+  <Msg Code="Err_053">请选择密码生成方式为随机密码进行导出</Msg>
+  <Msg Code="Err_054">模板仓库有误，只能选择一个仓库</Msg>
+  <Msg Code="Err_055">该员工已发卡</Msg>
+  <Msg Code="Err_056">上传文件超出或不足模板列数量</Msg>
+  <Msg Code="Err_057">上传文件“物料名称”有重复值，请检查</Msg>
+  <Msg Code="Err_058">此角色已被占用!</Msg>
+  <Msg Code="Err_059">补货单不允许修改</Msg>
+  <Msg Code="Err_060">此角色不允许删除</Msg>
+  <Msg Code="Err_061">出入库仓库必须有一个只能选择权限门店所属仓库</Msg>
+  <Msg Code="Err_062">请选择同一门店单据</Msg>
+  <Msg Code="Err_063">无生成选择仓库盘点数据的权限</Msg>
+  <Msg Code="Err_064">付款金额大于实际应付款金额</Msg>
+  <Msg Code="Err_065">所择仓库有盘点单未处理差异数据</Msg>
+  <Msg Code="Err_066">请选择同一业务类型的记录进行操作</Msg>
+  <Msg Code="Err_067">请选择未生成凭证的记录进行操作</Msg>
+  <Msg Code="Err_068">此借款单已经付款完成</Msg>
+  <Msg Code="Err_069">请选择审核通过的单据进行操作</Msg>
+  <Msg Code="Err_070">此借款单余额不足，不能进行退款操作</Msg>
+  <Msg Code="Err_071">请选择已审核通过的记录进行操作</Msg>
+  <Msg Code="Err_072">请选择已上架的记录进行操作</Msg>
+  <Msg Code="Err_073">当前单据的审核状态不支持反审核</Msg>
+  <Msg Code="Err_alreadyOn">已上架状态的卖品不可进行操作</Msg>
+  <Msg Code="Err_alreadyDelete">已作废状态的卖品不可进行操作</Msg>
+  <Msg Code="Err_074">所择仓库有生成记录的盘点数据</Msg>
+  <Msg Code="PageOperateReport">报表</Msg>
+  <Msg Code="PageOperateList">列表</Msg>
+  <Msg Code="PageOperateAdd">新增</Msg>
+  <Msg Code="PageOperateDeal">处理</Msg>
+  <Msg Code="PageOperateEdit">修改</Msg>
+  <Msg Code="PageOperateDetail">详细</Msg>
+  <Msg Code="PageOperateAudit">审核</Msg>
+  <Msg Code="PageOperatePay">付款</Msg>
+  <Msg Code="PageOperateChargOff">核销</Msg>
+  <Msg Code="PageOperateStockCountingY">盘盈</Msg>
+  <Msg Code="PageOperateStockCountingK">盘亏</Msg>
+  <Msg Code="PageOperateStockCountingYD">仓库盘盈单-</Msg>
+  <Msg Code="PageOperateStockCountingKD">仓库盘亏单-</Msg>
+  <Msg Code="StockPreApply">申请日期区间设置</Msg>
+  <Msg Code="PageOperateSendCard">发卡</Msg>
+  <Msg Code="PageOperateRepairCard">补卡</Msg>
+  <Msg Code="PageOperatePay">充值</Msg>
+  <Msg Code="PageOperateTiaoZheng">成本调整</Msg>
+  <Msg Code="StockApplyTip_TName">采购申请波动提醒</Msg>
+  <Msg Code="StockApplyTip_Column">申请仓库,原料类别,原料分类,原料编号,原料名称,常用单位,采购数量,上次成本价,本次成本价,价格波动率(%)</Msg>
+  <Msg Code="StockApply_TName">采购申请</Msg>
+  <Msg Code="DayCouDifReport_TName">日周盘点差异分析</Msg>
+  <Msg Code="DayCouDifReport_Column">盘点日期,上次盘点,盘点仓库,原物料类别,原物料,上次实盘,本次入库,本次出库,理论实数,本次实盘,差异数,差异原因</Msg>
+  <Msg Code="SotckApply_Column">申请单号,验收单号,申请日期,供应商,申请仓库,申请人,采购金额,是否预付款,审核状态,申购类型,要求到货日期,供应商确认,批次号</Msg>
+  <Msg Code="StockStorage_TName">采购入库</Msg>
+  <Msg Code="StockStorage_Column">入库单号,验收单号,申请单号,入库日期,复核日期,供应商,入库仓库,入库金额,入库人,复核状态,复核备注,付款状态</Msg>
+  <Msg Code="StockCounting_TName">仓库盘点</Msg>
+  <Msg Code="StockMaterial_TName">原料管理</Msg>
+  <Msg Code="StockMaterial_Column">原料类别,原料分类,原料编号,原料名称,原料规格,单位,财务类别,供应商,进货价,标准进料率(%),状态,创建人,创建时间</Msg>
+  <Msg Code="StockInventoryloss2_TName">盘点盘亏</Msg>
+  <Msg Code="StockInventoryloss1_TName">盘点盘盈</Msg>
+  <Msg Code="StockInventoryloss_Column">序号,货品,规格,单位,账面数量,实盘数量,盈亏数量,成本均价,金额</Msg>
+  <Msg Code="StockWareHouse_TName">门店仓库</Msg>
+  <Msg Code="StockWareHoust_Column">所属门店,仓库编号,仓库名称,所属部门,仓库电话,仓库类型,负责人,负责人电话,状态,创建人,创建时间</Msg>
+  <Msg Code="StockCounting_Column">盘点单号,生成日期,生成人,盘点日期,盘点仓库,盘点人,审核状态,异常处理状态,审核备注</Msg>
+  <Msg Code="StockCountingDay_Column">盘点单号,生成日期,生成人,盘点日期,盘点类型,盘点仓库,盘点人,审核状态,审核备注</Msg>
+  <Msg Code="CVStorage_TName">卡券入库</Msg>
+  <Msg Code="CVStorage_Column">入库单号,入库日期,供应商,入库仓库,采购金额,复核状态,审核备注</Msg>
+  <Msg Code="NoteInfo_Name">短信信息</Msg>
+  <Msg Code="NoteInfo_Column">短信模板,接收手机号,发送状态,短信内容,发送人,发送时间</Msg>
+  <Msg Code="StockBalance_Name">库存余额</Msg>
+  <Msg Code="StockBalance_Column">所在仓库,原料类别,原料分类,原料编号,原料名称,库存单位,库存数量,成本均价,结存金额,安全库存量</Msg>
+  <Msg Code="memCardStock_Name">卡券库存</Msg>
+  <Msg Code="memCardStock_Column">所在仓库,卡券编号,卡券名称,常用单位,库存数量,成本均价,结存金额,安全库存量</Msg>
+  <Msg Code="Employee_TName">员工信息</Msg>
+  <Msg Code="Employee_Column">所属门店,所属部门,职务,员工类型,员工编号,员工姓名,证件类型,证件号,婚否,性别,民族,手机号码,出生日期,合同到期日,学历,籍贯,户口所在地,紧急联系人,紧急联系电话,在职状态,会员编号,会员卡号,入职日期,状态</Msg>
+  <Msg Code="StockInOutDetail_TName">库存出入库记录</Msg>
+  <Msg Code="StockInOutDetail_Column">单据编号,单据日期,出入库类型,出入库日期,所属仓库,供应商,财务类别,原料类别,原料分类,原料编号,原料名称,计量单位,出入库数量,库存价格,总金额,备注</Msg>
+  <Msg Code="MemInOutDetail_TName">卡券出入库记录</Msg>
+  <Msg Code="StockGive_TName">赠送入库</Msg>
+  <Msg Code="StockGive_Column">入库单号,入库日期,供应商,入库仓库,审核状态,审核备注</Msg>
+  <Msg Code="StockProHalf_TName">半成品入库</Msg>
+  <Msg Code="StockRecovery_TName">回收入库</Msg>
+  <Msg Code="StockProHalf_Column">入库单号,入库日期,供应商,入库仓库,入库人,审核状态,审核备注</Msg>
+  <Msg Code="StockProHalfOut_TName">半成品出库</Msg>
+  <Msg Code="StockProHalfOut_Column">出库单号,出库日期,出库仓库,出库人,审核状态,审核备注</Msg>
+  <Msg Code="StockProSaleOut_TName">销售出库</Msg>
+  <Msg Code="StockProWineOut_TName">回存酒出库</Msg>
+  <Msg Code="StockProWine_TName">回存酒入库</Msg>
+  <Msg Code="memcard_memcardcreditExport">会员卡号,姓名,手机号码,核销状态,核销人,挂账金额,交易门店,交易人,交易日期,摘要,明细</Msg>
+  <Msg Code="memcard_memcardcredit">会员卡挂账</Msg>
+  <Msg Code="memcard_memcardsign">会员卡签单</Msg>
+  <Msg Code="memcard_memcardsignExport">会员卡号,姓名,手机号码,核销状态,核销人,签单金额,交易门店,交易人,交易日期,摘要</Msg>
+  <Msg Code="csubsetting_TName">成本科目对应关系</Msg>
+  <Msg Code="csubsetting_Column">k3编码,k3名称,新系统对应编码,新系统对应名称,状态,创建人,创建时间</Msg>
+  <Msg Code="ssubsetting_TName">收入科目对应关系</Msg>
+  <Msg Code="depsetting_TName">部门对应关系</Msg>
+  <Msg Code="supsetting_TName">供应商对应关系</Msg>
+  <Msg Code="stosetting_TName">门店对应关系</Msg>
+  <Msg Code="accountsetting_TName">登录账户对应关系</Msg>
+  <Msg Code="K3Manage_TName">K3凭证数据</Msg>
+  <Msg Code="stypesetting_TName">收入类别对应关系</Msg>
+  <Msg Code="MVticketsExport_TName">影片订单导出</Msg>
+  <Msg Code="MVmemBindingExport_TName">微信关注数统计导出</Msg>
+  <Msg Code="accountsetting_Column">k3用户名,k3密码,新系统用户名,状态,创建人,创建时间</Msg>
+  <Msg Code="NoApplyStorage_Column">入库单号,入库门店,入库日期,供应商编号,供应商名称,收货日期,入库金额,入库人,审核状态,审核备注,付款状态</Msg>
+  <Msg Code="StockReturn_Column">退货单号,退货日期,供应商,退货仓库,退款金额,退货人,审核状态,审核备注,付款状态</Msg>
+  <Msg Code="StockCostBalance_Column">调整单号,调整日期,调整类型,原始单号,供应商,调整仓库,调整金额,申请人,审核状态,审核备注,付款状态</Msg>
+  <Msg Code="StockPayOrder_Column">付款单号,付款类型,付款日期,付款申请日期,供应商,所属门店,付款金额,付款状态,审核状态,审核备注</Msg>
+  <Msg Code="StockOut_Column">单据编号,领料日期,出库仓库,领料仓库,领料人,单据金额,审核状态,审核备注</Msg>
+  <Msg Code="StockBack_Column">单据编号,退料日期,入库仓库,退料仓库,退料人,单据金额,审核状态,审核备注</Msg>
+  <Msg Code="StockTransfer_Column">调拨单号,调拨日期,调出仓库,调入仓库,调拨人,单据金额,审核状态,审核备注</Msg>
+  <Msg Code="StockLoss_Column">损耗单号,损耗日期,损耗仓库,损耗人,单据金额,审核状态,审核备注</Msg>
+  <Msg Code="StockPayMoney_Column">单据类型,单据号,单据日期,申请单号,供应商,操作仓库,操作人,单据金额,付款状态</Msg>
+  <Msg Code="StockLoanReturn_Column">借款单号,借款门店,借款供应商,申请金额,实付金额,核销金额,退款金额,申请人,申请日期,复核人,复核状态,复核时间</Msg>
+  <!--功能设置-->
+  <Msg Code="FUN_001">『序号』不能为空</Msg>
+  <Msg Code="FUN_002">『序号』格式应为长度不超过4位的整数</Msg>
+  <Msg Code="FUN_003">『键』不能为空</Msg>
+  <Msg Code="FUN_004">『值』不能为空</Msg>
+  <Msg Code=" ">『描述』不能为空</Msg>
+
+  <!--后台用户-->
+  <Msg Code="admins_Menu">用户管理</Msg>
+  <Msg Code="members_Menu">会员管理</Msg>
+  <Msg Code="memcard_Menu">会员卡管理</Msg>
+  <Msg Code="coupons_Menu">优惠券管理</Msg>
+  <Msg Code="stocks_Menu">库存管理</Msg>
+  <Msg Code="admins_TName">用户信息</Msg>
+  <Msg Code="system_Menu">系统管理</Msg>
+  <Msg Code="card_Menu">卡券管理</Msg>
+  <Msg Code="k3_Menu">k3凭证</Msg>
+  <Msg Code="admins_Export">用户名,手机号码,员工编号,权限范围,权限门店,所属员工,所属角色,状态</Msg>
+  <Msg Code="admins_202">用户名已存在，请重新输入!</Msg>
+  <Msg Code="admins_203">联系方式已经存在!</Msg>
+  <!--用户名-->
+  <Msg Code="admins_007">用户名不能为空!</Msg>
+  <Msg Code="admins_008">3-16位数字字母_组合!</Msg>
+  <!--密码-->
+  <Msg Code="admins_010">密码不能为空!</Msg>
+  <Msg Code="admins_011">密码格式不正确!</Msg>
+  <Msg Code="admins_repwd">原密码输入错误!</Msg>
+  <Msg Code="admins_checkrepwd">两次输入密码不一致!</Msg>
+  <Msg Code="admins_repwdOK">密码修改成功，下次请用新密码进行登录!</Msg>
+  <!--姓名-->
+  <Msg Code="admins_013">姓名不能为空!</Msg>
+  <!--手机号-->
+  <Msg Code="admins_017">手机号格式不正确!</Msg>
+
+  <Msg Code="E_existcodedutyrank">职务等级编号重复，请核对!</Msg>
+  <Msg Code="E_existnamedutyrank">职务等级名称重复，请核对!</Msg>
+  <Msg Code="E_existcodebyductdutyrank">所属职务已存在，请核对!</Msg>
+  <!--备注-->
+  <!--验证码-->
+  <Msg Code="admins_028">验证码不能为空!</Msg>
+  <Msg Code="admins_029">验证码失效!</Msg>
+  <Msg Code="admins_031">您的帐号无效，请联系管理员！</Msg>
+  <Msg Code="admins_032">用户或密码错误！</Msg>
+  <Msg Code="admins_033">验证码不正确！</Msg>
+  <Msg Code="admins_040">密码已修改成功!</Msg>
+  <Msg Code="admins_041">原密码不正确，请重新输入!</Msg>
+  <!--登录日志信息-->
+  <Msg Code="admins_051">{0}于{1}登录连锁后台管理系统!</Msg>
+  <Msg Code="admins_961">{0}删除id为{1}的用户管理信息;</Msg>
+
+  <!--角色信息-->
+  <Msg Code="admins_Menu">用户管理</Msg>
+  <Msg Code="admins_TName">角色信息</Msg>
+  <Msg Code="admins_Export">字段1,字段2</Msg>
+  <Msg Code="roles_030">名称已经存在，请重新填写!</Msg>
+  <Msg Code="roles_031">角色已被用户引用，不允许删除!</Msg>
+  <Msg Code="roles_961">{0}删除id为{1}的角色管理信息</Msg>
+
+  <!--语言信息表-->
+  <Msg Code="languages_Menu">语言信息表</Msg>
+  <Msg Code="languages_TName">语言信息表</Msg>
+  <Msg Code="languages_Export">字段1,字段2</Msg>
+  <Msg Code="languages_004">内容不能为空!</Msg>
+  <!--语言名称-->
+  <Msg Code="languages_007">内容不能为空!</Msg>
+  <!--代码-->
+
+
+  <!--省份信息表-->
+  <Msg Code="provinces_Menu">省份信息表</Msg>
+  <Msg Code="provinces_TName">省份信息表</Msg>
+  <Msg Code="provinces_Export">字段1,字段2</Msg>
+  <Msg Code="provinces_007">内容不能为空!</Msg>
+  <!--省名称-->
+  <Msg Code="provinces_010">内容不能为空!</Msg>
+  <!--城市字母-->
+  <Msg Code="provinces_011">格式不正确!</Msg>
+  <!--城市字母-->
+
+  <!--  字典信息-->
+  <Msg Code="ts_Dicts_019">字典编号重复!</Msg>
+  <Msg Code="ts_Dicts_delete">字典编号重复!</Msg>
+  <Msg Code="ts_Dicts_exists">字典信息已有业务数据，不能删除!</Msg>
+  <!--字典信息-->
+
+  <!--   start wx-->
+  <Msg Code="WXbusactivity_961">{0}删除actId为{1}的最新活动信息</Msg>
+  <Msg Code="WXScreen_961">"{0}删除actId为{1}巨幕影讯"</Msg>
+  <Msg Code="WXresumedetail_961">"{0}删除detailid为{1}的职位信息"</Msg>
+  <Msg Code="WXComplaints_961">{0}删除actId为{1}的投诉建议信息</Msg>
+
+  <Msg Code="WXBigbright_961">{0}删除actId为{1}的美亚影讯信息</Msg>
+  <Msg Code="WXlostFind_961">{0}删除losid为{1}的失物招领信息</Msg>
+  <Msg Code="WXNewMovie_961">{0}删除actId为{1}的新片预告信息</Msg>
+
+  <!--activice info-->
+  <Msg Code="WXbusactivity_Menu">活动信息</Msg>
+  <Msg Code="WXbusactivity_TName">活动信息</Msg>
+  <Msg Code="WXbusactivity_Export">字段1,字段2</Msg>
+  <Msg Code="WXbusactivity_004">内容不能为空!</Msg>
+  <!---->
+  <Msg Code="WXbusactivity_010">内容不能为空!</Msg>
+  <!---->
+  <Msg Code="WXbusactivity_013">内容不能为空!</Msg>
+  <!---->
+  <Msg Code="WXbusactivity_017">格式不正确!</Msg>
+  <!--WXBasicSetting-->
+  <Msg Code="WXBasicSetting_001">内容不能为空!</Msg>
+  <Msg Code="WXBasicSetting_002">格式不正确!</Msg>
+  <Msg Code="WXBasicSetting_003">操作失败，门店已设置，请选择其他门店进行设置!</Msg>
+  <Msg Code="WXBasicSetting_004">操作失败，请选择门店!</Msg>
+  <Msg Code="WXBasicSettingMenu">基础设置</Msg>
+  <Msg Code="WXBasicSetting_Menu">点餐设置基础设置</Msg>
+  <Msg Code="WXBasicSetting_TName">点餐基础设置</Msg>
+  <Msg Code="WXBasicSetting_Delete">点餐基础设置删除操作</Msg>
+  <Msg Code="WXBasicSetting_ExportColumnName">门店名称,开启是否预订,开启是否排队,开启是否点餐,节假日是否开启预订,周末是否开启预订,状态,操作时间</Msg>
+  <Msg Code="WXBasicSetting_ExportColumnCode">stoname,isnetworkname,isqueuename,isaddfoodname,festivalname,weekendname,statusname,utime</Msg>
+  <!--WXReservationSetEdit-->
+  <Msg Code="WXReservationSet_001">内容不能为空!</Msg>
+  <Msg Code="WXReservationSet_002">格式不正确!</Msg>
+  <Msg Code="WXReservationSet_003">操作失败，门店已设置，请选择其他门店进行设置!</Msg>
+  <Msg Code="WXReservationSet_004">操作失败，请选择门店!</Msg>
+  <Msg Code="WXReservationSet_005">操作失败，请选择预定方式!</Msg>
+  <Msg Code="WXReservationSet_006">操作失败，结束日期必须大于开始日期!</Msg>
+  <Msg Code="WXReservationSet_007">操作失败，请选择餐别!</Msg>
+  <Msg Code="WXReservationSet_008">操作失败，请选择餐别时间!</Msg>
+  <Msg Code="WXReservationSet_009">操作失败，请选择餐别状态!</Msg>
+  <Msg Code="WXReservationSet_010">操作失败，餐别重复!</Msg>
+  <Msg Code="WXReservationSet_011">操作失败，各餐别之前时间不能交叉!</Msg>
+  <Msg Code="WXReservationSetMenu">预定设置</Msg>
+  <Msg Code="WXReservationSet_Menu">点餐设置预定设置</Msg>
+  <Msg Code="WXReservationSet_TName">点餐预定设置</Msg>
+  <Msg Code="WXReservationSet_Delete">点餐预定设置删除操作</Msg>
+  <Msg Code="WXReservationSet_ExportColumnName">门店名称,开启是否预订,开启是否排队,开启是否点餐,节假日是否开启预订,周末是否开启预订,状态,操作时间</Msg>
+  <Msg Code="WXReservationSet_ExportColumnCode">stoname,isnetworkname,isqueuename,isaddfoodname,festivalname,weekendname,statusname,utime</Msg>
+  <!--WXholidaySet-->
+  <Msg Code="WXholidaySet_Menu">节假日设置</Msg>
+  <Msg Code="WXholidaySet_Delete">节假日设置删除操作</Msg>
+  <!--WXRemarkSet-->
+  <Msg Code="WXRemarkSet_Menu">备注设置</Msg>
+  <Msg Code="WXRemarkSet_Delete">备注设置删除操作</Msg>
+  <!--WXsetlineup-->
+  <Msg Code="WXsetlineup_Menu">排队设置</Msg>
+  <Msg Code="WXsetlineup_Delete">排队设置删除操作</Msg>
+  <!--WXdishesSelloffEdit-->
+  <Msg Code="WXdishesSelloffEdit_Menu">菜品沽清</Msg>
+  <Msg Code="WXdishesSelloffEdit_Delete">菜品沽清删除操作</Msg>
+  <!--WXsqinfoset-->
+  <Msg Code="WXsqinfoset_Menu">商圈设置</Msg>
+  <Msg Code="WXsqinfoset_Delete">商圈设置删除操作</Msg>
+  <Msg Code="WXComplaint_Menu">投诉建议</Msg>
+  <Msg Code="WXComplaint_Delete">投诉建议删除操作</Msg>
+  <!--微信_投诉建议-->
+  <Msg Code="WXComplaints_Menu">微信_投诉建议</Msg>
+  <Msg Code="WXComplaints_TName">微信_投诉建议</Msg>
+  <Msg Code="WXComplaints_Export">字段1,字段2</Msg>
+  <Msg Code="WXComplaints_031">内容不能为空!</Msg>
+  <!--帮助中心管理-->
+  <Msg Code="WXhelpSet_Menu">微信_帮助中心管理</Msg>
+  <Msg Code="WXhelpSetList_Delete">微信_帮助中心管理删除</Msg>
+  <!--打赏管理设置-->
+  <Msg Code="WXRewardSet_Menu">微信_打赏设置</Msg>
+  <Msg Code="WXRewardSet_Delete">微信_打赏设置删除</Msg>
+  <!--套餐管理上传图片设置-->
+  <Msg Code="WXdishesComboPicUpload_Menu">微信_套餐管理上传图片</Msg>
+  <!--菜品管理上传图片设置-->
+  <Msg Code="WXdishesPicUpload_Menu">微信_菜品管理上传图片</Msg>
+  <!--用户管理-->
+  <Msg Code="WXMembers_Menu">微信_用户管理</Msg>
+  <!--消息管理-->
+  <Msg Code="WXUserMessage_Menu">微信_消息管理</Msg>
+  <Msg Code="WXUserMessage_Delete">微信_消息管理删除</Msg>
+  <!--卖品管理-->
+  <Msg Code="MVgoods_Menu">微信_卖品管理</Msg>
+  <Msg Code="MVgoods_Delete">微信_卖品管理删除</Msg>
+  <Msg Code="MVgoodsEdit_Menu">微信_卖品管理</Msg>
+  <Msg Code="MVgoodsOrder_TName">卖品管理导出</Msg>
+  <!--广告活动管理-->
+  <Msg Code="MVbannerEdit_Menu">微信_广告活动管理</Msg>
+  <!--影院管理-->
+  <Msg Code="MVCinemas_Menu">影院_影院管理</Msg>
+  <Msg Code="MVCinemasEdit_Menu">影院_影院管理修改</Msg>
+  <!---->
+  <Msg Code="MVmarketsactivity_Menu">微信_营销活动_营销活动管理</Msg>
+  <Msg Code="MVmarketsactivity_Delete">微信_营销活动_营销活动管理删除</Msg>
+  <Msg Code="MVmarketsactivityEdit_Menu">微信_营销活动_营销活动管理</Msg>
+  <!--简历明细表-->
+  <Msg Code="WXresumedetail_Menu">简历明细表</Msg>
+  <Msg Code="WXresumedetail_TName">简历明细表</Msg>
+  <Msg Code="WXresumedetail_Export">字段1,字段2</Msg>
+  <Msg Code="WXresumedetail_007">内容不能为空!</Msg>
+  <!--敏感词设置-->
+  <Msg Code="MVSensitiveSetExport_TName">敏感词设置导出</Msg>
+  <Msg Code="MVSensitiveSetExportT_TName">敏感词设置模板</Msg>
+  <Msg Code="MVSensitiveSetExport_ColumnName">敏感词,替换字符</Msg>
+  <Msg Code="MVSensitiveSetExport_ColumnCode">word,wordnew</Msg>
+  <!--职位名称-->
+
+  <!--   end wx-->
+  <!--   start  store-->
+  <!--商家门店信息-->
+  <Msg Code="Store_Menu">商家门店信息</Msg>
+  <Msg Code="Store_TName">商家门店信息</Msg>
+  <Msg Code="store_Export">门店编号,门店名称,门店简称,门店简码,所在省,负责人,负责人联系电话,门店电话,状态</Msg>
+  <Msg Code="Store_010">门店编号重复</Msg>
+  <Msg Code="Store_961">{0}删除stocode为{1}的门店信息</Msg>
+
+  <!--   end  store-->
+
+  <Msg Code="FinanceType_TName">财务类别</Msg>
+  <Msg Code="Finance_Export">类别编码,类别名称,外部代码,状态</Msg>
+
+  <Msg Code="CostType_TName">费用类别</Msg>
+  <Msg Code="Cost_Export">类别编码,类别名称,外部代码,状态</Msg>
+
+  <Msg Code="paymethod_TName">支付方式</Msg>
+  <Msg Code="paymethod_Export">类型编号,类型名称,货币类型,科目类别,反结算,开钱箱,更改支付方式,更改金额,是否改单,排序号,状态</Msg>
+
+  <Msg Code="discountpackage_TName">折扣方案</Msg>
+  <Msg Code="discountpackage_Export">方案编号,方案名称,内部编码,适用会员卡,一般折扣率,排序号,状态</Msg>
+
+  <!--   start  log-->
+  <Msg Code="operatelog_TName">登录日志</Msg>
+  <Msg Code="operatelog_Export">操作模块,操作类型,日志信息,创建人,创建时间</Msg>
+  <Msg Code="tl_loginlog_TName">登录日志</Msg>
+  <Msg Code="tl_loginlog_Export">用户名,登录姓名,日志信息,登录日期</Msg>
+  <!--   end  log-->
+
+  <!--门店_仓库-->
+  <Msg Code="StockWareHouse_Menu">门店仓库</Msg>
+  <Msg Code="StockWareHouse_TName">门店仓库</Msg>
+  <Msg Code="StockWareHouse_Export">字段1,字段2</Msg>
+  <Msg Code="StockWareHouse_013">内容不能为空!</Msg>
+  <!--仓库编号-->
+  <Msg Code="StockWareHouse_016">内容不能为空!</Msg>
+  <!--仓库名称-->
+  <Msg Code="StockWareHouse_025">内容不能为空!</Msg>
+  <!--负责人-->
+  <Msg Code="StockWareHouse_028">内容不能为空!</Msg>
+  <!--负责人联系电话-->
+
+
+  <!--  start membercard-->
+  <Msg Code="memcardtype_961">{0}删除mctcode为{1}的会员卡类型信息</Msg>
+
+  <Msg Code="E_memcodeempty">会员编号不能为空</Msg>
+  <Msg Code="E_mctcode01">类型编号重复</Msg>
+  <Msg Code="E_cnam01">类型名称重复</Msg>
+  <Msg Code="E_memcardExist">会员卡存在关联数据,请检查或做无效处理</Msg>
+  <Msg Code="E_memprebatchExist">会员卡预制订单存在关联数据,请检查或做无效处理</Msg>
+  <Msg Code="E_cardnotexist">卡不存在或者卡已作废</Msg>
+
+  <Msg Code="E_memcardlevel01">会员卡等级信息存在关联数据</Msg>
+  <Msg Code="E_memcardRepair">该卡已激活或者已挂失或作废</Msg>
+  <Msg Code="E_memcard801">合并默认卡号非正常状态</Msg>
+  <Msg Code="E_memcard802">待合并的卡号信息非法参数</Msg>
+  <Msg Code="E_cardnopay">该类型卡号不能充值</Msg>
+  <Msg Code="E_memcardoutnum">选择优惠券与可赠送优惠券种类不符,请检查</Msg>
+  <Msg Code="E_memcardnotinterval">充值金额不在正常区间内,请检查</Msg>
+  <Msg Code="memcard_fail">此卡不存在或非未激活状态</Msg>
+  <Msg Code="memcard_IDNO">身份证格式不正确</Msg>
+  <Msg Code="E_memcardjudgenum">开卡数量为0,请核对</Msg>
+  <Msg Code="e_cardexist">该卡已制卡，请核对</Msg>
+  <Msg Code="e_cardnotnull">卡号不能为空,请检查</Msg>
+  <Msg Code="memprebatch_TName">会员卡预制明细</Msg>
+  <Msg Code="memprebatch_Export">预制单据号,会员卡类型,会员卡等级,卡号,卡有效期,状态</Msg>
+  <Msg Code="memcard_bactbegin">开始/结束卡号不存在</Msg>
+  <Msg Code="memcard_bactdiff">开始和结束卡号批次不一致</Msg>
+  <Msg Code="memcard_bactfail">{0}等卡号非未激活状态</Msg>
+  <Msg Code="memcard_mergenostatus">合并存在非正常状态的卡，请检查！</Msg>
+  <Msg Code="memcard_mergenocard">没有要合并的卡，请检查！</Msg>
+  <Msg Code="memcard_activeerror">此卡非正常状态不允许激活操作</Msg>
+  <Msg Code="memcard_activeerror2">此卡系统卡号已存在，不能激活操作</Msg>
+
+  <Msg Code="membercoupon_TName">会员发放优惠券导出</Msg>
+  <Msg Code="membercoupon_Export">适用门店,适用大类,优惠券名称,所属会员编号,所属会员卡号,券号,状态,开始生效时间,结束过期时间,发放门店,发放人,发放时间</Msg>
+
+  <Msg Code="members_TName">会员信息导出</Msg>
+  <Msg Code="members_Export">会员编号,姓名,性别,手机号码,证件类型,证件号码,所属区域,卡数量,状态</Msg>
+
+  <Msg Code="memcardlog_TName">会员卡操作日志导出</Msg>
+  <Msg Code="memcardlog_Export">会员编号,会员卡编号,操作内容,操作类型,操作时间</Msg>
+
+  <Msg Code="et_cardnotpre">上一张卡不存在,请检查</Msg>
+  <Msg Code="et_cardnotnext">下一张卡不存在,请检查</Msg>
+  <Msg Code="memcard_normalstatus">卡号非正常状态或卡号不存在，请检查！</Msg>
+  <!--   end  membercard-->
+
+  <!--  start memcardlevel-->
+  <Msg Code="memcardlevel_961">{0}删除levelcode为{1}的会员卡等级信息</Msg>
+
+  <Msg Code="E_levelcode01">等级编号重复</Msg>
+  <Msg Code="E_levelname01">等级名称重复</Msg>
+  <!--   end  memcardlevel-->
+
+  <!--  start memcard export-->
+
+  <Msg Code="memcard_levelcheck">新旧卡卡等级不一致，请检查！</Msg>
+  <Msg Code="memcard_changestatus">非“正常”、“挂失”状态不能进行补换卡操作！</Msg>
+  <Msg Code="memcard_transferstatus">非“正常”、“挂失”状态不能进行过户操作！</Msg>
+  <Msg Code="memcard_bindmemberstatus">非“正常”、“挂失”状态不能进行重新绑定操作！</Msg>
+  <Msg Code="memcard_TName">批量发卡密码</Msg>
+  <Msg Code="memcard_Export">序号,批量发卡流水号,卡类型,卡等级,卡号,会员编号,充值金额,赠送金额,卡有效期,卡密码</Msg>
+  <Msg Code="memprefabricat_TName">会员卡预制订单</Msg>
+  <Msg Code="memprefabricat_Export">预制编号,开始卡号,结束卡号,只跳尾号,跳号数字,总张数,未制张数,预制日期</Msg>
+
+  <Msg Code="memcard_freeze">只有正常卡才可以冻结，请检查</Msg>
+  <Msg Code="memcard_lost">只有正常卡才可以挂失，请检查</Msg>
+  <Msg Code="memcard_thaw">只有已冻结卡,已挂失卡才可以解冻，请检查</Msg>
+  <Msg Code="memcard_unloss">只有已挂失卡才可以解挂，请检查</Msg>
+  <Msg Code="memcard_charge">只有正常卡才可以充值，请检查</Msg>
+  <Msg Code="MemCardChange_TName">补换卡信息导出</Msg>
+  <Msg Code="memcardchange_Export">操作类型,新会员卡卡号,会员卡卡号,姓名,操作门店,操作人,补换卡时间</Msg>
+
+  <Msg Code="memcard_memcard">会员卡信息</Msg>
+  <Msg Code="memcard_checkstartno">开始卡号信息错误，请检查！</Msg>
+  <Msg Code="memcard_memcardExport">会员卡卡号,姓名,手机号,证件类型,证件号,会员卡类型,会员卡等级,卡有效期,可用余额,可用积分,可开发票,可用挂账额度,可用签单额度,状态,冻结到期日,发卡时间,发卡门店,发卡人</Msg>
+  <Msg Code="memcard_bigmemcardExport">会员卡卡号,姓名,会员卡类型,会员卡等级,卡有效期,可用余额,可用积分,可开发票,可用挂账额度,可用签单额度,附属卡,状态,冻结到期日,激活时间</Msg>
+  <Msg Code="memcard_memcardreturn">会员卡退卡</Msg>
+  <Msg Code="memcard_memcardreturnExport">会员卡卡号,姓名,手机号,会员卡类型,会员卡等级,卡有效期,可用余额,累计充值,累计赠送,卡状态,申请时间,是申请门店,申请人,处理状态</Msg>
+  <Msg Code="memcard_batchmemcard">会员卡批量发卡信息</Msg>
+  <Msg Code="memcard_batchmemcardExport">批量发卡流水号,开始编号,结束编号,会员卡等级,会员卡类型,提成人姓名,合计工本费,充值金额,开卡数量,开卡时间</Msg>
+  <Msg Code="memcard_cardcodeempty">请输入卡号！</Msg>
+  <Msg Code="memcard_paymoneyerror">支付金额应大于零，请检查！</Msg>
+  <Msg Code="memcard_cardcodeallempty">请输入开始和结束卡号！</Msg>
+  <Msg Code="memcard_readcard">请先操作读卡操作！</Msg>
+  <Msg Code="memcard_checkpaymoney">调整金额不能为0！</Msg>
+  <Msg Code="memcard_notispay">此卡类型不能进行充值操作！</Msg>
+  <Msg Code="memcardadd_031">请输入手机号码</Msg>
+  <Msg Code="memcardadd_033">请输入手机号码或证件号码</Msg>
+  <Msg Code="memcardadd_035">没有此手机号码或证件号码的会员信息</Msg>
+  <Msg Code="bigcustomernocard">选择大客户未绑定主卡</Msg>
+  <Msg Code="dagz">挂账额度需小于主卡挂账额度</Msg>
+  <Msg Code="daqd">签单额度需小于主卡签单额度</Msg>
+  <Msg Code="memcard_bindmember_exists">已存在未审核的会员绑定操作，请检查！</Msg>
+  <Msg Code="memcard_bindmember_status">此卡号非“正常”状态，无法进行会员绑定审核操作，请检查！</Msg>
+  <Msg Code="memcard_initialize_notemp">非员工卡不能初始化操作，请检查</Msg>
+  <Msg Code="memcard_initialize_status">此员工卡是正常卡不能初始化操作，请检查</Msg>
+  <!--  end memcard -->
+
+  <!--门店_原料分类-->
+  <Msg Code="StockMateClass_Menu">原料分类</Msg>
+  <Msg Code="StockMateClass_TName">原料分类</Msg>
+  <Msg Code="StockMateClass_Export">分类编号,分类名称</Msg>
+  <Msg Code="memlikeclass_TName">会员喜好设置</Msg>
+  <Msg Code="memlikeclass_Export">父分类名称,分类编号,分类名称</Msg>
+  <Msg Code="StockMateClass_019">内容不能为空!</Msg>
+  <!--分类编号-->
+  <Msg Code="StockMateClass_022">内容不能为空!</Msg>
+  <!--分类名称-->
+  <Msg Code="StockMateClass_025">内容不能为空!</Msg>
+  <!--十六进制颜色-->
+
+  <!--门店_原料类别-->
+  <Msg Code="StockMateType_Menu">门店_原料类别</Msg>
+  <Msg Code="StockMateType_TName">门店_原料类别</Msg>
+  <Msg Code="StockMateType_Export">字段1,字段2</Msg>
+  <Msg Code="StockMateType_010">内容不能为空!</Msg>
+  <!--类别编号-->
+  <Msg Code="StockMateType_013">内容不能为空!</Msg>
+  <!--类别名称-->
+
+  <!--优惠券活动-->
+  <Msg Code="sumcoupon_Menu">优惠券活动</Msg>
+  <Msg Code="sumcoupon_TName">优惠券活动</Msg>
+  <Msg Code="sumcoupon_Export">字段1,字段2</Msg>
+
+  <Msg Code="sumcoupon_013">内容不能为空!</Msg>
+  <!--活动名称-->
+  <Msg Code="sumcoupon_016">内容不能为空!</Msg>
+  <!--活动有效期(起)-->
+  <Msg Code="sumcoupon_017">格式不正确!</Msg>
+  <!--活动有效期(起)-->
+  <Msg Code="sumcoupon_019">内容不能为空!</Msg>
+  <!--活动有效期(终)-->
+  <Msg Code="sumcoupon_020">格式不正确!</Msg>
+  <!--活动有效期(终)-->
+  <Msg Code="sumcoupon_101">活动状态非正常状态不能做审核操作!</Msg>
+  <!--活动有效期(终)-->
+  <Msg Code="sumcoupon_102">活动不能重复审核操作!</Msg>
+  <!--活动有效期(终)-->
+
+  <Msg Code="sumcoupon_013">内容不能为空!</Msg>
+  <!--活动名称-->
+  <Msg Code="sumcoupon_016">内容不能为空!</Msg>
+  <!--活动有效期(起)-->
+  <Msg Code="sumcoupon_017">格式不正确!</Msg>
+  <!--活动有效期(起)-->
+  <Msg Code="sumcoupon_019">内容不能为空!</Msg>
+  <!--活动有效期(终)-->
+  <Msg Code="sumcoupon_020">格式不正确!</Msg>
+  <!--活动有效期(终)-->
+  <Msg Code="sumcoupon_101">活动状态无效不能做审核操作!</Msg>
+  <Msg Code="sumcoupon_102">活动不能重复审核操作!</Msg>
+  <Msg Code="sumcoupon_103">没有可审核的优惠券!</Msg>
+
+  <Msg Code="sumcoupon_201">请输入驳回原因!</Msg>
+  <Msg Code="sumcoupon_202">审核原因64个字符以内!</Msg>
+  <Msg Code="sumcoupon_961">{0}删除id为{1}的用户管理信息！</Msg>
+  <Msg Code="sumcoupon_962">{0}审核通过id为{1}的优惠活动信息！</Msg>
+  <Msg Code="sumcoupon_963">{0}审核拒绝id为{1}的优惠活动信息！</Msg>
+
+  <!--优惠活动优惠券信息-->
+  <Msg Code="e_couponpresent_pcode001">优惠券方案编号重复!</Msg>
+  <Msg Code="e_couponpresent_pname001">优惠券方案名称重复!</Msg>
+  <Msg Code="maincoupon_Menu">优惠活动优惠券信息</Msg>
+  <Msg Code="maincoupon_TName">优惠活动优惠券信息</Msg>
+  <Msg Code="maincoupon_Export">字段1,字段2</Msg>
+  <Msg Code="maincoupon_013">内容不能为空!</Msg>
+  <!--优惠券编号-->
+  <Msg Code="maincoupon_019">内容不能为空!</Msg>
+  <!--优惠券名称-->
+  <Msg Code="maincoupon_022">内容不能为空!</Msg>
+  <!--优惠券有效期(起)-->
+  <Msg Code="maincoupon_023">格式不正确!</Msg>
+  <!--优惠券有效期(起)-->
+  <Msg Code="maincoupon_025">内容不能为空!</Msg>
+  <!--优惠券有效期(终)-->
+  <Msg Code="maincoupon_026">格式不正确!</Msg>
+  <!--优惠券有效期(终)-->
+  <Msg Code="maincoupon_028">内容不能为空!</Msg>
+  <!--批次号-->
+  <Msg Code="maincoupon_031">内容不能为空!</Msg>
+  <!--前缀-->
+  <Msg Code="maincoupon_034">内容不能为空!</Msg>
+  <!--优惠券数量-->
+  <Msg Code="maincoupon_035">格式不正确!</Msg>
+  <!--优惠券数量-->
+  <Msg Code="maincoupon_038">格式不正确!</Msg>
+  <!--优惠券金额(元)-->
+  <Msg Code="maincoupon_040">内容不能为空!</Msg>
+  <!--优惠券使用限额(元)-->
+  <Msg Code="maincoupon_041">格式不正确!</Msg>
+  <!--优惠券使用限额(元)-->
+  <Msg Code="maincoupon_050">格式不正确!</Msg>
+  <!--成本均价-->
+  <Msg Code="maincoupon_053">格式不正确!</Msg>
+  <!--单次使用上限-->
+
+  <!--优惠券-->
+  <Msg Code="coupon_Menu">优惠券</Msg>
+  <Msg Code="coupon_TName">优惠券</Msg>
+  <Msg Code="coupon_Export">字段1,字段2</Msg>
+  <Msg Code="Err_CouponSelectNum">可选种数不能大于赠送优惠券种数</Msg>
+  <!--优惠券促销活动-->
+  <Msg Code="CardAll">--所有人--</Msg>
+  <Msg Code="salespromotion_Menu">优惠券促销活动</Msg>
+  <Msg Code="salespromotion_TName">优惠券促销活动</Msg>
+  <Msg Code="salespromotion_Export">字段1,字段2</Msg>
+  <Msg Code="salespromotion_013">内容不能为空!</Msg>
+  <Msg Code="MVActivityExport_TName">参与活动导出</Msg>
+  <Msg Code="SubCardInfoExport_TName">次卡信息导出</Msg>
+  <!--活动名称-->
+  <Msg Code="salespromotion_016">内容不能为空!</Msg>
+  <!--促销有效开始日期-->
+  <Msg Code="salespromotion_019">内容不能为空!</Msg>
+  <!--促销有效开始日期-->
+  <Msg Code="salespromotion_022">内容不能为空!</Msg>
+  <!--促销开始时间-->
+  <Msg Code="salespromotion_025">内容不能为空!</Msg>
+  <!--促销结束时间-->
+  <Msg Code="salespromotion_037">内容不能为空!</Msg>
+  <!--促销总金额满-->
+
+
+  <!--start department manager -->
+  <Msg Code="E_existcodeduty">职务编号重复，请核对!</Msg>
+  <Msg Code="E_existnameduty">职务名称重复，请核对!</Msg>
+  <Msg Code="ED_DutyRankExist">职务等级存在关联数据,请检查</Msg>
+  <Msg Code="ED_EmployeeExist">人员信息存在关联数据,请检查</Msg>
+
+  <Msg Code="E_existcodedutyrank">职务等级编号重复，请核对!</Msg>
+  <Msg Code="E_existnamedutyrank">职务等级名称重复，请核对!</Msg>
+  <!-- end  department manager-->
+  <!--赠送优惠券-->
+  <Msg Code="couponfreelog_Menu">赠送优惠券</Msg>
+  <Msg Code="coupon_num">可选择优惠券{0}种</Msg>
+  <Msg Code="couponfreelog_max">批量赠送优惠券人数超过1万，请分次赠送</Msg>
+  <Msg Code="couponfreelog_carcoderef">卡面卡号前缀字母不全，请重新输入</Msg>
+
+  <!--账户提示-->
+  <Msg Code="memcardaccount_creditblanceno">可用挂账额度不够，不允许修改</Msg>
+  <Msg Code="memcardaccount_signcreditblanceno">可用签单账额度不够，不允许修改</Msg>
+
+  <Msg Code="Department_choose">请选择要修改的部门</Msg>
+  <Msg Code="Stockmaterialclass_choose">请选择要修改的原料分类</Msg>
+
+  <Msg Code="Tsdicts_choose">请选择要修改的字典</Msg>
+
+  <!--会员信息，手机号，证件号码存在提示-->
+  <Msg Code="memcard_noexist">该会员卡状态异常，不能操作！</Msg>
+  <Msg Code="members_mobexist">手机号码已存在，请核对会员信息！</Msg>
+  <Msg Code="members_idnoexist">证件号码已存在，请核对会员信息！</Msg>
+  <Msg Code="employee_idnoexist">员工信息证件号码已存在，请确认</Msg>
+  <Msg Code="employee_mobexist">员工信息手机号码已存在，请确认</Msg>
+  <Msg Code="members_verificationcode">手机验证码已过期或不正确，请重新输入！</Msg>
+
+  <Msg Code="memcardconsumption_TName">会员卡消费信息</Msg>
+  <Msg Code="memcard_mergeone">单张会员卡无法进行合并操作！</Msg>
+  <Msg Code="memcard_mergedifferent">卡等级不一致不允许做合并操作！</Msg>
+  <Msg Code="memcardconsumption_Export">会员卡号,交易类型,收入,支出,可用充值余额,可用赠送余额,可用余额,交易门店,操作人编号,姓名,交易时间</Msg>
+
+  <Msg Code="memprebatch_yyz">预制订单已制卡不允许修改操作！</Msg>
+  <Msg Code="memprebatch_notyz">没有可预制的卡信息！</Msg>
+  <Msg Code="memprebatch_mutlevel">开始和结束卡号存在多种卡等级数据，请检查！</Msg>
+
+  <Msg Code="memcard_balanceno">卡号余额不足！</Msg>
+  <Msg Code="memcard_intno">账户积分不足！</Msg>
+  <Msg Code="memcard_signpaynon">没有签单权限！</Msg>
+  <Msg Code="memcard_creditpaynon">没有挂账权限！</Msg>
+  <Msg Code="memcard_creditpayerror">挂账/签单额度不足！</Msg>
+  <Msg Code="memcard_pcreditpayerror">主账户挂账/签单额度不足！</Msg>
+  <Msg Code="memcard_cardleveldelete">卡等级已被引用，不允许删除!</Msg>
+  <Msg Code="memprebatch_maxcard">单次批量发卡不能超过100张!</Msg>
+  <Msg Code="memprebatch_differentcard">开始和结束卡号不是同一批次，不允许批量发卡!</Msg>
+  <Msg Code="memprebatch_existscard">已存在预制卡号信息，请检查!</Msg>
+  <Msg Code="memprebatch_notcars">此号段没有非激活的卡信息，请检查!</Msg>
+  <Msg Code="memprebatch_diffctype">此号段存在不同卡等级信息，请检查!</Msg>
+  <Msg Code="memcard_rechageerror">此卡非正常状态不允许充值操作</Msg>
+  <Msg Code="memcard_returnerror">此卡非正常状态不允许退卡操作</Msg>
+  <Msg Code="memcard_returnerror2">此卡类型不允许退卡操作</Msg>
+  <Msg Code="memcard_returnok">已作退卡处理，请留下收款账户信息，待财务核算后进行退款操作</Msg>
+  <Msg Code="choosetransfermem_placeholder">请选择会员</Msg>
+  <Msg Code="couponpresent_961">营销方案（新）删除操作</Msg>
+  <Msg Code="couponpresent_audstatus_error">此优惠活动无效或已审核，请检查！</Msg>
+  <Msg Code="couponpresent_delete_error">此优惠活动已审核不允许删除操作，请检查！</Msg>
+  <Msg Code="couponpresent_edit_01">条件区间需大于等于0，请检查！</Msg>
+  <Msg Code="couponpresent_edit_02">条件区间的结束值不能小于开始值，请检查！</Msg>
+  <!--超级审核人-->
+  <Msg Code="SuperAuditor_Menu">超级审核人</Msg>
+  <Msg Code="SuperAuditor_TName">超级审核人</Msg>
+  <Msg Code="SuperAuditor_Export">字段1,字段2</Msg>
+  <Msg Code="SuperAuditor_013">内容不能为空!</Msg>
+  <Msg Code="SuperAuditor_961">{0}删除sauid为{1}的超级审核人信息</Msg>
+
+  <!--报表表头信息-->
+  <Msg Code="MaterialSFYList_TName">物料收发余分类汇总</Msg>
+  <Msg Code="MaterialSec_TName">物料收发余物料汇总</Msg>
+  <Msg Code="MaterialSFYMatcode_TName">收发余按物料汇总</Msg>
+  <Msg Code="MaterialThree_TName">物料收发余物料明细</Msg>
+  <Msg Code="MaterialTZ_TName">物料收发余余额调整明细</Msg>
+  <Msg Code="MaterialSFYList_date">单据起止日期或单据审核起止日期至少选择一项！</Msg>
+  <Msg Code="MaterialSFYList_dateerror">单据起止日期或审核起止日期不能超过366天！</Msg>
+  <Msg Code="SupArrMonth_date">请选择结算月</Msg>
+  <Msg Code="MaterialTransfer_TName">跨店调拨汇总</Msg>
+  <Msg Code="MaterialBackOut_TName">店内领料退料汇总</Msg>
+  <Msg Code="SupArrears_TName">供应商欠款汇总</Msg>
+  <Msg Code="SupArrearsSec_TName">供应商欠款明细</Msg>
+  <Msg Code="StorageSumList_TName">入库按分类汇总</Msg>
+  <Msg Code="StorageSumSec_TName">入库按分类汇总明细</Msg>
+  <Msg Code="StorageDateSumList_TName">入库按时间汇总</Msg>
+  <Msg Code="StorageDateSumSec_TName">入库按时间汇总明细</Msg>
+  <Msg Code="EmployeeRecharge_TName">员工卡充值</Msg>
+  <Msg Code="MembersRecharge_TName">会员卡充值</Msg>
+  <Msg Code="yltemplate_TName">原物料导入模板</Msg>
+  <Msg Code="CouponSend_TName">优惠券发行报表</Msg>
+  <Msg Code="CouponTotal_TName">优惠券回收汇总报表</Msg>
+  <Msg Code="CouponDetail_TName">优惠券回收明细报表</Msg>
+  <Msg Code="CouponSearch_TName">优惠券查询</Msg>
+  <Msg Code="CardSale_TName">团体券销售报表</Msg>
+  <Msg Code="CreditReport_TName">挂账汇总报表</Msg>
+  <Msg Code="CreditDetail_TName">挂账明细报表</Msg>
+  <Msg Code="SignReport_TName">签单汇总报表</Msg>
+  <Msg Code="SignDetail_TName">签单明细报表</Msg>
+  <Msg Code="PointDetail_TName">会员积分明细报表</Msg>
+  <Msg Code="StoreReports_date">请选择起止日期！</Msg>
+  <Msg Code="StoreReports_dateerror">起止日期不能超过366天！</Msg>
+  <Msg Code="StoreReports_stocodeisempty">请选择单门店</Msg>
+  <Msg Code="PointByCardCode_TName">会员积分按会员卡汇总</Msg>
+  <Msg Code="PointReport_TName">积分按门店汇总表</Msg>
+  <Msg Code="MemCardSalesReport_TName">会员卡消费报表</Msg>
+  <Msg Code="MemCardChargeReport_TName">会员卡充值报表</Msg>
+  <Msg Code="MemTradeReport_TName">会员卡交易明细表</Msg>
+  <Msg Code="StoSaleCharge_TName">门店储消汇总表</Msg>
+  <Msg Code="MemCardChange_TName">会员卡金额调整明细</Msg>
+  <Msg Code="CardChargeSale_TName">会员卡单卡充值消费分析</Msg>
+  <Msg Code="ThirdPayOrder_TName">第三方支付明细</Msg>
+  <Msg Code="StockSupplier_TName">供应商信息</Msg>
+  <Msg Code="StockLoan_TName">采购借款报表</Msg>
+  <Msg Code="StockInvoicing">列表</Msg>
+  <Msg Code="StockPurchase">列表</Msg>
+  <Msg Code="StockPurchase_GYS">列表</Msg>
+  <Msg Code="Storesell">列表</Msg>
+  <Msg Code="StoreYearBenefit">列表</Msg>
+  <Msg Code="StoreMBenefit">列表</Msg>
+  <Msg Code="StoreCostAnalysis">列表</Msg>
+  <Msg Code="StoreDishesSell">列表</Msg>
+  <Msg Code="StoreTargetAnalysis">列表</Msg>
+  <Msg Code="WareHouseMML">列表</Msg>
+  <Msg Code="WareHouseYML">列表</Msg>
+  <Msg Code="MemCardbalanceReport_TName">电子卡余量汇总</Msg>
+  <Msg Code="MemSubCardReport_TName">年次卡充值报表</Msg> 
+  <!--挂账核销-->
+  <Msg Code="memcard_memcardreturn">会员卡挂账</Msg>
+  <Msg Code="memcard_memcardreturnExport">会员卡号,姓名,手机号码,核销状态,挂账金额,交易门店,交易人,交易日期,摘要</Msg>
+
+  <!--错误信息-->
+  <Msg Code="StocodeError">该门店设置已存在</Msg>
+
+  <!--原料信息-->
+  <Msg Code="StockMaterialSameName">原料名称已存在</Msg>
+  <Msg Code="StockWarnNameError">仓库名称不存在</Msg>
+
+  <Msg Code="dagz">挂账额度需小于主卡挂账额度</Msg>
+  <Msg Code="daqd">签单额度需小于主卡签单额度</Msg>
+  <Msg Code="gzsto">挂账门店超出主卡门店范围</Msg>
+  <Msg Code="qdsto">签单门店超出主卡门店范围</Msg>
+
+  <Msg Code="roles_TName">角色信息</Msg>
+  <Msg Code="roles_Export">角色名称,状态,角色描述,创建时间</Msg>
+
+  <!--系统厂商授权信息-->
+  <Msg Code="ts_ManAuthorization_Menu">系统厂商授权信息</Msg>
+  <Msg Code="ts_ManAuthorization_TName">系统厂商授权信息</Msg>
+  <Msg Code="ts_ManAuthorization_Export">字段1,字段2</Msg>
+  <Msg Code="ts_ManAuthorization_013">内容不能为空!</Msg>
+  <!--授权厂商名称-->
+  <Msg Code="ts_ManAuthorization_020">格式不正确!</Msg>
+  <!--负责人电话-->
+  <Msg Code="ts_ManAuthorization_025">内容不能为空!</Msg>
+  <!--终端数量-->
+  <Msg Code="ts_ManAuthorization_026">格式不正确!</Msg>
+  <!--终端数量-->
+  <Msg Code="ts_ManAuthorization_029">格式不正确!</Msg>
+  <!--授权有效期-->
+  <Msg Code="ts_ManAuthorization_checkNo">该商户没有授权信息，请联系软件厂商!</Msg>
+  <Msg Code="ts_ManAuthorization_checkautaccount">该商户授权信息与厂商提供授权不一致，请联系软件厂商!</Msg>
+  <Msg Code="ts_ManAuthorization_checkCPU">该商户授权服务器主机硬件与初始注册不一致，请联系软件厂商!</Msg>
+  <Msg Code="memcardlevelset_001">删除会员卡等级活动设置</Msg>
+  <Msg Code="memcardlevelset_002">会员卡等级活动设置状态设置为有效</Msg>
+  <Msg Code="memcardlevelset_003">会员卡等级活动设置状态设置为无效</Msg>
+  <Msg Code="WX_members_mobnotexists">用户手机号未登录小程序，请检查！</Msg>
+  <Msg Code="WX_members_memcodenull">用户会员信息不存在，请检查！</Msg>
+  <!--新连锁云 出品管理-->
+  <Msg Code="Dishes_Menu">出品管理</Msg>
+  <Msg Code="Dishes_961">{0}删除stocode为{1}的菜品信息</Msg>
+  <Msg Code="Dishes_TName">出品管理</Msg>
+  <Msg Code="Dishes_Export">菜谱,部门,厨房,菜谱名称,速查码,自定义编号,菜品类别,售价,成本价,财务类别,单位,会员价,可变价,需称重,做法必选,烟酒(可入库),可自定义,允许会员价,参与附加费计算,支持使用消费券,可寄存,营业外收入,状态,创建时间</Msg>
+
+  <Msg Code="DishesMate_TName">成本卡</Msg>
+  <Msg Code="DishesMate_Export">菜品名称,收银菜品代码,物料名称,物料代码,净料用量,毛料用量,物料属性,备注,单位</Msg>
+  <Msg Code="ReportTypeRelation_credithandlecount">{0},存在1个以上的科目类别，请检查!</Msg>
+  <!--财务收入报表-->
+  <Msg Code="R_DataSource_year_title">{0}年万众集团营业收入汇总表</Msg>
+  <Msg Code="R_DataSource_month_title">{0}年{1}营业收入汇总表</Msg>
+  <Msg Code="R_DataSource_day_title">{0}年{1}月{2}营业收入汇总表</Msg>
+  <Msg Code="R_DataSource_type_title">{0}年{1}月{2}{3}汇总表</Msg>
+  <Msg Code="ReportTypeRelation_Add">已有类型[{0}]并且门店名称为 [{1}] 的信息,请修改对应的信息!</Msg>
+
+  <!---->
+  <Msg Code="ProblemClass_Menu">类型维护</Msg>
+  <Msg Code="ProblemClass_TName"></Msg>
+  <Msg Code="ProblemClass_Export">字段1,字段2</Msg>
+  <Msg Code="ProblemClass_007">内容不能为空!</Msg>
+  <!--类型名-->
+
+  <!---->
+  <Msg Code="ProblemList_Menu"/>
+  <Msg Code="ProblemList_TName"/>
+  <Msg Code="ProblemList_Export">字段1,字段2</Msg>
+</Msgs>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>出品管理</MainMenu>
+  <SubMenu>菜品净料率</SubMenu>
+  <Menu>菜品净料率</Menu>
+  <Title>菜品净料率</Title>
+  <GoBack>菜品净料率</GoBack>
+  <Edittitle>菜品净料率</Edittitle>
+  <!--门店_菜品所用配料表列表-条件-->
+  <MainMenu>菜品净料率</MainMenu>
+  <SubMenu>出品管理</SubMenu>
+  <Menu>菜品净料率</Menu>
+  <Title>菜品净料率</Title>
+  <GoBack>菜品净料率</GoBack>
+  <!--门店_菜品所用配料表列表-条件-->
+  <stocode_where>门店:</stocode_where>
+  <Menu_where>仓库:</Menu_where>
+  <search_where>菜品检索:</search_where>
+
+</Pages>

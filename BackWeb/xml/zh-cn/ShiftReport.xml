@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>班次统计报表</MainMenu>
+  <SubMenu>班次统计报表</SubMenu>
+  <Menu>班次统计报表</Menu>
+  <Title>班次统计报表</Title>
+  <GoBack>报表中心</GoBack>
+  <!--财务类别列表-条件-->
+  <date_list>日期：</date_list>
+  <starttime_placeholder>请输入开始日期</starttime_placeholder>
+  <endtime_placeholder>请输入结束日期</endtime_placeholder>
+  <store_list>门店：</store_list>
+  <cashier_list>收银员：</cashier_list>
+  <btnsearch>查询</btnsearch>
+  <btnExport>导出</btnExport>
+</Pages>

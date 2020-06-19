@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dalAdmins.cs" />
     <Compile Include="dalApp.cs" />
+    <Compile Include="dalmembers.cs" />
+    <Compile Include="dalsumcoupon.cs" />
     <Compile Include="dalTB_BackOrder.cs" />
     <Compile Include="dalTB_Bill.cs" />
     <Compile Include="dalTB_BillCoupon.cs" />
@@ -58,10 +61,10 @@
     <Compile Include="dalTB_Roles.cs" />
     <Compile Include="dalTB_ShoppingCart.cs" />
     <Compile Include="dalTB_UserRole.cs" />
-    <Compile Include="dalTM_SystemSettings.cs" />
+    <Compile Include="dalts_Dicts.cs" />
+    <Compile Include="dalts_sysset.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="dalDicts.cs" />
-    <Compile Include="dalEmployee.cs" />
     <Compile Include="dalMemcardLevel.cs" />
     <Compile Include="dalStore.cs" />
   </ItemGroup>

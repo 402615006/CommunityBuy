@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <PageTitle>连锁后台管理系统</PageTitle>
+  <Common_Company>新疆万众</Common_Company>
+  <SystemName>新疆万众连锁后台管理系统登录</SystemName>
+  <username_placeholder>请输入您的用户名</username_placeholder>
+  <UserPwd_placeholder>请输入您的密码</UserPwd_placeholder>
+  <UserCode_placeholder>请输入验证码</UserCode_placeholder>
+  <imgcode_title>点击刷新</imgcode_title>
+  <ButtonLogin>登录</ButtonLogin>
+  <Common_Copyright>copyright@2018 新疆万众 版权所有</Common_Copyright>
+  <Welcome>欢迎登录！</Welcome>
+  <!--其他-->
+  <loginout_prompt>您确定退出系统吗</loginout_prompt>
+</Pages>

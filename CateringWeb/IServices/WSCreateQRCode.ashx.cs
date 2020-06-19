@@ -52,12 +52,12 @@ namespace CommunityBuy.IServices
                 var url = "packageFood/pages/stocode/stocode" + para;
 
                 var con = HttpContext.Current;
-                var result = MPTools.CreateQRCode(con.Server.MapPath(@"~/uploads/qrimg/"), url, "/uploads/qrimg/", imgname);
-                ToJsonStr(result);
+                //var result = MPTools.CreateQRCode(con.Server.MapPath(@"~/uploads/qrimg/"), url, "/uploads/qrimg/", imgname);
+                ReturnJsonStr("");
             }
             catch (Exception ex)
             {
-                ToJsonStr("{\"code\":\"-1\",\"msg\":\"" + ex.Message + "\"}");
+                ReturnJsonStr("{\"code\":\"-1\",\"msg\":\"" + ex.Message + "\"}");
             }
         }
 
@@ -90,17 +90,17 @@ namespace CommunityBuy.IServices
                     {
                         var imgname = stoname + "_" + dt.Rows[i]["TableName"].ToString();
                         var url = "packageFood/pages/stocode/stocode?scene=" + stocode + "-" + dt.Rows[i]["PKCode"].ToString();
-                        MPTools.CreateQRCode(con.Server.MapPath(@"~" + path), url, path, imgname);
+                        //MPTools.CreateQRCode(con.Server.MapPath(@"~" + path), url, path, imgname);
                     }
 
                     var outpath = path.Substring(0, path.Length - 1);
                     var rname = ZipMultiFile(HttpContext.Current.Server.MapPath(@"~" + outpath));
                     var returnstr = "{\"code\":\"0\",\"msg\":\"" + outpath + ".zip" + "\"}";
-                    ToJsonStr(returnstr);
+                    ReturnJsonStr(returnstr);
                 }
                 catch (Exception ex)
                 {
-                    ToJsonStr("{\"code\":\"-1\",\"msg\":\"" + ex.Message + "\"}");
+                    ReturnJsonStr("{\"code\":\"-1\",\"msg\":\"" + ex.Message + "\"}");
                 }
 
 

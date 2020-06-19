@@ -15,8 +15,6 @@ namespace CommunityBuy.Model
 		private long _RoleId = 0;
 		private long _UserId = 0;
 		private string _RealName = string.Empty;
-		private string _EmpCode = string.Empty;
-        private string _RoleDisCount = string.Empty;
 
         #region 附加属性
         private string _StrRoleId = string.Empty;
@@ -87,23 +85,6 @@ namespace CommunityBuy.Model
 			get { return _RealName; }
 			set { _RealName = value; }
 		}
-		/// <summary>
-		///员工编号
-		/// <summary>
-		public string EmpCode
-		{
-			get { return _EmpCode; }
-			set { _EmpCode = value; }
-		}
-
-        /// <summary>
-        ///折扣方案ID
-        /// <summary>
-        public string RoleDisCount
-        {
-            get { return _RoleDisCount; }
-            set { _RoleDisCount = value; }
-        }
 
     }
 }

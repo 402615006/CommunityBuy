@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡管理</MainMenu>
+  <SubMenu>会员卡批量发卡记录</SubMenu>
+  <Menu>会员卡批量发卡记录</Menu>
+  <Title>会员卡批量发卡记录</Title>
+  <GoBack>会员卡批量发卡记录</GoBack>
+  <!--会员卡批量发卡记录列表-条件-->
+
+  <cracode_where>会员卡等级：</cracode_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <salesmanname_where>提成人姓名：</salesmanname_where>
+  <gbmoney_where>合计工本费：</gbmoney_where>
+  <czmoney_where>充值金额：</czmoney_where>
+  <kknumber_where>开卡数量：</kknumber_where>
+  <cuser_where>操作人：</cuser_where>
+  <!--会员卡批量发卡记录列表-Grid-->
+  <batchNumber_list>批量发卡流水号</batchNumber_list>
+  <startid_list>开始编号</startid_list>
+  <endid_list>结束编号</endid_list>
+  <cracode_list>会员卡等级</cracode_list>
+  <ctype_list>会员卡类型</ctype_list>
+  <salesmanname_list>提成人姓名</salesmanname_list>
+  <ExpenseMoney_list>合计工本费</ExpenseMoney_list>
+  <paymoney_list>合计充值金额</paymoney_list>
+  <opennum_list>开卡数量</opennum_list>
+  <cusername_list>操作人</cusername_list>
+  <ctime_list>开卡时间</ctime_list>
+  <!--会员卡批量发卡记录列表-条件-->
+
+  <cracode_where>会员卡等级：</cracode_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <salesmanname_where>提成人姓名(多个)：</salesmanname_where>
+  <opentime_where>开卡时间：</opentime_where>
+  <!--会员卡批量发卡记录-新增-->
+  <tab1>批量发卡</tab1>
+  <tabb>费用</tabb>
+  <span_batchId>自增：</span_batchId>
+  <span_batchNumber>批量发卡流水号：</span_batchNumber>
+  <batchNumber_placeholder>请输入批量发卡流水号</batchNumber_placeholder>
+  <span_buscode>商户编号：</span_buscode>
+  <buscode_placeholder>请输入商户编号</buscode_placeholder>
+  <span_strcode>门店编号：</span_strcode>
+  <strcode_placeholder>请输入门店编号</strcode_placeholder>
+  <span_startid>开始卡号：</span_startid>
+  <startid_placeholder>请输入开始卡号</startid_placeholder>
+  <span_endid>结束卡号：</span_endid>
+  <endid_placeholder>请输入结束卡号</endid_placeholder>
+  <span_cracode>会员卡等级：</span_cracode>
+  <span_ctype>会员卡类型：</span_ctype>
+  <span_interval>充值区间：</span_interval>
+  <span_initScore>初始积分：</span_initScore>
+  <span_sendmoney>赠送金额：</span_sendmoney>
+
+
+  <span_creditLines>授信额度：</span_creditLines>
+  <creditLines_placeholder>请输入授信额度</creditLines_placeholder>
+  <span_uname>姓名：</span_uname>
+  <uname_placeholder>请输入姓名</uname_placeholder>
+  <span_tel>电话号码：</span_tel>
+  <tel_placeholder>请输入电话号码</tel_placeholder>
+  <span_validate>卡有效期：</span_validate>
+  <span_couponaction>优惠活动：</span_couponaction>
+  <span_confirmpwd>确认密码：</span_confirmpwd>
+
+  <validate_placeholder>请输入卡有效期</validate_placeholder>
+  <span_generatemethod>密码生成方式：</span_generatemethod>
+  <generatemethod_placeholder>请输入卡密码生成方式</generatemethod_placeholder>
+  <span_idtype>证件类型：</span_idtype>
+  <idtype_placeholder>请输入证件类型</idtype_placeholder>
+  <span_IDNO>证件号码：</span_IDNO>
+  <IDNO_placeholder>请输入证件号码</IDNO_placeholder>
+  <span_birthday>生日：</span_birthday>
+  <birthday_placeholder>请输入生日</birthday_placeholder>
+  <span_sex>性别：</span_sex>
+  <sex_placeholder>请输入性别</sex_placeholder>
+  <span_email>邮箱地址：</span_email>
+  <email_placeholder>请输入邮箱地址</email_placeholder>
+  <span_password>卡密码：</span_password>
+  <password_placeholder>请输入卡密码</password_placeholder>
+  <span_isgive>，是否赠送</span_isgive>
+  <isgive_placeholder>请输入是否赠送</isgive_placeholder>
+  <span_scid>卡优惠方案：</span_scid>
+  <scid_placeholder>请输入卡优惠方案</scid_placeholder>
+  <span_nowritedoc>不填写资料：</span_nowritedoc>
+  <nowritedoc_placeholder>请输入不填写资料</nowritedoc_placeholder>
+  <span_minpaymoney>充值金额(张)：</span_minpaymoney>
+  <minpaymoney_placeholder>请输入充值金额</minpaymoney_placeholder>
+  <span_salesmancode>提成人：</span_salesmancode>
+  <salesmancode_placeholder>请选择提成人</salesmancode_placeholder>
+
+  <span_ExpenseMoney>工本费(张)：</span_ExpenseMoney>
+  <ExpenseMoney_placeholder>请输入合计工本费</ExpenseMoney_placeholder>
+  <span_companyid>单位名称：</span_companyid>
+  <companyid_placeholder>请输入单位名称</companyid_placeholder>
+  <span_paymoney>充值金额：</span_paymoney>
+  <paymoney_placeholder>请输入充值金额</paymoney_placeholder>
+  <span_isopenticket>是否开票：</span_isopenticket>
+  <isopenticket_placeholder>请输入是否开票</isopenticket_placeholder>
+  <span_tieketmoney>开票金额：</span_tieketmoney>
+  <tieketmoney_placeholder>请输入开票金额</tieketmoney_placeholder>
+  <span_opennum>开卡数量：</span_opennum>
+  <opennum_placeholder>请输入开卡数量</opennum_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入状态</status_placeholder>
+  <span_orderno>排序号：</span_orderno>
+  <orderno_placeholder>请输入排序号</orderno_placeholder>
+  <span_cuser>创建人：</span_cuser>
+  <span_ctime>开卡时间：</span_ctime>
+  <span_uuser>最后更新人标识：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+  <span_totalExpense>工本费总额：</span_totalExpense>
+  <span_totalpaymoney>充值总额：</span_totalpaymoney>
+
+
+  <storerefer>门店选择：</storerefer>
+  <salerefer>提成人选择</salerefer>
+
+  <expensemoney_savetip>工本费总额与付款工本费总额不符，请检查</expensemoney_savetip>
+
+  <paymoney_savetip>充值总额与付款总额不符，请检查 </paymoney_savetip>
+  <btn_prev>上一步</btn_prev>
+  <btn_next>下一步</btn_next>
+  <btn_cancle>取消</btn_cancle>
+
+  <span_iscredit>允许挂账：</span_iscredit>
+  <span_issign>允许签单：</span_issign>
+  <span_signcredit>签单额度：</span_signcredit>
+  <span_creditstore>挂账门店：</span_creditstore>
+
+  <span_sigestore>签单门店：</span_sigestore>
+  <memcard_readcard>请先操作读卡操作！</memcard_readcard>
+  <gbf_tip>支付金额不能为0或格式不正确</gbf_tip>
+  <areamoney_tip>充值金额不在充值区间范围内，请检查</areamoney_tip>
+  <memcard_readcard>请先操作读卡操作！</memcard_readcard>
+  <passbuild_list>密码生成方式</passbuild_list>
+
+  <cardcode_where>卡面卡号：</cardcode_where>
+  <status_where>状态：</status_where>
+  <cardCode_list>会员卡号</cardCode_list>
+  <cname_list>姓名</cname_list>
+  <validate_list>卡有效期</validate_list>
+  <totalbalance_list>可用余额</totalbalance_list>
+  <invoice_list>可用积分</invoice_list>
+  <integral_list>可开发票</integral_list>
+  <balcredit_list>可用挂账额度</balcredit_list>
+  <balsigcredit_list>可用签单额度</balsigcredit_list>
+  <status_list>状态</status_list>
+  <freezedate_list>冻结到期日</freezedate_list>
+  <authDate_list>激活时间</authDate_list>
+  <strcodename_list>发卡门店</strcodename_list>
+  <ousername_list>发卡人</ousername_list>
+</Pages>

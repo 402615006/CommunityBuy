@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <choosedishes>请选择菜品</choosedishes>
+  <search_button>搜索</search_button>
+  <smallimg_list>TOP小图</smallimg_list>
+  <content_list>活动介绍</content_list>
+  <url_list>URL</url_list>
+  <statusname_list>状态</statusname_list>
+  <tag_list>标签</tag_list>
+  <bdate_list>活动开始时间</bdate_list>
+  <edate_list>活动截止时间</edate_list>
+  
+  <Save>确定</Save>
+  <cancel>取消</cancel>
+</Pages>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡报表</MainMenu>
+  <SubMenu>会员卡报表</SubMenu>
+  <Menu>会员卡报表</Menu>
+  <Title>会员卡报表</Title>
+  <GoBack>会员卡报表</GoBack>
+  <!--优惠券列表-条件-->
+  <stime_where>开始时间：</stime_where>
+  <etime_where>结束时间：</etime_where>
+  <stoname_where>门店：</stoname_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <cracode_where>会员卡等级：</cracode_where>
+  <!--优惠券列表-Grid-->
+
+  <!--优惠券列表-条件-->
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+  <storerefer>选择门店</storerefer>
+</Pages>

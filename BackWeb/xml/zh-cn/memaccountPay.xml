@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡管理</MainMenu>
+  <SubMenu>会员卡充值</SubMenu>
+  <Menu>会员卡充值</Menu>
+  <Title>会员卡充值</Title>
+  <GoBack>会员卡充值</GoBack>
+  <!--会员卡充值列表-条件-->
+  <MainMenu>会员卡充值</MainMenu>
+  <SubMenu>会员卡充值</SubMenu>
+  <Menu>会员卡充值</Menu>
+  <Title>会员卡充值</Title>
+  <GoBack>会员卡充值</GoBack>
+  <!--会员卡充值列表-条件-->
+  <!--会员卡充值-新增-->
+  <tab1>基本信息</tab1>
+  <span_accountPayId>标示：</span_accountPayId>
+  <span_paycode>充值编号：</span_paycode>
+  <paycode_placeholder>请输入充值编号</paycode_placeholder>
+  <span_strcode>所属门店：</span_strcode>
+  <strcode_placeholder>请输入所属门店</strcode_placeholder>
+  <span_buscode>商户编号：</span_buscode>
+  <buscode_placeholder>请输入商户编号</buscode_placeholder>
+  <span_memid>会员编号：</span_memid>
+  <memid_placeholder>请输入会员编号</memid_placeholder>
+  <span_cardcode>会员卡号：</span_cardcode>
+  <cardcode_placeholder>请输入会员卡号</cardcode_placeholder>
+  <span_actType>充值途径：</span_actType>
+  <actType_placeholder>请输入充值途径</actType_placeholder>
+  <span_payDate>充值时间：</span_payDate>
+  <payDate_placeholder>请输入充值时间</payDate_placeholder>
+  <span_paymoney>充值金额：</span_paymoney>
+  <paymoney_placeholder>请输入充值金额</paymoney_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入状态</status_placeholder>
+  <span_remark>备注：</span_remark>
+  <span_totalExpense>需付款金额：</span_totalExpense>
+  <span_utime>更新时间：</span_utime>
+  <span_tieketmoney>开票金额：</span_tieketmoney>
+  <span_isopenticket>是否开票：</span_isopenticket>
+  <span_notopenticket>取消开票：</span_notopenticket>
+  <remark_placeholder>请输入备注</remark_placeholder>
+  <gbf_tip>支付金额不能为0或格式不正确</gbf_tip>
+  <paymoney_savetip>充值金额与付款金额不符，请检查 </paymoney_savetip>
+  <span_scid>卡优惠方案：</span_scid>
+  <span_sendmoney>赠送金额：</span_sendmoney>
+  <span_isgive>，是否赠送</span_isgive>
+  <tcpeople_span>提成人：</tcpeople_span>
+  <employeerefer>选择提成人</employeerefer>
+</Pages>

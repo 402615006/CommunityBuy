@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>系统管理</MainMenu>
+  <SubMenu>用户管理</SubMenu>
+  <Menu>用户管理</Menu>
+  <!--用户管理列表-条件-->
+  <realname_where>姓名：</realname_where>
+  <status_where>状态：</status_where>
+  <umobile_where>手机号：</umobile_where>
+  <empcode_where>员工编号：</empcode_where>
+  <rolename_where>所属角色：</rolename_where>
+  <uname_where>用户名：</uname_where>
+  <!--用户管理列表-Grid-->
+  <username_list>用户名</username_list>
+  <cname_list>姓名</cname_list>
+  <empcode_list>员工编号</empcode_list>
+  <empname_list>所属员工</empname_list>
+  <umobile_list>手机号码</umobile_list>
+  <rolename_list>所属角色</rolename_list>
+  <StatusList>状态</StatusList>
+  <StatusValueY>有效</StatusValueY>
+  <StatusValueN>无效</StatusValueN>
+  <userid_list>编号</userid_list>
+  <scope_list>权限范围</scope_list>
+  <stocode_list>权限门店</stocode_list>
+
+  <!--用户管理列表-新增-->
+  <tab1>基本信息</tab1>
+  <span_uname>用户名：</span_uname>
+  <name_placeholder>3-16位数字字母组合</name_placeholder>
+  <span_pwd>密码：</span_pwd>
+  <pwd_placeholder>6-16位数字字母组合</pwd_placeholder>
+  <span_cname>真实姓名：</span_cname>
+  <cname_placeholder>2-16位字符</cname_placeholder>
+  <span_role>所属角色：</span_role>
+  <span_empcode>所属员工：</span_empcode>
+  <empcode_placeholder>请选择员工</empcode_placeholder>
+  <span_status>状态：</span_status>
+  <umobile_placeholder>11位手机号码</umobile_placeholder>
+  <span_descr>描述：</span_descr>
+  <descr_placeholder>描述最长128个字符</descr_placeholder>
+  <span_scope>权限范围</span_scope>
+  <!--其他-->
+  <emprefer>选择员工</emprefer>
+  <storerefer>选择门店</storerefer>
+</Pages>

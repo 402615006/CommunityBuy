@@ -13,7 +13,6 @@ namespace CommunityBuy.IServices
     public class WS_TB_DishType : ServiceBase
     {
         bllTB_DishType bll = new bllTB_DishType();
-        DataTable dt = new DataTable();
         /// <summary>
         /// 接收数据
         /// </summary>
@@ -45,15 +44,6 @@ namespace CommunityBuy.IServices
                         case "updatestatus"://修改状态
                             UpdateStatus(dicPar);
                             break;
-                        case "getdistypetreelistinfo"://菜品类别管理树型数据获取
-                            GetDisTypeTreeListInfo(dicPar);
-                            break;
-                        case "getdistypeonelistinfo":
-                            GetDisTypeOneListInfo(dicPar);//获取一级类别
-                            break;
-                        case "getlistforservice":
-                            GetListForService(dicPar);
-                            break;
                     }
                 }
             }
@@ -81,35 +71,7 @@ namespace CommunityBuy.IServices
             if (filter.Length > 0 && filter != "[]")
             {
                 filter = JsonHelper.JsonToFilterByString(filter, out dtFilter);
-                if (dtFilter != null)
-                {
-                    DataRow[] drArr = dtFilter.Select("cus<>''");
-                    foreach (DataRow dr in drArr)
-                    {
-                        string col = dr["col"].ToString();
-                        string val = dr["filter"].ToString();
-                        switch (col)
-                        {
-                            case "IsKeep":
-                                filter += " and pkcode in (select distinct typecode from tb_dish where iskeep='1')";
-                                break;
-                            case "Depart":
-                                filter += " and PKCode in(select distinct TypeCode from TB_Dish where MenuCode in(select PKCode from TB_DishMenu where DepCode = '"+ val + "')) or PKCode in(select distinct[dbo].[fn_GetDisParentTypeCode](DisCode, StoCode)  from TB_Dish where MenuCode in(select PKCode from TB_DishMenu where DepCode = '"+ val + "'))";
-                                break;
-                        }
-                    }
-                }
-                if (!filter.Contains("StoCode") && !filter.Contains("stocode"))
-                {
-                    filter += GetAuthoritywhere("stocode", userid);
-                }
             }
-            else
-            {
-                filter = "where 1=1" + GetAuthoritywhere("stocode", userid);
-            }
-            filter = GetBusCodeWhere(dicPar, filter, "buscode");
-
             string order = JsonHelper.ObjectToJSON(dicPar["orders"]);
             if (order.Length > 0)
             {
@@ -122,60 +84,9 @@ namespace CommunityBuy.IServices
             int recordCount = 0;
             int totalPage = 0;
             //调用逻辑
-            dt = bll.GetPagingListInfo(GUID, USER_ID, pageSize, currentPage, filter, order, out recordCount, out totalPage);
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                DataTable dtStore = GetCacheToStore(userid);
-                if (dtStore != null && dtStore.Rows.Count > 0)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        string stocode = dr["StoCode"].ToString();
-                        if (dtStore.Select("stocode='" + stocode + "'").Length > 0)
-                        {
-                            DataRow dr_sto = dtStore.Select("stocode='" + stocode + "'")[0];
-                            dr["StoName"] = dr_sto["cname"].ToString();
-                        }
-
-                    }
-                    dt.AcceptChanges();
-                }
-            }
+            DataTable dt = bll.GetPagingListInfo(GUID, USER_ID, pageSize, currentPage, filter, order, out recordCount, out totalPage);
             ReturnListJson(dt, pageSize, recordCount, currentPage, totalPage);
         }
-
-        private void GetListForService(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "userid", "stocode", "depcode","iskeep" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string userid = dicPar["userid"].ToString();
-            string stocode = dicPar["stocode"].ToString();
-            string depcode = dicPar["depcode"].ToString();
-            string iskeep = dicPar["iskeep"].ToString();
-
-            //调用逻辑
-            string sql = "dbo.p_getDisTypeInfo";
-            SqlParameter[] sqlParameters =
-            {
-                    new SqlParameter("@stocode ", stocode),
-                    new SqlParameter("@depcode",depcode),
-                    new SqlParameter("@isstock ", iskeep)
-             };
-            dt = new bllPaging().GetDataTableInfoByProcedure(sql, sqlParameters);
-            ReturnListJson(dt, 1, 0, 1, 0);
-        }
-
-
 
         private void Add(Dictionary<string, object> dicPar)
         {
@@ -200,15 +111,15 @@ namespace CommunityBuy.IServices
             string TStatus = dicPar["TStatus"].ToString();
             string CCode = dicPar["CCode"].ToString();
             //调用逻辑
-            dt = bll.Add(GUID, USER_ID, Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus, CCode);
+            bll.Add(GUID, USER_ID, Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus, CCode);
 
-            ReturnListJson(dt);
+            ReturnResultJson(bll.oResult.Code,bll.oResult.Msg);
         }
 
         private void Update(Dictionary<string, object> dicPar)
         {
             //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "Id", "BusCode", "StoCode", "CCname", "PKKCode", "PKCode", "TypeName", "Sort", "TStatus", "CCode" };
+            List<string> pra = new List<string>() { "GUID", "USER_ID", "Id", "BusCode", "StoCode","PKCode", "TypeName", "Sort", "TStatus" };
             //检测方法需要的参数
             if (!CheckActionParameters(dicPar, pra))
             {
@@ -217,20 +128,15 @@ namespace CommunityBuy.IServices
             //获取参数信息
             string GUID = dicPar["GUID"].ToString();
             string USER_ID = dicPar["USER_ID"].ToString();
-            string Id = "0";
-            string BusCode = dicPar["BusCode"].ToString();
-            string StoCode = dicPar["StoCode"].ToString();
-            string CCname = dicPar["CCname"].ToString();
-            string PKKCode = dicPar["PKKCode"].ToString();
             string PKCode = dicPar["PKCode"].ToString();
             string TypeName = dicPar["TypeName"].ToString();
             string Sort = dicPar["Sort"].ToString();
-            string TStatus = dicPar["TStatus"].ToString();
-            string CCode = dicPar["CCode"].ToString();
             //调用逻辑
-            dt = bll.Update(GUID, USER_ID, Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus, CCode);
-
-            ReturnListJson(dt);
+            TB_DishTypeEntity UEntity = bll.GetEntitySigInfo(" where pkcode='"+ PKCode + "'");
+            UEntity.TypeName = TypeName;
+            UEntity.Sort =StringHelper.StringToInt(Sort);
+            bll.Update(GUID, USER_ID, UEntity);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         private void Detail(Dictionary<string, object> dicPar)
@@ -249,26 +155,10 @@ namespace CommunityBuy.IServices
             string PKCode = dicPar["PKCode"].ToString();
             string stocode = dicPar["stocode"].ToString();
             //调用逻辑			
-            dt = bll.GetPagingSigInfo(GUID, USER_ID, "where PKCode='" + PKCode + "' and stocode='"+stocode+"'");
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                DataTable dtStore = GetCacheToStore(userid);
-                if (dtStore != null && dtStore.Rows.Count > 0)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        string _stocode = dr["StoCode"].ToString();
-                        if (dtStore.Select("stocode='" + _stocode + "'").Length > 0)
-                        {
-                            DataRow dr_sto = dtStore.Select("stocode='" + _stocode + "'")[0];
-                            dr["StoName"] = dr_sto["cname"].ToString();
-                        }
 
-                    }
-                    dt.AcceptChanges();
-                }
-            }
-            ReturnListJson(dt);
+            DataTable dt = bll.GetPagingSigInfo(GUID, USER_ID, "where PKCode='" + PKCode + "' and stocode='"+stocode+"'");
+
+            ReturnListJson(dt,null,null,null,null);
         }
 
         private void Delete(Dictionary<string, object> dicPar)
@@ -286,7 +176,7 @@ namespace CommunityBuy.IServices
             string PKCode = dicPar["id"].ToString();
             //调用逻辑
             bll.Delete(GUID, USER_ID, PKCode);
-            ReturnListJson(dt);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         /// <summary>
@@ -310,144 +200,10 @@ namespace CommunityBuy.IServices
 
             string PKCode = dicPar["id"].ToString().Trim(',');
 
-            ReturnListJson(dt);
-        }
-
-        /// <summary>
-        /// 菜品类别管理树型数据获取
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void GetDisTypeTreeListInfo(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "userid", "filters", "orders" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string userid = dicPar["userid"].ToString();
-            string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
-            DataTable dtFilter = new DataTable();
-            if (filter.Length > 0)
-            {
-                filter = JsonHelper.JsonToFilterByString(filter, out dtFilter);
-                if (dtFilter != null)
-                {
-                    DataRow[] drArr = dtFilter.Select("cus<>''");
-                    foreach (DataRow dr in drArr)
-                    {
-                        string col = dr["col"].ToString();
-                        switch (col)
-                        {
-                            case "":
-                                filter += "";
-                                break;
-                        }
-                    }
-                }
-                if (!filter.Contains("StoCode") && !filter.Contains("stocode"))
-                {
-                    filter += GetAuthoritywhere("stocode", userid);
-                }
-            }
-            else
-            {
-                filter = "where 1=1" + GetAuthoritywhere("stocode", userid);
-            }
-            filter = GetBusCodeWhere(dicPar, filter, "buscode");
-
-            string order = JsonHelper.ObjectToJSON(dicPar["orders"]);
-            if (order.Length > 0)
-            {
-                order = JsonHelper.JsonToOrderByString(order);
-            }
-            //调用逻辑
-            dt = bll.GetDisTypeTreeListInfo(GUID, USER_ID, filter, order);
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                DataTable dtStore = GetCacheToStore(userid);
-                if (dtStore != null && dtStore.Rows.Count > 0)
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        string stocode = dr["StoCode"].ToString();
-                        if (dtStore.Select("stocode='" + stocode + "'").Length > 0)
-                        {
-                            DataRow dr_sto = dtStore.Select("stocode='" + stocode + "'")[0];
-                            dr["StoName"] = dr_sto["cname"].ToString();
-                        }
-
-                    }
-                    dt.AcceptChanges();
-                }
-            }
-            ReturnListJson(dt);
-        }
-
-        /// <summary>
-        /// 获取类别一级类别
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void GetDisTypeOneListInfo(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "userid", "filters", "orders" };
-
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string userid = dicPar["userid"].ToString();
-            string filter = JsonHelper.ObjectToJSON(dicPar["filters"]);
-            DataTable dtFilter = new DataTable();
-            if (filter.Length > 0)
-            {
-                filter = JsonHelper.JsonToFilterByString(filter, out dtFilter);
-                if (dtFilter != null)
-                {
-                    DataRow[] drArr = dtFilter.Select("cus<>''");
-                    foreach (DataRow dr in drArr)
-                    {
-                        string col = dr["col"].ToString();
-                        switch (col)
-                        {
-                            case "":
-                                filter += "";
-                                break;
-                        }
-                    }
-                }
-                if (!filter.Contains("StoCode") && !filter.Contains("stocode"))
-                {
-                    filter += GetAuthoritywhere("stocode", userid);
-                }
-            }
-            else
-            {
-                filter = "where 1=1" + GetAuthoritywhere("stocode", userid);
-            }
-            filter = GetBusCodeWhere(dicPar, filter, "buscode");
-
-            string order = JsonHelper.ObjectToJSON(dicPar["orders"]);
-            if (order.Length > 0)
-            {
-                order = JsonHelper.JsonToOrderByString(order);
-            }
-
-            //调用逻辑
-            dt = bll.GetDisTypeOneListInfo(GUID, USER_ID, filter, order);
-            ReturnListJson(dt);
+            TB_DishTypeEntity UEntity = bll.GetEntitySigInfo(" where pkcode='" + PKCode + "'");
+            UEntity.TStatus = status;
+            bll.Update(GUID, USER_ID, UEntity);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
     }
 }

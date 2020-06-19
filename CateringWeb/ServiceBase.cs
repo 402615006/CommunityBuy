@@ -21,20 +21,6 @@ namespace CommunityBuy.IServices
         {
         }
 
-        public string GetPriKey(DataTable dt, string key)
-        {
-            string strReturn = string.Empty;
-            if (dt != null)
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    strReturn += dt.Rows[i][key].ToString() + ",";
-                }
-            }
-
-            return "'" + strReturn.TrimEnd(',').Replace(",", "','") + "'";
-        }
-
         /// <summary>
         /// 检测接口必要参数
         /// </summary>
@@ -72,57 +58,6 @@ namespace CommunityBuy.IServices
         }
 
         /// <summary>
-        /// 检测授权程序是否开启
-        /// </summary>
-        /// <returns></returns>
-        private bool CheckAuthorization()
-        {
-            bool result = false;
-            if (Process.GetProcessesByName("CateringServerForm").Length > 0)
-            {
-                result = true;
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// 检测接口必要参数
-        /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        protected bool CheckCouponParameters(HttpContext context)
-        {
-            Pagcontext = context;
-            bool Flag = true;
-            string mes = string.Empty;
-            actionname = context.Request["actionname"];
-            if (actionname == null)
-            {
-                mes += "actionname,";
-                Flag = false;
-            }
-            string parameters = context.Request["parameters"];
-            if (parameters == null)
-            {
-                mes += "parameters,";
-                Flag = false;
-            }
-            //授权用户账号
-            usercode = context.Request["usercode"];
-            if (usercode == null)
-            {
-                mes += "usercode,";
-                Flag = false;
-            }
-
-            if (!Flag)
-            {
-                context.Response.Write("{\"status\":\"2\",\"mes\":\"缺少" + mes.TrimEnd(',') + "参数\"}");
-            }
-            return Flag;
-        }
-
-        /// <summary>
         /// 获取json参数信息
         /// </summary>
         /// <param name="context"></param>
@@ -143,7 +78,7 @@ namespace CommunityBuy.IServices
                 }
                 catch (Exception ex)
                 {
-                    ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex);
+                    ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog, ex.ToString());
                     Pagcontext.Response.Write("{\"code\":\"2\",\"msg\":\"参数解析错误\"}");
                     return null;
                 }
@@ -194,58 +129,16 @@ namespace CommunityBuy.IServices
             }
         }
 
-        protected void ToCustomerJson(string status, string mes)
+        protected void ReturnResultJson(string status, string mes)
         {
             Pagcontext.Response.Write(JsonHelper.ToJson(status, mes));
         }
 
-        protected void ToErrorJson()
-        {
-            string mes = ErrMessage.GetMessageInfoByCode("Err_004").Body;
-            Pagcontext.Response.Write(JsonHelper.ToErrorJson("1", mes));
-        }
-
-        protected void ToTipsJson()
-        {
-            Pagcontext.Response.Write("{\"status\":\"2\",\"mes\":\"审核成功\"}");
-        }
-
-        protected void ToSucessJson()
-        {
-            Pagcontext.Response.Write("{\"status\":\"0\",\"mes\":\"操作成功\"}");
-        }
-
-        protected void ToNullJson()
-        {
-            string mes = ErrMessage.GetMessageInfoByCode("Err_003").Body;
-            Pagcontext.Response.Write(JsonHelper.ToErrorJson("1", mes));
-        }
-
-        protected void ToJsonStr(string jsonstr)
+        protected void ReturnJsonStr(string jsonstr)
         {
             Pagcontext.Response.Write(jsonstr);
         }
 
-        /// <summary>
-        /// 返回执行json
-        /// </summary>
-        /// <param name="dt"></param>
-        protected void ReturnJson(DataTable dt)
-        {
-            string type;
-            string mes;
-            Helper.GetDataTableToResult(dt, out type, out mes);
-            Pagcontext.Response.Write(JsonHelper.ToJson(type, mes));
-        }
-
-        /// <summary>
-        /// 返回单条json
-        /// </summary>
-        /// <param name="dt"></param>
-        protected void ReturnListJson(DataTable dt)
-        {
-            ReturnListJson(dt, null, null, null, null);
-        }
         /// <summary>
         /// 
         /// </summary>
@@ -270,17 +163,18 @@ namespace CommunityBuy.IServices
         {
             string type;
             string mes;
-            Helper.GetDataTableToResult(dt, out type, out mes);
-            if (type != "0")
+            if (dt != null && dt.Rows.Count > 0)
             {
-                Pagcontext.Response.Write(JsonHelper.ToJson(type, mes));
+                type = "1";
+                mes = "获取成功";
+                Pagcontext.Response.Write(JsonHelper.ToJson(type, mes, new ArrayList() { dt }, new string[] { "data" }, pageSize, recordCount, currentPage, totalPage));
             }
             else
             {
-                Pagcontext.Response.Write(JsonHelper.ToJson(type, mes, new ArrayList() { dt }, new string[] { "data" }, pageSize, recordCount, currentPage, totalPage));
+                ReturnResultJson("0", "获取失败");
             }
+            
         }
-
 
         /// <summary>
         /// Json 返回多对象数据
@@ -293,7 +187,7 @@ namespace CommunityBuy.IServices
         /// <param name="recordCount">总记录数</param>
         /// <param name="currentPage">当前页数</param>
         /// <param name="totalPage">总页数</param>
-        protected void ReturnListJson(string type, string mes, ArrayList list, string[] Names, int? pageSize, long? recordCount, int? currentPage, int? totalPage)
+        protected void ReturnManyListJson(string type, string mes, ArrayList list, string[] Names, int? pageSize, long? recordCount, int? currentPage, int? totalPage)
         {
             if (type != "0")
             {
@@ -303,141 +197,6 @@ namespace CommunityBuy.IServices
             {
                 Pagcontext.Response.Write(JsonHelper.ToJson(type, mes, list, Names, pageSize, recordCount, currentPage, totalPage));
             }
-        }
-
-        protected void ReturnListJson(string type, string mes, ArrayList list, string[] Names)
-        {
-            if (type != "0")
-            {
-                Pagcontext.Response.Write(JsonHelper.ToJson(type, mes));
-            }
-            else
-            {
-                Pagcontext.Response.Write(JsonHelper.ToJson(type, mes, list, Names, null, null, null, null));
-            }
-        }
-
-        /// <summary>
-        /// 设置用户权限门店编号到缓存
-        /// </summary>
-        /// <param name="UserId"></param>
-        /// <param name="RoleCode"></param>
-        public void SetUserLoginRoleCodeToCache(string UserId, string RoleCode)
-        {
-            Hashtable ht = new Hashtable();
-            if (HttpContext.Current.Cache.IsExist(UserId + "CommunityBuy_LoginInfo"))
-            {
-                ht = (Hashtable)HttpContext.Current.Cache.GetCache(UserId + "CommunityBuy_LoginInfo");
-                if (ht[UserId] == null)
-                {
-                    ht.Add(UserId, RoleCode);
-                    HttpContext.Current.Cache.Insert(UserId + "CommunityBuy_LoginInfo", ht);
-                }
-            }
-            else
-            {
-                ht.Add(UserId, RoleCode);
-                HttpContext.Current.Cache.Insert(UserId + "CommunityBuy_LoginInfo", ht);
-            }
-        }
-
-        #region 缓存当前登陆用户的商户编号
-        /// <summary>
-        /// 缓存登陆用户的商户编号
-        /// </summary>
-        /// <param name="userid"></param>
-        /// <param name="buscode"></param>
-        public void SetUserBusCodeToCache(string userid, string buscode)
-        {
-            HttpContext.Current.Cache.Insert(userid + "_buscode", buscode);
-        }
-
-        /// <summary>
-        /// 获取指定用户的商户编号
-        /// </summary>
-        /// <param name="userid"></param>
-        /// <returns></returns>
-        public string GetCacheToUserBusCode(string userid)
-        {
-            if (HttpContext.Current.Cache.IsExist(userid + "_buscode"))
-            {
-                return HttpContext.Current.Cache.GetCache(userid + "_buscode").ToString();
-            }
-            else
-            {
-                return "";
-            }
-        }
-        #endregion
-
-
-        /// <summary>
-        /// 获取BusCode条件
-        /// </summary>
-        /// <param name="dicPar">dicPar键值对</param>
-        /// <param name="filter">已有条件</param>
-        /// <param name="ColName"></param>
-        /// <returns></returns>
-        protected string GetBusCodeWhere(Dictionary<string, object> dicPar,string filter,string ColName)
-        {
-            string where = string.Empty;
-            string BusCode = string.Empty;
-            if (dicPar.ContainsKey("BusCode"))
-            {
-                if(dicPar["BusCode"].ToString()!= "undefined")
-                {
-                    BusCode = dicPar["BusCode"].ToString();
-                }
-            }
-            if (!filter.ToLower().Contains("buscode"))
-            {
-                if (!string.IsNullOrEmpty(BusCode))
-                {
-                    if (string.IsNullOrEmpty(filter))
-                    {
-                        where = " where "+ ColName + "='" + BusCode + "'";
-                    }
-                    else
-                    {
-                        where += " and "+ ColName + "='" + BusCode + "'";
-                    }
-                }
-            }
-            return filter+where;
-        }
-
-        /// <summary>
-        /// 调用连锁端接口获取用户权限门店编号
-        /// </summary>
-        /// <param name="UserId">用户id</param>
-        /// <returns></returns>
-        public string GetUserRoleCodes(string UserId)
-        {
-            string rolecode = "x#";
-            StringBuilder postStr = new StringBuilder();
-            //获取参数信息
-            string ShortMesUrl = Helper.GetAppSettings("ServiceUrl") + "/WSadmins.ashx";
-            postStr.Append("actionname=getrolestocoe&parameters={" +
-                                           string.Format("'userid':'{0}'", UserId) +
-                                   "}");//键值对
-            string strJson = Helper.HttpWebRequestByURL(ShortMesUrl, postStr.ToString());
-            if (strJson.Length > 0)
-            {
-                string status = "";
-                string mes = "";
-                DataSet ds = JsonHelper.NewJsonToDataSet(strJson, out status, out mes);
-                if (status == "0")
-                {
-                    DataTable dtAdmin = ds.Tables["data"];
-                    if (dtAdmin != null && dtAdmin.Rows.Count > 0)
-                    {
-                        DataRow dr = dtAdmin.Rows[0];
-                        rolecode = dtAdmin.Rows[0]["rolecode"].ToString();
-
-                    }
-                }
-            }
-            return rolecode;
         }
     }
 }

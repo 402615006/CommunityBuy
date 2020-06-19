@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>订单管理</MainMenu>
+  <SubMenu>卖品会员卡设置</SubMenu>
+  <Menu>卖品会员卡设置</Menu>
+  <Title>卖品会员卡设置</Title>
+  <GoBack>卖品会员卡设置</GoBack>
+
+  <rule_span>卡号规则：</rule_span>
+  <tab1>基本信息</tab1>
+</Pages>

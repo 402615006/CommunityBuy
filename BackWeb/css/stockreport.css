@@ -1,0 +1,64 @@
+﻿ .List_tab .td_width30 {
+            width: 30px;
+        }
+
+         .List_tab .td_width40 {
+            width: 40px;
+        }
+
+        .List_tab .td_width50 {
+            width: 50px;
+        }
+
+        .List_tab .td_width60 {
+            width: 60px;
+        }
+
+        .List_tab .td_width70 {
+            width: 70px;
+        }
+
+         .List_tab .td_width80 {
+            width: 80px;
+        }
+
+        .List_tab .td_width90 {
+            width: 90px;
+        }
+
+        .List_tab .td_width120 {
+            width: 120px;
+        }
+         .List_tab .td_width140 {
+            width: 140px;
+        }
+          .List_tab .td_width160 {
+            width: 160px;
+        }
+        .List_tab tr:last-child td {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .txtcenter {
+            text-align:center;
+        }
+
+ .List_tab .tdright {
+    text-align:right;
+}
+
+  .List_tab .tdleft {
+    text-align:left;
+}
+.List_tab .titlecontent {
+    font-weight: bold;
+}
+
+.List_tab .titlecontent  td{
+    border:none;
+}
+
+#reportList_tableColumn{
+    opacity:1;filter:alpha(opacity=100);
+    background-color:#fff;
+}

@@ -10,8 +10,6 @@ namespace CommunityBuy.Model
 		private long _Id = 0;
 		private string _BusCode = string.Empty;
 		private string _StoCode = string.Empty;
-		private string _CCode = string.Empty;
-		private string _CCname = string.Empty;
 		private DateTime _CTime = DateTime.Parse("1900-01-01");
 		private string _PKKCode = string.Empty;
 		private string _PKCode = string.Empty;
@@ -52,22 +50,6 @@ namespace CommunityBuy.Model
 		{
 			get { return _StoCode; }
 			set { _StoCode = value; }
-		}
-		/// <summary>
-		///记录创建人编码
-		/// <summary>
-		public string CCode
-		{
-			get { return _CCode; }
-			set { _CCode = value; }
-		}
-		/// <summary>
-		///记录创建人姓名
-		/// <summary>
-		public string CCname
-		{
-			get { return _CCname; }
-			set { _CCname = value; }
 		}
 		/// <summary>
 		///记录创建时间

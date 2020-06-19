@@ -19,21 +19,11 @@ namespace CommunityBuy.Model
 		private string _OtherName = string.Empty;
 		private string _TypeCode = string.Empty;
 		private string _QuickCode = string.Empty;
-		private string _CusDisCode = string.Empty;
 		private string _Unit = string.Empty;
 		private decimal _Price = 0;
-
-		private decimal _MemPrice = 0;
 		private decimal _CostPrice = 0;
-		private decimal _RoyMoney = 0;
-
 		private string _QRCode = string.Empty;
-
 		private string _Descript = string.Empty;
-
-		private string _IsPoint = string.Empty;
-		private string _IsMemPrice = string.Empty;
-		private string _IsCoupon = string.Empty;
 
 
         #region 附加属性
@@ -165,28 +155,12 @@ namespace CommunityBuy.Model
 		}
 
 		/// <summary>
-		///会员价
-		/// <summary>
-		public decimal MemPrice
-		{
-			get { return _MemPrice; }
-			set { _MemPrice = value; }
-		}
-		/// <summary>
 		///成本价
 		/// <summary>
 		public decimal CostPrice
 		{
 			get { return _CostPrice; }
 			set { _CostPrice = value; }
-		}
-		/// <summary>
-		///提成金额
-		/// <summary>
-		public decimal RoyMoney
-		{
-			get { return _RoyMoney; }
-			set { _RoyMoney = value; }
 		}
 		/// <summary>
 		///菜品二维码
@@ -204,29 +178,5 @@ namespace CommunityBuy.Model
 			get { return _Descript; }
 			set { _Descript = value; }
 		}
-		/// <summary>
-		///是否可兑换
-		/// <summary>
-		public string IsPoint
-		{
-			get { return _IsPoint; }
-			set { _IsPoint = value; }
-		}
-		/// <summary>
-		///是否允许会员价
-		/// <summary>
-		public string IsMemPrice
-		{
-			get { return _IsMemPrice; }
-			set { _IsMemPrice = value; }
-		}
-		/// <summary>
-		///是否支持使用消费券
-		/// <summary>
-		public string IsCoupon
-		{
-			get { return _IsCoupon; }
-			set { _IsCoupon = value; }
-		}    
     }
 }

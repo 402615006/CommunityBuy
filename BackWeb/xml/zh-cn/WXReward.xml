@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>其他管理</MainMenu>
+  <SubMenu>打赏管理</SubMenu>
+  <Menu>打赏管理</Menu>
+  <storerefer>打赏管理</storerefer>
+  <!--列表-条件-->
+  <empname_where>打赏员工：</empname_where>
+  <orderno_where>订单编号：</orderno_where>
+  <paytimeb_where>支付时间：</paytimeb_where>
+  <paytimee_where>至：</paytimee_where>
+
+  <!--列表-Grid-->
+  <orderno_list>订单编号</orderno_list>
+  <empname_list>打赏员工</empname_list>
+  <point_list>打赏积分</point_list>
+  <money_list>打赏金额</money_list>
+  <rcontent_list>打赏内容</rcontent_list>
+  <paytime_list>支付时间</paytime_list>
+  <paystatus_list>支付状态</paystatus_list>
+
+  <!---新增-->
+  <tab1>基本信息</tab1>
+  <orderno_span>订单编号：</orderno_span>
+  <empname_span>打赏员工：</empname_span>
+  <point_span>打赏积分：</point_span>
+  <money_span>打赏金额：</money_span>
+  <rcontent_span>打赏内容：</rcontent_span>
+  <paytime_span>支付时间：</paytime_span>
+  <paystatus_span>支付状态：</paystatus_span>
+</Pages>

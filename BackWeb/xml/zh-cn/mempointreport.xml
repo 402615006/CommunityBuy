@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员积分按会员卡汇总</MainMenu>
+  <SubMenu>会员积分按会员卡汇总</SubMenu>
+  <Menu>会员积分按会员卡汇总</Menu>
+  <Title>会员积分按会员卡汇总</Title>
+  <GoBack>会员积分按会员卡汇总</GoBack>
+  <!--优惠券列表-条件-->
+  <stime_where>开始时间：</stime_where>
+  <etime_where>结束时间：</etime_where>
+  <cardcode_where>会员卡号：</cardcode_where>
+  <stoname_where>门店：</stoname_where>
+  <!--优惠券列表-Grid-->
+  <stocode_list>分店代码</stocode_list>
+  <stoname_list>分店名称</stoname_list>
+  <peoplenum_list>积分人数</peoplenum_list>
+  <qcpoint_list>期初积分</qcpoint_list>
+  <income_list>本期增加</income_list>
+  <dhpoint_list>本期兑换</dhpoint_list>
+  <sypoint_list>期末积分</sypoint_list>
+  <zzpoint_list>最终积分</zzpoint_list>
+  <!--优惠券列表-条件-->
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+  <storerefer>选择门店</storerefer>
+</Pages>

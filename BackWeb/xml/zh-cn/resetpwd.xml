@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>修改密码</MainMenu>
+  <SubMenu>修改密码</SubMenu>
+  <Menu>修改密码</Menu>
+
+  <!--用户管理列表-新增-->
+  <tab1>基本信息</tab1>
+  <span_uname>用户名：</span_uname>
+  <name_placeholder>3-16位数字字母组合</name_placeholder>
+  <span_oldpwd>原密码：</span_oldpwd>
+  <oldpwd_placeholder>请输入6-16位数字字母组合密码</oldpwd_placeholder>
+  <span_pwd>新密码：</span_pwd>
+  <pwd_placeholder>6-16位数字字母组合</pwd_placeholder>
+  <span_repwd>确认密码：</span_repwd>
+  <repwd_placeholder>6-16位数字字母组合</repwd_placeholder>
+  <empcode_placeholder>请选择员工</empcode_placeholder>
+  <span_status>状态：</span_status>
+  <umobile_placeholder>11位手机号码</umobile_placeholder>
+  <span_descr>描述：</span_descr>
+  <descr_placeholder>描述最长128个字符</descr_placeholder>
+
+</Pages>

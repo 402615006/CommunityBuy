@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>优惠券发行报表</MainMenu>
+  <SubMenu>优惠券发行报表</SubMenu>
+  <Menu>优惠券发行报表</Menu>
+  <Title>优惠券发行报表</Title>
+  <GoBack>优惠券发行报表</GoBack>
+  <!--优惠券列表-条件-->
+  <sumname_where>活动名称：</sumname_where>
+  <coutype_where>优惠券类型：</coutype_where>
+  <couname_where>优惠券名称：</couname_where>
+  <store_where>适用门店：</store_where>
+  <audate_where>审核日期：</audate_where>
+  <!--优惠券列表-Grid-->
+  <name_list>活动名称</name_list>
+  <type_list>优惠券类型</type_list>
+  <audate_list>审核日期</audate_list>
+  <couname_list>优惠券名称</couname_list>
+  <batchno_list>批次号</batchno_list>
+  <stoname_list>适用门店</stoname_list>
+  <ftnames_list>财务类别</ftnames_list>
+  <btime_list>有效开始日期</btime_list>
+  <etime_list>有效截止日期</etime_list>
+  <singlemoney_list>优惠券金额</singlemoney_list>
+  <maxmoney_list>优惠券使用限额</maxmoney_list>
+  <uselimit_list>单次使用上限</uselimit_list>
+  <number_list>总张数</number_list>
+  <zfnum_list>已作废张数</zfnum_list>
+  <ffnum_list>已发放张数</ffnum_list>
+  <wffnum_list>未发放张数</wffnum_list>
+  <usenum_list>已使用张数</usenum_list>
+  <nousenum_list>未使用张数</nousenum_list>
+  <settleprice_list>结算价</settleprice_list>
+  <!--优惠券列表-条件-->
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+  <storerefer>门店选择</storerefer>
+</Pages>

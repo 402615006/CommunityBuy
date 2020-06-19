@@ -40,7 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminsEntity.cs" />
     <Compile Include="BaseModel.cs" />
+    <Compile Include="StoreEntity.cs" />
+    <Compile Include="sumcouponNEntity.cs" />
+    <Compile Include="systemsetEntity.cs" />
     <Compile Include="TB_BackOrderEntity.cs" />
     <Compile Include="TB_BillCouponEntity.cs" />
     <Compile Include="TB_BillEntity.cs" />
@@ -66,6 +70,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ts_DictsEntity.cs" />
+    <Compile Include="ts_syssetEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonBasic\CommonBasic.csproj">

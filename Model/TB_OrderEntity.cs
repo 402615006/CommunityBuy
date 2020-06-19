@@ -15,15 +15,10 @@ namespace CommunityBuy.Model
 		private DateTime _CTime = DateTime.Parse("1900-01-01");
 		private string _TStatus = string.Empty;
 		private string _PKCode = string.Empty;
-		private string _OpenCodeList = string.Empty;
 		private decimal _OrderMoney = 0;
-		private decimal _DisNum = 0;
-		private int _DisTypeNum = 0;
 		private string _Remar = string.Empty;
 		private DateTime _CheckTime = DateTime.Parse("1900-01-01");
 		private string _BillCode = string.Empty;
-        private string _OrderType = string.Empty;
-        private string _DepartCode = string.Empty;
 
 		/// <summary>
 		///Id
@@ -90,14 +85,6 @@ namespace CommunityBuy.Model
 			set { _PKCode = value; }
 		}
 		/// <summary>
-		///开台编号
-		/// <summary>
-		public string OpenCodeList
-		{
-			get { return _OpenCodeList; }
-			set { _OpenCodeList = value; }
-		}
-		/// <summary>
 		///订单金额
 		/// <summary>
 		public decimal OrderMoney
@@ -105,22 +92,7 @@ namespace CommunityBuy.Model
 			get { return _OrderMoney; }
 			set { _OrderMoney = value; }
 		}
-		/// <summary>
-		///菜品数量
-		/// <summary>
-		public decimal DisNum
-		{
-			get { return _DisNum; }
-			set { _DisNum = value; }
-		}
-		/// <summary>
-		///菜品种类
-		/// <summary>
-		public int DisTypeNum
-		{
-			get { return _DisTypeNum; }
-			set { _DisTypeNum = value; }
-		}
+
 		/// <summary>
 		///下单备注
 		/// <summary>
@@ -145,22 +117,5 @@ namespace CommunityBuy.Model
 			get { return _BillCode; }
 			set { _BillCode = value; }
 		}
-        /// <summary>
-        ///订单类型
-        /// <summary>
-        public string OrderType
-        {
-            get { return _OrderType; }
-            set { _OrderType = value; }
-        }
-
-        /// <summary>
-        ///部门编号
-        /// <summary>
-        public string DepartCode
-        {
-            get { return _DepartCode; }
-            set { _DepartCode = value; }
-        }
     }
 }

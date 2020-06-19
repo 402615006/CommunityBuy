@@ -33,23 +33,12 @@ namespace CommunityBuy.DAL
             sql.Append(" set @RoleId='" + Entity.StrRoleId + "';");
             sql.Append(" set @UserId=" + Entity.UserId + ";");
             sql.Append(" set @RealName='" + Entity.RealName + "';");
-            sql.Append(" set @EmpCode='" + Entity.EmpCode + "';");
 
             sql.Append(" IF NOT EXISTS(Select 1 from [dbo].TB_UserRole Where userid=@UserId)");
             sql.Append(" BEGIN  ");
             sql.Append(" BEGIN TRANSACTION tran1");
             sql.Append(" exec dbo.p_uploaddata_isSync  @BusCode,@StoCode,'TB_UserRole','userid',@UserId,'add';");
             sql.Append(" insert into TB_UserRole ([buscode],[stocode],userid,roleid,realname,empcode,CTime)SELECT @BusCode,@StoCode,@UserId,col,@RealName,@EmpCode,getdate() FROM  [dbo].[fn_StringSplit](@RoleId,',');");
-            if(!string.IsNullOrEmpty(Entity.RoleDisCount))
-            {
-                foreach (string code in Entity.RoleDisCount.Split(','))
-                {
-                    if(!string.IsNullOrEmpty(code))
-                    {
-                        sql.Append("insert into TB_UserDiscountScheme(BusCode,StoCode,CCode,CCname,CTime,DisCountCode,UserCode) values(@BusCode,@StoCode,'','',getdate(),'" + code + "',@UserId);");
-                    }
-                }
-            }
             sql.Append(" IF(@@ERROR=0)  BEGIN COMMIT TRAN tran1;set @returnval=0;END ELSE BEGIN ROLLBACK TRAN tran1; set @returnval=1; END  ");
             sql.Append(" END");
             sql.Append(" else ");
@@ -59,13 +48,6 @@ namespace CommunityBuy.DAL
             sql.Append(" DELETE FROM  TB_UserRole where userid=@UserId; delete TB_UserSigScheme where usercode=@UserId;");
             sql.Append(" insert into TB_UserRole ([buscode],[stocode],userid,roleid,realname,empcode,CTime)SELECT @BusCode,@StoCode,@UserId,col,@RealName,@EmpCode,getdate() FROM  [dbo].[fn_StringSplit](@RoleId,',');");
             sql.Append("delete TB_UserDiscountScheme where usercode=@UserId;");
-            if (!string.IsNullOrEmpty(Entity.RoleDisCount))
-            {
-                foreach (string code in Entity.RoleDisCount.Split(','))
-                {
-                    sql.Append("insert into TB_UserDiscountScheme(BusCode,StoCode,CCode,CCname,CTime,DisCountCode,UserCode) values(@BusCode,@StoCode,'','',getdate(),'" + code + "',@UserId);");
-                }
-            }
             sql.Append(" IF(@@ERROR=0)  BEGIN COMMIT TRAN tran1;set @returnval=0;END ELSE BEGIN ROLLBACK TRAN tran1; set @returnval=1; END  ");
             sql.Append(" END ");
             sql.Append(" select @returnval;");
@@ -102,7 +84,6 @@ namespace CommunityBuy.DAL
             sql.Append(" set @RoleId='" + Entity.RoleId + "';");
             sql.Append(" set @UserId=" + Entity.UserId + ";");
             sql.Append(" set @RealName='" + Entity.RealName + "';");
-            sql.Append(" set @EmpCode='" + Entity.EmpCode + "';");
 
             sql.Append(" IF NOT EXISTS(Select 1 from [dbo].TB_UserRole Where userid=@UserId)");
             sql.Append(" BEGIN  ");

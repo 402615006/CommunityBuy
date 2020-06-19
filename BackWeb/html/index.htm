@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../js/base64.js" type="text/javascript"></script>    
+</head>
+<body>
+    <span id="res">无数据</span>
+    <script type="text/javascript">
+        function binddata(error, result) {
+            //alert(error);
+            var r = JSON.stringify(result);
+            //alert(r);
+            document.getElementById('res').innerHTML = r;
+        }
+        function getvisioninfo() {
+            //document.getElementById('res').innerHTML = 'ddddddddd';
+            var b = base64_encode('{"params": { },"api_path": "http://123.57.66.58:9025/services/pageversion.ashx?actionname=getpageversion","callback_js": "binddata"}');
+            //location.href = 'api-request://app.ganpurj.com/easylearn?' + b;
+            var req = 'api-request://app.ganpurj.com/easylearn?' + b;
+            //getrequestinfo(req);
+        }
+        //getvisioninfo();
+    </script>
+
+    <script type="text/javascript">
+        var result = null;
+        window.onload = function () {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+
+            var b = base64_encode('{"params": { },"api_path": "http://123.57.66.58:9025/services/pageversion.ashx?actionname=getpageversion","callback_js": "binddata"}');
+            //location.href = 'api-request://app.ganpurj.com/easylearn?' + b;
+            var req = 'api-request://app.ganpurj.com/easylearn?' + b;
+
+            script.src = req;
+            var head = document.getElementsByTagName("head")[0];
+            //head.insertBefore(script, head.firstChild);
+            //alert(unescape('%3Cscript type="text/javascript" src= "' + req + '"%3E%3C/script%3E'));
+            document.write(unescape('%3Cscript type="text/javascript" src= "'+req+'"%3E%3C/script%3E'));
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员积分明细表</MainMenu>
+  <SubMenu>会员积分明细表</SubMenu>
+  <Menu>会员积分明细表</Menu>
+  <Title>会员积分明细表</Title>
+  <GoBack>会员积分明细表</GoBack>
+  <!--优惠券列表-条件-->
+  <cardcode_where>卡号：</cardcode_where>
+  <name_where>姓名：</name_where>
+  <ctype_where>会员卡类型：</ctype_where>
+  <cracode_where>会员卡等级：</cracode_where>
+  <tradetype_where>交易类型：</tradetype_where>
+  <stoname_where>操作门店：</stoname_where>
+  <cuser_where>操作人：</cuser_where>
+  <startdate_where>开始时间：</startdate_where>
+  <enddate_where>截止时间：</enddate_where>
+  <kpoint_where>可用积分范围：</kpoint_where>
+  <tpoint_where>累计积分范围：</tpoint_where>
+  <!--优惠券列表-Grid-->
+  <cardcode_list>会员卡号</cardcode_list>
+  <name_list>姓名</name_list>
+  <mobile_list>手机号</mobile_list>
+  <ctype_list>会员卡类型</ctype_list>
+  <cracode_list>会员卡等级</cracode_list>
+  <tradetype_list>交易类型</tradetype_list>
+  <pointadd_list>积分增加</pointadd_list>
+  <pointcut_list>积分减少</pointcut_list>
+  <kpoint_list>可用积分</kpoint_list>
+  <tpoint_list>累计积分</tpoint_list>
+  <stoname_list>操作门店</stoname_list>
+  <cuser_list>操作人</cuser_list>
+  <ctime_list>交易时间</ctime_list>
+  <!--优惠券列表-条件-->
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+  <storerefer>门店选择</storerefer>
+</Pages>

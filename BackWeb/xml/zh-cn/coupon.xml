@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>优惠券</MainMenu>
+  <SubMenu>优惠券</SubMenu>
+  <Menu>优惠券</Menu>
+  <Title>优惠券</Title>
+  <GoBack>优惠券</GoBack>
+  <!--优惠券列表-条件-->
+
+  <serialno_where>优惠券序号：</serialno_where>
+  <checkcode_where>优惠券券码：</checkcode_where>
+  <puser_where>发放人：</puser_where>
+  <wherecardcode>卡号：</wherecardcode>
+  <checkperson_where>验证人：</checkperson_where>
+  <status_where>状态：</status_where>
+  <!--优惠券列表-Grid-->
+  <serialno_list>优惠券序号</serialno_list>
+  <checkcode_list>优惠券券码</checkcode_list>
+  <puser_list>发放人</puser_list>
+  <ptime_list>发放时间</ptime_list>
+  <checkperson_list>验证人</checkperson_list>
+  <checktime_list>验证时间</checktime_list>
+  <status_list>状态</status_list>
+  <MainMenu>优惠券</MainMenu>
+  <SubMenu>优惠券</SubMenu>
+  <Menu>优惠券</Menu>
+  <Title>优惠券</Title>
+  <GoBack>优惠券</GoBack>
+  <!--优惠券列表-条件-->
+
+  <serialno_where>优惠券序号：</serialno_where>
+  <checkcode_where>优惠券券码：</checkcode_where>
+  <puser_where>发放人：</puser_where>
+  <checkperson_where>验证人：</checkperson_where>
+  <status_where>状态：</status_where>
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+  <span_cid>标识：</span_cid>
+  <span_buscode>商户编号：</span_buscode>
+  <buscode_placeholder>请输入商户编号</buscode_placeholder>
+  <span_stocode>所属门店：</span_stocode>
+  <stocode_placeholder>请输入所属门店</stocode_placeholder>
+  <span_sumcode>活动编号：</span_sumcode>
+  <sumcode_placeholder>请输入活动编号</sumcode_placeholder>
+  <span_mccode>优惠券编号：</span_mccode>
+  <mccode_placeholder>请输入优惠券编号</mccode_placeholder>
+  <span_serialno>优惠券序号：</span_serialno>
+  <serialno_placeholder>请输入优惠券序号</serialno_placeholder>
+  <span_checkcode>优惠券券码：</span_checkcode>
+  <checkcode_placeholder>请输入优惠券券码</checkcode_placeholder>
+  <span_prostocode>发放门店：</span_prostocode>
+  <prostocode_placeholder>请输入发放门店</prostocode_placeholder>
+  <span_puser>发放人：</span_puser>
+  <puser_placeholder>请输入发放人</puser_placeholder>
+  <span_ptime>发放时间：</span_ptime>
+  <ptime_placeholder>请输入发放时间</ptime_placeholder>
+  <span_checkperson>验证人：</span_checkperson>
+  <checkperson_placeholder>请输入验证人</checkperson_placeholder>
+  <span_checktime>验证时间：</span_checktime>
+  <checktime_placeholder>请输入验证时间</checktime_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入状态</status_placeholder>
+  <span_ctime>创建时间：</span_ctime>
+  <paysucess_result>付款成功</paysucess_result>
+  <payerror_result>未知错误，请稍后再试</payerror_result>
+</Pages>

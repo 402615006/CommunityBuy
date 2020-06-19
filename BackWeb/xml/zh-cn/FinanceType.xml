@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>财务类别</MainMenu>
+  <SubMenu>财务类别</SubMenu>
+  <Menu>财务类别</Menu>
+  <Title>财务类别</Title>
+  <GoBack>财务类别</GoBack>
+  <Edittitle>财务类别</Edittitle>
+  <!--门店_财务类别列表-条件-->
+
+  <finname_where>类别名称：</finname_where>
+  <status_where>状态：</status_where>
+  <!--门店_财务类别列表-条件-->
+
+  <finname_where>类别名称：</finname_where>
+  <status_where>状态：</status_where>
+  <!--门店_财务类别-新增-->
+  <tab1>基本信息</tab1>
+  <span_fincode>类别代码：</span_fincode>
+  <span_buscode>引用商户表Business的商户编号字段buscode的值：</span_buscode>
+  <buscode_placeholder>请输入引用商户表Business的商户编号字段buscode的值</buscode_placeholder>
+  <span_stocode>引用门店表Store的门店编号字段stocode的值：</span_stocode>
+  <stocode_placeholder>请输入引用门店表Store的门店编号字段stocode的值</stocode_placeholder>
+  <span_finextcode>外部代码：</span_finextcode>
+  <finextcode_placeholder>请输入外部代码</finextcode_placeholder>
+  <span_finname>类别名称：</span_finname>
+  <finname_list>类别名称</finname_list>
+  <fincode_list>类别编码</fincode_list>
+  <status_list>状态</status_list>
+  <finextcode_list>外部代码</finextcode_list>
+  <finname_placeholder>请输入类别名称</finname_placeholder>
+  <span_busSort>排序号：</span_busSort>
+  <busSort_placeholder>请输入排序号</busSort_placeholder>
+  <span_cuser>引用系统用户表ts_admins的userid字段值：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入状态</status_placeholder>
+  <span_uuser>引用系统用户表ts_admins的userid字段值：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+  <span_isdelete>删除标志（0未删除，1已删除，默认值为0）：</span_isdelete>
+
+</Pages>

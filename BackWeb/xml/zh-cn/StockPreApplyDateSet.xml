@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>库存管理</MainMenu>
+  <SubMenu>预申请区间设置</SubMenu>
+  <Menu>预申请区间设置</Menu>
+  <Title>预申请区间设置</Title>
+  <GoBack>预申请区间设置</GoBack>
+  <!--门店_业务数据_采购预申请列表-条件-->
+  <!--门店_业务数据_采购预申请-新增-->
+  <tab1>基本信息</tab1>
+  <span_dateid>采购申请单据ID：</span_dateid>
+  <span_startday>所属商户编号：</span_startday>
+  <span_endday>所属门店编号：</span_endday>
+  <span_remark>备注：</span_remark>
+  <remark_placeholder>请输入备注</remark_placeholder>
+  <span_cuser>创建人标识：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_uuser>最后更新人：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+  <span_isdelete>删除标志：</span_isdelete>
+  <span_startTime>区间开始日期：</span_startTime>
+  <span_endTime>区间结束日期：</span_endTime>
+  <Error_01>结束时间必须大于等于开始时间</Error_01>
+  <Error_02>开始时间必须小于等于结束时间</Error_02>
+</Pages>

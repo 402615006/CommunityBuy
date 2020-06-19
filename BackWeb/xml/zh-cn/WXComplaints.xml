@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>投诉建议</MainMenu>
+  <SubMenu>投诉建议</SubMenu>
+  <Menu>投诉建议</Menu>
+  <!--微信_投诉建议列表-条件-->
+
+  <aContent_where>内容：</aContent_where>
+  <releasePerson_where>处理人：</releasePerson_where>
+  <status_where>
+    投诉人：
+  </status_where>
+
+  <comdate_where>
+    投诉时间：
+  </comdate_where>
+  <enddate_where>
+    处理时间：
+  </enddate_where>
+  <!--微信_投诉建议列表-Grid-->
+  <complaintser_list>投诉人</complaintser_list>
+  <tel_list>联系电话</tel_list>
+  <comdate_list>投诉时间</comdate_list>
+  <aContent_list>内容</aContent_list>
+  <releasePerson_list>处理人</releasePerson_list>
+  <enddate_list>处理时间</enddate_list>
+  <status_list>状态</status_list>
+  <!--微信_投诉建议-新增-->
+  <tab1>基本信息</tab1>
+  <span_actId>id：</span_actId>
+
+  <span_complaintser>投诉人：</span_complaintser>
+  <complaintser_placeholder>请输入投诉人</complaintser_placeholder>
+  <span_tel>联系电话：</span_tel>
+  <tel_placeholder>请输入联系电话</tel_placeholder>
+  <span_comdate>投诉时间：</span_comdate>
+  <comdate_placeholder>请输入投诉时间</comdate_placeholder>
+  <span_aContent>内容：</span_aContent>
+  <aContent_placeholder>请输入内容</aContent_placeholder>
+  <span_aTop>置顶：</span_aTop>
+  <aTop_placeholder>请输入置顶</aTop_placeholder>
+  <span_releasePerson>处理人：</span_releasePerson>
+  <releasePerson_placeholder>请输入处理人</releasePerson_placeholder>
+  <span_enddate>处理时间：</span_enddate>
+  <enddate_placeholder>请输入处理时间</enddate_placeholder>
+  <span_opinion>处理意见：</span_opinion>
+  <opinion_placeholder>请输入</opinion_placeholder>
+  <span_orderno>排序：</span_orderno>
+  <orderno_placeholder>请输入排序</orderno_placeholder>
+  <span_img>备注：</span_img>
+  <img_placeholder>请输入备注</img_placeholder>
+  <span_status>有效状态：</span_status>
+
+
+
+</Pages>

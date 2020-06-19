@@ -6,7 +6,7 @@ namespace CommunityBuy.Model
 {
     [Description("后台用户信息")]
 
-    public class AdminsEntity
+    public class LoginedUser
     {
         private long _userid = 0;
         private string _buscode = Helper.GetAppSettings("BusCode");

@@ -30,15 +30,10 @@ namespace CommunityBuy.BLL
 
                 Entity.TStatus = TStatus;
                 Entity.PKCode = PKCode;
-                Entity.OpenCodeList = OpenCodeList;
                 Entity.OrderMoney = StringHelper.StringToDecimal(OrderMoney);
-                Entity.DisNum = StringHelper.StringToDecimal(DisNum);
-                Entity.DisTypeNum = StringHelper.StringToInt(DisTypeNum);
                 Entity.Remar = Remar;
                 Entity.CheckTime = StringHelper.StringToDateTime(CheckTime);
                 Entity.BillCode = BillCode;
-                Entity.OrderType = OrderType;
-                Entity.DepartCode = DepartCode;
                 rel = true;
             }
             catch (System.Exception)
@@ -218,10 +213,7 @@ namespace CommunityBuy.BLL
 			
 			Entity.TStatus = dr["TStatus"].ToString();
 			Entity.PKCode = dr["PKCode"].ToString();
-			Entity.OpenCodeList = dr["OpenCodeList"].ToString();
 			Entity.OrderMoney = StringHelper.StringToDecimal(dr["OrderMoney"].ToString());
-			Entity.DisNum = StringHelper.StringToDecimal(dr["DisNum"].ToString());
-			Entity.DisTypeNum = StringHelper.StringToInt(dr["DisTypeNum"].ToString());
 			Entity.Remar = dr["Remar"].ToString();
 			Entity.CheckTime = StringHelper.StringToDateTime(dr["CheckTime"].ToString());
 			Entity.BillCode = dr["BillCode"].ToString();

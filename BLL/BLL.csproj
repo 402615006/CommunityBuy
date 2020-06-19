@@ -40,9 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bllAdmins.cs" />
     <Compile Include="bllApp.cs" />
     <Compile Include="bllBase.cs" />
+    <Compile Include="bllFUNMAS.cs" />
+    <Compile Include="bllmembers.cs" />
     <Compile Include="bllPaging.cs" />
+    <Compile Include="bllsumcoupon.cs" />
     <Compile Include="bllTB_BackOrder.cs" />
     <Compile Include="bllTB_Bill.cs" />
     <Compile Include="bllTB_BillCoupon.cs" />
@@ -56,12 +60,11 @@
     <Compile Include="bllTB_Functions.cs" />
     <Compile Include="bllTB_RoleFunction.cs" />
     <Compile Include="bllTB_Roles.cs" />
+    <Compile Include="bllts_Dicts.cs" />
+    <Compile Include="bllts_sysset.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="bllTB_ShoppingCart.cs" />
     <Compile Include="bllTB_UserRole.cs" />
-    <Compile Include="bllTM_SystemSettings.cs" />
-    <Compile Include="bllDicts.cs" />
-    <Compile Include="bllEmployee.cs" />
     <Compile Include="bllStore.cs" />
   </ItemGroup>
   <ItemGroup>

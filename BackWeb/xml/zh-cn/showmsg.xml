@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>系统管理</MainMenu>
+  <SubMenu>短信发送查询</SubMenu>
+  <Menu>短信发送查询</Menu>
+  <Title>短信发送查询</Title>
+  <GoBack>短信发送查询</GoBack>
+  <Edittitle>短信发送查询</Edittitle>
+  <mobile_placeholder>请输入手机号码</mobile_placeholder>
+ 
+</Pages>

@@ -27,11 +27,8 @@ namespace CommunityBuy.DAL
 				new SqlParameter("@CCode", Entity.CCode),
 				new SqlParameter("@CCname", Entity.CCname),
 				new SqlParameter("@OrderCodeList", Entity.OrderCodeList),
-				new SqlParameter("@ShiftCode", Entity.ShiftCode),
 				new SqlParameter("@Remar", Entity.Remar),
                 new SqlParameter("@BillType", Entity.BillType),
-                new SqlParameter("@PayWay", Entity.PayWay),
-                new SqlParameter("@CStatus", Entity.CStatus)
              };
             sqlParameters[0].Direction = ParameterDirection.Output;
             intReturn = DBHelper.ExecuteNonQuery("dbo.p_TB_Bill_Add", CommandType.StoredProcedure, sqlParameters);
@@ -59,20 +56,10 @@ namespace CommunityBuy.DAL
 				new SqlParameter("@PKCode", Entity.PKCode),
 				new SqlParameter("@BillMoney", Entity.BillMoney),
 				new SqlParameter("@PayMoney", Entity.PayMoney),
-				new SqlParameter("@ZeroCutMoney", Entity.ZeroCutMoney),
-				new SqlParameter("@ShiftCode", Entity.ShiftCode),
 				new SqlParameter("@Remar", Entity.Remar),
 				new SqlParameter("@FTime", Entity.FTime),
 				new SqlParameter("@OpenDate", Entity.OpenDate),
-				new SqlParameter("@DiscountName", Entity.DiscountName),
-				new SqlParameter("@DiscountMoney", Entity.DiscountMoney),
-				new SqlParameter("@AUCode", Entity.AUCode),
-				new SqlParameter("@AUName", Entity.AUName),
-				new SqlParameter("@PointMoney", Entity.PointMoney),
-				new SqlParameter("@VirMoney", Entity.VirMoney),
                 new SqlParameter("@BillType", Entity.BillType),
-                new SqlParameter("@PayWay", Entity.PayWay),
-                new SqlParameter("@CStatus", Entity.CStatus)
              };
             return DBHelper.ExecuteNonQuery("dbo.p_TB_Bill_Update", CommandType.StoredProcedure, sqlParameters);
         }

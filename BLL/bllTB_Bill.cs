@@ -35,20 +35,13 @@ namespace CommunityBuy.BLL
                 Entity.PKCode = PKCode;
                 Entity.BillMoney = StringHelper.StringToDecimal(BillMoney);
                 Entity.PayMoney = StringHelper.StringToDecimal(PayMoney);
-                Entity.ZeroCutMoney = StringHelper.StringToDecimal(ZeroCutMoney);
-                Entity.ShiftCode = ShiftCode;
+
                 Entity.Remar = Remar;
                 Entity.FTime = StringHelper.StringToDateTime(FTime);
                 Entity.OpenDate = StringHelper.StringToDateTime(OpenDate);
-                Entity.DiscountName = DiscountName;
-                Entity.DiscountMoney = StringHelper.StringToDecimal(DiscountMoney);
-                Entity.AUCode = StringHelper.StringToDecimal(AUCode);
-                Entity.AUName = AUName;
-                Entity.PointMoney = StringHelper.StringToDecimal(PointMoney);
-                Entity.VirMoney = StringHelper.StringToDecimal(VirMoney);
+
                 Entity.BillType = BillType;
-                Entity.PayWay = PayWay;
-                Entity.CStatus = CStatus;
+
                 rel = true;
             }
             catch (System.Exception)
@@ -215,17 +208,10 @@ namespace CommunityBuy.BLL
             Entity.PKCode = dr["PKCode"].ToString();
             Entity.BillMoney = StringHelper.StringToDecimal(dr["BillMoney"].ToString());
             Entity.PayMoney = StringHelper.StringToDecimal(dr["PayMoney"].ToString());
-            Entity.ZeroCutMoney = StringHelper.StringToDecimal(dr["ZeroCutMoney"].ToString());
-            Entity.ShiftCode = dr["ShiftCode"].ToString();
             Entity.Remar = dr["Remar"].ToString();
             Entity.FTime = StringHelper.StringToDateTime(dr["FTime"].ToString());
             Entity.OpenDate = StringHelper.StringToDateTime(dr["OpenDate"].ToString());
-            Entity.DiscountName = dr["DiscountName"].ToString();
-            Entity.DiscountMoney = StringHelper.StringToDecimal(dr["DiscountMoney"].ToString());
-            Entity.AUCode = StringHelper.StringToDecimal(dr["AUCode"].ToString());
-            Entity.AUName = dr["AUName"].ToString();
-            Entity.PointMoney = StringHelper.StringToDecimal(dr["PointMoney"].ToString());
-            Entity.VirMoney = StringHelper.StringToDecimal(dr["VirMoney"].ToString());
+
             return Entity;
         }
 

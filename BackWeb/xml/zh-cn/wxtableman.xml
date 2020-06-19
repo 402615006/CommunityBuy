@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>桌台管理</MainMenu>
+  <SubMenu>桌台管理</SubMenu>
+  <Menu>桌台管理</Menu>
+  <storerefer>桌台管理</storerefer>
+  <!--列表-条件-->
+  <stoname_where>所属门店：</stoname_where>
+  <tabletype_where>桌台类型：</tabletype_where>
+  <tableman_where>桌台名称：</tableman_where>
+  <speedcode_where>速记码：</speedcode_where>
+
+  <!--列表-Grid-->
+  <stoname_list>所属门店</stoname_list>
+  <ttname_list>桌台类型</ttname_list>
+  <tmcode_list>桌台编码</tmcode_list>
+  <speedcode_list>速记码</speedcode_list>
+  <tmname_list>桌台名称</tmname_list>
+  <maxpersonnum_list>最大人数</maxpersonnum_list>
+  <usestatus_list>使用状态</usestatus_list>
+  <status_list>状态</status_list>
+</Pages>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>团体券销售报表</MainMenu>
+  <SubMenu>团体券销售报表</SubMenu>
+  <Menu>团体券销售报表</Menu>
+  <Title>团体券销售报表</Title>
+  <GoBack>团体券销售报表</GoBack>
+  <!--优惠券列表-条件-->
+  <saledate_where>销售日期：</saledate_where>
+  <salestoname_where>销售门店：</salestoname_where>
+  <saletype_where>销售类型：</saletype_where>
+  <chainer_where>操作员：</chainer_where>
+  <tcpeople_where>提成人：</tcpeople_where>
+  <cardname_where>券名称：</cardname_where>
+  <!--优惠券列表-Grid-->
+  <matcode_list>物料编号</matcode_list>
+  <cardname_list>券名称</cardname_list>
+  <stoname_list>销售门店</stoname_list>
+  <cuser_list>操作人</cuser_list>
+  <saletype_list>销售类型</saletype_list>
+  <number_list>数量</number_list>
+  <money_list>金额</money_list>
+  <tcpeople_list>提成人</tcpeople_list>
+  <remark_list>备注</remark_list>
+  <!--优惠券列表-条件-->
+  <!--优惠券-新增-->
+  <tab1>基本信息</tab1>
+  <storerefer>门店选择</storerefer>
+</Pages>

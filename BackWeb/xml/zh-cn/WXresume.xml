@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>招贤纳士</MainMenu>
+  <SubMenu>招贤纳士</SubMenu>
+  <Menu>招贤纳士</Menu>
+  <!--简历表列表-条件-->
+  <!--简历表-新增-->
+  <tab1>基本信息</tab1>
+  <span_resumecode>标示：</span_resumecode>
+  <span_stocode>引用门店表Store的门店编号字段stocode的值：</span_stocode>
+  <stocode_placeholder>请输入引用门店表Store的门店编号字段stocode的值</stocode_placeholder>
+  <span_buscode>引用商户表Business的商户编号字段buscode的值：</span_buscode>
+  <buscode_placeholder>请输入引用商户表Business的商户编号字段buscode的值</buscode_placeholder>
+  <span_comIntrod>公司介绍：</span_comIntrod>
+  <comIntrod_placeholder>请输入公司介绍</comIntrod_placeholder>
+  <span_industry>公司行业：</span_industry>
+  <industry_placeholder>请输入公司行业</industry_placeholder>
+  <span_compersonsize>规模：</span_compersonsize>
+  <compersonsize_placeholder>请输入规模</compersonsize_placeholder>
+  <span_area>标题：</span_area>
+  <area_placeholder>请输入标题</area_placeholder>
+  <span_releasePerson>发布人：</span_releasePerson>
+  <releasePerson_placeholder>请输入发布人</releasePerson_placeholder>
+  <span_tel>电话：</span_tel>
+  <tel_placeholder>请输入电话</tel_placeholder>
+  <span_remark>备注：</span_remark>
+  <remark_placeholder>请输入备注</remark_placeholder>
+  <span_status>有效状态（0无效，1有效）：</span_status>
+  <status_placeholder>请输入有效状态（0无效，1有效）</status_placeholder>
+  <span_isdelete>是否删除（0未删除，1已删除，默认值为0）：</span_isdelete>
+  <span_cuser>引用系统用户表ts_admins的userid字段值：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_uuser>引用系统用户表ts_admins的userid字段值：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+
+</Pages>

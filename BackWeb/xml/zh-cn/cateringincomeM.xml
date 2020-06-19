@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>餐收报表</MainMenu>
+  <SubMenu>营收汇总(月)</SubMenu>
+  <Menu>餐收报表</Menu>
+  <Title>营收汇总(月)</Title>
+  <GoBack>营收汇总(月)</GoBack>
+  <storerefer>门店选择</storerefer>
+</Pages>

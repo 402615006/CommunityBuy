@@ -28,15 +28,10 @@ namespace CommunityBuy.DAL
 				new SqlParameter("@CCode", Entity.CCode),
 				new SqlParameter("@CCname", Entity.CCname),
 				new SqlParameter("@TStatus", Entity.TStatus),
-				new SqlParameter("@OpenCodeList", Entity.OpenCodeList),
 				new SqlParameter("@OrderMoney", Entity.OrderMoney),
-				new SqlParameter("@DisNum", Entity.DisNum),
-				new SqlParameter("@DisTypeNum", Entity.DisTypeNum),
 				new SqlParameter("@Remar", Entity.Remar),
 				new SqlParameter("@CheckTime", Entity.CheckTime),
 				new SqlParameter("@BillCode", Entity.BillCode),
-                new SqlParameter("@OrderType", Entity.OrderType),
-                new SqlParameter("@DepartCode", Entity.DepartCode)
              };
             sqlParameters[0].Direction = ParameterDirection.Output;
             intReturn = DBHelper.ExecuteNonQuery("dbo.p_TB_Order_Add", CommandType.StoredProcedure, sqlParameters);
@@ -168,10 +163,7 @@ namespace CommunityBuy.DAL
 				new SqlParameter("@CCname", Entity.CCname),
 				new SqlParameter("@TStatus", Entity.TStatus),
 				new SqlParameter("@PKCode", Entity.PKCode),
-				new SqlParameter("@OpenCodeList", Entity.OpenCodeList),
 				new SqlParameter("@OrderMoney", Entity.OrderMoney),
-				new SqlParameter("@DisNum", Entity.DisNum),
-				new SqlParameter("@DisTypeNum", Entity.DisTypeNum),
 				new SqlParameter("@Remar", Entity.Remar),
 				new SqlParameter("@CheckTime", Entity.CheckTime),
 				new SqlParameter("@BillCode", Entity.BillCode),

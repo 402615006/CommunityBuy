@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>优惠券管理</MainMenu>
+  <SubMenu>营销方案</SubMenu>
+  <Menu>营销方案</Menu>
+  <Title>营销方案</Title>
+  <GoBack>营销方案</GoBack>
+  <!--会员卡赠送方案列表-条件-->
+
+  <pcode_where>方案编号：</pcode_where>
+  <pname_where>活动名称：</pname_where>
+  <ways_where>活动渠道：</ways_where>
+  <btime_where>方案有效期：</btime_where>
+  <etime_where>方案有效结束日期：</etime_where>
+  <pretype_where>赠送类型：</pretype_where>
+  <chargemode_where>充值适用方式：</chargemode_where>
+  <payamount_where>支付金额：</payamount_where>
+  <paymode_where>支付适用方式：</paymode_where>
+  <audstatus_where>审核状态：</audstatus_where>
+  <!--会员卡赠送方案列表-Grid-->
+  <pcode_list>活动编号</pcode_list>
+  <ways_list>活动渠道</ways_list>
+  <pname_list>活动名称</pname_list>
+  <time_list>活动有效期</time_list>
+  <pretype_list>活动类型</pretype_list>
+  <conmin_list>条件下限</conmin_list>
+  <conmax_list>条件上限</conmax_list>
+  <totaltimes_list>活动总数</totaltimes_list>
+  <status_list>状态</status_list>
+  <ccname_list>创建人</ccname_list>
+  <ctime_list>创建时间</ctime_list>
+  <audstatusname_list>审核状态</audstatusname_list>
+  <audtime_list>审核时间</audtime_list>
+  <totaltimes_list>活动总数</totaltimes_list>
+  <sendtimes_list>已发放总数</sendtimes_list>
+  <!--会员卡赠送方案-新增-->
+  <tab1>基本信息</tab1>
+  <span_pcode>活动编号：</span_pcode>
+  <pcode_placeholder>自动生成</pcode_placeholder>
+  <span_pname>活动显示名称：</span_pname>
+  <pname_placeholder>请输入活动显示名称</pname_placeholder>
+  <span_btime>活动有效期：</span_btime>
+  <btime_placeholder>选择有效期起</btime_placeholder>
+  <etime_placeholder>选择有效期止</etime_placeholder>
+  <span_ways>活动适用渠道：</span_ways>
+  <ways_placeholder>不选择适用所有终端</ways_placeholder>
+  <span_conmin>条件区间(元)：</span_conmin>
+
+  <span_astrcodes>活动门店：</span_astrcodes>
+  <astrcodes_placeholder>不选择适用所有门店</astrcodes_placeholder>
+  <span_applymembercard>适用会员卡：</span_applymembercard>
+  <span_pretype>活动类型：</span_pretype>
+  <span_freearea>活动适用范围：</span_freearea>
+
+  <span_preamount>赠送金额(元)：</span_preamount>
+  <span_cantimes>用户享受总次数：</span_cantimes>
+  <span_daycantimes>每天享受次数：</span_daycantimes>
+  <span_acttimes>活动总数：</span_acttimes>
+  <span_dayacttimes>活动每天总数：</span_dayacttimes>
+
+  <span_presentNum>可选种数：</span_presentNum>
+  <presentNum_placeholder>请输入可选种数</presentNum_placeholder>
+  <span_conmin>条件下限：</span_conmin>
+  <span_conmax>条件上限：</span_conmax>
+  <span_actimg>活动显示图片：</span_actimg>
+  <span_actshow>是否显示活动：</span_actshow>
+  <span_actDesc>活动显示备注：</span_actDesc>
+  <actDesc_placeholder>请输入活动页面显示备注</actDesc_placeholder>
+  
+  <span_remark>活动后台备注：</span_remark>
+  <remark_placeholder>请输入备注</remark_placeholder>
+  <span_status>状态：</span_status>
+  <status_placeholder>请输入状态</status_placeholder>
+  <span_orderno>排序号：</span_orderno>
+  <orderno_placeholder>请输入排序号</orderno_placeholder>
+  <span_cuser>创建人：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_uuser>最后更新人标识：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+  <span_isdelete>删除标志：</span_isdelete>
+
+  <applymembercard_placeholder>多选会员卡</applymembercard_placeholder>
+  <sendcoupon_placeholder>多选优惠信息</sendcoupon_placeholder>
+  <span_sendcoupon>选择优惠券：</span_sendcoupon>
+  <!--other-->
+  <storerefer>门店选择</storerefer>
+  <memberrefer>适用会员卡</memberrefer>
+  <sendcouponrefer>赠送优惠券</sendcouponrefer>
+  <preamount_num>元/次数</preamount_num>
+
+  <nulldate>请先选择方案有效期</nulldate>
+  <status_where>状态：</status_where>
+  <span_audcname>审核人：</span_audcname>
+  <span_audremark>审核备注：</span_audremark>
+  <span_pass>审核通过</span_pass>
+  <span_nopass>审核拒绝</span_nopass>
+  <span_cancel>返回</span_cancel>
+
+  <span_giftnode>礼包节点：</span_giftnode>
+  <span_cardtimetype>生效时间(年费卡)：</span_cardtimetype>
+  <span_cardtimes>有效时间(年费卡)：</span_cardtimes>
+  <cardbtime_placeholder>有效时间起</cardbtime_placeholder>
+  <cardetime_placeholder>有效时间止</cardetime_placeholder>
+  <span_carddays>有效天数：</span_carddays>
+  <carddays_placeholder>请输入有效天数</carddays_placeholder>
+  <span_smallimg>小图：</span_smallimg>
+  <span_bigimg>大图：</span_bigimg>
+</Pages>

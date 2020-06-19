@@ -1,0 +1,107 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 13px;
+    font-family: "微软雅黑";
+    color: #666;
+}
+
+html, body, #form1 {
+    height: 100%;
+    width: 100%;
+}
+
+select {
+    height: 30px;
+    line-height: 30px;
+}
+
+.currentpath {
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    text-indent: 10px;
+    border-bottom: 1px #999 solid;
+}
+
+.redline {
+    /*width: 96%;
+    margin: 0 auto;
+    margin-top: 15px;
+    height: 2px;
+    background-color: #59628a;*/
+}
+
+.righttitle {
+    /*width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-indent: 40px;*/
+}
+
+.rightcontent {
+    width: 96%;
+    margin: 0 auto;
+    background-color: #EEEEEE;
+    border-radius: 2px;
+}
+
+.paginator a {
+    border: solid 1px #9fbad5;
+    color: #666;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .paginator a:visited {
+        padding: 1px 6px;
+        border: solid 1px #9fbad5;
+        background: #fff;
+        text-decoration: none;
+    }
+
+    .paginator a:hover {
+        border: solid 1px #9fbad5;
+        color: #666;
+        text-decoration: none;
+    }
+
+    .paginator a, .paginator a:visited, .paginator .cpb, .paginator a:hover {
+        float: left;
+        height: 16px;
+        line-height: 16px;
+        min-width: 10px;
+        _width: 10px;
+        margin-right: 5px;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 12px;
+        font-family: Arial,SimSun;
+        padding: 0 3px;
+    }
+
+.wheredate {
+    width: 75px;
+    height: 25px;
+    border: 1px solid #999;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.simg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 0px;
+}
+
+span {
+    word-break: break-all;
+}

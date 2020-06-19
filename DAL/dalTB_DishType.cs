@@ -22,8 +22,6 @@ namespace CommunityBuy.DAL
             {
                 new SqlParameter("@BusCode", Entity.BusCode),
                 new SqlParameter("@StoCode", Entity.StoCode),
-                new SqlParameter("@CCode", Entity.CCode),
-                new SqlParameter("@CCname", Entity.CCname),
                 new SqlParameter("@PKKCode", Entity.PKKCode),
                 new SqlParameter("@PKCode", Entity.PKCode),
                 new SqlParameter("@TypeName", Entity.TypeName),
@@ -48,8 +46,6 @@ namespace CommunityBuy.DAL
             {
                 new SqlParameter("@BusCode", Entity.BusCode),
                 new SqlParameter("@StoCode", Entity.StoCode),
-                new SqlParameter("@CCode", Entity.CCode),
-                new SqlParameter("@CCname", Entity.CCname),
                 new SqlParameter("@PKKCode", Entity.PKKCode),
                 new SqlParameter("@PKCode", Entity.PKCode),
                 new SqlParameter("@TypeName", Entity.TypeName),

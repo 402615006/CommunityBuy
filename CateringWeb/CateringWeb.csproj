@@ -81,17 +81,13 @@
     <Compile Include="App\WS_Bill.ashx.cs">
       <DependentUpon>WS_Bill.ashx</DependentUpon>
     </Compile>
-    <Compile Include="App\WS_Order.ashx.cs">
-      <DependentUpon>WS_Order.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="App\WS_Store.ashx.cs">
-      <DependentUpon>WS_Store.ashx</DependentUpon>
-    </Compile>
     <Compile Include="App\WS_Dish.ashx.cs">
       <DependentUpon>WS_Dish.ashx</DependentUpon>
     </Compile>
+    <Compile Include="App\WS_Order.ashx.cs">
+      <DependentUpon>WS_Order.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Helper\OrderHelper.cs" />
-    <Compile Include="Helper\PrintAdapter.cs" />
     <Compile Include="IServices\ts_Dicts.ashx.cs">
       <DependentUpon>ts_Dicts.ashx</DependentUpon>
     </Compile>
@@ -104,23 +100,11 @@
     <Compile Include="IServices\WSTB_Bill.ashx.cs">
       <DependentUpon>WSTB_Bill.ashx</DependentUpon>
     </Compile>
-    <Compile Include="IServices\WSTB_BillCoupon.ashx.cs">
-      <DependentUpon>WSTB_BillCoupon.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WSTB_BillReturn.ashx.cs">
-      <DependentUpon>WSTB_BillReturn.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WSTB_Functions.ashx.cs">
-      <DependentUpon>WSTB_Functions.ashx</DependentUpon>
-    </Compile>
     <Compile Include="IServices\WSTB_Order.ashx.cs">
       <DependentUpon>WSTB_Order.ashx</DependentUpon>
     </Compile>
     <Compile Include="IServices\WSTB_OrderDish.ashx.cs">
       <DependentUpon>WSTB_OrderDish.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WSTB_UserDiscountScheme.ashx.cs">
-      <DependentUpon>WSTB_UserDiscountScheme.ashx</DependentUpon>
     </Compile>
     <Compile Include="IServices\WS_Common.ashx.cs">
       <DependentUpon>WS_Common.ashx</DependentUpon>
@@ -130,9 +114,6 @@
     </Compile>
     <Compile Include="IServices\WS_TB_DishType.ashx.cs">
       <DependentUpon>WS_TB_DishType.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_TB_MemCard.ashx.cs">
-      <DependentUpon>WS_TB_MemCard.ashx</DependentUpon>
     </Compile>
     <Compile Include="IServices\WS_TB_ShoppingCart.ashx.cs">
       <DependentUpon>WS_TB_ShoppingCart.ashx</DependentUpon>
@@ -146,9 +127,6 @@
     <Compile Include="IServices\WS_TB_Admins.ashx.cs">
       <DependentUpon>WS_TB_Admins.ashx</DependentUpon>
     </Compile>
-    <Compile Include="IServices\WS_TB_DiscountScheme.ashx.cs">
-      <DependentUpon>WS_TB_DiscountScheme.ashx</DependentUpon>
-    </Compile>
     <Compile Include="IServices\WS_TB_Functions.ashx.cs">
       <DependentUpon>WS_TB_Functions.ashx</DependentUpon>
     </Compile>
@@ -160,12 +138,6 @@
     </Compile>
     <Compile Include="IServices\WS_TB_UserRole.ashx.cs">
       <DependentUpon>WS_TB_UserRole.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WS_TM_SystemSettings.ashx.cs">
-      <DependentUpon>WS_TM_SystemSettings.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="IServices\WSTB_OnlineBill.ashx.cs">
-      <DependentUpon>WSTB_OnlineBill.ashx</DependentUpon>
     </Compile>
     <Compile Include="ISTest.aspx.cs">
       <DependentUpon>ISTest.aspx</DependentUpon>
@@ -197,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IServices\WS_TB_Admins.ashx" />
-    <Content Include="IServices\WS_TB_DiscountScheme.ashx" />
     <Content Include="IServices\WS_TB_Functions.ashx" />
     <Content Include="IServices\WS_TB_RoleFunction.ashx" />
     <Content Include="IServices\WS_TB_Roles.ashx" />
@@ -209,13 +180,9 @@
     <Content Include="IServices\WSTB_OrderDish.ashx" />
     <Content Include="IServices\WS_TB_DishType.ashx" />
     <Content Include="IServices\WS_TB_ShoppingCart.ashx" />
-    <Content Include="IServices\WS_TM_SystemSettings.ashx" />
     <Content Include="IServices\ts_Dicts.ashx" />
     <Content Include="IServices\WSTB_BackOrder.ashx" />
     <Content Include="IServices\WSTB_Bill.ashx" />
-    <Content Include="IServices\WSTB_BillCoupon.ashx" />
-    <Content Include="IServices\WSTB_Functions.ashx" />
-    <Content Include="IServices\WS_TB_MemCard.ashx" />
     <Content Include="templateData\dishePackageInfo.xlsx" />
     <Content Include="templateData\dishesInfo.xlsx" />
     <Content Include="templateData\dishtemplate.xlsx" />
@@ -226,16 +193,12 @@
     <Folder Include="uploadtemplate\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\WS_Store.ashx" />
-    <Content Include="App\WS_Dish.ashx" />
     <Content Include="App\WS_Order.ashx" />
     <Content Include="App\WS_Bill.ashx" />
-    <Content Include="IServices\WSTB_UserDiscountScheme.ashx" />
     <Content Include="IServices\WS_Common.ashx" />
-    <Content Include="IServices\WSTB_OnlineBill.ashx" />
-    <Content Include="IServices\WSTB_BillReturn.ashx" />
     <Content Include="IServices\WSCreateQRCode.ashx" />
     <Content Include="libman.json" />
+    <Content Include="App\WS_Dish.ashx" />
     <None Include="Properties\PublishProfiles\111.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />

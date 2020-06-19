@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表统计</MainMenu>
+  <SubMenu>收入凭证生成</SubMenu>
+  <Menu>收入凭证生成</Menu>
+  <Title>收入凭证生成</Title>
+  <GoBack>收入凭证生成</GoBack>
+  <Edittitle>收入凭证生成</Edittitle>
+
+  <fdate_where>生成日期：</fdate_where>
+  <zy_where>单据摘要：</zy_where>
+  <kmname_where>科目名称：</kmname_where>
+  <cbname_where>成本名称：</cbname_where>
+  <gys_where>供应商：</gys_where>
+  <sto_where>门店：</sto_where>
+
+  <fbillhead_list>单据头序号</fbillhead_list>
+  <faccountbookid_list>账簿编码</faccountbookid_list>
+  <faccountbookname_list>账簿名称</faccountbookname_list>
+  <fdate_list>生成日期</fdate_list>
+  <pzno_list>凭证号</pzno_list>
+  <hsid_list>核算组织编码</hsid_list>
+  <hsname_list>核算组织名称</hsname_list>
+  <audtime_list>审核日期</audtime_list>
+  <djtid_list>单据体序号</djtid_list>
+  <fexplanation_list>摘要</fexplanation_list>
+  <faccounttid_list>科目编码</faccounttid_list>
+  <faccountname_list>科目名称</faccountname_list>
+  <cuscode_list>客户编码</cuscode_list>
+  <cusname_list>客户名称</cusname_list>
+  <depcode_list>部门编码</depcode_list>
+  <depname_list>部门名称</depname_list>
+  <supcode_list>供应商编码</supcode_list>
+  <supname_list>供应商名称</supname_list>
+  <ymoney_list>原币金额</ymoney_list>
+  <jmoney_list>借方金额</jmoney_list>
+  <dmoney_list>贷方金额</dmoney_list>
+
+  <tab1>基本信息</tab1>
+
+  <storerefer>选择门店</storerefer>
+  <save_btn>保存</save_btn>
+</Pages>

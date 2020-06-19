@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表设置</MainMenu>
+  <SubMenu>关系设置</SubMenu>
+  <Menu>关系设置</Menu>
+  <!--财务关系-条件-->
+  <type_where>类型：</type_where>
+  <stocode_where>门店：</stocode_where>
+  <typesel_where>选择类型：</typesel_where>
+  <stocodesel_where>选择门店：</stocodesel_where>
+  <!--财务关系-->
+  <tips1>设置值</tips1>
+  <tips2>是否删除选中数据？</tips2>
+  <tips3>确定</tips3>
+  <tips4>取消</tips4>
+  <tips5>删除成功</tips5>
+  <tips6>请选择要添加的门店</tips6>
+  <tips7>请选择要添加的档口</tips7>
+  <tips8>请先设置要添加的数据</tips8>
+  <tab1>基本信息</tab1>
+  <!--财务关系-Grid-->
+  <type_list>类型</type_list>
+  <stocode_list>门店</stocode_list>
+  <itemcode_list>分类</itemcode_list>
+  <datacodes_list>项目</datacodes_list>
+</Pages>

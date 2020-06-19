@@ -1,0 +1,19 @@
+﻿.List_tab tr:last-child td {
+    border: none;
+}
+
+.List_tab .lsttr td {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.auditdescr {
+    border: #83b3d9 1px solid;
+    background: #f2f7fb;
+    float: left;
+    margin: 10px 10px 10px 60px;
+    padding:8px 0px 8px 20px;
+    width: 88%;
+    height: auto;
+    line-height: 25px;
+}

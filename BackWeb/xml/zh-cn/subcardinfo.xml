@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡设置</MainMenu>
+  <SubMenu>次卡信息</SubMenu>
+  <Menu>次卡信息</Menu>
+  <storerefer>次卡信息</storerefer>
+  <pmobile_where>手机号：</pmobile_where>
+  <pname_where>次卡名称：</pname_where>
+  <status_where>状态：</status_where>
+  <date_where>发放时间：</date_where>
+  <stocode_where>发卡门店：</stocode_where>
+  <!--列表-条件-->
+
+  <!--列表-Grid-->
+  <memcode_list>领取会员</memcode_list>
+  <wxname_list>微信昵称</wxname_list>
+  <mobile_list>手机号</mobile_list>
+  <cardname_list>次卡名称</cardname_list>
+  <income_list>总次数</income_list>
+  <price_list>单价（元）</price_list>
+  <balance_list>剩余次数</balance_list>
+  <activetime_list>生效时间</activetime_list>
+  <status_list>卡状态</status_list>
+  <stocode_list>发卡门店</stocode_list>
+  <cname_list>发卡人</cname_list>
+  <ctime_list>发卡时间</ctime_list>
+
+  <!--次卡信息-->
+  <tab1>基本信息</tab1>
+  <span_cardcode>卡编号：</span_cardcode>
+  <span_cardname>卡名称：</span_cardname>
+  <span_ctime>发卡时间：</span_ctime>
+  <span_activetime>卡有效期：</span_activetime>
+  <span_memcode>领取人账号：</span_memcode>
+  <span_nickname>微信昵称：</span_nickname>
+  <span_mobile>手机号：</span_mobile>
+  <span_total>卡内总次数：</span_total>
+  <span_balance>剩余次数：</span_balance>
+  <span_status>卡状态：</span_status>
+  <span_priceSold>售卖价格：</span_priceSold>
+  <span_price>实际单价：</span_price>
+  <span_cname>发卡人：</span_cname>
+  <span_stoname>发卡门店：</span_stoname>
+  <span_zname>作废人：</span_zname>
+  <span_ztime>作废时间：</span_ztime>
+
+</Pages>

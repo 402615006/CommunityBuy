@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>餐收报表</MainMenu>
+  <SubMenu>按档口营业汇总</SubMenu>
+  <Menu>按档口营业汇总</Menu>
+  <Title>按档口营业汇总</Title>
+  <GoBack>按档口营业汇总</GoBack>
+  <!--财务类别列表-条件-->
+  <date_list>日期：</date_list>
+  <stoname_list>所属门店：</stoname_list>
+  <storerefer>选择门店</storerefer>
+  <starttime_placeholder>请输入开始日期</starttime_placeholder>
+  <endtime_placeholder>请输入结束日期</endtime_placeholder>
+</Pages>

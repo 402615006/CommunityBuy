@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表统计</MainMenu>
+  <SubMenu>商品订单报表</SubMenu>
+  <Menu>商品订单报表</Menu>
+  <Title>商品订单报表</Title>
+  <GoBack>商品订单报表</GoBack>
+  <Edittitle>商品订单报表</Edittitle>
+
+  <tab1>基本信息</tab1>
+
+  <save_btn>保存</save_btn>
+</Pages>

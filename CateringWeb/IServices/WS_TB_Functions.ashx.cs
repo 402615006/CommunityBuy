@@ -28,7 +28,6 @@ namespace CommunityBuy.IServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-                    logentity.module = "系统功能管理";
                     switch (actionname.ToLower())
                     {
                         case "getlist"://列表
@@ -51,15 +50,6 @@ namespace CommunityBuy.IServices
                             break;
                         case "getfunctionlistbyparentidandstocode":
                             GetFunctionListByParentIdAndStocode(dicPar);
-                            break;
-                        case "getfirfunctionbystocode"://获取当前登录用户的一级权限
-                            GetFirFunctionByStocode(dicPar);
-                            break;
-                        case "getuserfunctions"://获取当前登录用户的所有权限
-                            GetUserFunctionList(dicPar);
-                            break;
-                        case "getfunctionlistbyparentidsp":
-                            GetFunctionListByParentIdSP(dicPar);
                             break;
                     }
                 }
@@ -112,7 +102,7 @@ namespace CommunityBuy.IServices
             int totalPage = 0;
             //调用逻辑
             dt = bll.GetPagingListInfo(GUID, userid, pageSize, currentPage, filter, order, out recordCount, out totalPage);
-            ReturnListJson(dt);
+            ReturnListJson(dt,pageSize, recordCount, currentPage,totalPage);
         }
 
         private void Add(Dictionary<string, object> dicPar)
@@ -144,13 +134,8 @@ namespace CommunityBuy.IServices
             string Descr = dicPar["Descr"].ToString();
             string CCode = dicPar["CCode"].ToString();
             //调用逻辑
-            logentity.pageurl = "TB_FunctionsEdit.html";
-            logentity.logcontent = "新增系统功能管理信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            logentity.otype = SystemEnum.LogOperateType.Add;
-            dt = bll.Add(GUID, userid, out Id, BusCode, StoCode, CCname, TStatus, FType, ParentId, Code, Cname, BtnCode, Orders, ImgName, Url, Level, Descr, CCode, entity);
-
-            ReturnListJson(dt);
+            bll.Add(GUID, userid, Id, BusCode, StoCode, CCname, TStatus, FType, ParentId, Code, Cname, BtnCode, Orders, ImgName, Url, Level, Descr, CCode);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         private void Update(Dictionary<string, object> dicPar)
@@ -182,13 +167,12 @@ namespace CommunityBuy.IServices
             string Descr = dicPar["Descr"].ToString();
             string CCode = dicPar["CCode"].ToString();
             //调用逻辑
-            logentity.pageurl = "TB_FunctionsEdit.html";
-            logentity.logcontent = "修改id为:" + Id + "的系统功能管理信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            logentity.otype = SystemEnum.LogOperateType.Edit;
-            dt = bll.Update(GUID, userid, Id, BusCode, StoCode, CCname, TStatus, FType, ParentId, Code, Cname, BtnCode, Orders, ImgName, Url, Level, Descr, CCode, entity);
+            TB_FunctionsEntity UEntity = bll.GetEntitySigInfo(" where id="+ Id);
+            UEntity.Cname = Cname;
 
-            ReturnListJson(dt);
+
+             bll.Update(GUID, userid, UEntity);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         private void Detail(Dictionary<string, object> dicPar)
@@ -206,7 +190,7 @@ namespace CommunityBuy.IServices
             string Id = dicPar["Id"].ToString();
             //调用逻辑			
             dt = bll.GetPagingSigInfo(GUID, userid, "where Id=" + Id);
-            ReturnListJson(dt);
+            ReturnListJson(dt,null,null,null,null);
         }
 
         private void Delete(Dictionary<string, object> dicPar)
@@ -223,12 +207,9 @@ namespace CommunityBuy.IServices
             string userid = dicPar["userid"].ToString();
             string Id = dicPar["Id"].ToString();
             //调用逻辑
-            logentity.pageurl = "TB_FunctionsList.html";
-            logentity.logcontent = "删除id为:" + Id + "的系统功能管理信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            logentity.otype = SystemEnum.LogOperateType.Delete;
-            dt = bll.Delete(GUID, userid, Id, entity);
-            ReturnListJson(dt);
+
+            bll.Delete(GUID, userid, Id);
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         /// <summary>
@@ -251,12 +232,12 @@ namespace CommunityBuy.IServices
             string status = dicPar["tstatus"].ToString();
 
             string Id = dicPar["ids"].ToString().Trim(',');
-            logentity.pageurl = "TB_FunctionsList.html";
-            logentity.logcontent = "修改状态id为:" + Id + "的系统功能管理信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            DataTable dt = bll.UpdateStatus(GUID, userid, Id, status);
+            TB_FunctionsEntity UEntity = bll.GetEntitySigInfo(" where id=" + ids);
+            UEntity.TStatus = status;
 
-            ReturnListJson(dt);
+            bll.Update(GUID, userid, UEntity);
+
+            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
         }
 
         /// <summary>
@@ -278,113 +259,8 @@ namespace CommunityBuy.IServices
             string userid = dicPar["userid"].ToString();
             string parentid = dicPar["parentid"].ToString();
             string stocode = string.Empty;
-            Hashtable ht = new Hashtable();
-            if (HttpContext.Current.Cache.IsExist(userid + "CommunityBuy_LoginInfo"))
-            {
-                ht = (Hashtable)HttpContext.Current.Cache.GetCache(userid + "CommunityBuy_LoginInfo");
-                if (ht[userid] == null)
-                {
-                    stocode = GetUserRoleCodes(userid);
-                    ht.Add(userid, stocode);
-                    HttpContext.Current.Cache.Insert(userid + "CommunityBuy_LoginInfo", ht);
-                }
-                else
-                {
-                    stocode = ht[userid].ToString();
-                }
-            }
-            else
-            {
-                stocode = GetUserRoleCodes(userid);
-                ht.Add(userid, stocode);
-                HttpContext.Current.Cache.Insert(userid + "CommunityBuy_LoginInfo", ht);
-            }
-
             dt = bll.GetFunctionListByParentId(GUID, userid, parentid, stocode);
-            ReturnListJson(dt);
+            ReturnListJson(dt,null,null,null,null);
         }
-
-        /// <summary>
-        /// 获取二级三级权限（根据一级）
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void GetFunctionListByParentIdSP(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "userid" };
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string userid = dicPar["userid"].ToString();
-
-            dt = bll.GetFunctionListByParentIdSP(GUID, userid);
-            ReturnListJson(dt);
-        }
-
-        /// <summary>
-        /// 获取当前登录用户的一级权限
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void GetFirFunctionByStocode(Dictionary<string, object> dicPar)
-        {
-            try
-            {
-                //要检测的参数信息
-                List<string> pra = new List<string>() { "GUID", "userid" };
-                //检测方法需要的参数
-                if (!CheckActionParameters(dicPar, pra))
-                {
-                    return;
-                }
-
-                //获取参数信息
-                string GUID = dicPar["GUID"].ToString();
-                string userid = dicPar["userid"].ToString();
-                string stocode = ((Hashtable)HttpContext.Current.Cache.GetCache(userid + "CommunityBuy_LoginInfo"))[userid].ToString();
-                dt = bll.GetFirFunction(GUID, userid, stocode);
-                ReturnListJson(dt);
-            }
-            catch (Exception)
-            {
-                ToCustomerJson("2", "登陆超时");
-                return;
-            }
-        }
-
-        /// <summary>
-        /// 获取当前登录用户所有权限
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void GetUserFunctionList(Dictionary<string, object> dicPar)
-        {
-            try
-            {
-                //要检测的参数信息
-                List<string> pra = new List<string>() { "GUID", "userid","stocode"};
-                //检测方法需要的参数
-                if (!CheckActionParameters(dicPar, pra))
-                {
-                    return;
-                }
-
-                //获取参数信息
-                string GUID = dicPar["GUID"].ToString();
-                string userid = dicPar["userid"].ToString();
-                string stocode = dicPar["stocode"].ToString();
-                dt = bll.GetUserFunctionList(GUID, userid, stocode);
-                ReturnListJson(dt);
-            }
-            catch (Exception)
-            {
-                ToCustomerJson("2", "登陆超时");
-                return;
-            }
-        }
-
     }
 }

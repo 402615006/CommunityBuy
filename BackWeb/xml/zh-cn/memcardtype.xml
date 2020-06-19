@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员卡设置</MainMenu>
+  <SubMenu>会员卡类型</SubMenu>
+  <Menu>会员卡类型</Menu>
+  <!--会员卡类型列表-条件-->
+
+  <mctcode_where>类型编码：</mctcode_where>
+  <cname_where>类型名称：</cname_where>
+  <status_where>状态：</status_where>
+  <!--会员卡类型列表-Grid-->
+  <mctcode_list>类型编码</mctcode_list>
+  <cname_list>类型名称</cname_list>
+  <addcardcost_list>发卡费用</addcardcost_list>
+  <fillcardcost_list>补卡费用</fillcardcost_list>
+  <incardcost_list>换卡费用</incardcost_list>
+  <pledge_list>押金</pledge_list>
+  <status_list>状态</status_list>
+  <cuser_list>创建人</cuser_list>
+  <ctime_list>创建时间</ctime_list>
+
+  <!--会员卡类型-新增-->
+  <tab1>基本信息</tab1>
+  <span_mctid>：</span_mctid>
+  <mctcode_placeholder>4位字符以内</mctcode_placeholder>
+  <span_mctcode>类型编码：</span_mctcode>
+  <span_buscode>商户编号：</span_buscode>
+  <buscode_placeholder>请输入商户编号</buscode_placeholder>
+  <span_strcode>门店编号：</span_strcode>
+  <strcode_placeholder>请输入门店编号</strcode_placeholder>
+  <span_cname>类型名称：</span_cname>
+  <cname_placeholder>请输入类型名称</cname_placeholder>
+  <span_notstocode>不适用门店：</span_notstocode>
+  <notstocode_placeholder>不输入则所有门店可适用此卡类型</notstocode_placeholder>
+  <span_ispay>是否可充值：</span_ispay>
+  <span_isquit>是否可退卡：</span_isquit>
+  <span_isnum>是否计次卡：</span_isnum>
+  <ispay_placeholder>请输入是否可充值</ispay_placeholder>
+  <span_remark>备注：</span_remark>
+  <remark_placeholder>请输入备注</remark_placeholder>
+  <span_addcardcost>发卡费用：</span_addcardcost>
+  <addcardcost_placeholder>不超过18位的小数或整数</addcardcost_placeholder>
+  <span_fillcardcost>补卡费用：</span_fillcardcost>
+  <fillcardcost_placeholder>不超过18位的小数或整数</fillcardcost_placeholder>
+  <span_incardcost>换卡费用：</span_incardcost>
+  <incardcost_placeholder>不超过18位的小数或整数</incardcost_placeholder>
+  <span_pledge>押金：</span_pledge>
+  <pledge_placeholder>不超过18位的小数或整数</pledge_placeholder>
+  <span_status>状态：</span_status>
+  <span_orderno>排序号：</span_orderno>
+  <orderno_placeholder>请输入排序号</orderno_placeholder>
+  <span_cuser>创建人：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <span_uuser>最后更新人标识：</span_uuser>
+  <span_utime>更新时间：</span_utime>
+  <span_isdelete>删除标志：</span_isdelete>
+  <storerefer>门店选择</storerefer>
+</Pages>

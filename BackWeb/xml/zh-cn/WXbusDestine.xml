@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>预订管理</MainMenu>
+  <SubMenu>预订管理</SubMenu>
+  <Menu>预订管理</Menu>
+  <storerefer>预订管理</storerefer>
+  <!--列表-条件-->
+  <stoName_where>门店名称：</stoName_where>
+  <username_where>用户名：</username_where>
+  <tel_where>联系方式：</tel_where>
+  
+  <!--列表-Grid-->
+  <stoname_list>门店名称</stoname_list>
+  <dicid_list>预订来源</dicid_list>
+  <desdatename_list>预订日期</desdatename_list>
+  <destime_list>预订时间</destime_list>
+  <personnum_list>人数</personnum_list>
+  <username_list>用户名</username_list>
+  <tel_list>联系电话</tel_list>
+  <dishesremark_list>点餐备注</dishesremark_list>
+  <remark_list>备注</remark_list>
+  <statusname_list>状态</statusname_list>
+  <ctime_list>创建时间</ctime_list>
+  <!--编辑-->
+  <tab1>基本信息</tab1>
+  <stoname_span>门店名称：</stoname_span>
+  <dicid_span>预订来源：</dicid_span>
+  <desdatename_span>预订日期：</desdatename_span>
+  <destime_span>预订时间：</destime_span>
+  <personnum_span>人数：</personnum_span>
+  <username_span>用户名：</username_span>
+  <tel_span>联系电话：</tel_span>
+  <dishesremark_span>点餐备注：</dishesremark_span>
+  <remark_span>备注：</remark_span>
+  <statusname_span>状态：</statusname_span>
+  <ctime_span>创建时间：</ctime_span>
+</Pages>

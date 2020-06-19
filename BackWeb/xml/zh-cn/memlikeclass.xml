@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>会员喜好设置</MainMenu>
+  <SubMenu>会员喜好设置</SubMenu>
+  <Menu>会员喜好设置</Menu>
+  <Title>会员喜好设置</Title>
+  <GoBack>会员喜好设置</GoBack>
+  <!--门店_原料分类列表-条件-->
+  <pccode_where>一级父分类：</pccode_where>
+  <status_where>状态：</status_where>
+  <!--门店_原料分类列表-Grid-->
+  <pccode_list>一级父分类</pccode_list>
+  <ccode_list>分类编号</ccode_list>
+  <cname_list>分类名称</cname_list>
+  <status_list>状态</status_list>
+  <cuser_list>创建人</cuser_list>
+  <ctime_list>创建时间</ctime_list>
+  <!--门店_原料分类-新增-->
+  <tab1>基本信息</tab1>
+  <span_mcid>标识id：</span_mcid>
+  <span_pccode>选择分类名称：</span_pccode>
+  <pccode_placeholder>请输入父分类名称</pccode_placeholder>
+  <span_ccode>分类编号：</span_ccode>
+  <ccode_placeholder>请输入分类编号</ccode_placeholder>
+  <span_cname>分类名称：</span_cname>
+  <cname_placeholder>请输入分类名称</cname_placeholder>
+  <span_status>状态：</span_status>
+  <span_msort>排序号：</span_msort>
+  <msort_placeholder>请输入排序号</msort_placeholder>
+  <span_cuser>创建人：</span_cuser>
+  <span_ctime>创建时间：</span_ctime>
+  <save_btn>保存</save_btn>
+</Pages>

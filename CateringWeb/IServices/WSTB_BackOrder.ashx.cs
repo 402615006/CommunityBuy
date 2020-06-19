@@ -26,7 +26,6 @@ namespace CommunityBuy.WServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-					logentity.module = "退单信息";
                     switch (actionname.ToLower())
                     {
                         case "getlist"://列表
@@ -38,15 +37,6 @@ namespace CommunityBuy.WServices
                         case "detail"://详细
                             Detail(dicPar);
                             break;
-                        case "update"://修改							
-                            Update(dicPar);
-                            break;
-                        case "delete"://删除
-                            Delete(dicPar);
-                            break;
-						 case "updatestatus"://修改状态
-                            UpdateStatus(dicPar);
-							break;
                     }
                 }
             }
@@ -88,7 +78,6 @@ namespace CommunityBuy.WServices
                     }
                 }
             }
-            filter = GetBusCodeWhere(dicPar, filter, "buscode");
             string order = JsonHelper.ObjectToJSON(dicPar["orders"]);
             if (order.Length > 0)
             {
@@ -99,7 +88,7 @@ namespace CommunityBuy.WServices
             int totalPage = 0;
             //调用逻辑
             dt = bll.GetPagingListInfo(GUID, USER_ID, pageSize, currentPage, filter, order, out recordCount, out totalPage);
-            ReturnListJson(dt);
+            ReturnListJson(dt, pageSize, recordCount, currentPage, totalPage);
         } 
         
         private void Add(Dictionary<string, object> dicPar)
@@ -129,81 +118,9 @@ namespace CommunityBuy.WServices
 			string Remar = dicPar["Remar"].ToString();
 			string BackNum = dicPar["BackNum"].ToString();
             string discounttype = dicPar["discounttype"].ToString();
-            //调用逻辑
-            logentity.pageurl ="TB_BackOrderEdit.html";
-			logentity.logcontent = "新增退单信息信息";
-			logentity.cuser = StringHelper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Add;
 
-            //如果是签送，返还签送额度
-            if (discounttype == "6")
-            {
-                //"GUID":"","USER_ID":"","buscode":"88888888","stocode":"12","orderno":"10001"
-                string ShortMesUrl = Helper.GetAppSettings("ServiceUrl") + "/usersign/usersign.ashx";
-                StringBuilder postStr = new StringBuilder();
-                postStr.Append("actionname=usersignreturn&parameters={" +
-                                                string.Format("'GUID':'{0}'", "") +
-                                                string.Format(",'USER_ID': '{0}'", USER_ID) +
-                                                string.Format(",'buscode': '{0}'", BusCode) +
-                                                string.Format(",'stocode': '{0}'", StoCode) +
-                                                string.Format(",'orderno': '{0}'", OrderDisCode) +
-                                        "}");//键值对
-                string strMoneytJson = Helper.HttpWebRequestByURL(ShortMesUrl, postStr.ToString());
-                string status = "";
-                string msg = "";
-                JsonHelper.JsonToMessage(strMoneytJson, out status, out msg);
-                if (status == "0")
-                {
-                    dt = bll.Add(GUID, USER_ID, Id, BusCode, StoCode, CCode, CCname, AuthCode, AuthName, TStatus, OrderCode, OrderDisCode, ReasonCode, ReasonName, Remar, BackNum, logentity);
-                }
-                else
-                {
-                    ReturnListJson("1", "反签送失败", null, null);
-                    return;
-                }
-            }
-            else
-            {
-                dt = bll.Add(GUID, USER_ID, Id, BusCode, StoCode, CCode, CCname, AuthCode, AuthName, TStatus, OrderCode, OrderDisCode, ReasonCode, ReasonName, Remar, BackNum, logentity);
-            }
-            ReturnListJson(dt);
-        }
-
-        private void Update(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "Id", "BusCode", "StoCode", "CCode", "CCname", "AuthCode", "AuthName", "TStatus", "OrderCode", "OrderDisCode", "ReasonCode", "ReasonName", "Remar", "BackNum", };
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-			string Id = dicPar["Id"].ToString();
-			string BusCode = dicPar["BusCode"].ToString();
-			string StoCode = dicPar["StoCode"].ToString();
-			string CCode = dicPar["CCode"].ToString();
-			string CCname = dicPar["CCname"].ToString();
-			string AuthCode = dicPar["AuthCode"].ToString();
-			string AuthName = dicPar["AuthName"].ToString();
-			string TStatus = dicPar["TStatus"].ToString();
-			string OrderCode = dicPar["OrderCode"].ToString();
-			string OrderDisCode = dicPar["OrderDisCode"].ToString();
-			string ReasonCode = dicPar["ReasonCode"].ToString();
-			string ReasonName = dicPar["ReasonName"].ToString();
-			string Remar = dicPar["Remar"].ToString();
-			string BackNum = dicPar["BackNum"].ToString();
-
-            //调用逻辑
-			logentity.pageurl ="TB_BackOrderEdit.html";
-			logentity.logcontent = "修改id为:"+Id+"的退单信息信息";
-			logentity.cuser = StringHelper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Edit;
-            dt = bll.Update(GUID, USER_ID,  Id, BusCode, StoCode, CCode, CCname, AuthCode, AuthName, TStatus, OrderCode, OrderDisCode, ReasonCode, ReasonName, Remar, BackNum, entity);
-            
-            ReturnListJson(dt);
+           bll.Add(GUID, USER_ID, Id, BusCode, StoCode, CCode, CCname, AuthCode, AuthName, TStatus, OrderCode, OrderDisCode, ReasonCode, ReasonName, Remar, BackNum);
+            ReturnResultJson(bll.oResult.Code,bll.oResult.Msg);
         }
 
         private void Detail(Dictionary<string, object> dicPar)
@@ -221,57 +138,7 @@ namespace CommunityBuy.WServices
             string Id = dicPar["Id"].ToString();
             //调用逻辑			
             dt = bll.GetPagingSigInfo(GUID, USER_ID, "where Id=" + Id);
-            ReturnListJson(dt);
-        }
-
-        private void Delete(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "Id"};
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string Id = dicPar["Id"].ToString();
-            //调用逻辑
-			logentity.pageurl ="TB_BackOrderList.html";
-			logentity.logcontent = "删除id为:"+Id+"的退单信息信息";
-			logentity.cuser = StringHelper.StringToLong(USER_ID);
-			logentity.otype = SystemEnum.LogOperateType.Delete;
-            dt = bll.Delete(GUID, USER_ID, Id, entity);
-            ReturnListJson(dt);
-        }
-
-		/// <summary>
-        /// 修改状态
-        /// </summary>
-        /// <param name="dicPar"></param>
-        private void UpdateStatus(Dictionary<string, object> dicPar)
-        {
-            ///要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "ids", "status" };
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            //获取参数信息
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string ids = dicPar["ids"].ToString();
-            string status = dicPar["status"].ToString();
-
-            string Id = dicPar["ids"].ToString().Trim(',');
-            logentity.pageurl ="TB_BackOrderList.html";
-			logentity.logcontent = "修改状态id为:"+Id+"的退单信息信息";
-			logentity.cuser = StringHelper.StringToLong(USER_ID);
-            DataTable dt = bll.UpdateStatus(GUID, USER_ID, Id, status);
-
-            ReturnListJson(dt);
+            ReturnListJson(dt,null,null,null,null);
         }
     }
 }

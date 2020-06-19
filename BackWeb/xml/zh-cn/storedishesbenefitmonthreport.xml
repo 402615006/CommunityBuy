@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages>
+  <MainMenu>报表统计</MainMenu>
+  <SubMenu>年度报表</SubMenu>
+  <Menu>门店年度总效益</Menu>
+  <Title>门店年度总效益</Title>
+  <GoBack>门店年度总效益</GoBack>
+</Pages>

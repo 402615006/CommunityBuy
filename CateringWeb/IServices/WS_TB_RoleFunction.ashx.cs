@@ -27,7 +27,6 @@ namespace CommunityBuy.IServices
                 Dictionary<string, object> dicPar = GetParameters();
                 if (dicPar != null)
                 {
-                    logentity.module = "角色权限详细表";
                     switch (actionname.ToLower())
                     {
                         case "getlist"://列表
@@ -92,7 +91,7 @@ namespace CommunityBuy.IServices
             string userid = dicPar["userid"].ToString();
             string roleid = dicPar["roleid"].ToString();
             dt = bll.GetRoleFunctionInfoList(GUID, userid, roleid);
-            ReturnListJson(dt);
+            ReturnListJson(dt,null,null,null,null);
         }
 
 
@@ -147,7 +146,6 @@ namespace CommunityBuy.IServices
             string order = dicPar["order"].ToString();
             int recordCount = 0;
             int totalPage = 0;
-            filter = GetBusCodeWhere(dicPar, filter, "buscode");
             //调用逻辑
             dt = bll.GetPagingListInfo(GUID, userid, pageSize, currentPage, filter, order, out recordCount, out totalPage);
             ReturnListJson(dt, pageSize, recordCount, currentPage, totalPage);
@@ -223,7 +221,7 @@ namespace CommunityBuy.IServices
             string id = dicPar["id"].ToString();
             //调用逻辑			
             dt = bll.GetPagingSigInfo(GUID, userid, "where id=" + id);
-            ReturnListJson(dt);
+            ReturnListJson(dt,1,1,1,1);
         }
 
         private void Delete(Dictionary<string, object> dicPar)
@@ -239,14 +237,8 @@ namespace CommunityBuy.IServices
             string GUID = dicPar["GUID"].ToString();
             string userid = dicPar["userid"].ToString();
             string id = dicPar["id"].ToString();
-            //调用逻辑
-            logentity.pageurl = "sto_rolefunctionList.html";
-            logentity.logcontent = "删除id为:" + id + "的角色权限详细表信息";
-            logentity.cuser = StringHelper.StringToLong(userid);
-            logentity.otype = SystemEnum.LogOperateType.Delete;
-            logentity.buscode = GetCacheToUserBusCode(logentity.cuser.ToString());
-            dt = bll.Delete(GUID, userid, id, logentity);
-            ReturnListJson(dt);
+            bll.Delete(GUID, userid, id);
+            ReturnResultJson(bll.oResult.Code,bll.oResult.Msg);
         }
     }
 }

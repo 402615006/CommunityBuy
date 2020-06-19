@@ -104,6 +104,7 @@
     <Compile Include="AsponseHelper.cs" />
     <Compile Include="BaseDataAccess.cs" />
     <Compile Include="EntityHelper.cs" />
+    <Compile Include="WebHelper.cs" />
     <Compile Include="StringHelper.cs" />
     <Compile Include="IpPrinter.cs" />
     <Compile Include="ComputerHelper.cs" />
