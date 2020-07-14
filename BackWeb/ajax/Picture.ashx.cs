@@ -44,7 +44,7 @@ namespace CommunityBuy.BackWeb.ajax
             }
             catch (Exception ex)
             {
-                ErrorLog.WriteErrorMessage(ex);
+                ErrorLog.WriteErrorMessage(ErrorLog.LogType.baselog,ex.ToString());
                 context.Response.Write("0");
             }
         }

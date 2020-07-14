@@ -1,29 +1,23 @@
-﻿using CommunityBuy.BLL;
+﻿using CommunityBuy.BackWeb.Common;
+using CommunityBuy.BLL;
 using CommunityBuy.CommonBasic;
 using System.Data;
 using System.Web;
+using System.Web.Caching;
 
 namespace CommunityBuy.BackWeb.ajax
 {
     /// <summary>
     /// toplist 的摘要说明
     /// </summary>
-    public class toplist : IHttpHandler
+    public class toplist : ServiceBase
     {
-        public void ProcessRequest(HttpContext context)
+        public override  void ProcessRequest(HttpContext context)
         {
+            base.ProcessRequest(context);
             context.Response.ContentType = "text/plain";
-            int intCount;
-            int pagenums;
-            bllFUNMAS bll = new bllFUNMAS();
-            string userid = LoginedUser.UserInfo.Rol_ID.ToString();
-
-            DataTable dt = bll.GetPagingInfo(10000, 1, "status='1' and level='1' and parentid=0  and id in(select funid from rolefunction where roleid in (" + LoginedUser.UserInfo.Rol_ID + ")) ", " orders asc", out intCount, out pagenums);
-
-            string json = Helper.DataTableToJson("authlist", dt);
-
-     
-
+            DataTable dt =base.LoginedUser.Permission.Select("parentid=0").CopyToDataTable();
+            string json = JsonHelper.DataTableToJSON(dt);
             context.Response.Write(json);
         }
 

@@ -246,7 +246,7 @@ namespace CommunityBuy.IServices
             dt = bll.GetRoleUserNameList(stocode,roletype);
             if(dt!=null && dt.Rows.Count>0)
             {
-                DataTable dtUser = new bllEmployee().GetAllAdmin();
+                DataTable dtUser = new bllAdmins().GetPagingListInfo("", "", int.MaxValue, 1, "", "", out int recnums, out int pagenums);
                 foreach (DataRow dr in dt.Rows)
                 {
                     string userid = dr["UserId"].ToString();

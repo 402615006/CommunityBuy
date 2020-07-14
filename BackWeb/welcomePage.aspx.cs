@@ -14,11 +14,9 @@ namespace CommunityBuy.BackWeb
         public string userHostAddress = "";
         public string browser = "";
 
-        BLL.bllchainsynlist bll = new BLL.bllchainsynlist();
         protected void Page_Load(object sender, EventArgs e)
         {
             machinename = Page.Server.MachineName;
-
             userHostAddress = Page.Request.UserHostAddress;
             browser = Request.Browser.Browser;
 

@@ -27,7 +27,7 @@ namespace CommunityBuy.BackWeb
         private void SetPage(string stoid)
         {
             bllStore bll = new bllStore();
-            DataTable dt = bll.GetPagingSigInfoByBack("0", "0", " where stoid='" + stoid + "'");
+            DataTable dt = bll.GetPagingSigInfo("0", "0", " where stoid='" + stoid + "'");
             if (dt != null && dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
@@ -78,7 +78,7 @@ namespace CommunityBuy.BackWeb
                 //netlinklasttime.InnerHtml = dr["netlinklasttime"].ToString();
                 calcutime.InnerHtml = DateTime.Parse(dr["calcutime"].ToString()).ToShortDateString();
                 buscode.InnerHtml = dr["busname"].ToString();
-                status.InnerHtml = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dr["status"].ToString());
+                status.InnerHtml = dr["status"].ToString() == "1" ? "有效" : "无效";
                 DataTable dtgx = new bllPaging().GetDataTableInfoBySQL("select jprice,[dbo].fnGetDistsName(firtype) as stname,ptype,stopath from storegx where stocode='" + dr["stocode"].ToString() + "'");
                 if (dtgx != null && dtgx.Rows.Count > 0)
                 {

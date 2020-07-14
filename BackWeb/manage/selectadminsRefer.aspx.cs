@@ -12,7 +12,7 @@ namespace CommunityBuy.BackWeb
         CommunityBuy.BLL.bllAdmins bll = new bllAdmins();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.PageTitle.Operate = ErrMessage.GetMessageInfoByCode("PageOperateList").Body;
+            this.PageTitle.Operate = "列表";
             if (!IsPostBack)
             {
                 BindGridView();
@@ -32,10 +32,6 @@ namespace CommunityBuy.BackWeb
             if (dt != null)
             {
                 dt.Columns.Add("statusname", typeof(string));
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    dt.Rows[i]["statusname"] = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dt.Rows[i]["status"].ToString());
-                }
                 gv_list.DataSource = dt;
                 gv_list.DataBind();
                 anp_top.RecordCount = recount;
@@ -49,10 +45,8 @@ namespace CommunityBuy.BackWeb
         {
             StringBuilder Where = new StringBuilder();
             Where.Append(" where 1=1 ");
-            //拼接Where条件
-            Where.Append(GetAuthoritywhere("stocode"));
             //用户名
-            string uname = Helper.ReplaceString(txt_uname.Value);
+            string uname =txt_uname.Value;
             if (uname.Length > 0)
             {
                 Where.Append(" and uname like '%" + uname + "%'");

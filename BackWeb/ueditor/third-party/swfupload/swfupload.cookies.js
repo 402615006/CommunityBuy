@@ -3,7 +3,7 @@
 	
 	This plug in automatically gets all the cookies for this site and adds them to the post_params.
 	Cookies are loaded only on initialization.  The refreshCookies function can be called to update the post_params.
-	The cookies will override any other post params with the same name.
+	The cookies will override any other post params with the CommunityBuye name.
 */
 
 var SWFUpload;

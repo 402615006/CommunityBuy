@@ -2,20 +2,19 @@
 using System;
 using System.Web.Security;
 using CommunityBuy.CommonBasic;
+using CommunityBuy.BackWeb.Common;
 
 namespace CommunityBuy.BackWeb
 {
-    public partial class logout : System.Web.UI.Page
+    public partial class logout :System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (LoginedUser.UserInfo != null)
-                {
+
                     FormsAuthentication.SignOut();
                     Session.Clear();
-                }
                 ClientScript.RegisterStartupScript(this.GetType(), "logout", "logout()", true);
             }
         }

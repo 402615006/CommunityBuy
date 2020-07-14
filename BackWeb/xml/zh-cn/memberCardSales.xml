@@ -140,7 +140,7 @@
   <nosales_tips>所选货品库存不足</nosales_tips>
   <salescountnot0_tips>销售数量不能为0</salescountnot0_tips>
   <to_edit>转交</to_edit>
-  <samepeople_tips>当前所选转交人员已在审核列表中</samepeople_tips>
+  <CommunityBuyepeople_tips>当前所选转交人员已在审核列表中</CommunityBuyepeople_tips>
   <gg>规格</gg>
   <date_where>销售日期：</date_where>
   <spstatus_where>审核状态：</spstatus_where>

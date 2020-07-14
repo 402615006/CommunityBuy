@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunityBuy", "CommunityBuy\CommunityBuy.csproj", "{9FEB9505-842E-4E94-9A55-3E74878E678B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{883EB676-CEE8-4FDA-9ED8-B48898A36BB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{94603E0B-BD47-4F5D-ADF6-CDBEC3A011AF}"
@@ -15,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CateringWeb", "CateringWeb\CateringWeb.csproj", "{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebControl", "WebControl\WebControl.csproj", "{E89B5C25-F4E4-48FC-BAAD-049660D21C5D}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackWeb", "BackWeb\BackWeb.csproj", "{29F012D9-465D-49F9-9779-F80D3B2547EA}"
 EndProject
 Global
@@ -23,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9FEB9505-842E-4E94-9A55-3E74878E678B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9FEB9505-842E-4E94-9A55-3E74878E678B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9FEB9505-842E-4E94-9A55-3E74878E678B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9FEB9505-842E-4E94-9A55-3E74878E678B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{883EB676-CEE8-4FDA-9ED8-B48898A36BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{883EB676-CEE8-4FDA-9ED8-B48898A36BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{883EB676-CEE8-4FDA-9ED8-B48898A36BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +43,10 @@ Global
 		{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F25B14-B112-4AA8-8C8A-C76DF6F76A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E89B5C25-F4E4-48FC-BAAD-049660D21C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E89B5C25-F4E4-48FC-BAAD-049660D21C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E89B5C25-F4E4-48FC-BAAD-049660D21C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E89B5C25-F4E4-48FC-BAAD-049660D21C5D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29F012D9-465D-49F9-9779-F80D3B2547EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29F012D9-465D-49F9-9779-F80D3B2547EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F012D9-465D-49F9-9779-F80D3B2547EA}.Release|Any CPU.ActiveCfg = Release|Any CPU

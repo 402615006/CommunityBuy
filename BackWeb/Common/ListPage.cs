@@ -8,9 +8,9 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using CommunityBuy.BLL;
 using CommunityBuy.CommonBasic;
-using Sam.WebControl;
-using Wuqi.Webdiyer;
+using CommunityBuy.WebControl;
 using Aspose.Cells;
+using Wuqi.Webdiyer;
 
 namespace CommunityBuy.BackWeb.Common
 {
@@ -64,11 +64,6 @@ namespace CommunityBuy.BackWeb.Common
                     linkb.OnClientClick = clickName;
                 }
             }
-        }
-
-        protected void VisibleToolBarTrue(string linkname)
-        {
-            VisibleToolBar(linkname, true);
         }
 
         /// <summary>

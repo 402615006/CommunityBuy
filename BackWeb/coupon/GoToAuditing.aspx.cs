@@ -39,12 +39,12 @@ namespace CommunityBuy.BackWeb
             {
                 audstatus = "2";
             }
-            string audremark = Helper.ReplaceString(txt_remark.Value);
+            string audremark =txt_remark.Value);
             DataTable dt = new DataTable();
             switch (formpage.ToLower())
             {
                 case "couponpresent"://赠送方案审核
-                    dt = new bllmarketingN().AuditStatus("", "0", hidId.Value, audstatus, LoginedUser.UserInfo.empcode.ToString(),LoginedUser.UserInfo.cname, audremark);
+                    dt = new bllmarketingN().AuditStatus("", "0", hidId.Value, audstatus, base.LoginedUser.empcode.ToString(),base.LoginedUser.cname, audremark);
                     break;
             }
 

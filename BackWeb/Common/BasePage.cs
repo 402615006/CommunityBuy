@@ -3,7 +3,7 @@ using System.Data;
 using System.Web.UI;
 using CommunityBuy.BLL;
 using CommunityBuy.CommonBasic;
-using Sam.WebControl;
+using CommunityBuy.WebControl;
 using CommunityBuy.Model;
 using System.Web.UI.HtmlControls;
 using System.Web.Caching;
@@ -11,6 +11,9 @@ using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Security;
 using System.Runtime.CompilerServices;
+using System.Web.UI.WebControls;
+using NPOI.HPSF;
+using NPOI.HSSF.Util;
 
 namespace CommunityBuy.BackWeb.Common
 {
@@ -21,8 +24,7 @@ namespace CommunityBuy.BackWeb.Common
         public string Pwd { get; set; }
         public string Name { get; set; }
         public string Mobile { get; set; }
-        public string Roleids { get; set; }
-        public string Functions { get; set; }
+        public DataTable Permission { get; set; }
         public string GUID { get; set; }
 
         /// <summary>
@@ -32,29 +34,48 @@ namespace CommunityBuy.BackWeb.Common
         /// <returns></returns>
         public LoginedUserEntity()
         {
+           
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CookieData"></param>
+        /// <returns></returns>
+        public LoginedUserEntity(string userid,string pwd,string name,string mobile)
+        {
+            this.UserID = userid;
+            this.Pwd = pwd;
+            this.Name = name;
+            this.Mobile = mobile;
+            this.GUID =Guid.NewGuid().ToString();
+        }
+
+        public void LoginFromCookie()
+        {
             string CookieData = GetFromCookieData();
-            string[] DataList = CookieData.Split('|');
-            this.UserID = DataList[0];
-            this.Pwd = DataList[1];
-            this.Name = DataList[2];
-            this.Mobile = DataList[3];
-            this.Roleids = DataList[4];
-            this.Functions = DataList[5];
-            this.GUID = DataList[6];
+            if (!string.IsNullOrWhiteSpace(CookieData))
+            {
+                string[] DataList = CookieData.Split('|');
+                this.UserID = DataList[0];
+                this.Pwd = DataList[1];
+                this.Name = DataList[2];
+                this.Mobile = DataList[3];
+                this.GUID = DataList[5];
+            }
         }
 
         /// <summary>
         /// 用户登录信息
         /// </summary>
-        private void SetLoginCookie()
+        public void SetLoginCookie()
         {
-
             HttpCookie hcCurrent = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
             if (hcCurrent != null)
             {
                 HttpContext.Current.Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
             }
-            string sData =this.UserID+"|"+ this.Pwd + "|"+this.Name + "|"+this.Mobile + "|"+this.UserID + "|"+this.Roleids + "|"+this.Functions + "|"+this.GUID;
+            string sData =this.UserID+"|"+ this.Pwd + "|"+this.Name + "|"+this.Mobile + "|"+this.UserID + "|"+this.GUID;
             sData = OEncryp.Encrypt(sData);
             HttpCookie authCookie = FormsAuthentication.GetAuthCookie(this.GUID, false);
             FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
@@ -65,7 +86,7 @@ namespace CommunityBuy.BackWeb.Common
             authCookie.Domain = FormsAuthentication.CookieDomain;
             HttpContext.Current.Response.Cookies.Add(authCookie);
         }
-        private string GetFromCookieData()
+        public string GetFromCookieData()
         {
                 string sCookieName = FormsAuthentication.FormsCookieName;
                 HttpCookie authCookie = HttpContext.Current.Request.Cookies[sCookieName];
@@ -83,6 +104,7 @@ namespace CommunityBuy.BackWeb.Common
                     }
                     catch (Exception e)
                     {
+                        return null;
                     }
                 }
                 FormsAuthenticationTicket authTicket = null;
@@ -117,7 +139,7 @@ namespace CommunityBuy.BackWeb.Common
     {
 
         Cache WebCache = HttpContext.Current.Cache;
-        LoginedUserEntity LoginedUser = new LoginedUserEntity();
+        public LoginedUserEntity LoginedUser = null;
 
         /// <summary>
         /// 检测cookie是否过期
@@ -125,6 +147,12 @@ namespace CommunityBuy.BackWeb.Common
         /// <param name="e"></param>
         protected override void OnInit(EventArgs e)
         {
+            LoginedUser = new LoginedUserEntity();
+            LoginedUser.LoginFromCookie();
+            if (!string.IsNullOrWhiteSpace(LoginedUser.UserID))
+            {
+                LoginedUser =(LoginedUserEntity)Context.Cache.Get("logincache_"+LoginedUser.UserID);
+            }
             //判断cookie是否过期
             if (LoginedUser == null)
             {
@@ -158,75 +186,20 @@ namespace CommunityBuy.BackWeb.Common
                 Response.Write("<script> top.location.href='" + Helper.GetAppSettings("NoAuthorizationPageUrl") + "';</script>");
                 return;
             }
-
-            string Fcode = pathBar.PageCode;
-            if (Fcode == "StockSemiProOutlist")
-            {
-                if (Request["type"] == "1")
-                {
-                    Fcode = "StockSemiProOutlist";
-                }
-                else if (Request["type"] == "2")
-                {
-                    Fcode = "StockSalelist";
-                }
-                else
-                {
-                    Fcode = "StockWineOutList";
-                }
-            }
-            else if (Fcode == "StockSemiPro")
-            {
-                if (Request["type"] == "1")
-                {
-                    Fcode = "StockSemiProlist";
-                }
-                else
-                {
-                    Fcode = "StockWineList";
-                }
-            }
             string Ptype = pathBar.PageType.ToString().ToLower();
             if (Ptype == "normal" || Ptype == "referer")//不验证权限
             {
                 return;
             }
-            int intCount;
-            int intPagenums;
-            bllFUNMAS _bll = new bllFUNMAS();
-            DataTable dt = new DataTable();
-            if (WebCache.Get("RoleInfo_BackWeb_" + LoginedUser)!=null)
-            {
-                dt = (DataTable)WebCache.Get("RoleInfo_BackWeb_" + LoginedUser);
-            }
-            else
-            {
-                dt = _bll.GetPagingInfo(10000, 1, "ftype=1 and id in(select funid from rolefunction where  roleid in(" + LoginedUser.Roleids + "))", " order by orders asc", out intCount, out intPagenums);
-                WebCache.Insert("RoleInfo_BackWeb_" + LoginedUser, dt);
-            }
 
-            if (dt != null && dt.Rows.Count > 0)
+            if (WebCache.Get("RoleInfo_BackWeb_" + LoginedUser.UserID)!=null)
             {
+                LoginedUser = (LoginedUserEntity)WebCache.Get("RoleInfo_BackWeb_" + LoginedUser.UserID);
                 //获取一级菜单
-                DataRow[] drs = dt.Select(" code='" + Fcode + "'");
-                if (drs.Length == 0)
+                if (LoginedUser.Permission.Rows.Count== 0)
                 {
                     Response.Write("<script> top.location.href='" + Helper.GetAppSettings("NoAuthorizationPageUrl") + "';</script>");
                     return;
-                }
-                switch (Ptype)
-                {
-                    case "add":
-                    case "edit":
-                    case "found":
-                    case "sendbatchcard":  //批量发卡
-                        drs = dt.Select(" code='" + Fcode + "' and btnname='" + Ptype.ToString() + "'");
-                        if (drs.Length == 0)
-                        {
-                            Response.Write("<script> top.location.href='" + Helper.GetAppSettings("NoAuthorizationPageUrl") + "';</script>");
-                            return;
-                        }
-                        break;
                 }
             }
         }
@@ -273,5 +246,44 @@ namespace CommunityBuy.BackWeb.Common
             return Flag;
         }
 
+        /// <summary>
+        /// 绑定数据到DDL
+        /// </summary>
+        /// <param name="DDL"></param>
+        /// <param name="dtData"></param>
+        /// <param name="TextField"></param>
+        /// <param name="ValueField"></param>
+        /// <param name="SelectOrALL"></param>
+        protected  static void BindDropDownListInfo(DropDownList DDL, DataTable dtData, string TextField, string ValueField, int SelectOrALL)
+        {
+            if (dtData != null)
+            {
+                try
+                {
+                    if (DDL != null)
+                    {
+                        DDL.Items.Clear();
+                        DDL.DataSource = dtData;
+                        DDL.DataTextField = TextField;
+                        DDL.DataValueField = ValueField;
+                        DDL.DataBind();
+                    }
+                }
+                catch
+                { }
+            }
+            switch (SelectOrALL)
+            {
+                case 1:
+                    DDL.Items.Insert(0, new ListItem("--无--", ""));
+                    break;
+                case 2:
+                    DDL.Items.Insert(0, new ListItem("--全部--", ""));
+                    break;
+                case 3:
+                    DDL.Items.Insert(0, new ListItem("--全部--", "0"));
+                    break;
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StoreList.aspx.cs" Inherits="CommunityBuy.BackWeb.StoreList" %>
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
-<%@ Register Assembly="Sam.WebControl" Namespace="Sam.WebControl" TagPrefix="cc1" %>
+<%@ Register Assembly="CommunityBuy.WebControl" Namespace="CommunityBuy.WebControl" TagPrefix="cc1" %>
 <%@ Register Src="/UserControls/ToolBar.ascx" TagPrefix="uc2" TagName="ToolBar" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -101,7 +101,6 @@
                             <HeaderStyle CssClass="chooseclass"></HeaderStyle>
                             <ItemStyle CssClass="chooseclass"></ItemStyle>
                         </asp:TemplateColumn>
-                        <asp:BoundColumn DataField="busname" HeaderText="<span data-code='buscode_list' >所属商户</span>" />
                         <asp:BoundColumn DataField="stocode" HeaderText="<span data-code='stocode_list' >门店编号</span>" SortExpression="stocode" />
                         <asp:TemplateColumn>
                             <HeaderTemplate><span data-code='cname_list'></span></HeaderTemplate>

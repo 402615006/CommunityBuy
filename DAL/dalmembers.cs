@@ -133,11 +133,11 @@ namespace CommunityBuy.DAL
                 new SqlParameter("@mescode",SqlDbType.VarChar,128)
              };
 
-            sqlParameters[27].Direction = ParameterDirection.Output;
+            sqlParameters[sqlParameters.Length - 1].Direction = ParameterDirection.Output;
             intReturn = DBHelper.ExecuteNonQuery("dbo.p_members_Update", CommandType.StoredProcedure, sqlParameters);
             if (intReturn != -1)
             {
-                MesCode = sqlParameters[27].Value.ToString();
+                MesCode = sqlParameters[sqlParameters.Length-1].Value.ToString();
             }
 
             return intReturn;

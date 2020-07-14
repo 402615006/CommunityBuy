@@ -96,8 +96,8 @@ namespace CommunityBuy.IServices
             int recordCount = 0;
             int totalPage = 0;
             //调用逻辑
-           dt =new bllEmployee().GetCustomerManager(currentPage,pageSize, filter, order, out recordCount, out totalPage);
-            ReturnListJson(dt, pageSize, recordCount, currentPage, totalPage);
+           //dt =new bllEmployee().GetCustomerManager(currentPage,pageSize, filter, order, out recordCount, out totalPage);
+           // ReturnListJson(dt, pageSize, recordCount, currentPage, totalPage);
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace CommunityBuy.IServices
                         {
                             //从emp表中获取权限门店
                             int nums = 0;
-                            DataTable dtEmployee = new bllEmployee().GetEmpStoList(dtAdmin.Rows[0]["GUID"].ToString(), dtAdmin.Rows[0]["userid"].ToString(), int.MaxValue, 1, "t.userid=" + dtAdmin.Rows[0]["userid"].ToString(), "", out nums, out nums);
+                            DataTable dtEmployee = new bllAdmins().GetPagingListInfo(dtAdmin.Rows[0]["GUID"].ToString(), dtAdmin.Rows[0]["userid"].ToString(), int.MaxValue, 1, "t.userid=" + dtAdmin.Rows[0]["userid"].ToString(), "", out nums, out nums);
                             if (dtEmployee != null && dtEmployee.Rows.Count > 0)
                             {
                                 adminStocode = dtEmployee.Rows[0]["empstocode"].ToString();
@@ -238,7 +238,7 @@ namespace CommunityBuy.IServices
             int currentPage = StringHelper.StringToInt(dicPar["page"].ToString());
             int recordCount = 0;
             int totalPage = 0;
-            dt = new bllEmployee().GetEmpStoList(GUID, USER_ID, 1, 1, "where t.userid=" + userid + "", "", out recordCount, out totalPage);
+            dt = new bllAdmins().GetPagingListInfo(GUID, USER_ID, 1, 1, "where t.userid=" + userid, "", out recordCount, out totalPage);
 
             #region 信息
             DataTable dtUserRole = new bllTB_UserRole().GetRoleListUser(userid, "");
@@ -325,7 +325,7 @@ namespace CommunityBuy.IServices
             }
             int recordCount = 0;
             int totalPage = 0;
-            dt = new bllEmployee().GetEmpStoList(GUID, USER_ID, pageSize, currentPage, filter, order, out recordCount, out totalPage);
+            dt = new bllAdmins().GetPagingListInfo(GUID, USER_ID, pageSize, currentPage, filter, order, out recordCount, out totalPage);
             DataTable dtLocalUserRoleName = new bllTB_UserRole().GetUserRoleNameList(BusCode);
             if (dt != null && dt.Rows.Count > 0 && dtLocalUserRoleName != null && dtLocalUserRoleName.Rows.Count > 0)
             {

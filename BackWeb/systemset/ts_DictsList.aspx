@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ts_DictsList.aspx.cs" Inherits="CommunityBuy.BackWeb.systemset.ts_DictsList" %>
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
-<%@ Register Assembly="Sam.WebControl" Namespace="Sam.WebControl" TagPrefix="cc1" %>
+<%@ Register Assembly="CommunityBuy.WebControl" Namespace="CommunityBuy.WebControl" TagPrefix="cc1" %>
 <%@ Register Src="/UserControls/ToolBar.ascx" TagPrefix="uc2" TagName="ToolBar" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,15 +38,15 @@
 
         function settreeinfo(data) {
             //alert(data['dictlist']);
-            console.log(data["dictlist"][0].orderno);
+            console.log(data[0].orderno);
             //$("parentName").html(data["dictlist"][0].orderno);
 
-            $('#parentName').text(data["dictlist"][0].pname);
-            $('#diccode').text(data["dictlist"][0].diccode);
-            $('#dicname').text(data["dictlist"][0].dicname);
-            $('#orderno').text(data["dictlist"][0].orderno);
-            $('#status').text(data["dictlist"][0].status == 0 ? "无效" : "有效");
-            $('#remark').text(data["dictlist"][0].remark);
+            $('#parentName').text(data[0].pname);
+            $('#diccode').text(data[0].diccode);
+            $('#dicname').text(data[0].dicname);
+            $('#orderno').text(data[0].orderno);
+            $('#status').text(data[0].status == 0 ? "无效" : "有效");
+            $('#remark').text(data[0].remark);
         }
 
         //ajax再封装,purl:地址,param:参数json,isasync:是否异步,funback回调方法，requesttype请求手机头标识

@@ -48,13 +48,14 @@ namespace CommunityBuy.DAL
                 new SqlParameter("@recommended", Entity.recommended),
                 new SqlParameter("@remark", Entity.remark),
                 new SqlParameter("@status", Entity.status),
-                new SqlParameter("@cuser", Entity.cuser),
                 new SqlParameter("@btime", Entity.btime),
-                new SqlParameter("@etime", Entity.etime)
+                new SqlParameter("@etime", Entity.etime),
+                new SqlParameter("@jprice", Entity.jprice),
+                new SqlParameter("@sqcode", Entity.sqcode)
              };
             sqlParameters[0].Direction = ParameterDirection.Output;
             intReturn = DBHelper.ExecuteNonQuery("dbo.p_Store_Add", CommandType.StoredProcedure, sqlParameters);
-            if (intReturn == 0)
+            if (intReturn == 1)
             {
                 Entity.stoid = int.Parse(sqlParameters[0].Value.ToString());
             }
@@ -96,9 +97,9 @@ namespace CommunityBuy.DAL
                 new SqlParameter("@recommended", Entity.recommended),
                 new SqlParameter("@remark", Entity.remark),
                 new SqlParameter("@status", Entity.status),
-                new SqlParameter("@cuser", Entity.cuser),
                 new SqlParameter("@btime", Entity.btime),
                 new SqlParameter("@etime", Entity.etime),
+                new SqlParameter("@sqcode", Entity.sqcode)
              };
             return DBHelper.ExecuteNonQuery("dbo.p_Store_Update", CommandType.StoredProcedure, sqlParameters);
         }

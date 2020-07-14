@@ -223,61 +223,7 @@ function ShowOpenpage() {
             if (isreload) {
                 var _btn = document.getElementById("ToolBar1_LinkRefresh");
                 if (_btn != undefined) {
-                    //_btn.click();
-                }
-            }
-        }
-    });
-    if (isfull) {
-        layer.full(index);
-    }
-}
 
-function ShowOpenpage1() {
-    var title = arguments[0];
-    var linkurl = arguments[1];
-    var showw = arguments[2];
-    var showh = arguments[3];
-    var isfull = arguments[4];
-    var isreload = arguments[5];
-
-    if (linkurl == undefined) {
-        return;
-    }
-
-    var linkstr = getrandombyurl(linkurl);
-
-    if (title == undefined || title.length == 0) {
-        title = false;
-    }
-
-    if (showw == undefined) {
-        showw = '85%';
-    }
-
-    if (showh == undefined) {
-        showh = '80%';
-    }
-
-    if (isfull == undefined) {
-        isfull = false;
-    }
-    if (isreload == undefined) {
-        isreload = false;
-    }
-
-    var index = layer.open({
-        title: title,
-        type: 2,
-        shade: 0.6,
-        area: [showw, showh],
-        closeBtn: 0,
-        content: encodeURI(linkstr),
-        cancel: function () {
-            if (isreload) {
-                var _btn = document.getElementById("ToolBar1_LinkRefresh");
-                if (_btn != undefined) {
-                    //_btn.click();
                 }
             }
         }

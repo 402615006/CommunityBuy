@@ -120,7 +120,7 @@ namespace CommunityBuy.BLL
         public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
         {
 
-            return new bllPaging().GetPagingInfo("TB_RoleFunction", "Id", "*", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
+            return new bllPaging().GetPagingInfo("rolefunction", "roleid", "*", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
         }
 
 		/// <summary>
@@ -144,7 +144,7 @@ namespace CommunityBuy.BLL
 
         public DataTable GetRoleFunctionInfoList(string GUID, string UID, string roleid)
         {
-            return new bllPaging().GetDataTableInfoBySQL("SELECT A.id,A.parentid AS pId,A.Cname AS name,(CASE WHEN B.FunctionId IS NULL THEN 0 ELSE 1 END) as ishave,'true' as [open],B.roleid FROM dbo.TB_Functions  A left join TB_RoleFunction B on A.id=B.functionid AND B.roleid='" + roleid + "' WHERE A.[tstatus]='1' ORDER BY A.[level] ASC,A.parentid ASC,A.orders ASC");
+            return new bllPaging().GetDataTableInfoBySQL("SELECT A.id,A.level ,A.parentid AS pId,A.Cname AS name,(CASE WHEN B.funid IS NULL THEN 0 ELSE 1 END) as ishave,'true' as [open],B.roleid,R.cname as rolename,R.descr as roledescr,A.descr,A.status,B.funid FROM functions  A inner join rolefunction B on A.id=B.funid AND B.roleid=" + roleid + " right join roles R on B.roleid=R.roleid  WHERE A.[status]='1' ORDER BY A.[level] ASC,A.parentid ASC,A.orders ASC");
         }
 
     }

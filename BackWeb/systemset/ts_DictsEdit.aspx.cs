@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Web.UI.WebControls;
 using CommunityBuy.BackWeb.Common;
 using CommunityBuy.BLL;
 using CommunityBuy.CommonBasic;
@@ -21,7 +22,7 @@ namespace CommunityBuy.BackWeb.systemset
                     dicid = Request["id"].ToString();
                     hidId.Value = dicid;
                     SetPage(hidId.Value);
-                    this.PageTitle.Operate = 修改
+                    this.PageTitle.Operate = "修改";
                 }
                 else
                 {
@@ -34,11 +35,7 @@ namespace CommunityBuy.BackWeb.systemset
         {
             int recnum = 0; int pagenums = 0;
             DataTable dtdict = bll.GetPagingListInfo("", "0", 10000, 1, "pdicid=0  and status ='1' ", "", out recnum, out pagenums);
-            Helper.BindDropDownListForSearch(ddl_pdicid, dtdict, "dicname", "dicid", 0);
-
-
-            DataTable dtlng = new blllanguages().GetPagingListInfo("", "0", 10000, 1, "  status ='1' ", "", out recnum, out pagenums);
-            Helper.BindDropDownListForSearch(this.ddl_lng, dtlng, "cname", "code", 0);
+            BindDropDownListInfo(ddl_pdicid, dtdict, "dicname", "dicid", 0);
         }
 
         /// <summary>
@@ -86,42 +83,44 @@ namespace CommunityBuy.BackWeb.systemset
             string buscode = Helper.GetAppSettings("BusCode");
             string strcode = Helper.GetAppSettings("Stocode");
             string dictype = "0";
-            string lng = Helper.ReplaceString(this.ddl_lng.SelectedValue);
-            string pdicid = Helper.ReplaceString(this.ddl_pdicid.SelectedValue);
-            string diccode = Helper.ReplaceString(txt_diccode.Text);
-            string dicname = Helper.ReplaceString(txt_dicname.Text);
+            string lng =this.ddl_lng.SelectedValue;
+            string pdicid =this.ddl_pdicid.SelectedValue;
+            string diccode =txt_diccode.Text;
+            string dicname =txt_dicname.Text;
             string dicvalue = "";
-            string orderno = Helper.ReplaceString(txt_orderno.Text);
-            string remark = Helper.ReplaceString(txt_remark.Text);
-            string status = Helper.ReplaceString(ddl_status.SelectedValue);
-            string cuser = LoginedUser.UserInfo.Id.ToString();
-
-            //日志信息
-            logentity.module = ErrMessage.GetMessageInfoByCode("admins_Menu").Body;
-            logentity.pageurl = "ts_Dictsedit.aspx";
-            logentity.otype = SystemEnum.LogOperateType.Add;
-            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
+            string orderno =txt_orderno.Text;
+            string remark =txt_remark.Text;
+            string status =ddl_status.SelectedValue;
+            string cuser = base.LoginedUser.UserID.ToString();
 
             DataTable dt = new DataTable();
 
             if (hidId.Value.Length == 0)//添加信息
             {
-                logentity.logcontent = "新增系统字典信息信息";
-                dt = bll.Add("0", "0", out dicid, buscode, strcode, dictype, lng, pdicid, diccode, dicname, dicvalue, orderno, remark, status, cuser, logentity);
-                hidId.Value = dicid;
-                this.PageTitle.Operate = 修改
+                string dicid = "";
+                bll.Add("0", "0", dicid,buscode, strcode, dictype, lng, pdicid, diccode, dicname, dicvalue, orderno, remark, status, cuser);
+                hidId.Value = bll.oResult.Data;
+                this.PageTitle.Operate = "修改";
             }
             else//修改信息
             {
-                logentity.logcontent = "修改dicid为" + hidId.Value + "的系统字典信息信息";
-                logentity.otype = SystemEnum.LogOperateType.Edit;
-                dt = bll.Update("0", "0", hidId.Value, buscode, strcode, dictype, lng, pdicid, diccode, dicname, dicvalue, orderno, remark, status, cuser, logentity);
-                this.PageTitle.Operate = 修改
+                ts_DictsEntity UEntity = bll.GetEntitySigInfo("where id=" + hidId.Value);
+                UEntity.strcode = strcode;
+                UEntity.dictype = dictype;
+                UEntity.lng = lng;
+                UEntity.pdicid =StringHelper.StringToLong(pdicid);
+                UEntity.diccode = diccode;
+                UEntity.dicname = dicname;
+                UEntity.dicvalue = dicvalue;
+                UEntity.orderno =StringHelper.StringToInt(orderno);
+                UEntity.remark = remark;
+                UEntity.status = status;
+                UEntity.cuser = StringHelper.StringToInt(cuser);
+               bll.Update("0", "0", UEntity);
+                this.PageTitle.Operate = "修改";
             }
             //显示结果
-            ShowResult(dt, errormessage);
-
-
+            ShowResult(bll.oResult.Code,bll.oResult.Msg, errormessage);
         }
     }
 }

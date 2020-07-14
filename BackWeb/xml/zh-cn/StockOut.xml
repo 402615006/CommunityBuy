@@ -127,7 +127,7 @@
   <employeetemplate>模版选择</employeetemplate>
   <nullcount_tips>领料数量需大于0</nullcount_tips>
   <to_edit>转交</to_edit>
-  <samepeople_tips>当前所选转交人员已在审核列表中</samepeople_tips>
+  <CommunityBuyepeople_tips>当前所选转交人员已在审核列表中</CommunityBuyepeople_tips>
   <warnrefer>仓库选择</warnrefer>
   <coutingdate_tips>所选仓库有(差异)未处理的盘点单据，请检查</coutingdate_tips>
   <money_list>单据金额</money_list>

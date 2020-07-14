@@ -300,7 +300,7 @@ var apiContent = {
 		this.searchPrevBtn.bind("click", this.searchPrev);
 		this.searchNextBtn.bind("click", this.searchNext);
 	},
-	setSameKey: function(value) {
+	setCommunityBuyeKey: function(value) {
 		apiContent.searchKey.attr("value", value);
 	},
 	focusKey: function(e) {
@@ -309,7 +309,7 @@ var apiContent = {
 		}
 	},
 	blurKey: function(e) {
-		apiContent.setSameKey(e.target.value);
+		apiContent.setCommunityBuyeKey(e.target.value);
 		if (e.target.value === "") {
 			apiContent.searchKey.addClass("empty");
 		}
@@ -351,7 +351,7 @@ var apiContent = {
 		if (apiContent.curKey == e.target.value) return;
 		apiContent.curKey = e.target.value;
 		var value = $.trim(apiContent.curKey);
-		apiContent.setSameKey(apiContent.curKey);
+		apiContent.setCommunityBuyeKey(apiContent.curKey);
 		if (apiContent.searchKey.hasClass("empty")) {
 			value = "";
 			apiContent.searchResultInput.removeClass("noResult").attr("value","");
@@ -498,7 +498,7 @@ var apiContent = {
 		}
 		$(document).unbind("click", apiContent.overlayAutoClose);
 	},
-	overlayShow: function(target, isSameNode) {
+	overlayShow: function(target, isCommunityBuyeNode) {
 		var w = $(window), o = apiContent.overlayDiv, a = apiContent.overlayArrow,
 		oc = apiContent.overlayContent, c = apiContent.contentBoxDiv,
 		t = target.offset().top - 30,
@@ -539,7 +539,7 @@ var apiContent = {
 		apiContent.overlayDetailDiv.empty();
 		apiContent.overlayDetailDiv.append(apiContent.tmpDiv.children());
 		if (!onlyFade) {
-			onlyFade = (isSameNode && t === parseInt(o.css("top").replace("px", "")));
+			onlyFade = (isCommunityBuyeNode && t === parseInt(o.css("top").replace("px", "")));
 		}
 
 		a.removeClass("reverse");

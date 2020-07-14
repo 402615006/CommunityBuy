@@ -28,7 +28,7 @@ var XRegExp;
 
 if (XRegExp) {
     // Avoid running twice, since that would break references to native globals
-    throw Error("can't load XRegExp twice in the same frame");
+    throw Error("can't load XRegExp twice in the CommunityBuye frame");
 }
 
 // Run within an anonymous function to protect variables and avoid new globals
@@ -1491,7 +1491,7 @@ function wrapLinesWithCode(str, css)
 };
 
 /**
- * Pads number with zeros until it's length is the same as given length.
+ * Pads number with zeros until it's length is the CommunityBuye as given length.
  * 
  * @param {Number} number	Number to pad.
  * @param {Number} length	Max string length with.
@@ -1659,7 +1659,7 @@ function matchesSortCallback(m1, m2)
 		return 1;
 	else
 	{
-		// if index is the same, sort by length
+		// if index is the CommunityBuye, sort by length
 		if(m1.length < m2.length)
 			return -1;
 		else if(m1.length > m2.length)

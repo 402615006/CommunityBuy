@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Script.Serialization;
+using CommunityBuy.BackWeb.Common;
 using CommunityBuy.CommonBasic;
 using CommunityBuy.Model;
 
@@ -13,10 +15,21 @@ namespace CommunityBuy.BackWeb.ajax
     public class ServiceBase : IHttpHandler
     {
         public HttpContext Pagcontext = null;
+        Cache WebCache = HttpContext.Current.Cache;
         public string actionname = string.Empty;
-        public string usercode = string.Empty; //授权用户账号
+        public LoginedUserEntity LoginedUser = new LoginedUserEntity();
+
         public virtual void ProcessRequest(HttpContext context)
         {
+            LoginedUser.LoginFromCookie();
+            if (!string.IsNullOrWhiteSpace(LoginedUser.UserID))
+            {
+                LoginedUser = (LoginedUserEntity)WebCache.Get("logincache_" + LoginedUser.UserID);
+            }
+            else
+            {
+                context.Response.Write("{\"status\":\"-1\",\"mes\":请登录\"}");
+            }
         }
 
         public string GetPriKey(DataTable dt, string key)
@@ -61,7 +74,6 @@ namespace CommunityBuy.BackWeb.ajax
             }
             return Flag;
         }
-
 
         /// <summary>
         /// 获取json参数信息
@@ -147,13 +159,6 @@ namespace CommunityBuy.BackWeb.ajax
             if (parameters == null)
             {
                 mes += "parameters,";
-                Flag = false;
-            }
-            //授权用户账号
-            usercode = context.Request["usercode"];
-            if (usercode == null)
-            {
-                mes += "usercode,";
                 Flag = false;
             }
 

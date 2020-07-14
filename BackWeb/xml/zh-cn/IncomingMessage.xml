@@ -38,7 +38,7 @@
   <span_sex>会员性别：</span_sex>
   <span_mobile>手机号码：</span_mobile>
   <span_email>邮箱地址：</span_email>
-  <email_placeholder>邮箱格式sam@163.com</email_placeholder>
+  <email_placeholder>邮箱格式CommunityBuy@163.com</email_placeholder>
   <span_tel>电话：</span_tel>
   <span_idtype>证件类型：</span_idtype>
   <span_IDNO>证件号码：</span_IDNO>

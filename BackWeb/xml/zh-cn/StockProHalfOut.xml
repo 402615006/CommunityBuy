@@ -136,14 +136,14 @@
   <changtemplate>另存为模版</changtemplate>
   <tips14>请选择审核人</tips14>
   <nullcount_tips>出库数量需大于0</nullcount_tips>
-  <matcodenotsam_tips>所选货品类别与供应商供货类别不一致</matcodenotsam_tips>
+  <matcodenotCommunityBuy_tips>所选货品类别与供应商供货类别不一致</matcodenotCommunityBuy_tips>
   <address_span1>地址：</address_span1>
   <ok_edit>通过</ok_edit>
   <no_edit>拒绝</no_edit>
   <auditing_result>操作成功</auditing_result>
   <auditingrefer>审核备注</auditingrefer>
   <to_edit>转交</to_edit>
-  <samepeople_tips>当前所选转交人员已在审核列表中</samepeople_tips>
+  <CommunityBuyepeople_tips>当前所选转交人员已在审核列表中</CommunityBuyepeople_tips>
   <createname_list>出库人</createname_list>
   <nullemployee_tips>请选择付款审核人</nullemployee_tips>
   <stocknum>库存数量</stocknum>

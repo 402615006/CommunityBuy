@@ -3,6 +3,7 @@ using System.Data;
 using CommunityBuy.BackWeb.Common;
 using CommunityBuy.BLL;
 using CommunityBuy.CommonBasic;
+using CommunityBuy.Model;
 
 namespace CommunityBuy.BackWeb.manage
 {
@@ -38,73 +39,53 @@ namespace CommunityBuy.BackWeb.manage
             if (dt != null && dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
-
                 txt_uname.Text = dr["uname"].ToString();
                 txt_pwd.Text = OEncryp.Decrypt(dr["upwd"].ToString());
                 txt_pwd.Enabled = false;
                 txt_role.Text = dr["rolename"].ToString();
                 hidroleid.Value = dr["roleid"].ToString();
-                txt_empcode.Text = dr["empcode"].ToString() + " " + dr["empcodename"].ToString();
-                hidempcode.Value = dr["empcode"].ToString();
                 ddl_status.SelectedValue = dr["status"].ToString();
                 txt_descr.Text = dr["remark"].ToString();
-
-                hidstore.Value = dr["stocode"].ToString();
-                ddl_scope.SelectedValue = dr["scope"].ToString();
-                txt_stocode.Text = dr["storename"].ToString();
-                lblstoname.Text = dr["empstoname"].ToString();
             }
         }
 
         //保存数据
         protected void Save_btn_Click(object sender, EventArgs e)
         {
-            string role = Helper.ReplaceString(hidroleid.Value).TrimEnd(',');
+            string role =hidroleid.Value.TrimEnd(',');
             if (role.Length == 0)
             {
                 Script(Page, "pcLayerMsg('选择角色！');");
                 return;
             }
             //获取页面信息
-            string username = Helper.ReplaceString(txt_uname.Text);
-            string pwd = Helper.ReplaceString(txt_pwd.Text);
-            string cname = Helper.ReplaceString(txt_empcode.Text);
-            if (cname.Split(' ').Length >= 2)
-            {
-                cname = cname.Split(' ')[1];
-            }
+            string username =txt_uname.Text;
+            string pwd =txt_pwd.Text;
+
 
             string umobile = "";
-            string empcode = Helper.ReplaceString(hidempcode.Value);
-            string status = Helper.ReplaceString(ddl_status.SelectedValue);
-            string descr = Helper.ReplaceString(txt_descr.Text);
-
-            string scope = ddl_scope.SelectedValue;
-            string stocode = hidstore.Value;
-            if (scope == "2")
-            {
-                stocode = "";
-            }
-
-            logentity.module = ErrMessage.GetMessageInfoByCode("admins_Menu").Body;
-            logentity.pageurl = "adminsedit.aspx";
-            logentity.otype = SystemEnum.LogOperateType.Add;
-            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
+            string status =ddl_status.SelectedValue;
+            string descr =txt_descr.Text;
             DataTable dt = new DataTable();
             if (hidId.Value.Length == 0)//添加信息
             {
-                dt = bll.Add("0", "0", out id, username, pwd, cname, umobile, empcode, descr, status, LoginedUser.UserInfo.Id.ToString(), "0", role, scope, stocode, string.Empty, string.Empty, logentity);
+                bll.Add("0", "0",id, username, pwd, "", umobile, descr, status, base.LoginedUser.Name,LoginedUser.UserID.ToString(),role);
                 hidId.Value = id;
                 this.PageTitle.Operate = "修改";
             }
             else//修改信息
             {
-                logentity.otype = SystemEnum.LogOperateType.Edit;
-                dt = bll.Update("0", "0", hidId.Value, username, pwd, cname, umobile, empcode, descr, status, LoginedUser.UserInfo.Id.ToString(), LoginedUser.UserInfo.Id.ToString(), role, scope, stocode, string.Empty, string.Empty, logentity);
-                WebCache.Remove("RoleInfo_BackWeb_" + hidId.Value);
+                string uid = hidId.Value.ToString();
+                AdminsEntity UEntity = bll.GetEntitySigInfo("where userid=" + uid);
+                UEntity.uname = username;
+                UEntity.upwd = pwd;
+                UEntity.umobile = umobile;
+                UEntity.remark = descr;
+                bll.Update("0", "0", UEntity,role);
+                Context.Cache.Remove("RoleInfo_BackWeb_" + hidId.Value);
             }
             //显示结果
-            if (ShowResult(dt, errormessage))
+            if (ShowResult(bll.oResult.Code,bll.oResult.Msg, errormessage))
             {
                 SetPage(hidId.Value);
             }

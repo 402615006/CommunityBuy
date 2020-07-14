@@ -36,14 +36,9 @@ namespace CommunityBuy.DAL
             sql.Append(" declare @mescode varchar(64);");
             sql.Append(" set @mescode = '';");
             sql.Append(" declare @PY varchar(64);select top 1 @realname=cname,@PY=dbo.fn_GetPy(cname) from Employee where ecode=@empcode;");
-            //sql.Append(" INSERT INTO[admins]([buscode],[strcode],[uname],[upwd],[realname],[umobile],[empcode],[remark],[status],[cuser],[ctime],[uuser],[utime], isdelete, scope, stocode, empid,msigmoney,PY,utype,alliancecode)");
-            //sql.Append(" VALUES('"+Entity.buscode+"', '', '"+Entity.uname+"', '"+Entity.upwd + "',@realname, '" + Entity.umobile + "', @empcode, '" + Entity.remark + "', '"+Entity.status + "', '"+Entity.cuser + "', getdate(), null, NULL, null, '"+Entity.scope + "', '"+Entity.stocode + "', @empid,"+Entity.msigmoney + ", @PY,'"+Entity.utype+"','"+Entity.alliancecode + "');");
-
             sql.Append(" INSERT INTO[admins]([buscode],[strcode],[uname],[upwd],[realname],[umobile],[empcode],[remark],[status],[cuser],[ctime],[uuser],[utime], isdelete, scope, stocode, empid,msigmoney,PY)");
             sql.Append(" VALUES('" + Entity.buscode + "', '', '" + Entity.uname + "', '" + Entity.upwd + "',@realname, '" + Entity.umobile + "', @empcode, '" + Entity.remark + "', '" + Entity.status + "', getdate(), null, NULL, null, @PY);");
-
             sql.Append(" SET @userid = SCOPE_IDENTITY();");
-
             sql.Append(" insert into userrole([userid], roleid, ctime) select @userid, col, getdate() from[dbo].[fn_StringSplit]('"+ role + "', ',') where len(col)> 0;");
             sql.Append(" IF(@@ERROR = 0)");
             sql.Append(" BEGIN");
@@ -78,19 +73,14 @@ namespace CommunityBuy.DAL
             sql.Append(" set @userid = "+Entity.userid+";");
             sql.Append(" declare @result bigint;");
             sql.Append(" set @result = 0;");
-
             sql.Append(" declare @stocode varchar(8);");
             sql.Append(" set @stocode = '';");
             sql.Append(" declare @realname varchar(64);");
             sql.Append(" set @realname = '';");
             sql.Append(" declare @mescode varchar(64);");
             sql.Append(" set @mescode = '';");
-            sql.Append(" exec [dbo].p_TM_UserSignDetail_UpdateMoney '" + Entity.buscode + "',@userid,'" + Entity.uname + "',@stocode,'"+Entity.ccode+"','"+Entity.cname+"',@mescode output;");
-
-
+            sql.Append(" declare @PY varchar(64);select top 1 @realname=cname,@PY=dbo.fn_GetPy(cname) from Employee where ecode=@empcode;");
             sql.Append(" UPDATE [dbo].[admins] SET[uname] =  '" + Entity.uname + "',[realname]=@realname,[umobile]='" + Entity.umobile + "',[remark]= '" + Entity.remark + "',[status]='" + Entity.status + "',[utime]=GETDATE(),PY=@PY WHERE userid=" + Entity.userid+";");
-            sql.Append(" DELETE TR_UserSignSet WHERE userid=" + Entity.userid + ";");
-
             sql.Append(" DELETE FROM  userrole where userid=" + Entity.userid + "; ");
             sql.Append(" insert into userrole([userid], roleid, ctime) select @userid, col, getdate() from[dbo].[fn_StringSplit]('" + role + "', ',') where len(col)> 0;");
             sql.Append(" IF(@@ERROR = 0)");

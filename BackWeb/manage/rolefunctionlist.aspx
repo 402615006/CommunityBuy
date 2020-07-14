@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="rolefunctionlist.aspx.cs" Inherits="CommunityBuy.BackWeb.manage.rolefunctionlist" %>
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
-<%@ Register Assembly="Sam.WebControl" Namespace="Sam.WebControl" TagPrefix="cc1" %>
+<%@ Register Assembly="CommunityBuy.WebControl" Namespace="CommunityBuy.WebControl" TagPrefix="cc1" %>
 <%@ Register Src="~/UserControls/ToolBar.ascx" TagPrefix="uc2" TagName="ToolBar" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -75,13 +75,9 @@
                                 <a href='javascript:void(0);' onclick="openWindow('/manage/rolefunctionedit.aspx?id=<%#Eval("roleid") %>&type=detail')"><%#Eval("cname") %></a>
                             </ItemTemplate>
                         </asp:TemplateColumn>
-                        <%--<asp:BoundColumn DataField="scopename" HeaderText="<span data-code='scope_list' >权限范围</span>" />
-                        <asp:BoundColumn DataField="storename" HeaderText="<span data-code='stocode_list' >权限门店</span>" />--%>
-                        <asp:BoundColumn DataField="rolestatus" HeaderText="<span data-code='status_list' >状态</span>" />
+                        <asp:BoundColumn DataField="status" HeaderText="<span data-code='status_list' >状态</span>" />
                         <asp:BoundColumn DataField="descr" HeaderText="<span data-code='descr_list' >描述</span>" />
-
                         <asp:BoundColumn DataField="ctime" HeaderText="<span data-code='ctime_list' ></span>" DataFormatString="{0:d}" SortExpression="rol_crt_time" />
-
                     </Columns>
                 </cc1:CustDataGrid>
                 <input id="HidWhere" runat="server" type="hidden" />

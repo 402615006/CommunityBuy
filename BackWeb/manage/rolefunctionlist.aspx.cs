@@ -10,13 +10,13 @@ namespace CommunityBuy.BackWeb.manage
 {
     public partial class rolefunctionlist : ListPage
     {
-        bllroles bll = new bllroles();
+        bllTB_Roles bll = new bllTB_Roles();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.PageTitle.Operate = ErrMessage.GetMessageInfoByCode("PageOperateList").Body;
+            this.PageTitle.Operate = "";
             if (!IsPostBack)
             {
-                if (LoginedUser.UserInfo != null)
+                if (base.LoginedUser != null)
                 {
                     BindGridView();
                 }
@@ -34,16 +34,8 @@ namespace CommunityBuy.BackWeb.manage
             //根据查询条件获取数据列表
             string order = string.Format("{0} {1}", HidSortExpression.Value, HidOrder.Value);
             DataTable dt = bll.GetPagingListInfo("0", "0", anp_top.PageSize, anp_top.CurrentPageIndex, HidWhere.Value, order, out recnums, out pagenums);
-
             if (dt != null)
             {
-                dt.Columns.Add("rolestatus", typeof(string));
-                dt.Columns.Add("scopename", typeof(string));
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    dt.Rows[i]["rolestatus"] = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dt.Rows[i]["status"].ToString());
-                    dt.Rows[i]["scopename"] = Helper.GetEnumNameByValue(typeof(SystemEnum.AccScope), dt.Rows[i]["scope"].ToString());
-                }
                 gv_list.DataSource = dt;
                 gv_list.DataBind();
                 anp_top.RecordCount = recnums;
@@ -72,24 +64,13 @@ namespace CommunityBuy.BackWeb.manage
                             Selected = GetSelectStr(gv_list);
                             if (Selected.Length == 0)
                             {
-                                sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                                sp_showmes.InnerText = "请选择一项操作";
                             }
                             else
                             {
                                 string mes = string.Empty;
-                                bll.DeleteRoles(Selected, ref mes);
-                                switch (mes)
-                                {
-                                    case "0":
-                                        sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_001").Body;
-                                        break;
-                                    case "2":
-                                        sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_060").Body;
-                                        break;
-                                    default:
-                                        sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_058").Body;
-                                        break;
-                                }
+                                bll.Delete("","",Selected);
+                                ShowResult(bll.oResult.Code, bll.oResult.Msg, sp_showmes);
                                 anp_top.CurrentPageIndex = 1;
                             }
                         }
@@ -99,12 +80,12 @@ namespace CommunityBuy.BackWeb.manage
                         Selected = GetSelectStr(gv_list);
                         if (Selected.Length == 0)
                         {
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                            sp_showmes.InnerText = "请选择一项操作";
                         }
                         else
                         {
-                            dt = bll.UpdateStatus("", "0", Selected, SystemEnum.Status.Valid.ToString("D"));
-                            if (ShowResult(dt, sp_showmes))
+                            bll.UpdateStatus("", "0", Selected, "1");
+                            if (ShowResult(bll.oResult.Code,bll.oResult.Msg, sp_showmes))
                             {
                                 BindGridView();
                             }
@@ -115,38 +96,38 @@ namespace CommunityBuy.BackWeb.manage
                         Selected = GetSelectStr(gv_list);
                         if (Selected.Length == 0)
                         {
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                            sp_showmes.InnerText = "请选择一项操作";
                         }
                         else
                         {
-                            dt = bll.UpdateStatus("", "0", Selected, SystemEnum.Status.Invalid.ToString("D"));
-                            if (ShowResult(dt, sp_showmes))
+                            bll.UpdateStatus("", "0", Selected, "0");
+                            if (ShowResult(bll.oResult.Code, bll.oResult.Msg, sp_showmes))
                             {
                                 BindGridView();
                             }
                         }
                         break;
                     //导出事件代码
-                    case "export":
-                        int recount;
-                        int pagenums;
-                        string order = string.Format("{0} {1}", HidSortExpression.Value, HidOrder.Value);
-                        dt = bll.GetPagingListInfo("", "0", 50000, 1, HidWhere.Value, order, out recount, out pagenums);
-                        if (dt != null)
-                        {
-                            dt.Columns.Add("rolestatus", typeof(string));
-                            dt.Columns.Add("scopename", typeof(string));
-                            for (int i = 0; i < dt.Rows.Count; i++)
-                            {
-                                dt.Rows[i]["rolestatus"] = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dt.Rows[i]["status"].ToString());
-                                dt.Rows[i]["scopename"] = Helper.GetEnumNameByValue(typeof(SystemEnum.AccScope), dt.Rows[i]["scope"].ToString());
-                            }
-                        }
-                        string fileName = string.Format(ErrMessage.GetMessageInfoByCode("roles_TName").Body + "{0}.xls", DateTime.Now.ToString("_yyyyMMddHHmmss"));
-                        string strColumnName = ErrMessage.GetMessageInfoByCode("roles_Export").Body;
-                        string ColumnCode = "cname,rolestatus,descr,ctime";
-                        ExcelsHelp.ExportExcelFileB(dt, fileName, strColumnName.Split(','), ColumnCode.Split(','));
-                        break;
+                    //case "export":
+                    //    int recount;
+                    //    int pagenums;
+                    //    string order = string.Format("{0} {1}", HidSortExpression.Value, HidOrder.Value);
+                    //    dt = bll.GetPagingListInfo("", "0", 50000, 1, HidWhere.Value, order, out recount, out pagenums);
+                    //    if (dt != null)
+                    //    {
+                    //        dt.Columns.Add("rolestatus", typeof(string));
+                    //        dt.Columns.Add("scopename", typeof(string));
+                    //        for (int i = 0; i < dt.Rows.Count; i++)
+                    //        {
+                    //            dt.Rows[i]["rolestatus"] = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dt.Rows[i]["status"].ToString());
+                    //            dt.Rows[i]["scopename"] = Helper.GetEnumNameByValue(typeof(SystemEnum.AccScope), dt.Rows[i]["scope"].ToString());
+                    //        }
+                    //    }
+                    //    string fileName = string.Format(ErrMessage.GetMessageInfoByCode("roles_TName").Body + "{0}.xls", DateTime.Now.ToString("_yyyyMMddHHmmss"));
+                    //    string strColumnName = ErrMessage.GetMessageInfoByCode("roles_Export").Body;
+                    //    string ColumnCode = "cname,rolestatus,descr,ctime";
+                    //    ExcelsHelp.ExportExcelFileB(dt, fileName, strColumnName.Split(','), ColumnCode.Split(','));
+                    //    break;
                 }
             }
         }
@@ -159,7 +140,7 @@ namespace CommunityBuy.BackWeb.manage
             StringBuilder Where = new StringBuilder();
             Where.Append(" where 1=1 ");
             //拼接Where条件
-            string Name = Helper.ReplaceString(username.Value);
+            string Name =username.Value;
             if (Name.Length > 0)
             {
                 Where.Append(" and cname like'%" + Name + "%'");

@@ -28,7 +28,7 @@ namespace CommunityBuy.BackWeb.manage
         private void SetPage()
         {
 
-            txt_uname.Text = LoginedUser.UserInfo.username.ToString();
+            txt_uname.Text = base.LoginedUser.Name.ToString();
             this.tex_oldpwd.Text = "";
         }
 
@@ -36,9 +36,9 @@ namespace CommunityBuy.BackWeb.manage
         protected void Save_btn_Click(object sender, EventArgs e)
         {
             //获取页面信息
-            string pwd = Helper.ReplaceString(tex_oldpwd.Text);
-            string newpwd = Helper.ReplaceString(this.txt_pwd.Text);
-            string newpwdconfirm = Helper.ReplaceString(this.txt_repwd.Text);
+            string pwd =tex_oldpwd.Text;
+            string newpwd =this.txt_pwd.Text;
+            string newpwdconfirm =this.txt_repwd.Text;
             pwd = OEncryp.Encrypt(pwd);
             if (newpwd.Length < 6)
             {
@@ -51,13 +51,8 @@ namespace CommunityBuy.BackWeb.manage
                 return;
             }
             newpwd = OEncryp.Encrypt(newpwd);
-            newpwdconfirm = OEncryp.Encrypt(newpwdconfirm);
-            DataTable dt = bll.EditPwd("0", "0", LoginedUser.UserInfo.Id.ToString(), pwd, newpwd, newpwdconfirm, null);
-            string type;
-            string[] spanids;
-            string[] mes;
-            Helper.GetDataTableToResult(dt, out type, out mes, out spanids);
-            Script(this.Page, "pcLayerMsg('" + mes[0] + "');");
+            bll.ResetPwd("0", "0", base.LoginedUser.UserID.ToString(),newpwd);
+            Script(this.Page, "pcLayerMsg('" +bll.oResult.Msg + "');");
         }
     }
 }

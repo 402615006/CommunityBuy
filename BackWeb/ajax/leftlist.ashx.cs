@@ -8,21 +8,19 @@ namespace CommunityBuy.BackWeb.ajax
     /// <summary>
     /// leftlist 的摘要说明
     /// </summary>
-    public class leftlist : IHttpHandler
+    public class leftlist : ServiceBase
     {
-
-        public void ProcessRequest(HttpContext context)
+        public override void ProcessRequest(HttpContext context)
         {
+            base.ProcessRequest(context);
             context.Response.ContentType = "text/plain";
             string parentid = context.Request["parid"] == null ? "0" : context.Request["parid"].ToString();
-            int intCount;
-            int pagenums;
-            bllFUNMAS bll = new bllFUNMAS();
-            string userid = LoginedUser.UserInfo.Rol_ID.ToString();
-
-            DataTable dt = bll.GetPagingInfo(10000, 1, "status='1' and ftype!=2 and id in(select funid from rolefunction where roleid in (" + LoginedUser.UserInfo.Rol_ID + ")) and parentid=" + parentid, " order by orders asc", out intCount, out pagenums);
-
-            string json = Helper.DataTableToJson("leftlist",dt);
+            string json = "";
+            if (base.LoginedUser.Permission.Select("parentid=" + parentid).Length > 0)
+            {
+                DataTable dt = base.LoginedUser.Permission.Select("parentid=" + parentid).CopyToDataTable();
+                json = JsonHelper.DataTableToJSON(dt);
+            }
             context.Response.Write(json);
         }
 

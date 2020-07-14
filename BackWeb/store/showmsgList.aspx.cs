@@ -9,10 +9,9 @@ namespace CommunityBuy.BackWeb.store
 {
     public partial class showmsgList : Common.ListPage
     {
-        bllshowmsg bll = new bllshowmsg();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.PageTitle.Operate = ErrMessage.GetMessageInfoByCode("PageOperateList").Body;
+            this.PageTitle.Operate = "列表";
             if (!IsPostBack)
             {
                 //GotoSearch();
@@ -25,8 +24,7 @@ namespace CommunityBuy.BackWeb.store
         protected override void BindGridView()
         {
             string sql = "select top 5  [mobile],[smscontent]=substring(smscontent,1,charindex('|',smscontent,1)-1),[sendtime] from SendSmsLogs " + HidWhere.Value + " order by id desc ";
-            DataTable dt = bll.GetPagingListInfoByChain(sql);
-
+            DataTable dt = new bllPaging().GetDataTableInfoBySQL(sql);
             if (dt != null)
             {
                 gv_list.DataSource = dt;

@@ -1,12 +1,12 @@
 ﻿var noload = $("body").attr("data-ischeck");
-if (noload = undefined) {
+
+if (noload == undefined) {
     var topurl = top.location.href;
     topurl = topurl.substring(topurl.lastIndexOf('/') + 1);
     if (topurl != 'index.html') {
         top.location.href = '/index.html';
     }
 }
-
 
 window.onload = function () {
     if ($('.redline') != undefined) {
@@ -23,761 +23,42 @@ function checklist(type) {
     var showobj = document.getElementById('sp_showmes');
     var tbname = $("#form1").attr("data-tbname");
     var title = "";
+    var s = document.getElementById('gv_list').getElementsByTagName('input');
     if (type == 'add') {
         title = "新增";
-        switch (tbname) {
-            case "maincoupon"://活动优惠券信息
-            case "maincouponN"://活动优惠券信息
-            case "StockTransfer":
-                //gotoURL(tbname + 'edit.aspx?' + $('#HidParameter').val());
-                ShowOpenpage(title, tbname + 'edit.aspx?' + $('#HidParameter').val(), '100%', '100%', true, true);
-                break;
-            case "memcardlevelset":
-                ShowOpenpage(title, tbname + 'edit.aspx?code=' + $('#hidlevelcode').val(), '100%', '100%', true, true);
-                break;
-            case "dishes":
-                ShowOpenpage(title, tbname + 'edit.aspx?stocode=' + $('#ddl_stocode').val(), '100%', '100%', true, true);
-                break;
-            default:
-                ShowOpenpage(title, tbname + 'edit.aspx', '100%', '100%', true, true);
-                //gotoURL(tbname + 'edit.aspx');
-                break;
-        }
-        return false;
-    } else if (type == "audit" && tbname == "IncomeAdjust") { return; }
-    else if (type == "edit" && tbname == "IncomeAdjust") { return; }
-    else if (type == "edit" && tbname == "NoApplyStorage") { return; }
-    else if (type == "edit" && tbname == "StockJKReturnlist") { return; }
-    else if (type == 'edit' && tbname == 'StockMateClass') { return; }
-    else if (type == "inportmate" && tbname == "dishes") {
-        ShowOpenpage(title, tbname + 'inportmate.aspx', '90%', '100%', true, true);
-        return false;
-    } else if (type == 'edit' && tbname == 'StockMateClass') { return; }
-    else if (type == 'dishesmate') {
-        if ($("#stocode_ids").val().length > 0) {
-            ShowOpenpage(title, tbname + 'StoreDishesCostVarianceReportDetail1.aspx?matcode=' + $("#stocode_ids").val() + '&date=' + $("#ddl_ctype").val() + '&stocode=' + $("#ddl_stocode").val() + '&type=' + $("#stoname_ids").val(), '90%', '100%', true, true);
-        }
-        else {
-            $("#hidmess").html("未选中有效行");
-        }
-        return false;
-    }
-    else if (type == 'mateconsume') {
-        ShowOpenpage(title, tbname + 'StoreDishesCostConsume.aspx?discode=' + $("#ddl_dishes").val() + '&date=' + $("#ddl_ctype").val() + '&stocode=' + $("#ddl_stocode").val() + '&type=' + $("#stoname_ids").val(), '90%', '100%', true, true);
-        return false;
-    }
-    else if (type == "downtemp" && tbname == "dishes") {
-        //var a = document.createElement('a'); // 创建a标签
-        //a.setAttribute('download', '');// download属性
-        //a.setAttribute('href', '../Template/成本卡模板.xlsx');// href链接
-        //a.click();// 自执行点击事件
-        return true;
-    }
-    else if (type == "edit" && tbname == "problemclass") {
-        title = "修改";
-        ShowOpenpage(title, tbname + 'edit.aspx?id=' + $('#hidtreid').val() + '&pid=' + $('#hidtrepid').val(), '100%', '100%', true, true);
-        return false;
-    }
-    else if (type == "edit" && tbname == "DishesMate") {
-        var s = document.getElementById('gv_list').getElementsByTagName('input');
-        var role_id = "";
-        var stocodes = "";
-        if (s != undefined) {
-            for (var i = 0; i < s.length; i++) {
-                try {
-                    if (s[i].type == 'checkbox' && s[i].attributes[3].value == 'checked') {
-                        if (s[i].id.indexOf('CB_Select') < 0) {
-                            continue;
-                        }
-                        num++;
-                        var table = document.getElementById('gv_list');
-                        var keyid = s[i + 1].id;
-                        var stocode = s[i + 2].id;
-                        role_id += $('#' + keyid).val() + ",";
-                        stocodes = $('#' + stocode).val();
-                    }
-                } catch (e) {
-
-                }
-
-            }
-        }
-        role_id = role_id.toString().substr(0, role_id.length - 1);
-        if (role_id.indexOf(',') >= 0) {
-            $("#sp_showmes").html("一次只能修改或查看一条数据");
-            return false;
-        }
-        if (role_id == "") {
-            $("#sp_showmes").html("请选择要操作的数据");
-            return false;
-        }
-        console.log(stocodes);
-        ShowOpenpage(title, tbname + 'Edit.aspx?type=edit&discode=' + role_id + '&stocode=' + stocodes, '90%', '100%', true, true);
-        return false;
-    }
-    else if (type == "info" && tbname == "DishesMate") {
-        var s = document.getElementById('gv_list').getElementsByTagName('input');
-        var role_id = "";
-        var stocodes = "";
-        if (s != undefined) {
-            for (var i = 0; i < s.length; i++) {
-                try {
-                    if (s[i].type == 'checkbox' && s[i].attributes[3].value == 'checked') {
-                        if (s[i].id.indexOf('CB_Select') < 0) {
-                            continue;
-                        }
-                        num++;
-                        var table = document.getElementById('gv_list');
-                        var keyid = s[i + 1].id;
-                        var stocode = s[i + 2].id;
-                        role_id += $('#' + keyid).val() + ",";
-                        stocodes = $('#' + stocode).val();
-                    }
-                } catch (e) {
-
-                }
-
-            }
-        }
-        role_id = role_id.toString().substr(0, role_id.length - 1);
-        if (role_id.indexOf(',') >= 0) {
-            $("#sp_showmes").html("一次只能修改或查看一条数据");
-            return false;
-        }
-        if (role_id == "") {
-            $("#sp_showmes").html("请选择要操作的数据");
-            return false;
-        }
-        ShowOpenpage(title, tbname + 'Info.aspx?type=info&discode=' + role_id + '&stocode=' + stocodes, '90%', '100%', true, true);
-        return false;
-    }
-    else if (type == "cardexport" && tbname == 'dishes') {
-        var s = document.getElementById('gv_list').getElementsByTagName('input');
-        var role_id = "";
-        var stocodes = "";
-        if (s != undefined) {
-            for (var i = 0; i < s.length; i++) {
-                if (s[i].type == 'checkbox' && s[i].checked) {
-                    if (s[i].id.indexOf('CB_Select') < 0) {
-                        continue;
-                    }
-                    num++;
-                    var table = document.getElementById('gv_list');
-                    var keyid = s[i + 1].id;
-                    var stocode = s[i + 2].id;
-                    role_id += $('#' + keyid).val() + ",";
-                    stocodes += $('#' + stocode).val();
-                }
-            }
-        }
-        role_id = role_id.toString().substr(0, role_id.length - 1);
-        $("#discodes").val(role_id);
-        return true;
-    }
-    else if (type == "edit" && tbname == "dishes") {
-        var s = document.getElementById('gv_list').getElementsByTagName('input');
-        var role_id = "";
-        var stocodes = "";
-        if (s != undefined) {
-            for (var i = 0; i < s.length; i++) {
-                if (s[i].type == 'checkbox' && s[i].checked) {
-                    if (s[i].id.indexOf('CB_Select') < 0) {
-                        continue;
-                    }
-                    num++;
-                    var table = document.getElementById('gv_list');
-                    var keyid = s[i + 1].id;
-                    var stocode = s[i + 2].id;
-                    role_id += $('#' + keyid).val() + ",";
-                    stocodes = $('#' + stocode).val();
-                }
-            }
-        }
-        role_id = role_id.toString().substr(0, role_id.length - 1);
-        if (role_id.indexOf(',') >= 0) {
-            $("#sp_showmes").html("一次只能修改或查看一条数据");
-            return false;
-        }
-        if (role_id == "") {
-            $("#sp_showmes").html("请选择要操作的数据");
-            return false;
-        }
-        ShowOpenpage1(title, tbname + 'edit.aspx?type=edit&discode=' + role_id + '&stocode=' + stocodes, '90%', '100%', true, true);
-        return false;
-    }
-    else if (type == "edit" && tbname == "ReportType") {
-        var title = "修改";
-        id = $('#hidtreid').val();
-        if (id) {
-            ShowOpenpage(title, tbname + type + '.aspx?id=' + id, '100%', '100%', true, true);
-        } else {
-            $("#sp_showmes").html("请选择要操作的数据");
-        }
-        return false;
-    }
-    else if (type == "delete" && tbname == "ReportType") {
-        id = $('#hidtreid').val();
-        if (id) {
-            return confirm(getCommonInfo('delete_button_report'));
-        } else {
-            $("#sp_showmes").html("请选择要删除的数据");
-        }
-        return false;
-    }
-    else if ((type == 'recharge' && tbname == 'MemCard') || (type == 'recharge' && tbname == 'MemCardBig')) {
-        return;
-    }
-    else if (type == 'free' || type == 'bactfree') {
-        title = "赠送";
         ShowOpenpage(title, tbname + 'edit.aspx', '100%', '100%', true, true);
-        //gotoURL(tbname + 'edit.aspx');
         return false;
-    }
-    else if (type == "scpandian" && tbname == 'SCStockCounting') {
-        return;
-    }
-    else if (type == "scpandian" && tbname == 'SCStockCountingDay') { return; }
-    else if (type == "audit" && tbname == "StockCounting") {
-        return;
-    }
-    else if (type == "audit" && tbname == "memberCardCounting") {
-        return;
-    }
-    else if (type == "audit" && tbname == "SupplierTicket") {
-        return;
-    }
-    else if (type == "audit" && tbname == "StockSemiProOut") {
-        return;
-    }
-    else if (type == "audit" && tbname == "StockTransfer") {
-        return;
-    }
-    else if (type == "reaudit") { return confirm(getCommonInfo('reaudit_button_tip')); }
-    else if (type == "sensitive" && tbname == 'MVComment') {
-        return;
-    }
-    else if (type == "scorerel" && tbname == 'MVComment') {
-        return;
-    }
-    else if (type == "audit" && tbname == "StockCostBalance") {
-        return;
-    } else if (type == "audit" && tbname == "StockSemiPro") {
-        return;
-    } else if (type == "audit" && tbname == "StockSemiProOut") {
-        return;
-    } else if ((type == "loguser" || type == "audit") && tbname == "ProAuthAudit") {
-        return;
-    } else if (type == "untying" && tbname == "ProAuthAudit") {
-        return confirm(getCommonInfo('untying_button_tip'));
-    }
-    else if (type == "scpandian" && tbname == 'SCmemberCardCounting') {
-        return;
-    } else if (type == "info" && tbname == "MVmarketingactivity") {
-        return;
-    } else if (type == "audit" && tbname == "MVmarketingactivity") {
-        return;
-    }
-        //广告活动
-    else if (type == "edit" && tbname == "MVbanner") {
-        return;
-    }
-    else if (type == "info" && tbname == "MVbanner") {
-        return;
-    }
-        //生日赠送
-    else if (type == "edit" && tbname == "birthsent") {
-        return;
-    }
-    else if (type == "info" && tbname == "birthsent") {
-        return;
-    }
-    else if (type == "edit" && tbname == "subcard") {
-        return;
-    }
-    else if (type == "info" && tbname == "subcard") {
-        return;
-    }
-    else if (type == "edit" && tbname == "coupontipsrule") {
-        return;
-    }
-    else if (type == "info" && tbname == "coupontipsrule") {
-        return;
-    }
-    else if (type == "audit" && tbname == "MVDraw") {
-        return;
-    }
-    else if (type == "info" && tbname == "subcardinfo") {
-        return;
-    }
-    else if (type == "info" && tbname == "dishes") {
-        var s = document.getElementById('gv_list').getElementsByTagName('input');
-        var role_id = "";
-        var stocodes = "";
-        if (s != undefined) {
-            for (var i = 0; i < s.length; i++) {
-                if (s[i].type == 'checkbox' && s[i].checked) {
-                    if (s[i].id.indexOf('CB_Select') < 0) {
-                        continue;
-                    }
-                    num++;
-                    var table = document.getElementById('gv_list');
-                    var keyid = s[i + 1].id;
-                    var stocode = s[i + 2].id;
-                    role_id += $('#' + keyid).val() + ",";
-                    stocodes = $('#' + stocode).val() + ",";
-                }
-            }
-        }
-        role_id = role_id.toString().substr(0, role_id.length - 1);
-        if (role_id.indexOf(',') >= 0) {
-            $("#sp_showmes").html("一次只能修改一条数据");
-            return false;
-        }
-        if (role_id == "") {
-            $("#sp_showmes").html("请选择要操作的数据");
-            return false;
-        }
-        ShowOpenpage1(title, tbname + 'edit.aspx?type=info&discode=' + role_id + '&stocode=' + stocodes, '90%', '100%', true, true);
-        return false;
-    }
-    else if (type == "copy" && tbname == "dishes") {
-        var s = document.getElementById('gv_list').getElementsByTagName('input');
-        var role_id = "";
-        var stocodes = "";
-        if (s != undefined) {
-            for (var i = 0; i < s.length; i++) {
-                if (s[i].type == 'checkbox' && s[i].checked) {
-                    if (s[i].id.indexOf('CB_Select') < 0) {
-                        continue;
-                    }
-                    num++;
-                    var table = document.getElementById('gv_list');
-                    var keyid = s[i + 1].id;
-                    var stocode = s[i + 2].id;
-                    role_id += $('#' + keyid).val() + ",";
-                    stocodes += $('#' + stocode).val() + ",";
-                }
-            }
-        }
-        role_id = role_id.toString().substr(0, role_id.length - 1);
-        stocodes = stocodes.toString().substr(0, stocodes.length - 1);
-        if (role_id.indexOf(',') >= 0) {
-            $("#sp_showmes").html("一次只能修改一条数据");
-            return false;
-        }
-        if (role_id == "") {
-            $("#sp_showmes").html("请选择要操作的数据");
-            return false;
-        }
-        ShowOpenpage(title, tbname + 'edit.aspx?type=copy&discode=' + role_id, '90%', '100%', true, true);
-        return false;
-    }
-    else if (type == "edit" && tbname == "MVmarketingactivity") {
-        return;
-    }
-    else if (type == "scpandian") {
-        title = "盘点";
-        ShowOpenpage(title, tbname + 'scpandian.aspx', '100%', '100%', true, true);
-        //gotoURL(tbname + "scpandian.aspx");
-        return false;
-    } else if (type == "build") {
-        return;
-    } else if (type == "buildtotal") {
-        return;
-    } else if (type == "instore") {
-        return;
-    } else if (type == "total") {
-        return;
-    } else if (type == "outstock" || type == "downloadyltemplate" || type == "importyldata" || type == "viewerq") { return; }
-    else if (type == "materialinfo" && tbname == "SupplierStore") {
-        return;
-    }
-    else if (type == "materialinfo" || type == "modifysupp" || type == "storecon") {
-        return;
+    } 
+
+    if (type == 'delete') {
+        return confirm(getCommonInfo('delete_button_tip'));
     }
 
-    if (tbname == 'Department' || tbname == 'ts_Dicts') {
-        return;
-    }
-    var Flag = true;
-    var num = 0;
-    var id = '';
-    var s = document.getElementById('gv_list').getElementsByTagName('input');
+    var role_id = "";
     if (s != undefined) {
         for (var i = 0; i < s.length; i++) {
             if (s[i].type == 'checkbox' && s[i].checked) {
                 if (s[i].id.indexOf('CB_Select') < 0) {
                     continue;
                 }
-                num++;
+                //num++;
                 var table = document.getElementById('gv_list');
                 var keyid = s[i + 1].id;
-                id += $('#' + keyid).val() + ",";
-
+                role_id += $('#' + keyid).val() + ",";
             }
         }
     }
-    id = id.toString().substr(0, id.length - 1);
-    if (num < 1) {
-        showobj.innerText = getCommonInfo('nochoose_button_tip');
-        Flag = false;
+    role_id = role_id.toString().substr(0, role_id.length - 1);
+    if (role_id.indexOf(',') >= 0) {
+        $("#sp_showmes").html("一次只能操作一条数据");
+        return false;
     }
-    else {
-        if (type == 'oldactive') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            return getsyscard();
-        }
-        else if (type == 'printbalance') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            pageprint(id);
-            return false;
-        }
-        else if (type == 'edit') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            switch (tbname) {
-                case "maincoupon"://活动优惠券信息
-                case "maincouponN"://活动优惠券信息
-                    title = "优惠券信息";
-                    ShowOpenpage(title, tbname + 'edit.aspx?id=' + id + "&" + $('#HidParameter').val(), '100%', '100%', true, true);
-                    //gotoURL(tbname + 'edit.aspx?id=' + id + "&" + $('#HidParameter').val());
-                    break;
-                case "couponpresent":
-                    return true;
-                    break;
-                case "StockApply":
-                    break;
-                case "StockReturn":
-                    break;
-                case "StockBack":
-                    break;
-                case "StockOut":
-                    break;
-                case "StockTransfer":
-                    break;
-                case "StockLoss":
-                    break;
-                case "StockStaffMeals":
-                    break;
-                case "memcardLoss":
-                    break;
-                case "memberCardSales":
-                    break;
-                case "sumcoupon":
-                    break
-                case "sumcouponN":
-                    return true;
-                    break
-                case "StockStorage":
-                    break;
-                case "StockPreApply":
-                    break;
-                case "memberCardTransfer":
-                    break;
-                case "StockJKlist":
-                    break;
-                case "MemCardBig":
-                    title = "会员卡信息";
-                    ShowOpenpage(title, 'MemCardedit.aspx?id=' + id + '&types=big', '100%', '100%', true, true);
-                    //gotoURL('MemCardedit.aspx?id=' + id + '&types=big');
-                    break;
-                default:
-                    //gotoURL(tbname + type + '.aspx?id=' + id);
-                    var title = "修改";
-                    ShowOpenpage(title, tbname + type + '.aspx?id=' + id, '100%', '100%', true, true);
-                    break;
-            }
-            if (tbname != "StockApply" && tbname != "StockReturn" && tbname != "StockTransfer" && tbname != "StockLoss" && tbname != "StockStaffMeals" && tbname != "memcardLoss" && tbname != "memberCardSales" && tbname != "sumcoupon" && tbname != "StockStorage" && tbname != "StockPreApply" && tbname != "StockBack" && tbname != "StockOut" && tbname != "memberCardTransfer" && tbname != "StockJKlist" && tbname != "NoApplyStorage") {
-                return false;
-            }
-        }
-        else if (type == 'info') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            var title = "详情";
-            ShowOpenpage(title, tbname + type + '.aspx?id=' + id, '100%', '100%', true, true);
-            return false;
-        }
-        else if (type == 'upload') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            var title = "上传";
-            ShowOpenpage(title, tbname + type + '.aspx?id=' + id, '100%', '100%', true, true);
-            return false;
-        }
-        else if (type == 'chargoff' && tbname == 'memcardcredit') {
-            return;
-        } else if (type == 'chargoff' && tbname == 'StockJKlist') {
-            return;
-        } else if (type == 'pay' && tbname == 'StockJKlist') {
-            return;
-        } else if (type == 'backpay' && tbname == 'StockJKlist') {
-            return;
-        }
-        else if (type == 'chargoff' && tbname == 'memcardsign') {
-            return;
-        }
-        else if (type == 'chargoff' && tbname != 'memcardcredit')//核销
-        {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            gotoURL(tbname + 'Charg.aspx?id=' + id);
-            return false;
-        }
-        else if (type == 'copying' && tbname == 'ReportTypeRelation') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            gotoURL(tbname + 'Edit.aspx?copying=1&id=' + id);
-            return false;
-        }
-        else if (type == 'copying') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            gotoURL(tbname + 'Edit.aspx?copying=1&id=' + id);
-            return false;
-        }
-        else if (type == 'memedit') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            if (tbname == "MemCardBig") {
-                gotoURL('membersEdit.aspx?from=memcard&id=' + id + '&type=bigmemcard');
-            } else {
-                gotoURL('membersEdit.aspx?from=memcard&id=' + id);
-            }
-            return false;
-        }
-        else if (type == 'nullif' && tbname == "subcardinfo") {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            return confirm(getCommonInfo('nullifysubcard_button_tip'));
-        }
-        else if (type == 'nullifynotuse') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            return confirm(getCommonInfo('nullifynotuse_button_tip'));
-        }
-        else if (type == "delete" && tbname == "cbtotalmanagelist") {
-            return;
-        }
-        else if (type == "delete" && tbname == "cbmanagelist") {
-            return;
-        }
-        else if (type == "delete" && tbname == "ReportTypeRelation") {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            return confirm(getCommonInfo('delete_button_reportrelation'));
-        }
-        else if (type == 'delete') {
-            if (tbname == "MVComment") {
-                ShowReferPage('', '', "删除", '../common/ConfirmPage.aspx?content=' + getCommonInfo('deleteComment_button_tip') + '&change=confirmReturn&valid=valid', 1, '640px', '190px');
-                return false;
-            }
-            return confirm(getCommonInfo('delete_button_tip'));
-        }
-        else if (type == 'clearphone') {
-            if (tbname == "WXMembers") {
-                if (num > 1) {
-                    showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                    return false;
-                }
-                return confirm(getCommonInfo('clearphone_button_tip'));
-            }
-        }
-        else if (type == 'untying') {
-            if (tbname == "WXMembers") {
-                if (num > 1) {
-                    showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
-        else if (type == 'cancel' && tbname == "MVticketsOrder") {
-            return confirm(getCommonInfo('cancel_MVticketsOrder_tip'));
-        }
-        else if (type == "nullify") {
-            if (tbname == "sumcoupon") {
-                return confirm(getCommonInfo('nullify_button_tip'));
-            }
-            else {
-                return confirm(getCommonInfo('nullify_button_tipC'));
-            }
-        } else if (type == 'releaseInfo') {
-            return confirm(getCommonInfo('releaseinfo_button_tip'));
-        } else if (type == 'repaircard') {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            var result = confirm(getCommonInfo('repaircard_button_tip'));
-            if (result) {  //gotoURL('memCardRepair.aspx?id=' + id);
-                var title = getNameByCode('pepair_refer');
-                ShowReferPage(id, '', title, 'memCardRepair.aspx', 1, '70%', '80%');
-                return false;
-            }
-        } else if (type == 'freeze') {
-            //冻结
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            else {
-                var title = getNameByCode('memcard_reffreeze');
-                ShowReferPage(id, '', title, 'memCardfreeze.aspx?id=' + id, 1, '60%', '60%');
-                return false;
-
-            }
-        } else if (type == 'merge') {
-            //合并卡
-
-            if (num <= 1) {
-                //提示 数量不对
-                showobj.innerText = getCommonInfo('minonechoose_button_tip');
-                Flag = false;
-            } else {
-                var title = getCommonInfo('member_refer');
-
-                gotoURL('memCardMerge.aspx?id=' + id);
-                return false;
-
-            }
-        } else if (type == "changecard") {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            var result = confirm(getCommonInfo('changecard_button_tip'));
-            if (result) {  //gotoURL('memCardRepair.aspx?id=' + id);
-                var title = getCommonInfo('change_refer');
-                ShowReferPage(id, '', title, 'memCardChange.aspx', 1, '70%', '80%');
-                return false;
-            }
-        }
-        else if (type == "invalid") {//无效
-            /*if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }*/
-            if (tbname == 'Employee') {
-                if (confirm(getCommonInfo('invalid_button_tip'))) {
-                    return confirm(getCommonInfo('invalid_button_tip2'));
-                }
-                else {
-                    return false;
-                }
-            }
-            else {
-                return true;
-            }
-        }
-        else if (type == "transfer") {//过户
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            var result = confirm(getNameByCode('memcard_comtransfer'));
-            if (result) {  //gotoURL('memCardRepair.aspx?id=' + id);
-                var title = getNameByCode('memcard_reftransfer');
-                ShowReferPage(id, '', title, 'memCardtransfer.aspx?id=' + id, 1, '70%', '80%');
-                return false;
-            }
-        }
-        else if (type == "bindmember") {//重新绑定会员
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            var title = getNameByCode('memcard_refbindmember');
-            ShowOpenpage(title, 'memCardbindmember.aspx?id=' + id, '80%', '80%', false);
-            return false;
-        }
-            //处理
-        else if (type == 'deal' && tbname == 'memcardreturn') {
-            return;
-        }
-        else if (type == 'deal' && tbname != "memcardreturn") {
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            gotoURL(tbname + 'edit.aspx?id=' + id);
-            return false;
-        }
-            //审核
-        else if (type == 'audit' || type == 'auditing') {
-            title = "审核";
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            switch (tbname) {
-                case "maincoupon"://活动优惠券信息             
-                    ShowOpenpage(title, tbname + 'edit.aspx?id=' + id + "&" + $('#HidParameter').val(), '100%', '100%', true, true);
-                    break;
-                case "birthsent"://生日赠送活动信息 
-                case "subcard"://次卡设置活动信息 
-                case "coupontipsrule": //优惠券过期提醒
-                case "sumcouponN"://活动优惠券信息 
-                case "marketingN":
-                    return true;
-                    break;
-                case "sumcoupon"://活动优惠券信息                    
-                    ShowOpenpage(title, 'maincouponaudit.aspx?id=' + id, '100%', '100%', true, true);
-                    break;
-                case "couponpresent"://赠送方案审核                 
-                    ShowOpenpage(title, '/coupon/GoToAuditing.aspx?formpage=couponpresent&id=' + id, '600px', '400px', false, true);
-                    break;
-                case "StockPayOrder":
-                    break;
-                case "memberBind":
-                    ShowOpenpage('会员绑定审核', 'memberbindAuding.aspx?id=' + id, '500px', '300px', false, true);
-                    break;
-                default:
-                    ShowOpenpage(title, tbname + type + '.aspx?id=' + id, '100%', '100%', true, true);
-                    break;
-            }
-            if (tbname != "StockPayOrder") {
-                return false;
-            }
-        }
-        else if (type == 'detail' && (tbname == "MachRecord" || tbname == "SupplierTicket")) {
-            var title = "明细";
-            if (num > 1) {
-                showobj.innerText = getCommonInfo('singlechoose_button_tip');
-                return false;
-            }
-            ShowOpenpage(title, tbname + type + '.aspx?type=detail&id=' + id, '100%', '100%', true, true);
-            return false;
-        }
+    if (role_id == "") {
+        $("#sp_showmes").html("请选择要操作的数据");
+        return false;
     }
-    return Flag;
+    ShowOpenpage("编辑", tbname + 'edit.aspx?type=' + type + '&id=' + role_id, '90%', '100%', true, true);
+    return false;
 }
 
 $(document).ready(function () {
@@ -818,46 +99,20 @@ $(document).ready(function () {
         var _iframe = window.parent.document;
         var _btn = window.parent.document.getElementById("ToolBar1_LinkRefresh");
         if ($(_iframe).find(".layui-layer-title").attr("move") != undefined) {
-            //if (_btn != undefined) {
-            //    _btn.click();
-            //}
-            //parent.location.reload();
             parent.layer.closeAll("iframe");
         } else {
             var tbname = $("#form1").attr("data-tbname");
             var url = tbname + "list.aspx";
-            switch (tbname) {
-                case "maincoupon":
-                case "maincouponN":
-                    url = tbname + 'list.aspx?' + $('#HidParameter').val();
-                    break;
-                case "StockSemiProOut":
-                case "StockTransfer":
-                case "StockSemiPro":
-                    url = tbname + 'list.aspx?type=' + $("#type_ids").val();
-                    break;
-                case "MemCard":
-                    if ($("#isbigcusedit").val() == "big") {
-                        url = tbname + 'biglist.aspx';
-                    } else {
-                        url = tbname + 'list.aspx';
-                    }
-                    break;
-                case "members":
-                    if ($("#types").val() == "big") {
-                        url = 'MemCardbiglist.aspx';
-                    } else {
-                        url = 'MemCardlist.aspx';
-                    }
-                    break;
-            }
             location.href = url;
         }
-    })
+    });
+
     //返回上一级
     $(".backbtn").click(function () {
         location.href = document.referrer;
     });
+
+    intchangecolor();
 });
 
 function auditclick(code, url, type) {
@@ -880,7 +135,6 @@ function auditclick(code, url, type) {
         });
     }
 }
-
 
 //Jquery 实现format 
 //var text = "a{0}b{0}c{1}d\nqq{0}"; 
@@ -971,6 +225,7 @@ function getselcity() {
         }
     });
 }
+
 function getselarea() {
 
     var pid = $("#sel_city").val();
@@ -1060,11 +315,6 @@ function FormDataSaveAdd(id) {
     }
 }
 
-//列表页事件
-$(document).ready(function () {
-    intchangecolor();
-});
-
 function intchangecolor() {
     var noselect = $("body").attr("data-noselect");//此属性配置值则不加自动选择属性
     var nochangecolor = $("body").attr("data-nochangecolor");
@@ -1118,6 +368,7 @@ function getUrlParam(name) {
     }
     return "";
 }
+
 function getListItemInfo(txtobj, valobj, ctype, thisobj) {
     var txtname = $(txtobj).val();//result names
     var txtval = $(valobj).val();//result 
@@ -1174,24 +425,4 @@ function getListItemInfo(txtobj, valobj, ctype, thisobj) {
     txtval = (0 == txtval.indexOf(',') ? txtval.substr(1) : txtval);
     $(txtobj).val(txtname);
     $(valobj).val(',' + txtval);
-}
-
-//网页读卡
-function getreadcard(cardobj) {
-    if (document.getElementById(cardobj).value.length == 0) {
-        if (cardobj.length > 0) {
-            var strresult = document.getElementById("readcard").GetCar();
-            var arrres = strresult.split('$');
-            if (arrres.length >= 2) {
-                if (arrres[0] != "0") {
-                    pcLayerMsg(arrres[1]);
-                    return false;
-                }
-                else {
-                    document.getElementById("hidreadcard").value = arrres[1];
-                }
-            }
-        }
-    }
-    return true;
 }

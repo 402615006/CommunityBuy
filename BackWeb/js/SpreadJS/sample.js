@@ -990,7 +990,7 @@ function showDropdown() {
             targetWidth = $target.outerWidth(),
             top = offset.top + height;
 
-        // adjust drop down' width to same
+        // adjust drop down' width to CommunityBuye
         if (targetWidth < width) {
             $target.width(width);
         }
@@ -2172,7 +2172,7 @@ function screenAdoption() {
 
     $(".toolbar-left-section", $toolbar).width(sectionWidth);
 
-    // + 2 to make sure the right section with enough space to show in same line
+    // + 2 to make sure the right section with enough space to show in CommunityBuye line
     if (sectionWidth > 375 + 2) {  // 340 = (380 + 300) / 2, where 380 is min-width of left section, 300 is the width of right section
         $(".toolbar-middle-section", $toolbar).width(sectionWidth);
     } else {
@@ -2287,7 +2287,7 @@ function initSpread() {
     addChartContent();
 }
 
-// Sample Content related items
+// CommunityBuyple Content related items
 function setFormulaContent() {
     var sheet = new spreadNS.Worksheet("Formula");
     spread.addSheet(spread.getSheetCount(), sheet);
@@ -2790,40 +2790,40 @@ function setTableContent() {
     var row = 0, col = 1;
     sheet.addSpan(row, col, 1, colCount);
     sheet.getCell(row, col).value("Table Style - light7").font("700 11pt Calibri");
-    sheet.tables.add("sampleTable0", ++row, col, rowCount, colCount, spreadNS.Tables.TableThemes.light7);
+    sheet.tables.add("CommunityBuypleTable0", ++row, col, rowCount, colCount, spreadNS.Tables.TableThemes.light7);
 
     sheet.addSpan(row + 7, col, 1, colCount);
     sheet.getCell(row + 7, col).value("Table Style - medium7").font("700 11pt Calibri");
-    sheet.tables.add("sampleTable1", row + 8, col, rowCount, colCount, spreadNS.Tables.TableThemes.medium7);
+    sheet.tables.add("CommunityBuypleTable1", row + 8, col, rowCount, colCount, spreadNS.Tables.TableThemes.medium7);
 
     sheet.addSpan(row + 15, col, 1, colCount);
     sheet.getCell(row + 15, col).value("Table Style - dark7").font("700 11pt Calibri");
-    sheet.tables.add("sampleTable2", row + 16, col, rowCount, colCount, spreadNS.Tables.TableThemes.dark7);
+    sheet.tables.add("CommunityBuypleTable2", row + 16, col, rowCount, colCount, spreadNS.Tables.TableThemes.dark7);
 
     sheet.addSpan(row + 23, col, 1, colCount);
     sheet.getCell(row + 23, col).value("Hide Filter Button").font("700 11pt Calibri");
-    table = sheet.tables.add("sampleTable3", row + 24, col, rowCount, colCount);
+    table = sheet.tables.add("CommunityBuypleTable3", row + 24, col, rowCount, colCount);
     table.filterButtonVisible(false);
 
     row = 0, col = col + 7;
     sheet.addSpan(row, col, 1, colCount);
     sheet.getCell(row, col).value("Hide Header Row").font("700 11pt Calibri");
-    table = sheet.tables.add("sampleTable4", ++row, col, rowCount, colCount);
+    table = sheet.tables.add("CommunityBuypleTable4", ++row, col, rowCount, colCount);
     table.showHeader(false);
 
     sheet.addSpan(row + 7, col, 1, colCount);
     sheet.getCell(row + 7, col).value("Show Total Row").font("700 11pt Calibri");
-    table = sheet.tables.add("sampleTable5", row + 8, col, rowCount, colCount);
+    table = sheet.tables.add("CommunityBuypleTable5", row + 8, col, rowCount, colCount);
     table.showFooter(true);
 
     sheet.addSpan(row + 15, col, 1, colCount);
     sheet.getCell(row + 15, col).value("Don't display alternating row style").font("700 11pt Calibri");
-    table = sheet.tables.add("sampleTable6", row + 16, col, rowCount, colCount);
+    table = sheet.tables.add("CommunityBuypleTable6", row + 16, col, rowCount, colCount);
     table.bandRows(false);
 
     sheet.addSpan(row + 23, col, 1, colCount);
     sheet.getCell(row + 23, col).value("Display alternating column style").font("700 11pt Calibri");
-    table = sheet.tables.add("sampleTable7", row + 24, col, rowCount, colCount);
+    table = sheet.tables.add("CommunityBuypleTable7", row + 24, col, rowCount, colCount);
     table.bandRows(false);
     table.bandColumns(true);
 
@@ -2836,12 +2836,12 @@ function setTableContent() {
         ["Cherry", "37", "woman", "Shanghai", "58"]];
     sheet.addSpan(row, col, 1, colCount);
     sheet.getCell(row, col).value("Highlight first column").font("700 11pt Calibri");
-    table = sheet.tables.addFromDataSource("sampleTable8", row + 1, col, data);
+    table = sheet.tables.addFromDataSource("CommunityBuypleTable8", row + 1, col, data);
     table.highlightFirstColumn(true);
     col = col + 7;
     sheet.addSpan(row, col, 1, colCount);
     sheet.getCell(row, col).value("Highlight last column").font("700 11pt Calibri");
-    table = sheet.tables.addFromDataSource("sampleTable9", row + 1, col, data);
+    table = sheet.tables.addFromDataSource("CommunityBuypleTable9", row + 1, col, data);
     table.highlightLastColumn(true);
 
     sheet.resumePaint();
@@ -3566,7 +3566,7 @@ function addChartContent() {
 }
 
 
-// Sample Content related items (end)
+// CommunityBuyple Content related items (end)
 
 function getCellInfo(sheet, row, column) {
     var result = {type: ""}, object;
@@ -3997,7 +3997,7 @@ function processFileSelected() {
 
     if (!file) return false;
 
-    // clear to make sure change event occures even when same file selected again
+    // clear to make sure change event occures even when CommunityBuye file selected again
     $("#fileSelector").val("");
 
     if (action === "doImport") {
@@ -7587,7 +7587,7 @@ $(document).ready(function () {
     getThemeColor();
     initSpread();
 
-    //Change default allowCellOverflow the same with Excel.
+    //Change default allowCellOverflow the CommunityBuye with Excel.
     spread.sheets.forEach(function (sheet) {
         sheet.options.allowCellOverflow = true;
     });
@@ -8343,14 +8343,14 @@ function getMultiSlicerSetting(selectedSlicers) {
     }
     var slicer = selectedSlicers[0];
     var isDisplayHeader = false,
-        isSameSortState = true,
-        isSameCaptionName = true,
-        isSameColumnCount = true,
-        isSameItemHeight = true,
-        isSameItemWidth = true,
-        isSameLocked = true,
-        isSameDynamicMove = true,
-        isSameDynamicSize = true;
+        isCommunityBuyeSortState = true,
+        isCommunityBuyeCaptionName = true,
+        isCommunityBuyeColumnCount = true,
+        isCommunityBuyeItemHeight = true,
+        isCommunityBuyeItemWidth = true,
+        isCommunityBuyeLocked = true,
+        isCommunityBuyeDynamicMove = true,
+        isCommunityBuyeDynamicSize = true;
 
     var sortState = slicer.sortState(),
         captionName = slicer.captionName(),
@@ -8363,45 +8363,45 @@ function getMultiSlicerSetting(selectedSlicers) {
     for (var item in selectedSlicers) {
         var slicer = selectedSlicers[item];
         isDisplayHeader = isDisplayHeader || slicer.showHeader();
-        isSameLocked = isSameLocked && slicer.isLocked();
+        isCommunityBuyeLocked = isCommunityBuyeLocked && slicer.isLocked();
         if (slicer.sortState() !== sortState) {
-            isSameSortState = false;
+            isCommunityBuyeSortState = false;
         }
         if (slicer.captionName() !== captionName) {
-            isSameCaptionName = false;
+            isCommunityBuyeCaptionName = false;
         }
         if (slicer.columnCount() !== columnCount) {
-            isSameColumnCount = false;
+            isCommunityBuyeColumnCount = false;
         }
         if (slicer.itemHeight() !== itemHeight) {
-            isSameItemHeight = false;
+            isCommunityBuyeItemHeight = false;
         }
         if (getSlicerItemWidth(slicer.columnCount(), slicer.width()) !== itemWidth) {
-            isSameItemWidth = false;
+            isCommunityBuyeItemWidth = false;
         }
         if (slicer.dynamicMove() !== dynamicMove) {
-            isSameDynamicMove = false;
+            isCommunityBuyeDynamicMove = false;
         }
         if (slicer.dynamicSize() !== dynamicSize) {
-            isSameDynamicSize = false;
+            isCommunityBuyeDynamicSize = false;
         }
         selectedCurrentSlicerStyle(slicer);
     }
     setTextValue("slicerName", "");
-    if (isSameCaptionName) {
+    if (isCommunityBuyeCaptionName) {
         setTextValue("slicerCaptionName", captionName);
     }
     else {
         setTextValue("slicerCaptionName", "");
     }
-    if (isSameSortState) {
+    if (isCommunityBuyeSortState) {
         setDropDownValue("slicerItemSorting", sortState);
     }
     else {
         setDropDownValue("slicerItemSorting", "");
     }
     setCheckValue("displaySlicerHeader", isDisplayHeader);
-    if (isSameDynamicMove && isSameDynamicSize && dynamicMove) {
+    if (isCommunityBuyeDynamicMove && isCommunityBuyeDynamicSize && dynamicMove) {
         if (dynamicSize) {
             setRadioItemChecked("slicerMoveAndSize", "slicer-move-size");
         }
@@ -8412,25 +8412,25 @@ function getMultiSlicerSetting(selectedSlicers) {
     else {
         setRadioItemChecked("slicerMoveAndSize", "slicer-nomove-size");
     }
-    if (isSameColumnCount) {
+    if (isCommunityBuyeColumnCount) {
         setNumberValue("slicerColumnNumber", columnCount);
     }
     else {
         setNumberValue("slicerColumnNumber", "");
     }
-    if (isSameItemHeight) {
+    if (isCommunityBuyeItemHeight) {
         setNumberValue("slicerButtonHeight", Math.round(itemHeight));
     }
     else {
         setNumberValue("slicerButtonHeight", "");
     }
-    if (isSameItemWidth) {
+    if (isCommunityBuyeItemWidth) {
         setNumberValue("slicerButtonWidth", itemWidth);
     }
     else {
         setNumberValue("slicerButtonWidth", "");
     }
-    setCheckValue("lockSlicer", isSameLocked);
+    setCheckValue("lockSlicer", isCommunityBuyeLocked);
 }
 
 function changeSlicerInfo(slicer, propertyName) {
@@ -8709,7 +8709,7 @@ function setCellPadding(sheet, value) {
 
 
 
-//chart sample (begin)
+//chart CommunityBuyple (begin)
 
 function createComboChart(formula,chartName,type0,type1) {
     var sheet = spread.getActiveSheet();

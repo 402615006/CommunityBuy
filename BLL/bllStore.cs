@@ -18,15 +18,13 @@ namespace CommunityBuy.BLL
         /// 检验表单数据
         /// </summary>
         /// <returns></returns>
-        public bool CheckPageInfo(string type, string stoid, string comcode, string buscode, string stocode, string cname, string sname, string bcode, string indcode, string provinceid, string cityid, string areaid, string address, string stoprincipal, string stoprincipaltel, string tel, string stoemail, string logo, string backgroundimg, string stopath, string services, string descr, string stourl, string stocoordx, string stocoordy,string recommended, string remark, string status, string cuser,string btime, string etime)
+        public bool CheckPageInfo(string type, string stoid, string stocode, string cname, string sname, string bcode, string indcode, string provinceid, string cityid, string areaid, string address, string stoprincipal, string stoprincipaltel, string tel,string logo, string backgroundimg, string stopath, string services, string descr, string stourl, string stocoordx, string stocoordy,string recommended, string remark, string status, string cuser,string btime, string etime,string sqid,string jprice)
         {
             bool rel = false;
             try
             {
                 Entity = new StoreEntity();
                 Entity.stoid = StringHelper.StringToLong(stoid);
-                Entity.comcode = comcode;
-                Entity.buscode = buscode;
                 Entity.stocode = stocode;
                 Entity.cname = cname;
                 Entity.sname = sname;
@@ -39,7 +37,6 @@ namespace CommunityBuy.BLL
                 Entity.stoprincipal = stoprincipal;
                 Entity.stoprincipaltel = stoprincipaltel;
                 Entity.tel = tel;
-                Entity.stoemail = stoemail;
                 Entity.logo = logo;
                 Entity.backgroundimg = backgroundimg;
                 Entity.stopath = stopath;
@@ -54,6 +51,8 @@ namespace CommunityBuy.BLL
                 Entity.cuser = StringHelper.StringToLong(cuser);
                 Entity.btime = btime;
                 Entity.etime = etime;
+                Entity.sqcode = StringHelper.StringToInt(sqid);
+                Entity.jprice = StringHelper.StringToDecimal(jprice);
                 rel = true;
             }
             catch (Exception)
@@ -62,10 +61,10 @@ namespace CommunityBuy.BLL
             return rel;
         }
 
-        public void Add(string GUID, string UID, string stoid, string comcode, string buscode, string stocode, string cname, string sname, string bcode, string indcode, string provinceid, string cityid, string areaid, string address, string stoprincipal, string stoprincipaltel, string tel, string stoemail, string logo, string backgroundimg, string stopath, string services, string descr, string stourl, string stocoordx, string stocoordy, string recommended, string remark, string status, string cuser, string btime, string etime)
+        public void Add(string GUID, string UID, string stoid, string stocode, string cname, string sname, string bcode, string indcode, string provinceid, string cityid, string areaid, string address, string stoprincipal, string stoprincipaltel, string tel, string logo, string backgroundimg, string stopath, string services, string descr, string stourl, string stocoordx, string stocoordy, string recommended, string remark, string status, string cuser, string btime, string etime,string sqid,string jprice )
         {
             string spanids = string.Empty;
-            bool strReturn = CheckPageInfo("add",  stoid,  comcode,  buscode,  stocode,  cname,  sname,  bcode,  indcode,  provinceid,  cityid,  areaid,  address,  stoprincipal,  stoprincipaltel,  tel,  stoemail,  logo,  backgroundimg,  stopath,  services,  descr,  stourl,  stocoordx,  stocoordy,  recommended,  remark,  status,  cuser,  btime,  etime);
+            bool strReturn = CheckPageInfo("add", stoid, stocode, cname, sname, bcode, indcode, provinceid, cityid, areaid, address, stoprincipal, stoprincipaltel, tel, logo, backgroundimg, stopath, services, descr, stourl, stocoordx, stocoordy, recommended, remark, status, cuser, btime, etime, sqid, jprice);
             //数据页面验证
             int result = dal.Add(ref Entity);
             stoid = Entity.stoid.ToString();
@@ -142,7 +141,7 @@ namespace CommunityBuy.BLL
 
         public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
         {
-            return new bllPaging().GetPagingInfo("Store", "stoid", "*,cusername=dbo.fnGetUserName(cuser),uusername=dbo.fnGetUserName(uuser),areaname =dbo.fnGetAreaFullName(provinceid,cityid,areaid),netStatus=dbo.fnContrastMinute(stoid),busname=dbo.f_GetBusinessCname(buscode) ", pageSize, currentpage, filter, "", order, out recnums, out pagenums); //,
+            return new bllPaging().GetPagingInfo("Store", "stoid", "*,areaname =dbo.fnGetAreaFullName(provinceid,cityid,areaid)", pageSize, currentpage, filter, "", order, out recnums, out pagenums); //,
         }
 
 
@@ -171,7 +170,7 @@ namespace CommunityBuy.BLL
             Entity.stoemail = dr["stoemail"].ToString();
             Entity.logo = dr["logo"].ToString();
             Entity.backgroundimg = dr["backgroundimg"].ToString();
-            Entity.services = dr["services"].ToString();
+            //Entity.services = dr["services"].ToString();
             Entity.descr = dr["descr"].ToString();
             Entity.stourl = dr["stourl"].ToString();
             Entity.stocoordx = dr["stocoordx"].ToString();

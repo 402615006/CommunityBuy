@@ -80,8 +80,8 @@ namespace CommunityBuy.BackWeb
         protected void Save_btn_Click(object sender, EventArgs e)
         {
             //获取页面信息
-            string sumcode = Helper.ReplaceString(txt_sumcode.Text);
-            string stocode = LoginedUser.UserInfo.stocode;
+            string sumcode =txt_sumcode.Text);
+            string stocode = base.LoginedUser.stocode;
             if (string.IsNullOrEmpty(stocode))
             {
                 stocode = Helper.GetAppSettings("Stocode");
@@ -96,21 +96,21 @@ namespace CommunityBuy.BackWeb
             }
             string buscode = Helper.GetAppSettings("BusCode");
             hidStocode.Value = stocode;
-            string cname = Helper.ReplaceString(txt_cname.Text);
-            string btime = Helper.ReplaceString("1900-01-01");
-            string etime = Helper.ReplaceString("1900-01-01");
-            string ctype = Helper.ReplaceString(ddl_ctype.SelectedValue);
+            string cname =txt_cname.Text);
+            string btime ="1900-01-01");
+            string etime ="1900-01-01");
+            string ctype =ddl_ctype.SelectedValue);
             string secctype = "";
-            string initype = Helper.ReplaceString(ddl_initype.SelectedValue);
+            string initype =ddl_initype.SelectedValue);
             string status = "1";
-            string descr = Helper.ReplaceString(txt_descr.Value);
-            string cuser = LoginedUser.UserInfo.Id.ToString();
-            string uuser = LoginedUser.UserInfo.Id.ToString();
+            string descr =txt_descr.Value);
+            string cuser = base.LoginedUser.Id.ToString();
+            string uuser = base.LoginedUser.Id.ToString();
             //日志信息
             logentity.module = ErrMessage.GetMessageInfoByCode("coupons_Menu").Body;
             logentity.pageurl = "sumcouponedit.aspx";
             logentity.otype = SystemEnum.LogOperateType.Add;
-            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
+            logentity.cuser = StringHelper.StringToLong(base.LoginedUser.Id.ToString());
 
             DataTable dt = new DataTable();
             if (hidId.Value.Length == 0)//添加信息

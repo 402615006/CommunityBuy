@@ -4,7 +4,7 @@ using System.Text;
 using System.Web.UI.HtmlControls;
 using CommunityBuy.BLL;
 using CommunityBuy.CommonBasic;
-using Sam.WebControl;
+using CommunityBuy.WebControl;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -18,7 +18,7 @@ namespace CommunityBuy.BackWeb.Common
             if (Request["id"] != null)
             {
                 CPathBar pathBar = (CPathBar)Page.FindControl("pathBar");
-                //pathBar.PageType = Sam.WebControl.CPathBar.PType.Edit;
+                //pathBar.PageType =CommunityBuy.WebControl.CPathBar.PType.Edit;
             }
             base.OnInit(e);
             if (!this.DesignMode)

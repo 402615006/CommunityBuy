@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StoreEdit.aspx.cs" Inherits="CommunityBuy.BackWeb.StoreEdit" %>
 
-<%@ Register Assembly="Sam.WebControl" Namespace="Sam.WebControl" TagPrefix="cc1" %>
+<%@ Register Assembly="CommunityBuy.WebControl" Namespace="CommunityBuy.WebControl" TagPrefix="cc1" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -18,13 +18,13 @@
     <script src="/js/layerhelper.js"></script>
     <script src="/js/MY97DATE/WdatePicker.js"></script>
     <script src="/js/datehelper.js"></script>
-    <script src="../js/jquery.uploadify/jquery.uploadify.v2.1.4.js" charset="gbk" type="text/javascript"></script>
-    <script src="../js/jquery.uploadify/swfobject.js"></script>
-    <link href="../js/jquery.uploadify/uploadify.css" rel="stylesheet" />
     <%--<script src="../js/Pinyin.js"></script>--%>
     <script src="../js/Pinyin/pinyin_dict_notone.js"></script>
     <script src="../js/Pinyin/pinyin_dict_withtone.js"></script>
     <script src="../js/Pinyin/pinyinUtil.js"></script>
+    <!--图片上传控件-->
+    <link rel="stylesheet" type="text/css" href="/js/webuploader/webuploader.css"/>
+    <script type="text/javascript" src="/js/webuploader/webuploader.min.js"></script>
     <style>
         .resizeminwidth {
             width: 155px;
@@ -43,13 +43,6 @@
         }
     </style>
     <script>
-        function setispay() {
-            //设置是否充值开关
-            if ($('#hidisfood').val() == '1') {
-                $('#isfood').addClass('on');
-                $('#isfood').attr('src', '/img/on.png');
-            }
-        }
 
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -58,269 +51,28 @@
         }
 
         $(function () {
-            if ($('#hidisfood').val() == '0') {
-                $("#ddl_pstocode").attr("disabled", "disabled");
-                $("#ddl_pstocode").removeClass("selstyle");
-            }
-
             $('.btn-recyble').click(function (e) {
                 var obj = e.currentTarget;
                 if ($(obj).hasClass('on')) {
                     $(obj).removeClass('on');
                     $(obj).attr('src', '/img/off.png');
-                    $('#hidisfood').val('0');
                     $("#ddl_pstocode").attr("disabled", "disabled");
                     $("#ddl_pstocode").removeClass("selstyle");
                     $("#ddl_pstocode").val("");
-                    //$("#txt_stocode").attr("IsRequired", "False");
-                    //$("#txt_stocode").removeClass("txtstyle");
-                    //$("#txt_stocode").addClass("reqtxtstyle");
-                    //$("#txt_stocode").removeAttr("disabled");
                 }
                 else {
                     $(obj).addClass('on');
                     $(obj).attr('src', '/img/on.png');
-                    $('#hidisfood').val('1');
                     $("#ddl_pstocode").removeAttr("disabled");
                     $("#ddl_pstocode").addClass("selstyle");
-                    //$("#txt_stocode").attr("IsRequired", "False");
-                    //$("#txt_stocode").removeClass("reqtxtstyle");
-                    //$("#txt_stocode").addClass("txtstyle");
-                    //$("#txt_stocode").val("");
-                    //$("#txt_stocode").attr("disabled", "disabled");
                 }
             });
-            setispay();
 
             var id = 0;
             if (getQueryString("id") != null) {
                 id = getQueryString("id");
             }
 
-            /*$("#uploadifyaddress").uploadify({
-                uploader: '../js/jquery.uploadify/uploadify.swf',
-                cancelImg: '../js/jquery.uploadify/cancel.png',
-                script: '../ajax/uploads.ashx',
-                method: 'GET',
-                scriptData: { 'type': '3', 'id': 1, "width": 180, "height": 160, "fileSizeLimit": 2 * 1024 },
-                folder: '../uploads',
-                queueID: 'div_backgroundimg',
-                simUploadLimit: 1,//允许同时上传的个数
-                buttonImg: '../img/selectimg.png',
-                wmode: 'transparent',
-                auto: true,
-                fileTypeExts: '*.jpg;',
-                fileSizeLimit: '2MB',
-                onComplete: function (e, q, f, data, d) {
-                    if (data == "-2") {
-                        layer.alert("建议图片大小小于2M");
-                        $("#hid_backgroundimg").val("");
-                        $("#backgroundimg").attr("src", "");
-                        return;
-                    }
-                    else if (data == "-1") {
-                        layer.alert("推荐选择180*160像素的图片");
-                        $("#hid_backgroundimg").val("");
-                        $("#backgroundimg").attr("src", "");
-                        return;
-                    }
-                    else {
-                        var type = data.substr(data.length - 3, 3).toUpperCase();
-                        if (type != "JPG") {
-                            layer.alert("请选择JPG图片");
-                            //删除
-                            $.ajax({
-                                type: 'POST',
-                                url: "/ajax/uploadDisPic.ashx",
-                                data: {
-                                    "type": "-1", "path": data
-                                },
-                                dataTpye: 'text/plain',
-                                async: true,
-                                error: function (data) {
-                                },
-                                success: function (data) {
-                                }
-                            });
-                        }
-                        else {
-                            $("#hid_backgroundimg").val(data);
-                            $("#backgroundimg").attr("src", data);
-                        };
-                    }
-                },
-                onCancel: function (file) {
-                    $("#hid_backgroundimg").val("");
-                    $("#backgroundimg").attr("src", "");
-                }
-            }
-           );*/
-
-            $("#filelogo").uploadify({
-                uploader: '../js/jquery.uploadify/uploadify.swf',
-                cancelImg: '../js/jquery.uploadify/cancel.png',
-                script: '../ajax/uploads.ashx',
-                method: 'GET',
-                scriptData: { 'type': '3', 'id': 2, "fileSizeLimit": 2 * 1024 },
-                folder: '../uploads',
-                queueID: 'div_logo',
-                simUploadLimit: 1,//允许同时上传的个数
-                buttonImg: '../img/selectimg.png',
-                wmode: 'transparent',
-                auto: true,
-
-                fileTypeExts: '*.jpg;',
-                fileSizeLimit: '2MB',
-
-                onComplete: function (e, q, f, data, d) {
-                    if (data == "-2") {
-                        layer.alert("建议图片大小小于2M");
-                        $("#hid_logo").val("");
-                        $("#logo").attr("src", "");
-                        return;
-                    }
-                    else {
-                        var type = data.substr(data.length - 3, 3).toUpperCase();
-                        if (type != "JPG") {
-                            layer.alert("请选择JPG图片");
-                            //删除
-                            $.ajax({
-                                type: 'POST',
-                                url: "/ajax/uploadDisPic.ashx",
-                                data: {
-                                    "type": "-1", "path": data
-                                },
-                                dataTpye: 'text/plain',
-                                async: true,
-                                error: function (data) {
-                                },
-                                success: function (data) {
-                                }
-                            });
-                        }
-                        else {
-                            $("#hid_logo").val(data);
-                            $("#logo").attr("src", data);
-                        }
-                    }
-                },
-                onCancel: function (file) {
-                    $("#logo").attr("src", "");
-                }
-            }
-        );
-
-            $("#fileservice").uploadify({
-                uploader: '../js/jquery.uploadify/uploadify.swf',
-                cancelImg: '../js/jquery.uploadify/cancel.png',
-                script: '../ajax/uploads.ashx',
-                method: 'GET',
-                scriptData: { 'type': '3', 'id': 0, "width": 270, "height": 180, "fileSizeLimit": 2 * 1024 },
-                folder: '../uploads',
-                queueID: 'div_upservice',
-                simUploadLimit: 1,//允许同时上传的个数
-                buttonImg: '../img/add1.png',
-                wmode: 'transparent',
-                auto: true,
-
-                fileTypeExts: '*.jpg;',
-                fileSizeLimit: '2MB',
-
-                onComplete: function (e, q, f, data, d) {
-
-                    if (data == "-2") {
-                        layer.alert("建议图片大小小于2M");
-                        return;
-                    }
-                    else if (data == "-1") {
-                        layer.alert("推荐选择270*180像素的图片");
-                        return;
-                    }
-                    else {
-                        var type = data.substr(data.length - 3, 3).toUpperCase();
-                        if (type != "JPG") {
-                            layer.alert("请选择JPG图片");
-                            //删除
-                            $.ajax({
-                                type: 'POST',
-                                url: "/ajax/uploadDisPic.ashx",
-                                data: {
-                                    "type": "-1", "path": data
-                                },
-                                dataTpye: 'text/plain',
-                                async: true,
-                                error: function (data) {
-                                },
-                                success: function (data) {
-                                }
-                            });
-                        }
-                        else {
-                            addServiceRow(data);
-                        };
-                    }
-                },
-                onCancel: function (file) {
-
-                }
-            });
-            function addServiceRow(src) {
-                addbtn(src);
-            }
-
-            $("#upimage").uploadify({
-                uploader: '../js/jquery.uploadify/uploadify.swf',
-                cancelImg: '../js/jquery.uploadify/cancel.png',
-                script: '../ajax/uploads.ashx',
-                method: 'GET',
-                scriptData: { 'type': '3', 'id': 0, "width": 750, "height": 240, "fileSizeLimit": 2 * 1024 },
-                folder: '../uploads',
-                queueID: 'div_upimage',
-                simUploadLimit: 1,//允许同时上传的个数
-                buttonImg: '../img/selectimg.png',
-                wmode: 'transparent',
-                auto: true,
-
-                fileTypeExts: '*.jpg;',
-                fileSizeLimit: '2MB',
-
-                onComplete: function (e, q, f, data, d) {
-                    if (data == "-2") {
-                        layer.alert("建议图片大小小于2M");
-                        $("#images img.imageon").attr("src", "");
-                        return;
-                    }
-                    else if (data == "-1") {
-                        layer.alert("推荐选择750*240像素的图片");
-                        $("#images img.imageon").attr("src", "");
-                    }
-                    else {
-                        var type = data.substr(data.length - 3, 3).toUpperCase();
-                        if (type != "JPG") {
-                            layer.alert("请选择JPG图片");
-                            //删除
-                            $.ajax({
-                                type: 'POST',
-                                url: "/ajax/uploadDisPic.ashx",
-                                data: {
-                                    "type": "-1", "path": data
-                                },
-                                dataTpye: 'text/plain',
-                                async: true,
-                                error: function (data) {
-                                },
-                                success: function (data) {
-                                }
-                            });
-                        }
-                        else {
-                            $("#images img.imageon").attr("src", data);
-                        }
-                    };
-                },
-                onCancel: function (file) {
-                }
-            });
 
             $(window).resize(function () {
                 if ($(".atarea").width() < 550) {
@@ -344,13 +96,15 @@
                 showImages();
             }
 
-            if ($("#hid_logo").val().length > 0) {
+            if ($("#hid_logo").val()) {
                 $("#logo").attr("src", $("#hid_logo").val());
             }
 
-            if ($("#hid_backgroundimg").val().length > 0) {
+            if ($("#hid_backgroundimg").val()) {
                 $("#backgroundimg").attr("src", $("#hid_backgroundimg").val());
             }
+
+            InitalImagUploader();
         });
 
         function getPinyin() {
@@ -400,8 +154,21 @@
             }
         }
 
-        function selectImg() {
+        function InitalImagUploader() {
+            var uploader = WebUploader.create({
+                auto: true,
+                // swf文件路径
+                swf: '/js/webuploader/Uploader.swf',
+                //formData: { 'filetype': 'storelogo', 'pwd':'combuy'},
+                // 文件接收服务端。
+                server: '/ajax/UploadFile.ashx',
+                // 选择文件的按钮。可选。
+                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                pick: '#logopicker',
 
+                // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                resize: false
+            });
         }
 
         function addclick() {
@@ -410,6 +177,7 @@
             $("#buttons").append("<span onclick='show(this)' index='" + (n + 1).toString() + "' class='on'>" + (n + 1).toString() + "</span>");
             show($("#buttons span:last")[0]);
         }
+
         function delclick() {
             var count = $("#images img").length;
             var index = $("#buttons span.on").attr("index");
@@ -459,6 +227,7 @@
                 $("#hidLvData").val("");
             }
         }
+
         function show(span) {
             if (span == undefined) {
                 return;
@@ -510,71 +279,10 @@
         function savebtn() {
             var flag = FormDataValidationCheck();
             if (flag) {
-                if ($("#hidId").val().length <= 0) {//新增
-
-                    //验证商圈
-                    checkStonameInSq();
-                    if ($("#hidCheck").val() != "true") {
-                        return;
-                    }
-                    //验证门店编号
-                    var stocode = $("#txt_stocode").val();
-                    $.ajax({
-                        type: 'POST',
-                        url: "/ajax/weixinset/weixinset.ashx",
-                        data: { "way": "existstocode", "stocode": stocode },
-                        dataTpye: 'text/plain',
-                        async: false,
-                        error: function (data) {
-                            laytips("#txt_stocode", "门店编号验证失败！");
-                        },
-                        success: function (data) {
-                            if (data == "0") {
-                                saveImage();
-                                $("#Save_btn").click();
-                            }
-                            else if (data == "1") {
-                                laytips("#txt_stocode", "门店已设置,请选择其他门店进行设置！");
-                            }
-                            else {
-                                laytips("#txt_stocode", "门店编号验证失败！");
-                            }
-                        }
-                    });
-                }
-                else {
-                    saveImage();
                     $("#Save_btn").click();
-                }
             }
         }
 
-        function checkStonameInSq() {
-            $.ajax({
-                type: 'POST',
-                url: "/ajax/weixinset/weixinset.ashx",
-                data: { "way": "existstonameinsq", "stoname": $("#txt_cname").val(), "sqcode": $("#ddl_sq").val() },
-                dataTpye: 'text/plain',
-                async: false,
-                error: function (data) {
-                    laytips("#txt_cname", "门店名称验证失败！");
-                    $("#hidCheck").val("false");
-                },
-                success: function (data) {
-                    if (data == "0") {
-                        $("#hidCheck").val("true");
-                    }
-                    else if (data == "1") {
-                        laytips("#txt_cname", "门店在此商圈已存在！");
-                        $("#hidCheck").val("false");
-                    }
-                    else {
-                        laytips("#txt_cname", "门店名称验证失败！");
-                        $("#hidCheck").val("false");
-                    }
-                }
-            });
-        }
     </script>
 
     <style>
@@ -687,14 +395,9 @@
             <div class="updatediv cla">
                 <table>
                     <tr>
-                        <td data-code="span_buscode" class="lefttd">所属商户：</td>
-                        <td>
-                            <cc1:CDropDownList ID="ddl_businfo" Descr="所属商户" Width="140" SelType="Normal" CssClass="selstyle" runat="server"></cc1:CDropDownList>
-                            <cc1:CDropDownList ID="ddl_comcode" Descr="所属公司" Width="140" SelType="Normal" CssClass="selstyle" runat="server"></cc1:CDropDownList>
-                        </td>
                         <td data-code="span_stocode" class="lefttd">门店编号：</td>
                         <td>
-                            <cc1:CTextBox ID="txt_stocode" data-code="stocode_placeholder" CssClass="txtstyle" MaxLength="8" IsRequired="true" TextType="Normal" onblur="onblurCheck('txt_stocode')" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_stocode_span"></span>						</td>
+                            <cc1:CTextBox ID="txt_stocode" data-code="stocode_placeholder" CssClass="txtstyle" MaxLength="8" TextType="Normal" onblur="onblurCheck('txt_stocode')" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_stocode_span"></span>						</td>
                         <td data-code="span_cname" class="lefttd">门店名称：</td>
                         <td>
                             <cc1:CTextBox ID="txt_cname" data-code="cname_placeholder" CssClass="txtstyle" MaxLength="64" IsRequired="true" TextType="Normal" onblur="onblurCheck('txt_cname');" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_cname_span"></span>						</td>
@@ -718,19 +421,12 @@
                             </cc1:CDropDownList>
                             <cc1:CDropDownList ID="ddl_cityid" data-code="status_placeholder" Descr="市" CssClass="selstyle" TextType="Normal" runat="server" OnSelectedIndexChanged="ddl_cityid_SelectedIndexChanged" AutoPostBack="true">
                             </cc1:CDropDownList>
-                            <cc1:CDropDownList ID="ddl_areaid" data-code="status_placeholder" Descr="区域" CssClass="selstyle" TextType="Normal" runat="server">
-                            </cc1:CDropDownList>
-                        </td>
-                        <td data-code="span_isfood" class="lefttd"></td>
-                        <td>
-                            <img src="/img/off.png" id="isfood" class="btn-recyble" runat="server" />
-                            <input type="hidden" id="hidisfood" value="0" runat="server" />
-                            <cc1:CDropDownList ID="ddl_pstocode" data-code="status_placeholder" Descr="美食广场" CssClass="selstyle" TextType="Normal" runat="server" AutoPostBack="true">
+                            <cc1:CDropDownList ID="ddl_areaid" data-code="status_placeholder" Descr="区域" CssClass="selstyle" TextType="Normal" runat="server" OnSelectedIndexChanged="ddl_areaid_SelectedIndexChanged" AutoPostBack="true">
                             </cc1:CDropDownList>
                         </td>
                         <td class="lefttd">所属商圈：</td>
                         <td>
-                            <cc1:CDropDownList ID="ddl_sq" data-code="storetype_placeholder" Descr="所属商圈" CssClass="selstyle" TextType="Normal" runat="server">
+                            <cc1:CDropDownList ID="ddl_sq" data-code="storetype_placeholder" Descr="所属商圈" CssClass="selstyle" TextType="Normal" runat="server"  IsRequired="False" >
                             </cc1:CDropDownList>
                         </td>
                     </tr>
@@ -738,7 +434,6 @@
                         <td data-code="span_address" class="lefttd">门店地址：</td>
                         <td colspan="5">
                             <cc1:CTextBox ID="txt_address" data-code="address_placeholder" CssClass="txtstyle" MaxLength="128" IsRequired="False" TextType="Normal" onblur="onblurCheck('txt_address')" placeholder="" runat="server" Width="90%"></cc1:CTextBox><span class="redmess" id="txt_address_span"></span>						</td>
-
                     </tr>
                     <tr>
                         <td data-code="span_stoprincipal" class="lefttd">负责人：</td>
@@ -747,10 +442,6 @@
                         <td data-code="span_stoprincipaltel" class="lefttd">负责人联系电话：</td>
                         <td>
                             <cc1:CTextBox ID="txt_stoprincipaltel" data-code="stoprincipaltel_placeholder" CssClass="txtstyle" MaxLength="32" IsRequired="False" TextType="Normal" onblur="onblurCheck('txt_stoprincipaltel')" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_stoprincipaltel_span"></span>						</td>
-
-                        <td data-code="span_stoemail" class="lefttd">门店邮箱：</td>
-                        <td>
-                            <cc1:CTextBox ID="txt_stoemail" data-code="stoemail_placeholder" CssClass="txtstyle" MaxLength="64" IsRequired="False" TextType="Normal" onblur="onblurCheck('txt_stoemail')" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_stoemail_span"></span>						</td>
                     </tr>
                     <tr>
                         <td data-code="span_stourl" class="lefttd">门店网址：</td>
@@ -764,18 +455,11 @@
                             <cc1:CTextBox ID="txt_stocoordy" data-code="stocoordy_placeholder" CssClass="txtstyle" MaxLength="8" IsRequired="true" TextType="Normal" onblur="onblurCheck('txt_stocoordy')" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_stocoordy_span"></span>						</td>
                     </tr>
                     <tr>
-
-                        <td data-code="span_calcutime" class="lefttd">结算时间：</td>
-                        <td>
-                            <cc1:CTextBox ID="txt_calcutime" data-code="comdate_placeholder" CssClass="txtstyle" IsRequired="False" TextType="Normal" onfocus="ShowShortDate();" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_comdate_span"></span>
-                        </td>
-
                         <td data-code="span_busHour" class="lefttd">营业时间：</td>
                         <td>
                             <cc1:CTextBox ID="txt_btime" data-code="btime_placeholder" CssClass="txtstyle" IsRequired="true" TextType="Normal" onblur="onblurCheck('txt_btime')" onclick="ShowHM();" onfocus="ShowHM();" placeholder="" runat="server" Width="50"></cc1:CTextBox>
                             <span>-</span>
                             <cc1:CTextBox ID="txt_etime" data-code="etime_placeholder" CssClass="txtstyle" IsRequired="true" TextType="Normal" onblur="onblurCheck('txt_etime')" onclick="ShowHM();" onfocus="ShowHM();" placeholder="" runat="server" Width="50"></cc1:CTextBox>
-                            <%--<cc1:CTextBox ID="txt_busHour" data-code="busHour_placeholder" CssClass="txtstyle" MaxLength="30" IsRequired="False" TextType="Normal" placeholder="" runat="server"></cc1:CTextBox>--%><span class="redmess" id="txt_busHour_span"></span>
                         </td>
                         <td data-code="span_status" class="lefttd">状态：</td>
                         <td>
@@ -784,19 +468,14 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="lefttd">门店类型：</td>
+                        <td class="lefttd">所属行业：</td>
                         <td>
-                            <cc1:CDropDownList ID="ddl_storetype" data-code="storetype_placeholder" Descr="门店类型" CssClass="selstyle" TextType="Normal" runat="server">
+                            <cc1:CDropDownList ID="ddl_storetype" data-code="storetype_placeholder" Descr="所属行业" CssClass="selstyle" TextType="Normal" runat="server">
                             </cc1:CDropDownList>
                         </td>
                         <td class="lefttd">人均消费：</td>
                         <td>
                             <cc1:CTextBox ID="txt_jprice" data-code="jprice_placeholder" CssClass="txtstyle" MaxLength="8" IsRequired="true" TextType="Decimal" placeholder="" runat="server"></cc1:CTextBox>
-                        </td>
-                        <td class="lefttd">支付类型：</td>
-                        <td>
-                            <cc1:CDropDownList ID="ddl_paytype" data-code="paytype_placeholder" Descr="支付类型" CssClass="selstyle" TextType="Normal" runat="server">
-                            </cc1:CDropDownList>
                         </td>
                     </tr>
                     <tr>
@@ -804,19 +483,6 @@
                         <td colspan="5">
                             <cc1:CTextBox ID="txt_recommended" data-code="recommended_placeholder" CssClass="txtstyle" MaxLength="128" Width="90%" IsRequired="False" TextType="Normal" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_recommended_span"></span>
                         </td>
-                    </tr>
-                    <%--<tr>
-                        <td data-code="span_terminalnumber" class="lefttd">终端数量：</td>
-                        <td>
-                            <cc1:CTextBox ID="txt_terminalnumber" data-code="terminalnumber_placeholder" CssClass="txtstyle" MaxLength="8" IsRequired="False" TextType="Int" onblur="onblurCheck('txt_terminalnumber')" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_terminalnumber_span"></span>
-                        </td>
-                        <td data-code="span_valuesdate" class="lefttd">授权有效期：</td>
-                        <td>
-                            <cc1:CTextBox ID="txt_valuesdate" data-code="valuesdate_placeholder" CssClass="txtstyle" IsRequired="False" TextType="Normal" onfocus="ShowShortDate();" placeholder="" runat="server"></cc1:CTextBox><span class="redmess" id="txt_valuesdate_span"></span>
-                        </td>
-                    </tr>--%>
-                    <tr>
-                        <td></td>
                     </tr>
                     <tr>
                         <td data-code="span_logo" class="lefttd">门店Logo：</td>
@@ -826,11 +492,10 @@
                                     <img runat="server" id="logo" width="200" height="200" style="float: left" />
                                 </div>
                                 <div style="padding-top: 50px; float: left; padding-left: 20px">
-
-                                    <input type="file" style="vertical-align: middle;" name="filelogo" id="filelogo" />
-                                    <div id="div_logo"></div>
-                                    <input type="hidden" id="hid_logo" runat="server" style="float: left" />
-
+                                    <div id="thelist" class="uploader-list"></div>
+                                    <div id="logopicker">选择文件</div>
+                                    <button id="ctlBtn" class="btn btn-default">开始上传</button>
+                                    <input type="hidden" id="hid_logo" runat="server" />
                                 </div>
                                 <div style="float: left; padding-top: 50px">
                                     <span data-code="span_logoinfo" class="lefttd"></span>
@@ -838,36 +503,15 @@
                             </div>
                         </td>
                     </tr>
-                    <%--                    <tr style="visibility: collapse">
-                        <td data-code="span_backgroundimg" class="lefttd">门店背景图：</td>
-                        <td colspan="5">
-                            <div style="padding-top: 10px; float: left">
-                                <img runat="server" id="backgroundimg" width="200" height="200" style="float: left" />
-
-                            </div>
-                            <div style="padding-top: 50px; float: left; padding-left: 20px">
-                                <input type="hidden" id="hid_backgroundimg" runat="server" />
-                                <input type="file1111" style="height: 27px; vertical-align: middle; margin-top: 5px" name="uploadifyaddress" id="uploadifyaddress1111" />
-                                <div id="div_backgroundimg"></div>
-                            </div>
-                            <div style="padding-top: 50px; float: left; padding-left: 20px">
-                                <span data-code="span_imginfo" class="lefttd"></span>
-                            </div>
-                        </td>
-                    </tr>--%>
                     <tr>
                         <td data-code="span_stopath" class="lefttd">轮翻图：</td>
                         <td colspan="5">
                             <div class="container">
                                 <div class="wrap lefttd" style="left: -1440px;" id="images">
-                                    <%-- <img src="" class="imageon" index="1"/>
-                                  <img src="/img/on.png" alt="2" class="" index="2" />
-                                  <img src="/img/dellist.png" alt="3" class="" index="3" />--%>
+
                                 </div>
                                 <div class="buttons lefttd" id="buttons">
-                                    <%--<span class="on" onclick="show(this)" index="1">1</span>
-                                  <span onclick="show(this)" index="2">2</span>
-                                  <span onclick="show(this)" index="3">3</span>--%>
+   
                                 </div>
                             </div>
                         </td>
@@ -883,7 +527,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td>
+                        <td  colspan="5">
                             <div style="width: 600px">
                                 <input class="addbtn" type="button" value="添加" onclick="addclick();" />
                                 <input class="delbtn" type="button" value="删除" onclick="delclick();" />

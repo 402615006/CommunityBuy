@@ -28,14 +28,6 @@ namespace CommunityBuy.BackWeb.ajax.system
                 case "dictsigle":
                     getDictinfo(context);
                     break;
-
-                case "dept":
-                    getDept(context);
-                    break;
-
-                case "deptsigle":
-                    getDeptInfo(context);
-                    break;
             }
         }
 
@@ -111,7 +103,7 @@ namespace CommunityBuy.BackWeb.ajax.system
             int pagenums = 0;
             DataTable dt = dictbll.GetPagingListInfo("", "0", 10000, 1, " dicid =" + id, "", out intCount, out pagenums);
 
-            string json = Helper.DataTableToJson("dictlist", dt);
+            string json = JsonHelper.DataTableToJSON(dt);
             context.Response.Write(json);
         }
         #endregion

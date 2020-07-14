@@ -44,6 +44,7 @@
     <Compile Include="dalAdmins.cs" />
     <Compile Include="dalApp.cs" />
     <Compile Include="dalmembers.cs" />
+    <Compile Include="dalroles.cs" />
     <Compile Include="dalsumcoupon.cs" />
     <Compile Include="dalTB_BackOrder.cs" />
     <Compile Include="dalTB_Bill.cs" />

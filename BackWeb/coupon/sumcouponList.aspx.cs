@@ -13,7 +13,7 @@ namespace CommunityBuy.BackWeb
         bllsumcoupon bll = new bllsumcoupon();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.PageTitle.Operate = ErrMessage.GetMessageInfoByCode("PageOperateList").Body;
+            this.PageTitle.Operate = "列表";
             if (!IsPostBack)
             {
                 //BindStoreInfo();
@@ -22,15 +22,7 @@ namespace CommunityBuy.BackWeb
             }
         }
 
-        // <summary>
-        /// 绑定门店信息
-        /// </summary>
-        private void BindStoreInfo()
-        {
-            string buscode = Helper.GetAppSettings("BusCode");
-            DataTable dt = new bllStore().GetListInfo("", "0", buscode, "");
-            //Helper.BindDropDownListForSearch(ddl_stocode, dt, "cname", "stocode", 2);
-        }
+
 
         /// <summary>
         /// 绑定状态信息
@@ -66,10 +58,10 @@ namespace CommunityBuy.BackWeb
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     dt.Rows[i]["btimename"] = StringHelper.StringToDateTime(dt.Rows[i]["btime"].ToString()).ToString("yyyy.MM.dd") + "-" + StringHelper.StringToDateTime(dt.Rows[i]["etime"].ToString()).ToString("yyyy.MM.dd");
-                    dt.Rows[i]["ctypename"] = Helper.GetEnumNameByValue(typeof(SystemEnum.CouponFirstType), dt.Rows[i]["ctype"].ToString());
-                    dt.Rows[i]["initypename"] = Helper.GetEnumNameByValue(typeof(SystemEnum.CouponIniType), dt.Rows[i]["initype"].ToString());
-                    dt.Rows[i]["statusname"] = Helper.GetEnumNameByValue(typeof(SystemEnum.YHStatus), dt.Rows[i]["status"].ToString());
-                    dt.Rows[i]["audstatusname"] = Helper.GetEnumNameByValue(typeof(SystemEnum.AuditStatus), dt.Rows[i]["audstatus"].ToString());
+                    dt.Rows[i]["ctypename"] = "";
+                    dt.Rows[i]["initypename"] = "";
+                    dt.Rows[i]["statusname"] = "";
+                    dt.Rows[i]["audstatusname"] = "";
                 }
                 gv_list.DataSource = dt;
                 gv_list.DataBind();
@@ -113,14 +105,10 @@ namespace CommunityBuy.BackWeb
                     case "delete":
                         {
                             //日志信息
-                            logentity.module = ErrMessage.GetMessageInfoByCode("sumcoupon_Menu").Body;
-                            logentity.pageurl = "sumcouponEdit.aspx";
-                            logentity.otype = SystemEnum.LogOperateType.Delete;
-                            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
                             Selected = GetSelectStr(gv_list);
                             if (Selected.Length == 0)
                             {
-                                sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                                sp_showmes.InnerText = "";
                             }
                             else
                             {
@@ -140,14 +128,12 @@ namespace CommunityBuy.BackWeb
                                 }
                                 if (auditstatus == "1")
                                 {
-                                    sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_034").Body;
+                                    sp_showmes.InnerText = "";
                                 }
                                 else
                                 {
-                                    logentity.logcontent = string.Format(ErrMessage.GetMessageInfoByCode("sumcoupon_961").Body, LoginedUser.UserInfo.cname, Selected);
-                                    bll.Delete("0", "0", Selected, logentity);
-
-                                    sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_001").Body;
+                                    bll.Delete("0", "0", Selected);
+                                    sp_showmes.InnerText = "";
                                     anp_top.CurrentPageIndex = 1;
                                 }
                             }
@@ -158,14 +144,14 @@ namespace CommunityBuy.BackWeb
                             Selected = GetSelectStr(gv_list);
                             if (Selected.Length == 0)
                             {
-                                sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                                sp_showmes.InnerText = "";
                             }
                             else
                             {
                                 string[] sel = Selected.Split(',');
                                 if (sel.Length > 1)
                                 {
-                                    sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_007").Body;
+                                    sp_showmes.InnerText = "";
                                 }
                                 else
                                 {
@@ -183,7 +169,7 @@ namespace CommunityBuy.BackWeb
                                     }
                                     if (auditstatus == "1")
                                     {
-                                        sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_008").Body;
+                                        sp_showmes.InnerText = "";
                                     }
                                     else
                                     {
@@ -198,14 +184,13 @@ namespace CommunityBuy.BackWeb
                         Selected = GetSelectStr(gv_list);
                         if (Selected.Length == 0)
                         {
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                            sp_showmes.InnerText = "";
                         }
                         else
                         {
-                            logentity.logcontent = string.Format(ErrMessage.GetMessageInfoByCode("sumcoupon_961").Body, LoginedUser.UserInfo.cname, Selected);
                             bll.UpdateStatus("", "0", Selected, "1");
 
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_001").Body;
+                            sp_showmes.InnerText = "";
                             anp_top.CurrentPageIndex = 1;
                         }
                         break;
@@ -214,7 +199,7 @@ namespace CommunityBuy.BackWeb
                         Selected = GetSelectStr(gv_list);
                         if (Selected.Length == 0)
                         {
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                            sp_showmes.InnerText = "";
                         }
                         else
                         {
@@ -225,20 +210,19 @@ namespace CommunityBuy.BackWeb
                                 auditstatus = dt.Rows[0]["audstatus"].ToString();
                                 if (auditstatus == "0" || auditstatus == "2")
                                 {
-                                    sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_050").Body;
+                                    sp_showmes.InnerText = "";
                                 }
                                 else
                                 {
-                                    logentity.logcontent = string.Format(ErrMessage.GetMessageInfoByCode("sumcoupon_961").Body, LoginedUser.UserInfo.cname, Selected);
                                     bll.UpdateStatusNotSend("", "0", Selected);
 
-                                    sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_001").Body;
+                                    sp_showmes.InnerText = "";
                                     anp_top.CurrentPageIndex = 1;
                                 }
                             }
                             else
                             {
-                                sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_004").Body;
+                                sp_showmes.InnerText = "";
                             }
                         }
                         break;
@@ -254,30 +238,12 @@ namespace CommunityBuy.BackWeb
             StringBuilder Where = new StringBuilder();
             Where.Append(" where 1=1 and ctype<>'2' ");
             //拼接Where条件
-            //Where.Append(GetAuthoritywhere("stocode"));
-
-            //string strstocode = ddl_stocode.SelectedValue;
-            //if (strstocode.Length > 0)
-            //{
-            //    Where.Append(" and stocode= '" + strstocode + "'");
-            //}
-            string strcname = Helper.ReplaceString(txt_cname.Value);
+            string strcname = txt_cname.Value;
             if (strcname.Length > 0)
             {
                 Where.Append(" and cname like '%" + strcname + "%'");
             }
-            //string strbtime = Helper.ReplaceString(txt_btime.Value);
-            //if (strbtime.Length > 0)
-            //{
-            //    Where.Append(" and btime>= '" + strbtime + "'");
 
-            //}
-            //string stretime = Helper.ReplaceString(txt_etime.Value);
-            //if (stretime.Length > 0)
-            //{
-            //    Where.Append(" and etime < '" + Helper.DateTimeAddDay(stretime, 1) + "'");
-
-            //}
             string strctype = ddl_ctype.SelectedValue;
             if (strctype.Length > 0)
             {

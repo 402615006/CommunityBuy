@@ -40,6 +40,8 @@ namespace CommunityBuy.Model
         private string _btime = string.Empty;
         private string _etime = string.Empty;
         private string _services = string.Empty;
+        private int _sqcode = 0;
+        private decimal _jprice = 0;
 
         public string buscode
         {
@@ -299,6 +301,22 @@ namespace CommunityBuy.Model
             set { _isdelete = value; }
         }
 
+        /// <summary>
+        ///商圈id
+        /// <summary>
+        public int sqcode
+        {
+            get { return _sqcode; }
+            set { _sqcode = value; }
+        }
 
+        /// <summary>
+        ///人均消费
+        /// <summary>
+        public decimal jprice
+        {
+            get { return _jprice; }
+            set { _jprice = value; }
+        }
     }
 }

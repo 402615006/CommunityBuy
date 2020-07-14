@@ -20,7 +20,7 @@ namespace CommunityBuy.BackWeb.ajax
             {
                 if (!string.IsNullOrEmpty(qid) && !string.IsNullOrEmpty(name))
                 {
-                    UploadPicture.DelPic(string.Format("\\original\\{0}", name));
+                    //UploadPicture.DelPic(string.Format("\\original\\{0}", name));
                     context.Response.Write(qid);
                 }
                 else

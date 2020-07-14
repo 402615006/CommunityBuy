@@ -34,7 +34,6 @@ namespace CommunityBuy.BLL
                 Entity.audcname = audcname;
                 Entity.audremark = audremark;
                 Entity.audstatus = audstatus;
-
                 Entity.ccode = ccode;
                 Entity.ccname = ccname;
                 rel = true;

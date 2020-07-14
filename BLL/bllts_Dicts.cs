@@ -127,25 +127,20 @@ namespace CommunityBuy.BLL
             return new ts_DictsEntity();
         }
 
-        ///// <summary>
-        ///// 分页方法
-        ///// </summary>
-        ///// <param name="pageSize"></param>
-        ///// <param name="currentpage"></param>
-        ///// <param name="filter"></param>
-        ///// <param name="order"></param>
-        ///// <param name="recnums"></param>
-        ///// <returns></returns>
-        //public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
-        //{
-        //    if (!CheckLogin(GUID, UID))//非法登录
-        //    {
-        //        recnums = -1;
-        //        pagenums = -1;
-        //        return dtBase;
-        //    }
-        //    return new bllPaging().GetPagingInfo("ts_Dicts", "dicid", "*,cusername=dbo.fnGetUserName(cuser)", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
-        //}
+        /// <summary>
+        /// 分页方法
+        /// </summary>
+        /// <param name="pageSize"></param>
+        /// <param name="currentpage"></param>
+        /// <param name="filter"></param>
+        /// <param name="order"></param>
+        /// <param name="recnums"></param>
+        /// <returns></returns>
+        public DataTable GetPagingListInfoByParentCode(string GUID, string UID, int pageSize, int currentpage, string ParentCode, string order, out int recnums, out int pagenums)
+        {
+            string filter = " pdicid=(select top 1 dicid from ts_Dicts where diccode='"+ ParentCode + "')";
+            return new bllPaging().GetPagingInfo("ts_Dicts", "dicid", "*,cusername=dbo.fnGetUserName(cuser)", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
+        }
 
         /// <summary>
         /// 单行数据转实体对象
@@ -187,7 +182,7 @@ namespace CommunityBuy.BLL
         /// <returns></returns>
         public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
         {
-            return new bllPaging().GetPagingInfo("ts_Dicts", "dicid", "*,pname=dbo.fnGetPnameBypid(pdicid),uname=dbo.fnGetUserName(cuser)", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
+            return new bllPaging().GetPagingInfo("ts_Dicts", "dicid", "*,pname=[dbo].[f_Get_DictsName](pdicid)", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
         }
     }
 }

@@ -4,7 +4,7 @@
  *
  * Copyright (c) 2010 Hunter.z
  *
- * Licensed same as jquery - MIT License
+ * Licensed CommunityBuye as jquery - MIT License
  * http://www.opensource.org/licenses/mit-license.php
  *
  * email: hunter.z@263.net

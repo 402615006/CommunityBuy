@@ -39,7 +39,7 @@ namespace CommunityBuy.BackWeb.manage
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CPathBar pathBar;
+        protected global::CommunityBuy.WebControl.CPathBar pathBar;
 
         /// <summary>
         /// PageTitle 控件。
@@ -48,7 +48,7 @@ namespace CommunityBuy.BackWeb.manage
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CPageTitle PageTitle;
+        protected global::CommunityBuy.WebControl.CPageTitle PageTitle;
 
         /// <summary>
         /// uname 控件。

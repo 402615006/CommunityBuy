@@ -138,7 +138,7 @@ namespace CommunityBuy.BLL
         /// <returns></returns>
         public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
         {
-            return new bllPaging().GetPagingInfo("TB_Roles", "Id", "*,'' as RoleTypeName,'' as TerminalTypeName,'' as RoleDisCountName,'' as StoName", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
+            return new bllPaging().GetPagingInfo("roles", "roleid", "*", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
         }
 
 
@@ -175,6 +175,19 @@ namespace CommunityBuy.BLL
             Entity.RoleEnable = dr["RoleEnable"].ToString();
             Entity.RoleType = dr["RoleType"].ToString();
             return Entity;
+        }
+
+        /// <summary>
+        /// 更新状态
+        /// </summary>
+        /// <param name="dicid">标识</param>
+        /// <param name="Status">状态</param>
+        /// <returns></returns>
+        public void UpdateStatus(string GUID, string UID, string ids, string Status)
+        {
+            int result = dal.UpdateStatus(ids, Status);
+            //检测执行结果
+            CheckResult(result, "");
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="adminslist.aspx.cs" Inherits="CommunityBuy.BackWeb.manage.adminslist" %>
 
 <%@ Register Assembly="AspNetPager" Namespace="Wuqi.Webdiyer" TagPrefix="webdiyer" %>
-<%@ Register Assembly="Sam.WebControl" Namespace="Sam.WebControl" TagPrefix="cc1" %>
+<%@ Register Assembly="CommunityBuy.WebControl" Namespace="CommunityBuy.WebControl" TagPrefix="cc1" %>
 <%@ Register Src="/UserControls/ToolBar.ascx" TagPrefix="uc2" TagName="ToolBar" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -52,11 +52,6 @@
                         <input type="text" class="wheretxt" id="txt_umobile" runat="server" /></li>
                 </ul>
                 <ul>
-                    <li class="wherename" data-code="empcode_where">员工编号：</li>
-                    <li class="wherevale">
-                        <input type="text" class="wheretxt" id="txt_empcode" runat="server" /></li>
-                </ul>
-                <ul>
                     <li class="wherename" data-code="status_where">状态：</li>
                     <li class="wherevale">
                         <cc1:CDropDownList ID="ddl_status" CssClass="wheresel" SelType="Status" IsSearch="true" runat="server" IsNotNull="True"></cc1:CDropDownList></li>
@@ -89,20 +84,16 @@
                             <HeaderStyle CssClass="chooseclass"></HeaderStyle>
                             <ItemStyle CssClass="chooseclass"></ItemStyle>
                         </asp:TemplateColumn>
-                        <%--<asp:BoundColumn DataField="realname" HeaderText="<span data-code='cname_list' >姓名</span>" SortExpression="realname" />--%>
-                        <asp:BoundColumn DataField="uname" HeaderText="<span data-code='username_list' >用户名</span>"  SortExpression="uname"/>
-                        <asp:BoundColumn DataField="empmob" HeaderText="<span data-code='umobile_list' >手机号</span>" />
-                        <asp:BoundColumn DataField="empcode" HeaderText="<span data-code='empcode_list' >员工编号</span>" SortExpression="empcode" />
-                        <asp:BoundColumn DataField="scopename" HeaderText="<span data-code='scope_list' >权限范围</span>" SortExpression="scope" />
-                        <asp:BoundColumn DataField="storename" HeaderText="<span data-code='stocode_list' >权限门店</span>" SortExpression="dbo.fnGetMuStoreName(stocode)" />
-                        <asp:BoundColumn DataField="empcodename" HeaderText="<span data-code='empname_list' >所属员工</span>" />
-                        <asp:BoundColumn DataField="rolename" HeaderText="<span data-code='rolename_list' >所属角色</span>" SortExpression="dbo.f_GetRoleName(userid)" />
+                        <asp:BoundColumn DataField="uname" HeaderText="<span>账号</span>"  SortExpression="uname"/>
+                        <asp:BoundColumn DataField="realname" HeaderText="<span >姓名</span>"  SortExpression="realname"/>
+                        <asp:BoundColumn DataField="remark" HeaderText="<span>备注</span>"  />
+                        <asp:BoundColumn DataField="umobile" HeaderText="<span >手机号</span>" />
                         <asp:TemplateColumn>
                             <HeaderTemplate>
                                 <span data-code="StatusList">状态</span>
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <%#Eval("status").ToString()=="1"?"<span data-code=\"StatusValueY\" ></span>":"<span data-code=\"StatusValueN\" ></span>" %>
+                                <%#Eval("status").ToString()=="1"?"<span>有效</span>":"<span>无效</span>" %>
                             </ItemTemplate>
                         </asp:TemplateColumn>
                     </Columns>

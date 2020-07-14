@@ -35,8 +35,8 @@ namespace CommunityBuy.BackWeb.report.membercard
         {
             bool Flag = true;
 
-            bdate = Helper.ReplaceString(txt_btime.Value);
-            edate = Helper.ReplaceString(txt_etime.Value);
+            bdate =txt_btime.Value);
+            edate =txt_etime.Value);
             if (bdate.Length == 0 || edate.Length == 0)
             {
                 Script(Page, "pcLayerMsg('" + ErrMessage.GetMessageInfoByCode("StoreReports_date").Body + "');");
@@ -62,9 +62,9 @@ namespace CommunityBuy.BackWeb.report.membercard
             List<string> list = new List<string>();
             List<string> list1 = new List<string>();
             List<string> list2 = new List<string>();
-            if (LoginedUser.UserInfo.Scope_ID == "2")
+            if (base.LoginedUser.Scope_ID == "2")
             {
-                rolestocode = LoginedUser.UserInfo.rolstocode.TrimEnd(',');
+                rolestocode = base.LoginedUser.rolstocode.TrimEnd(',');
                 if (hidstocodes.Length > 0)
                 {
                     string[] s = hidstocodes.Split(',');
@@ -106,9 +106,9 @@ namespace CommunityBuy.BackWeb.report.membercard
                     return rolestocode;
                 }
             }
-            else if (LoginedUser.UserInfo.rolstocode.Length > 0)
+            else if (base.LoginedUser.rolstocode.Length > 0)
             {
-                rolestocode = LoginedUser.UserInfo.rolstocode.TrimEnd(',');
+                rolestocode = base.LoginedUser.rolstocode.TrimEnd(',');
                 if (hidstocodes.Length > 0)
                 {
                     string[] s = hidstocodes.Split(',');
@@ -163,8 +163,8 @@ namespace CommunityBuy.BackWeb.report.membercard
         {
             if (CheckWhere())
             {
-                ctype = Helper.ReplaceString(hidctype.Value);
-                cracode = Helper.ReplaceString(hidcracode.Value);
+                ctype =hidctype.Value);
+                cracode =hidcracode.Value);
                 DataTable dt = bll.GetMemCardReport(bdate, edate, ctype, cracode, GetTrueStocodes(hidstocode.Value));
                 if (dt != null)
                 {

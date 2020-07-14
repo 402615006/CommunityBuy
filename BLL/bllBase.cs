@@ -28,6 +28,11 @@ namespace CommunityBuy.BLL
         {
             switch (result)
             {
+                case 1:
+                    oResult.Code = "1";
+                    oResult.Msg = "操作成功";
+                    oResult.Data = data;
+                    break;
                 case 0:
                     oResult.Code = "0";
                     oResult.Msg = "操作成功";

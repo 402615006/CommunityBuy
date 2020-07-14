@@ -74,6 +74,19 @@ namespace CommunityBuy.BLL
         }
 
         /// <summary>
+        /// 更新状态
+        /// </summary>
+        /// <param name="DisCode">标识</param>
+        /// <param name="Status">状态</param>
+        /// <returns></returns>
+        public void UpdateStatus(string GUID, string UID, string ids, string Status)
+        {
+            int result = dal.UpdateStatus(ids, Status);
+            //检测执行结果
+            CheckResult(result,"");
+        }
+
+        /// <summary>
         /// 删除数据
         /// </summary>
         /// <param name="ID">主键ID</param>

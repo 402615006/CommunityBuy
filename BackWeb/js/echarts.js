@@ -862,7 +862,7 @@ function HashMap(obj) {
 HashMap.prototype = {
     constructor: HashMap,
     // Do not provide `has` method to avoid defining what is `has`.
-    // (We usually treat `null` and `undefined` as the same, different
+    // (We usually treat `null` and `undefined` as the CommunityBuye, different
     // from ES6 Map).
     get: function (key) {
         return this.data.hasOwnProperty(key) ? this.data[key] : null;
@@ -1650,7 +1650,7 @@ function clientToLocal(el, e, out, calculate) {
     }
     // Caution: In FireFox, layerX/layerY Mouse position relative to the closest positioned
     // ancestor element, so we should make sure el is positioned (e.g., not position:static).
-    // BTW1, Webkit don't return the same results as FF in non-simple cases (like add
+    // BTW1, Webkit don't return the CommunityBuye results as FF in non-simple cases (like add
     // zoom-factor, overflow / opacity layers, transforms ...)
     // BTW2, (ev.offsetY || ev.pageY - $(ev.target).offset().top) is not correct in preserve-3d.
     // <https://bugs.jquery.com/ticket/8523#comment:14>
@@ -1716,7 +1716,7 @@ function normalizeEvent(el, e, calculate) {
     // [Caution]: `e.which` from browser is not always reliable. For example,
     // when press left button and `mousemove (pointermove)` in Edge, the `e.which`
     // is 65536 and the `e.button` is -1. But the `mouseup (pointerup)` and
-    // `mousedown (pointerdown)` is the same as Chrome does.
+    // `mousedown (pointerdown)` is the CommunityBuye as Chrome does.
 
     return e;
 }
@@ -2071,7 +2071,7 @@ Handler.prototype = {
         this.dispatchToElement(this._hovered, 'mouseout', event);
 
         // There might be some doms created by upper layer application
-        // at the same level of painter.getViewportRoot() (e.g., tooltip
+        // at the CommunityBuye level of painter.getViewportRoot() (e.g., tooltip
         // dom created by echarts), where 'globalout' event should not
         // be triggered when mouse enters these doms. (But 'mouseout'
         // should be triggered at the original hovered element as usual).
@@ -2344,7 +2344,7 @@ function copy$1(out, m) {
  */
 function mul$1(out, m1, m2) {
     // Consider matrix.mul(m, m2, m);
-    // where out is the same as m2.
+    // where out is the CommunityBuye as m2.
     // So use temp variable to escape error.
     var out0 = m1[0] * m2[0] + m1[2] * m2[1];
     var out1 = m1[1] * m2[0] + m1[3] * m2[1];
@@ -4073,7 +4073,7 @@ function fillArr(arr0, arr1, arrDim) {
  * @param  {number} arrDim
  * @return {boolean}
  */
-function isArraySame(arr0, arr1, arrDim) {
+function isArrayCommunityBuye(arr0, arr1, arrDim) {
     if (arr0 === arr1) {
         return true;
     }
@@ -4223,7 +4223,7 @@ function createTrackClip(animator, easing, oneTrackDone, keyframes, propName, fo
         var value = keyframes[i].value;
 
         // Check if value is equal, deep check if value is array
-        if (!((isValueArray && isArraySame(value, prevValue, arrDim))
+        if (!((isValueArray && isArrayCommunityBuye(value, prevValue, arrDim))
             || (!isValueArray && value === prevValue))) {
             isAllValueEqual = false;
         }
@@ -4769,7 +4769,7 @@ Animatable.prototype = {
      * @param {number} [delay=0]
      * @param {Function} [callback]
      * @param {Function} [forceAnimate] Prevent stop animation and callback
-     *        immediently when target values are the same as current values.
+     *        immediently when target values are the CommunityBuye as current values.
      *
      * @example
      *  // Animate position
@@ -4795,7 +4795,7 @@ Animatable.prototype = {
 
     /**
      * Animate from the target state to current state.
-     * The params and the return value are the same as `this.animateTo`.
+     * The params and the return value are the CommunityBuye as `this.animateTo`.
      */
     animateFrom: function (target, time, delay, easing, callback, forceAnimate) {
         animateTo(this, target, time, delay, easing, callback, forceAnimate, true);
@@ -5680,7 +5680,7 @@ Group.prototype = {
             // The boundingRect cacluated by transforming original
             // rect may be bigger than the actual bundingRect when rotation
             // is used. (Consider a circle rotated aginst its center, where
-            // the actual boundingRect should be the same as that not be
+            // the actual boundingRect should be the CommunityBuye as that not be
             // rotated.) But we can not find better approach to calculate
             // actual boundingRect yet, considering performance.
             if (transform) {
@@ -6757,7 +6757,7 @@ Style.prototype = {
     font: null,
 
     /**
-     * The same as font. Use font please.
+     * The CommunityBuye as font. Use font please.
      * @deprecated
      * @type {string}
      */
@@ -8095,7 +8095,7 @@ function pushTokens(block, str, styleName) {
             // (which is a placeholder) should be replaced by new token.
             // (2) A image backage, where token likes {a|}.
             // (3) A redundant '' will affect textAlign in line.
-            // (4) tokens with the same tplName should not be merged, because
+            // (4) tokens with the CommunityBuye tplName should not be merged, because
             // they should be displayed in different box (with border and padding).
             var tokensLen = tokens.length;
             (tokensLen === 1 && tokens[0].isLineHolder)
@@ -8845,7 +8845,7 @@ RectText.prototype = {
             this.setTransform(ctx);
         }
 
-        // transformText and textRotation can not be used at the same time.
+        // transformText and textRotation can not be used at the CommunityBuye time.
         renderText(this, ctx, text, style, rect, WILL_BE_RESTORED);
 
         ctx.restore();
@@ -10654,7 +10654,7 @@ var domHandlers = {
 
         // Mouse move should always be triggered no matter whether
         // there is gestrue event, because mouse move and pinch may
-        // be used at the same time.
+        // be used at the CommunityBuye time.
         domHandlers.mousemove.call(this, event);
 
         setTouchTimer(this);
@@ -10800,7 +10800,7 @@ function HandlerDomProxy(dom) {
     if (env$1.pointerEventsSupported) { // Only IE11+/Edge
         // 1. On devices that both enable touch and mouse (e.g., MS Surface and lenovo X240),
         // IE11+/Edge do not trigger touch event, but trigger pointer event and mouse event
-        // at the same time.
+        // at the CommunityBuye time.
         // 2. On MS Surface, it probablely only trigger mousedown but no mouseup when tap on
         // screen, which do not occurs in pointer event.
         // So we use pointer event to both detect touch gesture and mouse behavior.
@@ -10888,8 +10888,8 @@ var version$1 = '4.0.6';
  * @param {Object} [opts]
  * @param {string} [opts.renderer='canvas'] 'canvas' or 'svg'
  * @param {number} [opts.devicePixelRatio]
- * @param {number|string} [opts.width] Can be 'auto' (the same as null/undefined)
- * @param {number|string} [opts.height] Can be 'auto' (the same as null/undefined)
+ * @param {number|string} [opts.width] Can be 'auto' (the CommunityBuye as null/undefined)
+ * @param {number|string} [opts.height] Can be 'auto' (the CommunityBuye as null/undefined)
  * @return {module:zrender/ZRender}
  */
 function init$1(dom, opts) {
@@ -10946,8 +10946,8 @@ function delInstance(id) {
  * @param {Object} opts
  * @param {string} [opts.renderer='canvas'] 'canvas' or 'svg'
  * @param {number} [opts.devicePixelRatio]
- * @param {number} [opts.width] Can be 'auto' (the same as null/undefined)
- * @param {number} [opts.height] Can be 'auto' (the same as null/undefined)
+ * @param {number} [opts.width] Can be 'auto' (the CommunityBuye as null/undefined)
+ * @param {number} [opts.height] Can be 'auto' (the CommunityBuye as null/undefined)
  */
 var ZRender = function (id, dom, opts) {
 
@@ -11173,8 +11173,8 @@ ZRender.prototype = {
      * Resize the canvas.
      * Should be invoked when container size is changed
      * @param {Object} [opts]
-     * @param {number|string} [opts.width] Can be 'auto' (the same as null/undefined)
-     * @param {number|string} [opts.height] Can be 'auto' (the same as null/undefined)
+     * @param {number|string} [opts.width] Can be 'auto' (the CommunityBuye as null/undefined)
+     * @param {number|string} [opts.height] Can be 'auto' (the CommunityBuye as null/undefined)
      */
     resize: function (opts) {
         opts = opts || {};
@@ -11437,7 +11437,7 @@ function isDataItemOption(dataItem) {
  * @param {Array.<Object>|Array.<module:echarts/model/Component>} exists
  * @param {Object|Array.<Object>} newCptOptions
  * @return {Array.<Object>} Result, like [{exist: ..., option: ...}, {}],
- *                          index of which is the same as exists.
+ *                          index of which is the CommunityBuye as exists.
  */
 function mappingToExists(exists, newCptOptions) {
     // Mapping by the order by original option (but not order of
@@ -11528,7 +11528,7 @@ function mappingToExists(exists, newCptOptions) {
  *
  * @public
  * @param {Array.<Object>} Result, like [{exist: ..., option: ...}, {}],
- *                          which order is the same as exists.
+ *                          which order is the CommunityBuye as exists.
  * @return {Array.<Object>} The input.
  */
 function makeIdAndName(mapResult) {
@@ -11581,7 +11581,7 @@ function makeIdAndName(mapResult) {
             ? opt.name + ''
             : existCpt
             ? existCpt.name
-            // Avoid diffferent series has the same name,
+            // Avoid diffferent series has the CommunityBuye name,
             // because name may be used like in color pallet.
             : DUMMY_COMPONENT_NAME_PREFIX + index;
 
@@ -11595,7 +11595,7 @@ function makeIdAndName(mapResult) {
             // Consider this situatoin:
             //  optionA: [{name: 'a'}, {name: 'a'}, {..}]
             //  optionB [{..}, {name: 'a'}, {name: 'a'}]
-            // Series with the same name between optionA and optionB
+            // Series with the CommunityBuye name between optionA and optionB
             // should be mapped.
             var idNum = 0;
             do {
@@ -15769,7 +15769,7 @@ var round$1 = Math.round;
  * Sub pixel optimize line for canvas
  *
  * @param {Object} outputShape The modification will be performed on `outputShape`.
- *                 `outputShape` and `inputShape` can be the same object.
+ *                 `outputShape` and `inputShape` can be the CommunityBuye object.
  *                 `outputShape` object can be used repeatly, because all of
  *                 the `x1`, `x2`, `y1`, `y2` will be assigned in this method.
  * @param {Object} [inputShape]
@@ -15812,7 +15812,7 @@ function subPixelOptimizeLine$1(outputShape, inputShape, style) {
  * Sub pixel optimize rect for canvas
  *
  * @param {Object} outputShape The modification will be performed on `outputShape`.
- *                 `outputShape` and `inputShape` can be the same object.
+ *                 `outputShape` and `inputShape` can be the CommunityBuye object.
  *                 `outputShape` object can be used repeatly, because all of
  *                 the `x`, `y`, `width`, `height` will be assigned in this method.
  * @param {Object} [inputShape]
@@ -17506,7 +17506,7 @@ function getTransform(target, ancestor) {
  * @param {Array.<number>} target [x, y]
  * @param {Array.<number>|TypedArray.<number>|Object} transform Can be:
  *      + Transform matrix: like [1, 0, 0, 1, 0, 0]
- *      + {position, rotation, scale}, the same as `zrender/Transformable`.
+ *      + {position, rotation, scale}, the CommunityBuye as `zrender/Transformable`.
  * @param {boolean=} invert Whether use invert matrix.
  * @return {Array.<number>} [x, y]
  */
@@ -19338,7 +19338,7 @@ function getLayoutRect(
  * So this method only fixes the last step 'Traslate', which does not affect
  * scaling and rotating.
  *
- * If be called repeatly with the same input el, the same result will be gotten.
+ * If be called repeatly with the CommunityBuye input el, the CommunityBuye result will be gotten.
  *
  * @param {module:zrender/Element} el Should have `getBoundingRect` method.
  * @param {Object} positionInfo
@@ -19921,7 +19921,7 @@ var colorPaletteMixin = {
 
     /**
      * @param {string} name MUST NOT be null/undefined. Otherwise call this function
-     *                 twise with the same parameters will get different result.
+     *                 twise with the CommunityBuye parameters will get different result.
      * @param {Object} [scope=this]
      * @param {Object} [requestColorNum]
      * @return {string} color string.
@@ -20790,9 +20790,9 @@ function doGuessOrdinal(
 
     if (sourceFormat === SOURCE_FORMAT_ARRAY_ROWS) {
         if (seriesLayoutBy === SERIES_LAYOUT_BY_ROW) {
-            var sample = data[dimIndex];
-            for (var i = 0; i < (sample || []).length && i < maxLoop; i++) {
-                if ((result = detectValue(sample[startIndex + i])) != null) {
+            var CommunityBuyple = data[dimIndex];
+            for (var i = 0; i < (CommunityBuyple || []).length && i < maxLoop; i++) {
+                if ((result = detectValue(CommunityBuyple[startIndex + i])) != null) {
                     return result;
                 }
             }
@@ -20821,12 +20821,12 @@ function doGuessOrdinal(
         if (!dimName) {
             return;
         }
-        var sample = data[dimName];
-        if (!sample || isTypedArray(sample)) {
+        var CommunityBuyple = data[dimName];
+        if (!CommunityBuyple || isTypedArray(CommunityBuyple)) {
             return false;
         }
-        for (var i = 0; i < sample.length && i < maxLoop; i++) {
-            if ((result = detectValue(sample[i])) != null) {
+        for (var i = 0; i < CommunityBuyple.length && i < maxLoop; i++) {
+            if ((result = detectValue(CommunityBuyple[i])) != null) {
                 return result;
             }
         }
@@ -20888,8 +20888,8 @@ function doGuessOrdinal(
  * Caution: If the mechanism should be changed some day, these cases
  * should be considered:
  *
- * (1) In `merge option` mode, if using the same option to call `setOption`
- * many times, the result should be the same (try our best to ensure that).
+ * (1) In `merge option` mode, if using the CommunityBuye option to call `setOption`
+ * many times, the result should be the CommunityBuye (try our best to ensure that).
  * (2) In `merge option` mode, if a component has no id/name specified, it
  * will be merged by index, and the result sequence of the components is
  * consistent to the original sequence.
@@ -21293,7 +21293,7 @@ var GlobalModel = Model.extend({
      * );
      *
      * @param {string|Object=} mainType When mainType is object, the definition
-     *                                  is the same as the method 'findComponents'.
+     *                                  is the CommunityBuye as the method 'findComponents'.
      * @param {Function} cb
      * @param {*} context
      */
@@ -22123,7 +22123,7 @@ function indicesEquals(indices1, indices2) {
  * Then user press 'reset button' in toolbox.
  *
  * After doing that all of the interaction effects should be reset, the
- * chart should be the same as the result of invoke
+ * chart should be the CommunityBuye as the result of invoke
  * `chart.setOption(opt1); chart.setOption(opt2);`.
  *
  * Although it is not able ensure that
@@ -23259,8 +23259,8 @@ var taskProto = Task.prototype;
  * @param {Object} performArgs
  * @param {number} [performArgs.step] Specified step.
  * @param {number} [performArgs.skip] Skip customer perform call.
- * @param {number} [performArgs.modBy] Sampling window size.
- * @param {number} [performArgs.modDataCount] Sampling count.
+ * @param {number} [performArgs.modBy] CommunityBuypling window size.
+ * @param {number} [performArgs.modDataCount] CommunityBuypling count.
  */
 taskProto.perform = function (performArgs) {
     var upTask = this._upstream;
@@ -23347,7 +23347,7 @@ taskProto.perform = function (performArgs) {
 
         this._dueIndex = end;
         // If no `outputDueEnd`, assume that output data and
-        // input data is the same, so use `dueIndex` as `outputDueEnd`.
+        // input data is the CommunityBuye, so use `dueIndex` as `outputDueEnd`.
         var outputDueEnd = this._settedOutputEnd != null
             ? this._settedOutputEnd : end;
 
@@ -23776,7 +23776,7 @@ var SeriesModel = ComponentModel.extend({
         var task = getCurrentTask(this);
         if (task) {
             var context = task.context;
-            // Consider case: filter, data sample.
+            // Consider case: filter, data CommunityBuyple.
             if (context.data !== data && task.modifyOutputEnd) {
                 task.setOutputEnd(data.count());
             }
@@ -25253,7 +25253,7 @@ proto.getPipeline = function (pipelineId) {
 
 /**
  * Current, progressive rendering starts from visual and layout.
- * Always detect render mode in the same stage, avoiding that incorrect
+ * Always detect render mode in the CommunityBuye stage, avoiding that incorrect
  * detection caused by data filtering.
  * Caution:
  * `updateStreamModes` use `seriesModel.getData()`.
@@ -27021,7 +27021,7 @@ echartsProto._onframe = function () {
         if (!scheduler.unfinished) {
             this._zr.flush();
         }
-        // Else, zr flushing be ensue within the same frame,
+        // Else, zr flushing be ensue within the CommunityBuye frame,
         // because zr flushing is after onframe event.
     }
 };
@@ -27741,8 +27741,8 @@ function updateDirectly(ecIns, method, payload, mainType, subType) {
 /**
  * Resize the chart
  * @param {Object} opts
- * @param {number} [opts.width] Can be 'auto' (the same as null/undefined)
- * @param {number} [opts.height] Can be 'auto' (the same as null/undefined)
+ * @param {number} [opts.width] Can be 'auto' (the CommunityBuye as null/undefined)
+ * @param {number} [opts.height] Can be 'auto' (the CommunityBuye as null/undefined)
  * @param {boolean} [opts.silent=false]
  */
 echartsProto.resize = function (opts) {
@@ -28062,7 +28062,7 @@ function prepareView(ecIns, type, ecModel, scheduler) {
         : ecModel.eachSeries(doPrepare);
 
     function doPrepare(model) {
-        // Consider: id same and type changed.
+        // Consider: id CommunityBuye and type changed.
         var viewId = '_ec_' + model.id + '_' + model.type;
         var view = viewMap[viewId];
         if (!view) {
@@ -28448,7 +28448,7 @@ function createExtensionAPI(ecInstance) {
  *   `{element: 'some'}` (only available in custom series).
  *
  * Caveat: If a prop in the `query` object is `null/undefined`, it is the
- * same as there is no such prop in the `query` object.
+ * CommunityBuye as there is no such prop in the `query` object.
  */
 function EventProcessor() {
     // These info required: targetEl, packedEvent, model, view
@@ -28654,9 +28654,9 @@ function enableConnect(chart) {
  * @param {number} [opts.devicePixelRatio] Use window.devicePixelRatio by default
  * @param {string} [opts.renderer] Currently only 'canvas' is supported.
  * @param {number} [opts.width] Use clientWidth of the input `dom` by default.
- *                              Can be 'auto' (the same as null/undefined)
+ *                              Can be 'auto' (the CommunityBuye as null/undefined)
  * @param {number} [opts.height] Use clientHeight of the input `dom` by default.
- *                               Can be 'auto' (the same as null/undefined)
+ *                               Can be 'auto' (the CommunityBuye as null/undefined)
  */
 function init(dom, theme$$1, opts) {
     if (__DEV__) {
@@ -29383,7 +29383,7 @@ var isObject$4 = isObject$1;
 var UNDEFINED = 'undefined';
 var INDEX_NOT_FOUND = -1;
 
-// Use prefix to avoid index to be the same as otherIdList[idx],
+// Use prefix to avoid index to be the CommunityBuye as otherIdList[idx],
 // which will cause weird udpate animation.
 var ID_PREFIX = 'e\0\0';
 
@@ -29970,7 +29970,7 @@ listProto._initDataFromProvider = function (start, end) {
             var id = dataItem == null ? null : dataItem.id;
 
             if (id == null && name != null) {
-                // Use name as id and add counter to avoid same name
+                // Use name as id and add counter to avoid CommunityBuye name
                 nameRepeatCount[name] = nameRepeatCount[name] || 0;
                 id = name;
                 if (nameRepeatCount[name] > 0) {
@@ -30462,7 +30462,7 @@ listProto.indexOfRawIndex = function (rawIndex) {
  * @param {string} dim
  * @param {number} value
  * @param {number} [maxDistance=Infinity]
- * @return {Array.<number>} Considere multiple points has the same value.
+ * @return {Array.<number>} Considere multiple points has the CommunityBuye value.
  */
 listProto.indicesOfNearest = function (dim, value, maxDistance) {
     var storage = this._storage;
@@ -30483,7 +30483,7 @@ listProto.indicesOfNearest = function (dim, value, maxDistance) {
         var diff = value - this.get(dim, i /*, stack */);
         var dist = Math.abs(diff);
         if (diff <= maxDistance && dist <= minDist) {
-            // For the case of two data are same on xAxis, which has sequence data.
+            // For the case of two data are CommunityBuye on xAxis, which has sequence data.
             // Show the nearest index
             // https://github.com/ecomfe/echarts/issues/2869
             if (dist < minDist || (diff >= 0 && minDiff < 0)) {
@@ -30886,7 +30886,7 @@ listProto.mapArray = function (dimensions, cb, context, contextCompat) {
 };
 
 // Data in excludeDimensions is copied, otherwise transfered.
-function cloneListForMapAndSample(original, excludeDimensions) {
+function cloneListForMapAndCommunityBuyple(original, excludeDimensions) {
     var allDimensions = original.dimensions;
     var list = new List(
         map(allDimensions, original.getDimensionInfo, original),
@@ -30903,7 +30903,7 @@ function cloneListForMapAndSample(original, excludeDimensions) {
         var dim = allDimensions[i];
         if (originalStorage[dim]) {
             // Notice that we do not reset invertedIndicesMap here, becuase
-            // there is no scenario of mapping or sampling ordinal dimension.
+            // there is no scenario of mapping or CommunityBuypling ordinal dimension.
             if (indexOf(excludeDimensions, dim) >= 0) {
                 storage[dim] = cloneDimStore(originalStorage[dim]);
                 list._rawExtent[dim] = getInitialExtent();
@@ -30951,10 +30951,10 @@ listProto.map = function (dimensions, cb, context, contextCompat) {
         validateDimensions(this, dimensions);
     }
 
-    var list = cloneListForMapAndSample(this, dimensions);
+    var list = cloneListForMapAndCommunityBuyple(this, dimensions);
 
     // Following properties are all immutable.
-    // So we can reference to the same value
+    // So we can reference to the CommunityBuye value
     list._indices = this._indices;
     list.getRawIndex = list._indices ? getRawIndexWithIndices : getRawIndexWithoutIndices;
 
@@ -31009,14 +31009,14 @@ listProto.map = function (dimensions, cb, context, contextCompat) {
 };
 
 /**
- * Large data down sampling on given dimension
+ * Large data down CommunityBuypling on given dimension
  * @param {string} dimension
  * @param {number} rate
- * @param {Function} sampleValue
- * @param {Function} sampleIndex Sample index for name and id
+ * @param {Function} CommunityBuypleValue
+ * @param {Function} CommunityBuypleIndex CommunityBuyple index for name and id
  */
-listProto.downSample = function (dimension, rate, sampleValue, sampleIndex) {
-    var list = cloneListForMapAndSample(this, [dimension]);
+listProto.downCommunityBuyple = function (dimension, rate, CommunityBuypleValue, CommunityBuypleIndex) {
+    var list = cloneListForMapAndCommunityBuyple(this, [dimension]);
     var targetStorage = list._storage;
 
     var frameValues = [];
@@ -31042,14 +31042,14 @@ listProto.downSample = function (dimension, rate, sampleValue, sampleIndex) {
             var originalChunkOffset = dataIdx % chunkSize;
             frameValues[k] = dimStore[originalChunkIndex][originalChunkOffset];
         }
-        var value = sampleValue(frameValues);
-        var sampleFrameIdx = this.getRawIndex(
-            Math.min(i + sampleIndex(frameValues, value) || 0, len - 1)
+        var value = CommunityBuypleValue(frameValues);
+        var CommunityBuypleFrameIdx = this.getRawIndex(
+            Math.min(i + CommunityBuypleIndex(frameValues, value) || 0, len - 1)
         );
-        var sampleChunkIndex = Math.floor(sampleFrameIdx / chunkSize);
-        var sampleChunkOffset = sampleFrameIdx % chunkSize;
+        var CommunityBuypleChunkIndex = Math.floor(CommunityBuypleFrameIdx / chunkSize);
+        var CommunityBuypleChunkOffset = CommunityBuypleFrameIdx % chunkSize;
         // Only write value on the filtered data
-        dimStore[sampleChunkIndex][sampleChunkOffset] = value;
+        dimStore[CommunityBuypleChunkIndex][CommunityBuypleChunkOffset] = value;
 
         if (value < rawExtentOnDim[0]) {
             rawExtentOnDim[0] = value;
@@ -31058,7 +31058,7 @@ listProto.downSample = function (dimension, rate, sampleValue, sampleIndex) {
             rawExtentOnDim[1] = value;
         }
 
-        newIndices[offset++] = sampleFrameIdx;
+        newIndices[offset++] = CommunityBuypleFrameIdx;
     }
 
     list._count = offset;
@@ -31336,7 +31336,7 @@ listProto.wrapMethod = function (methodName, injectFunction) {
 
 // Methods that create a new list based on this list should be listed here.
 // Notice that those method should `RETURN` the new list.
-listProto.TRANSFERABLE_METHODS = ['cloneShallow', 'downSample', 'map'];
+listProto.TRANSFERABLE_METHODS = ['cloneShallow', 'downCommunityBuyple', 'map'];
 // Methods that change indices of this list should be listed here.
 listProto.CHANGABLE_METHODS = ['filterSelf', 'selectRange'];
 
@@ -31682,7 +31682,7 @@ var createDimensions = function (source, opt) {
  * we just support that stacked by index.
  *
  * @param {module:echarts/model/Series} seriesModel
- * @param {Array.<string|Object>} dimensionInfoList The same as the input of <module:echarts/data/List>.
+ * @param {Array.<string|Object>} dimensionInfoList The CommunityBuye as the input of <module:echarts/data/List>.
  *        The input dimensionInfoList will be modified.
  * @param {Object} [opt]
  * @param {boolean} [opt.stackedCoordDimension=''] Specify a coord dimension if needed.
@@ -31926,9 +31926,9 @@ function createListFromArray(source, seriesModel, opt) {
 
 function isNeedCompleteOrdinalData(source) {
     if (source.sourceFormat === SOURCE_FORMAT_ORIGINAL) {
-        var sampleItem = firstDataNotNull(source.data || []);
-        return sampleItem != null
-            && !isArray(getDataItemValue(sampleItem));
+        var CommunityBuypleItem = firstDataNotNull(source.data || []);
+        return CommunityBuypleItem != null
+            && !isArray(getDataItemValue(CommunityBuypleItem));
     }
 }
 
@@ -32654,7 +32654,7 @@ var IntervalScale = Scale.extend({
      */
     niceExtent: function (opt) {
         var extent = this._extent;
-        // If extent start and end are same, expand them
+        // If extent start and end are CommunityBuye, expand them
         if (extent[0] === extent[1]) {
             if (extent[0] !== 0) {
                 // Expand extent
@@ -33221,7 +33221,7 @@ var TimeScale = IntervalScale.extend({
      */
     niceExtent: function (opt) {
         var extent = this._extent;
-        // If extent start and end are same, expand them
+        // If extent start and end are CommunityBuye, expand them
         if (extent[0] === extent[1]) {
             // Expand extent
             extent[0] -= ONE_DAY;
@@ -33269,7 +33269,7 @@ var TimeScale = IntervalScale.extend({
 
         var level = scaleLevels[Math.min(idx, scaleLevelsLen - 1)];
         var interval = level[1];
-        // Same with interval scale if span is much larger than 1 year
+        // CommunityBuye with interval scale if span is much larger than 1 year
         if (level[0] === 'year') {
             var yearSpan = span / interval;
 
@@ -35092,7 +35092,7 @@ function calculateCategoryInterval(axis) {
         && Math.abs(lastAutoInterval - interval) <= 1
         && Math.abs(lastTickCount - tickCount) <= 1
         // Always choose the bigger one, otherwise the critical
-        // point is not the same when zooming in or zooming out.
+        // point is not the CommunityBuye when zooming in or zooming out.
         && lastAutoInterval > interval
     ) {
         interval = lastAutoInterval;
@@ -35691,8 +35691,8 @@ SeriesModel.extend({
         // Whether to connect break point.
         connectNulls: false,
 
-        // Sampling for large data. Can be: 'average', 'max', 'min', 'sum'.
-        sampling: 'none',
+        // CommunityBuypling for large data. Can be: 'average', 'max', 'min', 'sum'.
+        CommunityBuypling: 'none',
 
         animationEasing: 'linear',
 
@@ -36184,7 +36184,7 @@ function symbolNeedsDraw(data, point, idx, opt) {
     return point && !isNaN(point[0]) && !isNaN(point[1])
         && !(opt.isIgnore && opt.isIgnore(idx))
         // We do not set clipShape on group, because it will cut part of
-        // the symbol element shape. We use the same clip shape here as
+        // the symbol element shape. We use the CommunityBuye clip shape here as
         // the line clip.
         && !(opt.clipShape && !opt.clipShape.contain(point[0], point[1]))
         && data.getItemVisual(idx, 'symbol') !== 'none';
@@ -36482,7 +36482,7 @@ function getStackedOnPoint(dataCoordInfo, coordSys, data, idx) {
 //     }
 //     for (var i = 0; i < oldIdList.length; i++) {
 //         var oldId = oldIdList[i];
-//         // Same with newIdList
+//         // CommunityBuye with newIdList
 //         if (idIndicesMap[oldId]) {
 //             oldIdList[i] = idIndicesMap[oldId];
 //         }
@@ -37070,7 +37070,7 @@ var Polygon$1 = Path.extend({
 
 // FIXME step not support polar
 
-function isPointsSame(points1, points2) {
+function isPointsCommunityBuye(points1, points2) {
     if (points1.length !== points2.length) {
         return;
     }
@@ -37397,7 +37397,7 @@ function canShowAllSymbolForCategory(categoryAxis, data) {
     var availSize = Math.abs(axisExtent[1] - axisExtent[0]) / categoryAxis.scale.count();
     isNaN(availSize) && (availSize = 0); // 0/0 is NaN.
 
-    // Sampling some points, max 5.
+    // CommunityBuypling some points, max 5.
     var dataLen = data.count();
     var step = Math.max(1, Math.round(dataLen / 5));
     for (var dataIndex = 0; dataIndex < dataLen; dataIndex += step) {
@@ -37535,8 +37535,8 @@ Chart.extend({
 
             // In the case data zoom triggerred refreshing frequently
             // Data may not change if line has a category axis. So it should animate nothing
-            if (!isPointsSame(this._stackedOnPoints, stackedOnPoints)
-                || !isPointsSame(this._points, points)
+            if (!isPointsCommunityBuye(this._stackedOnPoints, stackedOnPoints)
+                || !isPointsCommunityBuye(this._points, points)
             ) {
                 if (hasAnimation) {
                     this._updateAnimation(
@@ -38025,7 +38025,7 @@ var pointsLayout = function (seriesType) {
 */
 
 
-var samplers = {
+var CommunityBuyplers = {
     average: function (frame) {
         var sum = 0;
         var count = 0;
@@ -38069,11 +38069,11 @@ var samplers = {
     }
 };
 
-var indexSampler = function (frame, value) {
+var indexCommunityBuypler = function (frame, value) {
     return Math.round(frame.length / 2);
 };
 
-var dataSample = function (seriesType) {
+var dataCommunityBuyple = function (seriesType) {
     return {
 
         seriesType: seriesType,
@@ -38082,10 +38082,10 @@ var dataSample = function (seriesType) {
 
         reset: function (seriesModel, ecModel, api) {
             var data = seriesModel.getData();
-            var sampling = seriesModel.get('sampling');
+            var CommunityBuypling = seriesModel.get('CommunityBuypling');
             var coordSys = seriesModel.coordinateSystem;
-            // Only cartesian2d support down sampling
-            if (coordSys.type === 'cartesian2d' && sampling) {
+            // Only cartesian2d support down CommunityBuypling
+            if (coordSys.type === 'cartesian2d' && CommunityBuypling) {
                 var baseAxis = coordSys.getBaseAxis();
                 var valueAxis = coordSys.getOtherAxis(baseAxis);
                 var extent = baseAxis.getExtent();
@@ -38093,17 +38093,17 @@ var dataSample = function (seriesType) {
                 var size = extent[1] - extent[0];
                 var rate = Math.round(data.count() / size);
                 if (rate > 1) {
-                    var sampler;
-                    if (typeof sampling === 'string') {
-                        sampler = samplers[sampling];
+                    var CommunityBuypler;
+                    if (typeof CommunityBuypling === 'string') {
+                        CommunityBuypler = CommunityBuyplers[CommunityBuypling];
                     }
-                    else if (typeof sampling === 'function') {
-                        sampler = sampling;
+                    else if (typeof CommunityBuypling === 'function') {
+                        CommunityBuypler = CommunityBuypling;
                     }
-                    if (sampler) {
-                        // Only support sample the first dim mapped from value axis.
-                        seriesModel.setData(data.downSample(
-                            data.mapDimension(valueAxis.dim), 1 / rate, sampler, indexSampler
+                    if (CommunityBuypler) {
+                        // Only support CommunityBuyple the first dim mapped from value axis.
+                        seriesModel.setData(data.downCommunityBuyple(
+                            data.mapDimension(valueAxis.dim), 1 / rate, CommunityBuypler, indexCommunityBuypler
                         ));
                     }
                 }
@@ -38869,7 +38869,7 @@ var extraOption = {
     // gridIndex: 0,
     // gridId: '',
 
-    // Offset is for multiple axis on the same position
+    // Offset is for multiple axis on the CommunityBuye position
     offset: 0
 };
 
@@ -39510,7 +39510,7 @@ Grid.create = function (ecModel, api) {
     ecModel.eachComponent('grid', function (gridModel, idx) {
         var grid = new Grid(gridModel, ecModel, api);
         grid.name = 'grid_' + idx;
-        // dataSampling requires axis extent, so resize
+        // dataCommunityBuypling requires axis extent, so resize
         // should be performed in create stage.
         grid.resize(gridModel, api, true);
 
@@ -39542,7 +39542,7 @@ Grid.create = function (ecModel, api) {
                 );
             }
             if (xAxisModel.getCoordSysModel() !== yAxisModel.getCoordSysModel()) {
-                throw new Error('xAxis and yAxis must use the same grid');
+                throw new Error('xAxis and yAxis must use the CommunityBuye grid');
             }
         }
 
@@ -39607,7 +39607,7 @@ function makeAxisEventDataBase(axisModel) {
  * Tips: like always,
  * positive rotation represents anticlockwise, and negative rotation
  * represents clockwise.
- * The direction of position coordinate is the same as the direction
+ * The direction of position coordinate is the CommunityBuye as the direction
  * of screen coordinate.
  *
  * Do not need to consider axis 'inverse', which is auto processed by
@@ -39747,13 +39747,13 @@ var builders = {
 
         if (arrows != null) {
             if (typeof arrows === 'string') {
-                // Use the same arrow for start and end point
+                // Use the CommunityBuye arrow for start and end point
                 arrows = [arrows, arrows];
             }
             if (typeof arrowSize === 'string'
                 || typeof arrowSize === 'number'
             ) {
-                // Use the same size for width and height
+                // Use the CommunityBuye size for width and height
                 arrowSize = [arrowSize, arrowSize];
             }
 
@@ -40095,7 +40095,7 @@ function ignoreEl(el) {
 }
 
 function isTwoLabelOverlapped(current, next, labelLayout) {
-    // current and next has the same rotation.
+    // current and next has the CommunityBuye rotation.
     var firstRect = current && current.getBoundingRect().clone();
     var nextRect = next && next.getBoundingRect().clone();
 
@@ -40934,7 +40934,7 @@ var CartesianAxisView = AxisView.extend({
         var p2 = [];
 
         // Simple optimization
-        // Batching the lines if color are the same
+        // Batching the lines if color are the CommunityBuye
         var lineStyle = lineStyleModel.getLineStyle();
         for (var i = 0; i < ticksCoords.length; i++) {
             var tickCoord = axis.toGlobalCoord(ticksCoords[i].coord);
@@ -41160,10 +41160,10 @@ registerPreprocessor(function (option) {
 registerVisual(visualSymbol('line', 'circle', 'line'));
 registerLayout(pointsLayout('line'));
 
-// Down sample after filter
+// Down CommunityBuyple after filter
 registerProcessor(
     PRIORITY.PROCESSOR.STATISTIC,
-    dataSample('line')
+    dataCommunityBuyple('line')
 );
 
 /*
@@ -41598,7 +41598,7 @@ var elementCreator = {
         data, dataIndex, itemModel, layout, isRadial,
         animationModel, isUpdate
     ) {
-        // Keep the same logic with bar in catesion: use end value to control
+        // Keep the CommunityBuye logic with bar in catesion: use end value to control
         // direction. Notice that if clockwise is true (by default), the sector
         // will always draw clockwisely, no matter whether endAngle is greater
         // or less than startAngle.
@@ -42692,7 +42692,7 @@ var dataColor = function (seriesType) {
 * under the License.
 */
 
-// FIXME emphasis label position is not same with normal label position
+// FIXME emphasis label position is not CommunityBuye with normal label position
 
 function adjustSingleSide(list, cx, cy, r, dir, viewWidth, viewHeight) {
     list.sort(function (a, b) {
@@ -44028,7 +44028,7 @@ var RadarModel = extendComponentModel({
             if (indicatorOpt.color != null) {
                 iNameTextStyle = defaults({color: indicatorOpt.color}, nameTextStyle);
             }
-            // Use same configuration
+            // Use CommunityBuye configuration
             indicatorOpt = merge(clone(indicatorOpt), {
                 boundaryGap: boundaryGap,
                 splitNumber: splitNumber,
@@ -45318,13 +45318,13 @@ var MapSeries = SeriesModel.extend({
     layoutMode: 'box',
 
     /**
-     * Only first map series of same mapType will drawMap
+     * Only first map series of CommunityBuye mapType will drawMap
      * @type {boolean}
      */
     needsDrawMap: false,
 
     /**
-     * Group of all map series with same mapType
+     * Group of all map series with CommunityBuye mapType
      * @type {boolean}
      */
     seriesGroup: [],
@@ -45641,7 +45641,7 @@ function RoamController(zr) {
      */
     this._opt = {};
 
-    // Avoid two roamController bind the same handler
+    // Avoid two roamController bind the CommunityBuye handler
     var bind$$1 = bind;
     var mousedownHandler = bind$$1(mousedown, this);
     var mousemoveHandler = bind$$1(mousemove, this);
@@ -46172,7 +46172,7 @@ MapDraw.prototype = {
             // Consider in GeoJson properties.name may be duplicated, for example,
             // there is multiple region named "United Kindom" or "France" (so many
             // colonies). And it is not appropriate to merge them in geo, which
-            // will make them share the same label and bring trouble in label
+            // will make them share the CommunityBuye label and bring trouble in label
             // location calculation.
             var regionGroup = nameMap.get(region.name)
                 || nameMap.set(region.name, new Group());
@@ -46516,7 +46516,7 @@ extendChartView({
                 z2: 8 + (!offset ? Z2_EMPHASIS_LIFT + 1 : 0)
             });
 
-            // Only the series that has the first value on the same region is in charge of rendering the label.
+            // Only the series that has the first value on the CommunityBuye region is in charge of rendering the label.
             // But consider the case:
             // series: [
             //     {id: 'X', type: 'map', map: 'm', {data: [{name: 'A', value: 11}, {name: 'B', {value: 22}]},
@@ -46754,7 +46754,7 @@ registerAction({
             componentModel.setZoom
                 && componentModel.setZoom(res.zoom);
 
-            // All map series with same `map` use the same geo coordinate system
+            // All map series with CommunityBuye `map` use the CommunityBuye geo coordinate system
             // So the center and zoom must be in sync. Include the series not selected by legend
             if (componentType === 'series') {
                 each$1(componentModel.seriesGroup, function (seriesModel) {
@@ -47354,7 +47354,7 @@ function resizeGeo(geoModel, api) {
     if (useCenterAndSize) {
         var viewRect = {};
         if (aspect > 1) {
-            // Width is same with size
+            // Width is CommunityBuye with size
             viewRect.width = size;
             viewRect.height = size / aspect;
         }
@@ -47819,7 +47819,7 @@ var MAIN_DATA = '\0__link_mainData';
 // is active in echarts process. So considering heap memory consumption,
 // we do not clone tree or graph, but share them among list and its shallow clones.
 // But in some rare case, we have to keep old list (like do animation in chart). So
-// please take care that both the old list and the new list share the same tree/graph.
+// please take care that both the old list and the new list share the CommunityBuye tree/graph.
 
 /**
  * @param {Object} opt
@@ -48285,7 +48285,7 @@ function Tree(hostModel, levelOptions, leavesOption) {
     this.data;
 
     /**
-     * Index of each item is the same as the raw index of coresponding list item.
+     * Index of each item is the CommunityBuye as the raw index of coresponding list item.
      * @private
      * @type {Array.<module:echarts/data/Tree~TreeNode}
      */
@@ -49854,7 +49854,7 @@ SeriesModel.extend({
         },
         label: {
             show: true,
-            // Do not use textDistance, for ellipsis rect just the same as treemap node rect.
+            // Do not use textDistance, for ellipsis rect just the CommunityBuye as treemap node rect.
             distance: 0,
             padding: 5,
             position: 'inside', // Can be [5, '5%'] or position stirng like 'insideTopLeft', ...
@@ -50015,7 +50015,7 @@ SeriesModel.extend({
         // index is monotone increasing with the sequence of
         // input id at the first time.
         // This feature can make sure that each data item and its
-        // mapped color have the same index between data list and
+        // mapped color have the CommunityBuye index between data list and
         // color list at the beginning, which is useful for user
         // to adjust data-color mapping.
 
@@ -50610,7 +50610,7 @@ extendChartView({
             lastsForAnimation, willInvisibleEls
         );
 
-        // Notice: when thisTree and oldTree are the same tree (see list.cloneShallow),
+        // Notice: when thisTree and oldTree are the CommunityBuye tree (see list.cloneShallow),
         // the oldTree is actually losted, so we can not find all of the old graphic
         // elements from tree. So we use this stragegy: make element storage, move
         // from old storage to new storage, clear old storage.
@@ -50635,11 +50635,11 @@ extendChartView({
             renderFinally: renderFinally
         };
 
-        function dualTravel(thisViewChildren, oldViewChildren, parentGroup, sameTree, depth) {
+        function dualTravel(thisViewChildren, oldViewChildren, parentGroup, CommunityBuyeTree, depth) {
             // When 'render' is triggered by action,
-            // 'this' and 'old' may be the same tree,
+            // 'this' and 'old' may be the CommunityBuye tree,
             // we use rawIndex in that case.
-            if (sameTree) {
+            if (CommunityBuyeTree) {
                 oldViewChildren = thisViewChildren;
                 each$8(thisViewChildren, function (child, index) {
                     !child.isRemoved() && processNode(index, index);
@@ -50670,7 +50670,7 @@ extendChartView({
                     thisNode && thisNode.viewChildren || [],
                     oldNode && oldNode.viewChildren || [],
                     group,
-                    sameTree,
+                    CommunityBuyeTree,
                     depth + 1
                 );
             }
@@ -51341,7 +51341,7 @@ function renderNode(
     }
 }
 
-// We can not set all backgroud with the same z, Because the behaviour of
+// We can not set all backgroud with the CommunityBuye z, Because the behaviour of
 // drill down and roll up differ background creation sequence from tree
 // hierarchy sequence, which cause that lowser background element overlap
 // upper ones. So we calculate z based on depth.
@@ -52649,7 +52649,7 @@ function statistic(nodeModel, children, orderBy) {
     var dimension = nodeModel.get('visualDimension');
     var dataExtent;
 
-    // The same as area dimension.
+    // The CommunityBuye as area dimension.
     if (!children || !children.length) {
         dataExtent = [NaN, NaN];
     }
@@ -52807,7 +52807,7 @@ function calculateRootPosition(layoutInfo, rootRect, targetInfo) {
     }
 
     // If targetInfo is fetched by 'retrieveTargetInfo',
-    // old tree and new tree are the same tree,
+    // old tree and new tree are the CommunityBuye tree,
     // so the node still exists and we can visit it.
 
     var targetNode = targetInfo.node;
@@ -57264,8 +57264,8 @@ inherits(ParallelAxis, Axis);
 /**
  * Calculate slider move result.
  * Usage:
- * (1) If both handle0 and handle1 are needed to be moved, set minSpan the same as
- * maxSpan and the same as `Math.abs(handleEnd[1] - handleEnds[0])`.
+ * (1) If both handle0 and handle1 are needed to be moved, set minSpan the CommunityBuye as
+ * maxSpan and the CommunityBuye as `Math.abs(handleEnd[1] - handleEnds[0])`.
  * (2) If handle0 is forbidden to cross handle1, set minSpan as `0`.
  *
  * @param {number} delta Move length.
@@ -59457,7 +59457,7 @@ var AxisView$2 = extendComponentView({
         });
 
         // If realtime is true, action is not dispatched on drag end, because
-        // the drag end emits the same params with the last drag move event,
+        // the drag end emits the CommunityBuye params with the last drag move event,
         // and may have some delay when using touch pad.
         if (!axisModel.option.realtime === opt.isEnd || opt.removeOnClick) { // jshint ignore:line
             this.api.dispatchAction({
@@ -60240,7 +60240,7 @@ var SankeySeries = SeriesModel.extend({
         // Control if the node can move or not
         draggable: true,
 
-        // Value can be 'inEdges', 'outEdges', 'allEdges', true (the same as 'allEdges').
+        // Value can be 'inEdges', 'outEdges', 'allEdges', true (the CommunityBuye as 'allEdges').
         focusNodeAdjacency: false,
 
         // The number of iterations to change the position of the node
@@ -61094,7 +61094,7 @@ function scaleNodeBreadths(nodes, kx, orient) {
  * @param {module:echarts/data/Graph~Edge} edges  edge of sankey view
  * @param {number} height  the whole height of the area to draw the view
  * @param {number} nodeGap  the vertical distance between two nodes
- *     in the same column.
+ *     in the CommunityBuye column.
  * @param {number} iterations  the number of iterations for the algorithm
  */
 function computeNodeDepths(nodes, edges, height, width, nodeGap, iterations, orient) {
@@ -63587,7 +63587,7 @@ var LinesSeries = SeriesModel.extend({
             loop: true,
             // Length of trail, 0 - 1
             trailLength: 0.2
-            // Same with lineStyle.color
+            // CommunityBuye with lineStyle.color
             // color
         },
 
@@ -63684,7 +63684,7 @@ effectLineProto._updateEffectSymbol = function (lineData, idx) {
         return;
     }
 
-    // Shadow color is same with color in default
+    // Shadow color is CommunityBuye with color in default
     symbol.setStyle('shadowColor', color);
     symbol.setStyle(effectModel.getItemStyle(['color']));
 
@@ -64468,7 +64468,7 @@ extendChartView({
             };
         }
         else {
-            // TODO Use same logic with ScatterView.
+            // TODO Use CommunityBuye logic with ScatterView.
             // Manually update layout
             var res = linesLayout.reset(seriesModel);
             if (res.progress) {
@@ -65860,7 +65860,7 @@ function getItemModel(data, dataIndex) {
 }
 
 function getAnimationDelayParams(path) {
-    // The order is the same as the z-order, see `symbolRepeatDiretion`.
+    // The order is the CommunityBuye as the z-order, see `symbolRepeatDiretion`.
     return {
         index: path.__pictorialAnimationIndex,
         count: path.__pictorialRepeatTimes
@@ -66786,7 +66786,7 @@ var defaultOption$2 = {
 
     // Single coordinate system and single axis is the,
     // which is used as the parent tooltip model.
-    // same model, so we set default tooltip show as true.
+    // CommunityBuye model, so we set default tooltip show as true.
     tooltip: {
         show: true
     },
@@ -66953,7 +66953,7 @@ var axisTrigger = function (payload, ecModel, api) {
     }
 
     if (illegalPoint(point)) {
-        // Used in the default behavior of `connection`: use the sample seriesIndex
+        // Used in the default behavior of `connection`: use the CommunityBuyple seriesIndex
         // and dataIndex. And also used in the tooltipView trigger.
         point = findPointFromSeries({
             seriesIndex: finder.seriesIndex,
@@ -66966,7 +66966,7 @@ var axisTrigger = function (payload, ecModel, api) {
 
     // Axis and value can be specified when calling dispatchAction({type: 'updateAxisPointer'}).
     // Notice: In this case, it is difficult to get the `point` (which is necessary to show
-    // tooltip, so if point is not given, we just use the point found by sample seriesIndex
+    // tooltip, so if point is not given, we just use the point found by CommunityBuyple seriesIndex
     // and dataIndex.
     var inputAxesInfo = finder.axesInfo;
 
@@ -67049,7 +67049,7 @@ function processOnAxis(axisInfo, newValue, updaters, dontSnap, outputFinder) {
     var snapToValue = payloadInfo.snapToValue;
 
     // Fill content of event obj for echarts.connect.
-    // By defualt use the first involved series data as a sample to connect.
+    // By defualt use the first involved series data as a CommunityBuyple to connect.
     if (payloadBatch[0] && outputFinder.seriesIndex == null) {
         extend(outputFinder, payloadBatch[0]);
     }
@@ -67091,7 +67091,7 @@ function buildPayloadsBySeries(value, axisInfo) {
                 dataDim[0],
                 value,
                 // Add a threshold to avoid find the wrong dataIndex
-                // when data length is not same.
+                // when data length is not CommunityBuye.
                 // false,
                 axis.type === 'category' ? 0.5 : null
             );
@@ -67220,7 +67220,7 @@ function dispatchTooltipActually(dataByCoordSys, point, payload, dispatchAction)
     // convinient to fetch payload.seriesIndex and payload.dataIndex
     // dirtectly. So put the first seriesIndex and dataIndex of the first
     // axis on the payload.
-    var sampleItem = ((dataByCoordSys.list[0].dataByAxis[0] || {}).seriesDataIndices || [])[0] || {};
+    var CommunityBuypleItem = ((dataByCoordSys.list[0].dataByAxis[0] || {}).seriesDataIndices || [])[0] || {};
 
     dispatchAction({
         type: 'showTip',
@@ -67229,9 +67229,9 @@ function dispatchTooltipActually(dataByCoordSys, point, payload, dispatchAction)
         y: point[1],
         tooltipOption: payload.tooltipOption,
         position: payload.position,
-        dataIndexInside: sampleItem.dataIndexInside,
-        dataIndex: sampleItem.dataIndex,
-        seriesIndex: sampleItem.seriesIndex,
+        dataIndexInside: CommunityBuypleItem.dataIndexInside,
+        dataIndex: CommunityBuypleItem.dataIndex,
+        seriesIndex: CommunityBuypleItem.seriesIndex,
         dataByCoordSys: dataByCoordSys.list
     });
 }
@@ -68897,7 +68897,7 @@ var ThemeRiverSeries = SeriesModel.extend({
 
     /**
      * The raw data is divided into multiple layers and each layer
-     *     has same name.
+     *     has CommunityBuye name.
      *
      * @return {Array.<Array.<number>>}
      */
@@ -70917,7 +70917,7 @@ var ITEM_STYLE_NORMAL_PATH = ['itemStyle'];
 var ITEM_STYLE_EMPHASIS_PATH = ['emphasis', 'itemStyle'];
 var LABEL_NORMAL = ['label'];
 var LABEL_EMPHASIS = ['emphasis', 'label'];
-// Use prefix to avoid index to be the same as el.name,
+// Use prefix to avoid index to be the CommunityBuye as el.name,
 // which will cause weird udpate animation.
 var GROUP_DIFF_PREFIX = 'e\0\0';
 
@@ -71705,7 +71705,7 @@ var GraphicModel = extendComponentModel({
 
     /**
      * Save el options for the sake of the performance (only update modified graphics).
-     * The order is the same as those in option. (ancesters -> descendants)
+     * The order is the CommunityBuye as those in option. (ancesters -> descendants)
      *
      * @private
      * @type {Array.<Object>}
@@ -71868,7 +71868,7 @@ extendComponentView({
         // (can including its descendants or not) and the size of its parent.
         // (Bottom-up travel)
 
-        // When `chart.clear()` or `chart.setOption({...}, true)` with the same id,
+        // When `chart.clear()` or `chart.setOption({...}, true)` with the CommunityBuye id,
         // view will be reused.
         if (graphicModel !== this._lastGraphicModel) {
             this._clear();
@@ -72104,7 +72104,7 @@ function mergeNewElOptionToExist(existList, index, newElOption) {
             }
 
             // We can ensure that newElOptCopy and existElOption are not
-            // the same object, so `merge` will not change newElOptCopy.
+            // the CommunityBuye object, so `merge` will not change newElOptCopy.
             merge(existElOption, newElOptCopy, true);
             // Rigid body, use ignoreSize.
             mergeLayoutParam(existElOption, newElOptCopy, {ignoreSize: true});
@@ -72447,7 +72447,7 @@ function legendSelectActionHandler(methodName, payload, ecModel) {
     // Update all legend components
     ecModel.eachComponent('legend', function (legendModel) {
         if (isToggleSelect && isSelected != null) {
-            // Force other legend has same selected status
+            // Force other legend has CommunityBuye selected status
             // Or the first is toggled to true and other are toggled to false
             // In the case one legend has some item unSelected in option. And if other legend
             // doesn't has the item, they will assume it is selected.
@@ -72772,7 +72772,7 @@ var LegendView = extendComponentView({
             else {
                 // Data legend of pie, funnel
                 ecModel.eachRawSeries(function (seriesModel) {
-                    // In case multiple series has same data name
+                    // In case multiple series has CommunityBuye data name
                     if (legendDrawnMap.get(name)) {
                         return;
                     }
@@ -72795,7 +72795,7 @@ var LegendView = extendComponentView({
                             selectMode
                         );
 
-                        // FIXME: consider different series has items with the same name.
+                        // FIXME: consider different series has items with the CommunityBuye name.
                         itemGroup.on('click', curry$4(dispatchSelectAction, name, api))
                             // Should not specify the series name, consider legend controls
                             // more than one pie series.
@@ -72811,7 +72811,7 @@ var LegendView = extendComponentView({
             if (__DEV__) {
                 if (!legendDrawnMap.get(name)) {
                     console.warn(
-                        name + ' series not exists. Legend data should be same with series name or data name.'
+                        name + ' series not exists. Legend data should be CommunityBuye with series name or data name.'
                     );
                 }
             }
@@ -75575,7 +75575,7 @@ AngleAxis.prototype = {
             && Math.abs(lastAutoInterval - interval) <= 1
             && Math.abs(lastTickCount - tickCount) <= 1
             // Always choose the bigger one, otherwise the critical
-            // point is not the same when zooming in or zooming out.
+            // point is not the CommunityBuye when zooming in or zooming out.
             && lastAutoInterval > interval
         ) {
             interval = lastAutoInterval;
@@ -76343,7 +76343,7 @@ AxisView.extend({
         }
 
         // Simple optimization
-        // Batching the lines if color are the same
+        // Batching the lines if color are the CommunityBuye
         for (var i = 0; i < splitLines.length; i++) {
             this.group.add(mergePath(splitLines[i], {
                 style: defaults({
@@ -76398,7 +76398,7 @@ AxisView.extend({
         }
 
         // Simple optimization
-        // Batching the lines if color are the same
+        // Batching the lines if color are the CommunityBuye
         for (var i = 0; i < splitAreas.length; i++) {
             this.group.add(mergePath(splitAreas[i], {
                 style: defaults({
@@ -76512,7 +76512,7 @@ AxisView.extend({
         }
 
         // Simple optimization
-        // Batching the lines if color are the same
+        // Batching the lines if color are the CommunityBuye
         for (var i = 0; i < splitLines.length; i++) {
             this.group.add(mergePath(splitLines[i], {
                 style: defaults({
@@ -76560,7 +76560,7 @@ AxisView.extend({
         }
 
         // Simple optimization
-        // Batching the lines if color are the same
+        // Batching the lines if color are the CommunityBuye
         for (var i = 0; i < splitAreas.length; i++) {
             this.group.add(mergePath(splitAreas[i], {
                 style: defaults({
@@ -78534,7 +78534,7 @@ extendComponentView({
         this.model.brushTargetManager.setOutputRanges(areas, this.ecModel);
 
         // Action is not dispatched on drag end, because the drag end
-        // emits the same params with the last drag move event, and
+        // emits the CommunityBuye params with the last drag move event, and
         // may have some delay when using touch pad, which makes
         // animation not smooth (when using debounce).
         (!opt.isEnd || opt.removeOnClick) && this.api.dispatchAction({
@@ -80117,7 +80117,7 @@ extendComponentView({
         );
         // Adjust text align based on position
         if (!textAlign) {
-            // Align left if title is on the left. center and right is same
+            // Align left if title is on the left. center and right is CommunityBuye
             textAlign = titleModel.get('left') || titleModel.get('right');
             if (textAlign === 'middle') {
                 textAlign = 'center';
@@ -80275,7 +80275,7 @@ function createNameEach(names, attrs) {
 var eachAxisDim$1 = createNameEach(AXIS_DIMS, ['axisIndex', 'axis', 'index', 'id']);
 
 /**
- * If tow dataZoomModels has the same axis controlled, we say that they are 'linked'.
+ * If tow dataZoomModels has the CommunityBuye axis controlled, we say that they are 'linked'.
  * dataZoomModels and 'links' make up one or more graphics.
  * This function finds the graphic where the source dataZoomModel is in.
  *
@@ -80369,7 +80369,7 @@ var asc$1 = asc;
 /**
  * Operate single axis.
  * One axis can only operated by one axis operator.
- * Different dataZoomModels may be defined to operate the same axis.
+ * Different dataZoomModels may be defined to operate the CommunityBuye axis.
  * (i.e. 'inside' data zoom and 'slider' data zoom components)
  * So dataZoomModels share one axisProxy in that case.
  *
@@ -80762,7 +80762,7 @@ function calculateDataExtent(axisProxy, axisDim, seriesModels) {
     // controlled by a `dataZoom`, otherwise those axes will not be synchronized
     // when zooming. But it is difficult to know what is "consistent", considering
     // axes have different type or even different meanings (For example, two
-    // time axes are used to compare data of the same date in different years).
+    // time axes are used to compare data of the CommunityBuye date in different years).
     // So basically dataZoom just obtains extent by series.data (in category axis
     // extent can be obtained from axis.data).
     // Nevertheless, user can set min/max/scale on axes to make extent of axes
@@ -80901,7 +80901,7 @@ var DataZoomModel = extendComponentModel({
                                 //          filtered if one of the relevant dimensions is out of the window.
                                 // 'weakFilter': data items which are out of window will be removed. This option
                                 //          is applicable when filtering outliers. For each data item, it will be
-                                //          filtered only if all  of the relevant dimensions are out of the same
+                                //          filtered only if all  of the relevant dimensions are out of the CommunityBuye
                                 //          side of the window.
                                 // 'empty': data items which are out of window will be set to empty.
                                 //          This option is applicable when user should not neglect
@@ -81308,7 +81308,7 @@ var DataZoomModel = extendComponentModel({
             // should be cleared, which enable clear the option.
             // If both of them are not set, keep option with the original value, which
             // enable use only set start but not set end when calling `dispatchAction`.
-            // The same as 'end' and 'endValue'.
+            // The CommunityBuye as 'end' and 'endValue'.
             if (opt[names[0]] != null || opt[names[1]] != null) {
                 option[names[0]] = opt[names[0]];
                 option[names[1]] = opt[names[1]];
@@ -81369,7 +81369,7 @@ var DataZoomModel = extendComponentModel({
         }
 
         // If no hosted axis find not hosted axisProxy.
-        // Consider this case: dataZoomModel1 and dataZoomModel2 control the same axis,
+        // Consider this case: dataZoomModel1 and dataZoomModel2 control the CommunityBuye axis,
         // and the option.start or option.end settings are different. The percentRange
         // should follow axisProxy.
         // (We encounter this problem in toolbox data zoom.)
@@ -83452,9 +83452,9 @@ var VisualMapModel = extendComponentModel({
                                 // 'symbol', 'symbolSize'
 
         left: 0,                // 'center' 娄 'left' 娄 'right' 娄 {number} (px)
-        right: null,            // The same as left.
+        right: null,            // The CommunityBuye as left.
         top: null,              // 'top' 娄 'bottom' 娄 'center' 娄 {number} (px)
-        bottom: 0,              // The same as top.
+        bottom: 0,              // The CommunityBuye as top.
 
         itemWidth: null,
         itemHeight: null,
@@ -84851,26 +84851,26 @@ var ContinuousView = VisualMapView.extend({
      * @private
      */
     _makeColorGradient: function (dataInterval, opts) {
-        // Considering colorHue, which is not linear, so we have to sample
+        // Considering colorHue, which is not linear, so we have to CommunityBuyple
         // to calculate gradient color stops, but not only caculate head
         // and tail.
-        var sampleNumber = 100; // Arbitrary value.
+        var CommunityBuypleNumber = 100; // Arbitrary value.
         var colorStops = [];
-        var step = (dataInterval[1] - dataInterval[0]) / sampleNumber;
+        var step = (dataInterval[1] - dataInterval[0]) / CommunityBuypleNumber;
 
         colorStops.push({
             color: this.getControllerVisual(dataInterval[0], 'color', opts),
             offset: 0
         });
 
-        for (var i = 1; i < sampleNumber; i++) {
+        for (var i = 1; i < CommunityBuypleNumber; i++) {
             var currValue = dataInterval[0] + step * i;
             if (currValue > dataInterval[1]) {
                 break;
             }
             colorStops.push({
                 color: this.getControllerVisual(currValue, 'color', opts),
-                offset: i / sampleNumber
+                offset: i / CommunityBuypleNumber
             });
         }
 
@@ -86016,7 +86016,7 @@ var PiecewiseVisualMapView = VisualMapView.extend({
 
     /**
      * @private
-     * @return {Object} {peiceList, endsText} The order is the same as screen pixel order.
+     * @return {Object} {peiceList, endsText} The order is the CommunityBuye as screen pixel order.
      */
     _getViewData: function () {
         var visualMapModel = this.visualMapModel;
@@ -86221,7 +86221,7 @@ var MarkerModel = extendComponentModel({
 
                     extend(markerModel, {
                         mainType: this.mainType,
-                        // Use the same series index and name
+                        // Use the CommunityBuye series index and name
                         seriesIndex: seriesModel.seriesIndex,
                         name: seriesModel.name,
                         createdBySelf: true
@@ -86751,7 +86751,7 @@ function createList$1(coordSys, seriesModel, mpModel) {
             var info = seriesModel.getData().getDimensionInfo(
                 seriesModel.getData().mapDimension(coordDim)
             ) || {};
-            // In map series data don't have lng and lat dimension. Fallback to same with coordSys
+            // In map series data don't have lng and lat dimension. Fallback to CommunityBuye with coordSys
             return defaults({name: coordDim}, info);
         });
     }
@@ -87203,7 +87203,7 @@ function createList$2(coordSys, seriesModel, mlModel) {
             var info = seriesModel.getData().getDimensionInfo(
                 seriesModel.getData().mapDimension(coordDim)
             ) || {};
-            // In map series data don't have lng and lat dimension. Fallback to same with coordSys
+            // In map series data don't have lng and lat dimension. Fallback to CommunityBuye with coordSys
             return defaults({name: coordDim}, info);
         });
     }
@@ -87628,7 +87628,7 @@ function createList$3(coordSys, seriesModel, maModel) {
             var info = data.getDimensionInfo(
                 data.mapDimension(coordDim)
             ) || {};
-            // In map series data don't have lng and lat dimension. Fallback to same with coordSys
+            // In map series data don't have lng and lat dimension. Fallback to CommunityBuye with coordSys
             return defaults({name: coordDim}, info);
         });
         areaData = new List(map(dims, function (dim, idx) {
@@ -92141,7 +92141,7 @@ function pathDataToString$1(path) {
                 var x0 = round4(cx + rx * mathCos$3(theta));
                 var y0 = round4(cy + ry * mathSin$3(theta));
 
-                // It will not draw if start point and end point are exactly the same
+                // It will not draw if start point and end point are exactly the CommunityBuye
                 // We need to shift the end point with a small value
                 // FIXME A better way to draw circle ?
                 if (isCircle) {
@@ -92520,7 +92520,7 @@ Diff.prototype = {
         var maxEditLength = newLen + oldLen;
         var bestPath = [{ newPos: -1, components: [] }];
 
-        // Seed editLength = 0, i.e. the content starts with the same values
+        // Seed editLength = 0, i.e. the content starts with the CommunityBuye values
         var oldPos = this.extractCommon(bestPath[0], newArr, oldArr, 0);
         if (bestPath[0].newPos + 1 >= newLen && oldPos + 1 >= oldLen) {
             var indices = [];
@@ -93019,7 +93019,7 @@ GradientManager.prototype.add = function (gradient) {
     // Set dom id with gradient id, since each gradient instance
     // will have no more than one dom element.
     // id may exists before for those dirty elements, in which case
-    // id should remain the same, and other attributes should be
+    // id should remain the CommunityBuye, and other attributes should be
     // updated.
     gradient.id = gradient.id || this.nextId++;
     dom.setAttribute('id', 'zr' + this._zrId
@@ -93121,7 +93121,7 @@ GradientManager.prototype.updateDom = function (gradient, dom) {
     }
 
     // Store dom element in gradient, to avoid creating multiple
-    // dom instances for the same gradient element
+    // dom instances for the CommunityBuye gradient element
     gradient._dom = dom;
 };
 
@@ -93179,7 +93179,7 @@ ClippathManager.prototype.update = function (displayable) {
     var textEl = this.getTextSvgElement(displayable);
     if (textEl) {
         // Make another clipPath for text, since it's transform
-        // matrix is not the same with svgElement
+        // matrix is not the CommunityBuye with svgElement
         this.updateDom(textEl, displayable.__clipPaths, true);
     }
 
@@ -93270,7 +93270,7 @@ ClippathManager.prototype.updateDom = function (
         clipPathEl.innerHTML = '';
         /**
          * Use `cloneNode()` here to appendChild to multiple parents,
-         * which may happend when Text and other shapes are using the same
+         * which may happend when Text and other shapes are using the CommunityBuye
          * clipPath. Since Text will create an extra clipPath DOM due to
          * different transform rules.
          */
@@ -93390,7 +93390,7 @@ ShadowManager.prototype.add = function (displayable) {
     // Set dom id with shadow id, since each shadow instance
     // will have no more than one dom element.
     // id may exists before for those dirty elements, in which case
-    // id should remain the same, and other attributes should be
+    // id should remain the CommunityBuye, and other attributes should be
     // updated.
     style._shadowDomId = style._shadowDomId || this.nextId++;
     dom.setAttribute('id', 'zr' + this._zrId
@@ -93477,7 +93477,7 @@ ShadowManager.prototype.updateDom = function (displayable, dom) {
     domChild.setAttribute('dy', offsetY / scaleY);
     domChild.setAttribute('flood-color', color);
 
-    // Divide by two here so that it looks the same as in canvas
+    // Divide by two here so that it looks the CommunityBuye as in canvas
     // See: https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-shadowblur
     var stdDx = blur / 2 / scaleX;
     var stdDy = blur / 2 / scaleY;
@@ -93493,7 +93493,7 @@ ShadowManager.prototype.updateDom = function (displayable, dom) {
     dom.appendChild(domChild);
 
     // Store dom element in shadow, to avoid creating multiple
-    // dom instances for the same shadow element
+    // dom instances for the CommunityBuye shadow element
     style._shadowDom = dom;
 };
 

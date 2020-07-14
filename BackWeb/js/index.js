@@ -16,7 +16,7 @@ function confirmlogout() {
 }
 
 $(document).ready(function () {
-    TimingQuery();
+    //TimingQuery();
     //设置初始
     if ($(window).width() > 1050) {
         $(".mainleft").height($(window).height() - 93);
@@ -46,30 +46,20 @@ $(document).ready(function () {
         dataType: "json",
         success: function (data) {
             var html = "<div class=\"head_div home\" tid=\"home\"><img src=\"/img/menu/home.png\" /><p style='padding-top:4px;'>首页</p></div>"
-            $(data.authlist).each(function (i) {
-                html += "<div class=\"head_div\"  tid=\"" + data.authlist[i].id + "\"><img src=\"" + data.authlist[i].imgname + "\" /><p style='padding-top:4px;'>" + data.authlist[i].cname + "</p></div>"
-            })
+            $(data).each(function (i) {
+                html += "<div class=\"head_div\"  tid=\"" + data[i].id + "\"><img src=\"" + data[i].imgname + "\" /><p style='padding-top:4px;'>" + data[i].cname + "</p></div>"
+            });
             $(".headList").html(html);
             clicktop();
-            $(".headList").children().eq(0).click(); //模拟点击首页事件
+            //$(".headList").children().eq(0).click(); //模拟点击首页事件
         }
     });
 
-    tabClose();
-    tabCloseEven();
+    //tabClose();
+    //tabCloseEven();
 })
 function searchmess() {
-    //$.ajax({
-    //    url: "/ajax/getlist.ashx",
-    //    type: "post",
-    //    data: { "way": "mess", "parentid": "1" },
-    //    dataType: "json",
-    //    success: function (data) {
-    //        if (data[0].status > 0) {
-    //            $("#messpict").attr("src", "/img/new_message.png");
-    //        }
-    //    }
-    //});
+
 }
 //显示隐藏
 function shrink() {
@@ -115,10 +105,7 @@ function clicktop() {
         $(".head_div").css("background-color", "#2c344c");
         $(this).css("background-color", "#3f4461");
         if ($(this).attr("tid") == "home") {
-            var tempHtml = '<div class="subclass" onclick="clickleftmenu(this)" style="color: rgb(192, 40, 39); background-color: rgb(255, 255, 255);" tid="../home/StockApproval.aspx"> <div class="imgshow" id="imgshow"><img style="vertical-align: middle;" src="img/redpoint.png"></div>库存审批</div><div class="subclass" onclick="clickleftmenu(this)" tid="../home/CardApproval.aspx">卡券审批</div>';
-            $("#btnlist").html(tempHtml);
 
-            addTab("库存审批", "../home/StockApproval.aspx");
         }
         else {
             var headid = $(this).attr("tid");
@@ -129,13 +116,13 @@ function clicktop() {
                 data: { "parid": headid },
                 dataType: "json",
                 success: function (data) {
-                    $(data.leftlist).each(function (i) {
-                        html += "<div class=\"mainbtn mainbtn" + i + "\" onclick=\"clicklefthead(" + i + ",'" + data.leftlist[i].id + "')\">" + data.leftlist[i].cname + "</div><div class=\"sec" + i + " thire\"></div>";//二级菜单
+                    $(data).each(function (i) {
+                        html += "<div class=\"mainbtn mainbtn" + i + "\" onclick=\"clicklefthead(" + i + ",'" + data[i].id + "')\">" + data[i].cname + "</div><div class=\"sec" + i + " thire\"></div>";//二级菜单
                     });
                     $("#btnlist").html(html);
                     $(".mainbtn0").css("background-image", "url(/img/up.png)");
                     if (data.length > 0) {
-                        fistlist(0, data.leftlist[0].id);
+                        fistlist(0, data[0].id);
                     }
                 }
             });
@@ -155,26 +142,19 @@ function fistlist(num, pid) {
         success: function (redata) {
             $(".mainbtn" + num).css("background-color", "#3f4461");
             $(".mainbtn" + num).css("color", "#fff");
-            if (redata.leftlist.length > 0) {
+            if (redata.length > 0) {
                 $(".subclass").css("background-color", "#fff");
                 $(".subclass").css("color", "#6e6e6e");
-                $(redata.leftlist).each(function (i) {
+                $(redata).each(function (i) {
                     var numhtml = "";
                     var imghtml = "";
                     if (i == 0) {
-                        //numhtml = " style=\"background-color:#fff;color:#c02827\" ";
-                        //imghtml = chooseimg;
                     }
-
-                    html += "<div class=\"subclass\" onclick='clickleftmenu(this);'  " + numhtml + " tid=\"" + redata.leftlist[i].url + "\"> " + imghtml + redata.leftlist[i].cname + "   </div>";
+                    html += "<div class=\"subclass\" onclick='clickleftmenu(this);'  " + numhtml + " tid=\"" + redata[i].url + "\"> " + imghtml + redata[i].cname + "   </div>";
                 });
                 $(".sec" + num).html(html);
                 $(".sec" + num).css("display", "block");
-                //var framesrc = $("#frame").attr("src");
-                //if (framesrc != redata.leftlist[0].url) {
-                //    //$("#frame").attr("src", redata.leftlist[0].url);
-                //    addTab(redata.leftlist[0].cname, redata.leftlist[0].url);
-                //}
+
             }
         },
         complete: function () {
@@ -182,17 +162,6 @@ function fistlist(num, pid) {
         }
     });
 }
-//left点击变色
-//function clickleft() {
-//    //$("#btnlist .subclass").click(function () {
-//    //    $(".subclass").css("background-color", "#fff");
-//    //    $(".subclass").css("color", "#6e6e6e");
-//    //    $(".subclass div.imgshow").remove();
-//    //    $(this).css("color", "#c02827");
-//    //    $(this).prepend(chooseimg);
-//    //    $("#frame").attr("src", $(this).attr("tid"));
-//    //});
-//}
 
 function clickleftmenu(obj) {
     $("#btnlist .subclass").css("background-color", "#fff");
@@ -237,32 +206,6 @@ function TimingQuery() {
     TimingInterVal = setInterval(OpenInterval, intervalTime); //开启定时器
 }
 
-//post查询未读审批数据
-function OpenInterval() {
-    $.ajax({
-        type: "post",
-        url: "../ajax/AudMes.ashx?t=" + Math.random(),//请求地址 
-        data: {//设置数据源 
-            "actionname": "getmsg"
-        },
-        dataType: "text",// 设置需要返回的数据类型 
-        success: function (jsonstr) {
-            if (jsonstr.length > 1) {
-                var data = JSON.parse(jsonstr);
-                _datas = data;
-                if (data != undefined) {
-                    if (data[0].err != "err") {
-                        //OpenMsg("审批消息提醒（" + data.length + "条未读）", data);
-                        OpenMsg("审批消息提醒", data);
-                    }
-                }
-            }
-        },
-        error: function (err) {
-
-        }
-    });
-}
 
 
 var _layerMsgStatus = 0;

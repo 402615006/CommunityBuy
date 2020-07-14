@@ -37,7 +37,7 @@ namespace CommunityBuy.BackWeb
             string newCode = string.Format("{0}-{1}-{2}-{3}", checkcode.Substring(0, 4), checkcode.Substring(4, 4), checkcode.Substring(8, 4), checkcode.Substring(12, 4));
             string MemcardUrl = Helper.GetAppSettings("MemberCardUrl") + "/coupon/WScheckcoupon.ashx";
             StringBuilder postStr = new StringBuilder();
-            postStr.Append("actionname=getcoupondetail&usercode=" + LoginedUser.UserInfo.empcode + "&parameters={\"GUID\":\"\",\"USER_ID\":\"\",\"buscode\":\"" + Helper.GetAppSettings("BusCode") + "\",\"usercode\":\"" + LoginedUser.UserInfo.empcode + "\",\"couponcode\":\"" + newCode + "\",\"stocode\":\"" + LoginedUser.UserInfo.stocode + "\",\"way\":\"PC\"}");//键值对
+            postStr.Append("actionname=getcoupondetail&usercode=" + base.LoginedUser.empcode + "&parameters={\"GUID\":\"\",\"USER_ID\":\"\",\"buscode\":\"" + Helper.GetAppSettings("BusCode") + "\",\"usercode\":\"" + base.LoginedUser.empcode + "\",\"couponcode\":\"" + newCode + "\",\"stocode\":\"" + base.LoginedUser.stocode + "\",\"way\":\"PC\"}");//键值对
 
             string strAdminJson = Helper.HttpWebRequestByURL(MemcardUrl, postStr);
             if (!string.IsNullOrEmpty(strAdminJson))
@@ -79,7 +79,7 @@ namespace CommunityBuy.BackWeb
         {
             string MemcardUrl = Helper.GetAppSettings("MemberCardUrl") + "/coupon/WScheckcoupon.ashx";
             StringBuilder postStr = new StringBuilder();
-            postStr.Append("actionname=couponrecoverynew&usercode=" + LoginedUser.UserInfo.empcode + "&parameters={\"GUID\":\"\",\"USER_ID\":\"\",\"buscode\":\"" + Helper.GetAppSettings("BusCode") + "\",\"couponcode\":\"" + hidcoupons.Value + "\",\"stocode\":\"" + LoginedUser.UserInfo.stocode + "\",\"way\":\"PC\",\"username\":\"" + LoginedUser.UserInfo.username + "\",\"usercode\":\"" + LoginedUser.UserInfo.empcode + "\",\"orderno\":\"\"}");
+            postStr.Append("actionname=couponrecoverynew&usercode=" + base.LoginedUser.empcode + "&parameters={\"GUID\":\"\",\"USER_ID\":\"\",\"buscode\":\"" + Helper.GetAppSettings("BusCode") + "\",\"couponcode\":\"" + hidcoupons.Value + "\",\"stocode\":\"" + base.LoginedUser.stocode + "\",\"way\":\"PC\",\"username\":\"" + base.LoginedUser.Name + "\",\"usercode\":\"" + base.LoginedUser.empcode + "\",\"orderno\":\"\"}");
             string strAdminJson = Helper.HttpWebRequestByURL(MemcardUrl, postStr);
             if (!string.IsNullOrEmpty(strAdminJson))
             {

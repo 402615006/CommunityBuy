@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="adminsedit.aspx.cs" Inherits="CommunityBuy.BackWeb.manage.adminsedit" %>
 
-<%@ Register Assembly="Sam.WebControl" Namespace="Sam.WebControl" TagPrefix="cc1" %>
+<%@ Register Assembly="CommunityBuy.WebControl" Namespace="CommunityBuy.WebControl" TagPrefix="cc1" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -41,18 +41,13 @@
             }
         }
 
-        function selectStore() {
-            var title = getNameByCode('storerefer');
-            ShowReferPage('hidstore', 'txt_stocode', title, 'selectStroe.aspx', 1000, '85%', '80%');
-        }
-
         function selectRole() {
             var title = '选择角色';
             ShowReferPage('hidroleid', 'txt_role', title, 'selectrole.aspx', 1000, '85%', '80%');
         }
 
         $(document).ready(function () {
-            selstore();
+
         });
     </script>
 </head>
@@ -75,7 +70,6 @@
             </div>
             <div class="updatediv cla">
                 <table>
-
                     <tr>
                         <td data-code="span_role" class="lefttd">所属角色：</td>
                         <td>
@@ -97,14 +91,14 @@
                         <td>
                             <cc1:CTextBox ID="txt_cname" data-code="cname_placeholder" CssClass="reqtxtstyle" MaxLength="64" IsRequired="false" TextType="Normal" onblur="onblurCheck('txt_cname')" Enabled="false" runat="server" placeholder="2-16位字符"></cc1:CTextBox></td>
                     </tr>--%>
-                    <tr>
+<%--                    <tr>
                         <td data-code="span_empcode" class="lefttd">所属员工：</td>
                         <td>
                             <input type="hidden" id="hid_empcode" runat="server" />
                             <cc1:CTextBox ID="txt_empcode" data-code="empcode_placeholder" CssClass="txtstyle" MaxLength="16" IsRequired="true" TextType="Normal" onfocus="showemppage();" runat="server" placeholder="请选择员工"></cc1:CTextBox><img src="/img/search.png" onclick="showemppage();" class="simg" /><input type="hidden" id="hidempcode" runat="server" /></td>
 
-                    </tr>
-                    <tr>
+                    </tr>--%>
+  <%--                  <tr>
                         <td data-code="span_scope" class="lefttd">权限范围：</td>
                         <td>
                             <input type="hidden" id="hidstore" runat="server" />
@@ -113,7 +107,7 @@
                             <img id="img_select" src="/img/search.png" onclick="selectStore()" class="simg" />
                             <asp:Label ID="lblstoname" runat="server" Text=""></asp:Label>
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr>
                         <td data-code="span_status" class="lefttd">状态：</td>
                         <td>
@@ -138,11 +132,6 @@
             </div>
         </div>
         <script type="text/javascript">
-            function showemppage() {
-                var title = getNameByCode('emprefer');
-                ShowReferPage('hidempcode', 'txt_empcode', title, '/manage/selectEmployee.aspx', 1, '80%', '80%', "adminedit");
-            }
-
             function adminedit(chooseArr) {
                 if (chooseArr != undefined) {
                     $("#hidempcode").val(chooseArr[0].empcode);

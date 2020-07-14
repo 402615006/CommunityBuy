@@ -28,7 +28,7 @@ namespace CommunityBuy.BackWeb.manage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CPathBar pathBar;
+        protected global::CommunityBuy.WebControl.CPathBar pathBar;
         
         /// <summary>
         /// PageTitle 控件。
@@ -37,7 +37,7 @@ namespace CommunityBuy.BackWeb.manage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CPageTitle PageTitle;
+        protected global::CommunityBuy.WebControl.CPageTitle PageTitle;
         
         /// <summary>
         /// txt_uname 控件。
@@ -46,7 +46,7 @@ namespace CommunityBuy.BackWeb.manage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CTextBox txt_uname;
+        protected global::CommunityBuy.WebControl.CTextBox txt_uname;
         
         /// <summary>
         /// tex_oldpwd 控件。
@@ -55,7 +55,7 @@ namespace CommunityBuy.BackWeb.manage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CTextBox tex_oldpwd;
+        protected global::CommunityBuy.WebControl.CTextBox tex_oldpwd;
         
         /// <summary>
         /// txt_pwd 控件。
@@ -64,7 +64,7 @@ namespace CommunityBuy.BackWeb.manage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CTextBox txt_pwd;
+        protected global::CommunityBuy.WebControl.CTextBox txt_pwd;
         
         /// <summary>
         /// txt_repwd 控件。
@@ -73,7 +73,7 @@ namespace CommunityBuy.BackWeb.manage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CTextBox txt_repwd;
+        protected global::CommunityBuy.WebControl.CTextBox txt_repwd;
         
         /// <summary>
         /// hidId 控件。
@@ -91,7 +91,7 @@ namespace CommunityBuy.BackWeb.manage {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CButton Save_btn;
+        protected global::CommunityBuy.WebControl.CButton Save_btn;
         
         /// <summary>
         /// errormessage 控件。

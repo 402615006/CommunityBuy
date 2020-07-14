@@ -21,7 +21,7 @@ namespace CommunityBuy.BackWeb
 
         public void btnrepulse_Click(object sender, EventArgs e)
         {
-            string reason = Helper.ReplaceString(txt_reason.Text);
+            string reason =txt_reason.Text);
             if (reason.Length == 0)
             {
                 errormessage.InnerText = ErrMessage.GetMessageInfoByCode("sumcoupon_201").Body;
@@ -34,19 +34,19 @@ namespace CommunityBuy.BackWeb
             }
 
             //发放门店
-            string ffstocode = LoginedUser.UserInfo.stocode;
+            string ffstocode = base.LoginedUser.stocode;
             //发放人编号
-            string ffcuser = LoginedUser.UserInfo.username;
+            string ffcuser = base.LoginedUser.Name;
             //发放人id
-            string ffcusercode = LoginedUser.UserInfo.empcode;
+            string ffcusercode = base.LoginedUser.empcode;
 
             //日志信息
             logentity.module = ErrMessage.GetMessageInfoByCode("sumcoupon_Menu").Body;
             logentity.pageurl = "coupon/repulse.aspx";
             logentity.otype = SystemEnum.LogOperateType.Audit;
-            logentity.cuser = LoginedUser.UserInfo.Id;
-            logentity.logcontent = string.Format(ErrMessage.GetMessageInfoByCode("sumcoupon_963").Body, LoginedUser.UserInfo.Id.ToString(), hidId.Value);
-            DataTable dt = new bllsumcoupon().Audit("0", "0", LoginedUser.UserInfo.Id.ToString(), hidId.Value, "2", reason, ffstocode, ffcuser, ffcusercode, logentity);
+            logentity.cuser = base.LoginedUser.Id;
+            logentity.logcontent = string.Format(ErrMessage.GetMessageInfoByCode("sumcoupon_963").Body, base.LoginedUser.Id.ToString(), hidId.Value);
+            DataTable dt = new bllsumcoupon().Audit("0", "0", base.LoginedUser.Id.ToString(), hidId.Value, "2", reason, ffstocode, ffcuser, ffcusercode, logentity);
             //显示结果
             if (ShowResult(dt, errormessage))
             {

@@ -49,7 +49,7 @@ namespace CommunityBuy.BLL
         /// 增加一条数据
         /// </summary>
         //public DataTable Add(string GUID, string UID, out string userid, string uname, string upwd, string realname, string umobile, string empcode, string remark, string status, string cname, string ccode, string role, string scope, string stocode, string sigmonthmoney, string sigstocode,string buscode, string utype, operatelogEntity entity)
-             public void Add(string GUID, string UID, string userid, string uname, string upwd, string realname, string umobile, string empcode, string remark, string status, string cname, string ccode, string role, string scope, string stocode, string sigmonthmoney, string sigstocode)
+             public void Add(string GUID, string UID, string userid, string uname, string upwd, string realname, string umobile,  string remark, string status, string cname, string ccode, string role)
         {
 
             //string strReturn = CheckPageInfo("add", userid, uname, upwd, realname, umobile, empcode, remark, status, cname, ccode, scope, stocode, sigmonthmoney, sigstocode,buscode,  utype, out spanids);
@@ -147,9 +147,10 @@ namespace CommunityBuy.BLL
         public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
         {
 
-            return new bllPaging().GetPagingInfo("Admins a inner join Employee e on a.empcode=e.ecode", "a.empid", "a.*,rolename=dbo.f_GetRoleName(a.userid),roleid=dbo.f_GetRoleID(a.userid),empcodename=dbo.fnGetEmployeeCname(a.empcode),empmob=[dbo].[fnGetEmployeeMobile](a.empcode),storename=dbo.fnGetMuStoreName1(a.userid,a.scope,a.stocode),empstoname=dbo.fnGetEmployeeStoreName(a.empcode),dbo.[f_GetSigStoCode](a.userid) as sigstocodes,rolecode=dbo.GetRoleStocodeByUserName(a.userid),'' as RoleDisCountName,'' as RoleDisCount,sigstorename=dbo.[f_GetSigStoName](a.userid),[dbo].[fn_TM_UserSignDetailBalance]('',userid) as SignBalance,[dbo].[fnGetBusinessNameByCode](a.buscode) as busname,[dbo].[fnGetAllianceNameByCode](a.alliancecode) as AllName", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
+            return new bllPaging().GetPagingInfo("Admins", "userid", "*,rolename=dbo.f_GetRoleName(userid),roleid=dbo.f_GetRoleID(userid)", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
            
         }
+
 
 
         /// <summary>
@@ -171,19 +172,6 @@ namespace CommunityBuy.BLL
             Entity.status = dr["status"].ToString();
 
             return Entity;
-        }
-
-        /// <summary>
-        /// 登录验证
-        /// </summary>
-        /// <param name="filter"></param>
-        /// <returns></returns>
-        public DataTable LoginCheck(string filter)
-        {
-            int recnums;
-            int pagenums;
-            return new bllPaging().GetPagingInfo("Admins", "userid", "*,empstocode=dbo.f_GetEmployeestocode(empcode),empdcode=dbo.f_GetEmployeedcode(empcode),stoname=dbo.fnGetEmployeestoname(empcode),empmobile=dbo.fnGetEmployeeMobile(empcode),rolecode=dbo.GetRoleStocodeByUserName(userid),[dbo].[fnGetBusinessNameByCode](buscode) as busname", 1, 1, filter, "", "", out recnums, out pagenums);
-
         }
 
 
@@ -209,15 +197,43 @@ namespace CommunityBuy.BLL
         {
             return new bllPaging().GetDataTableInfoBySQL("select id,parentid,[level],code,cname,imgname,url,orders from functions where status='1' and [level]<=3 and id in(select funid from rolefunction where roleid in(select roleid from userrole where userid='" + userid + "')) order by parentid,[level],orders");
         }
-
-        public DataTable GetRolesPagingListInfo(string GUID, string UserID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
+       
+        /// <summary>
+        /// 获取用户的角色
+        /// </summary>
+        /// <param name="GUID"></param>
+        /// <param name="USER_ID"></param>
+        /// <param name="userid"></param>
+        /// <param name="pagecode"></param>
+        /// <returns></returns>
+        public DataTable GetUserRole(string GUID, string UID, string userid, string pagecode)
         {
-            return new bllPaging().GetPagingInfo("roles", "roleid", "*,storename=dbo.fnGetMuStoreName(stocode)", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
+            DataTable dt = new DataTable();
+            string sql = "SELECT * FROM dbo.sto_functions WHERE ftype=1 and status='1' and id in(select funid from sto_rolefunction where  roleid in(SELECT roleid FROM dbo.sto_userrole WHERE userid='" + userid + "')) order by orders asc";
+            dt = new bllPaging().GetDataTableInfoBySQL(sql);
+            DataTable butdt = dt.Clone();
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                //获取一级菜单
+                DataRow[] drs = dt.Select(" code='" + pagecode + "'");
+                if (drs.Length > 0)
+                {
+                    for (int i = 0; i < drs.Length; i++)
+                    {
+                        DataRow dr = butdt.NewRow();
+                        dr.ItemArray = drs[i].ItemArray;
+                        butdt.Rows.Add(dr);
+                    }
+                }
+            }
+            return butdt;
         }
+
 
         public DataTable GetFunctionsButtonByPageCode(string GUID, string UID, string PageCode)
         {
             return new bllPaging().GetDataTableInfoBySQL("select code,cname,btnname,orders,imgname,url from functions where [status]='1' and code='" + PageCode + "' and [level]=4 and id in(select funid from rolefunction where roleid in (select roleid from userrole where userid='" + UID + "'))");
         }
+
     }
 }

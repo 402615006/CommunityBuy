@@ -28,7 +28,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CPathBar pathBar;
+        protected global::CommunityBuy.WebControl.CPathBar pathBar;
         
         /// <summary>
         /// PageTitle 控件。
@@ -37,7 +37,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CPageTitle PageTitle;
+        protected global::CommunityBuy.WebControl.CPageTitle PageTitle;
         
         /// <summary>
         /// ddl_pdicid 控件。
@@ -46,7 +46,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CDropDownList ddl_pdicid;
+        protected global::CommunityBuy.WebControl.CDropDownList ddl_pdicid;
         
         /// <summary>
         /// ddl_lng 控件。
@@ -55,7 +55,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CDropDownList ddl_lng;
+        protected global::CommunityBuy.WebControl.CDropDownList ddl_lng;
         
         /// <summary>
         /// txt_diccode 控件。
@@ -64,7 +64,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CTextBox txt_diccode;
+        protected global::CommunityBuy.WebControl.CTextBox txt_diccode;
         
         /// <summary>
         /// txt_dicname 控件。
@@ -73,7 +73,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CTextBox txt_dicname;
+        protected global::CommunityBuy.WebControl.CTextBox txt_dicname;
         
         /// <summary>
         /// txt_orderno 控件。
@@ -82,7 +82,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CTextBox txt_orderno;
+        protected global::CommunityBuy.WebControl.CTextBox txt_orderno;
         
         /// <summary>
         /// ddl_status 控件。
@@ -91,7 +91,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CDropDownList ddl_status;
+        protected global::CommunityBuy.WebControl.CDropDownList ddl_status;
         
         /// <summary>
         /// txt_remark 控件。
@@ -100,7 +100,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CTextBox txt_remark;
+        protected global::CommunityBuy.WebControl.CTextBox txt_remark;
         
         /// <summary>
         /// hidId 控件。
@@ -127,7 +127,7 @@ namespace CommunityBuy.BackWeb.systemset {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Sam.WebControl.CButton Save_btn;
+        protected global::CommunityBuy.WebControl.CButton Save_btn;
         
         /// <summary>
         /// errormessage 控件。

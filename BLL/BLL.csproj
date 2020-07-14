@@ -43,9 +43,9 @@
     <Compile Include="bllAdmins.cs" />
     <Compile Include="bllApp.cs" />
     <Compile Include="bllBase.cs" />
-    <Compile Include="bllFUNMAS.cs" />
     <Compile Include="bllmembers.cs" />
     <Compile Include="bllPaging.cs" />
+    <Compile Include="bllroles.cs" />
     <Compile Include="bllsumcoupon.cs" />
     <Compile Include="bllTB_BackOrder.cs" />
     <Compile Include="bllTB_Bill.cs" />

@@ -20,8 +20,9 @@ namespace CommunityBuy.BackWeb.manage
         public string rolMemo;
         public string rolStatus;
 
-        bllroles _bll = new bllroles();
-        rolesEntity _Entity = new rolesEntity();
+        bllTB_RoleFunction _bll = new bllTB_RoleFunction();
+        TB_RolesEntity _Entity = new TB_RolesEntity();
+        bllroles bllroles = new bllroles();
         /// <summary>
         /// 
         /// </summary>
@@ -41,9 +42,9 @@ namespace CommunityBuy.BackWeb.manage
                     else
                     {
                         hidId.Value = id;
-                        if (Request["type"] != null)
+                        if (Request["type"] != "edit")
                         {
-                            this.PageTitle.Operate = ErrMessage.GetMessageInfoByCode("PageOperateDetail").Body;
+                            this.PageTitle.Operate = "详情";
                             Script(this.Page, "hidebutton()");
                         }
                         else
@@ -64,37 +65,29 @@ namespace CommunityBuy.BackWeb.manage
 
         public void SetPage(string RId)
         {
-            DataTable dt = _bll.GetPagingInfo(" where roleid=" + RId);
+            DataTable dt = _bll.GetRoleFunctionInfoList("","",RId);
             if (dt != null && dt.Rows.Count > 0)
             {
                 DataRow dr = dt.Rows[0];
-                //hidstore.Value = dr["stocode"].ToString();
-                //ddl_scope.SelectedValue = dr["scope"].ToString();
-                //txt_stocode.Text = dr["storename"].ToString();
                 if (Request["copying"] != null)
                 {
-                    rol_name.Text = dr["cname"].ToString() + "Copy";
+                    rol_name.Text = dr["rolename"].ToString() + "Copy";
                 }
                 else
                 {
-                    rol_name.Text = dr["cname"].ToString();
+                    rol_name.Text = dr["rolename"].ToString();
                 }
-                rol_descr.Text = dr["descr"].ToString();
-                ddl_status.SelectedValue = dr["status"].ToString();
+                rol_descr.Text = dr["roledescr"].ToString();
+                ddl_status.SelectedValue = dr["roledescr"].ToString();
             }
         }
 
         public string GetMenuTable(int Rid)
         {
-            bllFUNMAS bll = new bllFUNMAS();
-            int recnums = 0;
-            int pagenums = 0;
-            DataTable dt = bll.GetPagingListInfo("0", "0", 2000, 1, " and roleid=" + Rid, "", out recnums, out pagenums);
-
+            DataTable dt = _bll.GetRoleFunctionInfoList("0", "0", Rid.ToString());
             //查询出所有的功能，并显示。
             StringBuilder html = new StringBuilder(256);
-
-            DataRow[] drOne = dt.Select("parentid=0", "id asc");//一级菜单
+            DataRow[] drOne = dt.Select("Pid=0", "id asc");//一级菜单
             DataRow[] drThree = null;
             DataRow[] drFour = null;
             html.Append("<table class=\"list\" cellpadding=\"0\" cellspacing=\"1\" width=\"100%\">");
@@ -127,7 +120,7 @@ namespace CommunityBuy.BackWeb.manage
 
                 html.Append("<td>");
                 html.AppendFormat("<input id=\"m{0}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{0}' {1}/>", dr1["id"], Check(StringHelper.StringToInt(dr1["funid"].ToString())));
-                html.AppendFormat("╋{0}", dr1["cname"]);
+                html.AppendFormat("╋{0}", dr1["name"]);
                 html.Append("</td>");
 
                 html.Append("<td>");
@@ -136,7 +129,7 @@ namespace CommunityBuy.BackWeb.manage
 
                 html.Append("</tr>");
 
-                DataRow[] drTwo = dt.Select("level=2 and parentid=" + dr1["id"] + "", "id asc");//二级菜单
+                DataRow[] drTwo = dt.Select("level=2 and Pid=" + dr1["id"] + "", "id asc");//二级菜单
 
                 foreach (DataRow dr2 in drTwo)
                 {
@@ -147,7 +140,7 @@ namespace CommunityBuy.BackWeb.manage
 
                     html.Append("<td>");
                     html.AppendFormat("&nbsp;&nbsp;&nbsp;&nbsp;<input id=\"m{0}_{1}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{1}' {2}/>", dr1["id"], dr2["id"], Check(StringHelper.StringToInt(dr2["funid"].ToString())));
-                    html.AppendFormat("┝{0}", dr2["cname"]);
+                    html.AppendFormat("┝{0}", dr2["name"]);
                     html.Append("</td>");
 
                     html.Append("<td>");
@@ -156,7 +149,7 @@ namespace CommunityBuy.BackWeb.manage
 
                     html.Append("</tr>");
 
-                    drThree = dt.Select("level=3 and parentid=" + dr2["id"] + "", "id asc");//三级页面
+                    drThree = dt.Select("level=3 and Pid=" + dr2["id"] + "", "id asc");//三级页面
                     foreach (DataRow dr3 in drThree)
                     {
                         html.Append("<tr>");
@@ -166,14 +159,14 @@ namespace CommunityBuy.BackWeb.manage
 
                         html.Append("<td>");
                         html.AppendFormat("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id=\"m{0}_{1}_{2}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{2}' {3}/>", dr1["id"], dr2["id"], dr3["id"], Check(StringHelper.StringToInt(dr3["funid"].ToString())));
-                        html.AppendFormat("┝{0}", dr3["cname"]);
+                        html.AppendFormat("┝{0}", dr3["name"]);
                         html.Append("</td>");
                         html.Append("<td>");
                         //四级菜单
-                        drFour = dt.Select("level=4 and parentid=" + dr3["id"] + "", "id asc");//四级按钮（toolbar）添，修，删
+                        drFour = dt.Select("level=4 and Pid=" + dr3["id"] + "", "id asc");//四级按钮（toolbar）添，修，删
                         foreach (DataRow dr4 in drFour)
                         {
-                            html.AppendFormat("<input id=\"m{0}_{1}_{2}_{3}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{3}' {4}/>{5}&nbsp;&nbsp;&nbsp;", dr1["id"], dr2["id"], dr3["id"], dr4["id"], Check(StringHelper.StringToInt(dr4["funid"].ToString())), dr4["cname"]);
+                            html.AppendFormat("<input id=\"m{0}_{1}_{2}_{3}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{3}' {4}/>{5}&nbsp;&nbsp;&nbsp;", dr1["id"], dr2["id"], dr3["id"], dr4["id"], Check(StringHelper.StringToInt(dr4["funid"].ToString())), dr4["name"]);
                         }
                     }
                     if (drThree.Length == 0)
@@ -187,7 +180,7 @@ namespace CommunityBuy.BackWeb.manage
             html.Append("</table>");
             return html.ToString();
         }
-        //------------------------------------
+
         public string Check(int isok)
         {
             if (isok > 0)
@@ -215,41 +208,25 @@ namespace CommunityBuy.BackWeb.manage
         protected void Save_btn_Click(object sender, EventArgs e)
         {
             rolesEntity ROLMAEntity = new rolesEntity();
-            if (hidId.Value.Length > 0)
-            {
-                ROLMAEntity.roleid = StringHelper.StringToInt(hidId.Value);
-            }
-
-            //ROLMAEntity.scope = ddl_scope.SelectedValue;
-            //if (ddl_scope.SelectedValue == "2")
-            //{
-            //    ROLMAEntity.stocode = "";
-            //}
-            //else
-            //{
-            //    ROLMAEntity.stocode = Helper.ReplaceString(hidstore.Value);
-            //}
-            ROLMAEntity.scope = "0";
-            ROLMAEntity.stocode = "";
-            ROLMAEntity.cname = Helper.ReplaceString(rol_name.Text);
-            ROLMAEntity.descr = Helper.ReplaceString(rol_descr.Text);
+            ROLMAEntity.cname = rol_name.Text;
+            ROLMAEntity.descr = rol_descr.Text;
             ROLMAEntity.status = ddl_status.SelectedValue;
-            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
-            int rel = _bll.AddRITMAS(ROLMAEntity, GetArray(this.HidfunIdStr.Value));
-            WebCache.Remove("RoleInfo_BackWeb_" + LoginedUser.UserInfo.Rol_ID.ToString());
-            if (hidId.Value.Length == 0 && rel == 0)
+            if (hidId.Value.Length == 0)
             {
-                errormessage.InnerHtml = ErrMessage.GetMessageInfoByCode("Err_001").Body;
-            }
-            else if (rel == 3)
-            {
-                errormessage.InnerHtml = ErrMessage.GetMessageInfoByCode("roles_030").Body;
+                bllroles.AddRITMAS(ROLMAEntity, GetArray(this.HidfunIdStr.Value));
+                errormessage.InnerHtml = bllroles.oResult.Msg;
             }
             else
             {
-                MenuList.InnerHtml = GetMenuTable(StringHelper.StringToInt(hidId.Value));
-                errormessage.InnerHtml = ErrMessage.GetMessageInfoByCode("Err_001").Body;
+                ROLMAEntity.roleid = StringHelper.StringToInt(hidId.Value);
+                bllroles.Update("","",ROLMAEntity, this.HidfunIdStr.Value);
+                if (bllroles.oResult.Code == "1")
+                {
+                    MenuList.InnerHtml = GetMenuTable(StringHelper.StringToInt(hidId.Value));
+                }
+                errormessage.InnerHtml = bllroles.oResult.Msg;
                 this.PageTitle.Operate = "修改";
+
             }
         }
     }

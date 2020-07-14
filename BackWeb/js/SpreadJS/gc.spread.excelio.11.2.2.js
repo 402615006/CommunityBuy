@@ -1787,7 +1787,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    }
 	
 	                    function t() {
-	                        return new TypeError("A promises callback cannot return that same promise.")
+	                        return new TypeError("A promises callback cannot return that CommunityBuye promise.")
 	                    }
 	
 	                    function u(a) {
@@ -16679,11 +16679,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        star32: 24,
 	        roundRect: 25,
 	        round1Rect: 26,
-	        round2SameRect: 27,
+	        round2CommunityBuyeRect: 27,
 	        round2DiagRect: 28,
 	        snipRoundRect: 29,
 	        snip1Rect: 30,
-	        snip2SameRect: 31,
+	        snip2CommunityBuyeRect: 31,
 	        snip2DiagRect: 32,
 	        plaque: 33,
 	        ellipse: 34,
@@ -19125,11 +19125,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (!isNullOrUndefined(cfRuleAttributes.axisPosition)) {
 	            rule.axisPosition = DataBarAxisPositions[cfRuleAttributes.axisPosition];
 	        }
-	        if (!isNullOrUndefined(cfRuleAttributes.negativeBarColorSameAsPositive)) {
-	            rule.useNegativeFillColor = !XmlNodeHelper._getAttrValueOrDefaultOfBooleanType(cfRuleAttributes.negativeBarColorSameAsPositive, false);
+	        if (!isNullOrUndefined(cfRuleAttributes.negativeBarColorCommunityBuyeAsPositive)) {
+	            rule.useNegativeFillColor = !XmlNodeHelper._getAttrValueOrDefaultOfBooleanType(cfRuleAttributes.negativeBarColorCommunityBuyeAsPositive, false);
 	        }
-	        if (!isNullOrUndefined(cfRuleAttributes.negativeBarBorderColorSameAsPositive)) {
-	            rule.useNegativeBorderColor = !XmlNodeHelper._getAttrValueOrDefaultOfBooleanType(cfRuleAttributes.negativeBarBorderColorSameAsPositive, true);
+	        if (!isNullOrUndefined(cfRuleAttributes.negativeBarBorderColorCommunityBuyeAsPositive)) {
+	            rule.useNegativeBorderColor = !XmlNodeHelper._getAttrValueOrDefaultOfBooleanType(cfRuleAttributes.negativeBarBorderColorCommunityBuyeAsPositive, true);
 	        }
 	        var cfvoList = [];
 	        if (dataBar['x14:cfvo']) {
@@ -34897,7 +34897,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return styleName;
 	    }
 	
-	    function isSameStyleInfo(style, comparedStyle) {
+	    function isCommunityBuyeStyleInfo(style, comparedStyle) {
 	        if (!style && !comparedStyle) {
 	            return true;
 	        }
@@ -34911,7 +34911,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	    function getEqualStyle(style, styleArray) {
 	        for (var i = 0; i < styleArray.length; i++) {
-	            if (isSameStyleInfo(style, styleArray[i])) {
+	            if (isCommunityBuyeStyleInfo(style, styleArray[i])) {
 	                return styleArray[i];
 	            }
 	        }
@@ -36230,7 +36230,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                var fakeStyle = fakeNamedStyles[i];
 	               
 	                if (!fakeStyle.added) {
-	                    if (isSameStyleInfo(fakeStyle, normalStyle)) {
+	                    if (isCommunityBuyeStyleInfo(fakeStyle, normalStyle)) {
 	                        self._namedStyleTable[fakeStyle.name] = 0;     
 	                    } else {
 	                        self._namedStyleTable[fakeStyle.name] = self._styles.length;
@@ -40227,10 +40227,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        writer.writeAttributeString('gradient', '0');
 	                    }
 	                    if (rule.useNegativeFillColor === false) {
-	                        writer.writeAttributeString('negativeBarColorSameAsPositive', '1');
+	                        writer.writeAttributeString('negativeBarColorCommunityBuyeAsPositive', '1');
 	                    }
 	                    if (rule.useNegativeBorderColor) {
-	                        writer.writeAttributeString('negativeBarBorderColorSameAsPositive', '0');
+	                        writer.writeAttributeString('negativeBarBorderColorCommunityBuyeAsPositive', '0');
 	                    }
 	                   
 	                   
@@ -40374,11 +40374,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	
 	    function isCustomIconSet(iconSetType, icons) {
-	        var isSameIconSetType = true, isAscend = true, isDescend = true;
+	        var isCommunityBuyeIconSetType = true, isAscend = true, isDescend = true;
 	        var i;
 	        for (i = 0; i < icons.length; i++) {
 	            if (icons[i].iconSetType !== iconSetType) {
-	                isSameIconSetType = false;
+	                isCommunityBuyeIconSetType = false;
 	                break;
 	            }
 	        }
@@ -40394,7 +40394,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                break;
 	            }
 	        }
-	        if (!isSameIconSetType || !(isAscend || isDescend)) {
+	        if (!isCommunityBuyeIconSetType || !(isAscend || isDescend)) {
 	            return true;
 	        }
 	        return false;

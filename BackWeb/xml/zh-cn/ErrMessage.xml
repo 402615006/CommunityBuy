@@ -762,7 +762,7 @@
   <Msg Code="StocodeError">该门店设置已存在</Msg>
 
   <!--原料信息-->
-  <Msg Code="StockMaterialSameName">原料名称已存在</Msg>
+  <Msg Code="StockMaterialCommunityBuyeName">原料名称已存在</Msg>
   <Msg Code="StockWarnNameError">仓库名称不存在</Msg>
 
   <Msg Code="dagz">挂账额度需小于主卡挂账额度</Msg>

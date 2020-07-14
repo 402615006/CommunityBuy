@@ -3,6 +3,8 @@ using System.Data;
 using CommunityBuy.BackWeb.Common;
 using CommunityBuy.BLL;
 using CommunityBuy.CommonBasic;
+using CommunityBuy.Model;
+using NPOI.SS.Formula.Functions;
 
 namespace CommunityBuy.BackWeb
 {
@@ -19,7 +21,7 @@ namespace CommunityBuy.BackWeb
                     setid = Request["id"].ToString();
                     hidId.Value = setid;
                     SetPage(hidId.Value);
-                    this.PageTitle.Operate = 修改
+                    this.PageTitle.Operate = "修改";
                 }
                 else
                 {
@@ -55,33 +57,32 @@ namespace CommunityBuy.BackWeb
             //获取页面信息
             string stocode = Helper.GetAppSettings("Stocode");
             string buscode = Helper.GetAppSettings("BusCode");
-            string key = Helper.ReplaceString(txt_key.Text);
-            string val = Helper.ReplaceString(txt_val.Text);
-            string status = Helper.ReplaceString(this.ddl_status.SelectedValue);
-            string descr = Helper.ReplaceString(txt_descr.Value);
-            string explain = Helper.ReplaceString(txt_explain.Value);
-            //日志信息
-            logentity.module = ErrMessage.GetMessageInfoByCode("admins_Menu").Body;
-            logentity.pageurl = "ts_syssetedit.aspx";
-            logentity.otype = SystemEnum.LogOperateType.Add;
-            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
+            string key =txt_key.Text;
+            string val =txt_val.Text;
+            string status =this.ddl_status.SelectedValue;
+            string descr =txt_descr.Value;
+            string explain =txt_explain.Value;
 
-            DataTable dt = new DataTable();
             if (hidId.Value.Length == 0)//添加信息
             {
-                logentity.logcontent = "新增系统设置信息";
-                dt = bll.Add("0", "0", out setid, stocode, buscode, key, val, status, descr,explain, logentity);
-                hidId.Value = setid;
-                this.PageTitle.Operate = 修改
+                bll.Add("0", "0", "", stocode, buscode, key, val, status, descr,explain);
+                hidId.Value = bll.oResult.Data;
+                this.PageTitle.Operate = "修改";
             }
             else//修改信息
             {
-                logentity.logcontent = "修改setid为" + hidId.Value + "的系统设置信息";
-                logentity.otype = SystemEnum.LogOperateType.Edit;
-                dt = bll.Update("0", "0", hidId.Value, stocode, buscode, key, val, status, descr,explain, logentity);
+                ts_syssetEntity UEntity = bll.GetEntitySigInfo(" where setid=" + hidId.Value);
+                UEntity.buscode = buscode;
+                UEntity.stocode = stocode;
+                UEntity.key = key;
+                UEntity.val = val;
+                UEntity.status =StringHelper.StringToInt(status);
+                UEntity.descr = descr;
+                UEntity.explain = explain;
+                bll.Update("0", "0", UEntity);
             }
             //显示结果
-            ShowResult(dt, errormessage);
+            ShowResult(bll.oResult.Code,bll.oResult.Msg, errormessage);
         }
     }
 }

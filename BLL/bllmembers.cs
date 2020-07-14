@@ -111,6 +111,19 @@ namespace CommunityBuy.BLL
         }
 
         /// <summary>
+        /// 删除数据
+        /// </summary>
+        /// <param name="ID">主键ID</param>
+        /// <returns>返回操作结果</returns>
+        public void Delete(string GUID, string UID, string memcode)
+        {
+            string Mescode = string.Empty;
+            int result = dal.Delete(memcode, ref Mescode);
+            //检测执行结果
+            CheckResult(result, Mescode);
+        }
+
+        /// <summary>
         /// 获取我的推广会员信息
         /// </summary>
         /// <param name="GUID"></param>
@@ -355,17 +368,8 @@ namespace CommunityBuy.BLL
         {
             //stoname 门店名称 areaname 所属区域, idtypeName 身份证类型, totalcard 卡数量 
             string query = " *,cusername=dbo.fnGetUserName(cuser),uusername=dbo.fnGetUserName(uuser) ";
-            query += " ,stoname =dbo.fnGetStoreName(strcode) ";
             query += " ,areaname =dbo.fnGetAreaFullName(provinceid,cityid,areaid)";
             query += ",idtypeName=dbo.f_Get_DictsName(IDType)";
-            query += " , totalcard = dbo.f_Getmemcradtotalcard(memcode)";
-            query += ",cardcode=dbo.fnGetCardCodeByBigCustomer(memcode)";//大会员卡号（主卡）
-            query += ",creditlinestoname = dbo.fnGetCreditstoname(memcode,'2')";//挂账门店名称
-            query += ",signcreditstoname = dbo.fnGetCreditstoname(memcode,'1')";//签单门店名称
-            query += ",creditlinestocode = dbo.fnGetCreditstocode(memcode,'2')";//挂账门店编号
-            query += ",signcreditstocode = dbo.fnGetCreditstocode(memcode,'1')";//签单门店编号
-            query += ",signcreditmoney = dbo.fnGetCreditByBigCustomer(memcode,'1')";//签单金额
-            query += ",creditlinemoney = dbo.fnGetCreditByBigCustomer(memcode,'2')";//挂账金额
             return new bllPaging().GetPagingInfo("members", "memcode", query, pageSize, currentpage, filter, "", order, out recnums, out pagenums);
         }
 
@@ -389,33 +393,10 @@ namespace CommunityBuy.BLL
             query += " ,stoname =dbo.fnGetStoreName(strcode) ";
             query += " ,areaname =dbo.fnGetAreaFullName(provinceid,cityid,areaid)";
             query += ",idtypeName=dbo.f_Get_DictsName(IDType)";
-            query += " , totalcard = dbo.f_Getmemcradtotalcard(memcode)";
             return new bllPaging().GetPagingInfo("members", "memcode", query, pageSize, currentpage, filter, "", order, out recnums, out pagenums);
         }
 
-        /// <summary>
-        /// 已发优惠券信息查询
-        /// </summary>
-        /// <param name="GUID"></param>
-        /// <param name="UID"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="currentpage"></param>
-        /// <param name="filter"></param>
-        /// <param name="order"></param>
-        /// <param name="recnums"></param>
-        /// <param name="pagenums"></param>
-        /// <returns></returns>
-        public DataTable GetRefPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
-        {
-            return new bllPaging().GetPagingInfo("dbo.membercoupon inner join dbo.coupon on membercoupon.cid=coupon.cid inner join dbo.N_maincoupon on  N_maincoupon.sumcode=coupon.sumcode and N_maincoupon.mccode=coupon.mccode", "coupon.ctime", "membercoupon.memcode,membercoupon.cardcode,membercoupon.sdate, membercoupon.edate,coupon.*,bigclass=dbo.fnGetCouponFincodes(N_maincoupon.mccode),N_maincoupon.couname,storename= dbo.fnGetCouponStoNames(N_maincoupon.mccode),distypename=.dbo.fnGetCouponFinNames(N_maincoupon.mccode),prostoname=dbo.fnGetMuStoreName(coupon.prostocode),case when  convert(datetime,convert(varchar(10),getdate(),120),120) > convert(varchar(10),membercoupon.edate,120) then 1 else 0 end as isoverdue,checkstoname=dbo.fnGetMuStoreName(coupon.checkstocode)", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
-        }
-
-        public DataTable GetMemberCouponsListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
-        {
-
-            return new bllPaging().GetPagingInfo("members left join MemCard on members.memcode=MemCard.memcode", "members.memcode", "members.memcode,MemCard.cardcode, members.cname,members.status ", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
-        }
-
+  
         /// <summary>
         /// 单行数据转实体对象
         /// </summary>

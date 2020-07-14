@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using CommunityBuy.BackWeb.Common;
 using CommunityBuy.CommonBasic;
 
 namespace CommunityBuy.BackWeb.ajax
@@ -6,16 +7,15 @@ namespace CommunityBuy.BackWeb.ajax
     /// <summary>
     /// getuser 的摘要说明
     /// </summary>
-    public class getuser : IHttpHandler
+    public class getuser : ServiceBase
     {
 
-        public void ProcessRequest(HttpContext context)
+        public override void ProcessRequest(HttpContext context)
         {
+            base.ProcessRequest(context);
             context.Response.ContentType = "text/plain";
-            string username = LoginedUser.UserInfo.cname.ToString();
-            context.Response.Write("{\"uname\":\"" + username + "\"}");
+            context.Response.Write("{\"uname\":\"" + base.LoginedUser.Name + "\"}");
         }
-
         public bool IsReusable
         {
             get

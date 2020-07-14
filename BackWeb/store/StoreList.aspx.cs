@@ -12,7 +12,7 @@ namespace CommunityBuy.BackWeb
         bllStore bll = new bllStore();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.PageTitle.Operate = ErrMessage.GetMessageInfoByCode("PageOperateList").Body;
+            this.PageTitle.Operate = "列表";
             if (!IsPostBack)
             {
                 BindBusInfo();
@@ -23,8 +23,9 @@ namespace CommunityBuy.BackWeb
 
         public void BindBusInfo()
         {
-            DataTable dt = new bllPaging().GetDataTableInfoBySQL("select buscode,cname from Business where status='1';");
-            Helper.BindDropDownListForSearch(ddl_businfo, dt, "cname", "buscode", 2);
+            //DataTable dt = new bllPaging().GetDataTableInfoBySQL("select buscode,cname from Business where status='1';");
+
+            //Helper.BindDropDownListForSearch(ddl_businfo, dt, "cname", "buscode", 2);
         }
 
         /// <summary>
@@ -39,21 +40,21 @@ namespace CommunityBuy.BackWeb
             {
                 order = " stocode asc";
             }
-            DataTable dt = bll.GetPagingListInfoByBack("0", "0", anp_top.PageSize, anp_top.CurrentPageIndex, HidWhere.Value, order, out recount, out pagenums);
+            DataTable dt = bll.GetPagingListInfo("0", "0", anp_top.PageSize, anp_top.CurrentPageIndex, HidWhere.Value, order, out recount, out pagenums);
 
             if (dt != null)
             {
                 dt.Columns.Add("statusname", typeof(string));
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dt.Rows[i]["statusname"] = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dt.Rows[i]["status"].ToString());
+                    dt.Rows[i]["statusname"] = dt.Rows[i]["status"].ToString() == "1" ? "有效" : "无效";
                 }
                 gv_list.DataSource = dt;
                 gv_list.DataBind();
                 anp_top.RecordCount = recount;
             }
-            DataTable dtdict = new BLL.bllprovinces().GetPagingListInfo("0", "", 10000, 1, "", " id", out recount, out pagenums);
-            Helper.BindDropDownListForSearch(this.ddl_provinceid, dtdict, "province", "provinceid", 2);
+            DataTable dtdict = new bllPaging().GetDataTableInfoBySQL("select * from [dbo].[provinces]");
+            BindDropDownListInfo(this.ddl_provinceid, dtdict, "province", "provinceid",1);
             ddl_provinceid_SelectedIndexChanged(null, null);
         }
 
@@ -61,10 +62,9 @@ namespace CommunityBuy.BackWeb
         {
             if (!string.IsNullOrWhiteSpace(ddl_provinceid.SelectedValue))
             {
-                int recnums, pagenums;
                 string fiter = " parentid =" + this.ddl_provinceid.SelectedValue;
-                DataTable dtdict = new BLL.bllcitys().GetPagingListInfo("0", "", 10000, 1, fiter, " id", out recnums, out pagenums);
-                Helper.BindDropDownListForSearch(this.ddl_cityid, dtdict, "city", "cityid", 2);
+                DataTable dtdict = new bllPaging().GetDataTableInfoBySQL("select * from [dbo].[provinces] where"+ fiter);
+                BindDropDownListInfo(this.ddl_cityid, dtdict, "city", "cityid", 2);
                 ddl_cityid_SelectedIndexChanged(null, null);
             }
         }
@@ -73,10 +73,9 @@ namespace CommunityBuy.BackWeb
         {
             if (!string.IsNullOrWhiteSpace(ddl_cityid.SelectedValue))
             {
-                int recnums, pagenums;
                 string fiter = " parentid =" + this.ddl_cityid.SelectedValue;
-                DataTable dtdict = new BLL.bllareas().GetPagingListInfo("0", "", 10000, 1, fiter, " id", out recnums, out pagenums);
-                Helper.BindDropDownListForSearch(this.ddl_areaid, dtdict, "area", "areaid", 2);
+                DataTable dtdict = new bllPaging().GetDataTableInfoBySQL("select * from [dbo].[provinces] where" + fiter);
+                BindDropDownListInfo(this.ddl_areaid, dtdict, "area", "areaid", 2);
             }
         }
 
@@ -103,23 +102,17 @@ namespace CommunityBuy.BackWeb
                         break;
                     case "delete":
                         {
-                            //日志信息
-                            logentity.module = ErrMessage.GetMessageInfoByCode("Store_Menu").Body;
-                            logentity.pageurl = "StoreEdit.aspx";
-                            logentity.otype = SystemEnum.LogOperateType.Delete;
-                            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
                             Selected = GetSelectStr(gv_list);
                             if (Selected.Length == 0)
                             {
-                                sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                                sp_showmes.InnerText = "请至少选择一项";
                             }
                             string[] arrSel = Selected.Split(',');
                             for (int i = 0; i < arrSel.Length; i++)
                             {
-                                logentity.logcontent = string.Format(ErrMessage.GetMessageInfoByCode("Store_961").Body, LoginedUser.UserInfo.cname, arrSel[i]);
-                                bll.Delete("0", "0", arrSel[i], logentity);
+                                bll.Delete("0", "0", arrSel[i]);
                             }
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_001").Body;
+                            sp_showmes.InnerText = bll.oResult.Msg;
                             anp_top.CurrentPageIndex = 1;
                         }
                         break;
@@ -128,12 +121,14 @@ namespace CommunityBuy.BackWeb
                         Selected = GetSelectStr(gv_list);
                         if (Selected.Length == 0)
                         {
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                            sp_showmes.InnerText = "请至少选择一项";
                         }
                         else
                         {
-                            dt = bll.UpdateStatus("", "0", Selected, SystemEnum.Status.Valid.ToString("D"));
-                            if (ShowResult(dt, sp_showmes))
+                            bll.UpdateStatus("", "0", Selected,"1");
+
+
+                            if (ShowResult(bll.oResult.Code,bll.oResult.Msg, sp_showmes))
                             {
                                 BindGridView();
                             }
@@ -148,8 +143,8 @@ namespace CommunityBuy.BackWeb
                         }
                         else
                         {
-                            dt = bll.UpdateStatus("", "0", Selected, SystemEnum.Status.Invalid.ToString("D"));
-                            if (ShowResult(dt, sp_showmes))
+                            bll.UpdateStatus("", "0", Selected,"0");
+                            if (ShowResult(bll.oResult.Code, bll.oResult.Msg, sp_showmes))
                             {
                                 BindGridView();
                             }
@@ -157,22 +152,23 @@ namespace CommunityBuy.BackWeb
                         break;
                     //导出事件代码
                     case "export":
-                        int recount;
-                        int pagenums;
-                        string order = string.Format("{0} {1}", HidSortExpression.Value, HidOrder.Value);
-                        dt = bll.GetPagingListInfo("", "0", 50000, 1, HidWhere.Value, order, out recount, out pagenums);
-                        if (dt != null)
-                        {
-                            dt.Columns.Add("statusname", typeof(string));
-                            for (int i = 0; i < dt.Rows.Count; i++)
-                            {
-                                dt.Rows[i]["statusname"] = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dt.Rows[i]["status"].ToString());
-                            }
-                        }
-                        string fileName = string.Format(ErrMessage.GetMessageInfoByCode("Store_TName").Body + "{0}.xls", DateTime.Now.ToString("_yyyyMMddHHmmss"));
-                        string strColumnName = ErrMessage.GetMessageInfoByCode("store_Export").Body;
-                        string ColumnCode = "stocode,cname,sname,bcode,areaname,stoprincipal,stoprincipaltel,tel,statusname";
-                        ExcelsHelp.ExportExcelFileB(dt, fileName, strColumnName.Split(','), ColumnCode.Split(','));
+                        //int recount;
+                        //int pagenums;
+                        //string order = string.Format("{0} {1}", HidSortExpression.Value, HidOrder.Value);
+                        //dt = bll.GetPagingListInfo("", "0", 50000, 1, HidWhere.Value, order, out recount, out pagenums);
+                        //if (dt != null)
+                        //{
+                        //    dt.Columns.Add("statusname", typeof(string));
+                        //    for (int i = 0; i < dt.Rows.Count; i++)
+                        //    {
+                        //        dt.Rows[i]["statusname"] = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dt.Rows[i]["status"].ToString());
+                        //    }
+                        //}
+                        //string fileName = string.Format(ErrMessage.GetMessageInfoByCode("Store_TName").Body + "{0}.xls", DateTime.Now.ToString("_yyyyMMddHHmmss"));
+                        //string strColumnName = ErrMessage.GetMessageInfoByCode("store_Export").Body;
+                        //string ColumnCode = "stocode,cname,sname,bcode,areaname,stoprincipal,stoprincipaltel,tel,statusname";
+                        //ExcelsHelp.ExportExcelFileB(dt, fileName, strColumnName.Split(','), ColumnCode.Split(','));
+                        //break;
                         break;
                 }
             }
@@ -187,43 +183,43 @@ namespace CommunityBuy.BackWeb
             Where.Append(" where 1=1 ");
             //拼接Where条件
 
-            string strstocode = Helper.ReplaceString(txt_stocode.Value);
+            string strstocode =txt_stocode.Value;
             if (strstocode.Length > 0)
             {
                 Where.Append(" and stocode like '%" + strstocode + "%' ");
 
             }
-            string strcname = Helper.ReplaceString(txt_cname.Value);
+            string strcname =txt_cname.Value;
             if (strcname.Length > 0)
             {
                 Where.Append(" and cname like '%" + strcname + "%' ");
 
             }
-            string strprovinceid = Helper.ReplaceString(this.ddl_provinceid.SelectedValue);
+            string strprovinceid =this.ddl_provinceid.SelectedValue;
             if (strprovinceid.Length > 0)
             {
                 Where.Append(" and provinceid= '" + strprovinceid + "'");
 
             }
-            string strcityid = Helper.ReplaceString(this.ddl_cityid.SelectedValue);
+            string strcityid =this.ddl_cityid.SelectedValue;
             if (strcityid.Length > 0)
             {
                 Where.Append(" and cityid= '" + strcityid + "'");
 
             }
-            string strareaid = Helper.ReplaceString(this.ddl_areaid.SelectedValue);
+            string strareaid =this.ddl_areaid.SelectedValue;
             if (strareaid.Length > 0)
             {
                 Where.Append(" and areaid= '" + strareaid + "'");
 
             }
-            string strstoprincipal = Helper.ReplaceString(txt_stoprincipal.Value);
+            string strstoprincipal =txt_stoprincipal.Value;
             if (strstoprincipal.Length > 0)
             {
                 Where.Append(" and stoprincipal like '%" + strstoprincipal + "%' ");
 
             }
-            string strstatus = Helper.ReplaceString(ddl_status.SelectedValue);
+            string strstatus =ddl_status.SelectedValue;
             if (strstatus.Length > 0)
             {
                 Where.Append(" and status= '" + strstatus + "'");

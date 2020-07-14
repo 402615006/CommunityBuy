@@ -141,12 +141,12 @@
   <span_paycheck>付款审核：</span_paycheck>
   <nullpaycheck_span>请选择付款审核人</nullpaycheck_span>
   <notnull_tips>货品采购申请数量需大于0</notnull_tips>
-  <matcodenotsam_tips>所选货品类别与供应商供货类别不一致</matcodenotsam_tips>
+  <matcodenotCommunityBuy_tips>所选货品类别与供应商供货类别不一致</matcodenotCommunityBuy_tips>
   <to_edit>转交</to_edit>
   <audpeople_span>转交人：</audpeople_span>
   <auditing_people>请选择转交人</auditing_people>
-  <auditing_samepeople>转交人不能选择本人</auditing_samepeople>
-  <samepeople_tips>当前所选转交人员已在审核列表中</samepeople_tips>
+  <auditing_CommunityBuyepeople>转交人不能选择本人</auditing_CommunityBuyepeople>
+  <CommunityBuyepeople_tips>当前所选转交人员已在审核列表中</CommunityBuyepeople_tips>
   <status_where>审核状态：</status_where>
   <applycode_where>申请单号：</applycode_where>
   <orderresult_list>单据状态</orderresult_list>
@@ -154,7 +154,7 @@
   <warnrefer>仓库选择</warnrefer>
   <auditdescr>审核流程：总部成本会计→财务经理→总部采购\r复核流程：所属部门会计</auditdescr>
   <auditdescr2>500元以内：店长/部门经理→会计（所属部门）→出纳（畅黎）\r501—5000元：店长/部门经理→会计（所属部门）→财务经理→主管领导→出纳（畅黎）\r5001—50000元：店长/部门经理→会计（所属部门）→财务经理→主管领导→董事长（胡伟平）→财务总监（周彩丽）→出纳（畅黎）\r50001元以上：店长/部门经理→会计（所属部门）→财务经理→主管领导→董事长（胡伟平）→财务总监（周彩丽）→总经理（周彩薇）→出纳（畅黎）</auditdescr2>
-  <fhsame_tips>复核人不能与【制单人】或【申请人】为同一人，请检查！</fhsame_tips>
+  <fhCommunityBuye_tips>复核人不能与【制单人】或【申请人】为同一人，请检查！</fhCommunityBuye_tips>
   <sh_edit>上传附件</sh_edit>
   <picrefer>上传附件</picrefer>
   <nullfile_tips>请上传文件</nullfile_tips>

@@ -52,7 +52,7 @@ namespace CommunityBuy.BackWeb.systemset
 				//备注
 				remark.InnerHtml = dr["remark"].ToString();
 				//有效状态（0无效，1有效）
-				status.InnerHtml = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dr["status"].ToString());
+				status.InnerHtml = dr["status"].ToString() == "1" ? "有效" : "无效";
 				//引用系统用户表ts_admins的userid字段值
 
 

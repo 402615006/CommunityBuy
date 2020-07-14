@@ -14,7 +14,7 @@ namespace CommunityBuy.BackWeb
         {
             if (!IsPostBack)
             {
-                this.PageTitle.Operate = ErrMessage.GetMessageInfoByCode("PageOperateList").Body;
+                this.PageTitle.Operate = "列表";
                 BindGridView();
             }
         }
@@ -35,11 +35,6 @@ namespace CommunityBuy.BackWeb
 
             if (dt != null)
             {
-                dt.Columns.Add("statusname", typeof(string));
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    dt.Rows[i]["statusname"] = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dt.Rows[i]["status"].ToString());
-                }
                 gv_list.DataSource = dt;
                 gv_list.DataBind();
                 anp_top.RecordCount = recount;
@@ -70,22 +65,17 @@ namespace CommunityBuy.BackWeb
                     case "delete":
                         {
                             //日志信息
-                            logentity.module = ErrMessage.GetMessageInfoByCode("ts_sysset_Menu").Body;
-                            logentity.pageurl = "ts_syssetEdit.aspx";
-                            logentity.otype = SystemEnum.LogOperateType.Delete;
-                            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
                             Selected = GetSelectStr(gv_list);
                             if (Selected.Length == 0)
                             {
-                                sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                                sp_showmes.InnerText = "请至少选择一项";
                             }
                             string[] arrSel = Selected.Split(',');
                             for (int i = 0; i < arrSel.Length; i++)
                             {
-                                logentity.logcontent = string.Format(ErrMessage.GetMessageInfoByCode("ts_sysset_961").Body, LoginedUser.UserInfo.cname, Selected);
-                                bll.Delete("0", "0", Selected, logentity);
+                                bll.Delete("0", "0", Selected);
                             }
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_001").Body;
+                            sp_showmes.InnerText = bll.oResult.Msg;
                             anp_top.CurrentPageIndex = 1;
                         }
                         break;
@@ -94,12 +84,12 @@ namespace CommunityBuy.BackWeb
                         Selected = GetSelectStr(gv_list);
                         if (Selected.Length == 0)
                         {
-                            sp_showmes.InnerText = ErrMessage.GetMessageInfoByCode("Err_005").Body;
+                            sp_showmes.InnerText = sp_showmes.InnerText = "请至少选择一项";
                         }
                         else
                         {
-                            dt = bll.UpdateStatus("", "0", Selected, SystemEnum.Status.Valid.ToString("D"));
-                            if (ShowResult(dt, sp_showmes))
+                            bll.UpdateStatus("", "0", Selected, "1");
+                            if (ShowResult(bll.oResult.Code,bll.oResult.Msg, sp_showmes))
                             {
                                 BindGridView();
                             }
@@ -114,24 +104,24 @@ namespace CommunityBuy.BackWeb
                         }
                         else
                         {
-                            dt = bll.UpdateStatus("", "0", Selected, SystemEnum.Status.Invalid.ToString("D"));
-                            if (ShowResult(dt, sp_showmes))
+                            bll.UpdateStatus("", "0", Selected, "0");
+                            if (ShowResult(bll.oResult.Code,bll.oResult.Msg, sp_showmes))
                             {
                                 BindGridView();
                             }
                         }
                         break;
                     //导出事件代码
-                    case "export":
-                        int recount;
-                        int pagenums;
-                        string order = string.Format("{0} {1}", HidSortExpression.Value, HidOrder.Value);
-                        dt = bll.GetPagingListInfo("", "0", 50000, 1, HidWhere.Value, order, out recount, out pagenums);
-                        string fileName = string.Format(ErrMessage.GetMessageInfoByCode("ts_sysset_TName").Body + "{0}.xls", DateTime.Now.ToString("_yyyyMMddHHmmss"));
-                        string strColumnName = ErrMessage.GetMessageInfoByCode("admins_Export").Body;
-                        string ColumnCode = "列名1,列名2";
-                        ExcelsHelp.ExportExcelFileB(dt, System.Web.HttpUtility.UrlEncode(fileName, System.Text.Encoding.UTF8), strColumnName.Split(','), ColumnCode.Split(','));
-                        break;
+                    //case "export":
+                    //    int recount;
+                    //    int pagenums;
+                    //    string order = string.Format("{0} {1}", HidSortExpression.Value, HidOrder.Value);
+                    //    dt = bll.GetPagingListInfo("", "0", 50000, 1, HidWhere.Value, order, out recount, out pagenums);
+                    //    string fileName = string.Format(ErrMessage.GetMessageInfoByCode("ts_sysset_TName").Body + "{0}.xls", DateTime.Now.ToString("_yyyyMMddHHmmss"));
+                    //    string strColumnName = ErrMessage.GetMessageInfoByCode("admins_Export").Body;
+                    //    string ColumnCode = "列名1,列名2";
+                    //    ExcelsHelp.ExportExcelFileB(dt, System.Web.HttpUtility.UrlEncode(fileName, System.Text.Encoding.UTF8), strColumnName.Split(','), ColumnCode.Split(','));
+                    //    break;
                 }
             }
         }
@@ -145,13 +135,13 @@ namespace CommunityBuy.BackWeb
             Where.Append(" where 1=1 ");
             //拼接Where条件
 
-            string strkey = Helper.ReplaceString(txt_key.Value);
+            string strkey =txt_key.Value;
             if (strkey.Length > 0)
             {
                 Where.AppendFormat(" and [key] like  '%{0}%'", strkey);
 
             }
-            string strval = Helper.ReplaceString(txt_val.Value);
+            string strval =txt_val.Value;
             if (strval.Length > 0)
             {
 

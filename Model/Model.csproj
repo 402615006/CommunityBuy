@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AdminsEntity.cs" />
     <Compile Include="BaseModel.cs" />
+    <Compile Include="rolesEntity.cs" />
     <Compile Include="StoreEntity.cs" />
     <Compile Include="sumcouponNEntity.cs" />
     <Compile Include="systemsetEntity.cs" />
@@ -53,7 +54,6 @@
     <Compile Include="TB_OrderEntity.cs" />
     <Compile Include="memcardlevelEntity.cs" />
     <Compile Include="memcardtypeEntity.cs" />
-    <Compile Include="TB_AdminsEntity.cs" />
     <Compile Include="TB_BackReasonEntity.cs" />
     <Compile Include="TB_DiscountSchemeEntity.cs" />
     <Compile Include="TB_DishEntity.cs" />

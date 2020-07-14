@@ -55,7 +55,7 @@
   <span_mobile>手机号码：</span_mobile>
   <mobile_placeholder>11位手机号码</mobile_placeholder>
   <span_email>邮箱地址：</span_email>
-  <email_placeholder>邮箱格式sam@163.com</email_placeholder>
+  <email_placeholder>邮箱格式CommunityBuy@163.com</email_placeholder>
   <span_tel>电话：</span_tel>
   <tel_placeholder>请输入电话</tel_placeholder>
   <span_idtype>证件类型：</span_idtype>

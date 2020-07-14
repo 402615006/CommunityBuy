@@ -18,7 +18,7 @@ namespace CommunityBuy.BackWeb.systemset
             {
                 VisibleToolBar("LinkRefresh", false);
                 VisibleToolBar("LinkSearch", false);
-                this.PageTitle.Operate = ErrMessage.GetMessageInfoByCode("PageOperateList").Body;
+                this.PageTitle.Operate = "列表";
                 BindGridView();
             }
         }
@@ -52,42 +52,22 @@ namespace CommunityBuy.BackWeb.systemset
                         break;
                     case "delete":
                         {
-                            //日志信息
-                            logentity.module = ErrMessage.GetMessageInfoByCode("ts_Dicts_Menu").Body;
-                            logentity.pageurl = "ts_DictsEdit.aspx";
-                            logentity.otype = SystemEnum.LogOperateType.Delete;
-                            logentity.cuser = StringHelper.StringToLong(LoginedUser.UserInfo.Id.ToString());
 
                             if (hidtreid.Value.Length == 0)
                             {
-                                Script(Page, "pcLayerMsg('" + ErrMessage.GetMessageInfoByCode("Err_005").Body + "');");
+                                Script(Page, "pcLayerMsg('选择一项进行操作');");
                             }
                             else
                             {
-                                logentity.logcontent = string.Format(ErrMessage.GetMessageInfoByCode("ts_Dicts_961").Body, LoginedUser.UserInfo.cname, Selected);
-                                dt = bll.Delete("0", "0", hidtreid.Value, logentity);
-                                if (dt != null && dt.Rows.Count > 0)
-                                {
-                                    Script(Page, "pcLayerMsg('" + dt.Rows[0]["mes"].ToString() + "');");
-                                }
-                                else
-                                {
-                                    Script(Page, "pcLayerMsg('" + ErrMessage.GetMessageInfoByCode("Err_004").Body + "');");
-                                }
+                                bll.Delete("0", "0", hidtreid.Value);
+                                sp_showmes.InnerText = bll.oResult.Msg;
                             }
 
                         }
                         break;
                     //修改
                     case "edit":
-                        if (hidtreid.Value.Length == 0)
-                        {
-                            Script(Page, "pcLayerMsg('" + ErrMessage.GetMessageInfoByCode("Tsdicts_choose").Body + "');");
-                        }
-                        else
-                        {
-                            Response.Redirect("ts_DictsEdit.aspx?id=" + hidtreid.Value);
-                        }
+
                         break;
                 }
             }

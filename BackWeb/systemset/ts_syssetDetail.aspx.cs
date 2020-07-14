@@ -37,7 +37,7 @@ namespace CommunityBuy.BackWeb
                 //值
                 val.InnerHtml = dr["val"].ToString();
                 //有效状态（0无效，1有效）
-                status.InnerHtml = Helper.GetEnumNameByValue(typeof(SystemEnum.Status), dr["status"].ToString());
+                status.InnerHtml = dr["status"].ToString() == "1" ? "有效" : "无效";
                 //描述
                 descr.InnerHtml = dr["descr"].ToString();
                 //创建时间

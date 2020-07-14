@@ -733,13 +733,13 @@ var CodeMirror = (function() {
       var text = input.value;
       if (text == prevInput) return false;
       shiftSelecting = null;
-      var same = 0, l = Math.min(prevInput.length, text.length);
-      while (same < l && prevInput[same] == text[same]) ++same;
-      if (same < prevInput.length)
-        sel.from = {line: sel.from.line, ch: sel.from.ch - (prevInput.length - same)};
+      var CommunityBuye = 0, l = Math.min(prevInput.length, text.length);
+      while (CommunityBuye < l && prevInput[CommunityBuye] == text[CommunityBuye]) ++CommunityBuye;
+      if (CommunityBuye < prevInput.length)
+        sel.from = {line: sel.from.line, ch: sel.from.ch - (prevInput.length - CommunityBuye)};
       else if (overwrite && posEq(sel.from, sel.to))
-        sel.to = {line: sel.to.line, ch: Math.min(getLine(sel.to.line).text.length, sel.to.ch + (text.length - same))};
-      replaceSelection(text.slice(same), "end");
+        sel.to = {line: sel.to.line, ch: Math.min(getLine(sel.to.line).text.length, sel.to.ch + (text.length - CommunityBuye))};
+      replaceSelection(text.slice(CommunityBuye), "end");
       prevInput = text;
       return true;
     }
@@ -2030,7 +2030,7 @@ var CodeMirror = (function() {
         this.to = null;
     },
     isDead: function() { return this.from != null && this.to != null && this.from >= this.to; },
-    sameSet: function(x) { return this.set == x.set; }
+    CommunityBuyeSet: function(x) { return this.set == x.set; }
   };
 
   function Bookmark(pos) {
@@ -2053,7 +2053,7 @@ var CodeMirror = (function() {
         this.from = this.to = Math.max(to, this.from) + diff;
       }
     },
-    sameSet: function(x) { return false; },
+    CommunityBuyeSet: function(x) { return false; },
     find: function() {
       if (!this.line || !this.line.parent) return null;
       return {line: lineNo(this.line), ch: this.from};
@@ -2138,7 +2138,7 @@ var CodeMirror = (function() {
           if (!mark.from) {
             for (var j = 0; j < mymk.length; ++j) {
               var mymark = mymk[j];
-              if (mymark.to == mylen && mymark.sameSet(mark)) {
+              if (mymark.to == mylen && mymark.CommunityBuyeSet(mark)) {
                 mymark.to = mark.to == null ? null : mark.to + mylen;
                 if (mymark.isDead()) {
                   mymark.detach(this);
@@ -2162,7 +2162,7 @@ var CodeMirror = (function() {
         var mark = mk[i], close = mark.to == null;
         if (close && omk) {
           for (var j = 0; j < omk.length; ++j)
-            if (omk[j].sameSet(mark)) {close = false; break;}
+            if (omk[j].CommunityBuyeSet(mark)) {close = false; break;}
         }
         if (close) mark.to = this.text.length;
       }
@@ -2207,7 +2207,7 @@ var CodeMirror = (function() {
       if (pos && st[pos-2] != prevWord) changed = true;
       // Short lines with simple highlights return null, and are
       // counted as changed by the driver because they are likely to
-      // highlight the same way in various contexts.
+      // highlight the CommunityBuye way in various contexts.
       return changed || (st.length < 5 && this.text.length < 10 ? null : false);
     },
     // Fetch the parser token for a given character. Useful for hacks
@@ -2506,7 +2506,7 @@ var CodeMirror = (function() {
   }
 
   // The history object 'chunks' changes that are made close together
-  // and at almost the same time into bigger undoable units.
+  // and at almost the CommunityBuye time into bigger undoable units.
   function History() {
     this.time = 0;
     this.done = []; this.undone = [];

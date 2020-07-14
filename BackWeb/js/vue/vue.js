@@ -211,7 +211,7 @@ function genStaticKeys (modules) {
 
 /**
  * Check if two values are loosely equal - that is,
- * if they are plain objects, do they have the same shape?
+ * if they are plain objects, do they have the CommunityBuye shape?
  */
 function looseEqual (a, b) {
   /* eslint-disable eqeqeq */
@@ -1700,7 +1700,7 @@ Watcher.prototype.run = function run () {
       if (
         value !== this.value ||
       // Deep watchers and watchers on Object/Arrays should fire even
-      // when the value is the same, because the value may
+      // when the value is the CommunityBuye, because the value may
       // have mutated.
       isObject(value) ||
       this.deep
@@ -2941,7 +2941,7 @@ function renderMixin (Vue) {
   ) {
     var tree = this._staticTrees[index];
     // if has already-rendered static tree and not inside v-for,
-    // we can reuse the same tree by doing a shallow clone.
+    // we can reuse the CommunityBuye tree by doing a shallow clone.
     if (tree && !isInFor) {
       return Array.isArray(tree)
         ? cloneVNodes(tree)
@@ -3028,7 +3028,7 @@ function renderMixin (Vue) {
       // warn duplicate slot usage
       if (slotNodes && "development" !== 'production') {
         slotNodes._rendered && warn(
-          "Duplicate presence of slot \"" + name + "\" found in the same render tree " +
+          "Duplicate presence of slot \"" + name + "\" found in the CommunityBuye render tree " +
           "- this will likely cause render errors.",
           this
         );
@@ -3090,7 +3090,7 @@ function resolveSlots (
   for (var i = 0, l = children.length; i < l; i++) {
     child = children[i];
     // named slots should only be respected if the vnode was rendered in the
-    // same context.
+    // CommunityBuye context.
     if ((child.context === context || child.functionalContext === context) &&
         child.data && (name = child.data.slot)) {
       var slot = (slots[name] || (slots[name] = []));
@@ -3445,7 +3445,7 @@ var KeepAlive = {
         return vnode
       }
       var key = vnode.key == null
-        // same constructor may get registered as different local components
+        // CommunityBuye constructor may get registered as different local components
         // so cid alone is not enough (#3269)
         ? opts.Ctor.cid + (opts.tag ? ("::" + (opts.tag)) : '')
         : vnode.key;
@@ -3657,7 +3657,7 @@ var isHTMLTag = makeMap(
   'address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,nav,section,' +
   'div,dd,dl,dt,figcaption,figure,hr,img,li,main,ol,p,pre,ul,' +
   'a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,rtc,ruby,' +
-  's,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,' +
+  's,CommunityBuyp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,' +
   'embed,object,param,source,canvas,script,noscript,del,ins,' +
   'caption,col,colgroup,table,thead,tbody,td,th,tr,' +
   'button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,' +
@@ -3908,7 +3908,7 @@ function isDef (s) {
   return s != null
 }
 
-function sameVnode (vnode1, vnode2) {
+function CommunityBuyeVnode (vnode1, vnode2) {
   return (
     vnode1.key === vnode2.key &&
     vnode1.tag === vnode2.tag &&
@@ -4154,20 +4154,20 @@ function createPatchFunction (backend) {
         oldStartVnode = oldCh[++oldStartIdx]; // Vnode has been moved left
       } else if (isUndef(oldEndVnode)) {
         oldEndVnode = oldCh[--oldEndIdx];
-      } else if (sameVnode(oldStartVnode, newStartVnode)) {
+      } else if (CommunityBuyeVnode(oldStartVnode, newStartVnode)) {
         patchVnode(oldStartVnode, newStartVnode, insertedVnodeQueue);
         oldStartVnode = oldCh[++oldStartIdx];
         newStartVnode = newCh[++newStartIdx];
-      } else if (sameVnode(oldEndVnode, newEndVnode)) {
+      } else if (CommunityBuyeVnode(oldEndVnode, newEndVnode)) {
         patchVnode(oldEndVnode, newEndVnode, insertedVnodeQueue);
         oldEndVnode = oldCh[--oldEndIdx];
         newEndVnode = newCh[--newEndIdx];
-      } else if (sameVnode(oldStartVnode, newEndVnode)) { // Vnode moved right
+      } else if (CommunityBuyeVnode(oldStartVnode, newEndVnode)) { // Vnode moved right
         patchVnode(oldStartVnode, newEndVnode, insertedVnodeQueue);
         canMove && nodeOps.insertBefore(parentElm, oldStartVnode.elm, nodeOps.nextSibling(oldEndVnode.elm));
         oldStartVnode = oldCh[++oldStartIdx];
         newEndVnode = newCh[--newEndIdx];
-      } else if (sameVnode(oldEndVnode, newStartVnode)) { // Vnode moved left
+      } else if (CommunityBuyeVnode(oldEndVnode, newStartVnode)) { // Vnode moved left
         patchVnode(oldEndVnode, newStartVnode, insertedVnodeQueue);
         canMove && nodeOps.insertBefore(parentElm, oldEndVnode.elm, oldStartVnode.elm);
         oldEndVnode = oldCh[--oldEndIdx];
@@ -4188,7 +4188,7 @@ function createPatchFunction (backend) {
             );
           }
           if (elmToMove.tag !== newStartVnode.tag) {
-            // same key but different element. treat as new element
+            // CommunityBuye key but different element. treat as new element
             nodeOps.insertBefore(parentElm, createElm(newStartVnode, insertedVnodeQueue), oldStartVnode.elm);
             newStartVnode = newCh[++newStartIdx];
           } else {
@@ -4351,7 +4351,7 @@ function createPatchFunction (backend) {
       createElm(vnode, insertedVnodeQueue);
     } else {
       var isRealElement = isDef(oldVnode.nodeType);
-      if (!isRealElement && sameVnode(oldVnode, vnode)) {
+      if (!isRealElement && CommunityBuyeVnode(oldVnode, vnode)) {
         patchVnode(oldVnode, vnode, insertedVnodeQueue, removeOnly);
       } else {
         if (isRealElement) {
@@ -4678,7 +4678,7 @@ function updateDOMProps (oldVnode, vnode) {
       // store value as _value as well since
       // non-string values will be stringified
       elm._value = cur;
-      // avoid resetting cursor position when value is the same
+      // avoid resetting cursor position when value is the CommunityBuye
       var strCur = cur == null ? '' : String(cur);
       if (elm.value !== strCur && !elm.composing) {
         elm.value = strCur;
@@ -4711,7 +4711,7 @@ var parseStyleText = cached(function (cssText) {
   return res
 });
 
-// merge static and dynamic style data on the same vnode
+// merge static and dynamic style data on the CommunityBuye vnode
 function normalizeStyleData (data) {
   var style = normalizeStyleBinding(data.style);
   // static style is pre-processed into an object during compilation
@@ -6147,7 +6147,7 @@ function parseHTML (html, options) {
     if (start == null) { start = index; }
     if (end == null) { end = index; }
 
-    // Find the closest opened tag of the same type
+    // Find the closest opened tag of the CommunityBuye type
     if (tagName) {
       var needle = tagName.toLowerCase();
       for (pos = stack.length - 1; pos >= 0; pos--) {
