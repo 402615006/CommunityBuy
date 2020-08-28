@@ -1,0 +1,102 @@
+
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="openpluscard" WX:if="{{cardinfo}}">
+  <view class="top_box">
+    <image src="../../images/di.png" class="top_bg"></image>
+    <!-- 没有传入卡面 -->
+    <view class="li" wx:if="{{cardinfo.imgPaths}}">
+      <image src="{{cardinfo.imgPaths}}"  class="li_bgimg"></image>
+    </view>
+    <!-- 传入了卡面的 -->
+    <view class="li" wx:else>
+      <image src="../../../images/qtx1_69.png"  class="li_bgimg"></image>
+      <view class="top_text">
+        <image src="../../../images/qtx1_06.png" class="icon_logoimg"></image>
+        <view>{{levelname}}</view>
+      </view>
+      <view class="content_text">**** **** **** ****</view>
+    </view>
+
+    
+
+    <view class="content">
+      <view class="content_left">
+        <text>充值金额</text>
+        <text wx:if="{{list.length>0}}">({{list[tab_index].conmin}}-{{list[tab_index].conmax}})</text>
+      </view>
+      <view class="number">
+        <input class="number_input" type="number" bindinput='inputmoney' value="{{money}}"></input>
+        <text>元</text>
+      </view>
+    </view>
+
+    <view class="warp" wx:if="{{list.length>0}}">
+      <view class="warp_title">
+        赠送方案
+      </view>
+      <!-- 有图片 -->
+      <scroll-view class="scrolls3" scroll-x="true" wx:if="{{actsimagesshow}}">
+          <view class="ul_item3" wx:for="{{list}}"  wx:key="index" catchtap="bin_tabindex" data-index="{{index}}">
+            <view  class="duigou2" wx:if="{{index==tab_index}}"></view>
+            <image src="{{item.smallimg}}" ></image>
+          </view>
+      </scroll-view>
+      <!-- 没有图片 -->
+      <scroll-view class="scrolls2" scroll-x="true" wx:else>
+          <view class="ul_item" wx:for="{{list}}"  wx:key="index" catchtap="bin_tabindex" data-index="{{index}}">
+            <view class="itembox {{index==tab_index?'select_item':''}}">
+              <text class="itemboxtitle">{{item.pname}}</text>
+            </view>
+          </view>
+      </scroll-view>
+
+      <view class="warp_text">
+        可选优惠券种类：{{list[tab_index].presentNum}}
+        <text class="zengsong" wx:if="{{list.length>0&&list[tab_index].preamount>0}}">赠送金额:{{list[tab_index].preamount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="box" wx:if="{{list.length>0}}">
+    <!-- <view class="box_head">
+      <scroll-view class="scroll">
+        <view class="box_headt {{index==tab_index?'select_box_headt':''}}" catchtap="bin_tabindex" data-index="{{index}}" wx:for="{{list}}" wx:key="{{idnex}}">{{item.pname}}</view>
+      </scroll-view>
+    </view> -->
+    <view class="box_li" wx:for="{{list[tab_index].couponarry}}" wx:key="index" catchtap="click_box_li1" data-index="{{index}}">
+      <view class="box_lil" wx:if="{{item.name5==1||item.name4=='DIC00000045'}}">
+        ￥
+        <view class="box_price">{{filter.pf(item.name9)}}</view>
+      </view>
+      <view class="couponetype" wx:else>
+        {{item.name12}}
+      </view>
+      <view class="box_lir">
+        <view class="box_name">{{item.name0}} <text>x{{item.name1}}</text></view>
+        <view class="box_text" wx:if="{{item.name13}}">{{item.name13}}</view>
+      </view>
+
+      <view class="icon_class">
+        <image src="../../images/hyk_015_baioqian.png" class="img_class" wx:if="{{item.name5==1}}"></image>
+        <image src="../../images/hyk_016_baioqian.png" class="img_class" wx:if="{{item.name5==2}}"></image>
+        <view class="icon_text" wx:if="{{item.name5==1}}">零花券</view>
+        <view class="icon_text" wx:if="{{item.name5==2}}">代金券</view>
+      </view>
+      <image src="../../../images/btn_005_xuanzhong.png" class="duigou" wx:if="{{item.ischecked}}"></image>
+    </view>
+  </view>
+
+
+  <view class="foot" wx:if="{{cardinfo.remark}}">
+    <view class="foot_title" >会员卡规则说明</view>
+    <view class="foot_text">
+      <rich-text nodes="{{cardinfo.remark}}"></rich-text>
+    </view>
+  </view>
+
+  <view class="button" catchtap='go_opencardconfirm'>立即办理</view>
+</view>
+
+
+<show-box id="showbox"></show-box>

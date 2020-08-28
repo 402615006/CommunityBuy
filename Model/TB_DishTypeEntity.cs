@@ -8,24 +8,14 @@ namespace CommunityBuy.Model
     public class TB_DishTypeEntity
     {
 		private long _Id = 0;
-		private string _BusCode = string.Empty;
-		private string _StoCode = string.Empty;
 		private DateTime _CTime = DateTime.Parse("1900-01-01");
 		private string _PKKCode = string.Empty;
 		private string _PKCode = string.Empty;
 		private string _TypeName = string.Empty;
 		private int _Sort = 0;
 		private string _TStatus = string.Empty;
-        private string _StoName = string.Empty;
 
-        /// <summary>
-		///门店编号
-		/// <summary>
-        public string StoName
-        {
-            get { return _StoName; }
-            set { _StoName = value; }
-        }
+
 
         /// <summary>
         ///Id
@@ -35,22 +25,7 @@ namespace CommunityBuy.Model
 			get { return _Id; }
 			set { _Id = value; }
 		}
-		/// <summary>
-		///商户标识
-		/// <summary>
-		public string BusCode
-		{
-			get { return _BusCode; }
-			set { _BusCode = value; }
-		}
-		/// <summary>
-		///门店编号
-		/// <summary>
-		public string StoCode
-		{
-			get { return _StoCode; }
-			set { _StoCode = value; }
-		}
+
 		/// <summary>
 		///记录创建时间
 		/// <summary>

@@ -16,7 +16,7 @@ namespace CommunityBuy.BLL
         /// 检验表单数据
         /// </summary>
         /// <returns></returns>
-        public bool CheckPageInfo(string type, string memid, string memcode, string wxaccount, string cname, string birthday, string sex, string mobile, string idtype, string IDNO, string provinceid, string cityid, string areaid, string photo, string address,  string remark, string status, string cuser)
+        public bool CheckPageInfo(string type, string memid, string memcode, string wxaccount, string mobile,  string remark, string status)
         {
             bool rel = false;
 
@@ -26,20 +26,9 @@ namespace CommunityBuy.BLL
                 Entity.memid = memid;
                 Entity.memcode = memcode;
                 Entity.wxaccount = wxaccount;
-                Entity.cname = cname;
-                Entity.birthday = StringHelper.StringToDateTime(birthday);
-                Entity.sex = sex;
                 Entity.mobile = mobile;
-                Entity.idtype = idtype;
-                Entity.IDNO = IDNO;
-                Entity.provinceid = StringHelper.StringToInt(provinceid);
-                Entity.cityid = StringHelper.StringToInt(cityid);
-                Entity.areaid = StringHelper.StringToInt(areaid);
-                Entity.photo = photo;
-                Entity.address = address;
                 Entity.remark = remark;
                 Entity.status = status;
-                Entity.cuser = StringHelper.StringToLong(cuser);
                 rel = true;
             }
             catch (System.Exception)
@@ -51,11 +40,11 @@ namespace CommunityBuy.BLL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public void Add(string GUID, string UID,  string memid, string memcode, string wxaccount, string cname, string birthday, string sex, string mobile, string idtype, string IDNO, string provinceid, string cityid, string areaid, string photo, string address,  string remark, string status, string cuser)
+        public void Add(string GUID, string UID,  string memid, string memcode, string wxaccount,string mobile,  string remark, string status)
         {
 
             //memcode = new bllTrans().GetCustomSerialnumber(SystemEnum.SystemCustomCode.members.ToString());
-            bool strReturn = CheckPageInfo("add",  memid,  memcode,  wxaccount,  cname,  birthday,  sex,  mobile,  idtype,  IDNO,  provinceid,  cityid,  areaid,  photo,  address,  remark,  status,  cuser);
+            bool strReturn = CheckPageInfo("add",  memid,  memcode,  wxaccount, mobile,  remark,  status);
             //数据页面验证
             if (!strReturn)
             {
@@ -66,24 +55,12 @@ namespace CommunityBuy.BLL
             int result = dal.Add(ref Entity, ref MesCode);
             memid = Entity.memid.ToString();
             CheckResult(result, memid);
-        }
-
-        /// <summary>
-        /// 微信增加一条数据并开卡
-        /// </summary>
-        public void WxAdd(string GUID, string UID,  string memid, string memcode, string source, string buscode, string strcode, string wxaccount, string bigcustomer, string cname, string birthday, string sex, string mobile, string email, string tel, string idtype, string IDNO, string provinceid, string cityid, string areaid, string photo, string signature, string address, string hobby, string remark, string status, string orderno, string cuser, string uuser, string ousercode, string ousername)
-        {
-            bool strReturn = CheckPageInfo("add", memid, memcode, wxaccount, cname, birthday, sex, mobile, idtype, IDNO, provinceid, cityid, areaid, photo, address, remark, status, cuser);
-            //数据页面验证
-            if (!strReturn)
+            switch (result)
             {
-                CheckResult(-2, "");
-                return;
+                case 2:
+                    this.oResult.Msg = "用户已经注册过了";
+                    break;
             }
-            string MesCode = string.Empty;
-            int result = dal.WxAdd(ref Entity, ref MesCode);
-            memid = Entity.memid.ToString();
-            CheckResult(result, memid);
         }
 
         /// <summary>
@@ -132,7 +109,6 @@ namespace CommunityBuy.BLL
         /// <returns></returns>
         public DataTable GetMyMemberInfo(string GUID, string UID, string memcode)
         {
-
             return new bllPaging().GetDataTableInfoBySQL("select nickname,ctime,headimgurl,[dbo].[fnGetMemEarn](memcode,'1,2') as memearn,dbo.fnGetMemEarnLastM(memcode,'1,2') as memearnM from WX_members_wx where memcode='" + memcode + "'");
         }
 
@@ -288,43 +264,6 @@ namespace CommunityBuy.BLL
             return new bllPaging().GetDataTableInfoBySQL("select invitecode from wx_members_wx where openid='" + UID + "'");
         }
 
-        /// <summary>
-        /// 根据手机号获取用户信息
-        /// </summary>
-        /// <param name="mobile"></param>
-        /// <returns></returns>
-        public DataTable GetMemberInfoByMob(string mobile)
-        {
-            return new bllPaging().GetDataTableInfoBySQL("select top 1 a.openid,a.nickname,a.sex,a.language,a.cityid,a.provinceid,a.country,a.mobile,a.headimgUrl,a.ctime,a.birthday,a.memcode,b.loginpwd from WX_members_wx a left join members b on a.memcode=b.memcode where a.mobile='" + mobile + "'");
-        }
-
-        /// <summary>
-        /// 会员注册
-        /// </summary>
-        /// <param name="GUID"></param>
-        /// <param name="UID"></param>
-        /// <param name="memcode"></param>
-        /// <returns></returns>
-        public DataTable MemberRegister(string GUID, string source, string mobile, string weixin, string email, string qq, string pwd, ref string mes)
-        {
-            mes = "";
-            DataTable dt = dal.MemberRegister(source, mobile, weixin, email, qq, pwd, ref mes);
-            return dt;
-        }
-
-        /// <summary>
-        /// 会员登录
-        /// </summary>
-        /// <param name="GUID"></param>
-        /// <param name="UID"></param>
-        /// <param name="memcode"></param>
-        /// <returns></returns>
-        public DataTable MemberLogin(string GUID, string source, string mobile, string weixin, string email, string qq, string pwd, ref string mes)
-        {
-            mes = "";
-            DataTable dt = dal.MemberLogin(source, mobile, weixin, email, qq, pwd, ref mes);
-            return dt;
-        }
 
         /// <summary>
         /// 获取单行数据
@@ -367,10 +306,7 @@ namespace CommunityBuy.BLL
         public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
         {
             //stoname 门店名称 areaname 所属区域, idtypeName 身份证类型, totalcard 卡数量 
-            string query = " *,cusername=dbo.fnGetUserName(cuser),uusername=dbo.fnGetUserName(uuser) ";
-            query += " ,areaname =dbo.fnGetAreaFullName(provinceid,cityid,areaid)";
-            query += ",idtypeName=dbo.f_Get_DictsName(IDType)";
-            return new bllPaging().GetPagingInfo("members", "memcode", query, pageSize, currentpage, filter, "", order, out recnums, out pagenums);
+            return new bllPaging().GetPagingInfo("members", "memcode", "*", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
         }
 
 
@@ -407,28 +343,12 @@ namespace CommunityBuy.BLL
             membersEntity Entity = new membersEntity();
             Entity.memid = dr["memid"].ToString();
             Entity.memcode = dr["memcode"].ToString();
-            //Entity.buscode = dr["buscode"].ToString();
             Entity.wxaccount = dr["wxaccount"].ToString();
-
-            Entity.cname = dr["cname"].ToString();
-            Entity.birthday = StringHelper.StringToDateTime(dr["birthday"].ToString());
-            Entity.sex = dr["sex"].ToString();
             Entity.mobile = dr["mobile"].ToString();
-
-            Entity.idtype = dr["idtype"].ToString();
-            Entity.IDNO = dr["IDNO"].ToString();
-            Entity.provinceid = StringHelper.StringToInt(dr["provinceid"].ToString());
-            Entity.cityid = StringHelper.StringToInt(dr["cityid"].ToString());
-            Entity.areaid = StringHelper.StringToInt(dr["areaid"].ToString());
-            Entity.photo = dr["photo"].ToString();
-            Entity.address = dr["address"].ToString();
             Entity.remark = dr["remark"].ToString();
             Entity.status = dr["status"].ToString();
-            Entity.cuser = StringHelper.StringToLong(dr["cuser"].ToString());
-
             return Entity;
         }
-
 
     }
 }

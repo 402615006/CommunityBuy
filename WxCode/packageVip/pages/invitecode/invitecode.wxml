@@ -1,0 +1,21 @@
+
+
+<view class="qrcode" >
+  <view class="box">
+    <!-- <view class="top"></view> -->
+    <view class="content">
+      
+      <view class="img2">
+        <view class="img2box" >
+          <image src="{{img}}" class="icon"></image>
+        </view>
+
+      </view>
+      
+      
+    </view>
+  </view>
+</view>
+
+
+

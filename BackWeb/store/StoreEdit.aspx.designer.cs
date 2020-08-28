@@ -213,15 +213,6 @@ namespace CommunityBuy.BackWeb
         protected global::CommunityBuy.WebControl.CDropDownList ddl_storetype;
 
         /// <summary>
-        /// txt_jprice 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::CommunityBuy.WebControl.CTextBox txt_jprice;
-
-        /// <summary>
         /// txt_recommended 控件。
         /// </summary>
         /// <remarks>
@@ -231,22 +222,13 @@ namespace CommunityBuy.BackWeb
         protected global::CommunityBuy.WebControl.CTextBox txt_recommended;
 
         /// <summary>
-        /// logo 控件。
+        /// img_logo 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage logo;
-
-        /// <summary>
-        /// hid_logo 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hid_logo;
+        protected global::System.Web.UI.HtmlControls.HtmlImage img_logo;
 
         /// <summary>
         /// txt_descr 控件。
@@ -256,6 +238,15 @@ namespace CommunityBuy.BackWeb
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::CommunityBuy.WebControl.CTextBox txt_descr;
+
+        /// <summary>
+        /// hid_logo 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hid_logo;
 
         /// <summary>
         /// hidId 控件。

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "会员福利",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+  }
+}

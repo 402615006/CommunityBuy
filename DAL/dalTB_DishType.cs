@@ -20,19 +20,17 @@ namespace CommunityBuy.DAL
             intReturn = 0;
             SqlParameter[] sqlParameters =
             {
-                new SqlParameter("@BusCode", Entity.BusCode),
-                new SqlParameter("@StoCode", Entity.StoCode),
                 new SqlParameter("@PKKCode", Entity.PKKCode),
-                new SqlParameter("@PKCode", Entity.PKCode),
+                new SqlParameter("@PKCode",SqlDbType.NVarChar,32),
                 new SqlParameter("@TypeName", Entity.TypeName),
                 new SqlParameter("@Sort", Entity.Sort),
                 new SqlParameter("@TStatus", Entity.TStatus)
              };
-            sqlParameters[5].Direction = ParameterDirection.Output;
+            sqlParameters[1].Direction = ParameterDirection.Output;
             intReturn = DBHelper.ExecuteNonQuery("dbo.p_TB_DishType_Add", CommandType.StoredProcedure, sqlParameters);
             if (intReturn == 0)
             {
-                Entity.PKCode = sqlParameters[5].Value.ToString();
+                Entity.PKCode = sqlParameters[1].Value.ToString();
             }
             return intReturn;
         }
@@ -44,9 +42,6 @@ namespace CommunityBuy.DAL
         {
             SqlParameter[] sqlParameters =
             {
-                new SqlParameter("@BusCode", Entity.BusCode),
-                new SqlParameter("@StoCode", Entity.StoCode),
-                new SqlParameter("@PKKCode", Entity.PKKCode),
                 new SqlParameter("@PKCode", Entity.PKCode),
                 new SqlParameter("@TypeName", Entity.TypeName),
                 new SqlParameter("@Sort", Entity.Sort),
@@ -76,16 +71,13 @@ namespace CommunityBuy.DAL
         /// </summary>
         /// <param name="ID">主键ID，多个用,分隔</param>
         /// <returns>返回操作结果</returns>
-        public int Delete(string PKCode, ref string mescode)
+        public int Delete(string PKCode)
         {
             SqlParameter[] sqlParameters =
             {
-                 new SqlParameter("@PKCode", PKCode),
-                 new SqlParameter("@mescode",SqlDbType.NVarChar ,256,mescode)
+                 new SqlParameter("@PKCode", PKCode)
              };
-            sqlParameters[1].Direction = ParameterDirection.Output;
             intReturn = DBHelper.ExecuteNonQuery("dbo.p_TB_DishType_Delete", CommandType.StoredProcedure, sqlParameters);
-            mescode = sqlParameters[1].Value.ToString();
             return intReturn;
         }
 

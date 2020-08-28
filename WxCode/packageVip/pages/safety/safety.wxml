@@ -1,0 +1,33 @@
+
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="safety">
+  <view class="li" catchtap='go_changetel'>
+    <view class="text">修改手机号码</view>
+    <view class="rigth">
+      <view>{{filter.replace_tel(tel)}}</view>
+      <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+    </view>
+  </view>
+  <view class="li" catchtap='go_changepassword'>
+    <view class="text">修改支付密码</view>
+    <view class="rigth">
+      <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+    </view>
+  </view>
+  <view class="li">
+    <view class="text">小额免密支付</view>
+    <view class="rigth" catchtap='btn_checked'>
+      <image src="../../images/qb_008_on.png" wx:if="{{checked}}" class="icon_btn"></image>
+      <image src="../../images/qb_007_off.png" wx:else class="icon_btn"></image>
+    </view>
+  </view>
+
+  <!-- 弹框组件 -->
+  <Text id="text" bind:save="save"></Text>
+  <!-- 去完善信息弹框 -->
+  <show-box id="showbox"></show-box>
+
+  <!-- 密码输入框  -->
+  <password id="password" bind:myevent="get_number_ok" falg="2"></password>
+</view>

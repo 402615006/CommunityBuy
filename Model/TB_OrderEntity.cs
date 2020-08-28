@@ -8,7 +8,6 @@ namespace CommunityBuy.Model
     public class TB_OrderEntity
     {
 		private long _Id = 0;
-		private string _BusCode = string.Empty;
 		private string _StoCode = string.Empty;
 		private string _CCode = string.Empty;
 		private string _CCname = string.Empty;
@@ -18,7 +17,13 @@ namespace CommunityBuy.Model
 		private decimal _OrderMoney = 0;
 		private string _Remar = string.Empty;
 		private DateTime _CheckTime = DateTime.Parse("1900-01-01");
-		private string _BillCode = string.Empty;
+		private decimal _DisNum = 0;
+		private int _OrderType = 1;
+		private decimal _PayMoney = 0;
+		private decimal _CouponMoney = 0;
+		private string _WxBillCode = string.Empty;
+		private string _CouponCode = string.Empty;
+		private DateTime _FTime = DateTime.Parse("1900-01-01");
 
 		/// <summary>
 		///Id
@@ -27,14 +32,6 @@ namespace CommunityBuy.Model
 		{
 			get { return _Id; }
 			set { _Id = value; }
-		}
-		/// <summary>
-		///商户标识
-		/// <summary>
-		public string BusCode
-		{
-			get { return _BusCode; }
-			set { _BusCode = value; }
 		}
 		/// <summary>
 		///门店编号
@@ -109,13 +106,13 @@ namespace CommunityBuy.Model
 			get { return _CheckTime; }
 			set { _CheckTime = value; }
 		}
-		/// <summary>
-		///账单号
-		/// <summary>
-		public string BillCode
-		{
-			get { return _BillCode; }
-			set { _BillCode = value; }
-		}
+
+        public decimal DisNum { get => _DisNum; set => _DisNum = value; }
+        public int OrderType { get => _OrderType; set => _OrderType = value; }
+        public decimal PayMoney { get => _PayMoney; set => _PayMoney = value; }
+        public decimal CouponMoney { get => _CouponMoney; set => _CouponMoney = value; }
+        public string WxBillCode { get => _WxBillCode; set => _WxBillCode = value; }
+        public string CouponCode { get => _CouponCode; set => _CouponCode = value; }
+        public DateTime FTime { get => _FTime; set => _FTime = value; }
     }
 }

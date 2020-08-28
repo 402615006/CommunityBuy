@@ -1,0 +1,6 @@
+<!--components/conputed/computed.wxml-->
+<view  class='computed'>
+  <image src='../../images/qt_217.png' class='icon_size2'  bindtap='prev'></image>
+  <text class='number'>{{num}}</text>
+  <image src='../../images/qt_220.png' class='icon_size2' bindtap='add'></image>
+</view>

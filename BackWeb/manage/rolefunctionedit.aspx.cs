@@ -62,7 +62,6 @@ namespace CommunityBuy.BackWeb.manage
             }
         }
 
-
         public void SetPage(string RId)
         {
             DataTable dt = _bll.GetRoleFunctionInfoList("","",RId);
@@ -84,10 +83,12 @@ namespace CommunityBuy.BackWeb.manage
 
         public string GetMenuTable(int Rid)
         {
-            DataTable dt = _bll.GetRoleFunctionInfoList("0", "0", Rid.ToString());
+            DataTable dt = _bll.GetAllFunctions();
+
+            DataTable dtRoleFunctions = _bll.GetRoleFunctionInfoList("0", "0", Rid.ToString());
             //查询出所有的功能，并显示。
             StringBuilder html = new StringBuilder(256);
-            DataRow[] drOne = dt.Select("Pid=0", "id asc");//一级菜单
+            DataRow[] drOne = dt.Select("parentid=0", "id asc");//一级菜单
             DataRow[] drThree = null;
             DataRow[] drFour = null;
             html.Append("<table class=\"list\" cellpadding=\"0\" cellspacing=\"1\" width=\"100%\">");
@@ -119,8 +120,8 @@ namespace CommunityBuy.BackWeb.manage
                 html.Append("</td>");
 
                 html.Append("<td>");
-                html.AppendFormat("<input id=\"m{0}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{0}' {1}/>", dr1["id"], Check(StringHelper.StringToInt(dr1["funid"].ToString())));
-                html.AppendFormat("╋{0}", dr1["name"]);
+                html.AppendFormat("<input id=\"m{0}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{0}' {1}/>", dr1["id"], Check(dr1["id"].ToString(), dtRoleFunctions));
+                html.AppendFormat("╋{0}", dr1["cname"]);
                 html.Append("</td>");
 
                 html.Append("<td>");
@@ -129,7 +130,7 @@ namespace CommunityBuy.BackWeb.manage
 
                 html.Append("</tr>");
 
-                DataRow[] drTwo = dt.Select("level=2 and Pid=" + dr1["id"] + "", "id asc");//二级菜单
+                DataRow[] drTwo = dt.Select("level=2 and parentid=" + dr1["id"] + "", "id asc");//二级菜单
 
                 foreach (DataRow dr2 in drTwo)
                 {
@@ -139,8 +140,8 @@ namespace CommunityBuy.BackWeb.manage
                     html.Append("</td>");
 
                     html.Append("<td>");
-                    html.AppendFormat("&nbsp;&nbsp;&nbsp;&nbsp;<input id=\"m{0}_{1}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{1}' {2}/>", dr1["id"], dr2["id"], Check(StringHelper.StringToInt(dr2["funid"].ToString())));
-                    html.AppendFormat("┝{0}", dr2["name"]);
+                    html.AppendFormat("&nbsp;&nbsp;&nbsp;&nbsp;<input id=\"m{0}_{1}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{1}' {2}/>", dr1["id"], dr2["id"], Check(dr2["id"].ToString(), dtRoleFunctions));
+                    html.AppendFormat("┝{0}", dr2["cname"]);
                     html.Append("</td>");
 
                     html.Append("<td>");
@@ -149,7 +150,7 @@ namespace CommunityBuy.BackWeb.manage
 
                     html.Append("</tr>");
 
-                    drThree = dt.Select("level=3 and Pid=" + dr2["id"] + "", "id asc");//三级页面
+                    drThree = dt.Select("level=3 and parentid=" + dr2["id"] + "", "id asc");//三级页面
                     foreach (DataRow dr3 in drThree)
                     {
                         html.Append("<tr>");
@@ -158,15 +159,15 @@ namespace CommunityBuy.BackWeb.manage
                         html.Append("</td>");
 
                         html.Append("<td>");
-                        html.AppendFormat("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id=\"m{0}_{1}_{2}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{2}' {3}/>", dr1["id"], dr2["id"], dr3["id"], Check(StringHelper.StringToInt(dr3["funid"].ToString())));
-                        html.AppendFormat("┝{0}", dr3["name"]);
+                        html.AppendFormat("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id=\"m{0}_{1}_{2}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{2}' {3}/>", dr1["id"], dr2["id"], dr3["id"], Check(dr3["id"].ToString(), dtRoleFunctions));
+                        html.AppendFormat("┝{0}", dr3["cname"]);
                         html.Append("</td>");
                         html.Append("<td>");
                         //四级菜单
-                        drFour = dt.Select("level=4 and Pid=" + dr3["id"] + "", "id asc");//四级按钮（toolbar）添，修，删
+                        drFour = dt.Select("level=4 and parentid=" + dr3["id"] + "", "id asc");//四级按钮（toolbar）添，修，删
                         foreach (DataRow dr4 in drFour)
                         {
-                            html.AppendFormat("<input id=\"m{0}_{1}_{2}_{3}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{3}' {4}/>{5}&nbsp;&nbsp;&nbsp;", dr1["id"], dr2["id"], dr3["id"], dr4["id"], Check(StringHelper.StringToInt(dr4["funid"].ToString())), dr4["name"]);
+                            html.AppendFormat("<input id=\"m{0}_{1}_{2}_{3}\" onclick=\"setMenuuMain(this);\" type=\"checkbox\" value='{3}' {4}/>{5}&nbsp;&nbsp;&nbsp;", dr1["id"], dr2["id"], dr3["id"], dr4["id"], Check(dr4["id"].ToString(), dtRoleFunctions), dr4["cname"]);
                         }
                     }
                     if (drThree.Length == 0)
@@ -181,9 +182,10 @@ namespace CommunityBuy.BackWeb.manage
             return html.ToString();
         }
 
-        public string Check(int isok)
+        public string Check(string funid,DataTable dtRolefunction)
         {
-            if (isok > 0)
+            DataRow[] drs = dtRolefunction.Select("funid="+ funid);
+            if (drs != null&& drs .Length> 0)
             {
                 return string.Format("checked=\"checked\"");
             }

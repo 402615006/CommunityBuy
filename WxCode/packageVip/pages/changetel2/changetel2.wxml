@@ -1,0 +1,34 @@
+<!--pages/phoneNumber2/phoneNumber2.wxml-->
+<view class="binding_tel top_line">
+
+  <view class="tel">
+    <!-- <image src="../../images/qt_73.png" class="top_img"></image> -->
+    <view class='tishi'>请更新现有手机号</view>
+  </view>
+
+
+
+  <view class="content1">
+    <view class='p'>身份证号</view>
+    <view class="right">
+      <input type="idcard" maxlength='18' class="input_code1" value='{{cardcode}}' bindinput='cardcode' placeholder="请输入身份证号"></input>
+    </view>
+  </view>
+  <view class="content1">
+    <view class='p'>手机号码</view>
+    <view class="right">
+      <input type="number" maxlength='11' class="input_code1" value='{{phone}}' bindinput='phone' placeholder="请输入手机号码"></input>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class='p'>验证码</view>
+    <view class="right">
+      <input type="number" maxlength='6' class="input_code" value='{{input_code}}' bindinput='input_code' placeholder="请输入验证码"></input>
+      <view class="code" bindtap="get_code" wx:if="{{wait==0}}">获取验证码</view>
+      <view class="code" wx:if="{{wait>0}}">{{wait}}s</view>
+    </view>
+
+  </view>
+  <view class='mint-button ' bindtap="btn_submit">确定</view>
+</view>

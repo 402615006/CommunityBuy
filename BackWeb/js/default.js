@@ -625,7 +625,7 @@ function conpirestring(datas, val) {
 }
 
 function openWindow(url) {
-    var index = layer.open({
+    var index = layui.layer.open({
         type: 2,
         content: url,
         area: ['100%', '100%'],
@@ -634,17 +634,17 @@ function openWindow(url) {
             location.reload();
         }
     });
-    layer.full(index);
+    layui.layer.full(index);
 }
 
 function openCouponWindow(url) {
-    var index = layer.open({
+    var index = layui.layer.open({
         type: 2,
         content: url,
         area: ['100%', '100%'],
         maxmin: false
     });
-    layer.full(index);
+    layui.layer.full(index);
 }
 
 //$(document).keydown(function (event) {

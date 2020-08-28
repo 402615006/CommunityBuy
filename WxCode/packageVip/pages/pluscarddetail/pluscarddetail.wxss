@@ -1,0 +1,150 @@
+
+page{
+  background-color: #f7f7f7;
+  padding-bottom:150rpx;
+  box-sizing: border-box;
+}
+.bindcard{
+  width: 100%;
+  font-size: 36rpx;
+}
+
+
+.box{
+  width:628rpx;
+  height:310rpx;
+  border-radius:15rpx;
+  overflow:hidden;
+  margin:auto;
+  padding:25rpx;
+  box-sizing:border-box;
+  margin-bottom:40rpx;
+  position:relative;
+  color:#fff;
+}
+.card_bottom{
+  position: absolute;
+  bottom:0;
+  left:0;
+  text-align: right;
+  width: 100%;
+  padding-right:25rpx;
+  box-sizing: border-box;
+  height: 80rpx;
+  line-height: 80rpx;
+  color:#fff;
+}
+.card_code{
+  width: 100%;
+  text-align: right;
+}
+.top_text{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.bg_img{
+  width:628rpx;
+  height:310rpx;
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: -1;
+}
+.icon_logoimg{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right:20rpx;
+}
+.content_text{
+  font-size: 36rpx;
+  width: 100%;
+  text-align: center;
+  margin-top:50rpx;
+}
+.content{
+  width: 100%;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.head{
+  width: 100%;
+  height: 410rpx;
+  padding-top:50rpx;
+  box-sizing: border-box;
+}
+
+
+.li{
+  width: 100%;
+  height: 130rpx;
+  border-bottom:1rpx solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.li:last-child{
+  border:none;
+}
+.li .text{
+  font-size: 28rpx;
+}
+.rigth{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.jiantou{
+  width: 50rpx;
+  height: 50rpx;
+}
+.icon_btn{
+  width: 76rpx;
+  height: 43rpx;
+}
+
+.box1{
+  width: 100rpx;
+  height: 50rpx;
+  border: 1rpx solid #dedede;
+  border-radius: 25rpx;
+  position: relative;
+}
+.box2{
+  width: 50rpx;
+  height: 50rpx;
+  border: 1rpx solid #dedede;
+  border-radius: 25rpx;
+  position: absolute;
+  top:0;
+  left:0;
+  transition: .3s;
+  background-color: #fff;
+}
+.act_box{
+  left:50rpx;
+}
+.act_bg{
+  background-color: #ee685d;
+}
+
+
+.btn{
+  width:670rpx;
+  height:78rpx;
+  background-color:#ea6248;
+  border-radius:10rpx;
+  text-align:center;
+  line-height:78rpx;
+  font-size:30rpx;
+  color:#fff;
+  font-weight:600;
+  /* margin:auto;
+  margin-top:50rpx; */
+  position: fixed;
+  bottom:30rpx;
+  left:50%;
+  transform: translatex(-50%);
+}

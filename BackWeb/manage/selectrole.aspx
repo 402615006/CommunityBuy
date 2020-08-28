@@ -12,7 +12,8 @@
     <link href="/css/liststyle.css" rel="stylesheet" />
     <script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="/js/xmlhelper.js"></script>
-    <script src="/js/layer/layer.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
+    <script src="/js/layerhelper.js"></script>
     <script src="/js/default.js" type="text/javascript"></script>
     <script src="/js/listeditjs.js" type="text/javascript"></script>
     <script src="/js/layerhelper.js"></script>
@@ -21,7 +22,7 @@
         var valid = '';
         var nameid = '';
         $(document).ready(function () {
-            var index = parent.layer.getFrameIndex(window.name);
+            var index = parent.layui.layer.getFrameIndex(window.name);
             $(".searchbtn").click(function () {
                 $("#Button1").click();
             });
@@ -39,7 +40,7 @@
                 if (bid != "") {
                     parent.$("#" + valid).val(bid.substring(1, bid.length - 1));
                 }
-                parent.layer.close(index);
+                parent.layui.layer.close(index);
             });
         })
     </script>

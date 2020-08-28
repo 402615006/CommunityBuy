@@ -1,0 +1,62 @@
+
+<!-- <view class="index">
+  <view class="head">
+      <image src="../../images/pic_002_tou.png" class="bg_img"></image>
+      <view class="head_numnber">
+        <text class="font_size46" catchtap='go_pointsdetails'>3150</text><text catchtap='go_pointsdetails'>积分</text>
+      </view>
+      <view class="foot">
+        <view class="foot_text">
+          <text>积分规则</text>
+          <text class="font_size8">▶</text>
+        </view>
+        <view class="gang">|</view>
+        <view class="foot_text" catchtap='go_redemptionrecord'>
+          <text>兑换记录</text>
+          <text class="font_size8">▶</text>
+        </view>
+      </view>
+  </view>
+  <view class="recommend">
+    <view class="logo">
+      <image class="logo_img" src="../../images/btn_003_zhuanpan.png" catchtap='go_lottery'></image>
+    </view>
+
+    <view class="title">
+      <image src="../../images/icon_004_jifen.png" class="title_img"></image>
+      <view>今日推荐</view>
+    </view>
+    <scroll-view class="scroll" scroll-x="true">
+      <block wx:for="{{list}}" wx:key="index">
+        <view class="li" catchtap='go_detail'>
+           <view class="images">
+              <image src="../../images/icon_001_youhuiquan.png" class="img_c"></image>
+              <view class="price">{{item.price}}<text>￥</text></view>
+              <view class="type">{{item.name}}</view>
+              <view class="tip">满{{item.numprice}}</view>
+           </view> 
+           <view class="stocode">{{item.stocode}}</view>
+           <view class="number">
+            <image src="../../images/icon_004_jifen.png" class="icon"></image>
+            <view >{{item.num}}分</view>
+           </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="list"></view>
+  <view class="content">
+    <view class="top">
+      <view class="tabname tabname{{index}} {{index==tabindex?'actcorder':''}}" wx:for="{{tablist}}" wx:key="index" catchtap='clicktab' data-index="{{index}}">{{item}}</view>
+      <view class="actborder act{{tabindex}}" ></view>
+    </view>
+
+    <Text></Text>
+  </view>
+</view> -->
+
+
+<view class="no_box">
+  <image class="noDataimg" src="../../../images/pluto-no-messages-1.png"></image>
+  <view class='noMore'>暂未开放，敬请期待~~</view>
+</view>

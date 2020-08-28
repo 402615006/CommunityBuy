@@ -1,0 +1,12 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "Title":"../../../components/title/title",
+    "ADD_prev": "../../components/add_prev/add_prev",
+    "Footer": "../../components/footer/footer",
+    "Badge": "../../components/badge/badge",
+    "Singleselect": "../../components/singleselect/singleselect",
+    "Packageselect": "../../components/packageselect/packageselect"
+  }
+}

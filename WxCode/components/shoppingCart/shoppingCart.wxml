@@ -1,0 +1,6 @@
+
+
+<view class="shoppingCart" catchtap='go_shoppcard'>
+  <image src="../../images/btn_013_gouwuche.png" class="shoppingCartimg"></image>
+  <Badge number="{{number}}"></Badge>
+</view>

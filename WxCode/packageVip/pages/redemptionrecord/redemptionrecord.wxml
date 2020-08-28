@@ -1,0 +1,21 @@
+
+<view class="redemptionrecord">
+  <view class="top_gang"></view>
+  <view class="content">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="li">
+        <view class="left">
+          <view class="name">{{item.name}}</view>
+          <view class="time">{{item.time}}</view>
+        </view>
+        <view class="right">
+          <view class="number">{{item.number}}积分</view>
+          <image src="../../images/btn_004_enter.png" class="icon"></image>
+        </view>
+      </view>
+    </block>
+    <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+    <tui-nomore wx:if="{{list.length>0&&isnomore}}"></tui-nomore>
+
+  </view>
+</view>

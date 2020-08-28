@@ -1,0 +1,43 @@
+
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="coupondetail" >
+  <view class="li" catchtap='go_detail'>
+    <view class="top">
+      <view class="left">
+        <view class="sm">￥</view>
+        <view class="text">
+          <view class="price">{{filter.pf(list.minsinglemoney)}}</view>
+          <view class="type">{{list.dicname}}</view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="stoname">{{list.couname}}</view>
+        <view class="marke">{{list.marke}}</view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="bottom_l">
+        <text>有效期至{{list.edate}}</text>
+      </view>
+      <view class="bottom_r"></view>
+    </view>
+
+    <view class="circle circle_l"></view>
+    <view class="circle circle_r"></view>
+  </view>
+  <view class="box" wx:if="{{list.checkcode}}">
+      <image src='../../../images/qt_151.png' class='img_size1'></image>
+      <wux-qrcode id="qrcode" wux-class="qrcode"  data="{{ list.checkcode }}"  width="{{qrwidth}}" height="{{qrwidth}}" bind:click="previewImage" bind:click="previewImage" fg-color="{{qrcolor}}" class='img_size2'/>
+      <!-- <image src='{{list.couponimg}}' class='img_size2'></image> -->
+  </view>
+  <view class='wx_margin_top'>{{list.checkcode}}</view>
+  <view class="footer">
+    <view class="footer_head">使用规则</view>
+    <view class="title">有效期</view>
+    <view class="footer_text">• {{list.sdate}}至{{list.edate}}</view>
+    <view class="title">适用门店</view>
+    <view class="footer_text">• {{list.storename}}</view>
+  </view>
+</view>
+  <button class="button_b" catchtap='receive' hidden="{{list.checkcode}}">立即领取</button>

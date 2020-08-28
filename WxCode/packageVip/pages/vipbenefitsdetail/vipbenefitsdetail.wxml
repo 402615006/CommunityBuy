@@ -1,0 +1,39 @@
+
+
+<view class="vipbenefitsdetail">
+  <view class="head">
+    <scroll-view scroll-x="true" class="scoll-y">
+      <view class="li" wx:for="{{list}}" wx:key="{{index}}" catchtap='click_li' data-index="{{index}}">
+        <view class="circle {{list_index==index?'circle_select':''}}">
+          <!-- <view class="circle_text">120元</view> -->
+        </view>
+        <view class="warp_name">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="content">
+    <view class="content_head">升级获得120元大礼包
+      <view class="line"></view>
+    </view>
+    <view class="warp">
+      <view class="box">
+        <image src="../../images/quandi.png" class="quan_bg"></image>
+        <view class="top">￥<text class="price">100</text></view>
+        <view class="footer_name">恩佐餐厅优惠券</view>
+      </view>
+      <view class="box">
+        <image src="../../images/quandi.png" class="quan_bg"></image>
+        <view class="top">￥<text class="price">100</text></view>
+        <view class="footer_name">恩佐餐厅优惠券</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="foot">
+      <view class="foot_title">权益说明</view>
+      <view class="foot_text">这看电视剧款发动机谁开的房间肯德基焚枯食淡就看见付款就第三方</view>
+      <view class="foot_text">这看电视剧款发动机谁开的房间肯德基焚枯食淡就看见付款就第三方</view>
+    </view>
+</view>

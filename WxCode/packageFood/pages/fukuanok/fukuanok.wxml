@@ -1,0 +1,29 @@
+
+
+
+<view class="fukuanok">
+  <view class="top">
+      <image src="../../images/icon_015_yuyue.png" class="mod_icon"></image>
+      <view class="right">
+        <view>
+          <text>支付方式：</text><text class="color_ea6248">万众plus卡</text>
+        </view>
+        <view class="price">
+          <text class="text2">支付金额：</text><text class="color_ea6248">￥399</text>
+        </view>
+      </view>
+  </view>
+
+  <view class="content" >
+    <view class="gang"></view>
+    <view class="warp">
+      <view class="code">A602</view>
+      <view class="content_title">取餐码</view>
+      <view class="content_text">请尽快到窗口取餐</view>
+    </view>
+  </view>
+  <view class="btn">
+    <view class="button button2" catchtap="go_orderdetail">查看订单</view>
+    <view class="button" catchtap="go_home">返回首页</view>
+  </view>
+</view>

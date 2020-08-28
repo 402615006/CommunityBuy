@@ -1,0 +1,9 @@
+<!-- 档口 -->
+<view class="stall">
+  <view class="ul">
+    <view class="li" wx:for="{{list}}" wx:key="index"  data-item="{{item}}" catchtap="go_list">
+      <view>{{item.dname}}</view>
+      <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+    </view>
+  </view>
+</view>

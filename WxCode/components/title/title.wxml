@@ -1,0 +1,16 @@
+<!--component/navbar/navbar.wxml-->
+<view class='box-detail' style="padding-top:{{bar_Height  + 43}}px;">
+<view class='status-bar' style="background:{{background}}">
+ <!-- /*返回按钮*/ -->
+  <view class='goBack' bindtap='goBack' data-popUps='{{popUps}}' data-show_text='{{show_text}}' style="padding-top:{{bar_Height}}px;" hidden='{{show_bol}}'>
+    <image class='back' src='../../images/fhjt.png' wx:if="{{my_class}}"></image>
+    <image class='back' src='../../images/fh.png' wx:else></image>
+  </view>
+  <view class="tabar {{my_class ? 'tabar2':''}}" style="padding-top:{{bar_Height}}px;">
+  <!-- /*标题*/  -->
+    <text class="red Ttext">{{title}}</text>
+  </view>
+</view>
+</view>
+<!-- <view class='top_line' style="top:{{bar_Height  + 43}}px;"></view> -->
+

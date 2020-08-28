@@ -1,0 +1,94 @@
+<!--packageActivity/pages/index/index.wxml-->
+
+<wxs src="../../utils/filter.wxs" module="filter" />
+
+<view class="luckyDraw">
+  <view class="main">
+    <image class="headerbg" src="./../../images/banner.png" mode='widthFix'/>
+    <!-- <image class="headerbg1" src="./../../images/btitle.png" mode='widthFix'/> -->
+    <image class='zhongjiangMD margin_top10' src="./../../images/zjmd.png"></image>
+    <view class='zjlist' style='height:{{winHeight+50}}rpx'>
+      <image class='zhongjianglist' src="./../../images/listbg.png"></image>
+      <view class='zjlistdata' style='height:{{winHeight}}rpx'>
+        <swiper interval="1500" duration="1500" circular="true" vertical="true" previous-margin="15rpx" next-margin="15rpx" autoplay="true" display-multiple-items='{{records.length>=6?6:records.length}}' skip-hidden-item-layout="true">
+          <block wx:for="{{records}}" wx:key="{{index}}">
+            <swiper-item class="container">
+              <view class="list">
+                <image src='{{item.userimg}}' class='userIcon'></image>
+                <view class='uname'>恭喜 {{filter.replace_tel(item.mobile)}}</view>
+                <view class="prize">抽中{{item.name}}！</view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+
+    <!-- S 红包列表 -->
+    <view class="prizeContent-box margin_top20">
+    <!-- scaleToFill -->
+      <image class="second" src="./../../images/choujiang.png" mode='widthFix' />
+      <!-- style='background-image:url(./../../images/cjbg.png);background-repeat: no-repeat;background-size: 100% 100%;' -->
+      <view class="prizeContent">
+        <view class="prizeList" wx:for="{{[1,2,3]}}" wx:key="{{index}}">
+          <view class="prizeBox" style=" transform: rotateX({{animation0}}deg);  transition-duration:{{index==0?time0:index==1?time1:time2}}s">
+            <view class="red-envelope" wx:for="{{index==0?redEnvelopeList0:index==1?redEnvelopeList1:redEnvelopeList2 }}" wx:for-index="i" wx:key="i" style="transform:rotateX({{(360/redEnvelopeList0.length)*(i) - 0}}deg) translateZ({{460}}rpx);">
+              <image src="./../../images/{{item}}.jpg" mode="widthFix" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <image class='btnimg' src="./../../images/go.png"  mode='widthFix'></image>
+      <image class='btnimg1' src="./../../images/go1.png" animation="{{animationData}}"></image>
+      <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" class="btn" wx:if="{{isPossibleDraw}}"></button>
+      <view class='WinningName'>{{raffletitle}}</view>
+    </view>
+    <view class="font_size28 peopel">已有
+      <text class="font_size32 color_fee530 font_wweight">{{people}}</text>人参与此活动</view>
+    <view class='cjcs'>
+      <image class='numimg' src="./../../images/cjNum.png"></image>
+      <view class='cjcs_num'>{{number}}次</view>
+    </view>
+    <button open-type="share" class='share_btn'>分享好友获得更多抽奖机会>></button>
+
+    <image class='zhongjiangMD margin_top10' src="./../../images/zjgz.png"></image>
+    <view class='zjlist' style='height:{{regulationHeight+50}}rpx'>
+      <image class='zhongjianglist' src="./../../images/listbg.png"></image>
+      <view class='zjlistdata' style='height:{{regulationHeight}}rpx'>
+        <swiper interval="1500" duration="1500" circular="true" vertical="true" previous-margin="15rpx" next-margin="15rpx" autoplay="true" display-multiple-items='{{regulation.length>=6?6:regulation.length}}' skip-hidden-item-layout="true">
+          <block wx:for="{{regulation}}" wx:key="{{index}}">
+            <swiper-item class="container">
+              <view class="list">{{item}}</view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+    <!-- 奖品清单 -->
+    <image class='zhongjiangMD margin_top20' src="./../../images/jpqd.png"></image>
+    <view class='qdview'>
+      <image src='./../../images/qdbg.png' class='qdbg'></image>
+      <!-- <view class="canvas-list">
+      </view> -->
+    </view>
+    <!-- <image class='botticon' src="./../../images/botticon.png"></image> -->
+  </view>
+</view>
+
+<view class='RaffleInfo' wx:if="{{isShowRaffleInfo}}">
+  <view class='Raffleview' animation="{{raffleInfoanimation}}" wx:if="{{raffleWin}}">
+    <image src="./../../images/win.png" class='RaffleInfo_icon'></image>
+    <view class='Raffletitle'>
+      <view class='Raffletitle1'>{{raffletitle}}</view>
+      <view class='Raffletitle2'>{{rafflecontent}}</view>
+    </view>
+    <image src="./../../images/close.png" class='RaffleInfo_closeicon' bindtap='closeRaffle'></image>
+    <image src="{{raffleInfoUser}}" class='RaffleInfoUsericon'></image>
+  </view>
+  <view class='Raffleview' animation="{{raffleInfoanimation}}" wx:if="{{!raffleWin}}">
+    <image src="./../../images/missed.png" class='RaffleInfo_missed'></image>
+    <image src="./../../images/again.png" class='RaffleInfo_againicon'></image>
+    <button class='RaffleInfo_againicon' open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo" wx:if="{{isPossibleDraw}}"></button>
+    <image src="./../../images/close.png" class='RaffleInfo_missedicon' bindtap='closeRaffle'></image>
+  </view>
+</view>

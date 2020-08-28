@@ -1,0 +1,141 @@
+<!-- 引用过滤器 -->
+<wxs src="../../../utils/filter.wxs" module="filter" />
+<view wx:if="{{successData}}">
+  <view class="groupdetail">
+    <view class="banner">
+      <swiper indicator-dots="true" indicator-color="" indicator-active-color="#fff" interval="3000" duration="500" circular="true" autoplay="true">
+        <block wx:for="{{bannerlist}}" wx:for-item="bannerItem" wx:key="banner">
+          <swiper-item bindtap="bannerimgdetail" data-i="{{index}}">
+            <image src="{{baserURLcard+bannerItem}}" class="banner-item" mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="head">
+      <view class="title">{{proinfo.pkname}}</view>
+      <view class="status">
+        <view class="left">
+          <image src="../../images/icon_020_biaoqian.png" class="gou"></image>
+          <text class="margin_left5">免预约</text>
+          <!-- <image src="../../images/icon_020_biaoqian.png" class="gou margin_left10"></image>
+          <text class="margin_left5">随时退</text> -->
+        </view>
+        <view class="right">月售{{proinfo.prolooknum}}</view>
+      </view>
+      <!-- 加减数量行 -->
+      <view class="type">
+        <view class="type_left">
+          <view class="type_number">
+            <text class="font_size40">￥{{proinfo.costprice}}</text>
+          </view>
+          <view class="price">
+            <text class="price2">￥{{proinfo.memprice}}</text>
+          </view>
+          <view class="icon_text">推荐</view>
+        </view>
+        <view class="type_right">
+          <view class="add_prev">
+            <view class="box1">
+              <view class="img_view" catchtap='prev' wx:if="{{nums>0}}">
+                <image class="img" src="../../images/btn_002_-_n.png"></image>
+              </view>
+              <view class="number" wx:if="{{nums>0}}">{{nums}}</view>
+              <view class="img_view" catchtap='add'>
+                <image class="img" src="../../images/btn_001_+_n.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="box" wx:if="{{disInfo.iscombo==1&&proinfo.isshow==1}}">
+        <view class="ul">
+          <view class="name">套餐</view>
+          <block wx:for="{{dishescombo}}" wx:key="index">
+            <view class="li">
+              <view>•{{item.disname}}
+                <text class="number">({{filter.pf(item.defnum)}}份)</text>
+              </view>
+              <view>￥{{item.price}}</view>
+            </view>
+          </block>
+        </view>
+        <view class="ul" wx:if="{{dishesoptional.length>0}}">
+          <view class="name">可选
+            <text class="number">({{dishesoptional.length}}选{{dishesoptional[0].maxoptnum}})</text>
+          </view>
+          <block wx:for="{{dishesoptional}}" wx:key="index">
+            <view class="li">
+              <view>•{{item.disname}}
+                <!-- <text class="number">({{filter.pf(item.defnum)}}份)</text> -->
+              </view>
+              <view>￥{{item.price}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!-- 说明 -->
+    <view class="description">
+      <view class="header">购买须知</view>
+      <view class="title_name">有效期：</view>
+      <view class="text">• {{proinfo.prostartdate}}-{{proinfo.proenddate}}</view>
+      <view class="title_name">使用时间：</view>
+      <view class="text">• 门店营业日内可用</view>
+      <view class="title_name">使用规则：</view>
+      <rich-text class="text" nodes="{{proinfo.prorules}}"></rich-text>
+      <!-- <view class="text">• {{proinfo.prorules}}</view> -->
+    </view>
+  </view>
+  <!-- 底部购物车栏 -->
+  <view class="footer">
+    <view class="img_view2" catchtap='showbox'>
+      <image src="../../images/btn_019_gouwuchedi_n.png" class="bg_img" wx:if="{{nums>0}}"></image>
+      <image src="../../images/btn_018_gouwuchedi_d.png" class="bg_img" wx:else></image>
+      <image src="../../images/btn_014_gouwuche.png" class="img2"></image>
+      <view class="yuan" wx:if="{{nums>0}}">{{nums}}</view>
+    </view>
+    <view class="text" wx:if="{{nums>0}}">合计
+      <text class="number">{{price}}</text>元</view>
+    <view class="text" wx:else>未选购商品</view>
+    <view class="btn" wx:if="{{nums>0&&!btnIsTrue}}" catchtap="addorder">去下单</view>
+    <view class="btn2" wx:if="{{nums<=0}}">去下单</view>
+    <view class="btn" wx:if="{{nums>0&&btnIsTrue}}" catchtap="isInputPwd">确认支付</view>
+
+  </view>
+  <!-- 购物车列表框框 -->
+  <view class="commodity_screen" wx:if="{{show}}" catchtap='hide_box'></view>
+  <view animation="{{animationData}}" class="commodity_attr_boxcard" wx:if="{{show}}">
+    <view class="header">
+      <view class="left">已选商品</view>
+      <view class="right" bindtap="shopcordclear">
+        <image src="../../images/cen.png" class="icon"></image>
+        <view>清空</view>
+      </view>
+    </view>
+    <block wx:for="{{shopCartselectList}}" wx:key="index">
+      <view class="dishli">
+        <view class="li_left">
+          <view class="name">{{item.disname}}</view>
+        </view>
+        <view class="li_right">
+          <view class="number_price">￥{{item.price}}</view>
+          <view class="component">
+            <view class="img_views" catchtap='prev' data-index="{{index}}">
+              <image class="imgs" src="../../images/btn_002_-_n.png"></image>
+            </view>
+            <view class="numbers">{{item.num}}</view>
+            <view class="img_views" catchtap='add' data-index="{{index}}">
+              <image class="imgs" src="../../images/btn_001_+_n.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 会员卡 -->
+<CardsSelect id="CardsSelect" cardslist="{{cardsList}}" cardindex="{{defaultIndex}}" bind:unclickCard="unclickCard" bind:setCardcode="setCardcode"></CardsSelect>
+<!-- 密码输入框  -->
+<password id="password" bind:myevent="get_number_ok"></password>

@@ -1,0 +1,64 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="bindcard" wx:if="{{list}}">
+  <view class="head">
+    <!-- 传入卡面了 -->
+    <view class="box" wx:if="{{list.imgPaths}}">
+      <image src="{{list.imgPaths}}" class="bg_img"></image>
+    </view>
+    <!-- 没有传入卡面 -->
+    <view class="box" wx:else>
+      <image src="../../../images/qtx1_69.png" class="bg_img"></image>
+      <view class="top_text">
+        <image src="../../../images/qtx1_06.png" class="icon_logoimg"></image>
+        <view>{{list.levelname}}</view>
+      </view>
+      <view class="content_text">{{list.cardCode}}</view>
+    </view>
+  </view>
+  <view class="content">
+      <view class="li">
+        <view class="text">卡等级名称</view>
+        <view class="rigth">
+          <view>{{list.levelname}}</view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="text">卡号</view>
+        <view class="rigth">
+          <view>{{list.cardCode}}</view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="text">余额</view>
+        <view class="rigth">
+          <view>{{filter.moneyFormat(list.balance)}}</view>
+          <!-- <image src="../../images/btn_004_enter.png" class="jiantou"></image> -->
+        </view>
+      </view>
+      <view class="li" catchtap='go_expensesrecord'>
+        <view class="text">使用记录</view>
+        <view class="rigth">
+          <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+        </view>
+      </view>
+      <view class="li">
+        <view class="text">设为默认会员卡</view>
+        <view class="rigth" catchtap='btn_checked'>
+          <image src="../../images/qb_008_on.png" wx:if="{{list.isdefault==1}}" class="icon_btn"></image>
+          <image src="../../images/qb_007_off.png" wx:else class="icon_btn"></image>
+        </view>
+      </view>
+      <view class="li" catchtap='go_unbindcard' wx:if="{{list.isemp!=0}}">
+        <view class="text">解绑会员卡</view>
+        <view class="rigth">
+          <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+        </view>
+      </view>
+  </view>
+
+  <view class="btn" catchtap='btn'>充值</view>
+</view>
+
+<!-- 密码输入框  -->
+<password id="password" bind:myevent="get_number_ok"></password>

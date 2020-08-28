@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "收益",
+  "usingComponents": {
+    "Title": "/components/title/title"
+    
+  }
+}

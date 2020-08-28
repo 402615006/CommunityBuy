@@ -19,18 +19,16 @@ namespace CommunityBuy.BLL
         /// 检验表单数据
         /// </summary>
         /// <returns></returns>
-        public bool CheckPageInfo(string type, string BusCode,string StoCode, string TStatus, string ChannelCodeList, string DisCode, string DisName, string OtherName, string TypeCode, string QuickCode, string Unit, string Price, string CostPrice,  string QRCode, string Descript)
+        public bool CheckPageInfo(string type, string Images, string StoCode, string TStatus, string DisName, string OtherName, string TypeCode, string QuickCode, string Unit, string Price, string CostPrice, string Descript)
         {
             bool rel = false;
             try
             {
                 Entity = new TB_DishEntity();
                 Entity.Id = 0;
-                Entity.BusCode = BusCode;
+                Entity.ImageName = Images;
                 Entity.StoCode = StoCode;
                 Entity.TStatus = TStatus;
-                Entity.ChannelCodeList = ChannelCodeList;
-                Entity.DisCode = DisCode;
                 Entity.DisName = DisName;
                 Entity.OtherName = OtherName;
                 Entity.TypeCode = TypeCode;
@@ -38,7 +36,6 @@ namespace CommunityBuy.BLL
                 Entity.Unit = Unit;
                 Entity.Price = StringHelper.StringToDecimal(Price);
                 Entity.CostPrice = StringHelper.StringToDecimal(CostPrice);
-                Entity.QRCode = QRCode;
                 Entity.Descript = Descript;
                 rel = true;
             }
@@ -51,11 +48,10 @@ namespace CommunityBuy.BLL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public void Add(string GUID, string UID, string BusCode, string StoCode, string TStatus, string ChannelCodeList, string DisCode, string DisName, string OtherName, string TypeCode, string QuickCode, string Unit, string Price, string CostPrice, string QRCode, string Descript)
+        public void Add(string GUID, string UID, string Images, string StoCode, string TStatus, string DisName, string OtherName, string TypeCode, string QuickCode, string Unit, string Price, string CostPrice, string Descript)
         {
-			DisCode = "0";
             int result = 0;
-            bool strReturn = CheckPageInfo("add", BusCode, StoCode, TStatus, ChannelCodeList, DisCode, DisName, OtherName, TypeCode, QuickCode, Unit, Price, CostPrice, QRCode, Descript);
+            bool strReturn = CheckPageInfo("add", Images, StoCode, TStatus, DisName, OtherName, TypeCode, QuickCode, Unit, Price, CostPrice, Descript);
             //数据页面验证
             result = dal.Add(ref Entity);
             //检测执行结果
@@ -129,12 +125,13 @@ namespace CommunityBuy.BLL
         {
             return new bllPaging().GetPagingInfo(
                 "TB_Dish dis " +
-                " left join [dbo].[TB_DishType] dist on dis.typecode=dist.PKCode and dist.stocode=dis.stocode " +
-                " left join [dbo].[TB_DishMenu] dism on dis.MenuCode=dism.PKCode  and dism.Stocode=dis.stocode "
-                ,
-                "dis.DisCode",
-                "dist.PKKCode as pdistypecode," +
-                "dist.TypeName,dism.MenuName" 
+                " left join [dbo].[TB_DishType] dist on dis.typecode=dist.PKCode " 
+                ,"dis.discode"
+                ,"dis.*,dist.PKKCode as pdistypecode," +
+                "dist.TypeName"+
+                ",(case dis.tstatus when '1' then '有效' else '无效' end) as statusname"+
+                ",[dbo].[fnGetDisheImages](dis.DisCode) as images"+
+                ",1 as IsMethod" 
                 , pageSize, currentpage, filter, "", order, out recnums, out pagenums);
         }
         /// <summary>
@@ -146,10 +143,10 @@ namespace CommunityBuy.BLL
         {
             TB_DishEntity Entity = new TB_DishEntity();
 			Entity.Id = StringHelper.StringToLong(dr["Id"].ToString());
-			Entity.BusCode = dr["BusCode"].ToString();
+			//Entity.BusCode = dr["BusCode"].ToString();
 			Entity.StoCode = dr["StoCode"].ToString();
 			Entity.TStatus = dr["TStatus"].ToString();
-			Entity.ChannelCodeList = dr["ChannelCodeList"].ToString();
+			//Entity.ChannelCodeList = dr["ChannelCodeList"].ToString();
 			Entity.DisCode = dr["DisCode"].ToString();
 			Entity.DisName = dr["DisName"].ToString();
 			Entity.OtherName = dr["OtherName"].ToString();
@@ -159,6 +156,7 @@ namespace CommunityBuy.BLL
 			Entity.Price = StringHelper.StringToDecimal(dr["Price"].ToString());
 			Entity.QRCode = dr["QRCode"].ToString();
 			Entity.Descript = dr["Descript"].ToString();
+            Entity.CostPrice = StringHelper.StringToDecimal(dr["CostPrice"].ToString());
             return Entity;
         }
 

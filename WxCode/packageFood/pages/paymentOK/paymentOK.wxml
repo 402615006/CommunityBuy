@@ -1,0 +1,30 @@
+<view class="paymentOK">
+  <view class='head'>
+    <image src="../../images/icon_023_zhifuchengg.png" class="icon"></image>
+    <view class="right">
+      <view class="type">
+        <text>支付方式：</text>
+        <text class="color_ea6248">{{payName}}</text>
+      </view>
+      <view class="price">
+        <text>支付金额：</text>
+        <text class="color_ea6248">￥{{money}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="content" wx:if="{{ShiftCode}}">
+    <view class="topblack"></view>
+    <view class="number">{{ShiftCode}}</view>
+    <view class="title">取餐码</view>
+    <view class="text">请尽快到窗口取餐</view>
+  </view>
+
+  <view class="btn">
+    <view class="button btn_left" catchtap="go_detail">查看订单</view>
+    <view class="button btn_right" catchtap="go_index">返回首页</view>
+  </view>
+
+  <view class="bg_img">
+    <!-- <image src="../../images/btn_024_quan.png" class="img"></image> -->
+  </view>
+</view>

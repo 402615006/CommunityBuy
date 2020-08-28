@@ -25,22 +25,15 @@ namespace CommunityBuy.BLL
             {
                 Entity = new TB_OrderDishEntity();
                 Entity.Id = StringHelper.StringToLong(Id);
-                Entity.BusCode = BusCode;
                 Entity.StoCode = StoCode;
-                Entity.CCode = CCode;
-                Entity.CCname = CCname;
 
                 Entity.OrderCode = OrderCode;
-                Entity.DisTypeCode = DisTypeCode;
                 Entity.DisCode = DisCode;
                 Entity.DisName = DisName;
-                Entity.MemPrice = StringHelper.StringToDecimal(MemPrice);
                 Entity.Price = StringHelper.StringToDecimal(Price);
                 Entity.DisUite = DisUite;
                 Entity.DisNum = StringHelper.StringToDecimal(DisNum);
 
-                Entity.PDisCode = PDisCode;
-                Entity.Remar = Remar;
                 Entity.PKCode = PKCode;
 
                 Entity.TotalMoney = StringHelper.StringToDecimal(TotalMoney);
@@ -150,22 +143,15 @@ namespace CommunityBuy.BLL
         {
             TB_OrderDishEntity Entity = new TB_OrderDishEntity();
 			Entity.Id = StringHelper.StringToLong(dr["Id"].ToString());
-			Entity.BusCode = dr["BusCode"].ToString();
 			Entity.StoCode = dr["StoCode"].ToString();
-			Entity.CCode = dr["CCode"].ToString();
-			Entity.CCname = dr["CCname"].ToString();
 			
 			Entity.OrderCode = dr["OrderCode"].ToString();
-			Entity.DisTypeCode = dr["DisTypeCode"].ToString();
 			Entity.DisCode = dr["DisCode"].ToString();
 			Entity.DisName = dr["DisName"].ToString();
-			Entity.MemPrice = StringHelper.StringToDecimal(dr["MemPrice"].ToString());
 			Entity.Price = StringHelper.StringToDecimal(dr["Price"].ToString());
 			Entity.DisUite = dr["DisUite"].ToString();
 			Entity.DisNum = StringHelper.StringToDecimal(dr["DisNum"].ToString());
 
-			Entity.PDisCode = dr["PDisCode"].ToString();
-			Entity.Remar = dr["Remar"].ToString();
 			Entity.PKCode = dr["PKCode"].ToString();
 
 			Entity.TotalMoney = StringHelper.StringToDecimal(dr["TotalMoney"].ToString());

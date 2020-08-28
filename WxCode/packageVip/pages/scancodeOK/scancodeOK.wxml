@@ -1,0 +1,9 @@
+
+
+<view class="scancodeOK">
+  <view class="img_div">
+    <image src="../../images/icon_015_yuyue.png" class="img"></image>
+  </view>
+  <view class="text">支付成功</view>
+  <view class="price">￥<text class="number">{{payresult}}</text></view>
+</view>

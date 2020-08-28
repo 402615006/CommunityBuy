@@ -1,0 +1,266 @@
+
+page{
+  background-color: #f7f7f7;
+}
+.list{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+}
+.head{
+  /* background-color: #dedede; */
+  width: 100%;
+  height: 322rpx;
+}
+.bg_img{
+  width: 100%;
+  height:100%;
+  position: relative;
+  background-color: #f4ebeb;
+}
+.bg_images{
+  width: 100%;
+  height: 100%;
+}
+.logo{
+  width: 127rpx;
+  height: 127rpx;
+  position: absolute;
+  left:50%;
+  top:40%;
+  transform: translateX(-50%);
+  background-color: #fff;
+}
+.logo_img{
+  width: 127rpx;
+  height: 127rpx;
+}
+
+.head .title{
+  font-size: 32rpx;
+  font-weight: 600;
+  color:#333333;
+  background-color:#cccccc;
+  position:absolute;
+  bottom:0rpx;
+  padding-top:4rpx;
+  padding-bottom: 4rpx;
+  width:100%;
+  text-align:center;
+  opacity: 0.8;
+}
+
+/* 下方选菜类容 */
+.content{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff;
+  position: fixed;
+  top:322rpx;
+  bottom:110rpx;
+  left:0;
+  right:0;
+  z-index: 1;
+}
+.content .left{
+  width: 168rpx;
+  height: 100%;
+  background-color: #ddd;
+  font-size:14rpx;
+}
+.scroll_left{
+  width: 138rpx;
+  height: 100%;
+}
+.left_li{
+  width: 100%;
+  min-height:100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color:#575757;
+  position: relative;
+  z-index: 0;
+  font-weight:700;
+  display: flex;
+  align-items: center;
+  padding:10rpx;
+  box-sizing: border-box;
+  word-wrap:break-word;
+  border-bottom: solid 1px #ccc;
+}
+.TypeName{
+  width: 100%;
+  text-align: left;
+  font-size: 30rpx;
+  color:#575757;
+  padding-left:20rpx;
+  box-sizing: border-box;
+}
+.TypeNameselect_border{
+  border-left:5rpx solid #ea6248;
+}
+.select_leftindex{
+  background-color: #fff;
+  color:#13161a;
+  font-weight: 600;
+}
+.content .right{
+  flex: 1;
+  height: 100%;
+  position: relative;
+  /* padding-left:40rpx; */
+  box-sizing: border-box;
+  overflow:hidden;
+}
+
+.scroll_right{
+  position: absolute;
+  /* top:70rpx; */
+  left:0;
+  right:0rpx;
+  /* bottom:0; */
+  box-sizing: border-box;
+  overflow:hidden;
+}
+.right_ul{
+  width: 100%;
+  padding-bottom:20rpx;
+}
+.right_li{
+  display: flex;
+  justify-content: flex-start;
+  /* margin-bottom:30rpx; */
+  position: relative;
+  box-shadow: 0 0 4px #949494;
+  min-height:200rpx;
+  width: 551rpx;
+  margin-left:16rpx;
+  margin-top:16rpx;
+  box-sizing: border-box;
+  border-radius: 4rpx;
+}
+.finish{
+  position: absolute;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  z-index: 2;
+  background-color: #fff;
+  opacity: 0.7;
+}
+.right_li .img{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+  position: relative;
+  padding:10rpx;
+}
+
+.right_li image{width:100%;height:100%;}
+
+.right_li .yuan{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #c8c8c9;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 100rpx;
+  position: absolute;
+  color:#fff;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%)
+}
+.right_content{
+  flex:1;
+  position: relative;
+  text-align: left;
+  padding-bottom:60rpx;
+  box-sizing: border-box;
+  padding:10rpx;
+}
+.right_content .name{
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.right_content .detail{
+  width: 100%;
+  font-size: 24rpx;
+  color:#9d9d9d;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top:10rpx;
+  box-sizing: border-box;
+}
+.right_content .detail .detail_icon{
+  width: 25rpx;
+  height: 22rpx;
+  margin-right:10rpx;
+}
+.right_content .MemPrice{
+  /* height: 24rpx;
+  line-height: 24rpx; */
+  height: 34rpx;
+  margin-top:10rpx;
+  font-size: 20rpx;
+  color:#ea6248;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.right_content .youhui{
+  border:1rpx solid #cc9a4b;
+  border-radius: 4rpx;
+  padding-left:4rpx;
+  padding-right:4rpx;
+  color:#cc9a4b;
+}
+.right_content .price{
+  /* position: absolute;
+  left:20rpx;
+  bottom:0; */
+  margin-top:20rpx;
+  font-size: 24rpx;
+  color:#ea6248;
+  letter-spacing:3rpx;
+}
+.right_content .number{
+  font-size:32rpx;
+  font-weight: 600;
+}
+.color_cc9a4b{
+  color:#cc9a4b;
+}
+.font_size30{
+  font-size: 30rpx;
+}
+.font_size22{
+  font-size: 22rpx;
+}
+.color_838383{
+  color:#838383
+}
+.color_eb6c54{
+  color:#eb6c54;
+}
+.margin_top10{
+  margin-top:10rpx;
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.icon_q{
+  height: 34rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}

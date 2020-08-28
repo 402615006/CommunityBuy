@@ -1,0 +1,24 @@
+
+
+  <view class="conform" wx:if="{{isshowbox}}">
+    <view class="conform_box" >
+      <image src="../../../images/cha.png" class="cha" catchtap="cen_box"></image>
+      <view class="head">
+        <image class="img" src="{{list.headimgurl}}" bindtap='previewImg' data-src='{{list.headimgurl}}'></image>
+        <view class="name">{{list.nickname}}</view>
+      </view>
+      <view class="warp" wx:if="{{warp_show}}">
+        <view class="smbox">
+          <view>上月预估收益</view>
+          <view class="price">￥{{list.memearnM}}</view>
+        </view>
+        <view class="smbox">
+          <view>累计预估收益</view>
+          <view class="price">￥{{list.memearn}}</view>
+        </view>
+      </view>
+      <view class="bottom">
+        注册时间 {{list.ctimestr}}
+      </view>
+    </view>
+  </view>

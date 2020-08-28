@@ -1,0 +1,250 @@
+
+page{
+  background-color: #ea4330;
+}
+
+.red_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.3;
+  overflow: hidden;
+  z-index: 10;
+}
+.red_content{
+  position: fixed;
+  width: 620rpx;
+  min-height: 300rpx;
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  transform:translate(-50%,-50%)  scale(0);
+  text-align: center;
+  z-index: 11;
+  border-radius: 8rpx;
+  padding-top:50rpx;
+  box-sizing: border-box;
+  transition: 0.6s;
+}
+.red_contenthide{
+  width: 620rpx;
+  min-height: 300rpx;
+  transform:translate(-50%,-50%) scale(1);
+}
+.red_content_title{
+  font-size: 28rpx;
+}
+.red_content_warp{
+  width: 100%;
+  padding:50rpx 28rpx  170rpx 28rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  color:#3d3c42;
+  line-height: 40rpx;
+  text-align: left;
+}
+.red_content_btn{
+  width: 536rpx;
+  height: 76rpx;
+  text-align: center;
+  line-height: 78rpx;
+  background-color: #ee685d;
+  border-radius: 6rpx;
+  font-size: 32rpx;
+  color:#fff;
+  position: absolute;
+  left:50%;
+  bottom:30rpx;
+  transform: translateX(-50%);
+}
+
+.top{
+  width: 750rpx;
+  height: 500rpx;
+  position: sticky;
+  top:0;
+  overflow: hidden;
+  z-index: 2;
+}
+.top_text{
+  width:100%;
+  position: absolute;
+  top:120rpx;
+  left:0;
+  text-align: center;
+  font-size: 35rpx;
+  color:#fff;
+}
+.margin_right30{
+  margin-right:30rpx;
+}
+.title_img{
+  position: absolute;
+  width: 426rpx;
+  height: 62rpx;
+  top:45rpx;
+  left:50%;
+  transform: translateX(-50%);
+}
+.guize{
+  position: absolute;
+  top:20rpx;
+  right:20rpx;
+  height: 38rpx;
+  font-size: 20rpx;
+  color:#e73f32;
+  line-height: 38rpx;
+  background-color: #efcfa6;
+  border-radius: 19rpx;
+  padding:0 12rpx;
+  text-align: center;
+}
+.top_bg{
+  width: 750rpx;
+  height: 628rpx;
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: -1;
+}
+.top_zhuanxiang{
+  width: 310rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  color:#cdc4b2;
+  font-size: 26rpx;
+  position: absolute;
+  left:50%;
+  top:225rpx;
+  transform: translateX(-50%);
+}
+.top_content_box {
+  width: 310rpx;
+  height: 150rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 90rpx;
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 150rpx;
+  color: #dc243c;
+  font-size: 40rpx;
+}
+.top_content_price{
+  font-size: 74rpx;
+  font-weight: 600;
+}
+.content{
+  width: 100%;
+  padding-bottom:150rpx;
+  box-sizing: border-box;
+}
+.li{
+  width: 690rpx;
+  height:190rpx;
+  background-color: #fff;
+  margin:auto;
+  position: relative;
+  margin-bottom:20rpx;
+  padding:20rpx 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+}
+.left{
+  width: 200rpx;
+  height: 100%;
+  border-right: 1rpx dashed #dddddd;
+  display: flex;
+  justify-content: flex-start;
+  padding:20rpx 0;
+  box-sizing: border-box;
+}
+.left_money{
+  width: 200rpx;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.sm{
+  font-size: 24rpx;
+  color:#ea6248;
+}
+.coupon_start{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.left_money .price{
+  font-size: 60rpx;
+  color:#ea6248;
+  font-weight: 600;
+}
+.left_money .type{
+  width: 100%;
+  text-align: center;
+  font-size: 22rpx;
+}
+.right{
+  flex: 1;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.conponname{
+  font-size: 24rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.yuanl{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: #ea4330;
+  position: absolute;
+  left:-15rpx;
+  top:80rpx;
+}
+.yuanr{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: #ea4330;
+  position: absolute;
+  right:-15rpx;
+  top:80rpx;
+}
+.btn{
+  width: 632rpx;
+  height: 88rpx;
+  position: fixed;
+  z-index: 2;
+  bottom:50rpx;
+  left:50%;
+  transform: translateX(-50%);
+}
+.btn_bg{
+  width: 632rpx;
+  height: 88rpx;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+.btn_text{
+  width: 632rpx;
+  height: 88rpx;
+  font-size: 42rpx;
+  color:#e32f38;
+  text-align: center;
+  line-height: 88rpx;
+  font-weight: 600;
+}

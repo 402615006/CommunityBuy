@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "会员",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "Text": "./components/text"
+  }
+}

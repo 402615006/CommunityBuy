@@ -1,0 +1,325 @@
+/* components/login/login.wxss */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* background: #000; */
+  /* opacity: 0.8; */
+  background: rgba(0,0,0,0.7);
+  overflow: hidden;
+  z-index: 50;
+  /* color: #fff; */
+}
+/*对话框 */
+/* .commodity_attr_box {
+  height: 600rpx;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: 2000;
+} */
+
+.login_bj{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+.login_icon0{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 30rpx;
+}
+.login_img{
+  position: fixed;
+  width: 640rpx;
+  height:  700rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 33;
+}
+.login_content{
+  position: fixed;
+  /* background-color: #fff; */
+  width: 640rpx;
+  height:  700rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  z-index: 44;
+  border-radius: 8rpx;
+}
+.login_top{
+  margin-top: 90rpx;
+}
+.login_icon{
+  width: 50rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 0;
+  bottom: 20rpx;
+}
+
+.login_icon1{
+  width: 60rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 0;
+  bottom: 20rpx;
+}
+.login_text{
+  width: 500rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #dedede;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.login_input{
+  width: 400rpx;
+  height: 70rpx;
+   position: absolute;
+  left: 80rpx;
+  bottom: 10rpx;
+  text-align: left;
+  font-size: 30rpx;
+}
+.code_input{
+  width: 200rpx;
+  height: 70rpx;
+   position: absolute;
+  left: 80rpx;
+  bottom: 10rpx;
+  text-align: left;
+  font-size: 30rpx;
+}
+
+.login_btn{
+  width: 500rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  line-height: 100rpx;
+  margin: 0 auto;
+  margin-top: 50rpx;
+  background-color: #ee695d;
+  color:#fff;
+  font-size: 36rpx;
+}
+.weixinlogin{
+
+  width: 500rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+
+
+}
+.login_code{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  right: 0;
+  bottom: 10rpx;
+  color:#fff;
+  font-size: 30rpx;
+  background-color: #ee695d;
+}
+
+/* button[plain] {
+  color: #ee695d;
+  border:none;
+
+} */
+.weixinlogin{
+  color:#ee695d;
+  border:none;
+  font-size: 24rpx;
+} 
+
+
+.box{
+  position: fixed;
+  width: 600rpx;
+  height:  500rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  z-index: 44;
+  border-radius: 8rpx;
+  background-color: #fff;
+  overflow: hidden;
+}
+.foot{
+  position: absolute;
+  left:0;
+  bottom:0;
+  background-color: #e6e6e6;
+  width: 100%;
+  height: 100rpx;
+  font-size: 30rpx;
+  color: #ee695d;
+  line-height: 100rpx;
+  text-align: center;
+}
+.content{
+  width: 100%;
+  padding:57rpx 45rpx 0 45rpx;
+  box-sizing: border-box;
+  color:#646464;
+}
+.content .head{
+  font-size: 30rpx;
+  margin-bottom:20rpx;
+}
+.content .text{
+  font-size: 26rpx;
+  line-height: 50rpx;
+  text-align: left;
+}
+.log_url{
+  position: absolute;
+  bottom: 20rpx;
+  left:70rpx;
+  opacity:1
+}
+
+
+.login_wechat{
+  position: fixed;
+  /* background-color: #fff; */
+  width: 640rpx;
+  height:  700rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  z-index: 44;
+  border-radius: 8rpx;
+}
+
+.img_lp{
+  width: 150rpx;
+  height: 150rpx;
+  margin:auto;
+  margin-top:50rpx;
+}
+
+.login_lp{
+  width: 500rpx;
+  height: 64rpx;
+  border:1px solid #ee685d;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  color:#ee685d;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 64rpx;
+  margin:auto;
+  margin-top:20rpx;
+  background-color: #fff;
+}
+.huo{
+  font-size: 24rpx;
+  color:#a5a5a5;
+  margin-top:40rpx;
+
+}
+.tel_text{
+  font-size: 26rpx;
+  color:#3c3c3c;
+  margin-top:30rpx;
+  text-decoration:underline;
+}
+
+.wechat_text{
+  width:500rpx;
+  height:70rpx;
+  line-height:70rpx;
+  margin:0 auto;
+  margin-top:30rpx;
+  color:#ee695d;
+  border:none;
+  font-size:24rpx;
+}
+
+
+
+.user_boby {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* background: rgba(0, 0, 0, 0.7); */
+  overflow: hidden;
+  z-index: 999;
+}
+
+.user_info {
+  position: fixed;
+  z-index: 1000;
+  background-color: #fff;
+  width: 550rpx;
+  height: 260rpx;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -45%);
+  border-radius: 10rpx;
+}
+
+.user_tlt {
+  width: 100%;
+  height: 160rpx;
+  text-align: center;
+  line-height: 160rpx;
+}
+
+.user_bott {
+  border-top: 1rpx solid #c8c8c8;
+  width: 100%;
+  height: 100rpx;
+  display: inline-flex;
+}
+
+.user_tt {
+  flex: 1;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.user_btn {
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #646464;
+  font-size: 30rpx;
+}
+
+.user_bor {
+  border-right: 1rpx solid #c8c8c8;
+}
+
+.icohold {
+  border-radius: 50%;
+}
+
+.hove_bg {
+  background-color: #f33e3e;
+}
+

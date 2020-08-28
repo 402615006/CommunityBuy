@@ -1,0 +1,27 @@
+/* components/badge/badge.wxss */
+
+.badge{
+  
+
+}
+.tip{
+  position:absolute;
+  transform:translateX(50%);
+  top:-2rpx;
+  right:20rpx;
+  height:28rpx;
+  border-radius:18rpx;
+  min-width:28rpx;
+  background:#e60012;
+  /* border:2rpx solid transparent; */
+  color:#fff;
+  line-height:28rpx;
+  text-align:center;
+  padding:0 10rpx;
+  font-size:14rpx;
+  white-space:nowrap;
+  transform-origin:-10% center;
+  z-index:2;
+  box-sizing:border-box;
+  text-rendering:optimizeLegibility;
+}

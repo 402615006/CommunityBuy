@@ -1,0 +1,17 @@
+/* components/conputed/computed.wxss */
+
+.computed{
+  color:#ee695d;
+  word-break:break-all;
+  display: block;
+}
+.icon_size2{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+.number{
+  color:#646464;
+  font-size: 30;
+  margin:0 20rpx;
+}

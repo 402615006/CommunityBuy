@@ -1,0 +1,149 @@
+
+.scoll-y{
+  height: 100%;
+}
+
+.li{
+  width: 100%;
+  padding:30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #fff;
+  margin-top: 10rpx;
+}
+.li_left{
+  width: 176rpx;
+}
+.img{
+  width: 176rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+}
+.li_right{
+  flex: 1;
+  padding-left:30rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.h2{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.title{
+  font-size: 30rpx;
+  color:#000;
+  font-weight: 600;
+  margin-right:15rpx;
+}
+.tip{
+  min-width: 135rpx;
+  height: 30rpx;
+  background-color: #f6d19a;
+  border-radius: 4rpx;
+  color:#a47847;
+  font-size: 18rpx;
+  padding-left:45rpx;
+  box-sizing: border-box;
+  line-height: 30rpx;
+  position: relative;
+}
+.icon_guan{
+  width: 28rpx;
+  height: 20rpx;
+  position: absolute;
+  left:8rpx;
+  top:50%;
+  transform: translateY(-50%);
+}
+.time{
+  font-size: 18rpx;
+  color:#838383;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 100%;
+}
+.detail{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  border-top:1rpx solid #e6e6e6;
+}
+.detail_text{
+  max-width: 350rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-size: 20rpx;
+  color:#838383;
+}
+.price{
+  font-size: 28rpx;
+  color:#e96149;
+}
+.footer{
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: flex-end;
+  margin-top:15rpx;
+  position: relative;
+}
+.btn{
+  width: 148rpx;
+  height: 50rpx;
+  border-radius: 5rpx;
+  border:1rpx solid #e2e2e2;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  color:#575757;
+}
+
+/* 没有订单信息 */
+.no_data {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+}
+
+.no_data_icon {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.no_data_btn {
+  padding: 15rpx 0rpx;
+  border: 1rpx solid #ee695d;
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+}
+
+.canceltext{
+  color:#9b9a9a;
+}
+.wx_color96 {
+  color: #969696;
+}
+.wx_margin_top {
+  margin-top: 20rpx;
+}
+.ple{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ee695d;
+}
+.iconSta{
+  position: absolute;
+  right: 0rpx;
+  top: -10rpx;
+  width: 130rpx;
+  height: 100rpx;
+}

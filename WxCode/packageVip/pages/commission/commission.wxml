@@ -1,0 +1,93 @@
+
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="commission">
+  <Title  title="收益"  my_class="true" ></Title>
+  <image src="../../images/qb_016_di.png" class="bg"></image>
+
+  <view class="head">
+    <view class="h2">
+      <view class="head_left">
+        <view class="head_title">累计预估收益</view>
+        <view class="head_price" wx:if="{{list.earn>=0}}">
+          <text>￥{{filter.splitpriceOne(list.earn)}}</text><text class="font_size26">{{filter.splitpriceTwo(list.earn)}}</text>
+        </view>
+      </view>
+      <view class="btn_tixian" catchtap="go_withdraw">提现</view>
+    </view>
+    <view class="head_box">
+      <view class="sm_box">
+        <view class="sm_price">{{list.todaygood}}</view>
+        <view class="sm_text">今日预估商品佣金</view>
+      </view>
+      <view class="sm_box">
+        <view class="sm_price">{{list.todaymem}}</view>
+        <view class="sm_text">今日会员推广佣金</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="content_box">
+    <view class="sm_box">
+      <view class="sm_text2">上月预估收入（元）</view>
+      <view class="sm_price2">{{list.earnLM}}</view>
+    </view>
+    <view class="sm_box">
+      <view class="sm_text2">本月预估收入（元）</view>
+      <view class="sm_price2">{{list.earnM}}</view>
+    </view>
+    <view class="gang"></view>
+  </view>
+
+  <view class="content_text" wx:if="{{list.note}}" catchtap="go_Billinginstructions">
+    <image src="../../images/qb_017_tishi.png" class="icon_lingdang"></image>
+    <view class="font_size22 content_title">{{list.note}}</view>
+    <image src="../../images/bangzhu.png" class="icon_wenhao" ></image>
+  </view>
+
+  <view class="tab">
+    <view class="li" wx:for="{{tab}}" wx:key="{{index}}" catchtap="btn_tab" data-index="{{index}}">
+      <view class="item">{{item}}</view>
+      <view class="select_box" wx:if="{{tab_index==index}}"></view>
+    </view>
+  </view>
+
+  <view class="footer_box">
+    <view class="tab_box">
+      <view class="footer_boxt">预估总收益</view>
+      <view class="footer_price">{{list2.earn}}</view>
+      <view class="shugang"></view>
+    </view>
+    <view class="tab_box">
+      <view class="footer_boxt">普通商品推广</view>
+      <view class="footer_price">{{list2.goodpt}}</view>
+      <view class="shugang"></view>
+    </view>
+    <view class="tab_box">
+      <view class="footer_boxt">普通会员推广</view>
+      <view class="footer_price">{{list2.mempt}}</view>
+    </view>
+    <view class="tab_box">
+      <view class="footer_boxt">专属商品推广</view>
+      <view class="footer_price">{{list2.goodzs}}</view>
+      <view class="shugang"></view>
+    </view>
+    <view class="tab_box">
+      <view class="footer_boxt">专属会员推广</view>
+      <view class="footer_price">{{list2.memzs}}</view>
+    </view>
+  </view>
+
+  <view class="footer_li" catchtap="go_IncomeBreakdown">
+    <view>已确认佣金收入明细</view>
+    <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+  </view>
+  <view class="footer_li" catchtap="go_IncomeBreakdown">
+    <view>待确认佣金收入明细</view>
+    <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+  </view>
+  <view class="footer_li" catchtap="go_tixianlist">
+    <view>提现记录</view>
+    <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+  </view>
+</view>

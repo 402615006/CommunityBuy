@@ -1,0 +1,47 @@
+
+.top_gang{
+  width: 100%;
+  height: 1rpx;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: #e6e6e6;
+}
+.content{
+  padding:0 30rpx;
+  box-sizing: border-box;
+}
+.li{
+  display: flex;
+  justify-content: space-between;
+  border-bottom:1rpx solid #e6e6e6;
+  padding:30rpx 0;
+  box-sizing: border-box;
+  align-items: center;
+}
+.left{
+  width: 450rpx
+}
+.name{
+  font-size: 30rpx;
+  color:#3d3c42;
+}
+.time{
+  margin-top:22rpx;
+  font-size: 24rpx;
+  color:#838383;
+}
+.right{
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
+}
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.number{
+  font: 34rpx;
+  color:#3d3c42;
+}

@@ -1,0 +1,74 @@
+
+<view class="Myrank">
+  <image src="../../images/hyzx_02.png" class="bg"></image>
+  <view class="box1">
+    <view class="img_box">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="test">
+      <view class="name">
+        <open-data type="userNickName" lang="zh_CN"></open-data>
+      </view>
+      <view class="type" wx:if="{{memlevel==0}}">普通会员</view>
+      <view class="type" wx:if="{{memlevel==1}}">vip会员 <text class="date">{{expdate}}到期</text></view>
+      <view class="type" wx:if="{{memlevel==2}}">服务商 <text class="date">{{expdate}}到期</text></view>
+    </view>
+  </view>
+
+  <view class="box2">
+    <view class="sm_box">
+      <view class="sm_box_title">商品推广权益</view>
+      <view class="sm_box_num" wx:if="{{memlevel==2}}">{{pro.fircom}}%</view>
+      <view class="sm_box_num" wx:if="{{memlevel==1}}">{{pro.firvipcom}}%</view>
+      <view class="sm_box_num" wx:if="{{memlevel==0}}">{{pro.firnorcom}}%</view>
+    </view>
+    <view class="sm_box">
+      <view class="sm_box_title">会员推广权益</view>
+      <view class="sm_box_num" wx:if="{{memlevel==2}}">{{gift.buscom}}%</view>
+      <view class="sm_box_num" wx:if="{{memlevel==1}}">{{gift.firvipcom}}%</view>
+      <view class="sm_box_num" wx:if="{{memlevel==0}}">{{gift.firnorcom}}%</view>
+    </view>
+    <view class="gang"></view>
+  </view>
+
+  <view class="Title">
+   <image src="/images/hy_002_zs.png" class="icon_tubiao"></image>
+   <view class="mar_lr">会员权益说明</view>
+   <image src="/images/hy_002_zs.png" class="icon_tubiao trrotate180"></image>
+  </view>
+
+  
+  <view class="content">
+    <view class="li">
+      <view class="li_text"></view>
+      <view class="li_text">商品推广最高返利</view>
+      <view class="li_text">会员推广最高返利</view>
+    </view>
+    <view class="li">
+      <view class="li_text">普通会员</view>
+      <view class="li_text text_aligncenter">{{pro.firnorcom}}%</view>
+      <view class="li_text text_aligncenter">{{gift.firnorcom}}%</view>
+    </view>
+    <view class="li">
+      <view class="li_text">VIP会员</view>
+      <view class="li_text text_aligncenter">{{pro.firvipcom}}%</view>
+      <view class="li_text text_aligncenter">{{gift.firvipcom}}%</view>
+    </view>
+    <view class="li">
+      <view class="li_text">服务商</view>
+      <view class="li_text text_aligncenter">{{pro.fircom}}%</view>
+      <view class="li_text text_aligncenter">{{gift.buscom}}%</view>
+    </view>
+  </view>
+
+  <view class="btn" wx:if="{{memlevel==0}}" catchtap="go_Myrank">升级VIP</view>
+  <view class="footer_text" wx:if="{{memlevel==0}}">拿更高佣金,请升级成VIP会员</view>
+
+  <view class="footer_test" wx:if="{{memlevel==1}}">
+    您是尊贵的会员，享有高佣金比例，请再接再厉，邀请更多会员可升级为服务商
+  </view>
+
+  <view class="footer_test" wx:if="{{memlevel==2}}">
+    您是尊贵的服务商，享有最高的佣金比例，请再接再厉，邀请更多会员佣金比例越大
+  </view>
+</view>

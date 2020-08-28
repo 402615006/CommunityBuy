@@ -1,0 +1,39 @@
+
+
+
+
+<view class="bindcard">
+
+  <view class="head">
+    <view class="box">
+      <image src="../../../images/hyk_022_cika.png" class="bg_img"></image>
+      <view class="top_text">
+        <view>{{list.levelname}}</view>
+      </view>
+      <view class="warp">
+        <text>总次数</text><text class="number">{{list.times}}次</text>
+      </view>
+      <view class="footer">
+        <view class="footer_left">
+            ￥<text class="price">{{list.balance}}</text>
+        </view>
+      </view>
+      <!-- <view class="content_text">{{cardcode}}</view>
+      <view class="footer_text">有效期至{{list.validatestr}}</view> -->
+    </view>
+  </view>
+  <view class="content">
+      <view class="li">
+        <view class="text">剩余次数</view>
+        <view class="rigth">
+          <view>{{list.balance}}</view>
+        </view>
+      </view>
+      <view class="li" catchtap='go_expensesrecord'>
+        <view class="text">使用记录</view>
+        <view class="rigth">
+          <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+        </view>
+      </view>
+  </view>
+</view>

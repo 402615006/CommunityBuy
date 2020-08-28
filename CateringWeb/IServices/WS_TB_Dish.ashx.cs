@@ -34,9 +34,9 @@ namespace CommunityBuy.IServices
                         case "getlist"://列表
                             GetList(dicPar);
                             break;
-                        case "add"://添加							
-                            Add(dicPar);
-                            break;
+                        //case "add"://添加							
+                        //    Add(dicPar);
+                        //    break;
                         case "detail"://详细
                             Detail(dicPar);
                             break;
@@ -168,41 +168,41 @@ namespace CommunityBuy.IServices
             ReturnListJson(dt, pageSize, recordCount, currentPage, totalPage);
         }
 
-        private void Add(Dictionary<string, object> dicPar)
-        {
-            //要检测的参数信息
-            List<string> pra = new List<string>() { "GUID", "USER_ID", "userid", "BusCode", "StoCode", "CCname", "UCname", "TStatus", "ChannelCodeList", "DisCode", "DisName", "OtherName", "TypeCode", "QuickCode", "CusDisCode", "Unit", "Price", "MenuCode", "MemPrice", "CostPrice", "RoyMoney", "ExtCode", "FinCode", "KitCode", "CookerCode", "MakeTime", "QRCode", "WarCode", "MatCode", "Descript", "IsCount", "DefCount", "CountPrice", "IsVarPrice", "IsWeight", "IsMethod", "IsStock", "IsPoint", "IsMemPrice", "IsCoupon", "IsKeep", "IsCombo", "CCode", "UCode", "ImageName", "dishesMethodsJson", "dishescombosJson", "dishescomboinfoJson" };
-            //检测方法需要的参数
-            if (!CheckActionParameters(dicPar, pra))
-            {
-                return;
-            }
-            //获取参数信息
-            string userid = dicPar["userid"].ToString();
-            string GUID = dicPar["GUID"].ToString();
-            string USER_ID = dicPar["USER_ID"].ToString();
-            string BusCode = dicPar["BusCode"].ToString();
-            string StoCode = dicPar["StoCode"].ToString();
-            string TStatus = dicPar["TStatus"].ToString();
-            string ChannelCodeList = "";
-            string DisCode = dicPar["DisCode"].ToString();
-            string DisName = dicPar["DisName"].ToString();
-            string OtherName = dicPar["OtherName"].ToString();
-            string TypeCode = dicPar["TypeCode"].ToString();
-            string QuickCode = dicPar["QuickCode"].ToString();
-            string Unit = dicPar["Unit"].ToString();
-            string Price = dicPar["Price"].ToString();
-            string CostPrice = dicPar["CostPrice"].ToString();
-            string QRCode = dicPar["QRCode"].ToString();
-            string Descript = dicPar["Descript"].ToString();
-            if (string.IsNullOrEmpty(QuickCode))
-            {
-                QuickCode = StringHelper.GetChineseSpell(DisName);
-            }
-            //调用逻辑
-            bll.Add( GUID, USER_ID,  BusCode,  StoCode,  TStatus,  ChannelCodeList,  DisCode,  DisName,  OtherName,  TypeCode,  QuickCode,  Unit,  Price,  CostPrice,  QRCode,  Descript);
-            ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
-        }
+        //private void Add(Dictionary<string, object> dicPar)
+        //{
+        //    //要检测的参数信息
+        //    List<string> pra = new List<string>() { "GUID", "USER_ID", "userid", "BusCode", "StoCode", "CCname", "UCname", "TStatus", "ChannelCodeList", "DisCode", "DisName", "OtherName", "TypeCode", "QuickCode", "CusDisCode", "Unit", "Price", "MenuCode", "MemPrice", "CostPrice", "RoyMoney", "ExtCode", "FinCode", "KitCode", "CookerCode", "MakeTime", "QRCode", "WarCode", "MatCode", "Descript", "IsCount", "DefCount", "CountPrice", "IsVarPrice", "IsWeight", "IsMethod", "IsStock", "IsPoint", "IsMemPrice", "IsCoupon", "IsKeep", "IsCombo", "CCode", "UCode", "ImageName", "dishesMethodsJson", "dishescombosJson", "dishescomboinfoJson" };
+        //    //检测方法需要的参数
+        //    if (!CheckActionParameters(dicPar, pra))
+        //    {
+        //        return;
+        //    }
+        //    //获取参数信息
+        //    string userid = dicPar["userid"].ToString();
+        //    string GUID = dicPar["GUID"].ToString();
+        //    string USER_ID = dicPar["USER_ID"].ToString();
+        //    string BusCode = dicPar["BusCode"].ToString();
+        //    string StoCode = dicPar["StoCode"].ToString();
+        //    string TStatus = dicPar["TStatus"].ToString();
+        //    string ChannelCodeList = "";
+        //    string DisCode = dicPar["DisCode"].ToString();
+        //    string DisName = dicPar["DisName"].ToString();
+        //    string OtherName = dicPar["OtherName"].ToString();
+        //    string TypeCode = dicPar["TypeCode"].ToString();
+        //    string QuickCode = dicPar["QuickCode"].ToString();
+        //    string Unit = dicPar["Unit"].ToString();
+        //    string Price = dicPar["Price"].ToString();
+        //    string CostPrice = dicPar["CostPrice"].ToString();
+        //    string QRCode = dicPar["QRCode"].ToString();
+        //    string Descript = dicPar["Descript"].ToString();
+        //    if (string.IsNullOrEmpty(QuickCode))
+        //    {
+        //        QuickCode = StringHelper.GetChineseSpell(DisName);
+        //    }
+        //    //调用逻辑
+        //    bll.Add( GUID, USER_ID,  BusCode,  StoCode,  TStatus,  ChannelCodeList,  DisCode,  DisName,  OtherName,  TypeCode,  QuickCode,  Unit,  Price,  CostPrice,  QRCode,  Descript);
+        //    ReturnResultJson(bll.oResult.Code, bll.oResult.Msg);
+        //}
 
         private void Update(Dictionary<string, object> dicPar)
         {

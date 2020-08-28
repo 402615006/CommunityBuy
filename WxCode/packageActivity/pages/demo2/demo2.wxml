@@ -1,0 +1,32 @@
+
+
+
+<view class="video_box">
+  <Title title="" my_class="true"  background="''"></Title>
+
+  <swiper class="swiper"  vertical="true" bindchange="swiperChange" current="{{video_index}}">
+
+      <block wx:for="{{video_list}}" wx:key="index" >
+        <swiper-item>
+          <video id="myVideo{{index}}" custom-cache="{{false}}" src="{{item.video_src}}" vslide-gesture-in-fullscreen="{{false}}"  enable-progress-gesture="{{false}}" show-fullscreen-btn="{{false}}" object-fit="cover"  loop="true"   initial-time="0" controls="{{flase}}" enable-play-gesture="true"></video>
+
+          <view class="warp">
+            <view class="name">{{item.name}}</view>
+            <view class="text">{{item.text}}</view>
+            <view class="muic_name">{{item.muic_name}}</view>
+          </view>
+        </swiper-item>
+      </block>
+  </swiper>
+
+  <!-- 底部footer -->
+  <view class="footer">
+    <view class="gang"></view>
+    <block wx:for="{{tab}}" wx:key="index">
+      <view  class="font_size30 {{index==tab_index?'select_bar':''}}" data-index="{{index}}" catchtap="btn_tab">{{item}}</view>
+    </block>
+  </view>
+</view>
+
+
+

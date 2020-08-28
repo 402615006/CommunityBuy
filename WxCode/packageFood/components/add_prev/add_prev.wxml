@@ -1,0 +1,15 @@
+
+
+<view class="add_prev" style="right:{{right}}rpx;bottom:{{bottom}}rpx">
+  <view class="box1" wx:if="{{item.IsCombo!=1&&item.IsMethod!=1}}">
+    <view class="img_view" catchtap='prev' wx:if="{{nums>0}}" hover-class="hove_classopacity07">
+      <image class="img" src="../../images/btn_002_-_n.png"></image>
+    </view>
+    <view class="number" wx:if="{{nums>0}}">{{nums}}</view>
+    <view class="img_view" catchtap='add' hover-class="hove_classopacity07">
+      <image class="img" src="../../images/btn_001_+_n.png"></image>
+    </view>
+  </view>
+  <view class="box2" wx:if="{{item.IsMethod==1&&item.IsCombo!=1}}" catchtap="addMethod" hover-class="hove_classopacity07">选规格</view>
+  <view class="box3" wx:if="{{item.IsCombo==1}}" catchtap="addCombo" hover-class="hove_classopacity07">选套餐</view>
+</view>

@@ -1,0 +1,74 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+
+<!-- 套餐选择框 -->
+<view class="commodity_screen" wx:if="{{show}}" catchtap='hidelogin'></view>
+<view animation="{{animationData}}" class="commodity_attr_boxcard" wx:if="{{show}}">
+  <image src="../../images/btn_004_close.png" class="icon" catchtap='hidelogin'></image>
+  <scroll-view class="scroll" scroll-y="true">
+    <view class="box">
+      <view class="head">
+        <image src="{{object.image?object.image:'../../../images/kong.png'}}" class="img" mode="aspectFill"   bindtap='previewImg' data-item="{{object}}"></image>
+        <view class="right">
+          <view class="name">{{object.DisName}}</view>
+          <!-- <view class="detail">已选：
+            <text>菲力牛排 厚切西冷牛排 玉米汁 港式奶茶 炸墨鱼排</text>
+          </view> -->
+          <view class="detail" wx:if="{{object.IsCoupon==0}}">
+            <image src="../../images/youhuiquan.png" class="detail_icon"></image>
+            <text>不支持优惠券</text>
+          </view>
+          <view class="price">￥
+            <text class="font_size36">{{filter.moneyFormat(object.Price)}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="specification">
+        <view class="title">规格(单选)</view>
+        <view class="row">
+          <view class="specificationtext {{index==specificationindex?'acttext':''}}" wx:for="{{specificationlist}}" wx:key="index" data-index="{{index}}" catchtap='btnpecification'>{{item}}</view>
+        </view>
+      </view> -->
+      <view class="drink" wx:for="{{packlist}}" wx:if="{{item.dish.length>0}}" wx:for-index="index" wx:key="index">
+        <view class="title" wx:if="{{item.CombinationType==0}}">{{item.GroupName}}(最多可选{{item.MaxOptNum}}种最多可选{{item.TotalOptNum}}件)</view>
+        <view class="title" wx:if="{{item.CombinationType==1}}">{{item.GroupName}}(最多可选{{item.TotalOptMoney}}元)</view>
+        <view class="title" wx:if="{{item.CombinationType!=0&&item.CombinationType!=1}}">{{item.GroupName}}</view>
+        <!-- 可选套餐 -->
+        <view class="row" wx:if="{{item.CombinationType==0||item.CombinationType==1}}">
+          <view class="drinktext {{ctim.nums>0?'acttext':''}}" wx:for="{{item.dish}}" wx:for-item="ctim" wx:for-index="idx" wx:key="idx">
+            <view class="drink_left" catchtap="btn_add" data-index="{{index}}" data-idx="{{idx}}">
+              <view >
+                <text>{{ctim.DisName}}</text>
+                <!-- <text class="pack_price">￥{{ctim.Price}}</text> -->
+              </view>
+              <view class="num" wx:if="{{ctim.nums>0}}">+{{ctim.nums}}</view>
+            </view>
+            <view class="drink_right" wx:if="{{ctim.nums>0}}" catchtap="cen" data-index="{{index}}" data-idx="{{idx}}">x</view>
+          </view>
+        </view>
+        <!-- 必选套餐 -->
+        <view class="row" wx:if="{{item.CombinationType!=0&&item.CombinationType!=1}}">
+          <view class="drinktext {{ctim.nums>0?'acttext':''}}" wx:for="{{item.dish}}" wx:for-item="ctim" wx:for-index="idx" wx:key="idx">
+            <view class="drink_left" data-index="{{index}}" data-idx="{{idx}}">
+              <view >
+                <text>{{ctim.DisName}}</text>
+              </view>
+              <view class="num2" wx:if="{{ctim.nums>0}}">x{{ctim.nums}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- <view class="seasoning">
+        <view class="title">酱料(单选)</view>
+        <view class="row">
+          <view class="seasoningtext {{index==seasoningindex?'acttext':''}}" wx:for="{{seasoninglist}}" wx:key="index" data-index="{{index}}" catchtap='btnseasoning'>{{item}}</view>
+        </view>
+      </view> -->
+    </view>
+  </scroll-view>
+  <view class="btn" catchtap="detailaddpack" hover-class="hove_classopacity07">加入购物车</view>
+</view>
+
+
+<Methodbox id="methodbox" bind:save="save"></Methodbox>

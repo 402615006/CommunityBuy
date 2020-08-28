@@ -1,0 +1,35 @@
+  <!--屏幕背景变暗的背景  catchtouchmove='true'-->
+<view class="red_screen" catchtouchmove="preventTouchMove"  wx:if="{{showlogin}}">
+  <!--弹出框  -->
+  <view animation="{{animationlogin}}" catchtouchmove="preventTouchMove" wx:if="{{showlogin}}" class='login_bj'>
+    <view class='login_bj' catchtouchmove="preventTouchMove">
+      <view class="red_content" bindtap='hidelogin'>
+        <view class="text">
+          恭喜您
+        </view>
+        <view class="text text2">
+          成功抢到优惠券!
+        </view>
+        <view class="card">
+          <!-- <image> src=""</image> -->
+          <view class="test">
+            <!-- <view class="price">
+              <text class="p1">5</text><text class="p2">元</text>
+            </view> -->
+            <view class="title">
+              {{couponname}}
+            </view>
+          </view>
+        </view>
+        <view class="tip">
+          请到个人中心查看我的优惠券使用情况
+        </view>
+        <view class="btn" catchtap='hidelogin'>我知道了</view>
+      </view>
+      <image src="../../images/yhcgtc_320.png" class="bg"></image>
+    </view>
+  </view>
+</view>
+
+
+

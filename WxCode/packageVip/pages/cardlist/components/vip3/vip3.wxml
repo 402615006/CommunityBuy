@@ -1,0 +1,37 @@
+
+
+<scroll-view  scroll-y="true" class="scoll-y" >
+
+  <view class="content" wx:if="{{timescard.length>0}}">
+    <view class="li" wx:for="{{timescard}}" wx:key="index" catchtap='go_opentimscard' data-cardcode="{{item.levelcode}}"> 
+      <image src='../../../../../images/hyk_022_cika.png' class="bg_img"></image>
+      <view class="head">
+        <view class="left font_size30">{{item.levelname}}</view>
+        <view class="right">
+            <view>详情</view>
+            <image src="../../../../../images/hyk_021_btn.png" class="icon"></image>
+        </view>
+      </view>
+      <view class="warp">
+        <!-- <text>总次数</text><text class="number">{{item.times}}次</text> -->
+      </view>
+
+      <view class="footer"> 
+        <view class="footer_left">
+          <!-- ￥<text class="price">{{item.price}}</text> -->
+        </view>
+        <view class="footer_right">
+          <view class="btn">立即开卡</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 没有卡信息 -->
+  <view wx:if="{{timescard.length==0&&onLoad}}">
+    <view class='no_data'>
+      <image src='../../../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无次卡信息</view>
+    </view>
+  </view>
+</scroll-view>

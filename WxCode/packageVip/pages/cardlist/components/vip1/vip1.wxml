@@ -1,0 +1,29 @@
+
+
+<scroll-view scroll-y="true" class="scoll-y" >
+  <view class="ul" wx:if="{{pluscard.length>0}}">
+    <view wx:for="{{pluscard}}" wx:key="index">
+      <!-- 传入了卡面的 -->
+      <view class="li" wx:if="{{item.imgPaths}}" data-cardcode="{{item.levelcode}}" catchtap='go_opencard' >
+        <image src="{{item.imgPaths}}"  class="li_bgimg"></image>
+      </view>
+      <!-- 没有传入卡面的 -->
+      <view class="li" wx:else data-cardcode="{{item.levelcode}}" catchtap='go_opencard' >
+        <image src="../../../../../images/qtx1_69.png"  class="li_bgimg"></image>
+        <view class="top_text">
+          <image src="../../../../../images/qtx1_06.png" class="icon_logoimg"></image>
+          <view class="font_size30">{{item.levelname}}</view>
+        </view>
+        <view class="content_text">**** **** **** ****</view>
+      </view>
+    </view> 
+  </view>
+
+  <!-- 没有优惠券信息 -->
+  <view wx:if="{{pluscard.length==0&&onLoad}}">
+    <view class='no_data'>
+      <image src='../../../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无plus会员卡信息</view>
+    </view>
+  </view>
+</scroll-view>

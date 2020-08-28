@@ -1,0 +1,45 @@
+<view class="couponexchange">
+  <view class="head">
+    <view class="images">
+      <image src="../../images/icon_005_youhuiquanda.png" class="img_c"></image>
+      <view class="price">
+        <text>20</text>
+        <text class="font_size24">￥</text>
+      </view>
+      <view class="type">满减券</view>
+      <view class="tip">满199</view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="name">恩佐的餐厅优惠券</view>
+    <view class="remake">满199立减20</view>
+    <view class="number">
+      <text class="font_size30 color_ea6248">400</text><text class="font_size24 color_ea6248">积分</text><text class="gang">|</text><text class="font_size30">3161</text><text class="font_size24">可用积分</text>
+    </view>
+
+    <view class="detail">
+      <view class="title">兑换须知</view>
+      <view class="li_title">有效期:</view>
+      <view class="li_text">• 2019.5.17至2019.8.31(周末、法定节假日t通用)</view>
+      <view class="li_title">使用时间:</view>
+      <view class="li_text">• 6:00至10:00</view>
+      <view class="li_title">使用规则:</view>
+      <view class="li_text">• 团购用户不可同时享受商家其它优惠</view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="button" catchtap='btn1'>立即兑换</view>
+  </view>
+</view>
+
+
+
+<!-- 确定兑换框 -->
+<view class="bg_m" wx:if="{{show}}" catchtap='cen'></view>
+<view class="box" wx:if="{{show}}">
+  <view class="box_title">兑换积分</view>
+  <view class="box_text">确定使用<text class="color_ea6248">200积分</text>兑换？</view>
+  <view class="btn">确定</view>
+  <image src="../../images/btn_004_close.png" class="cha" catchtap='cen'></image>
+</view>

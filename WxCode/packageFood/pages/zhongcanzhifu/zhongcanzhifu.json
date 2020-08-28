@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "确认付款",
+  "usingComponents": {
+    "Footer": "../../components/footer_money/footer_money"
+  }
+}

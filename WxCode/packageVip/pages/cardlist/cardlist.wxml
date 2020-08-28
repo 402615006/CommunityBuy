@@ -1,0 +1,24 @@
+<!-- 订单页面最外层 -->
+<view class="vipcard">
+  <view class="head">
+      <view class="tabli {{tabindex==index?'act_tab':''}}" wx:for="{{tablist}}" wx:key="index" catchtap='btn_tab' data-index="{{index}}">{{item}}</view>
+
+  </view>
+  <!-- 下方内容 -->
+  <!-- <view class="content">
+    <Vip1 tabindex="{{tabindex}}"></Vip1>
+    <Vip2 tabindex="{{tabindex}}"></Vip2>
+    <Vip3 tabindex="{{tabindex}}"></Vip3>
+  </view> -->
+  <swiper skip-hidden-item-layout="true" bindchange="swiperChange" current="{{tabindex}}">
+    <swiper-item>
+      <Vip1 tabindex="{{tabindex}}" pluscard="{{pluscard}}" onLoad="{{onLoad}}"></Vip1>
+    </swiper-item>
+    <swiper-item>
+      <Vip2 tabindex="{{tabindex}}" discard="{{discard}}" onLoad="{{onLoad}}"></Vip2>
+    </swiper-item>
+    <swiper-item>
+      <Vip3 tabindex="{{tabindex}}" timescard="{{timescard}}" onLoad="{{onLoad}}"></Vip3>
+    </swiper-item>
+  </swiper>
+</view>

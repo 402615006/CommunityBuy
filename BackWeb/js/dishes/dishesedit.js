@@ -188,7 +188,7 @@ function savego() {
     stopSave = getUserAddDishesData(addDishesParameters);
     //if ($("#multiprice").hasClass("active")) {
     //    if (addDishesParameters.dishesMealsJson.length == 2) {
-    //        layer.alert("当多菜谱开启时请至少选择一个多菜谱", { closeBtn: 0 });
+    //        layui.layer.alert("当多菜谱开启时请至少选择一个多菜谱", { closeBtn: 0 });
     //        return;
     //    }
     //}
@@ -197,17 +197,17 @@ function savego() {
     //}
 
     //if ($("#seldcode").val() == "" || $("#seldcode").val() == undefined) {
-    //    layer.alert("请选择出品部门", { closeBtn: 0 });
+    //    layui.layer.alert("请选择出品部门", { closeBtn: 0 });
     //    return false;
     //}
 
     //if ($("#selkitcode").val() == "" || $("#selkitcode").val() == undefined) {
-    //    layer.alert("请选择制作厨房", { closeBtn: 0 });
+    //    layui.layer.alert("请选择制作厨房", { closeBtn: 0 });
     //    return false;
     //}
 
     //if ($("#sel_warcode").val() == "" || $("#sel_warcode").val() == undefined) {
-    //    layer.alert("请选择所属仓库", { closeBtn: 0 });
+    //    layui.layer.alert("请选择所属仓库", { closeBtn: 0 });
     //    return false;
     //}
     ///*
@@ -215,7 +215,7 @@ function savego() {
     //var costByingRedient = $("#costByingRedient").hasClass("active") ? 1 : 0;
     //if (costByingRedient == 1 || tempcaninventory == 1) {
     //    if ($("#sel_warcode").val() == "" || $("#sel_warcode").val() == undefined) {
-    //        layer.msg("请选择所属仓库");
+    //        layui.layer.msg("请选择所属仓库");
     //        return false;
     //    }
     //}
@@ -225,7 +225,7 @@ function savego() {
     //for (var i = 0; i < $("select").length; i++) {
     //    if ($("select").eq(i).find("option:selected").val() == undefined || $("select").eq(i).find("option:selected").val() == "null" || $("select").eq(i).find("option:selected").val() == null) {
     //        var content = $("select").eq(i).parent().find("label").text();
-    //        layer.alert("请选择" + content.substring(0, content.length - 1), { closeBtn: 0 });
+    //        layui.layer.alert("请选择" + content.substring(0, content.length - 1), { closeBtn: 0 });
     //        iscontinue = false;
     //        break;
     //    }
@@ -321,7 +321,7 @@ $(document).ready(function () {
                     $("#showuploadsrc").show();
                 }
                 else {
-                    layer.msg(Jdata.mes);
+                    layui.layer.msg(Jdata.mes);
                     $("#showuploadsrc").hide();
                 }
             }
@@ -413,7 +413,7 @@ function initBatchingScheme() {
     $("#costByingRedient").click(function () {
         if ($("#costByingRedient").hasClass("active")) {
             if ($("#matcode").val().length > 0) {
-                layer.alert("所属原料已填写不可选择配料方案", { closeBtn: 0 });
+                layui.layer.alert("所属原料已填写不可选择配料方案", { closeBtn: 0 });
                 $(this).removeClass("active");
                 $("#tab_pl").hide();
                 $("#DishesMate").parent().hide();
@@ -421,7 +421,7 @@ function initBatchingScheme() {
             }
 
             if ($("#iscaninventory").hasClass("active")) {
-                layer.alert("已选择烟酒(可入库)不可选择配料方案", { closeBtn: 0 });
+                layui.layer.alert("已选择烟酒(可入库)不可选择配料方案", { closeBtn: 0 });
                 $(this).removeClass("active");
                 $("#tab_pl").hide();
                 $("#DishesMate").parent().hide();

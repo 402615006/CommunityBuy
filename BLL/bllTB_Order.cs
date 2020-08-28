@@ -16,24 +16,21 @@ namespace CommunityBuy.BLL
         /// 检验表单数据
         /// </summary>
         /// <returns></returns>
-        public bool CheckPageInfo(string type, string Id, string BusCode, string StoCode, string CCode, string CCname, string TStatus, string PKCode, string OpenCodeList, string OrderMoney, string DisNum, string DisTypeNum, string Remar, string CheckTime, string BillCode,string OrderType,string DepartCode)
+        public bool CheckPageInfo(string type, string Id,  string StoCode, string CCode, string CCname, string TStatus, string PKCode, string OrderMoney, string Remar,int OrderType)
         {
             bool rel = false;
             try
             {
                 Entity = new TB_OrderEntity();
                 Entity.Id = StringHelper.StringToLong(Id);
-                Entity.BusCode = BusCode;
                 Entity.StoCode = StoCode;
                 Entity.CCode = CCode;
                 Entity.CCname = CCname;
-
                 Entity.TStatus = TStatus;
                 Entity.PKCode = PKCode;
                 Entity.OrderMoney = StringHelper.StringToDecimal(OrderMoney);
                 Entity.Remar = Remar;
-                Entity.CheckTime = StringHelper.StringToDateTime(CheckTime);
-                Entity.BillCode = BillCode;
+                Entity.OrderType = OrderType;
                 rel = true;
             }
             catch (System.Exception)
@@ -46,11 +43,11 @@ namespace CommunityBuy.BLL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public void Add(string OrderDishJson,string GUID, string UID,string Id, string BusCode, string StoCode, string CCode, string CCname, string TStatus,out string PKCode, string OpenCodeList, string OrderMoney, string DisNum, string DisTypeNum, string Remar, string CheckTime, string BillCode,string OrderType,string DepartCode)
+        public void Add(string OrderDishJson,string GUID, string UID,string Id,  string StoCode, string CCode, string CCname, string TStatus,out string PKCode, string OrderMoney,string Remar,int OrderType)
         {
             PKCode = "0";
             int result = 0;
-            bool strReturn = CheckPageInfo ("add",  Id, BusCode, StoCode, CCode, CCname, TStatus, PKCode, OpenCodeList, OrderMoney, DisNum, DisTypeNum, Remar, CheckTime, BillCode,OrderType,DepartCode);
+            bool strReturn = CheckPageInfo ("add",  Id, StoCode, CCode, CCname, TStatus, PKCode, OrderMoney, Remar, OrderType);
             //数据页面验证
              result = dal.Add(ref Entity, OrderDishJson);
             //检测执行结果
@@ -67,6 +64,20 @@ namespace CommunityBuy.BLL
             //检测执行结果
             CheckResult(result, "");
         }
+
+        /// <summary>
+        /// 更新状态
+        /// </summary>
+        /// <param name="Id">标识</param>
+        /// <param name="Status">状态</param>
+        /// <returns></returns>
+        public void UpdateStatus(string GUID, string UID, string ids, string Status, string stocode)
+        {
+            int result = dal.UpdateStatus(ids, Status, stocode);
+            //检测执行结果
+            CheckResult(result,"");
+        }
+
 
         /// <summary>
         /// 删除数据
@@ -206,7 +217,6 @@ namespace CommunityBuy.BLL
         {
             TB_OrderEntity Entity = new TB_OrderEntity();
 			Entity.Id = StringHelper.StringToLong(dr["Id"].ToString());
-			Entity.BusCode = dr["BusCode"].ToString();
 			Entity.StoCode = dr["StoCode"].ToString();
 			Entity.CCode = dr["CCode"].ToString();
 			Entity.CCname = dr["CCname"].ToString();
@@ -216,7 +226,6 @@ namespace CommunityBuy.BLL
 			Entity.OrderMoney = StringHelper.StringToDecimal(dr["OrderMoney"].ToString());
 			Entity.Remar = dr["Remar"].ToString();
 			Entity.CheckTime = StringHelper.StringToDateTime(dr["CheckTime"].ToString());
-			Entity.BillCode = dr["BillCode"].ToString();
             return Entity;
         }
     }

@@ -1,0 +1,8 @@
+<view class="ComponentSuccess">
+  <!-- <view class="head color_3e3d43 font_size30">你已经建局成功！</view> -->
+  <image class="bg_img" src="/images/icon1.png"></image>
+  <view class="head">提现申请提交成功</view>
+  <view class="text">预计3个工作日内到账</view>
+  <view class="text margin_top0">实际到账时间以收款时间为准</view>
+  <view class="btn" catchtap="btn">返回</view>
+</view>

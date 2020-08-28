@@ -1,0 +1,7 @@
+
+.Billinginstructions{
+  width: 100%;
+  padding:20rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}

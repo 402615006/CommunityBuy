@@ -1,0 +1,47 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="newpeoplecoupon">
+  <view class="top">
+    <image src="../../images/xr_005_xiangqingdi.png" class="top_bg"></image>
+    <image src="../../../images/xr_003_wenzi.png" class="title_img"></image>
+    <view class="guize" catchtap="click_guizedetail">活动规则</view>
+    <view class="top_text">
+      <text class="margin_right30">新人有礼</text>
+      <text>进店必得</text>
+    </view>
+    <view class="top_zhuanxiang">新人专享好礼</view>
+    <view class="top_content_box">
+      <text class="top_content_price">{{filter.pf(couponinfo.preamount)}}</text><text>元</text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="li" wx:for="{{couponinfo.coupons}}" wx:key="index">
+      <view class="yuanl"></view>
+      <view class="yuanr"></view>
+      <view class="left">
+        <view class="left_money">
+          <view class="sm">￥</view>
+          <view class="coupon_start">
+            <view class="price">{{filter.pf(item.minsinglemoney)}}</view>
+            <view class="type">{{item.dicname}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="couponname">{{item.couname}}</view></view>
+    </view>
+  </view>
+
+  <view class="btn">
+    <image src="../../images/xr_004_btn.png" class="btn_bg"></image>
+    <view class="btn_text" wx:if="{{status==0}}" catchtap="receive_newpeoplecoupon">全部领取</view>
+    <view class="btn_text" wx:if="{{status==1}}" catchtap="bo_back">去使用</view>
+  </view>
+</view>
+
+<view class="red_screen" catchtouchmove="preventTouchMove" wx:if="{{show}}"></view>
+<view class="red_content {{show?'red_contenthide':''}}">
+  <view class="red_content_title">活动规则</view>
+  <view class="red_content_warp">{{couponinfo.actDesc}}</view>
+  <view class="red_content_btn" catchtap="click_cendetail">我知道了</view>
+</view>

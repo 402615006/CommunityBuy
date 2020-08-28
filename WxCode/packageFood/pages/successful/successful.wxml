@@ -1,0 +1,53 @@
+<!--packageFood/pages/successful/successful.wxml-->
+<!-- 引用过滤器 -->
+<wxs src="../../../utils/filter.wxs" module="filter" />
+<view wx:if="{{successData}}">
+  <view class="head">
+    <view class="text" wx:if="{{colorder.countDown&&(tcstatus==1||tcstatus==0)}}">
+      还差
+      <text class="color_EA">{{collorderinfo.colldifnum}}人</text>拼团成功,还剩
+      <text class="color_ea6248 color_ff pdding8">{{filter.strSplit(colorder.countDown)[0]}}</text>
+      <text class="color_EA margin_lr">:</text>
+      <text class="color_ea6248 color_ff pdding8">{{filter.strSplit(colorder.countDown)[1]}}</text>
+      <text class="color_EA margin_lr">:</text>
+      <text class="color_E9 color_ff pdding8">{{filter.strSplit(colorder.countDown)[2]}}</text>
+    </view>
+    <view class="text texSize color_EA"  wx:if="{{tcstatus==2}}">拼团成功</view>
+    <view class="text texSize color_838383" wx:if="{{tcstatus==3}}">拼团退款中</view>
+    <view class="text texSize color_838383" wx:if="{{tcstatus==4}}">拼团已退款</view>
+    <view class="text texSize color_838383" wx:if="{{tcstatus==5}}">拼团取消</view>
+    <view class="avatar">
+      <view class="content_lil">
+        <block wx:for="{{colpeople}}" wx:for-item="imgItem" wx:key="{{index}}">
+          <view class='iconlist'>
+            <image src="{{imgItem.headimgurl}}" class="touxiang" wx:if="{{index==0}}"></image>
+            <image src="{{imgItem.headimgurl}}" class="touxiang touxiang2" wx:else></image>
+            <view class="tip" wx:if="{{imgItem.ismain==1}}">团长</view>
+          </view>
+        </block>
+        <block wx:for="{{filter.setIconArr(collorderinfo.colldifnum)}}" wx:for-item="imgItem" wx:key="{{index}}">
+          <image src="../../images/icon_001_tou.png" class="touxiang touxiang2" style='z-index:{{index}};border:none;'></image>
+        </block>
+      </view>
+    </view>
+    <button open-type="share" class='btn' wx:if="{{tcstatus==1&&colorder.countDown!='00:00:00'}}">邀请好友拼团</button>
+  </view>
+  <view class="groupdetail">
+    <view class="offer">
+      <view class="offer_li" catchtap='godetail'>
+        <view class="offer_left color_838383">订单详情</view>
+        <view class="offer_right">
+          <view class="margin_left20">{{collorderinfo.collname}}</view>
+          <image src="../../../images/btn_004_enter.png" class="jiantou"></image>
+        </view>      
+      </view>
+      <!-- <view class="offer_li" catchtap='orderRule'>
+        <view class="offer_left color_838383">订单规则</view>
+        <view class="offer_right">
+          <view class="">没有字段</view>
+          <image src="../../../images/btn_004_enter.png" class="jiantou"></image>
+        </view>
+      </view> -->
+    </view>
+  </view>
+</view>

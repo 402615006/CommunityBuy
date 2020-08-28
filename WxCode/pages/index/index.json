@@ -1,0 +1,16 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": { 
+    "Content": "./components/content",   
+    "Top_search": "./components/top_search",   
+  
+    "Receivecoupon":"../../components/receivecoupon/receivecoupon",
+    "Newpeoplecoupon":"../../components/newpeoplecoupon/newpeoplecoupon",
+
+    "homebox": "../../components/homebox/homebox"
+  }
+}

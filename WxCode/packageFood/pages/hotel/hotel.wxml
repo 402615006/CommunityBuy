@@ -1,0 +1,124 @@
+
+<!-- 酒店 -->
+<view class="hotel">
+    <Title  title=""  my_class="true"></Title>
+    <view class="banner">
+      <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" indicator-active-color="#fff">
+        <block wx:for="{{bannerlist}}" wx:for-item="bannerItem" wx:key="banner">
+          <swiper-item bindtap="bannerimgdetail" data-i="{{index}}" >
+            <image src="{{bannerItem}}" class="banner-item"  mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class='head'>
+      <view class="title">乌鲁木齐东街禧玥酒店</view>
+      <view class="text">
+        <!-- <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+        <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+        <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+        <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+        <image src="../../images/icon_002_wuxing.png" class="xing"></image> -->
+        <text class="head_price">商务酒店、休闲酒店</text>
+        <!-- <text class="head_price">￥199起</text> -->
+      </view>
+    </view>
+    
+    <view class="head_content">
+      <!-- <view class="status">
+        <view class="status_left">
+          <image src="../../images/icon_004_shangpu.png" class="shangpu"></image>
+        </view>
+        <view class="status_right">
+          <view class="status_top">
+            <text class="margin_right20">{{list.sstatus}}</text>
+            <text class="margin_right20 color_888888">|</text>
+            <text class="margin_right20">{{list.btime}}-{{list.etime}}</text>
+          </view>
+          <view class="status_bottom">
+            
+          </view>
+        </view>
+      </view> -->
+      
+      <view class="address">
+        <view class="address_left" catchtap="go_map" >
+          <view class="add_leftone">
+            <image src="../../images/icon_005_loc.png" class="addimg"></image>
+          </view>
+          <view class="add_text">
+            <view>{{address}}</view>
+            <view class="s" wx:if="{{juli}}">距您{{juli}}km</view>
+          </view>
+        </view>
+        <view class="address_right" catchtap='calling'>
+          <image src="../../images/btn_006_dianhua.png" class="tel"></image>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="fuwu">
+      <view class="fuwu_title">设施服务</view>
+      <view class="fuwu_td">
+        <image src="../../images/01_tingche.png" class="icon"></image>
+        <text class="margin_left30">停车场</text>
+      </view>
+      <view class="fuwu_td">
+        <view class="fuwu_text">有停车场</view>
+      </view>
+      <view class="fuwu_td">
+        <image src="../../images/02_wifi.png" class="icon"></image>
+        <text class="margin_left30">网络</text>
+      </view>
+      <view class="fuwu_td">
+        <view class="fuwu_text">宽带上网</view>
+        <view class="fuwu_text">客房网络</view>
+        <view class="fuwu_text">国内长途电话</view>
+      </view>
+      <view class="fuwu_td">
+        <image src="../../images/03_tongy.png" class="icon"></image>
+        <text class="margin_left30">特色服务</text>
+      </view>
+      <view class="fuwu_td">
+        <view class="fuwu_text">行李寄存</view>
+        <view class="fuwu_text">叫醒服务</view>
+        <view class="fuwu_text">洗衣服务</view>
+        <view class="fuwu_text">吸烟区</view>
+      </view>
+    </view>
+
+    <view class="Notice">
+      <view class="Notice_title">订房须知</view>
+      <view class="td">
+        <view class="left font_weight">入离时间：</view>
+        <view class="right">
+          <text >入店时间12点以后</text>
+          <text class="margin_left20">离店时间14点以前</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="jieshao">
+      <view class="jieshao_head">酒店介绍</view>
+      <view class="jieshaotime">
+        <view class="td">
+          <text>装修时间</text><text class="margin_left20 color_13161a font_weight">2016年</text>
+        </view>
+        <view class="td">
+          <text>开业时间</text><text class="margin_left20 color_13161a font_weight">2016年</text>
+        </view>
+        <!-- <view class="td">
+          <text>楼层高度</text><text class="margin_left20 color_13161a font_weight">2014年</text>
+        </view> -->
+        <view class="td">
+          <text>客房总量</text><text class="margin_left20 color_13161a font_weight">156间</text>
+        </view>
+      </view>
+      <view class="detail">
+        乌鲁木齐东街禧玥酒店地处于乌鲁木齐市新民东街186号，不仅坐拥东街综合业态，且毗邻乌鲁木齐市友好商圈、乌鲁木齐市地标红山塔。由华住酒店集团管理，新疆万众文化餐饮管理有限公司倾力打造的一家高端商务型精品酒店。
+      </view>
+    </view>
+</view>

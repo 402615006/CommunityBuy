@@ -1,0 +1,62 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<scroll-view scroll-y="true" class="scoll-y" enable-back-to-top="true" bindscrolltolower="lower">
+
+  <view class="coupon" wx:if="{{is_coupon}}">
+    <view class="coupon_text">
+      <text class="coupon_icon">券</text>
+      <text>您有待领取的优惠券</text>
+    </view>
+    <image src="../../../images/btn_004_enter.png" class="jiantou"></image>
+  </view>
+
+  <view class="ul">
+    <block wx:for="{{list}}" wx:key="index">
+      <!-- 有图片的显示图片 -->
+      <view class="coupon_imgli" wx:if="{{item.couponimg}}" catchtap='go_detail' data-item="{{item}}">
+        <image src="{{item.couponimg}}" class="couponimg"></image>
+      </view>
+      <!-- 没有图片的显示样式 -->
+      <view class="li" wx:else catchtap='go_detail' data-item="{{item}}">
+        <view class="top">
+          <view class="left">
+            <view class="left_money" wx:if="{{item.distype==1||item.sectype=='DIC00000045'}}">
+              <view class="sm">￥</view>
+              <view class="text">
+                <view class="price">{{filter.pf(item.singlemoney)}}</view>
+                <view class="type">{{item.dicname}}</view>
+              </view>
+            </view>
+            <view class="left_text" wx:else>
+              {{item.dicname}}
+            </view>
+          </view>
+          <view class="right">
+            <view class="stoname">{{item.couname}}</view>
+            <view class="marke">{{item.descr}}</view>
+          </view>
+        </view>
+        <view class="bottom">
+          <view class="bottom_l">
+            <text>有效期至{{item.edate}}</text>
+          </view>
+          <view class="bottom_r" wx:if="{{status==0}}">查看详情></view>
+        </view>
+
+
+        <view class="circle circle_l"></view>
+        <view class="circle circle_r"></view>
+      </view>
+    </block>
+  </view>
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+  <tui-nomore wx:if="{{list.length>0&&isnomore}}"></tui-nomore>
+
+  <!-- 没有优惠券信息 -->
+  <view wx:if="{{isno}}">
+    <view class='no_data'>
+      <image src='../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无优惠券信息</view>
+    </view>
+  </view>
+</scroll-view>

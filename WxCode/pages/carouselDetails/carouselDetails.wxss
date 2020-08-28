@@ -1,0 +1,41 @@
+/* pages/carouselDetails/carouselDetails.wxss */
+
+.slide-image {
+  width: 100%;
+  /* height: auto; */
+}
+
+.line {
+  /* height: 1px; */
+  border-top: 1px solid #e6e6e6;
+
+}
+
+.detailsEvent {
+  padding: 0 20rpx;
+  
+}
+
+.detailsEvent_tlt {
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #e6e6e6;
+  color: #000;
+}
+
+.detailsEvent_center {
+  overflow: hidden;
+  padding-top: 20rpx;
+  width: 100%;
+  font-size: 28rpx;
+  color: #333;
+}
+
+image {
+  width: 100%;
+}
+.vidioSize{
+  width: 100%;
+  height: 300px;
+}

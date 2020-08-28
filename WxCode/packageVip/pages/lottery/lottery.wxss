@@ -1,0 +1,34 @@
+
+page{
+  background-color: #7d75ef;
+}
+
+
+.swper{
+  width:510rpx;
+  height:58rpx;
+  margin:auto;
+  position: relative;
+  background-color: #ffdf54;
+}
+swiper{
+  width: 430rpx;
+  height: 58rpx;
+  position: absolute;
+  right: 0;
+  top:0;
+}
+swiper-item{
+  width: 430rpx;
+  height: 58rpx;
+}
+.swiper_li{
+  width: 430rpx;
+  height: 58rpx; 
+  line-height: 58rpx;
+  font-size: 24rpx;
+  color:#6a1d00;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}

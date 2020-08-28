@@ -1,0 +1,81 @@
+page{
+  background-color: #f7f7f7;
+}
+
+.head{
+  /* background-color: #fff; */
+  width: 100%;
+  height: 148rpx;
+}
+
+
+.head_text{
+  width: 100%;
+  height: 148rpx;
+  text-align: center;
+  padding-top:52rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.zuoweiicon{
+  width: 30rpx;
+  height: 30rpx;
+  display: inline-block;
+  margin-right:10rpx;
+}
+.zuoweiimg{
+  width: 30rpx;
+  height: 30rpx;
+}
+.head_text text{
+  margin-right:10rpx;
+}
+.head_text .title{
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.head_text .detail{
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.color_838383{
+  color:#838383
+}
+.color_eb6c54{
+  color:#eb6c54;
+}
+.margin_top10{
+  margin-top:10rpx;
+}
+.font_weight{
+  font-weight: 600;
+}
+
+
+/* 付款地方 */
+.senter{
+  width: 700rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  margin:auto;
+  position: relative;
+  padding:0 20rpx;
+  box-sizing: border-box;
+  margin-top:20rpx;
+}
+.senter_li{
+  width: 100%;
+  height: 100rpx;
+  border-bottom:1rpx solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.senter_li:last-child{
+ 
+  border-bottom:none;
+  
+}

@@ -1,0 +1,32 @@
+
+.scancodeOK{
+  padding-top:30rpx;
+  box-sizing: border-box;
+}
+.img_div{
+  width: 131rpx;
+  height: 167rpx;
+  margin:auto;
+}
+.img{
+  width: 131rpx;
+  height: 167rpx;
+}
+.text{
+  font-size: 30rpx;
+  color:#ee685d;
+  margin-top:20rpx;
+  width: 100%;
+  text-align: center;
+}
+.price{
+  font-size: 35rpx;
+  color:#000;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  margin-top:30rpx;
+}
+.number{
+  font-size: 56rpx;
+}

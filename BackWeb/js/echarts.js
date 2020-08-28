@@ -2164,8 +2164,8 @@ Handler.prototype = {
                 if (typeof (layer[eventHandler]) === 'function') {
                     layer[eventHandler].call(layer, eventPacket);
                 }
-                if (layer.trigger) {
-                    layer.trigger(eventName, eventPacket);
+                if (layui.layer.trigger) {
+                    layui.layer.trigger(eventName, eventPacket);
                 }
             });
         }
@@ -7222,7 +7222,7 @@ var Layer = function (id, painter, dpr) {
     this.dpr = dpr;
 };
 
-Layer.prototype = {
+layui.layer.prototype = {
 
     constructor: Layer,
 
@@ -9241,12 +9241,12 @@ function isLayerValid(layer) {
         return false;
     }
 
-    if (layer.__builtin__) {
+    if (layui.layer.__builtin__) {
         return true;
     }
 
-    if (typeof (layer.resize) !== 'function'
-        || typeof (layer.refresh) !== 'function'
+    if (typeof (layui.layer.resize) !== 'function'
+        || typeof (layui.layer.refresh) !== 'function'
     ) {
         return false;
     }
@@ -9414,12 +9414,12 @@ var Painter = function (root, storage, opts) {
         // Create layer if only one given canvas
         // Device can be specified to create a high dpi image.
         var mainLayer = new Layer(root, this, this.dpr);
-        mainLayer.__builtin__ = true;
-        mainLayer.initContext();
+        mainlayui.layer.__builtin__ = true;
+        mainlayui.layer.initContext();
         // FIXME Use canvas width and height
-        // mainLayer.resize(width, height);
+        // mainlayui.layer.resize(width, height);
         layers[CANVAS_ZLEVEL] = mainLayer;
-        mainLayer.zlevel = CANVAS_ZLEVEL;
+        mainlayui.layer.zlevel = CANVAS_ZLEVEL;
         // Not use common zlevel.
         zlevelList.push(CANVAS_ZLEVEL);
 
@@ -9485,9 +9485,9 @@ Painter.prototype = {
         for (var i = 0; i < zlevelList.length; i++) {
             var z = zlevelList[i];
             var layer = this._layers[z];
-            if (!layer.__builtin__ && layer.refresh) {
+            if (!layui.layer.__builtin__ && layui.layer.refresh) {
                 var clearColor = i === 0 ? this._backgroundColor : null;
-                layer.refresh(clearColor);
+                layui.layer.refresh(clearColor);
             }
         }
 
@@ -9540,7 +9540,7 @@ Painter.prototype = {
         var hoverElements = this._hoverElements;
         var len = hoverElements.length;
         var hoverLayer = this._hoverlayer;
-        hoverLayer && hoverLayer.clear();
+        hoverLayer && hoverlayui.layer.clear();
 
         if (!len) {
             return;
@@ -9554,7 +9554,7 @@ Painter.prototype = {
         }
 
         var scope = {};
-        hoverLayer.ctx.save();
+        hoverlayui.layer.ctx.save();
         for (var i = 0; i < len;) {
             var el = hoverElements[i];
             var originalEl = el.__from;
@@ -9579,7 +9579,7 @@ Painter.prototype = {
             }
         }
 
-        hoverLayer.ctx.restore();
+        hoverlayui.layer.ctx.restore();
     },
 
     getHoverLayer: function () {
@@ -9616,8 +9616,8 @@ Painter.prototype = {
         ctx.clearRect(0, 0, width, height);
         // PENDING, If only builtin layer?
         this.eachBuiltinLayer(function (layer) {
-            if (layer.virtual) {
-                ctx.drawImage(layer.dom, 0, 0, width, height);
+            if (layui.layer.virtual) {
+                ctx.drawImage(layui.layer.dom, 0, 0, width, height);
             }
         });
     },
@@ -9627,9 +9627,9 @@ Painter.prototype = {
         for (var zi = 0; zi < this._zlevelList.length; zi++) {
             var zlevel = this._zlevelList[zi];
             var layer = this._layers[zlevel];
-            if (layer.__builtin__
+            if (layui.layer.__builtin__
                 && layer !== this._hoverlayer
-                && (layer.__dirty || paintAll)
+                && (layui.layer.__dirty || paintAll)
             ) {
                 layerList.push(layer);
             }
@@ -9639,32 +9639,32 @@ Painter.prototype = {
 
         for (var k = 0; k < layerList.length; k++) {
             var layer = layerList[k];
-            var ctx = layer.ctx;
+            var ctx = layui.layer.ctx;
             var scope = {};
             ctx.save();
 
-            var start = paintAll ? layer.__startIndex : layer.__drawIndex;
+            var start = paintAll ? layui.layer.__startIndex : layui.layer.__drawIndex;
 
-            var useTimer = !paintAll && layer.incremental && Date.now;
+            var useTimer = !paintAll && layui.layer.incremental && Date.now;
             var startTime = useTimer && Date.now();
 
-            var clearColor = layer.zlevel === this._zlevelList[0]
+            var clearColor = layui.layer.zlevel === this._zlevelList[0]
                 ? this._backgroundColor : null;
             // All elements in this layer are cleared.
-            if (layer.__startIndex === layer.__endIndex) {
-                layer.clear(false, clearColor);
+            if (layui.layer.__startIndex === layui.layer.__endIndex) {
+                layui.layer.clear(false, clearColor);
             }
-            else if (start === layer.__startIndex) {
+            else if (start === layui.layer.__startIndex) {
                 var firstEl = list[start];
                 if (!firstEl.incremental || !firstEl.notClear || paintAll) {
-                    layer.clear(false, clearColor);
+                    layui.layer.clear(false, clearColor);
                 }
             }
             if (start === -1) {
                 console.error('For some unknown reason. drawIndex is -1');
-                start = layer.__startIndex;
+                start = layui.layer.__startIndex;
             }
-            for (var i = start; i < layer.__endIndex; i++) {
+            for (var i = start; i < layui.layer.__endIndex; i++) {
                 var el = list[i];
                 this._doPaintEl(el, layer, paintAll, scope);
                 el.__dirty = el.__dirtyText = false;
@@ -9680,9 +9680,9 @@ Painter.prototype = {
                 }
             }
 
-            layer.__drawIndex = i;
+            layui.layer.__drawIndex = i;
 
-            if (layer.__drawIndex < layer.__endIndex) {
+            if (layui.layer.__drawIndex < layui.layer.__endIndex) {
                 finished = false;
             }
 
@@ -9697,8 +9697,8 @@ Painter.prototype = {
         if (env$1.wxa) {
             // Flush for weixin application
             each$1(this._layers, function (layer) {
-                if (layer && layer.ctx && layer.ctx.draw) {
-                    layer.ctx.draw();
+                if (layer && layui.layer.ctx && layui.layer.ctx.draw) {
+                    layui.layer.ctx.draw();
                 }
             });
         }
@@ -9707,10 +9707,10 @@ Painter.prototype = {
     },
 
     _doPaintEl: function (el, currentLayer, forcePaint, scope) {
-        var ctx = currentLayer.ctx;
+        var ctx = currentlayui.layer.ctx;
         var m = el.transform;
         if (
-            (currentLayer.__dirty || forcePaint)
+            (currentlayui.layer.__dirty || forcePaint)
             // Ignore invisible element
             && !el.invisible
             // Ignore transparent element
@@ -9731,7 +9731,7 @@ Painter.prototype = {
             ) {
                 // If has previous clipping state, restore from it
                 if (scope.prevElClipPaths) {
-                    currentLayer.ctx.restore();
+                    currentlayui.layer.ctx.restore();
                     scope.prevElClipPaths = null;
 
                     // Reset prevEl since context has been restored
@@ -9767,22 +9767,22 @@ Painter.prototype = {
         if (!layer) {
             // Create a new layer
             layer = new Layer('zr_' + zlevel, this, this.dpr);
-            layer.zlevel = zlevel;
-            layer.__builtin__ = true;
+            layui.layer.zlevel = zlevel;
+            layui.layer.__builtin__ = true;
 
             if (this._layerConfig[zlevel]) {
                 merge(layer, this._layerConfig[zlevel], true);
             }
 
             if (virtual) {
-                layer.virtual = virtual;
+                layui.layer.virtual = virtual;
             }
 
             this.insertLayer(zlevel, layer);
 
             // Context is created after dom inserted to document
             // Or excanvas will get 0px clientWidth and clientHeight
-            layer.initContext();
+            layui.layer.initContext();
         }
 
         return layer;
@@ -9825,25 +9825,25 @@ Painter.prototype = {
         // Vitual layer will not directly show on the screen.
         // (It can be a WebGL layer and assigned to a ZImage element)
         // But it still under management of zrender.
-        if (!layer.virtual) {
+        if (!layui.layer.virtual) {
             if (prevLayer) {
-                var prevDom = prevLayer.dom;
+                var prevDom = prevlayui.layer.dom;
                 if (prevDom.nextSibling) {
                     domRoot.insertBefore(
-                        layer.dom,
+                        layui.layer.dom,
                         prevDom.nextSibling
                     );
                 }
                 else {
-                    domRoot.appendChild(layer.dom);
+                    domRoot.appendChild(layui.layer.dom);
                 }
             }
             else {
                 if (domRoot.firstChild) {
-                    domRoot.insertBefore(layer.dom, domRoot.firstChild);
+                    domRoot.insertBefore(layui.layer.dom, domRoot.firstChild);
                 }
                 else {
-                    domRoot.appendChild(layer.dom);
+                    domRoot.appendChild(layui.layer.dom);
                 }
             }
         }
@@ -9869,7 +9869,7 @@ Painter.prototype = {
         for (i = 0; i < zlevelList.length; i++) {
             z = zlevelList[i];
             layer = this._layers[z];
-            if (layer.__builtin__) {
+            if (layui.layer.__builtin__) {
                 cb.call(context, layer, z);
             }
         }
@@ -9884,7 +9884,7 @@ Painter.prototype = {
         for (i = 0; i < zlevelList.length; i++) {
             z = zlevelList[i];
             layer = this._layers[z];
-            if (!layer.__builtin__) {
+            if (!layui.layer.__builtin__) {
                 cb.call(context, layer, z);
             }
         }
@@ -9901,15 +9901,15 @@ Painter.prototype = {
     _updateLayerStatus: function (list) {
 
         this.eachBuiltinLayer(function (layer, z) {
-            layer.__dirty = layer.__used = false;
+            layui.layer.__dirty = layui.layer.__used = false;
         });
 
         function updatePrevLayer(idx) {
             if (prevLayer) {
-                if (prevLayer.__endIndex !== idx) {
-                    prevLayer.__dirty = true;
+                if (prevlayui.layer.__endIndex !== idx) {
+                    prevlayui.layer.__dirty = true;
                 }
-                prevLayer.__endIndex = idx;
+                prevlayui.layer.__endIndex = idx;
             }
         }
 
@@ -9933,38 +9933,38 @@ Painter.prototype = {
             // TODO Where there are non-incremental elements between incremental elements.
             if (el.incremental) {
                 layer = this.getLayer(zlevel + INCREMENTAL_INC, this._needsManuallyCompositing);
-                layer.incremental = true;
+                layui.layer.incremental = true;
                 incrementalLayerCount = 1;
             }
             else {
                 layer = this.getLayer(zlevel + (incrementalLayerCount > 0 ? EL_AFTER_INCREMENTAL_INC : 0), this._needsManuallyCompositing);
             }
 
-            if (!layer.__builtin__) {
-                zrLog('ZLevel ' + zlevel + ' has been used by unkown layer ' + layer.id);
+            if (!layui.layer.__builtin__) {
+                zrLog('ZLevel ' + zlevel + ' has been used by unkown layer ' + layui.layer.id);
             }
 
             if (layer !== prevLayer) {
-                layer.__used = true;
-                if (layer.__startIndex !== i) {
-                    layer.__dirty = true;
+                layui.layer.__used = true;
+                if (layui.layer.__startIndex !== i) {
+                    layui.layer.__dirty = true;
                 }
-                layer.__startIndex = i;
-                if (!layer.incremental) {
-                    layer.__drawIndex = i;
+                layui.layer.__startIndex = i;
+                if (!layui.layer.incremental) {
+                    layui.layer.__drawIndex = i;
                 }
                 else {
                     // Mark layer draw index needs to update.
-                    layer.__drawIndex = -1;
+                    layui.layer.__drawIndex = -1;
                 }
                 updatePrevLayer(i);
                 prevLayer = layer;
             }
             if (el.__dirty) {
-                layer.__dirty = true;
-                if (layer.incremental && layer.__drawIndex < 0) {
+                layui.layer.__dirty = true;
+                if (layui.layer.incremental && layui.layer.__drawIndex < 0) {
                     // Start draw from the first dirty element.
-                    layer.__drawIndex = i;
+                    layui.layer.__drawIndex = i;
                 }
             }
         }
@@ -9973,13 +9973,13 @@ Painter.prototype = {
 
         this.eachBuiltinLayer(function (layer, z) {
             // Used in last frame but not in this frame. Needs clear
-            if (!layer.__used && layer.getElementCount() > 0) {
-                layer.__dirty = true;
-                layer.__startIndex = layer.__endIndex = layer.__drawIndex = 0;
+            if (!layui.layer.__used && layui.layer.getElementCount() > 0) {
+                layui.layer.__dirty = true;
+                layui.layer.__startIndex = layui.layer.__endIndex = layui.layer.__drawIndex = 0;
             }
-            // For incremental layer. In case start index changed and no elements are dirty.
-            if (layer.__dirty && layer.__drawIndex < 0) {
-                layer.__drawIndex = layer.__startIndex;
+            // For incremental layui.layer. In case start index changed and no elements are dirty.
+            if (layui.layer.__dirty && layui.layer.__drawIndex < 0) {
+                layui.layer.__drawIndex = layui.layer.__startIndex;
             }
         });
     },
@@ -9993,7 +9993,7 @@ Painter.prototype = {
     },
 
     _clearLayer: function (layer) {
-        layer.clear();
+        layui.layer.clear();
     },
 
     setBackgroundColor: function (backgroundColor) {
@@ -10041,7 +10041,7 @@ Painter.prototype = {
         if (!layer) {
             return;
         }
-        layer.dom.parentNode.removeChild(layer.dom);
+        layui.layer.dom.parentNode.removeChild(layui.layer.dom);
         delete layers[zlevel];
 
         zlevelList.splice(indexOf(zlevelList, zlevel), 1);
@@ -10086,7 +10086,7 @@ Painter.prototype = {
                     }
                 }
                 each$1(this._progressiveLayers, function (layer) {
-                    layer.resize(width, height);
+                    layui.layer.resize(width, height);
                 });
 
                 this.refresh(true);
@@ -10106,7 +10106,7 @@ Painter.prototype = {
     clearLayer: function (zlevel) {
         var layer = this._layers[zlevel];
         if (layer) {
-            layer.clear();
+            layui.layer.clear();
         }
     },
 
@@ -10136,23 +10136,23 @@ Painter.prototype = {
         }
 
         var imageLayer = new Layer('image', this, opts.pixelRatio || this.dpr);
-        imageLayer.initContext();
-        imageLayer.clear(false, opts.backgroundColor || this._backgroundColor);
+        imagelayui.layer.initContext();
+        imagelayui.layer.clear(false, opts.backgroundColor || this._backgroundColor);
 
         if (opts.pixelRatio <= this.dpr) {
             this.refresh();
 
-            var width = imageLayer.dom.width;
-            var height = imageLayer.dom.height;
-            var ctx = imageLayer.ctx;
+            var width = imagelayui.layer.dom.width;
+            var height = imagelayui.layer.dom.height;
+            var ctx = imagelayui.layer.ctx;
             this.eachLayer(function (layer) {
-                if (layer.__builtin__) {
-                    ctx.drawImage(layer.dom, 0, 0, width, height);
+                if (layui.layer.__builtin__) {
+                    ctx.drawImage(layui.layer.dom, 0, 0, width, height);
                 }
-                else if (layer.renderToCanvas) {
-                    imageLayer.ctx.save();
-                    layer.renderToCanvas(imageLayer.ctx);
-                    imageLayer.ctx.restore();
+                else if (layui.layer.renderToCanvas) {
+                    imagelayui.layer.ctx.save();
+                    layui.layer.renderToCanvas(imagelayui.layer.ctx);
+                    imagelayui.layer.ctx.restore();
                 }
             });
         }
@@ -10166,7 +10166,7 @@ Painter.prototype = {
             }
         }
 
-        return imageLayer.dom;
+        return imagelayui.layer.dom;
     },
     /**
      * 鑾峰彇缁樺浘鍖哄煙瀹藉害
@@ -65113,10 +65113,10 @@ extendChartView({
 
         var data = seriesModel.getData();
         var hmLayer = this._hmLayer || (this._hmLayer || new Heatmap());
-        hmLayer.blurSize = seriesModel.get('blurSize');
-        hmLayer.pointSize = seriesModel.get('pointSize');
-        hmLayer.minOpacity = seriesModel.get('minOpacity');
-        hmLayer.maxOpacity = seriesModel.get('maxOpacity');
+        hmlayui.layer.blurSize = seriesModel.get('blurSize');
+        hmlayui.layer.pointSize = seriesModel.get('pointSize');
+        hmlayui.layer.minOpacity = seriesModel.get('minOpacity');
+        hmlayui.layer.maxOpacity = seriesModel.get('maxOpacity');
 
         var rect = geo.getViewRect().clone();
         var roamTransform = geo.getRoamTransform();
@@ -65151,7 +65151,7 @@ extendChartView({
                 dataExtent, visualMapModel.getPieceList(), visualMapModel.option.selected
             );
 
-        hmLayer.update(
+        hmlayui.layer.update(
             points, width, height,
             inRangeVisuals.color.getNormalizer(),
             {
@@ -65166,7 +65166,7 @@ extendChartView({
                 height: height,
                 x: x,
                 y: y,
-                image: hmLayer.canvas
+                image: hmlayui.layer.canvas
             },
             silent: true
         });
@@ -69280,11 +69280,11 @@ function themeRiverLayout$1(data, seriesModel, height) {
     // the data in each layer are organized into a series.
     var layerSeries = seriesModel.getLayerSeries();
 
-    // the points in each layer.
+    // the points in each layui.layer.
     var timeDim = data.mapDimension('single');
     var valueDim = data.mapDimension('value');
     var layerPoints = map(layerSeries, function (singleLayer) {
-        return map(singleLayer.indices, function (idx) {
+        return map(singlelayui.layer.indices, function (idx) {
             var pt = coordSys.dataToPoint(data.get(timeDim, idx));
             pt[1] = data.get(valueDim, idx);
             return pt;
@@ -72971,7 +72971,7 @@ function dispatchSelectAction(name, api) {
 }
 
 function dispatchHighlightAction(seriesName, dataName, api, excludeSeriesId) {
-    // If element hover will move to a hoverLayer.
+    // If element hover will move to a hoverlayui.layer.
     var el = api.getZr().storage.getDisplayList()[0];
     if (!(el && el.useHoverLayer)) {
         api.dispatchAction({
@@ -72984,7 +72984,7 @@ function dispatchHighlightAction(seriesName, dataName, api, excludeSeriesId) {
 }
 
 function dispatchDownplayAction(seriesName, dataName, api, excludeSeriesId) {
-    // If element hover will move to a hoverLayer.
+    // If element hover will move to a hoverlayui.layer.
     var el = api.getZr().storage.getDisplayList()[0];
     if (!(el && el.useHoverLayer)) {
         api.dispatchAction({
@@ -84239,7 +84239,7 @@ var VisualMapView = extendComponentView({
         var rect = group.getBoundingRect();
 
         group.add(new Rect({
-            z2: -1, // Lay background rect on the lowest layer.
+            z2: -1, // Lay background rect on the lowest layui.layer.
             silent: true,
             shape: {
                 x: rect.x - padding[3],

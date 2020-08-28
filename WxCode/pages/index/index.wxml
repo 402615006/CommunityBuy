@@ -1,0 +1,37 @@
+<!-- 首页 -->
+<view class="home" style="padding-top:{{bar_Height+titleBarHeight}}px;">
+  <!-- 头部搜索 -->
+  <!-- <Top_search titleBarHeight="{{titleBarHeight}}" noreadno="{{noreadno}}"></Top_search> -->
+
+
+	<!-- 轮播图 -->
+	<view class="head" wx:if="{{bannerlist.length>0}}">
+		<swiper class="banner" interval="3000" indicator-dots='true' duration="500" circular="true" autoplay="true" indicator-active-color="#555555">
+			<block wx:for="{{bannerlist}}"  wx:key="index">
+				<swiper-item bindtap="bannerimgdetail" data-url="{{item.PageUrl}}">
+					<image src="{{item.img}}" class="banner-item"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+  
+	<!-- 图标功能 -->
+	<view class="top_tab {{tab_list.length<5?'top_tab2':''}}" wx:if="{{tab_list.length>0}}">
+		<view class="tab_li" wx:for="{{tab_list}}" wx:key="index">
+			<image class="tab_img" bindtap="tabimgdetail" data-item="{{item}}" data-i="{{index}}" src="{{item.img}}"></image>
+			<view class="tab_title">{{item.title}}</view>
+		</view>
+	</view>
+	
+  <!-- 中间主体类容 -->
+  <Content id="content" titleBarHeight="{{titleBarHeight}}"></Content>
+
+	<!-- 赠送的优惠券领取组件 -->
+	<Receivecoupon id="Receivecoupon" checkcode="{{checkcode}}" bind:clear_checkcode="clear_checkcode"></Receivecoupon>
+  <!-- 新人有礼 -->
+	<Newpeoplecoupon id="Newpeoplecoupon" checkcode="{{checkcode}}" bind:clear_checkcode="clear_checkcode"></Newpeoplecoupon>
+</view>
+
+<!-- 首页首次加载大弹窗组件 -->
+<homebox id="homebox"></homebox>
+

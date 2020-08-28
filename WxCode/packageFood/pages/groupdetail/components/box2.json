@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Box1": "./box1"
+  }
+}

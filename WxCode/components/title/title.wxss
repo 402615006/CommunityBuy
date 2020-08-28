@@ -1,0 +1,56 @@
+/* component/navbar/navbar.wxss */
+
+.box-detail{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 1;
+}
+
+.top_line{
+  height: 2rpx;
+  width: 100%;
+  box-shadow:2rpx 0rpx 16rpx 2rpx rgb(172, 170, 170);
+  position: fixed;
+  /* top:0; */
+  left:0;
+  z-index: 999;
+}
+
+.status-bar {
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+}
+.goBack{
+  position: absolute;
+  top: 2pt;
+  font-size:12pt;
+}
+.back{
+  width: 16pt;
+  height: 16pt;
+  padding: 6pt 12pt 0 4pt;
+}
+.tabar {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+.tabar2{
+  background: transparent !important;
+}
+.tabar2 .Ttext{
+  color: #fff !important;
+  /* font-weight: lighter !important; */
+}
+.tabar .Ttext {
+  padding: 8pt 12pt;
+  color: #353535;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.tabar .active {
+  color: #fff;
+}

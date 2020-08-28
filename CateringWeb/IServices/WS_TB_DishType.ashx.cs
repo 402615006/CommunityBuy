@@ -111,7 +111,7 @@ namespace CommunityBuy.IServices
             string TStatus = dicPar["TStatus"].ToString();
             string CCode = dicPar["CCode"].ToString();
             //调用逻辑
-            bll.Add(GUID, USER_ID, Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus, CCode);
+            bll.Add(GUID, USER_ID, Id, PKKCode, PKCode, TypeName, Sort, TStatus);
 
             ReturnResultJson(bll.oResult.Code,bll.oResult.Msg);
         }

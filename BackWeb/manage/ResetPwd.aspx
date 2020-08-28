@@ -11,7 +11,7 @@
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
     <script src="/js/CWebControl.js"></script>
     <script src="/js/listeditjs.js"></script>
-    <script src="/js/layer/layer.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
     <script src="/js/layerhelper.js"></script>
     <script src="/js/xmlhelper.js"></script>
 </head>

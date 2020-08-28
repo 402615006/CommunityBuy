@@ -1,0 +1,81 @@
+<!-- wx:if="{{login}}" -->
+<!--屏幕背景变暗的背景  catchtouchmove='true'-->
+<view class="commodity_screen" catchtouchmove="preventTouchMove" wx:if="{{showlogin}}" catchtap='code_false'>
+
+
+  <view class='user_boby' wx:if="{{user_info}}">
+    <view class='user_info'>
+      <view class='wx_size30 wx_color64 user_tlt'>需要获取用户信息登录</view>
+      
+      <view class='user_bott  wx_size30'>
+        <view class='user_tt user_bor wx_color64' bindtap='sele_user'>取消</view>
+        <view class='user_tt'>
+
+          <button wx:if="{{canIUse}}" plain="true" open-type="getUserInfo" class=' user_btn' bindgetuserinfo="bindGetUserInfo">获取授权</button>
+          <view wx:else class='wx_coloree'>请升级微信版本</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <!--弹出框  -->
+  <view animation="{{animationlogin2}}" catchtouchmove="preventTouchMove" wx:if="{{showlogin2}}" class='login_bj'>
+    <view class='login_bj' catchtouchmove="preventTouchMove">
+      <image src='../../images/qt_27.png' class='login_img'></image>
+      <view class='login_content' wx:if="{{is_login==1}}">
+        <image src='../../images/qt_19.png' class='login_icon0' bindtap='hidden'></image>
+        <view class='wx_size36 wx_color00 wx_margin_bottom login_top'>登录后账户更安全</view>
+        <view class='login_text'>
+          <image src='../../images/qt_10.png' class='login_icon'></image>
+          <input placeholder='请输入手机号' maxlength='11' type='number' class='login_input' bindinput="tel_value"></input>
+        </view>
+        <view class='login_text'>
+          <image src='../../images/qt_41.png' class='login_icon1'></image>
+          <input placeholder='请输入验证码' type='number' class='code_input' bindinput="code_value"></input>
+          <view class='login_code wx_bj_coloree wx_colorff wx_size30' catchtap="vcode">{{ c2 || '获取验证码' }}</view>
+        </view>
+        <view class='login_btn wx_bj_coloree wx_colorff wx_size36' bindtap="go_login">登录</view>
+        <!-- bindgetuserinfo="bindGetUserInfo" -->
+        <view class="wechat_text" catchtap='switch_wechat'>微信快速登录</view>
+        <!-- <button wx:if="{{canIUse}}" plain="true" class="weixinlogin  wx_size26" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信快速登录</button>
+        <view wx:else class="weixinlogin wx_coloree wx_size26">请升级微信版本</view> -->
+      </view>
+      <view class="login_wechat" wx:if="{{is_login==2}}">
+          <image src='../../images/qt_19.png' class='login_icon0' bindtap='hidden'></image>
+          <view class='wx_size36 wx_color00 wx_margin_bottom login_top'>登录后账户更安全</view>
+          <image src="../../images/wxtb_332.png" class="img_lp"></image>
+          <button wx:if="{{canIUse}}"  class="login_lp"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录，安全方便</button>
+          <view wx:if="{{canIUse}}" class="huo" >或</view>
+          <view wx:if="{{canIUse}}" class="tel_text" catchtap='switch_tel' >使用手机号验证登录</view>
+          <view wx:else class="weixinlogin wx_coloree wx_size26">请升级微信版本</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+
+
+
+
+<view class="commodity_screen" wx:if="{{showtip}}">
+  <view class="box">
+    <view class="content">
+      <view class="head">
+        温馨提示
+      </view>
+      <view class="text">
+        您现在绑定的手机号与公众号之前绑定的手机号不一致。系统将使用之前公众号绑定的手机号;
+      </view>
+      <view class="text">
+        如需使用新的手机号，请到公众号里面进行修改。
+      </view>
+    </view>
+    <view class="foot" bindtap='hiddentip'>
+      我知道了
+    </view>
+  </view>
+</view>

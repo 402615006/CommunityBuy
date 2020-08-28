@@ -14,14 +14,11 @@
     <script src="/js/xmlhelper.js"></script>
     <script src="/js/CWebControl.js" type="text/javascript"></script>
     <script src="/js/listeditjs.js" type="text/javascript"></script>
-    <script src="/js/layer/layer.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
     <script src="/js/layerhelper.js"></script>
     <script src="/js/MY97DATE/WdatePicker.js"></script>
     <script src="/js/datehelper.js"></script>
     <script src="/js/layerhelper.js"></script>
-    <script src="../js/jquery.uploadify/jquery.uploadify.v2.1.4.js" charset="gbk" type="text/javascript"></script>
-    <script src="../js/jquery.uploadify/swfobject.js"></script>
-    <link href="../js/jquery.uploadify/uploadify.css" rel="stylesheet" />
     <script type="text/javascript">
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
@@ -115,7 +112,7 @@
 
             var title = getNameByCode('storerefer');
             var linkstr = '../manage/selectStroe.aspx?nameid=txt_stocode&valid=hidstore&id=' + ids;;
-            var index = layer.open({
+            var index = layui.layer.open({
                 title: title,
                 type: 2,
                 area: ['100%', '100%'],
@@ -123,14 +120,14 @@
                 maxmin: false,
                 content: linkstr
             });
-            layer.full(index);
+            layui.layer.full(index);
         }
 
         function selectmemlikeclass() {
             var title = getNameByCode('memlikeclassrefer');
             var names = $("#txt_hobby").val();
             var linkstr = '/memberCard/memlikeclassrefer.aspx?nameid=txt_hobby&names=' + names;
-            var index = layer.open({
+            var index = layui.layer.open({
                 title: title,
                 type: 2,
                 area: ['80%', '80%'],
@@ -138,7 +135,7 @@
                 maxmin: false,
                 content: linkstr
             });
-            layer.full(index);
+            layui.layer.full(index);
         }
 
         ////是否大客户

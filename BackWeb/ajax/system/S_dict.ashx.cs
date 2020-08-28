@@ -54,7 +54,7 @@ namespace CommunityBuy.BackWeb.ajax.system
 
                     ts_DictDto dto = new ts_DictDto();
 
-                    dto.id = int.Parse(rows[i]["dicid"].ToString());
+                    dto.id =rows[i]["dicid"].ToString();
                     dto.isParent = true;
                     dto.open = false;
                     dto.name = rows[i]["dicname"].ToString();
@@ -69,7 +69,7 @@ namespace CommunityBuy.BackWeb.ajax.system
                         {
                             ts_DictDto itemdto = new ts_DictDto();
 
-                            itemdto.id = int.Parse(itemsrows[k]["dicid"].ToString());
+                            itemdto.id = itemsrows[k]["dicid"].ToString();
                             itemdto.isParent = false;
                             itemdto.open = false;
                             itemdto.name = itemsrows[k]["dicname"].ToString();

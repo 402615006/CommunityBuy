@@ -23,7 +23,7 @@ function layconfirm() {
         but2 = getCommonInfo('cancel_layer_confirm');
     }
     var title = getCommonInfo('title_layer_confirm');
-    layer.confirm(msg + '？', {
+    layui.layer.confirm(msg + '？', {
         title: [title],
         btn: [but1, but2] //按钮
     }, function () {
@@ -55,11 +55,11 @@ function laytips() {
         bgcolor = '#70789e';
     }
     //tips层-上
-    layer.tips(msg, id, {
+    layui.layer.tips(msg, id, {
         tips: [position, bgcolor] //颜色
     });
 
-    //layer.tips('tips的样式并非是固定的，您可自定义外观。', id, { 
+    //layui.layer.tips('tips的样式并非是固定的，您可自定义外观。', id, { 
     //    style: ['background-color:#78BA32; color:#fff', '#78BA32'],  
     //    maxWidth:185,  
     //    time: 3,  
@@ -79,13 +79,13 @@ function pcLayerMsg() {
     }
     var funback = arguments[2];
     if (funback == undefined) {
-        layer.msg(str, {
+        layui.layer.msg(str, {
             icon: status,
             time: 3000
         });
     }
     else {
-        layer.msg(str, {
+        layui.layer.msg(str, {
             icon: 1,
             time: 3000, //5s后自动关闭
             end: funback
@@ -101,13 +101,13 @@ function pcLayerMsg2() {
     }
     var funback = arguments[2];
     if (funback == undefined) {
-        layer.msg(str, {
+        layui.layer.msg(str, {
             icon: status,
             time: 1000
         });
     }
     else {
-        layer.msg(str, {
+        layui.layer.msg(str, {
             icon: 1,
             time: 1000, //5s后自动关闭
             end: funback
@@ -168,7 +168,7 @@ function ShowReferPage() {
     if (showh == undefined) {
         showh = '80%';
     }
-    var index = layer.open({
+    var index = layui.layer.open({
         title: title,
         type: 2,
         shade: 0.6,
@@ -176,7 +176,7 @@ function ShowReferPage() {
         area: [showw, showh],
         content: linkstr
     });
-    //layer.full(index);
+    //layui.layer.full(index);
 }
 
 
@@ -213,7 +213,7 @@ function ShowOpenpage() {
         isreload = false;
     }
 
-    var index = layer.open({
+    var index = layui.layer.open({
         title: title,
         type: 2,
         shade: 0.6,
@@ -223,13 +223,67 @@ function ShowOpenpage() {
             if (isreload) {
                 var _btn = document.getElementById("ToolBar1_LinkRefresh");
                 if (_btn != undefined) {
-
+                    //_btn.click();
                 }
             }
         }
     });
     if (isfull) {
-        layer.full(index);
+        layui.layer.full(index);
+    }
+}
+
+function ShowOpenpage1() {
+    var title = arguments[0];
+    var linkurl = arguments[1];
+    var showw = arguments[2];
+    var showh = arguments[3];
+    var isfull = arguments[4];
+    var isreload = arguments[5];
+
+    if (linkurl == undefined) {
+        return;
+    }
+
+    var linkstr = getrandombyurl(linkurl);
+
+    if (title == undefined || title.length == 0) {
+        title = false;
+    }
+
+    if (showw == undefined) {
+        showw = '85%';
+    }
+
+    if (showh == undefined) {
+        showh = '80%';
+    }
+
+    if (isfull == undefined) {
+        isfull = false;
+    }
+    if (isreload == undefined) {
+        isreload = false;
+    }
+
+    var index = layui.layer.open({
+        title: title,
+        type: 2,
+        shade: 0.6,
+        area: [showw, showh],
+        closeBtn: 0,
+        content: encodeURI(linkstr),
+        cancel: function () {
+            if (isreload) {
+                var _btn = document.getElementById("ToolBar1_LinkRefresh");
+                if (_btn != undefined) {
+                    //_btn.click();
+                }
+            }
+        }
+    });
+    if (isfull) {
+        layui.layer.full(index);
     }
 }
 
@@ -279,7 +333,7 @@ function ShowReferPagebycoupon() {
     }
 
 
-    var index = layer.open({
+    var index = layui.layer.open({
         title: title,
         type: 2,
         shade: 0.6,
@@ -287,7 +341,7 @@ function ShowReferPagebycoupon() {
         area: ['80%', '80%'],
         content: linkstr
     });
-    //layer.full(index);
+    //layui.layer.full(index);
 }
 
 
@@ -296,7 +350,7 @@ function ShowReferPagebycoupon() {
     
 */
 function showlayer(url, title, wper, hper, type) {
-    var index = layer.open({
+    var index = layui.layer.open({
         title: title,
         type: type,
         area: [wper, hper],

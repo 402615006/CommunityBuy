@@ -1,0 +1,134 @@
+/* pages/phoneNumber2/phoneNumber2.wxss */
+
+/* pages/phoneNumber/phoneNumber.wxss */
+
+input {
+  caret-color: #ee695d;
+}
+.binding_tel{
+  padding: 0 20rpx;
+}
+.binding_tel {
+  background-color: #fff;
+  position: relative;
+}
+
+.box {
+  width: 120rpx;
+  height: 120rpx;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.tel {
+  width: 100%;
+  /* height: 200rpx; */
+  text-align: center;
+  color: #000;
+  font-size: 30rpx;
+  padding-top: 20rpx;
+}
+
+.content {
+  /* margin-top: 70rpx;
+   */
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline-flex;
+  border: 2rpx solid #999999;
+  /* border-top: 1px solid #dedede; */
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.content1 {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: inline-flex;
+  border: 2rpx solid #999999;
+  margin-bottom:20rpx;
+  border-radius: 8rpx;
+}
+
+.p {
+  width: 26%;
+  height: 60rpx;
+  font-size: 30rpx;
+  color: #000;
+  line-height: 60rpx;
+  border-right: 1px solid #dedede;
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.right {
+  width: 74%;
+  height: 100rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  border: none;
+  padding-left: 28rpx;
+  font-size: 30rpx;
+  height: 96rpx;
+}
+
+.input_code {
+  width: 250rpx;
+  height: 96rpx;
+}
+
+.input_code1 {
+  width: 450rpx;
+  height: 96rpx;
+}
+
+input::-webkit-input-placeholder {
+  color: #c8c8c8;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.code {
+  width: 220rpx;
+  height: 100rpx;
+  background-color: #ee695d;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  border: none;
+  font-size: 30rpx;
+}
+
+.mint-button {
+  width: 710rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  position: fixed;
+  text-align: center;
+  border-radius: 10rpx;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ee685d;
+}
+
+.top_img{
+  width: 160rpx;
+  height: 205rpx;
+}
+
+.tishi{
+  width: 100%;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 34rpx;
+  margin-bottom:46rpx;
+}

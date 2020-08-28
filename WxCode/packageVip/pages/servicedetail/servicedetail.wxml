@@ -1,0 +1,9 @@
+
+
+<view class="servicedetail">
+  <view class="title">{{list.Title}}</view>
+  <view class="content">{{list.Content}}</view>
+  <view class="img_box" wx:if="{{list.Img}}">
+    <image src="{{list.Img}}" mode="aspectFill"></image>
+  </view>
+</view>

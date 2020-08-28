@@ -1,0 +1,18 @@
+  <!--屏幕背景变暗的背景  catchtouchmove='true'-->
+<view class="red_screen" catchtouchmove="preventTouchMove"  wx:if="{{showlogin}}">
+  <!--弹出框  -->
+  <view animation="{{animationlogin}}" catchtouchmove="preventTouchMove" wx:if="{{showlogin}}" class='login_bj'>
+    <view class='login_bj' catchtouchmove="preventTouchMove">
+      <view class="red_content">
+        
+        <view class="cen" catchtap='cen'>X</view>
+       
+          <image src="{{result.thumbnailpath}}"  class="bg_img" catchtap='go'></image>
+        
+      
+        <view class="btn" catchtap='go'>立即参与</view>
+      </view>
+      
+    </view>
+  </view>
+</view>

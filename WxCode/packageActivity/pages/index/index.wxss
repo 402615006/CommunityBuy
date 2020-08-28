@@ -1,0 +1,608 @@
+/* 头部滚动 */
+
+.top {
+  width: 100%;
+  height: 120rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.ul {
+  height: 100rpx;
+  white-space: nowrap;
+  position: absolute;
+  top: 20rpx;
+  display: flex;
+}
+
+.prizerList1 {
+  display: flex;
+}
+
+.prizerList2 {
+  display: flex;
+}
+
+.lis {
+  margin-right: 60rpx;
+  height: 60rpx;
+  /* min-width: 200rpx; */
+  padding: 0 20rpx;
+  border-radius: 30rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #f6e23e;
+  line-height: 60rpx;
+  box-shadow: 0px 0px 30rpx #760b72 inset;
+  display: flex;
+}
+
+.user_img {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+
+.lis:nth-child(2n) {
+  margin-top: 10rpx;
+}
+
+luckyDraw {
+  width: 100%;
+}
+
+/* 头部样式 */
+
+.luckyDraw .headerbg {
+  width: 100%;
+  height: 280rpx;
+}
+
+.headerbg1 {
+  width: 100%;
+  height: 380rpx;
+}
+
+.luckyDraw .pageBg image.second {
+  position: relative;
+  /* z-index: 99; */
+}
+
+/* 主体样式 */
+
+.luckyDraw .main {
+  width: 100%;
+  background-color: #ea512f;
+  padding-bottom: 30rpx;
+}
+
+.prizeContent-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.prizeContent-box image.second {
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  display: block;
+  height: 700rpx;
+}
+
+.luckyDraw .main .prizeContent {
+  width: 560rpx;
+  height: 240rpx;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  top: 90rpx;
+  z-index: 36;
+  transform: translate(-50%);
+}
+
+.prizeBox {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  transform-origin: 50% 50%;
+  animation-timing-function: ease;
+}
+
+.luckyDraw .main .prizeContent .prizeList {
+  width: 200rpx;
+  height: 240rpx;
+  position: relative;
+  /* #dcdada, #fefefe, #dcdada */
+  background-image: linear-gradient(#fff, #fff);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+@keyframes autoMove {
+  from {}
+
+  to {
+    transform: rotateX(720deg);
+  }
+}
+
+.luckyDraw .main .prizeContent .prizeList .red-envelope {
+  width: 160rpx;
+  position: absolute;
+  transform-origin: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .luckyDraw .main .prizeContent .prizeList .red-envelope:nth-of-type(3) {} */
+
+.luckyDraw .main .prizeContent .prizeList .red-envelope image {
+  display: block;
+  width: 160rpx;
+}
+
+.luckyDraw .main .prizeContent .prizeList .red-envelope text {
+  font-size: 26rpx;
+  color: #ffe04e;
+  position: absolute;
+}
+
+/* 按钮 */
+
+.btn-box {
+  position: relative;
+}
+
+.luckyDraw .main .btnimg {
+  width: 300rpx;
+  height: 70rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 260rpx;
+  z-index: 35;
+  transform: translate(-50%);
+}
+
+.luckyDraw .main .btnimg1 {
+  width: 80rpx;
+  height: 84rpx;
+  position: absolute;
+  right: 10%;
+  bottom: 260rpx;
+  z-index: 35;
+  transform: translate(-50%);
+}
+
+.luckyDraw .main .btn {
+  width: 100%;
+  height: 90rpx;
+  position: absolute;
+  left: 0;
+  bottom: 255rpx;
+  z-index: 1001;
+  background-color: transparent;
+}
+
+.luckyDraw .main .WinningName {
+  width: 270rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  position: absolute;
+  right: 13%;
+  bottom: 0rpx;
+  z-index: 1001;
+  font-size: 50rpx;
+  color: #000;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.cjcs {
+  width: 100%;
+  position: relative;
+}
+
+.numimg {
+  width: 80%;
+  height: 70rpx;
+  margin-left: 10%;
+}
+
+.cjcs_num {
+  position: absolute;
+  top: 46%;
+  left: 56%;
+  transform: translateY(-50%);
+  font-size: 32rpx;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.share_btn {
+  border: none;
+  background-color: transparent;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+button:after {
+  border: none;
+}
+
+.zhongjiangMD {
+  width: 52%;
+  height: 50rpx;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.zjlist {
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+}
+
+.zhongjianglist {
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  left: 5%;
+  z-index: 11;
+}
+
+.zjlistdata {
+  width: 80%;
+  height: 350rpx;
+  position: absolute;
+  left: 10%;
+  z-index: 15;
+  font-size: 28rpx;
+  color: #fff;
+  margin-top: 30rpx;
+}
+
+.zjlist swiper {
+  width: 94%;
+  height: 100%;
+  padding: 0 20rpx;
+}
+
+.zjlist .container .list {
+  min-height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.zjlist .container .list .uname {
+  padding: 0 10rpx;
+  white-space: nowrap;
+}
+
+.zjlist .container .list .prize {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.userIcon {
+  width: 40rpx;
+  min-width: 40rpx;
+  min-height: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+
+.qdview {
+  width: 100%;
+  height: 500rpx;
+  position: relative;
+}
+
+.qdbg {
+  width: 96%;
+  height: 500rpx;
+  margin-left: 2%;
+}
+
+.canvas-list {
+  width: 87%;
+  height: 400rpx;
+  position: absolute;
+  top: 50rpx;
+  left: 5%;
+  padding: 10rpx;
+  color: #333;
+  display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.canvas-list .bjimg {
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-list .canvas-item {
+  display: inline-block;
+  /* margin-left: 10rpx; */
+  /* line-height: 40rpx; */
+  font-size: 28rpx;
+  width: 48%;
+  height: 48%;
+  position: relative;
+
+  /* background:url(../../images/qdban.png) no-repeat center; */
+}
+
+.canvas-list .canvas-item .canvas-itemtxt{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  font-weight: bolder;
+  color: #2C3B65;
+}
+
+.Tline{
+  height: 2rpx;
+  width: 90%;
+  border: 2rpx solid #2C3B65;
+}
+
+.botticon {
+  width: 90%;
+  height: 40rpx;
+  margin-top: 20rpx;
+  margin-left: 5%;
+  padding-bottom: 20rpx;
+}
+
+.peopel {
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.RaffleInfo {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+}
+
+.Raffleview {
+  width: 100%;
+  height: 600rpx;
+  position: relative;
+  top: 50%;
+  transform: translateY(50%);
+  z-index: 100000;
+}
+
+.RaffleInfo_icon {
+  width: 100%;
+  height: 600rpx;
+}
+
+.Raffletitle {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 100000;
+  text-align: center;
+}
+
+.Raffletitle1 {
+  font-size: 40rpx;
+  color: #000;
+  font-weight: bolder;
+}
+
+.Raffletitle2 {
+  font-size: 34rpx;
+  color: #000;
+  font-weight: bolder;
+}
+
+.RaffleInfo_closeicon {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 0%;
+  right: 15%;
+  z-index: 100002;
+  background-color: #fff;
+  border-radius: 50%;
+  border: none;
+}
+
+.RaffleInfoUsericon {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 8%;
+  right: 23%;
+  z-index: 100002;
+}
+
+.RaffleInfo_missed {
+  width: 70%;
+  height: 600rpx;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100000;
+}
+
+.RaffleInfo_missedicon {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: -20rpx;
+  right: 13%;
+  z-index: 100002;
+  background-color: #fff;
+  border-radius: 50%;
+  border: none;
+}
+
+.RaffleInfo_againicon {
+  width: 50%;
+  height: 70rpx;
+  position: absolute;
+  bottom: -30rpx;
+  left: 50%;
+  z-index: 100002;
+  transform: translateX(-50%);
+  background-color: transparent;
+}
+
+.font_size18 {
+  font-size: 18rpx;
+}
+
+.font_size20 {
+  font-size: 20rpx;
+}
+
+.font_size22 {
+  font-size: 22rpx;
+}
+
+.font_size24 {
+  font-size: 24rpx;
+}
+
+.font_size28 {
+  font-size: 28rpx;
+}
+
+.font_size30 {
+  font-size: 30rpx;
+}
+
+.font_size32 {
+  font-size: 32rpx;
+}
+
+.font_size33 {
+  font-size: 33rpx;
+}
+
+.font_size36 {
+  font-size: 36rpx;
+}
+
+.font_size44 {
+  font-size: 44rpx;
+}
+
+.font_size48 {
+  font-size: 48rpx;
+}
+
+.font_size54 {
+  font-size: 54rpx;
+}
+
+.font_size58 {
+  font-size: 58rpx;
+}
+
+.font_size60 {
+  font-size: 60rpx;
+}
+
+.color_fee530 {
+  color: #fee530;
+}
+
+.color_f9e953 {
+  color: #f9e953;
+}
+
+.color_ffffff {
+  color: #fff;
+}
+
+.color_7024a8 {
+  color: #7024a8;
+}
+
+.color_fef04f {
+  color: #fef04f;
+}
+
+.color_7024a8 {
+  color: #7024a8;
+}
+
+.color_ccb3d6 {
+  color: #ccb3d6;
+}
+
+.font_wweight {
+  font-weight: 600;
+}
+
+.margin_top15 {
+  margin-top: 15rpx;
+}
+
+.margin_top30 {
+  margin-top: 30rpx;
+}
+
+.margin_top36 {
+  margin-top: 36rpx;
+}
+
+.margin_left20 {
+  margin-left: 20rpx;
+}
+
+.margin_left28 {
+  margin-left: 28rpx;
+}
+
+.margin_right20 {
+  margin-right: 20rpx;
+}
+
+.margin_top20 {
+  margin-top: 20rpx;
+}
+
+.margin_top10 {
+  margin-top: 10rpx;
+}
+
+.margin_bott10 {
+  margin-bottom: 10rpx;
+}
+
+.margin_bott20 {
+  margin-bottom: 20rpx;
+}

@@ -1,0 +1,62 @@
+<wxs src="../../utils/filter.wxs" module="filter" />
+
+<view class="NewcomerExclusive">
+	<view class="head">
+		<view class="head_left">新人首单特惠</view>
+		<view class="head_right">
+			<image src="../../images/hy_014_ico.png" class="gou margin_right8"></image>
+			<view class="font_size20">新用户优惠</view>
+			<image src="../../images/hy_014_ico.png" class="gou margin_left30 margin_right8"></image>
+			<view class="font_size20">仅一次专享价</view>
+		</view>
+	</view>
+  <view class="herder">
+    <view class="title">活动规则</view>
+    <view>1.此活动商品的新人专享价仅针对新用户优惠，新用户身份定义：从未在闲弟小程序上购买过商品的用户</view>
+    <view>2.每个新用户仅可享受一次新人专享价</view>
+  </view>
+	<view class="ul">
+		<block wx:for="{{list}}" wx:key="index">
+			<view class="li" bindtap="todetail" data-code="{{item.procode}}">
+				<view class="left">
+					<image src="{{item.smallimg}}" class="img" mode="aspectFill"></image>
+				</view>
+				<view class="right">
+					<view class="title">{{item.name}}</view>
+					<view class="two">
+						<view class="box">
+							<image src="../../images/hy_015_fenx.png" class="icon_fenxiang"></image>
+							<view>分享赚 <text class="price">{{item.comprice}}</text></view>
+						</view>
+						<view class="num">剩余{{item.procount}}</view>
+					</view>
+					<view class="times">{{item.enddate}}截止</view>
+
+					<view class="footer">
+						<view class="footer_l">
+              新人专享
+              <view class="sanjiao"></view>
+            </view>
+						<view class="footer_r">
+							<!-- <text class="lnum">￥{{item.price}}</text> -->
+              <text class="lnum">￥{{filter.splitpriceOne(item.price)}}</text>
+              <text>{{filter.splitpriceTwo(item.price)}}</text>
+							<text class="num2">￥{{item.costprice}}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+  <!-- 没有信息 -->
+  <view wx:if="{{isno&&list.length==0}}">
+    <view class='no_data'>
+      <image src='/images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂时还没有商品~</view>
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+	<view class='noMore' wx:if="{{list.length>4&&isnextpage==0}}">没有更多了~~</view>
+</view>

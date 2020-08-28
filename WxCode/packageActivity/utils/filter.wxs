@@ -1,0 +1,12 @@
+//把手机号中间变成*号
+var replace_tel = function(e) {
+  var s = e;
+  console.log(e)
+  s = s.substring(0, 3) + '****' + s.substring(7);
+  console.log(s)
+  return s
+}
+
+module.exports = {
+  replace_tel: replace_tel
+}

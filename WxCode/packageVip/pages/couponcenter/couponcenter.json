@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ee685d",
+  "navigationBarTextStyle":"white",
+  "navigationBarTitleText": "领券中心",
+  "usingComponents": {
+    "Text": "./components/text"
+  }
+}

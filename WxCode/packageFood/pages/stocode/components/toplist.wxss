@@ -1,0 +1,121 @@
+
+.toplist{
+  width: 100%;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.header{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  box-sizing: border-box;
+  position: relative;
+}
+.title{
+  display: block;
+  width: 200rpx;
+  height: 56rpx;
+  /* background: linear-gradient(45deg, #eeae85, #f5765b); */
+  background: linear-gradient(to right,#eeae85 ,#f5765b);
+  color:#fff;
+  line-height: 56rpx;
+  text-align: center;
+  font-size: 30rpx;
+  border-top-left-radius: 4rpx;
+  border-top-right-radius: 4rpx;
+  border-bottom-left-radius: 4rpx;
+  border-bottom-right-radius: 20rpx;
+  position: absolute;
+  left:30rpx;
+  top:12rpx;
+}
+.li{
+  width: 100%;
+  padding:30rpx 25rpx;
+  box-sizing: border-box;
+  border-bottom:1rpx solid #e6e6e6;
+  display: flex;
+  justify-content: flex-start;
+}
+.img_box{
+  width: 256rpx;
+}
+.right{
+  flex: 1;
+  padding-left:30rpx;
+  box-sizing: border-box;
+}
+.right_name{
+  font-size: 32rpx;
+  color:#000;
+  font-weight: 600;
+}
+.two{
+  color:#838383;
+  font-size: 24rpx;
+  margin-top:22rpx;
+}
+.img{
+  width: 256rpx;
+  height: 210rpx;
+  border-radius: 6rpx;
+}
+.price{
+  font-size: 32rpx;
+  margin-top:60rpx;
+  color:#e96147;
+  height: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.price_left{
+  height: 40rpx;
+  /* display: flex;
+  justify-content: flex-start;
+  align-items: flex-end; */
+}
+.money{
+  height: 40rpx;
+  font-size: 32rpx;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  line-height: 32rpx; */
+}
+.money2{
+  height: 40rpx;
+  font-size: 26rpx;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  line-height: 30rpx; */
+}
+.font_size20{
+  font-size: 20rpx;
+}
+.price2{
+  margin-left:10rpx;
+  color:#828282;
+  text-decoration: line-through;
+}
+.juli{
+  font-size: 20rpx;
+  color:#838383;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 40rpx;
+}
+.fr{
+  float: right;
+}
+.noMore{
+  font-size: 26rpx;
+}
+
+.font_size32{
+  font-size: 32rpx;
+}

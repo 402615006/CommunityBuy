@@ -1,0 +1,36 @@
+<!--pages/carouselDetails/carouselDetails.wxml 轮播详情-->
+<!-- <import src="../../wxParse/wxParse.wxml" /> -->
+
+<view class='line'></view>
+
+<!--<view wx:if="{{img}}">
+  <image src="{{img}}" mode="widthFix" class="slide-image" bindload="imageLoad" />
+</view> 
+<template is="wxParse" data="{{wxParseData:introduction.nodes}}" />-->
+
+
+<!-- 视频 -->
+<view class='detailsEvent' wx:if="{{type ==3}}">
+  <view class='detailsEvent_tlt'>{{actname}}</view>
+  <view class='detailsEvent_center'>
+    <rich-text nodes="{{nodes}}"></rich-text>
+  </view>
+  <view class='detailsEvent_center'>
+    <block wx:for="{{img}}" wx:for-item="VideoItem" wx:key="banner">
+      <video id='myVideo{{index}}' class='vidioSize' data-pid='myVideo{{index}}' data-index='{{index}}' title="{{VideoItem.Name}}" poster="{{baserURLcard+'/uploads/'+VideoItem.ImgUrl}}" bindplay="bindplay" src="{{baserURLcard+'/uploads/'+VideoItem.VideoUrl}}"></video>
+    </block>
+  </view>
+</view>
+
+<!-- 图片 -->
+<view class='detailsEvent' wx:else>
+  <view class='detailsEvent_tlt'>{{actname}}</view>
+  <view class='detailsEvent_center'>
+    <rich-text nodes="{{nodes}}"></rich-text>
+  </view>
+  <view class='detailsEvent_center'>
+    <block wx:for="{{img}}" wx:for-item="imgItem" wx:key="banner">
+      <image src="{{baserURLcard+'/uploads/'+imgItem}}" mode="widthFix" class="slide-image" bindload="imageLoad" />
+    </block>
+  </view>
+</view>

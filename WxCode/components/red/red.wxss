@@ -1,0 +1,129 @@
+/* components/red/red.wxss */
+
+.red_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* background: #000; */
+  /* opacity: 0.8; */
+  /* background: rgba(0,0,0,0.7); */
+  overflow: hidden;
+  z-index: 10;
+  /* color: #fff; */
+}
+
+.login_bj{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.red_content{
+  position: absolute;
+  /* background-color: #8601fd; */
+  /* background: linear-gradient(to top,#cb00fc ,#8300fe); */
+  width: 572rpx;
+  height: 665rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  z-index: 44;
+  border-radius: 40rpx;
+  padding-top:40rpx;
+  box-sizing: border-box;
+}
+.red_content .text{
+  font-size: 48rpx;
+  color:#fdec33;
+  line-height: 48rpx;
+}
+.text2{
+  margin-top:20rpx;
+}
+
+.card{
+  width: 455rpx;
+  height: 240rpx;
+  /* margin:auto;
+  margin-top:40rpx; */
+  position: absolute;
+  top:220rpx;
+  left:53rpx;
+  /* background-color: #f2755c; */
+}
+.card .test{
+  /* position: absolute;
+  left:0;
+  top:0;
+  width: 454rpx;
+  height: 240rpx;
+  padding-top:40rpx;  */
+  color:#fce433;
+  box-sizing: border-box;
+  width: 350rpx;
+  height: 200rpx;
+  position: absolute;
+  left:50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.card .test .price .p1{
+  font-size: 70rpx;
+}
+.card .test .price .p2{
+  font-size: 36rpx;
+}
+.card .test .title{
+  display:table-cell;
+  font-size: 30rpx;
+  width: 350rpx;
+  height: 200rpx;
+  line-height: 36rpx;
+  text-align: center;
+  vertical-align: middle;
+  /* overflow: hidden; */
+}
+.tip{
+  position: absolute;
+  bottom:135rpx;
+  left:0;
+  width: 100%;
+  font-size: 24rpx;
+  color:#fdea33;
+  line-height: 24rpx;
+  text-align: center;
+}
+.btn{
+  width: 500rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin:auto;
+  margin-top:40rpx;
+  /* background-color: #fce532; */
+  color:#c901fc;
+  font-size: 34rpx;
+  line-height: 80rpx;
+  position: absolute;
+  bottom:38rpx;
+  left:33rpx;
+  
+}
+
+.bg{
+  position: absolute;
+  width: 572rpx;
+  height: 665rpx;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  z-index: 10;
+  border-radius: 40rpx;
+}
+

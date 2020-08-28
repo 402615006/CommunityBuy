@@ -1,0 +1,8 @@
+
+
+<view class="showbox" wx:if="{{isshow}}">
+  <view class="box">
+    <view class="title">您需要完善身份信息才能开通会员卡</view>
+    <view class="btn" catchtap="btn">去完善</view>
+  </view>
+</view>

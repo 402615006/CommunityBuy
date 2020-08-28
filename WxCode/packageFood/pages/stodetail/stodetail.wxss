@@ -1,0 +1,71 @@
+
+page{
+  background-color: #f2f2f2;
+}
+.stodetail{
+  width: 100%;
+  padding:15rpx 25rpx 0 25rpx;
+  box-sizing: border-box;
+}
+.top_box{
+  width: 100%;
+  border-radius: 16rpx;
+  background-color: #fff;
+}
+.time{
+  width: 100%;
+  height: 160rpx;
+  padding:30rpx 20rpx 0 20rpx;
+  box-sizing: border-box;
+}
+.tiem_title{
+  
+}
+.times{
+  margin-top:40rpx;
+}
+
+.label{
+  border-top:1rpx solid #c2c1c1;
+  padding:30rpx 20rpx 20rpx 20rpx;
+  box-sizing: border-box;
+}
+.label_content{
+  margin-top:30rpx;
+}
+.lable_text{
+  margin-right:20rpx;
+  line-height: 36rpx;
+}
+
+.warp{
+  width: 100%;
+  background-color: #fff;
+  margin-top:25rpx;
+  border-radius: 16rpx;
+}
+.warp_title{
+  width: 100%;
+  padding:10rpx 20rpx 0 20rpx;
+  height: 85rpx;
+  box-sizing: border-box;
+  line-height: 75rpx;
+}
+.warp_content{
+  padding:30rpx 20rpx 20rpx 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  border-top:1rpx solid #c2c1c1;
+}
+
+.font_size30{
+  font-size: 30rpx;
+}
+.font_size24{
+  font-size: 24rpx;
+}
+.font_weight{
+  font-weight: bold;
+}

@@ -1,0 +1,57 @@
+
+
+<view class="qrcode" wx:if="{{list.length>0&&flag==true}}">
+  <view class="box">
+    <view class="top"></view>
+    <view class="content">
+      <view class="img1" >
+      <!-- 条形码 -->
+        <view class="img1box" hidden="{{!qrshow}}">
+          <canvas  canvas-id="barcode" />
+        </view>
+      </view>
+      <view class="code" wx:if="{{value}}">{{value}}</view>
+      <view class="img2">
+        <view class="img2box" hidden="{{!qrshow}}">
+          <!-- 二维码 -->
+          <wux-qrcode id="qrcode"  wux-class="qrcode" wx:if="{{value}}" data="{{value}}"  width="{{qrwidth}}" height="{{qrwidth}}"  fg-color="{{qrcolor}}" />
+        </view>
+        <!-- <canvas canvas-id="qrcode" /> -->
+      </view>
+      <!-- <view class="text">
+        <view class="or" wx:if="{{falg}}">已刷新</view>
+        <view class="new" wx:if="{{!falg}}" catchtap='newget_data'>
+          <image class="yxz" src="../../../images/yxz.png"></image>
+          <view>点击<text class="color_519ae4">刷新</text></view>
+        </view>
+      </view> -->
+      <picker  bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="card">
+              <view class="left">
+                <image src="../../images/icon_021_huiyuanka.png" class="cardicon"></image>
+                <view class="name">
+                    <view class="title">{{list[index].levelname}}</view>
+                    <view>(余额￥{{list[index].balance}})</view>
+                </view>
+              </view>
+              <view class="right">更换</view>
+          </view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+
+<view class="no_card" wx:if="{{list.length==0&&flag==true}}">
+  <view class="no_list" wx:if="{{list.length==0}}">
+    <image src="../../../images/hyk_004_kong.png" class="no_img"></image>
+    <view class="no_text">您还没有办理会员卡</view>
+  </view>
+  <view class="no_cardbtn" catchtap="go_vip">
+    <image class="footer_btn" src="../../../images/hyk_003_add.png"></image>
+    <text class="btn_text">办理会员卡</text>
+  </view>
+</view>
+
+  <!-- 密码输入框  -->
+  <password id="password" bind:myevent="get_number_ok" falg="2" bind:hiden="hiden"></password>

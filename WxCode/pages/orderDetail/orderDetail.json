@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "Title": "../../components/title/title",
+    "Button_pay": "/components/button_pay/button_pay"
+  }
+}

@@ -1,0 +1,42 @@
+
+.foodbox{
+  height: 100%;
+  width: 100%;
+}
+
+.head{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom:1rpx solid #e6e6e6;
+  background-color: #fff;
+  position: absolute;
+  z-index: 1;
+  top:110rpx;
+  left:0;
+}
+.tab_btn{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color:#3d3c42;
+  transition: .3s;
+}
+.act_color{
+  color:#ee685d;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+swiper{
+  width: 100%;
+  height: 100%;
+}
+swiper-item{
+  height: 100%;
+  padding-top:80rpx;
+  box-sizing: border-box;
+}

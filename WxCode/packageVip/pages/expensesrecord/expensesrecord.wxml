@@ -1,0 +1,39 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="expensesrecord">
+  <view class="ul">
+    <!-- <view class="title">
+      <view class="title_text">本月▼</view>
+    </view> -->
+    <view class="li" wx:for="{{list}}" wx:key="index">
+      <view class="li_left">
+        <view class="shou" wx:if="{{item.income>=0}}">收</view>
+        <view class="zhi" wx:if="{{item.income<0}}">支</view>
+      </view>
+      <view class="li_right">
+        <view class="text">
+          <view class="name">{{item.ctype}}</view>
+          <view class="yue">余额：{{filter.moneyFormat(item.balance)}}元</view>
+          <view class="code">订单编号：{{item.paycode}}</view>
+          <view class="time">{{item.ctimestr}}</view>
+        </view>
+        <view class="price">
+          <!-- <text wx:if="{{item.status==0}}">-</text> -->
+          <text wx:if="{{item.income>0}}">+</text>{{filter.moneyFormat(item.income)}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 没有优惠券信息 -->
+  <view wx:if="{{list.length==0&&isloadmore==false}}">
+    <view class='no_data'>
+      <image src='../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无使用记录</view>
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+  <tui-nomore wx:if="{{list.length>0&&isnextpage==0}}"></tui-nomore>
+</view>
+

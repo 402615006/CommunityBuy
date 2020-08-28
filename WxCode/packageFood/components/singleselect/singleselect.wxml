@@ -1,0 +1,41 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<!-- 规则选择框 -->
+<view class="commodity_screen" wx:if="{{show}}" catchtap='hidelogin'></view>
+<view animation="{{animationData}}" class="commodity_attr_boxcard" wx:if="{{show}}">
+  <image src="../../images/btn_004_close.png" class="icon" catchtap='hidelogin'></image>
+  <scroll-view class="scroll" scroll-y="true">
+    <view class="box">
+      <view class="head">
+        <image src="{{object.images?object.images:'../../../images/kong.png'}}" class="img" mode="aspectFill" bindtap='previewImg' data-item="{{object}}"></image>
+        <view class="right">
+          <view class="name">{{object.DisName}}</view>
+          <!-- <view class="detail" wx:if="{{object.IsCoupon==0}}">
+            <image src="../../images/youhuiquan.png" class="detail_icon"></image>
+            <text>不支持优惠券</text>
+          </view> -->
+          <view class="price">￥
+            <text class="font_size36">{{filter.moneyFormat(object.Price)}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- <view class="specification" wx:if="{{flavorlist.length>0}}">
+        <view class="title">口味(多选)</view>
+        <view class="row">
+          <view class="specificationtext {{item.isselect==true?'acttext':''}}" wx:for="{{flavorlist}}" wx:key="index" data-index="{{index}}" catchtap='btnpecification'>{{item.FlavorName}}</view>
+        </view>
+      </view> -->
+
+      <view class="seasoning" wx:if="{{methodlist.length>0}}">
+        <view class="title">{{methodlist[0].TypeName}}<text wx:if="{{methodlist[0].Mtype==1}}">(单选)</text><text wx:else>(多选)</text></view>
+        <view class="row">
+          <view class="seasoningtext {{seasoningindex==index?'acttext':''}}" wx:for="{{methodlist}}" wx:key="index" data-index="{{index}}" catchtap='btnseasoning'>
+            <text>{{item.Name}}</text>
+            <text wx:if="{{item.Money&&item.Money>0}}">￥{{item.Money}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="btn" catchtap="btn_add" hover-class="hove_classopacity07">加入购物车</view>
+</view>

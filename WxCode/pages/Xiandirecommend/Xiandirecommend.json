@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "闲弟推荐",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "Text": "./components/text/text"
+  }
+}

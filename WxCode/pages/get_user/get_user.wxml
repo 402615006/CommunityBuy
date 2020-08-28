@@ -1,0 +1,9 @@
+
+
+<view class="get_user">
+  <view class="top">
+    <image src="/images/icon.png" class="icon"></image>
+  </view>
+  <button open-type="getUserInfo" class='user_btn' bindgetuserinfo="bindGetUserInfo">授权微信用户信息</button>
+  <view class="title">请完成微信授权以继续使用</view>
+</view>

@@ -16,15 +16,13 @@ namespace CommunityBuy.BLL
         /// 检验表单数据
         /// </summary>
         /// <returns></returns>
-        public bool CheckPageInfo(string type, string Id, string BusCode, string StoCode, string CCname, string PKKCode, string PKCode, string TypeName, string Sort, string TStatus,string CCode)
+        public bool CheckPageInfo(string type, string Id, string PKKCode, string PKCode, string TypeName, string Sort, string TStatus)
         {
             bool rel = false;
             try
             {
                 Entity = new TB_DishTypeEntity();
                 Entity.Id = StringHelper.StringToLong(Id);
-                Entity.BusCode = BusCode;
-                Entity.StoCode = StoCode;
                 Entity.PKKCode = PKKCode;
                 Entity.PKCode = PKCode;
                 Entity.TypeName = TypeName;
@@ -42,10 +40,10 @@ namespace CommunityBuy.BLL
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public void Add(string GUID, string UID, string Id, string BusCode, string StoCode, string CCname, string PKKCode, string PKCode, string TypeName, string Sort, string TStatus,string CCode)
+        public void Add(string GUID, string UID, string Id,  string PKKCode, string PKCode, string TypeName, string Sort, string TStatus)
         {
             int result = 0;
-           bool strReturn = CheckPageInfo("add",  Id, BusCode, StoCode, CCname, PKKCode, PKCode, TypeName, Sort, TStatus,CCode);
+           bool strReturn = CheckPageInfo("add",  Id,PKKCode, PKCode, TypeName, Sort, TStatus);
             //数据页面验证
             if (!strReturn)
             {
@@ -78,7 +76,7 @@ namespace CommunityBuy.BLL
         {
 
 			string Mescode = string.Empty;
-            int result = dal.Delete(PKCode, ref Mescode);
+            int result = dal.Delete(PKCode);
             //检测执行结果
             CheckResult(result, Mescode);
         }
@@ -124,7 +122,7 @@ namespace CommunityBuy.BLL
         public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
         {
 
-            return new bllPaging().GetPagingInfo("TB_DishType", "PKCode", "BusCode,StoCode,CCode,CCname,CTime,PKKCode,PKCode,PKKCode as pId,PKCode as id,'' as StoName,TypeName,Sort,TStatus,dbo.fn_GetDisTypeParentName(PKKCode) as PPKName", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
+            return new bllPaging().GetPagingInfo("TB_DishType", "PKCode", "*,dbo.fn_GetDisTypeParentName(PKKCode) as PPKName", pageSize, currentpage, filter, "", order, out recnums, out pagenums);
         }
 
         /// <summary>
@@ -166,9 +164,6 @@ namespace CommunityBuy.BLL
         {
             TB_DishTypeEntity Entity = new TB_DishTypeEntity();
 			Entity.Id = StringHelper.StringToLong(dr["Id"].ToString());
-			Entity.BusCode = dr["BusCode"].ToString();
-			Entity.StoCode = dr["StoCode"].ToString();
-            Entity.StoName = dr["StoName"].ToString();
             Entity.PKKCode = dr["PKKCode"].ToString();
 			Entity.PKCode = dr["PKCode"].ToString();
 			Entity.TypeName = dr["TypeName"].ToString();

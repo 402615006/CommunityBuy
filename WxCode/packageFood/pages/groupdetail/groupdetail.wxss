@@ -1,0 +1,288 @@
+
+page{
+  background-color: #f7f7f7;
+}
+.groupdetail{
+  padding-bottom:120rpx;
+  box-sizing: border-box
+}
+.head{
+  padding:10rpx 25rpx 0 25rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.title{
+  font-size: 32rpx;
+  color:#0d0d0d;
+  font-weight: 600;
+}
+.status{
+  margin-top:20rpx;
+  display: flex;
+  justify-content: space-between;
+  color:#9b9a9a;
+}
+.status .left{
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.status .right{
+  font-size: 22rpx;
+}
+.number_tuan{
+  background-color: #f09e38;
+  font-size: 18rpx;
+  color: #fff;
+  height: 27rpx;
+  border-radius: 5rpx;
+  display: inline-block;
+  line-height: 27rpx;
+  padding: 0 16rpx;
+  box-sizing: border-box;
+  /* margin-left: 15rpx; */
+  margin-right:10rpx;
+}
+.gou{
+  width: 30rpx;
+  height: 30rpx;
+}
+.icon{
+  width: 24rpx;
+  height: 24rpx;
+  display:inline-block;
+  border:1rpx solid #8b8b8b; 
+  border-radius: 12rpx;
+}
+.banner{
+  margin-top:35rpx;
+  width: 100%;
+  height: 375rpx;
+  border-radius: 10rpx;
+  overflow: hidden
+}
+swiper{
+  height: 375rpx;
+}
+swiper-item{
+  border-radius: 10rpx;
+  overflow: hidden;
+  height: 375rpx;
+}
+.banner-item{
+  width: 100%;
+  height: 375rpx;
+}
+
+.box{
+  padding:60rpx 0 30rpx 0;
+  box-sizing: border-box;
+}
+
+.ul{
+  margin-bottom:20rpx;
+}
+.ul .name{
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.ul .li{
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  margin-top:15rpx;
+}
+.ul .number{
+  font-size: 22rpx;
+  color:#9b9a9a;
+  margin-left:10rpx
+}
+
+.content{
+  width: 100%;
+  background-color: #fff;
+  margin-top:20rpx;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+.content .header{
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  align-items: center;
+}
+.content .header .number{
+  font-size: 26rpx;
+  font-weight: 600;
+}
+.content .jiantou{
+  width: 50rpx;
+  height: 50rpx;
+}
+.content_li{
+  height: 110rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content_lil{
+  display: flex;
+  justify-content: left;
+  height: 110rpx;
+  align-items: center;
+}
+.content_lil .touxiang{
+  width: 64rpx;
+  height: 64rpx;
+  position: relative;
+  z-index: 1;
+  border: 1rpx solid #D5D5D5;
+  border-radius: 50%;
+}
+.content_lil .touxiang2{
+  margin-left:-20rpx;
+  position: relative;
+  z-index: 2;
+}
+.content_lil .text_view{
+  margin-left:24rpx;
+}
+.left10{
+  margin-left: 10px;
+}
+.content_lil .user_name{
+  font-size: 26rpx;
+}
+.content_lil .time{
+  font-size: 22rpx;
+  color:#9b9a9a;
+}
+.content_lir .btn{
+  width: 110rpx;
+  height: 52rpx;
+  background-color: #ea6248;
+  border-radius: 8rpx;
+  line-height: 52rpx;
+  font-size: 26rpx;
+  color:#fff;
+  text-align: center;
+}
+
+/* 说明 */
+.description{
+  width: 100%;
+  padding:30rpx 20rpx;
+  box-sizing: border-box;
+  margin-top:20rpx;
+  background-color: #fff;
+}
+.description .header{
+  font-size: 28rpx;
+  font-weight: 600;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.description .title_name{
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color:#9b9a9a;
+}
+.description .text{
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color:#13161a;
+}
+
+
+/* footer */
+.footer{
+  width: 100%;
+  height: 130rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333333;
+  position: fixed;
+  bottom:0;
+  left:0;
+  z-index: 12;
+  padding-bottom: constant(safe-area-inset-bottom);
+}
+.footer_l{
+  height: 130rpx;
+  width: 140rpx;
+  text-align: center;
+}
+.kefu_text{
+  font-size: 20rpx;
+  color:#949393;
+}
+.kefuimg{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top:16rpx;
+}
+.footer_r{
+  display: flex;
+  justify-content: left;
+}
+.footer_btn{
+  width: 216rpx;
+  height: 80rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  margin-right:23rpx;
+  color:#fff;
+  line-height: 23rpx;
+}
+.color_eaab48{
+  background-color: #eaab48;
+}
+.color_ea6248{
+  background-color: #ea6248;
+}
+
+.font_size30{
+  font-size: 30rpx;
+}
+.font_size24{
+  font-size: 24rpx;
+}
+.margin_top10{
+  margin-top:10rpx;
+}
+.margin_top5{
+  margin-top:5rpx;
+}
+.margin_left5{
+  margin-left:5rpx;
+}
+.margin_left10{
+  margin-left:10rpx;
+}
+.margin_left50{
+  margin-left:50rpx;
+}
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.status .price{
+  color: #ea6248;
+  font-size: 32rpx;
+  font-weight: bolder;
+}
+.status .numb{
+  color: #ea6248;
+  font-size: 28rpx;
+}
+button{
+  padding:0; 
+}
+.img_view{
+  max-width:200rpx; 
+  overflow: hidden;
+  white-space:nowrap;
+}

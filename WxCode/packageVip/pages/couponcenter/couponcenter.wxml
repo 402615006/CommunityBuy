@@ -1,0 +1,17 @@
+
+
+<view class="couponcenter">
+  <view class="head">
+    <!-- <view class="title">我的优惠券<text class="num">6</text>张</view> -->
+    <view class="tab_bar">
+      <view class="tab_block {{tab_index==index?'act_tab':''}}" wx:for="{{tablist}}" wx:key="index" catchtap='btn_tab' data-index="{{index}}">{{item}}</view>
+    </view>
+  </view>
+  <swiper skip-hidden-item-layout="true" bindchange="swiperChange" current="{{tab_index}}">
+    <block wx:for="{{tablist}}" wx:key="index">
+      <swiper-item>
+        <Text id="text{{index}}"  status="{{index==0?'':index==1?'FilmCoupon':'ProCoupon'}}"></Text>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

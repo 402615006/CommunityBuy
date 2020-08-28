@@ -1,0 +1,128 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="stocode" wx:if="{{list}}">
+  <!-- 头部 -->
+  <view class="head">
+    <view class="title" catchtap="go_stodetail">{{list.cname}}</view>
+    <view class="text">
+      <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+      <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+      <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+      <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+      <image src="../../images/icon_002_wuxing.png" class="xing"></image>
+      <text class="head_price">{{list.dicname}}</text>
+      <text class="head_price junjia">均价￥{{list.jprice}}/人</text>
+    </view>
+    <!-- 轮播图 -->
+    <view class="banner">
+      <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" indicator-active-color="#fff">
+        <block wx:for="{{bannerlist}}" wx:for-item="bannerItem" wx:key="banner">
+          <swiper-item bindtap="bannerimgdetail" data-i="{{index}}">
+            <image src="{{bannerItem}}" class="banner-item" mode="aspectFill" catchtap="previewImg" data-index="{{index}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 门店信息 -->
+    <view class="head_content">
+      <view class="status" catchtap="go_stodetail">
+        <!-- <view class="status_left">
+          <image src="../../images/icon_004_shangpu.png" class="shangpu"></image>
+        </view> -->
+        <view class="status_right">
+          <view class="status_top">
+            <text class="margin_right10">{{list.sstatus}}</text>
+            <text class="margin_right10 color_000000">|</text>
+            <!-- <text class="margin_right20">周一至周日</text> -->
+            <text class="margin_right20">{{list.btime}}-{{list.etime}}</text>
+          </view>
+          <view class="status_bottom">
+            <!-- <view class="block">有包厢</view>
+            <view class="block">可停车</view>
+            <view class="block">有沙发位</view> -->
+          </view>
+        </view>
+      </view>
+      <view class="label" catchtap="go_stodetail">
+        <view class="label_box">
+          <text class="lable_text">可停车</text>
+          <text class="lable_text">有包厢</text>
+          <text class="lable_text">音乐餐厅</text>
+          <text class="lable_text">约会圣地</text>
+        </view>
+        <image src="/images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+      <view class="address">
+        <view class="address_left" catchtap="go_map" data-item="{{list}}">
+          <view class="add_text">
+            <view class="addname" wx:if="{{list.address}}">
+              <text class="addnametext">{{list.address}}</text>
+              <image src="../../images/icon_001_ loc.png" class="icon_weizhi"></image>
+            </view>
+            <view class="s" wx:if="{{juli}}">距您{{juli}}km</view>
+          </view>
+        </view>
+        <view class="address_right" catchtap='calling'>
+          <image src="../../images/btn_006_dianhua.png" class="tel"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 领取优惠券 -->
+  <view class="coupon" bindtap='receive_coupon' wx:if="{{list.iscoupon==1}}">
+    <view class="coupon_text">
+      <!-- <text class="coupon_icon">券</text> -->
+      <text>您有待领取的优惠券，点击领取</text>
+    </view>
+    <view class="btn_coupon">立刻领取</view>
+    <!-- <image src="../../images/btn_004_enter.png" class="jiantou"></image> -->
+  </view>
+  <!-- 按钮 -->
+  <view class="buttonlist {{list.iscoupon==1?'iscoupon':''}}" wx:if="{{list.isdc==1||list.ispaidui==1||list.isyuding==1}}">
+    <view class="button" catchtap='go_list' wx:if="{{list.isdc==1}}">
+      <view class="buton_img bg_ea6248">
+        <image src="../../images/btn_007_shoujidiandan.png"></image>
+      </view>
+      <view class="button_text">
+        点餐
+      </view>
+    </view>
+    <view class="button" catchtap='clickph' wx:if="{{list.ispaidui==1}}">
+      <view class="buton_img bg_7582e7">
+        <image src="../../images/btn_007_shoujidiandan.png"></image>
+      </view>
+      <view class="button_text">
+        排号
+      </view>
+    </view>
+    <view class="button" catchtap='clickyy' wx:if="{{list.isyuding==1}}">
+      <view class="buton_img bg_62d084">
+        <image src="../../images/btn_007_shoujidiandan.png"></image>
+      </view>
+      <view class="button_text">
+        预约
+      </view>
+    </view>
+    <view class="button" catchtap='clickhuiyuanka'>
+      <view class="buton_img">
+        <image src="/images/qb_007_kb.png" style="width:67rpx;height:67rpx"></image>
+      </view>
+      <view class="button_text">
+        会员卡
+      </view>
+    </view>
+  </view>
+
+  
+
+  <!-- 闲弟推荐 -->
+  <Toplist id="toplist" wx:if="{{toplist.length>0}}" toplist="{{toplist}}"></Toplist>
+
+
+  <!-- 预约弹框组件 -->
+  <Yypopup id="yypopup" remacklist="{{data2}}" stocode="{{stocode}}" buscode="{{list.buscode}}" stoname="{{list.cname}}"></Yypopup>
+  <!-- 排号弹框组件 -->
+  <Phpopup id="phpopup" numberlist="{{data3}}" stocode="{{stocode}}" buscode="{{list.buscode}}"></Phpopup>
+
+</view>

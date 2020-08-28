@@ -1,0 +1,74 @@
+
+
+<view class="orderdetail">
+  <view class="top" wx:if="{{detail.TackNo}}">
+    <view class="number">{{detail.TackNo}}</view>
+    <view class="title">取餐码</view>
+    <view class="text">请尽快到窗口取餐</view>
+
+    <view class="tubiao" wx:if="{{detail.CStatus==0||detail.CStatus==1||detail.CStatus==2}}">
+      <text wx:if="{{detail.CStatus==0}}">已接单</text>
+      <text wx:if="{{detail.CStatus==1}}">待取餐</text>
+      <text wx:if="{{detail.CStatus==2}}">已就餐</text>
+    </view>
+  </view>
+
+  <view class="content">
+    <view class="content_title font_weight">{{detail.StoreName}}</view>
+    <block wx:for="{{detail.DishList}}" wx:key="index">
+      <view class="content_li" wx:if="{{item.IsPackage==0||item.IsPackage==1}}">
+        <view class="content_left">
+          <view class="content_name font_weight">{{item.DisName}}</view>
+        </view>
+        <view class="content_right">
+          <view>x{{item.DisNum}}</view>
+          <view>￥{{item.Price}}</view>
+        </view>
+      </view>
+    </block>
+    <!-- <view class="content_footer">
+      <view class="content_footer_left">
+          <view class="label">餐位费</view>
+          <view class="font_size24">餐具</view>
+        </view>
+        <view class="content_right">
+          <view>x4</view>
+          <view>￥69</view>
+        </view>
+    </view> -->
+  </view>
+
+  <view class="offer">
+    <view class="offer_li">
+      <view class="offer_left color_838383">优惠券</view>
+      <view class="offer_right">
+        <!-- <view>聚划算</view> -->
+        <view class="margin_left20 color_ea6248">-￥{{detail.CouponMoney}}</view>
+      </view>
+    </view>
+    <view class="offer_li">
+      <view class="offer_left color_838383">折扣金额</view>
+      <view class="offer_right">
+        <view>{{detail.DiscountName}}</view>
+        <view class="margin_left20 color_ea6248">-￥{{detail.DiscountMoney}}</view>
+      </view>
+    </view>
+    <view class="offer_li">
+      <view class="offer_left color_838383">支付金额</view>
+      <view class="offer_right">
+        <view class="color_ea6248">￥{{detail.PayMoney}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order_status">
+    <view class="order_status_li">
+      <view class="color_838383">账单编号</view>
+      <view>{{detail.PKCode}}</view>
+    </view>
+    <view class="order_status_li">
+      <view class="color_838383">付款时间</view>
+      <view>{{detail.FTimestr}}</view>
+    </view>
+  </view>
+</view>

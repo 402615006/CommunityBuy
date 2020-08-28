@@ -1,0 +1,71 @@
+<!--屏幕背景变暗的背景  catchtouchmove='true'-->
+<view class="commodity_screen" catchtouchmove="preventTouchMove" bindtap="center" wx:if="{{show}}"></view>
+<!--弹出框-->
+<view animation="{{animationData}}" catchtouchmove="preventTouchMove" class="commodity_attr_boxcard" wx:if="{{show}}">
+  <scroll-view scroll-y="true" class='scrolls1'>
+    <view class="head">
+      请选择就餐时间以及就餐人数
+      <image src="../../../images/btn_004_close.png" class="cen_img" catchtap='center'></image>
+    </view>
+
+    <view class="content">
+      <view class="box">
+          <picker mode="date" class="black" bindchange="change_day" value="{{date}}" start="{{stardate}}" end="{{enddate}}">
+            <image src="../../../images/btn_012_ri.png" class="time_img"></image>
+            <view class="text1">{{weekday}}</view>
+            <view class="text2">{{day}}</view>
+          </picker>
+          <picker mode="selector"  class="black" bindchange="change_time" value="{{timsindex}}" range="{{timsarry}}">
+            <image src="../../../images/btn_013_time.png" class="time_img"></image>
+              <view class="text1">{{timsarry[timsindex]}}</view>
+            <view class="text2">到点就餐</view>
+          </picker>
+      </view>
+      <view class="number">
+        <view class="title">就餐人数</view>
+        <view class="block">
+          <view class="smbox {{numindex==index?'actsmbox':''}}" wx:for="{{numberlist}}" wx:key="index" catchtap='btnnumber' data-index="{{index}}">{{item==5?item+'人以上':item+'人'}}</view>
+        </view>
+      </view>
+      <view class="bg_li"></view>
+        <view class="name">
+          <view class="left">姓名</view>
+          <view class="right">
+            <input value="{{name}}" class="input" placeholder='请输入姓名' bindinput='input_name' maxlength='10'></input>
+          </view>
+        </view>
+        <view class="bg_li"></view>
+        <view class="name">
+          <view class="left">电话</view>
+          <view class="right">
+            <input value="{{tel}}" class="input" type='number' placeholder='请输入电话' bindinput='input_tel' maxlength='11'></input>
+          </view>
+        </view>
+        <view class="bg_li"></view>
+        <view class="remake" >
+          <view class="title" wx:if="{{remacklist.length>0}}">
+            备注
+          </view>
+          <view class="remak_ul" wx:if="{{remacklist.length>0}}">
+            <view class="remak_bock {{remakeindex==index?'actsmbox':''}}" wx:for="{{remacklist}}" wx:key="{{index}}" catchtap='btnremake' data-index="{{index}}">{{item.Remark}}</view>
+          </view>
+          <view class="button" catchtap='yuyueclick'>预约</view>
+        </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="commodity_screen2" wx:if="{{show&&modshow}}" catchtap='cenmodclick'>
+  <view class="modbox" catchtouchmove="no">
+    <view class="modimg">
+      <image src="../../../images/icon_015_yuyue.png" class="mod_icon"></image>
+    </view>
+    <view class="modtitle">预约成功</view>
+    <view class="modtext">
+      <view>已成功预约<text class="color_eb6c54">{{stoname}}</text></view>
+      <view>{{weekday}}<text class="color_eb6c54">({{day}})</text>的就餐</view>
+    </view>
+    <view class="modbtn" catchtap='go_yyorder'>预约记录</view>
+  </view>
+</view>
+
+

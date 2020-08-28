@@ -1,0 +1,44 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+<Title  title=""  my_class="true" ></Title>
+<view class="list" hidden="{{!istrue}}">
+  <view class="head">
+    <view class="bg_img" style="background:url({{stoimg?stoimg:'../../../images/store_back.png'}})">
+      <!-- <image src="{{stoimg?stoimg:'../../../images/store_back.png'}}" class="bg_images" mode="aspectFill"></image> -->
+      <view class="logo">
+       <image src="{{logo?logo:'../../../images/stologo.png'}}" class="logo_img" mode="aspectFill"></image>
+      </view>
+      <view class="title">{{stoname}}</view>
+    </view>
+  </view>
+  <view class="content">
+    <scroll-view class="left" scroll-y="true" >
+      <view class="left_li {{leftlist_index==index?'select_leftindex':''}}" wx:for="{{leftlist}}" wx:key="index" data-index="{{index}}" bindtap="btn_clickleft" >
+          <view class="TypeName {{leftlist_index==index?'TypeNameselect_border':''}}">{{item.TypeName}}</view>
+          <Badge number="9" right="20" top="0" PKCode="{{item.PKCode}}" shopcardlist="{{shopcardlist}}"></Badge>
+      </view>
+    </scroll-view>
+    <view class="right">
+      <scroll-view class="scroll_right"  scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation='true'>
+        <view class="right_ul">
+          <view class="right_li" wx:for="{{rightlist}}" wx:key="index">
+            <view class="img">
+              <image src="{{item.images?item.images:'../../../images/kong.png'}}" bindtap='previewImg' lazy-load="true" data-item="{{item}}"></image>
+              <view class="yuan" wx:if="{{item.TStatus==2}}">售罄</view>
+            </view>
+            <view class="right_content">
+              <view class="name">{{item.DisName}}</view>
+              <view class="detail">{{item.Descript}}</view>
+              <view class="price">￥<text class="number">{{filter.moneyFormat(item.Price)}}</text></view>
+            </view>
+            <ADD_prev right='20' bottom="20" number="0" item="{{item}}" shopcardlist="{{shopcardlist}}" leftlist_index="{{leftlist_index}}" bind:add="addMethod" bind:prev="prev" bind:addMethod="addMethod" bind:addCombo="addCombo"></ADD_prev>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <Singleselect id="singleselect" buscode="{{buscode}}" stocode="{{stocode}}" shopcardlist="{{shopcardlist}}" bind:detailaddMethod="detailaddMethod"></Singleselect>
+  <Packageselect id="packageselect" buscode="{{buscode}}" stocode="{{stocode}}" shopcardlist="{{shopcardlist}}" bind:detailaddpack="detailaddpack"></Packageselect>
+  <Footer shopcardlist="{{shopcardlist}}" bind:shopcordclear="shopcordclear" bind:shopcardprev="shopcardprev" bind:shopcardadd="shopcardadd" bind:addorder="addorder"></Footer>
+
+</view>

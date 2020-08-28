@@ -1,0 +1,2 @@
+<!-- web页面地址 -->
+<web-view src="{{url}}"></web-view>

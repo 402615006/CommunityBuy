@@ -140,36 +140,6 @@ namespace CommunityBuy.BackWeb.ajax
         }
 
         /// <summary>
-        /// 检测接口必要参数
-        /// </summary>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        protected bool CheckCouponParameters(HttpContext context)
-        {
-            Pagcontext = context;
-            bool Flag = true;
-            string mes = string.Empty;
-            actionname = context.Request["actionname"];
-            if (actionname == null)
-            {
-                mes += "actionname,";
-                Flag = false;
-            }
-            string parameters = context.Request["parameters"];
-            if (parameters == null)
-            {
-                mes += "parameters,";
-                Flag = false;
-            }
-
-            if (!Flag)
-            {
-                context.Response.Write("{\"status\":\"2\",\"mes\":\"缺少" + mes.TrimEnd(',') + "参数\"}");
-            }
-            return Flag;
-        }
-
-        /// <summary>
         /// 获取json参数信息
         /// </summary>
         /// <param name="context"></param>
@@ -283,7 +253,7 @@ namespace CommunityBuy.BackWeb.ajax
             }
             else
             {
-                ReturnResultJson("0", "获取失败");
+                ReturnResultJson("0", "没有数据了哦");
             }
 
         }

@@ -1,0 +1,30 @@
+<!--pages/verification/verification.wxml-->
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="verification">
+  <view class="title">
+    请先验证您的身份信息
+  </view>
+  <view class="content">
+    <image src="../../images/qt_70.png" class="img" catchtap='go_paizhao' wx:if="{{!cards}}"></image>
+    <image src="../../images/qt_54.png" class="img" catchtap='go_paizhao' wx:if="{{cards}}"></image>
+  </view>
+  <view class="text">
+    请点击拍摄身份证正面信息
+  </view>
+
+  <view class="footer">
+    <view class="name" wx:if="{{name}}">
+      姓名：{{name}}
+    </view>
+    <view class="sex" wx:if="{{sex}}">
+      性别：{{sex}}
+    </view>
+    <view class="cards" wx:if="{{cards}}">
+      身份证号：{{filter.replace_card(cards)}}
+    </view>
+  </view>
+
+  <button class="btn" catchtap='btn' wx:if="{{cards}}">下一步</button>
+</view>
+<loading wx:if="{{showLoading}}">身份识别中...</loading>

@@ -133,10 +133,10 @@ var video = {};
     function convert_url(s){
         return s.replace(/http:\/\/www\.tudou\.com\/programs\/view\/([\w\-]+)\/?/i,"http://www.tudou.com/v/$1")
             .replace(/http:\/\/www\.youtube\.com\/watch\?v=([\w\-]+)/i,"http://www.youtube.com/v/$1")
-            .replace(/http:\/\/v\.youku\.com\/v_show\/id_([\w\-=]+)\.html/i,"http://player.youku.com/player.php/sid/$1")
-            .replace(/http:\/\/www\.56\.com\/u\d+\/v_([\w\-]+)\.html/i, "http://player.56.com/v_$1.swf")
-            .replace(/http:\/\/www.56.com\/w\d+\/play_album\-aid\-\d+_vid\-([^.]+)\.html/i, "http://player.56.com/v_$1.swf")
-            .replace(/http:\/\/v\.ku6\.com\/.+\/([^.]+)\.html/i, "http://player.ku6.com/refer/$1/v.swf");
+            .replace(/http:\/\/v\.youku\.com\/v_show\/id_([\w\-=]+)\.html/i,"http://playui.layer.youku.com/playui.layer.php/sid/$1")
+            .replace(/http:\/\/www\.56\.com\/u\d+\/v_([\w\-]+)\.html/i, "http://playui.layer.56.com/v_$1.swf")
+            .replace(/http:\/\/www.56.com\/w\d+\/play_album\-aid\-\d+_vid\-([^.]+)\.html/i, "http://playui.layer.56.com/v_$1.swf")
+            .replace(/http:\/\/v\.ku6\.com\/.+\/([^.]+)\.html/i, "http://playui.layer.ku6.com/refer/$1/v.swf");
     }
 
     /**
@@ -268,7 +268,7 @@ var video = {};
 		if (matches){
 			url = "https://www.youtube.com/v/" + matches[1] + "?version=3&feature=player_embedded";
 		}else if(youku){
-            url = "http://player.youku.com/player.php/sid/"+youku[1]+"/v.swf"
+            url = "http://playui.layer.youku.com/playui.layer.php/sid/"+youku[1]+"/v.swf"
         }else if(!endWith(url,[".swf",".flv",".wmv"])){
             $G("preview").innerHTML = "您输入的视频地址有误，请检查后确认！";
             return;

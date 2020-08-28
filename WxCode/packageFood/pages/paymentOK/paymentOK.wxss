@@ -1,0 +1,89 @@
+
+
+.head{
+  width: 100%;
+  height: 250rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon{
+  width: 167rpx;
+  height: 126rpx;
+}
+.right{
+  margin-left:30rpx;
+  font-size: 28rpx;
+}
+.price{
+  margin-top:10rpx;
+}
+.color_ea6248{
+  color:#ea6248
+}
+.content{
+  width: 100%;
+  height: 280rpx;
+  text-align: center;
+}
+.topblack{
+  width: 100%;
+  height: 20rpx;
+  background-color: #f7f7f7;
+}
+.number{
+  font-size: 46rpx;
+  color:#ea6248;
+  font-weight: 600;
+  margin-top:48rpx;
+}
+.title{
+  font-size: 28rpx;
+  color:#404040;
+  margin-top:50rpx;
+}
+.text{
+  margin-top:15rpx;
+  font-size: 22rpx;
+  color:#838383;
+}
+.btn{
+  width: 100%;
+  /* height: 78rpx; */
+  padding:0 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.button{
+  width: 308rpx;
+  height: 78rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 78rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-top:20rpx;
+}
+.btn_left{
+  background-color: #ea6248;
+  color:#fff;
+}
+.btn_right{
+  background-color: #fbf2f2;
+  border: 1rpx solid #ea6248;
+  color:#ea6248;
+  margin-left:50rpx;
+}
+
+
+.bg_img{
+  width: 710rpx;
+  height: 178rpx;
+  margin:auto;
+  margin-top:80rpx;
+}
+.img{
+  width: 710rpx;
+  height: 178rpx;
+}

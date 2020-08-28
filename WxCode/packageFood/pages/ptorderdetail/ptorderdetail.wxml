@@ -1,0 +1,107 @@
+<!--packageFood/pages/ptorderdetail/ptorderdetail.wxml-->
+
+<!-- 引用过滤器 -->
+<wxs src="../../../utils/filter.wxs" module="filter" />
+<view wx:if="{{successData}}">
+  <view class="head">
+    <view class="head_left" bindtap='dishDetail'>
+      <view class="title">{{disInfo.disname}}</view>
+      <image src="../../../images/btn_004_enter.png" class="jiantou"></image>
+    </view>
+  </view>
+  <view class="groupdetail">
+    <view class="banner">
+      <swiper interval="3000" duration="500" circular="true" display-multiple-items="{{bannerlist.length>=3?'2':'1'}}" next-margin="{{bannerlist.length>=2?'50px':'10px'}}">
+        <block wx:for="{{bannerlist}}" wx:for-item="bannerItem" wx:key="banner">
+          <swiper-item>
+            <image src="{{bannerItem}}" class="banner-item" data-src="{{bannerItem}}" bindtap='imgYu' mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="content" wx:if="{{disInfo.iscombo==1}}">
+      <view class="content_title font_weight">套餐详情</view>
+      <block wx:for="{{dishescombo}}" wx:key="index">
+        <view class="content_li">
+          <view class="content_left">
+            <view class="content_name font_weight">{{item.disname}}</view>
+          </view>
+          <view class="content_right">
+            <view>x{{filter.pf(item.defnum)}}</view>
+            <view>￥{{item.price}}</view>
+          </view>
+        </view>
+      </block>
+      <view class="content_title font_weight" wx:if="{{dishesoptional.length>0}}">可选({{dishesoptional.length}}选{{dishesoptional[0].maxoptnum}})</view>
+      <block wx:for="{{dishesoptional}}" wx:key="index">
+        <view class="content_li">
+          <view class="content_left">
+            <view class="content_name font_weight">{{item.disname}}</view>
+          </view>
+          <view class="content_right">
+            <view>x{{filter.pf(item.defnum)}}</view>
+            <view>￥{{item.price}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="offer">
+      <view class="offer_li">
+        <view class="offer_left">{{tstatus==0?'应付':'实付'}}</view>
+        <view class="offer_right">
+          <view class="margin_left20 color_EA">￥{{tstatus==0?orderinfo.notamount:orderinfo.pamount}}</view>
+        </view>
+      </view>
+      <view class="offer_li">
+        <view class="offer_left color_838383">订单编号</view>
+        <view class="offer_right">
+          <view class="margin_left20">{{proorder.PKCode}}</view>
+        </view>
+      </view>
+      <view class="offer_li">
+        <view class="offer_left color_838383">下单时间</view>
+        <view class="offer_right">
+          <view class="">{{proorder.ctime}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='quanM' wx:if="{{checkinfos}}">
+      <view class='quanM_tlt'>券码</view>
+      <block wx:for="{{checkinfos}}" wx:key="index">
+        <view class="quanM_code {{item.status==1?'decoration':''}}">{{item.checkcode}}</view>
+      </block>
+    </view>
+
+    <!-- 说明 -->
+    <view class="description" wx:if="{{tstatus==0}}">
+      <view class="header">购买须知</view>
+      <view class="title_name">有效期：</view>
+      <view class="text">• {{orderinfo.startdate}}-{{orderinfo.enddate}}</view>
+      <view class="title_name">使用时间：</view>
+      <view class="text">• 门店营业日内可用</view>
+      <view class="title_name">使用规则：</view>
+      <!-- <view class="text">• {{orderinfo.prorules}}</view> -->
+      <rich-text class="text" nodes="{{orderinfo.prorules}}"></rich-text>
+    </view>
+  </view>
+  <view class="footer" wx:if="{{tstatus==0}}">
+    <!-- <view class="button" catchtap='refund' wx:if="{{tstatus==1}}">申请退款</view> -->
+    <view class="button1 margin_left20" catchtap='getCardList' wx:if="{{tstatus==0}}">去支付</view>
+    <view class="button margin_left20" catchtap='cancelorder' wx:if="{{tstatus==0}}">取消订单</view>
+  </view>
+  <view class="footer1" wx:if="{{btnIsTrue}}">
+    <view class="text">
+      <text>合计</text>
+      <text class="color_EA">￥{{orderinfo.pmoney}}</text>
+      <text>元</text>
+    </view>
+    <view class="button2 margin_left20" catchtap='topay'>确认支付</view>
+  </view>
+</view>
+<!-- 会员卡 -->
+<CardsSelect id="CardsSelect" cardslist="{{cardsList}}" cardindex="{{defaultIndex}}" bind:unclickCard="unclickCard" bind:setCardcode="setCardcode"></CardsSelect>
+<!-- 密码输入框  -->
+<password id="password" bind:myevent="get_number_ok"></password>

@@ -1,0 +1,21 @@
+
+<view class="foodbox" wx:if="{{show}}">
+  <view class="head">
+    <view class="tab_btn {{index==foodbox_index?'act_color':''}}" wx:for="{{foodbox_text}}" wx:key="index" catchtap='btn_tab' data-index="{{index}}" data-idx="{{item.idx}}">{{item.name}}</view>
+    <picker mode="selector"  range="{{type}}" bindchange="bindPickerChangetype" value="{{type_index}}">
+      <view class="logs_box">
+        <view class="bcolor">{{type[type_index]}}</view>
+        <image src="/images/sy_013_sx.png" class="icon_shaixuan"></image>
+      </view>
+    </picker>
+  </view>
+
+  <swiper skip-hidden-item-layout="true" bindchange="swiperChange" data-idx="{{idx}}" current="{{foodbox_index}}">
+    <block wx:for="{{foodbox_text}}" wx:key="index">
+      <swiper-item>
+        <Text id="text{{index}}"  status="{{idx}}" type="{{type_index}}"></Text>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+

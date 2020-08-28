@@ -1,0 +1,90 @@
+
+
+<view class="service">
+  <view class="head">常见问题</view>
+
+  <view class="ul">
+    <view class="li" wx:for="{{comdata}}" wx:key="index" data-id="{{item.cuscode}}" catchtap='go_detail'>
+      <view class="li_left">
+        <image src="../../images/qb_014_zhanghu.png" class="icon_img"></image>
+        <view class="li_text">{{item.Title}}</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+    </view>
+    <!-- <view class="li">
+      <view class="li_left">
+        <image src="../../images/qb_014_zhanghu.png" class="icon_img"></image>
+        <view class="li_text">PLUS会员问题(会员充值、开卡问题)</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+    </view>
+    <view class="li">
+      <view class="li_left">
+        <image src="../../images/qb_014_zhanghu.png" class="icon_img"></image>
+        <view class="li_text">PLUS会员问题(会员充值、开卡问题)</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+    </view> -->
+  </view>
+
+  <view class="head">更多问题分类</view>
+  <view class="content" wx:for="{{list}}" wx:key="index" >
+    <view class="content_left">
+      <!-- <image src="../../images/qb_017_dianying.png" class="icon_content"></image> -->
+      <view class="content_lefttext">{{item.Proname}}</view>
+    </view>
+    <view class="content_right">
+      <view class="content_li" wx:for="{{item.data}}" wx:key="index" data-id="{{item.cuscode}}" catchtap='go_detail'>
+        <view class="contentright_text">{{item.Title}}</view>
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+      <!-- <view class="content_li">
+        <view class="contentright_text">电影时间选错了,怎么退票</view>
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view> -->
+    </view>
+  </view>
+  <!-- <view class="content">
+    <view class="content_left">
+      <image src="../../images/qb_018_meishi.png" class="icon_content"></image>
+      <view class="content_lefttext">到店餐饮</view>
+    </view>
+    <view class="content_right">
+      <view class="content_li">
+        <view class="contentright_text">团购券、拼单问题</view>
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+      <view class="content_li">
+        <view class="contentright_text">怎么退款</view>
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+    </view>
+  </view> -->
+  <!-- <view class="content">
+    <view class="content_left">
+      <image src="../../images/qb_018_meishi.png" class="icon_content"></image>
+      <view class="content_lefttext">到店餐饮</view>
+    </view>
+    <view class="content_right">
+      <view class="content_li">
+        <view class="contentright_text">团购券、拼单问题</view>
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+      <view class="content_li">
+        <view class="contentright_text">怎么退款</view>
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+      <view class="content_li">
+        <view class="contentright_text">怎么退款</view>
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+    </view>
+  </view> -->
+  
+</view>

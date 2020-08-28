@@ -1,0 +1,55 @@
+<view class="phorder">
+
+
+  <view class="content">
+    <view wx:for="{{list}}" wx:key="index" class="li">
+      <view class="stocode_name" catchtap='go_stocode' data-stocode="{{item.StoCode}}">
+        <view>{{item.StoName}}</view>
+        <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+      </view>
+      <view class="box">
+        <view class="warp_h">
+          <view class="warp_h_left">
+            <image src="../../images/icon_025_paidui.png" class="icon_title"></image>
+            <view>排队号码</view>
+          </view>
+          <view class="status" wx:if="{{item.TStatus==1}}">正在排队</view>
+          <view class="status" wx:if="{{item.TStatus==2}}">已就餐</view>
+          <view class="status" wx:if="{{item.TStatus==3}}">已过号</view>
+          <view class="status" wx:if="{{item.TStatus==4}}">已取消</view>
+        </view>
+        <view class="number">
+          {{item.PKCode}}
+        </view>
+        <view class="times">取号时间:{{item.CTimestr}}</view>
+        <!-- 等待桌数 -->
+        <view class="bottom" wx:if="{{item.TStatus==1}}">
+          <view class="block block1">前面等待
+            <text class="color_ea6248">{{item.tablenumber}}</text>桌</view>
+          <view class="block">预计等待
+            <text class="color_ea6248">{{item.Wtime}}</text>分钟</view>
+        </view>
+        <!-- 再次排队按钮 -->
+        <view class="bottom" wx:else>
+          <view class="new_btn" catchtap='go_stocode' data-stocode="{{item.StoCode}}">再次排队</view>
+        </view>
+      </view>
+      <!-- 点餐和取消按钮 -->
+      <view class="button" wx:if="{{item.TStatus==1}}">
+        <view class="btn_left" catchtap='cen_paihao' data-id="{{item.Id}}" data-stocode="{{item.StoCode}}" data-index="{{index}}">取消排号</view>
+        <view class="btn_right" catchtap='go_stocode' data-stocode="{{item.StoCode}}">在线点餐</view>
+      </view>
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+  <tui-nomore wx:if="{{list.length>0&&isnomore}}"></tui-nomore>
+
+  <!-- 没有优惠券信息 -->
+    <view wx:if="{{list.length==0&&flag==true}}">
+      <view class='no_data'>
+        <image src='../../../images/qt_273.png' class='no_data_icon'></image>
+        <view class='wx_size32 wx_color96 wx_margin_top'>暂无排队记录</view>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,149 @@
+
+page{
+  background-color: #f7f7f7;
+}
+.head{
+  height: 176rpx;
+  width: 100%;
+  background-color: #cfab6c;
+  white-space: nowrap;
+}
+.li{
+  display: inline-block;
+  width: 150rpx;
+  height: 176rpx;
+  padding-top:24rpx;
+  box-sizing: border-box;
+  color:#fff;
+}
+.scoll-y{
+  width: 100%;
+  height: 176rpx;
+}
+.circle{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  position: relative;
+  margin:auto;
+  
+}
+.circle_select{
+  background-color: #555456;
+}
+.warp_name{
+  margin-top:24rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 22rpx;
+}
+
+.circle_text{
+  height: 28rpx;
+  text-align: center;
+  line-height: 28rpx;
+  font-size: 18rpx;
+  color:#13161a;
+  background-color: #e6c37f;
+  min-width: 74rpx;
+  padding:0 10rpx;
+  box-sizing: border-box;
+  border-radius: 14rpx;
+  position: absolute;
+  bottom:-14rpx;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+
+.content{
+  width: 100%;
+  padding:0 20rpx;
+  box-sizing:border-box; 
+}
+.content_head{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26prx;
+  color:#bd995d;
+  position: relative;
+}
+.line{
+  width: 63rpx;
+  height: 4rpx;
+  position: absolute;
+  bottom:0;
+  left:0;
+  background-color: #bd995d;
+}
+.warp{
+  width: 100%;
+  padding:40rpx 80rpx;
+  box-sizing: border-box;
+}
+.box{
+  width: 232rpx;
+  height: 176rpx;
+  position: relative;
+  display: inline-block;
+  margin-right:40rpx;
+  margin-bottom:10rpx;
+}
+.quan_bg{
+  width: 232rpx;
+  height: 175rpx;
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: -1;
+}
+
+.top{
+  width: 185rpx;
+  height: 86rpx;
+  margin:auto;
+  border-bottom: 1rpx dashed #bd995d;
+  text-align: center;
+  color:#bd995d;
+  line-height: 86rpx;
+  font-size: 20rpx;
+}
+.price{
+  font-size: 44rpx;
+}
+
+.footer_name{
+  width: 100%;
+  height: 86rpx;
+  font-size: 20rpx;
+  color:#4a494f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+.foot{
+  width: 100%;
+  padding:40rpx;
+  box-sizing: border-box;
+  margin-top:50rpx;
+  background-color: #fff;
+}
+.foot_title{
+  font-size: 30rpx
+}
+.foot_text{
+  font-size: 24rpx;
+  line-height: 36rpx;
+  margin-top:30rpx;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}

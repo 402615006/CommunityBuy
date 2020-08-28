@@ -1,0 +1,63 @@
+
+
+
+<view class="warp">
+  <view class="content {{show?'show':''}}">
+    <view class="head">
+      <image src="/images/fhjt.png" class="icon_jiantou"></image>
+      <text>头部</text>
+    </view>
+    <view class="box">
+      <button class="btn_show" catchtap="btn_show">打开左侧栏</button>
+      <view class="cont_box">
+        <view class="li">
+          <view>第一行</view>
+          <image src="/images/btn_004_enter.png" class="icon_r"></image>
+        </view>
+        <view class="li">
+          <view>第一行</view>
+          <image src="/images/btn_004_enter.png" class="icon_r"></image>
+        </view>
+        <view class="li">
+          <view>第一行</view>
+          <image src="/images/btn_004_enter.png" class="icon_r"></image>
+        </view>
+        <view class="li">
+          <view>第一行</view>
+          <image src="/images/btn_004_enter.png" class="icon_r"></image>
+        </view>
+        <view class="li">
+          <view>第一行</view>
+          <image src="/images/btn_004_enter.png" class="icon_r"></image>
+        </view>
+        <view class="li">
+          <view>第一行</view>
+          <image src="/images/btn_004_enter.png" class="icon_r"></image>
+        </view>
+        <view class="li">
+          <view>第一行</view>
+          <image src="/images/btn_004_enter.png" class="icon_r"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="DrawerClose {{show?'show':''}}" catchtap="cen_show"></view>
+
+  <view class="left_box {{!show?'show':''}}">
+    <view class="left_content">
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+      <view class="li"></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "拼团订单详情",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "CardsSelect": "../../components/cardsselect/cardsselect",
+    "password": "../../../components/password/password"
+  }
+}

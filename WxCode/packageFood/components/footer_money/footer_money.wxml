@@ -1,0 +1,73 @@
+<!-- 底部购物车栏 -->
+<view class="footer">
+
+  <view class="footer_left" >
+    <view class="footer_money">￥{{ToPayMoney}}</view>
+    <view class="footer_gang"></view>
+    <view class="footer_moneyok" catchtap="btn_detil">已付￥{{PayMoney}}</view>
+  </view>
+  <view class="footer_right">
+    <view class="btn"  wx:if="{{ToPayMoney>0&&!show}}" catchtap="showcard">确认付款</view>
+    <view class="btn2" wx:if="{{show&&ToPayMoney>0}}">完成付款</view>
+    <view class="btn" wx:if="{{ToPayMoney==0}}" catchtap="go_ok">完成付款</view>
+  </view>
+</view>
+
+<!-- 购物车列表框框 -->
+<view class="commodity_screen" wx:if="{{show}}" catchtap='hidelogin'></view>
+<view animation="{{animationData}}" class="commodity_attr_boxcard" wx:if="{{show}}">
+  <view class="header">
+    <view class="left">
+      <view>选择支付方式</view>
+      <view class="discountmoney" wx:if="{{discountmoney>0}}">折扣金额(￥{{discountmoney}})</view>
+    </view>
+    <view class="right" bindtap="shopcordclear">
+      <!-- <image src="../../images/cen.png" class="icon"></image> -->
+      <view class="btn_ok" catchtap="btn_ok">确 认</view>
+    </view>
+  </view>
+  <scroll-view class="scroll" scroll-y="true">
+    <block wx:for="{{cardlist}}" wx:key="index">
+      <view class="li" catchtap="btn_clickcard" data-index="{{index}}">
+        <view class="li_left">
+         
+          <image src="../../images/icon_022_weixin.png" class="card_icon" wx:if="{{item.cardCode=='wx'}}"></image>
+          <image src="../../images/icon_021_huiyuanka.png" class="card_icon" wx:else></image>
+          <view class="card_name">{{item.levelname}}</view>
+          <view class="card_price" hidden="{{item.cardCode=='wx'}}">(余额￥{{item.balance}})</view>
+        </view>
+
+          <image src="../../images/btn_005_xuanzhong.png" class="gou" wx:if="{{index==card_index}}"></image>
+      
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+
+
+<!-- 购物车列表框框 -->
+<view class="commodity_screen" wx:if="{{show2}}" catchtap='hidelogin2'></view>
+<view animation="{{animationData2}}" class="commodity_attr_boxcard" wx:if="{{show2}}">
+  <view class="header">
+    <view class="left">支付明细</view>
+    <view class="right" bindtap="cancel_pay">
+      取消支付
+    </view>
+  </view>
+  <scroll-view class="scroll" scroll-y="true">
+    <block wx:for="{{paylist}}" wx:key="index">
+      <view class="li" catchtap="btn_clickcard" data-index="{{index}}">
+        <view class="li_left">
+          <view class="card_name">{{item.PayMethodName}}</view>
+        </view>
+        <view class="jzmoney">￥{{item.PayMoney}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+
+
+<!-- 密码输入框  -->
+  <password id="password" bind:myevent="get_number_ok"></password>

@@ -1,0 +1,47 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="bindcard" wx:if="{{flag}}">
+  <view class="head">
+    <view class="box">
+      <image src="../../../images/qtx1_69.png" class="bg_img"></image>
+      <view class="top_text">
+        <image src="../../../images/qtx1_06.png" class="icon_logoimg"></image>
+        <view>绑定会员卡</view>
+      </view>
+      <view class="content_text">**** **** **** ****</view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="li">
+      <view class="left">身份证号</view>
+      <!-- <input class="input" bindinput='input_idcard' maxlength='18' placeholder='输入身份证号' type="idcard" placeholder-class="placeholderclass"></input> -->
+      <view class="mobile">{{filter.replace_card(idcard)}}</view>
+    </view>
+    <view class="li">
+      <view class="left">手机号码</view>
+      <!-- <input class="input" bindinput='input_tel' maxlength='11' placeholder='输入手机号码' type="number" placeholder-class="placeholderclass"></input> -->
+      <view class="mobile">{{filter.replace_tel(tel)}}</view>
+    </view>
+    <view class="li li2" wx:if="{{isentercode==false}}">
+      <view class="left">验证码</view>
+      <input class="input2" bindinput='input_code' maxlength='6' placeholder='输入验证码' type="number" placeholder-class="placeholderclass"></input>
+      <view class="text" wx:if="{{times>0}}">{{times}}s</view>  
+      <view class="text" wx:else catchtap='get_code'>获取验证码</view>
+    </view>
+    
+    <view class="li">
+      <view class="left">会员卡号</view>
+      <input class="input" bindinput='input_cards' maxlength='20' placeholder='输入会员卡号' type="text" placeholder-class="placeholderclass"></input>
+    </view>
+    <view class="li">
+      <view class="left">会员卡密码</view>
+      <input class="input" bindinput='input_password' maxlength='6' placeholder='输入会员卡密码' type="password" placeholder-class="placeholderclass"></input>
+    </view>
+    <view class="tishizi">默认初始密码888888</view>
+
+
+    <view class="btn" catchtap='btn'>立即绑定</view>
+  </view>
+</view>
+
+<show-box id="showbox"></show-box>

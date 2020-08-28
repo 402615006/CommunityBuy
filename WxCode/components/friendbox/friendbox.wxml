@@ -1,0 +1,14 @@
+
+
+<!--屏幕背景变暗的背景  catchtouchmove='true'-->
+<view class="red_screen" catchtouchmove="preventTouchMove" wx:if="{{show}}" catchtap="hide">
+
+</view>
+
+<!--弹出框  -->
+<view class="red_content {{show?'red_contenthide':''}}" catchtouchmove="preventTouchMove">
+  <image src="{{img}}" class="bg_img"></image>
+ 
+  <view class="button " catchtap="saveImg">保存分享图</view>
+
+</view>

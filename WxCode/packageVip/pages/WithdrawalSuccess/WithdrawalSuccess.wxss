@@ -1,0 +1,39 @@
+
+page{
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.bg_img{
+  width: 128rpx;
+  height: 128rpx;
+  margin-top:100rpx;
+}
+.head{
+  margin-top:50rpx;
+}
+.color_3e3d43{
+  color:#3e3d43;
+}
+.font_size30{
+  font-size: 30rpx;
+}
+.text{
+  font-size: 24rpx;
+  color:#6f6f6f;
+  margin-top:50rpx;
+}
+
+.btn{
+  width: 410rpx;
+  height: 82rpx;
+  background-color: #ea6248;
+  margin:auto;
+  margin-top:80rpx;
+  line-height: 82rpx;
+  font-size: 32rpx;
+  color:#fff;
+}
+.margin_top0{
+  margin-top:0;
+}

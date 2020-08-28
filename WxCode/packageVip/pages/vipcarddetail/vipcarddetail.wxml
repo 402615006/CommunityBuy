@@ -1,0 +1,31 @@
+
+
+
+
+<view class="bindcard">
+
+  <view class="head">
+    <view class="box">
+      <image src="../../../images/hyk_024_lingka.png" class="bg_img"></image>
+      <view class="top_text">
+        <view>{{list.levelname}}</view>
+      </view>
+      <view class="content_text">{{cardcode}}</view>
+      <view class="footer_text">有效期至{{list.validatestr}}</view>
+    </view>
+  </view>
+  <view class="content">
+      <!-- <view class="li">
+        <view class="text">年费</view>
+        <view class="rigth">
+          <view>{{list.balance}}</view>
+        </view>
+      </view> -->
+      <view class="li" catchtap='go_expensesrecord'>
+        <view class="text">使用记录</view>
+        <view class="rigth">
+          <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+        </view>
+      </view>
+  </view>
+</view>

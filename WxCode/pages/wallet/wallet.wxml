@@ -1,0 +1,204 @@
+
+<wxs src="../../utils/filter.wxs" module="filter" />
+
+<view class="my">
+  <image src="../../images/qb_001_di.png" class="di_icon"></image>
+  <view class="head">
+    <view class="top_left" hidden="{{!memcode}}">
+      <view class="images_box">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+
+      <view class="top_text" catchtap="goto_grxx">
+        <view class="name">
+          <open-data type="userNickName" lang="zh_CN"></open-data>
+          <image src="../../images/bianji.png" class="xiugaiicon"></image>
+        </view>
+        <view class="tel">{{filter.replace_tel(tel)}}</view>
+      </view>
+    </view>
+    <view class="top_left" hidden="{{memcode}}">
+      <view class="images_box">
+        <image src="../../images/001_toux.png" class="no_log" catchtap='btn_denglu'></image>
+      </view>
+      <view class="top_text">
+        <view class='wx_size36 wx_colorff'  catchtap='btn_denglu'>
+          立即登录
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 佣金 -->
+  <!-- <view class="commission_box" catchtap="go_commission">
+    <view class="commission_head">
+      <image src="../../images/qb_005_tixian.png" class="icon_money"></image>
+      <view class="commission_title">可提佣金</view>
+    </view>
+    <view class="commission_number" wx:if="{{list.ktyj}}">
+      <text>{{filter.splitpriceOne(list.ktyj)}}</text><text class="commission_number2">{{filter.splitpriceTwo(list.ktyj)}}</text>
+    </view>
+    <view class="commission_number" wx:else>0.00</view>
+    <view class="commission_bottom">
+      <view class="one">
+        <view class="font_size24">待确认佣金</view>
+        <view class="price font_size32 color_3d3c42 font_weight" wx:if="{{list.dqryj}}">
+          <text>{{filter.splitpriceOne(list.dqryj)}}</text>
+          <text class="font_size24">{{filter.splitpriceTwo(list.dqryj)}}</text>
+        </view>
+        <view class="price font_size32 color_3d3c42 font_weight" wx:else>0.00</view>
+      </view>
+      <view class="two">
+        <view class="font_size24">已确认佣金</view>
+        <view class="price font_size32 color_3d3c42 font_weight" wx:if="{{list.yqryj}}">
+          <text>{{filter.splitpriceOne(list.yqryj)}}</text>
+          <text class="font_size24">{{filter.splitpriceTwo(list.yqryj)}}</text>
+        </view>
+        <view class="price font_size32 color_3d3c42 font_weight" wx:else>0.00</view>
+      </view>
+    </view>
+    <view class="bun_ti">
+      <image src="../../images/zj_014_fw.png" class="icon_li"></image>
+      <view>立即提现</view>
+    </view>
+  </view> -->
+
+  <!-- 资产 -->
+  <view class="assets_box">
+    <view class="sm_box" catchtap='go_assets'>
+      <view class="sm_num font_size36" wx:if="{{list.balance}}">
+        <text>{{filter.splitpriceOne(list.balance)}}</text>
+        <text class="font_size24">{{filter.splitpriceTwo(list.balance)}}</text>
+      </view>
+      <view class="sm_num font_size36" wx:else>0.00</view>
+      <view class="sm_text">总资产</view>
+    </view>
+    <view class="sm_box" catchtap="go_integral">
+      <view class="sm_num font_size36">0</view>
+      <view class="sm_text">积分</view>
+    </view>
+    <view class="border_l"></view>
+  </view>
+  <!-- 四个tab -->
+  <view class="los_box">
+    <view class="logsm_box" catchtap="go_fukuan">
+      <view class="log_img_box">
+        <image src="../../images/icon_fukuan.png" class="log_icon"></image>
+      </view>
+      <view class="log_name font_size24">付款码</view>
+    </view>
+    <!-- <view class="logsm_box" catchtap="go_vip">
+      <view class="log_img_box">
+        <image src="../../images/qb_006_hy.png" class="log_icon"></image>
+        <view class="los_num" wx:if="{{list.tgnum&&list.tgnum>0}}">{{list.tgnum}}</view>
+      </view>
+      <view class="log_name font_size24">我的会员</view>
+    </view> -->
+    <!-- <view class="logsm_box" catchtap="go_card">
+      <image src="../../images/qb_007_kb.png" class="log_icon"></image>
+      <view class="log_name font_size24">卡包</view>
+    </view> -->
+    <view class="logsm_box" catchtap="go_coupon">
+      <view class="log_img_box">
+        <image src="../../images/qb_008_yhq.png" class="log_icon"></image>
+        <!-- <view class="los_num" wx:if="{{list.coupons&&list.coupons>0}}">{{list.coupons}}</view> -->
+      </view>
+      <view class="log_name font_size24">优惠券</view>
+    </view>
+    <view class="logsm_box" catchtap="go_order">
+      <image src="../../images/qb_009_dd.png" class="log_icon"></image>
+      <view class="log_name font_size24">我的订单</view>
+    </view>
+  </view>
+  <!-- 下方跳转 -->
+  <view class="footer_box">
+    <view class="footer_li" catchtap="go_vip">
+      <view class="li_left">
+        <image src="../../images/qb_016_gz.png.png" class="icon_t"></image>
+        <view class="li_title">我的会员</view>
+      </view>
+      <view class="li_right">
+        <view wx:if="{{list.tgnum}}">{{list.tgnum}}人</view>
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </view>
+    <view class="footer_li" catchtap="go_guanzhu">
+      <view class="li_left">
+        <image src="../../images/qb_010_gz.png" class="icon_t"></image>
+        <view class="li_title">我的关注</view>
+      </view>
+      <view class="li_right">
+        <view wx:if="{{list.looknum}}">{{list.looknum}}人</view>
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </view>
+    <view class="footer_li" catchtap="go_guanzhumy">
+      <view class="li_left">
+        <view class="icon_t">
+          <image src="../../images/qb_010_gz.png" class="icon_t"></image>
+          <view class="red_d" wx:if="{{list.lookmenumN>0}}"></view>
+        </view>
+        <view class="li_title">关注我的</view>
+      </view>
+      <view class="li_right">
+        <view wx:if="{{list.lookmenum}}">{{list.lookmenum}}人</view>
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </view>
+    <view class="footer_li" catchtap='go_phjl'>
+      <view class="li_left">
+        <image src="../../images/qb_011_pd.png" class="icon_t"></image>
+        <view class="li_title">排队记录</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </view>
+    <view class="footer_li" catchtap='go_yyjl'>
+      <view class="li_left">
+        <image src="../../images/qb_012_yy.png" class="icon_t"></image>
+        <view class="li_title">预约记录</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </view>
+    <view class="footer_li" catchtap='go_safety'>
+      <view class="li_left">
+        <image src="../../images/qb_013_aq.png" class="icon_t"></image>
+        <view class="li_title">账户安全</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </view>
+    <view class="footer_li" catchtap='go_feedback'>
+      <view class="li_left">
+        <image src="../../images/qb_14_fk.png" class="icon_t"></image>
+        <view class="li_title">反馈</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </view>
+    <!-- <view class="footer_li" catchtap='go_kefu'>
+      <view class="li_left">
+        <image src="../../images/qb_015_kf.png" class="icon_t"></image>
+        <view class="li_title">专属客服</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </view> -->
+    <button  open-type="contact" class="footer_li button_kefu" >
+      <view class="li_left">
+        <image src="../../images/qb_015_kf.png" class="icon_t"></image>
+        <view class="li_title">专属客服</view>
+      </view>
+      <view class="li_right">
+        <image src="../../images/btn_004_enter.png" class="icon_jiantou"></image>
+      </view>
+    </button>
+  </view>
+  <view class="btn" bindtap='clear' hidden="{{!memcode}}">退出登录</view>
+</view>

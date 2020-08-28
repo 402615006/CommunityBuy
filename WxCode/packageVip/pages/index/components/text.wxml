@@ -1,0 +1,21 @@
+<view class="text">
+  <view class="ul">
+    <block wx:for="{{list}}" wx:key="index" >
+      <view class="li" catchtap='go_detail'>
+        <view class="images">
+          <image src="../../../images/icon_001_youhuiquan.png" class="img_c"></image>
+          <view class="price">{{item.price}}
+            <text>￥</text>
+          </view>
+          <view class="type">{{item.name}}</view>
+          <view class="tip">满{{item.numprice}}</view>
+        </view>
+        <view class="stocode">{{item.stocode}}</view>
+        <view class="number">
+          <image src="../../../images/icon_004_jifen.png" class="icon"></image>
+          <view>{{item.num}}分</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

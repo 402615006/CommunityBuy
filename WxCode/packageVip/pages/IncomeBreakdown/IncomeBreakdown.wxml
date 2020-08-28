@@ -1,0 +1,34 @@
+
+<view class="IncomeBreakdown">
+  <view class="head">
+    <picker mode = "date" fields="month" bindchange="bindchange" end="{{enddate}}" value="{{date}}">
+        <view class="head_box">
+          <view>{{date}}</view>
+          <image src="/images/sy_012_xl.png" class="icon_jiantou"></image>
+        </view>
+    </picker >
+  </view>
+  <view class="ul">
+    <view class="li" wx:for="{{list}}" wx:key="index">
+      <view class="left">
+        <view class="title">{{item.ctype}}</view>
+        <view class="times">{{item.ctimestr}}</view>
+      </view>
+      <view class="right">
+        <view class="price">{{item.income}}</view>
+        <view class="yue">{{item.balance}}</view>
+      </view>
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+</view>
+
+
+<!-- 没有优惠券信息 -->
+  <view wx:if="{{isno&&list.length==0}}">
+    <view class='no_data'>
+      <image src='../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无数据</view>
+    </view>
+  </view>

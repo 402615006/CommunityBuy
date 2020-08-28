@@ -1,0 +1,7 @@
+
+<view class="success">
+  <view class="icon_box">
+    <image src="../../images/icon1.png" class="icon"></image>
+  </view>
+  <view class="text">{{title}}</view>
+</view>

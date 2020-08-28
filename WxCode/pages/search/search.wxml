@@ -1,0 +1,85 @@
+<wxs src="../../utils/filter.wxs" module="filter" />
+
+<view class="search">
+  <view class="top">
+    <view class="content_text" style="height:{{titleBarHeight}}px;margin-top:{{bar_Height}}px">
+      <view class="img_box" bindtap='goBack'>
+          <image src="/images/fh.png"></image>
+        </view>
+        <view class="input_box"  style="height:30px;border-radius: 15px;">
+          <image src="/images/icon_028_s.png" class="search_icon" ></image>
+          <input class="input" style="height:30px" placeholder="请输入商家 商品名称" confirm-type="search" bindconfirm="btn_search" bindinput="input_value" value="{{value}}" focus="{{focus}}"></input>
+        </view>
+    </view>
+  </view>
+
+
+  <view class="contetn" style="padding-top:{{bar_Height+titleBarHeight}}px">
+    <view class="content_head" hidden="{{value||tag.length==0}}">
+      <view class="content_head_title">热门搜索</view>
+      <block wx:for="{{tag}}" wx:key="index">
+        <view class="content_head_text" data-text="{{item.name}}" catchtap="btn_tag">{{item.name}}</view>
+      </block>
+    </view>
+    <!-- 循环数据 -->
+    <view class="warp">
+      <block wx:for="{{list}}" wx:key="index">
+        <view class="right_li" catchtap="btn_tap" data-item="{{item}}">
+          <image src="{{item.logo?item.logo:'/images/kong.png'}}" class="img_url"></image>
+          <view class="right_box">
+            <view class="right_top">
+              <view class="name">{{item.cname}}</view>
+              <view class="price">￥{{item.jprice}}/人</view>
+            </view>
+            <view class="right_desc" >
+              <image wx:if="{{item.wz}}" src="../../images/icon_005_loc.png" class="dizhi_icon" mode="aspectFill"></image>
+              <view class="des">{{item.wz}}</view>
+            </view>
+            <view class="right_footer">
+              <text class="block block2" wx:if="{{item.ispaidui==1&&item.ismovie!=1}}">排</text>
+              <text class="block block3" wx:if="{{item.isdc==1&&item.ismovie!=1}}">点</text>
+              <text class="block block1" wx:if="{{item.isyuding==1&&item.ismovie!=1}}">订</text>
+              <block wx:for="{{filter.split(item.Tag)}}" wx:for-item="ctim" wx:key="index">
+                <text class='tip' wx:if="{{ctim&&item.ismovie==1}}">{{ctim}}</text>
+              </block>
+            </view>
+          </view>
+        </view>
+      </block>
+
+
+      <!-- <view class="li" wx:for="{{list}}" wx:key="index" catchtap="btn_tap" data-item="{{item}}">
+        <view class="li_left">
+          <image src="{{item.logo}}" class="img_"></image>
+          <view class="li_lefttext">
+            <view class="name">{{item.cname}}</view>
+            <view class="two">
+              <view class="two_text">{{item.wz}}</view>
+            </view>
+            <view class="price">￥
+              <text class="font_size26">{{item.jprice}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="li_right">
+          <view class="juli">距您{{item.juli}}km</view>
+          <view class="bottom">
+            <view class="bottom_num">门市价￥199</view>
+          </view>
+        </view>
+      </view> -->
+
+
+      <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+
+      <!-- 没有信息 -->
+      <view wx:if="{{isno&&list.length==0}}">
+        <view class='no_data'>
+          <image src='/images/qt_273.png' class='no_data_icon'></image>
+          <view class='wx_size32 wx_color96 wx_margin_top'>没有搜索到相关信息</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

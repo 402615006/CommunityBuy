@@ -1,0 +1,91 @@
+
+page{
+  background-color: #f2f2f2;
+}
+.head{
+  width: 750rpx;
+  height: 368rpx;
+}
+.bg{
+  width: 750rpx;
+  height: 368rpx;
+}
+.ul{
+  width: 100%;
+  background-color: #fff;
+
+}
+.li{
+  width: 100%;
+  padding:30rpx 25rpx;
+  box-sizing: border-box;
+  border-bottom:1rpx solid #e6e6e6;
+  display: flex;
+  justify-content: flex-start;
+}
+.img_box{
+  width: 256rpx;
+}
+.right{
+  flex: 1;
+  padding-left:30rpx;
+  box-sizing: border-box;
+}
+.right_name{
+  font-size: 32rpx;
+  color:#000;
+  font-weight: bold;
+}
+.two{
+  color:#838383;
+  font-size: 24rpx;
+  margin-top:22rpx;
+}
+.img{
+  width: 256rpx;
+  height: 210rpx;
+  border-radius: 6rpx;
+}
+.price{
+  font-size: 32rpx;
+  margin-top:70rpx;
+  color:#e96147;
+}
+.font_size20{
+  font-size: 20rpx;
+}
+.price2{
+  margin-left:10rpx;
+  color:#828282;
+  text-decoration: line-through;
+}
+.money2{
+  font-size: 22rpx;
+}
+.fr{
+  float: right;
+}
+.noMore{
+  font-size: 26rpx;
+}
+
+
+/* 没有数据 */
+.no_data {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+}
+
+.no_data_icon {
+  width: 180rpx;
+  height: 180rpx;
+}
+.wx_margin_top{
+  margin-top:20rpx;
+}
+.wx_color96{
+  color: #969696;
+}

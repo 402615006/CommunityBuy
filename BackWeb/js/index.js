@@ -221,7 +221,7 @@ function OpenMsg(title, data) {
     //}
     tempHtml += "</div>";
     //边缘弹出
-    layer.open({
+    layui.layer.open({
         type: 1
       , title: [title, 'text-align:center']
       , area: ['190px', '70px']
@@ -229,7 +229,7 @@ function OpenMsg(title, data) {
       , content: tempHtml//'<div style="width:90%; margin:10px 5% 10px 5%;"><p style="text-align:left;">' + data.content + '</p></div>'
       , shade: 0 //不显示遮罩
       , yes: function () {
-          layer.closeAll();
+          layui.layer.closeAll();
       }, cancel: function () {
           _layerMsgStatus = 1;
           TimingQuery();
@@ -244,12 +244,12 @@ function OpenMsgJump(el) {
     if (type != undefined && _datas != undefined) {
         if (type == "0") {
             $(".headList").children().eq(0).click(); //模拟点击首页事件
-            layer.closeAll();
+            layui.layer.closeAll();
             updateMsgStatus("0", _datas);
             //$("#frame").attr("src", "../home/StockApproval.aspx");
         } else {
             $(".headList").children().eq(0).click(); //模拟点击首页事件
-            layer.closeAll();
+            layui.layer.closeAll();
             $(".subclass").eq(1).click();
             updateMsgStatus("1", _datas);
             //$("#frame").attr("src", "../home/CardApproval.aspx");

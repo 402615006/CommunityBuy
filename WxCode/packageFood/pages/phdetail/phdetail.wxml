@@ -1,0 +1,47 @@
+
+
+<view class="phdetail">
+  <view class="head">
+    <image src="{{bg_img}}" class="bg_img" mode="aspectFill"></image>
+    <view class="bg_text">
+      <image src="../../images/icon_024_chenggong.png" class="bg_icon"></image>
+      <view class="bg_title">排号成功</view>
+    </view>
+    
+    <view class="prompt">
+      <image src="../../images/icon_026_tishi.png" class="prompt_icon"></image>
+      <view>听到叫号请到迎宾台,过号顺延3桌安排。</view>
+    </view>
+  </view>
+  <view class="stocode_name" catchtap="go_stocode">
+    <view>{{list.StoName}}</view>
+    <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+  </view>
+  
+  <view class="content">
+    <view class="box">
+      <view class="warp_h">
+        <view class="warp_h_left">
+          <image src="../../images/icon_025_paidui.png" class="icon_title"></image>
+          <view>排队号码</view>
+        </view>
+        <view class="status" wx:if="{{list.TStatus==1}}">正在排队</view>
+        <view class="status" wx:if="{{list.TStatus==2}}">已就餐</view>
+        <view class="status" wx:if="{{list.TStatus==3}}">已过号</view>
+        <view class="status" wx:if="{{list.TStatus==4}}">已取消</view>
+      </view>
+      <view class="number">
+        {{list.PKCode}}
+      </view>
+      <view class="times">取号时间:{{list.CTimestr}}</view>
+      <view class="bottom" wx:if="{{list.TStatus==1}}">
+        <view class="block block1">前面等待<text class="color_ea6248">{{list.tablenumber}}</text>桌</view>
+        <view class="block">预计等待<text class="color_ea6248">{{list.Wtime}}</text>分钟</view>
+      </view>
+    </view>
+    <view class="button" wx:if="{{list.TStatus==1}}">
+      <view class="btn_left" catchtap='cen_paihao' data-id="{{list.Id}}" data-stocode="{{list.StoCode}}" >取消排号</view>
+      <view class="btn_right" catchtap='go_stocode'>在线点餐</view>
+    </view>
+  </view>
+</view>

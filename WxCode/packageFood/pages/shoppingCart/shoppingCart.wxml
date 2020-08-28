@@ -1,0 +1,51 @@
+
+<view class="shoppcard">
+  <view class="head">
+    <view class="left">
+      <image src="../../images/btn_006_xuanzhe.png" class="q_img"></image>
+      <view class="margin_left20">全选</view>
+    </view>
+    <view class="right">
+      编辑
+    </view>
+  </view>
+
+  <view class="ul" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="ul_head">
+      <view class="img_y">
+        <image src="../../images/btn_005_xuanzhong.png" class="q_img"></image>
+      </view>
+      <image src="../../images/icon_004_shangpu.png" class="shangpu"></image>
+      <view>{{item.title}}</view>
+      <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+    </view>
+    <view class="li" wx:for="{{item.data}}" wx:key="{{index}}">
+      <view class="img_y">
+        <image src="../../images/btn_005_xuanzhong.png" class="q_img"></image>
+      </view>
+      <view class="content">
+        <view class="img_view">
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563966789564&di=1321d6fcde64647a9eeee054e9b61644&imgtype=0&src=http%3A%2F%2Fpic7.nipic.com%2F20100606%2F1928743_151253082530_2.jpg" mode="aspectFill" class="img_src"></image>
+        </view>
+        <view class="text">
+          <view class="name">{{item.name}}</view>
+          <view class="detail margin_top10">{{item.detail}}</view>
+          <view class="price margin_top10">
+            <text>￥{{item.price1}}</text><text class="price2">￥{{item.price2}}</text>
+          </view>
+          <ADD_prev number="0" bottom="0" right="0"></ADD_prev>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="footer">
+    <view class="footer_left">
+      <text>￥206</text>
+      <text class="gang color_a0a0a0">|</text>
+      <text class="font_size28 color_a0a0a0">立减￥104</text>
+    </view>
+    <view class="footer_right">结算(2)</view>
+  </view>
+</view>

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "新人专享",
+  "navigationBarBackgroundColor": "#ea6248",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "tui-loadmore": "/components/loadmore/loadmore"
+  }
+}

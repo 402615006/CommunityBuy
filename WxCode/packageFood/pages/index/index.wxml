@@ -1,0 +1,66 @@
+
+<view class="index"> 
+  <!-- bammer图 -->
+  <view class="banner" wx:if="{{bannerlist.length>0}}">
+      <swiper  interval="3000" duration="500" circular="true" autoplay="true" >
+        <block wx:for="{{bannerlist}}" wx:for-item="bannerItem" wx:key="banner">
+          <swiper-item bindtap="bannerimgdetail" data-i="{{index}}">
+            <image src="{{bannerItem.img}}" class="banner-item" mode="aspectFill" catchtap="previewImg" data-index="{{index}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <!-- 搜索条 -->
+  <view class="search">
+    <!-- <view class="search_left">
+      <image src="../../images/icon_001_ loc.png" class="loc"></image>
+      <view class="search_text">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          {{array[index]}}
+        </picker>
+      </view>
+      <view class="search_jiantou">▼</view>
+    </view> -->
+    <view class="search_right">
+      <input class="input" placeholder='搜索店名' bindinput='input_cname' placeholder-class="placeholderStyle" confirm-type="search" bindconfirm="go_search">
+        <image src="../../images/icon_028_s.png" class="search_img"></image>
+      </input>
+    </view>
+  </view>
+
+  <view class="ul">
+    <view class="li" wx:for="{{list}}" wx:key="index" data-stocode="{{item.stocode}}" catchtap='go_stocode'>
+      <view class="left">
+        <image src="{{item.logo?item.logo:'../../../images/kong.png'}}"   class="left_img" mode="aspectFill"  lazy-load="true" ></image>
+        <view class="content">
+          <view class="name">{{item.cname}}</view>
+          <view class="detail">
+            <text>{{item.dicname}}</text>
+            <text>￥{{item.jprice}}/人</text>
+          </view>
+          <view class="label">
+            <view class="test" wx:for="{{item.data}}" wx:key="index">
+              {{item}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="top">
+          <text class="block block2" wx:if="{{item.ispaidui==1}}">排</text>
+          <text class="block block3" wx:if="{{item.isdc==1}}">点</text>
+          <text class="block block1" wx:if="{{item.isyuding==1}}">订</text>
+        </view>
+        <view class="bottom" wx:if="{{item.juli}}">{{item.juli}}km</view>
+      </view>
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+  <tui-nomore wx:if="{{list.length>0&&isnomore}}"></tui-nomore>
+
+  <view class='noDataView' wx:if='{{isnextpage==0&&list.length==0&&currentpage==1}}'>
+    <image src='/images/pluto-no-messages-1.png' class='noData'></image>
+    <view class='noMore'>暂无数据~~</view>
+  </view>
+</view>

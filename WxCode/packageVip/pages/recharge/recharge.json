@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#ee685d",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "我要充值",
+  "usingComponents": {
+    "wux-slider": "../../components/slider/slider"
+  }
+}

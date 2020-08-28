@@ -1,0 +1,16 @@
+
+
+
+<view class="addorderOk">
+  <view class="top">
+      <image src="../../images/icon_015_yuyue.png" class="mod_icon"></image>
+      <view class="right">
+        <view>下单成功</view>
+        <view class="text2">已为您确认订单</view>
+      </view>
+  </view>
+  <view class="btn">
+    <view class="button" catchtap="fanhui">继续点菜</view>
+    <view class="button button2" catchtap="go_orderdetail">查看订单</view>
+  </view>
+</view>

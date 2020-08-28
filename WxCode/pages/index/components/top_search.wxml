@@ -1,0 +1,14 @@
+
+
+<view class="top" style="height:{{bar_Height+titleBarHeight}}px">
+  <view class="content" style="height:{{titleBarHeight}}px;margin-top:{{bar_Height}}px">
+      <view class="img_box" catchtap="go_news">
+        <image src="/images/sy_001_xiaoxi.png"></image>
+        <view class="search_num" wx:if="{{noreadno>0}}">{{noreadno>99?'99':noreadno}}</view>
+      </view>
+      <view class="input_box" catchtap="go_search" style="height:30px;border-radius: 15px;line-height:30px;">
+        <image src="/images/icon_028_s.png" class="search_icon" ></image>
+        输入商家、商品名称
+      </view>
+  </view>
+</view>

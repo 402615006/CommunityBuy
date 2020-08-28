@@ -1,0 +1,22 @@
+
+
+<view class="pointsdetails">
+  <view class="head">
+    积分明细
+  </view>
+  <view class="content">
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <view class="li">
+        <view class="left">
+          <view class="title">{{item.title}}</view>
+          <view class="time">{{item.time}}</view>
+        </view>
+        <view class="right">
+          <view class="number">+{{item.num}}</view>
+        </view>
+      </view>    
+    </block>
+    <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+    <tui-nomore wx:if="{{list.length>0&&isnomore}}"></tui-nomore>
+  </view>
+</view>

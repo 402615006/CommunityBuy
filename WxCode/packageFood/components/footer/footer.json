@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Badge":"../badge/badge",
+    "ADD_prev": "../add_prev/add_prev"
+  }
+}

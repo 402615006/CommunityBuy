@@ -94,23 +94,17 @@ namespace CommunityBuy.BackWeb
                 url = "MemberCardShow.aspx?id=" + hidId.Value;
                 memcode = hidId.Value;
                 txt_wxaccount.Text = entity.wxaccount;
-                txt_cname.Text = entity.cname;
-                txt_birthday.Text = entity.birthday.ToString("yyyy-MM-dd");
-                txt_sex.SelectedValue = entity.sex;
+
                 txt_mobile.Text = entity.mobile;
                 //txt_email.Text = entity
                 txt_tel.Text = entity.mobile;
-                ddl_idtype.SelectedValue = entity.idtype;
-                txt_IDNO.Text = entity.IDNO;
-                this.ddl_provinceid.SelectedValue = entity.provinceid.ToString();
+
                 ddl_provinceid_SelectedIndexChanged(null, null);
-                this.ddl_cityid.SelectedValue = entity.cityid.ToString();
+
                 ddl_cityid_SelectedIndexChanged(null, null);
-                ddl_areaid.SelectedValue = entity.areaid.ToString();
-                txt_address.Text = entity.address;
+
                 txt_remark.Text = entity.remark;
-                txt_photo.ImageUrl = entity.photo;
-                hid_photo.Value = entity.photo;
+
             }
         }
 
@@ -118,62 +112,27 @@ namespace CommunityBuy.BackWeb
         protected void Save_btn_Click(object sender, EventArgs e)
         {
             //获取页面信息
-            string memid = "";
             string wxaccount =txt_wxaccount.Text;
-            string cname = txt_cname.Text;
-            string IDNO = txt_IDNO.Text;
-            string birthday = string.Empty;
-            if (IDNO.Length > 0)
-            {
-                if (IDNO.Length == 15)
-                {
-                    birthday = IDNO.Substring(6, 6).Insert(4, "-").Insert(2, "-");
-                }
-                else if (IDNO.Length == 18)
-                {
-                    birthday = IDNO.Substring(6, 8).Insert(6, "-").Insert(4, "-");
-                }
-            }
-            string sex = txt_sex.Text;
+
+
             string mobile = txt_mobile.Text;
-            string idtype = ddl_idtype.SelectedValue;
-            string provinceid = ddl_provinceid.SelectedValue;
-            string cityid = ddl_cityid.SelectedValue;
-            string areaid = ddl_areaid.SelectedValue;
-            string photo = hid_photo.Value;
-            string address = txt_address.Text;
+
             string remark = txt_remark.Text;
             string status = "1"; 
-            string cuser = base.LoginedUser.UserID.ToString();
 
 
-            if (this.hidId.Value.Length == 0)//添加信息
-            {
-                bll.Add("0", "0", memid, "", "", cname, birthday, sex, mobile, idtype, IDNO, provinceid, cityid, areaid, photo, address, remark, status, cuser);
-                hidId.Value = bll.oResult.Data;
-
-                this.PageTitle.Operate = "修改";
-            }
-            else//修改信息
+            if (this.hidId.Value.Length!= 0)//添加信息
             {
                 membersEntity UEntity = bll.GetEntitySigInfo(" where memid='" + hidId.Value + "'");
                 if (UEntity.memcode.Length > 0)
                 {
                     UEntity.wxaccount = wxaccount;
-                    UEntity.cname = cname;
-                    UEntity.birthday = StringHelper.StringToDateTime(birthday);
-                    UEntity.sex = sex;
+
                     UEntity.mobile = mobile;
-                    UEntity.idtype = idtype;
-                    UEntity.IDNO = IDNO;
-                    UEntity.provinceid = StringHelper.StringToInt(provinceid);
-                    UEntity.cityid = StringHelper.StringToInt(cityid);
-                    UEntity.areaid = StringHelper.StringToInt(areaid);
-                    UEntity.photo = photo;
-                    UEntity.address = address;
+
                     UEntity.remark = remark;
                     UEntity.status = status;
-                    UEntity.cuser = StringHelper.StringToLong(cuser);
+
                     bll.Update("0", "0", UEntity);
                 }
                 this.PageTitle.Operate = "修改";

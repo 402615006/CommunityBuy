@@ -1,0 +1,13 @@
+
+<view class="moviebox" wx:if="{{show}}">
+  <view class="head">
+      <view class="tab_btn {{index==moviebox_index?'act_color':''}}" wx:for="{{moviebox_text}}" wx:key="index" catchtap='btn_tab' data-index="{{index}}">{{item}}</view>
+  </view>
+  <swiper skip-hidden-item-layout="true" bindchange="swiperChange" current="{{moviebox_index}}">
+  <block wx:for="{{moviebox_text}}" wx:key="index">
+    <swiper-item>
+      <Text id="text{{index}}" bind:tofenlei="tofenlei" status="{{index==0?'':index==1?'0':'1'}}"></Text>
+    </swiper-item>
+  </block>
+</swiper>
+</view>

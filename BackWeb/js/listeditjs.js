@@ -23,17 +23,16 @@ function checklist(type) {
     var showobj = document.getElementById('sp_showmes');
     var tbname = $("#form1").attr("data-tbname");
     var title = "";
-    var s = document.getElementById('gv_list').getElementsByTagName('input');
     if (type == 'add') {
         title = "新增";
         ShowOpenpage(title, tbname + 'edit.aspx', '100%', '100%', true, true);
         return false;
     } 
 
+    var s = document.getElementById('gv_list').getElementsByTagName('input');
     if (type == 'delete') {
         return confirm(getCommonInfo('delete_button_tip'));
     }
-
     var role_id = "";
     if (s != undefined) {
         for (var i = 0; i < s.length; i++) {
@@ -49,6 +48,13 @@ function checklist(type) {
         }
     }
     role_id = role_id.toString().substr(0, role_id.length - 1);
+
+    if (type == 'dishmethod') {
+        title = "选规格";
+        ShowOpenpage(title, 'dishmethodlist.aspx?id=' + role_id, '100%', '100%', true, true);
+        return false;
+    } 
+
     if (role_id.indexOf(',') >= 0) {
         $("#sp_showmes").html("一次只能操作一条数据");
         return false;
@@ -99,7 +105,7 @@ $(document).ready(function () {
         var _iframe = window.parent.document;
         var _btn = window.parent.document.getElementById("ToolBar1_LinkRefresh");
         if ($(_iframe).find(".layui-layer-title").attr("move") != undefined) {
-            parent.layer.closeAll("iframe");
+            parent.layui.layer.closeAll("iframe");
         } else {
             var tbname = $("#form1").attr("data-tbname");
             var url = tbname + "list.aspx";
@@ -119,17 +125,17 @@ function auditclick(code, url, type) {
     //判断是否layer Open
     var _iframe = window.parent.document;
     if ($(_iframe).find(".layui-layer-title").attr("move") != undefined) {
-        layer.alert(getNameByCode(code)
+        layui.layer.alert(getNameByCode(code)
         , function () {
             if (type == "home") {
                 parent.$("#btn_search").click();
             } else {
                 parent.location.href = parent.location.href;
             }
-            parent.layer.closeAll("iframe");
+            parent.layui.layer.closeAll("iframe");
         });
     } else {
-        layer.alert(getNameByCode(code)
+        layui.layer.alert(getNameByCode(code)
         , function () {
             parent.location.href = url;
         });
@@ -158,108 +164,6 @@ $.format = function (source, params) {
     return source;
 };
 
-//省市区三级联动   
-// 省 servercontrol  sel_provinceid  hidden hid_provinceid
-// 市 servercontrol  sel_city  hidden hidcity
-// 区  servercontrol  sel_area  hidden hidarea
-function getprovice() {
-    $.ajax({
-        url: "/ajax/system/S_Province.ashx",
-        type: "post",
-        data: { "way": "provice" },
-        dataType: "json",
-        success: function (data) {
-            var htmlstr = '<option value="">--全部--</option>';
-            $(data.provincelist).each(function (i) {
-
-                if (data.provincelist[i].provinceid == $("#hid_provinceid").val()) {
-                    htmlstr += '<option value="' + data.provincelist[i].provinceid + '" selected="true">' + data.provincelist[i].province + '</option>';
-                }
-                else {
-                    htmlstr += '<option value="' + data.provincelist[i].provinceid + '">' + data.provincelist[i].province + '</option>';
-                }
-
-
-            });
-            $("#sel_provinceid").html(htmlstr);
-            //特殊页面省
-            if ($("#Ghostsel_provinceids").val() != undefined) {
-                if ($("#Ghostsel_provinceids").val().length > 0) {
-                    $("#sel_provinceid").val($("#Ghostsel_provinceids").val());
-                }
-            }
-            getselcity();
-        }
-    });
-}
-
-function getselcity() {
-    var pid = $("#sel_provinceid").val();
-    if (pid == undefined || pid.length == 0) {
-        return;
-    }
-    $.ajax({
-        url: "/ajax/system/S_Province.ashx",
-        type: "post",
-        data: { "way": "city", "ids": pid },
-        dataType: "json",
-        success: function (data) {
-            var htmlstr = '<option value="">--全部--</option>';
-            $(data.citylist).each(function (i) {
-                if (data.citylist[i].cityid == $("#hidcity").val()) {
-                    htmlstr += '<option value="' + data.citylist[i].cityid + '" selected="true">' + data.citylist[i].city + '</option>';
-                }
-                else {
-                    htmlstr += '<option value="' + data.citylist[i].cityid + '">' + data.citylist[i].city + '</option>';
-                }
-            });
-            $("#sel_city").html(htmlstr);
-            $("#hid_provinceid").val($("#sel_provinceid").val());
-            //特殊页面市
-            if ($("#Ghostsel_citys").val() != undefined) {
-                if ($("#Ghostsel_citys").val().length > 0) {
-                    $("#sel_city").val($("#Ghostsel_citys").val());
-                }
-            }
-            getselarea();
-        }
-    });
-}
-
-function getselarea() {
-
-    var pid = $("#sel_city").val();
-    if (pid == undefined || pid.length == 0) {
-        return;
-    }
-    $.ajax({
-        url: "/ajax/system/S_Province.ashx",
-        type: "post",
-        data: { "way": "area", "ids": pid },
-        dataType: "json",
-        success: function (data) {
-            var htmlstr = '<option value="">--全部--</option>';
-            $(data.arealist).each(function (i) {
-
-                if (data.arealist[i].areaid == $("#hidarea").val()) {
-                    htmlstr += '<option value="' + data.arealist[i].areaid + '" selected="true">' + data.arealist[i].area + '</option>';
-                }
-                else {
-                    htmlstr += '<option value="' + data.arealist[i].areaid + '">' + data.arealist[i].area + '</option>';
-                }
-            });
-            $("#sel_area").html(htmlstr);
-            $("#hidcity").val($("#sel_city").val());
-            //特殊页面区
-            if ($("#Ghostsel_areas").val() != undefined) {
-                if ($("#Ghostsel_areas").val().length > 0) {
-                    $("#sel_area").val($("#Ghostsel_areas").val());
-                }
-            }
-        }
-    });
-}
-
 function getSelect(elemid, hidelemid, name, value, url, data) {
     $.ajax({
         url: url,
@@ -280,10 +184,6 @@ function getSelect(elemid, hidelemid, name, value, url, data) {
             $("#" + elemid).html(htmlstr);
         }
     });
-}
-
-function setarea() {
-    $("#hidarea").val($("#sel_area").val());
 }
 
 //显示大图片 w h 为可选参数，默认为100%

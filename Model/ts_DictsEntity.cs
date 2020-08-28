@@ -148,7 +148,7 @@ namespace CommunityBuy.Model
 
     public class ts_DictDto
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string pId { get; set; }
         public string name { get; set; }
         public bool open { get; set; }
@@ -156,6 +156,7 @@ namespace CommunityBuy.Model
         public string iconClose { get; set; }
         public string iconOpen { get; set; }
         public string icon { get; set; }
+        public string sort { get; set; }
         public List<ts_DictDto> children { get; set; }
     }
 }

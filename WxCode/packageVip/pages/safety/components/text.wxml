@@ -1,0 +1,17 @@
+<!--屏幕背景变暗的背景  catchtouchmove='true'-->
+<view class="commodity_screen" catchtouchmove="preventTouchMove" bindtap="center" wx:if="{{show}}"></view>
+<!--弹出框-->
+<view animation="{{animationData}}" catchtouchmove="preventTouchMove" class="commodity_attr_boxcard" wx:if="{{show}}">
+  <view class="box">
+    <view class="head">免密额度</view>
+    <image src="../../../images/btn_004_close.png" class="cha" catchtap='center'></image>
+
+    <view class="content">
+      <view class="block {{list_index==index?'act_block':''}}" wx:for="{{list}}" wx:key="index" catchtap='btnnumber' data-index="{{index}}">￥{{item}}</view>
+    </view>
+
+    <view class="footer">
+      <view class="btn" catchtap='btn'>保存</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,161 @@
+{
+  "subpackages": [
+    {
+      "root": "packageFood",
+      "name": "packageFood",
+      "independent": false,
+      "pages": [
+        "pages/index/index",
+        "pages/shoppingCart/shoppingCart",
+        "pages/groupdetail/groupdetail",
+        "pages/stocode/stocode",
+        "pages/stodetail/stodetail",
+        "pages/list/list",
+        "pages/yyorder/yyorder",
+        "pages/phorder/phorder",
+        "pages/phdetail/phdetail",
+        "pages/packagedetail/packagedetail",
+        "pages/singlsdetail/singlsdetail",
+        "pages/paymentOK/paymentOK",
+        "pages/orderdetail/orderdetail",
+        "pages/ptorderdetail/ptorderdetail",
+        "pages/grorderdetail/grorderdetail",
+        "pages/successful/successful",
+        "pages/submitorder/submitorder",
+        "pages/addorder/addorder",
+        "pages/addorderOk/addorderOk",
+        "pages/Stall/Stall",
+        "pages/kuaicanzhifu/kuaicanzhifu",
+        "pages/zhongcanzhifu/zhongcanzhifu",
+        "pages/fukuanok/fukuanok",
+        "pages/checkorder/checkorder",
+        "pages/selectcoupon/selectcoupon",
+        "pages/hotel/hotel"
+      ]
+    },
+    {
+      "root": "packageVip",
+      "name": "packageVip",
+      "independent": false,
+      "pages": [
+        "pages/index/index",
+        "pages/couponexchange/couponexchange",
+        "pages/redemptionrecord/redemptionrecord",
+        "pages/lottery/lottery",
+        "pages/pointsdetails/pointsdetails",
+        "pages/assets/assets",
+        "pages/qrcode/qrcode",
+        "pages/invitecode/invitecode",
+        "pages/couponcenter/couponcenter",
+        "pages/couponcenterdetail/couponcenterdetail",
+        "pages/service/service",
+        "pages/safety/safety",
+        "pages/changepassword/changepassword",
+        "pages/changetel/changetel",
+        "pages/recharge/recharge",
+        "pages/cardlist/cardlist",
+        "pages/bindcard/bindcard",
+        "pages/openpluscard/openpluscard",
+        "pages/openvipcard/openvipcard",
+        "pages/opentimscard/opentimscard",
+        "pages/pluscarddetail/pluscarddetail",
+        "pages/unbindcard/unbindcard",
+        "pages/expensesrecord/expensesrecord",
+        "pages/vipcarddetail/vipcarddetail",
+        "pages/vipbenefits/vipbenefits",
+        "pages/opencardconfirm/opencardconfirm",
+        "pages/vipbenefitsdetail/vipbenefitsdetail",
+        "pages/xunibilist/xunibilist",
+        "pages/timscarddetail/timscarddetail",
+        "pages/changetel2/changetel2",
+        "pages/verification/verification",
+        "pages/servicedetail/servicedetail",
+        "pages/grxx/grxx",
+        "pages/opencardconfirm2/opencardconfirm2",
+        "pages/scancodeOK/scancodeOK",
+        "pages/newpeoplecoupon/newpeoplecoupon",
+        "pages/commission/commission",
+        "pages/IncomeBreakdown/IncomeBreakdown",
+        "pages/withdraw/withdraw",
+        "pages/myFocus/myFocus",
+        "pages/myFocusdetail/myFocusdetail",
+        "pages/Mymember/Mymember",
+        "pages/Myrank/Myrank",
+        "pages/MemberBenefits/MemberBenefits",
+        "pages/WithdrawalSuccess/WithdrawalSuccess",
+        "pages/Billinginstructions/Billinginstructions",
+        "pages/tixianlist/tixianlist"
+      ]
+    }
+  ],
+  "pages": [
+    "pages/index/index",
+    "pages/webpage/webpage",
+    "pages/login/login",
+    "pages/get_user/get_user",
+    "pages/success/success",
+    "pages/wallet/wallet",
+    "pages/NewcomerExclusive/NewcomerExclusive",
+    "pages/Xiandirecommend/Xiandirecommend",
+    "pages/member/member",
+    "pages/logs/logs",
+    "pages/vip/vip",
+    "pages/coupon/coupon",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/feedback/feedback",
+    "pages/coupondetail/coupondetail",
+    "pages/carouselDetails/carouselDetails",
+    "pages/Explanation/Explanation",
+    "pages/search/search",
+    "pages/memDetail/memDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#686868",
+    "selectedColor": "#ee695d",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tab_005_zhuye.png",
+        "selectedIconPath": "images/tab_004_zhuye_pre.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "iconPath": "images/tab_015_diancan.png",
+        "selectedIconPath": "images/tab_014_diancan.png",
+        "text": "点餐"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tab_013_dingdan.png",
+        "selectedIconPath": "images/tab_012_dingdan.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "iconPath": "images/tab_011_qianbao.png",
+        "selectedIconPath": "images/tab_010_qianbao_pre.png",
+        "text": "会员"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 20000
+  },
+  "sitemapLocation": "sitemap.json"
+}

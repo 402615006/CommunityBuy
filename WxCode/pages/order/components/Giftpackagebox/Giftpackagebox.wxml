@@ -1,0 +1,37 @@
+
+
+
+<scroll-view wx:if="{{show}}"  scroll-y="true" class="scoll-y" enable-back-to-top="true" bindscrolltolower="lower">
+  <view class="li" wx:for="{{list}}" wx:key="index" bindtap="togetail" data-code="{{item.code}}">
+    <view class="li_left">
+      <image src="{{item.simg}}" class="img"></image>
+    </view>
+    <view class="li_right">
+      <view class="h2">
+        <view class="title">{{item.lname}}</view>
+        <view class="tip" wx:if="{{item.isvip==1}}">送{{item.dqno}}天VIP
+          <image src="/images/hy_010_hy.png" class="icon_guan"></image>
+        </view>
+      </view>
+      <view class="time">{{item.enddate}}</view>
+      <view class="detail">
+        <view class="detail_text">{{item.profile}}</view>
+        <view class="price">￥{{item.price}}</view>
+      </view>
+      <view class="footer">
+        <!-- <view class="ple">{{item.status==0?'待支付':'已支付'}}</view> -->
+        <view class="btn">查看详情</view>
+      </view>
+      <image src="/images/qt_203.png" class="iconSta" wx:if="{{item.status==0}}"></image>
+    </view>
+  </view>
+  
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+  <!-- 没有订单信息 -->
+  <view wx:if="{{isno}}">
+    <view class='no_data'>
+      <image src='../../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无订单信息</view>
+    </view>
+  </view>
+</scroll-view>

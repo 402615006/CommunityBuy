@@ -141,7 +141,7 @@ namespace CommunityBuy.BLL
 
         public DataTable GetPagingListInfo(string GUID, string UID, int pageSize, int currentpage, string filter, string order, out int recnums, out int pagenums)
         {
-            return new bllPaging().GetPagingInfo("Store", "stoid", "*,areaname =dbo.fnGetAreaFullName(provinceid,cityid,areaid)", pageSize, currentpage, filter, "", order, out recnums, out pagenums); //,
+            return new bllPaging().GetPagingInfo("Store", "stoid", "*", pageSize, currentpage, filter, "", order, out recnums, out pagenums); //,
         }
 
 

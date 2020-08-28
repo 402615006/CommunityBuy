@@ -1,0 +1,10 @@
+
+
+<view class="badge">
+  <view class="tip" wx:if="{{number>99}}">
+    99+
+  </view>
+  <view class="tip" wx:if="{{number>0&&number<=99}}">
+    {{number}}
+  </view>
+</view>

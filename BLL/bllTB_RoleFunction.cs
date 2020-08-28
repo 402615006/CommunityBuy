@@ -144,7 +144,12 @@ namespace CommunityBuy.BLL
 
         public DataTable GetRoleFunctionInfoList(string GUID, string UID, string roleid)
         {
-            return new bllPaging().GetDataTableInfoBySQL("SELECT A.id,A.level ,A.parentid AS pId,A.Cname AS name,(CASE WHEN B.funid IS NULL THEN 0 ELSE 1 END) as ishave,'true' as [open],B.roleid,R.cname as rolename,R.descr as roledescr,A.descr,A.status,B.funid FROM functions  A inner join rolefunction B on A.id=B.funid AND B.roleid=" + roleid + " right join roles R on B.roleid=R.roleid  WHERE A.[status]='1' ORDER BY A.[level] ASC,A.parentid ASC,A.orders ASC");
+            return new bllPaging().GetDataTableInfoBySQL("SELECT A.id,A.level ,A.parentid AS pId,A.Cname AS name,(CASE WHEN B.funid IS NULL THEN 0 ELSE 1 END) as ishave,'true' as [open],B.roleid,R.cname as rolename,R.descr as roledescr,A.descr,A.status,B.funid FROM functions  A left join rolefunction B on A.id=B.funid AND B.roleid=" + roleid + " right join roles R on B.roleid=R.roleid  WHERE A.[status]='1' ORDER BY A.[level] ASC,A.parentid ASC,A.orders ASC");
+        }
+
+        public DataTable GetAllFunctions()
+        { 
+            return new bllPaging().GetDataTableInfoBySQL("SELECT * from functions");
         }
 
     }

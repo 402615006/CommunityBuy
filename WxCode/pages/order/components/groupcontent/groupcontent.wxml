@@ -1,0 +1,51 @@
+<!--pages/order/components/groupcontent/groupcontent.wxml-->
+<scroll-view scroll-y="true" class="scoll-y" enable-back-to-top="true" bindscrolltolower="lower">
+  <block wx:for="{{list}}" wx:key="index" wx:if="{{list.length>0}}">
+    <view class="ul" catchtap='go_detail' data-item="{{item}}" data-pkcode="{{item.pkcode}}">
+      <view class="head">
+        <view class="head_left">
+          <image src="../../../../images/icon_004_shangpu.png" class="icon_stocode"></image>
+          <view class="title">{{item.cname}}</view>
+          <!-- <image src="../../../../images/btn_004_enter.png" class="jiantou"></image> -->
+        </view>
+        <view class="head_right" wx:if="{{item.tstatus==0}}">待付款</view>
+        <view class="head_right" wx:if="{{item.tstatus==1}}">已付款</view>
+        <view class="head_right" wx:if="{{item.tstatus==2}}">已取消</view>
+        <view class="head_right" wx:if="{{item.tstatus==3}}">退款中</view>
+        <view class="head_right" wx:if="{{item.tstatus==4}}">已退款</view>
+      </view>
+      <view class="content">
+        <view class="li_left">
+          <view class="one">
+            <image src="{{item.collheadimg?baserURLcard+item.collheadimg:'../../../../images/kong.png'}}" mode="aspectFill" class="img_src"></image>
+          </view>
+          <view class="two">
+            <view class="nmae">{{item.disname}}</view>
+            <view class="detail">{{item.collname}}</view>
+          </view>
+        </view>
+        <view class="li_right">
+          <view class="price">￥{{item.collmoney}}</view>
+          <view class="number">x1</view>
+        </view>
+      </view>
+      <view class="footer" wx:if="{{item.tstatus!=2}}">
+        <!-- <view class="button" catchtap='go_fukuan' data-result="{{item}}" wx:if="{{item.tstatus==0}}">去付款</view> -->
+        <view class="button ckdetail  margin_left20">查看详情</view>
+      </view>
+    </view>
+  </block>
+
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+  <tui-nomore wx:if="{{list.length>0&&isnomore}}"></tui-nomore>
+
+
+  <!-- 没有订单信息 -->
+  <view wx:if="{{isno}}">
+    <view class='no_data'>
+      <image src='../../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无订单信息</view>
+    </view>
+  </view>
+</scroll-view>

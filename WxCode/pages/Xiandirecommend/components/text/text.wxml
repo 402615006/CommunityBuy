@@ -1,0 +1,81 @@
+
+<wxs src="../../../../utils/filter.wxs" module="filter" />
+
+<view class="text_content">
+  <view class="head">
+    <view class="logs">
+      <view class="head_left" catchtap="btn_price">
+        <view class="title">套餐价格</view>
+        <view class="text"></view>
+        <image src="/images/sy_012_xl.png" class="icon_jiantou {{status==1&&typec==1?'transform180':''}}"></image>
+      </view>
+      <view class="head_content" catchtap="btn_num">
+        <view class="title">人数</view>
+        <view class="text"></view>
+        <image src="/images/sy_012_xl.png" class="icon_jiantou {{status==1&&typec==2?'transform180':''}}"></image>
+      </view>
+      <view class="head_right" catchtap="btn_address">
+        <view class="title">距离最近</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="warp">
+    <scroll-view scroll-y="true" class="scoll-y" enable-back-to-top="true" bindscrolltolower="lower">
+      <!-- <view class="li" wx:for="{{list}}" wx:key="index" catchtap="go_ToBuild" data-code="{{item.procode}}">
+        <view class="li_left">
+          <image src="{{item.smallimg}}" class="img_"></image>
+          <view class="li_lefttext">
+            <view class="name">{{item.name}}</view>
+            <view class="two">
+              <view class="two_text">{{item.stoname}}</view>
+            </view>
+            <view class="price">￥<text class="font_size26">{{item.price}}</text></view>
+          </view>
+        </view>
+        <view class="li_right">
+            <view class="juli" wx:if="{{item.near>0}}">距您{{item.near}}km</view>
+            <view class="bottom">
+              <view class="bottom_num">门市价￥{{item.costprice}}</view>
+            </view>
+        </view>
+      </view> -->
+
+      <view class="ul">
+        <block wx:for="{{list}}" wx:key="index">
+          <view class="li" bindtap="go_ToBuild" data-code="{{item.procode}}">
+            <view class="img_box">
+              <image src="{{item.smallimg}}" class="img" mode="aspectFill"></image>
+            </view>
+            <view class="right">
+              <view class="right_name">{{item.name}}</view>
+              <view class="two">
+                <view class="two_text">{{item.stoname}}</view>
+              </view>
+              <view class="price">
+                <view class="price_left font_size32">
+                  <text class="font_size20">￥</text>
+                  <text class="money">{{filter.splitpriceOne(item.price)}}</text>
+                  <text class="money2">{{filter.splitpriceTwo(item.price)}}</text>
+                  <text class="font_size20 price2">￥{{item.costprice}}</text>
+                </view>
+                <view class="juli" wx:if="{{item.near>0}}">{{item.near}}km</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+
+
+      <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+
+      <!-- 没有信息 -->
+      <view wx:if="{{isno&&list.length==0}}">
+        <view class='no_data'>
+          <image src='/images/qt_273.png' class='no_data_icon'></image>
+          <view class='wx_size32 wx_color96 wx_margin_top'>暂无推荐</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

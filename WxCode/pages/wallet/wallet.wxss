@@ -1,0 +1,376 @@
+/* pages/my/my.wxss */
+page{
+  background-color: #f2f2f2;
+  padding-bottom:50rpx;
+  box-sizing: border-box;
+}
+.my{
+  position: relative;
+
+}
+.di_icon{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 750rpx;
+  height: 232rpx;
+  z-index: -1;
+}
+
+.head{
+  height: 158rpx;
+  width: 100%;
+  position: relative;
+}
+
+.top_userAvatarUrl{
+  width: 140rpx;
+  height: 90rpx;
+  position: absolute;
+  left:26rpx;
+  top:25rpx;
+}
+
+.images_box{
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  left:35rpx;
+  top:30rpx;
+  overflow: hidden;
+
+}
+.no_log{
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  left:-10rpx;
+  top:-5rpx;
+}
+
+.top_text{
+  position: absolute;
+  top:30rpx;
+  left:155rpx;
+  height: 98rpx;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  z-index: 10;
+}
+.name{
+  font-size: 32rpx;
+  color:#fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.xiugaiicon{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left:10rpx;
+}
+.tel{
+  font-size: 26rpx;
+  color:#fff;
+  margin-top:10rpx;
+}
+
+/* .img_box{
+  text-align: center;
+  margin-right:40rpx;
+  font-size: 20rpx;
+}
+.fukuanma_text{
+  font-size: 20rpx;
+  margin-top:8rpx;
+  color:#fff7f4;
+}
+.color_fcf2b7{
+  color:#fcf2b7;
+}
+.code_img{
+  width: 48rpx;
+  height: 48rpx;
+}
+.head_right{
+  width: 234rpx;
+  height: 158rpx;
+  position: absolute;
+  right:0;
+  top:0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+} */
+
+
+/* 佣金 */
+/* .commission_box{
+  width: 696rpx;
+  height: 236rpx;
+  background-color: #fff;
+  border-radius: 18rpx;
+  margin:auto;
+  padding:10rpx 0 20rpx 43rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.commission_head{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 26rpx;
+  color:#3e3d43;
+  margin-top:5rpx;
+}
+.icon_money{
+  width: 34rpx;
+  height: 33rpx;
+  margin-right:10rpx;
+}
+.commission_number{
+  height: 40rpx;
+  font-size: 42rpx;
+  color:#eb6147;
+  font-weight: bold;
+  margin-top:25rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left:40rpx;
+}
+.commission_number2{
+  font-size: 24rpx;
+}
+.commission_bottom{
+  display: flex;
+  justify-content: flex-start;
+  padding-left:10rpx;
+  box-sizing: border-box;
+  font-size: 20rpx;
+  color:#848484;
+  margin-top:30rpx;
+}
+.one{
+  text-align: center;
+  margin-right:50rpx;
+}
+.two{
+  text-align: center;
+}
+.font_size20{
+  font-size: 20rpx;
+}
+.color_3d3c42{
+  color:#3d3c42;
+}
+.bun_ti{
+  width: 184rpx;
+  height: 58rpx;
+  background-color: #ea6248;
+  position: absolute;
+  right:0;
+  top:50%;
+  transform: translateY(-50%);
+  border-top-left-radius: 16rpx;
+  border-bottom-left-radius: 16rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color:#fff;
+  padding-left:10rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+.icon_li{
+  width: 42rpx;
+  height: 42rpx;
+  margin-right:10rpx;
+} */
+
+/* 资产 */
+.assets_box{
+  width: 696rpx;
+  height: 230rpx;
+  background-color: #fff;
+  border-radius: 18rpx;
+  margin:auto;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.sm_box{
+  width: 50%;
+  height: 230rpx;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+.sm_num{
+  /* font-size: 28rpx; */
+  width: 100%;
+  font-weight: bold;
+  color:#4a494e;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+}
+.sm_text{
+  font-size: 24rpx;
+  color:#3d3c41;
+  margin-top:20rpx;
+}
+.border_l{
+  width: 2rpx;
+  height: 24rpx;
+  /* border-left:1rpx solid #d0d0d0; */
+  background-color: #f42323;
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+
+
+ /* 四个tab  */
+.los_box{
+  width: 696rpx;
+  height: 214rpx;
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  border-radius: 18rpx;
+  margin:auto;
+  box-sizing: border-box;
+  position: relative;
+  margin-top:22rpx;
+}
+.logsm_box{
+  width: 166rpx;
+  height: 214rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.log_img_box{
+  width: 89rpx;
+  height: 89rpx;
+  position: relative;
+}
+.log_icon{
+  width: 89rpx;
+  height: 89rpx;
+}
+.los_num{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: #ff1819;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  right: -10rpx;
+  top: -5rpx;
+}
+.log_name{
+  font-size: 22rpx;
+  margin-top:18rpx;
+  color:#3d3c42;
+}
+
+.footer_box{
+  width: 696rpx;
+  background-color: #fff;
+  border-radius: 18rpx;
+  margin:auto;
+  box-sizing: border-box;
+  position: relative;
+  margin-top:20rpx;
+  padding:0 30rpx 0 40rpx;
+}
+.footer_li{
+  height: 100rpx;
+  border-bottom:1rpx solid #dedede;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer_li:last-child{
+  border:none;
+}
+.button_kefu{
+  background-color: #fff;
+  padding:0;
+}
+button::after {
+  border: none;
+}
+.li_left{
+  height: 100rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.icon_t{
+  width: 32rpx;
+  height: 31rpx;
+  position: relative;
+}
+.red_d{
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background-color: #ea6248;
+  position: absolute;
+  right:-15rpx;
+  top:-15rpx;
+}
+.li_title{
+  font-size: 28rpx;
+  color:#3c3b41;
+  margin-left:28rpx;
+}
+.li_right{
+  height: 100rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.icon_jiantou{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.btn{
+  width: 696rpx;
+  height: 100rpx;
+  border: none;
+  background-color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  margin: auto;
+  color: #000;
+  margin-top: 20rpx;
+}
+
+.font_size24{
+  font-size: 24rpx;
+}
+.font_size32{
+  font-size: 32rpx;
+}
+.font_size36{
+  font-size: 36rpx;
+}
+.font_weight{
+  font-weight: bold;
+}

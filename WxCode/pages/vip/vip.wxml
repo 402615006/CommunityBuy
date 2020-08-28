@@ -1,0 +1,68 @@
+<view class="no_login" wx:if="{{!islogin}}">
+  <view class="login-img">
+    <image src="../../images/qb_001_bg.png" class="login-icon"></image>
+  </view>
+  <view class="login-text">登录后可查看会员</view>
+  <view class="login-title" catchtap='btn_log'>登录</view>
+</view>
+
+
+<view class="vip" wx:if="{{islogin}}">
+  <view class="content">
+    <view class="content_header">
+      <view class="left">
+        <image class="icon_vip" src="../../images/hyk_001_icon.png"></image>
+        <view>我的会员卡</view>
+      </view>
+      <view class="right" catchtap='bindcard'>
+        <image class="icon_btn" src="../../images/hyk_002_bangd.png"></image>
+        <text>绑定会员卡</text>
+      </view>
+    </view>
+
+    <!-- 没有会员卡 -->
+    <view class="no_list" wx:if="{{list.length==0}}">
+      <image src="../../images/hyk_004_kong.png" class="no_img"></image>
+      <view class="no_text">您还没有办理会员卡</view>
+    </view>
+
+    <view class="warp">
+      <block wx:for="{{list}}" wx:key="idx" wx:for-item="ctim">
+        <view class="busname">{{ctim.busname}}</view>
+        <view class="ul">
+          <block wx:for="{{ctim.cards}}" wx:key="index">
+            <!-- 有卡面的 -->
+            <view class="li" wx:if="{{item.imgPaths}}" catchtap='go_carddetail' data-item="{{item}}">
+              <image src="{{item.imgPaths}}" class="li_bgimg"></image>
+            </view>
+            <!-- 没传卡面的 -->
+            <view wx:else class="li  {{item.cardtype==1?'color_fff':item.cardtype==0?'color_66593b':'color_fff'}}" catchtap='go_carddetail' data-item="{{item}}">
+              <image src="{{item.cardtype==1?'../../images/qtx1_69.png':item.cardtype==0?'../../images/hyk_024_lingka.png':'../../images/hyk_022_cika.png'}}" class="li_bgimg"></image>
+              <view class="li_header">
+                <view class="li_headerl">
+                  <image class="icon_logoimg" src="../../images/qtx1_06.png"></image>
+                  <text class="li_headerl_name">{{item.levelname}}</text>
+                </view>
+                <view class="li_right" wx:if="{{item.cardtype==1}}">
+                  ￥
+                  <text class="number">{{item.balance}}</text>
+                </view>
+              </view>
+
+              <view class="cards">
+                {{item.cardCode}}
+              </view>
+              <view class="li_footer">
+
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+      <view class="button" catchtap='go_cadslist'>
+        <image class="footer_btn" src="../../images/hyk_003_add.png"></image>
+        <text class="btn_text">办理会员卡</text>
+      </view>
+  </view>
+</view>

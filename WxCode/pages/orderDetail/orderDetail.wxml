@@ -1,0 +1,106 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<!-- 酒店 -->
+<Title title="{{title}}" my_class="true"></Title>
+
+<view class="hotel" wx:if="{{list}}">
+  <view class="banner">
+    <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" indicator-active-color="#fff">
+      <block wx:for="{{bannerlist}}" wx:for-item="bannerItem" wx:key="banner">
+        <swiper-item>
+          <image src="{{bannerItem}}" class="banner-item" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='head' wx:if="{{type==5}}">
+    <view class="title">
+      <view class="font_size32">{{list.lname}}</view>
+      <view class="left_box" wx:if="{{type==5&&list.isvip==1}}">
+        <image src="/images/hy_010_hy.png" class="icon_g"></image>
+        <view class="font_size20">送{{list.dqno}}天VIP</view>
+      </view>
+    </view>
+    <view class="text text1">
+      <text class="head_price price1">￥{{list.price}}</text>
+      <text class="head_price price2">￥{{list.costprice}}</text>
+      <view class="tingshou">{{list.enddatestr}}停售</view>
+    </view>
+  </view>
+
+  <view class="head_content" wx:if="{{type==5}}">
+    <view class="profile">{{list.profile}}</view>
+  </view>
+
+  <view class="Notice" wx:if="{{type==5}}">
+    <view class="Notice_title">适用商家</view>
+    <view class="td mrt10">
+      <view class="left font_weight">{{list.busname}}</view>
+    </view>
+  </view>
+
+  <view class="Notice ldis" bindtap="todetail" data-code="{{type!=5?list.discode:list.lcode}}">
+    <view class="Notice_title">商品明细</view>
+    <image src="/images/btn_004_enter.png" class="icon_jiantou"></image>
+  </view>
+
+  <view class="Notice">
+    <view class="Notice_title">支付信息</view>
+    <view class="mrt10">
+      <view class="payli" wx:if="{{type!=5}}">
+        <view>类型</view>
+        <view>{{list.ordtype==1?'新人专享':(list.ordtype==2?'闲弟推荐':'会员福利')}}</view>
+      </view>
+      <view class="payli" wx:if="{{type!=5}}">
+        <view>商品名称</view>
+        <view>{{list.disname}}</view>
+      </view>
+      <view class="payli">
+        <view>支付时间</view>
+        <view>{{VipOrPay.paytimestr}}</view>
+      </view>
+      <view class="payli">
+        <view>支付状态</view>
+        <view class="rcolor">{{VipOrPay.paystatus==0?'待支付':(VipOrPay.paystatus==1?'支付成功':(VipOrPay.paystatus==2?'取消支付':(VipOrPay.paystatus==3?'退款中':'退款成功')))}}</view>
+      </view>
+      <view class="payli" wx:if="{{type!=5}}">
+        <view>支付金额</view>
+        <view>￥{{list.price}}</view>
+      </view>
+      <view class="payli" wx:if="{{type!=5}}">
+        <view>购买数量</view>
+        <view>{{list.num}}</view>
+      </view>
+      <view class="payli">
+        <view>支付方式</view>
+        <view>{{VipOrPay.paytype==1?'微信':(VipOrPay.paytype==2?'会员卡':'佣金')}}</view>
+      </view>
+      <view class="payli" wx:if="{{VipOrPay.paytype==1}}">
+        <view>支付流水号</view>
+        <view>{{VipOrPay.payno}}</view>
+      </view>
+      <view class="payli" wx:if="{{VipOrPay.paytype==2}}">
+        <view>会员卡号</view>
+        <view>{{VipOrPay.paycard}}</view>
+      </view>
+      <!-- 券码 -->
+      <block wx:for="{{codejson}}"  wx:key="index">
+        <view class="payli" wx:if="{{item.checkcode}}">
+          <view>券码</view>
+          <view class="rcolor {{item.status!=0?'line_through':''}}" catchtap="go_codedetail" data-item="{{item}}">{{item.checkcode}}</view>
+        </view>
+      </block>
+
+    </view>
+  </view>
+    <!-- 申请退款按钮 -->
+    <view bindtap="cen_proordrefundnew" class="btn2" wx:if="{{(type==1||type==2||type==3)&&VipOrPay.paystatus==1&&list.hxstatus==0&&list.returntype!=1}}">申请退款</view>
+
+  <!-- 底部组件付款 -->
+  <Button_pay id="button_pay"  wx:if="{{VipOrPay.paystatus==0}}"  cardlist="{{cardlist}}" bind:pay_but="pay_but" money="{{price}}">
+    <view class="btn margin_right15 bg_E9AB48" wx:if="{{type==1||type==2||type==3}}" catchtap="cancel">
+      <text>取消订单</text>
+    </view>
+    <view class="btn" catchtap="confirmPayment">付款</view>
+  </Button_pay>
+</view>

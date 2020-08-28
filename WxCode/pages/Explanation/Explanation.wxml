@@ -1,0 +1,3 @@
+<view class="OrganizationDescription" wx:if="{{list}}">
+  <rich-text nodes="{{list.content}}"></rich-text>
+</view>

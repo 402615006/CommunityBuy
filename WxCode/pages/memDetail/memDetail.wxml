@@ -1,0 +1,139 @@
+<wxs src="../../utils/filter.wxs" module="filter" />
+
+<Title title="{{title}}" my_class="{{my_class}}" background="{{background}}"></Title>
+<view class="hotel" wx:if="{{list}}">
+  <view class="banner">
+    <swiper interval="3000" duration="500" circular="true" autoplay="true" indicator-dots="true" indicator-active-color="#fff">
+      <block wx:for="{{bannerlist}}" wx:for-item="bannerItem" wx:key="banner">
+        <swiper-item>
+          <image src="{{bannerItem}}" class="banner-item" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='head'>
+    <view class="title">
+      <view class="font_size32">{{list.name}} 
+        <text class="biaoqian" wx:if="{{list.returntype==1}}">不可退</text>
+        <text class="biaoqian" wx:if="{{list.returntype==2||list.returntype==3}}">随时退</text>
+        <text class="biaoqian" wx:if="{{list.returntype==2||list.returntype==3}}">过期退</text>
+      </view> 
+      <view class="mrt10" wx:if="{{type!=5}}">{{list.remark}}</view>
+      <view class="left_box" wx:if="{{type==5&&list.isvip==1}}">
+        <image src="../../images/hy_010_hy.png" class="icon_g"></image>
+        <view class="font_size20">送{{list.dqno}}天VIP</view>
+      </view>
+    </view>
+    <view class="text text1" wx:if="{{type==5}}">
+      <view>
+        <text class="head_price price1">￥{{filter.splitpriceOne(list.price)}}</text>
+        <text class="money2">{{filter.splitpriceTwo(list.price)}}</text>
+        <text class="head_price price2">￥{{filter.moneyFormat(list.costprice)}}</text>
+      </view>
+      <view class="tingshou">{{list.enddatestr}}停售</view>
+    </view>
+  </view>
+
+  <view class="head_content" wx:if="{{type==5}}">
+    <!-- <view class="address">
+			<view class="address_left" catchtap="go_map">
+				<image src="../../images/icon_005_loc.png" class="addimg"></image>
+				<view class="add_text">{{address}}</view>
+				<view class="s" wx:if="{{juli}}">距您{{juli}}km</view>
+			</view>
+		</view> -->
+    <view class="profile">{{list.profile}}</view>
+  </view>
+
+  <view class="Notice" wx:if="{{type!=5}}">
+    <text class="head_price price1">￥{{filter.splitpriceOne(list.price)}}</text>
+    <text class="money2">{{filter.splitpriceTwo(list.price)}}</text>
+    <text class="head_price price2">门市价：￥{{filter.moneyFormat(list.costprice)}}</text>
+    <view class="li_right" wx:if="{{bottomShow=='true'}}">
+      <view class="component">
+        <view class="img_views" catchtap='prev'>
+          <image class="imgs" src="../../images/qt_217.png"></image>
+        </view>
+        <view class="numbers">{{num}}</view>
+        <view class="img_views" catchtap='add'>
+          <image class="imgs" src="../../images/qt_220.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="Notice">
+    <view class="Notice_title">适用商家</view>
+    <view class="td mrt10">
+      <view class="left font_weight" wx:if="{{type!=5}}">{{list.usebusname}}</view>
+      <view class="left font_weight" wx:else>{{list.sybusname}}</view>
+    </view>
+  </view>
+
+  <view class="Notice" wx:if="{{type==5&&list.tgcontent}}">
+    <view class="Notice_title">
+      <text class="font_size28">分享朋友圈文案</text>
+      <text class="copy" catchtap="copy" data-text="{{list.tgcontent}}">复制文案</text>
+    </view>
+    <view class="td mrt10">{{list.tgcontent}}</view>
+  </view>
+
+  <!-- <view class="Notice">
+		<view class="Notice_title">包含套餐</view>
+		<view class="td">
+			<view class="left font_weight">入离时间：</view>
+			<view class="right">
+				<text >入店时间12点以后</text>
+				<text class="margin_left20">离店时间14点以前</text>
+			</view>
+		</view>
+	</view> -->
+
+  <view class="Notice" wx:if="{{type!=5}}">
+    <view class="Notice_title">购买须知</view>
+    <view class="td mrt10">
+      <!-- <text class="margin_left20">{{list.useinfo}}</text> -->
+      <rich-text nodes="{{list.useinfo}}" ></rich-text>
+    </view>
+  </view>
+
+  <view class="jieshao">
+    <!-- <view class="jieshao_head">{{type==5?"礼包详情":"图文详情"}}</view> -->
+    <rich-text nodes="{{list.proinfo}}" wx:if="{{type!=5}}"></rich-text>
+    <rich-text nodes="{{list.content}}" wx:else></rich-text>
+  </view>
+
+  <!-- 底部组件付款 -->
+  <Button_pay id="button_pay" wx:if="{{bottomShow=='true'}}"  cardlist="{{cardlist}}" bind:pay_but="pay_but" money="{{price}}">
+    <view class="btn color_h" wx:if="{{type==5}}" catchtap="show_btn_box">
+      <text>分享赚</text>
+			<text>￥{{filter.moneyFormat(list.comprice)}}</text>
+    </view>
+    <button open-type="share" data-code="{{procode}}" data-type="{{type}}" class="btn color_h" wx:else>
+			<text>分享赚</text>
+			<text>￥{{filter.moneyFormat(list.comprice)}}</text>
+		</button>
+    <view class="btn" catchtap="confirmPayment">付款</view>
+  </Button_pay>
+</view>
+
+
+<!-- 分享图组件 -->
+<Friendbox id="Friendbox"></Friendbox>
+
+<!-- 生成朋友圈分享按钮模块 -->
+<view class="bgc" wx:if="{{btn_box}}" catchtouchmove="preventTouchMove" catchtap="cen_btn_box"></view>
+<view class="footer_box" wx:if="{{btn_box}}" catchtouchmove="preventTouchMove">
+  <view class="footer_box_top">
+    <button class="footer_smbox" open-type="share" data-code="{{procode}}" data-type="{{type}}">
+      <image class="btn_icon" src="/images/wxtb_332.png"></image>
+      <view class="btn_text">分享给好友</view>
+    </button>
+    <view class="footer_smbox" catchtap="show_generate_friend">
+      <image class="btn_icon" src="/images/wxpyq_332.png.png"></image>
+      <view class="btn_text">生成朋友圈海报</view>
+    </view>
+  </view>
+  <view class="footer_box_cen" catchtap="cen_btn_box">取消</view>
+</view>

@@ -1,0 +1,97 @@
+
+<wxs src="../../../../utils/filter.wxs" module="filter" />
+
+<scroll-view scroll-y="true" class="scoll-y" enable-back-to-top="true" bindscrolltolower="lower">
+  <view class="ul" wx:for="{{list}}"  wx:for-item="item" wx:for-index="index" wx:key="ordernoex">
+    <view class="ul_head" wx:if="{{item.childOrder.length>1}}">
+      订单号：{{item.ordernoex}}包含(
+      <text class="num">{{item.childOrder.length}}</text>)个商品
+    </view>
+    <view wx:for="{{item.childOrder}}" wx:for-index="idx" wx:for-item="ctim" class="ul_li" wx:key="orderno">
+      <view class="yingyuanli wx_bj_colorff" data-djs="{{item.djs}}" data-ordernoex="{{item.ordernoex}}" data-result="{{ctim}}" bindtap='go_detail'>
+        <view class='yy_im'>
+          <image src="{{ctim.Pic}}" lazy-load="{{true}}" class="{{ctim.isgoods==0?'yy_img':'gs_img'}} "></image>
+        </view>
+        <view class='wx_size30'>{{ctim.Name}}
+          <text class="zeng" wx:if="{{ctim.isgain==1}}">赠</text>
+        </view>
+        <view class='yh_zy wx_size24 wx_color64'>
+          <view class="wx_margin_top">{{ctim.cinemaname}}</view>
+          <view class="wx_margin_top" wx:if="{{ctim.FTime}}">{{filter.day_split(ctim.FTime)}}</view>
+          <view class="wx_margin_top" wx:if="{{ctim.GTime}}">有效期：{{(ctim.GTime)}}</view>
+          <view class="wx_margin_top" wx:if="{{ctim.isgoods==1}}">可用时间段：10:00-23:59</view>
+          <!-- <view class="wx_margin_top" wx:if="{{ctim.isgoods==0}}">{{filter.seat(ctim.filmInfo)}}</view> -->
+          <view class="wx_margin_top">
+            <text class='wx_margin_right' wx:if="{{ctim.isgoods==0}}">数量：{{ctim.Num}}张</text>
+            <text class='wx_margin_right' wx:if="{{ctim.isgoods==1}}">数量：{{ctim.Num}}套</text>
+            <text>总价：￥{{ctim.Price}}元</text>
+          </view>
+        </view>
+        <!-- 待付款 -->
+        <image src='../../../../images/qt_203.png' class='icon_type' wx:if="{{ctim.status==0&&item.djs!=0}}"></image>
+        <!-- 待消费电影票 -->
+        <!-- 待使用 -->
+        <image src='../../../../images/dqp_2066.png' class='icon_type' wx:if="{{ctim.status==1&&ctim.ispickup==0&&ctim.isgoods==0&&ctim.IsExpired==1&&ctim.checkcode}}"></image>
+        <!-- 出票中 -->
+        <image src='../../../../images/cpz_228.png' class='icon_type' wx:if="{{ctim.status==1&&ctim.ispickup==0&&ctim.isgoods==0&&ctim.IsExpired==1&&!ctim.checkcode}}"></image>
+        <!-- 已过期 -->
+        <image src='../../../../images/qt_200.png' class='icon_type' wx:if="{{ctim.status==1&&ctim.ispickup==0&&ctim.isgoods==0&&ctim.IsExpired==-1}}"></image>
+        <!-- 待消费商品 -->
+        <image src='../../../../images/ddh_2066.png' class='icon_type' wx:if="{{ctim.status==1&&ctim.ispickup==0&&ctim.isgoods==1&&ctim.iscoupons==0}}"></image>
+        <!-- 已消费 -->
+        <image src='../../../../images/qt_166.png' class='icon_type' wx:if="{{ctim.isgoods==1&&ctim.ispickup==1}}"></image>
+        <!-- 已使用 -->
+        <image src='../../../../images/qt_196.png' class='icon_type' wx:if="{{ctim.isgoods==0&&ctim.ispickup==1}}"></image>
+        <!-- 已超时 -->
+        <image src='../../../../images/qt_215.png' class='icon_type' wx:if="{{item.bstatus==0&&item.djs==0}}"></image>
+        <!-- 已取消 -->
+        <image src='../../../../images/yqx_255.png' class='icon_type' wx:if="{{ctim.status==2}}"></image>
+        <!-- 已改签 -->
+        <image src='../../../../images/gqcg_286.png' class='icon_type' wx:if="{{ctim.status==5}}"></image>
+        <!-- 已退票 -->
+        <image src='../../../../images/ytk_255.png' class='icon_type' wx:if="{{ctim.status==4}}"></image>
+        <!-- 改签中 -->
+        <image src='../../../../images/gqz_228.png' class='icon_type' wx:if="{{ctim.status==6}}"></image>
+
+
+        <view class='pay_piao wx_size26 wx_coloree btn_btn' wx:if="{{ctim.isgoods==1&&ctim.status==1&&ctim.ispickup==0}}" catchtap='toddxq' data-id="{{ctim}}">
+          <text wx:if="{{ctim.iscoupons==0}}">查看兑换码</text>
+          <text wx:if="{{ctim.iscoupons==1}}">查看详情</text>
+        </view>
+        <view class='pay_piao wx_size26 wx_coloree btn_btn' wx:if="{{ctim.isgoods==0&&ctim.status==1&&ctim.ispickup==0&&ctim.IsExpired==1&&ctim.checkcode}}" catchtap='toddxq' data-id="{{ctim}}">查看取票码</view>
+        <view class="pay_piao1 wx_size26 wx_colorff btn_btn" wx:if="{{ctim.ispickup==0&&ctim.status==0&&item.djs!=0&&ctim.isgain==0}}" catchtap='to_zhifu' data-id="{{item.ordernoex}}" data-ords="{{ctim.orderno}}" data-yingyuan="{{item.cinemaId}}">
+          去支付
+        </view>
+        <view class="pay_piao1 wx_size26 wx_colorff btn_btn" wx:if="{{ctim.isgoods==0&&ctim.status==0&&item.djs==0&&ctim.isgain==0}}" catchtap='new_yingyuan' data-id="{{item.ordernoex}}" data-ords="{{ctim.orderno}}" data-id="{{item.cinemaId}}">
+          重新购票
+        </view>
+        <view class="pay_piao1 wx_size26 wx_colorff btn_btn" wx:if="{{ctim.isgoods==1&&ctim.status==0&&item.djs==0&&ctim.isgain==0}}" catchtap='new_yingyuan' data-id="{{item.ordernoex}}" data-ords="{{ctim.orderno}}" data-id="{{item.cinemaId}}">
+          重新购买
+        </view>
+      </view>
+    </view>
+    <view class="footer" wx:if="{{item.bstatus==0&&item.djs&&item.childOrder.length>1}}" data-id="{{item.ordernoex}}" bindtap='payment' data-yingyuan="{{item.cinemaId}}">
+      <text wx:if="{{item.djs!=0}}">一键支付</text>
+      <text class="tim">(还剩{{item.djs}})</text>
+    </view>
+    <view class="foots" wx:if="{{item.bstatus==0&&item.djs&&item.childOrder.length==1}}">
+      支付剩余时间：{{item.djs}}
+    </view>
+    <view class="foot" wx:if="{{item.bstatus==0&&item.djs==0}}" catchtap='new_yingyuan' data-id="{{item.cinemaId}}">
+      支付已超时,请重新选座或购买!
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+  <tui-nomore wx:if="{{list.length>0&&isnomore}}"></tui-nomore>
+
+  <view >
+  <view class='no_data' wx:if="{{list.length==0&&isnomore}}">
+    <image src='../../../../images/qt_273.png' class='no_data_icon'></image>
+    <view class='wx_size32 wx_color96 wx_margin_top'>暂无相关订单</view>
+    <view class='wx_size26 wx_color96 wx_margin_top'>那就去看看您想看的电影吧！</view>
+    <view class='wx_size30 wx_coloree no_data_btn' bindtap='tofenlei'>找电影</view>
+  </view>
+</view>
+
+</scroll-view>

@@ -1,0 +1,44 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="text" hidden="{{tab_index!=idx}}">
+  <view class="ul">
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="li" data-code="{{item.code}}" catchtap="todetail">
+        <image src="{{url+item.simg}}" class="img" mode="aspectFill"></image>
+        <view class="h2">
+          <image src="../../../images/icon_004_shangpu.png" class="icon_sto"></image>
+          <view class="stocode">{{item.name}}</view>
+        </view>
+        <view class="h1">
+          <view class="left_box" wx:if="{{item.isvip==1}}">
+            <image src="../../../images/hy_010_hy.png" class="icon_g"></image>
+            <view class="font_size20">送{{item.dqno}}天VIP</view>
+          </view>
+          <view class="tingshou">{{item.etime}}停售</view>
+        </view>
+        <view class="price1">￥{{item.costprice}}</view>
+        <view class="price2">￥{{filter.splitpriceOne(item.price)}}<text class="money2">{{filter.splitpriceTwo(item.price)}}</text>
+          <view class="btn" >立即抢</view>
+        </view>
+        <view  class="footer" >
+            <image src="../../../images/hy_015_fenx.png" class="icon_fenxiang"></image>
+            <view class="footer_text">分享赚</view>
+            <view class="footer_num">{{item.comprice}}元</view>
+        </view>
+        <!-- <button open-type="share" class="footer" data-item="{{item}}" bindtap="fenxiang">
+          
+            <image src="../../../images/hy_015_fenx.png" class="icon_fenxiang"></image>
+            <view class="footer_text">点击分享赚</view>
+            <view class="footer_num">{{item.comprice}}元</view>
+        </button> -->
+      </view>
+    </block>
+  </view>
+
+	<tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+	
+  
+	<view class='noMore' wx:if="{{list.length>0&&isnextpage==0}}">没有更多了~~</view>
+  <view class='noMore' wx:if="{{isno&&list.length==0}}">暂无数据~~</view>
+
+</view>

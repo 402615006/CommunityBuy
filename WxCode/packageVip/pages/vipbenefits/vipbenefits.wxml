@@ -1,0 +1,50 @@
+
+
+<view class="vipbenefits">
+  <image src="../../images/di.png" class="top_bg"></image>
+
+  <view class="box">
+    <view class="san"></view>
+    <view class="foot_text">
+      <view>未达到</view>
+      <view>还差999成长值</view>
+    </view>
+    <view class="head">
+      <open-data type="userNickName" lang="zh_CN" ></open-data>
+      <text class="icon">V</text><text class="number">3</text>会员
+    </view>
+    <view class="content"> 
+      <view class="line"></view>
+
+      <view class="one left_box">
+        <image src="../../images/v1.png" class="icon_v"></image>
+      </view>
+      <view class="two content_box">
+        <open-data type="userAvatarUrl" class="userimg"></open-data>
+        <view class="two_box">
+          <image src="../../images/v2.png" class="icon_v"></image>
+        </view>
+      </view>
+      <view class="one right_box" >
+        <image src="../../images/v3.png" class="icon_v"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="warp">
+    <view class="warp_text">尊贵的v3会员,您享有以下权益(6/8）</view>
+    <view class="block" wx:for="{{list}}" wx:key="{{index}}" catchtap='go_vipbenefitsdetail'>
+        <view class="circle">
+          <view class="circle_text">120元</view>
+        </view>
+        <view class="warp_name">{{item.name}}</view>
+    </view>
+  </view>
+
+
+  <view class="footer">
+      <view class="footer_title">成长值说明</view>
+      <view class="footer_text">这看电视剧款发动机谁开的房间肯德基焚枯食淡就看见付款就第三方</view>
+      <view class="footer_text">这看电视剧款发动机谁开的房间肯德基焚枯食淡就看见付款就第三方</view>
+    </view>
+</view>

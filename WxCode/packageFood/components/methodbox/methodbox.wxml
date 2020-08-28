@@ -1,0 +1,33 @@
+<view class="warp_bg" wx:if="{{show}}" catchtouchmove="preventTouchMove">
+
+</view>
+
+<view class="warp" wx:if="{{show}}">
+  <view class="head">套餐内以下种类需选择做法</view>
+
+  <scroll-view class="content" scroll-y="true">
+    <view class="seasoning" wx:if="{{list}}" wx:for="{{list.child}}" wx:key="index" wx:if="{{item.IsMethod==1}}">
+      <view class="title">{{item.disname}}<text wx:if="{{item.disnum>1}}">X{{item.disnum}}</text></view>
+      <view class="row">
+        <block wx:for="{{item.Method}}" wx:for-item="ctim" wx:for-index="idx" wx:key="idx" >
+          <view class="seasoningtext {{item.Methodidx==idx?'acttext':''}}" data-item="{{item}}" data-idx="{{idx}}" catchtap='btn_index'>
+            <text>{{ctim.MetName}}</text>
+            <text wx:if="{{item.addprice&&item.addprice>0}}">￥{{item.addprice}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="footer">
+    <view class="footer_left">
+      <text class="price">￥{{list.price}}</text>
+      <text class="addprice" wx:if="{{addPrice>0}}">(加价金额￥{{addPrice}})</text>
+    </view>
+    <view class="footer_right" catchtap="btn_ok">确定</view>
+  </view>
+  <view class="cha_box" catchtap="cancel">
+    <image src="/images/qt_19.png" class="cha"></image>
+  </view>
+
+</view>

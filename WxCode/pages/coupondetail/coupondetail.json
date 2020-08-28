@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "优惠券详情",
+  "usingComponents": {
+    "wux-qrcode": "../../components/qrcode/index"
+  }
+}

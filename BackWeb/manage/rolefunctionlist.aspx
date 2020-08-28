@@ -14,7 +14,8 @@
     <script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="/js/RolmasChoice.js" type="text/javascript"></script>
     <script src="/js/xmlhelper.js"></script>
-    <script src="/js/layer/layer.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
+    <script src="/js/layerhelper.js"></script>
     <script src="/js/default.js" type="text/javascript"></script>
     <script src="/js/listeditjs.js" type="text/javascript"></script>
     <script src="/js/layerhelper.js"></script>

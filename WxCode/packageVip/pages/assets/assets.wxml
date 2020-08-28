@@ -1,0 +1,25 @@
+
+
+<view class="assets">
+  <view class="head">
+    <view class="num">{{balance?balance:0}}</view>
+    <view class="head_text">总资产(元)</view>
+  </view>
+  <view class="content">
+    <view class="title">
+      <view>卡种</view>
+      <view>余额</view>
+    </view>
+    <block wx:for="{{list}}" wx:key="index" wx:for-item="ctim">
+      <view class="li" wx:for="{{ctim.cards}}" wx:key="index" catchtap='go_detail' data-item="{{item}}">
+        <view class="left">
+          {{item.levelname}}
+        </view>
+        <view class="right">
+          <view>￥{{item.balance}}</view>
+          <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

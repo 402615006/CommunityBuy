@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "办理会员卡",
+  "usingComponents": {
+    "Vip1": "./components/vip1/vip1",
+    "Vip2": "./components/vip2/vip2",
+    "Vip3": "./components/vip3/vip3"
+  }
+}

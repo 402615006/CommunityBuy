@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "mp-indexList":"/components/index-list/index-list"
+  }
+}

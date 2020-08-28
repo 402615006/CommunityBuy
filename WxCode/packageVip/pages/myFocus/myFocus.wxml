@@ -1,0 +1,32 @@
+
+
+<view class="menberNum">
+  <view class="ul">
+    <view class="ul_li" wx:for="{{list}}" wx:key="index" catchtap="btn_detail" data-item="{{item}}">
+      <view class="ul_left">
+        <view class="img_box">
+          <image src="{{item.headimgurl}}" class="img_url" catchtap="previewImg" data-src="{{item.headimgurl}}"></image>
+        </view>
+        <view class="text_box">
+          <view class="h2">
+            <view>{{item.nickname}}</view>
+            <image src="/images/zj_008_nv.png" class="sex_icon" wx:if="{{item.sex==2}}"></image>
+            <image src="/images/zj_009_nan.png" class="sex_icon" wx:if="{{item.sex==1}}"></image>
+          </view>
+          <view class="time" wx:if="{{item.iscj==1}}">正在参局...</view>
+        </view>
+      </view>
+      <view class="ul_right" catchtap="cen_gaunzhu" data-memcode="{{item.memcode}}">取消关注</view>
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+
+  <!-- 没有信息 -->
+  <view wx:if="{{isno&&list.length==0}}">
+    <view class='no_data'>
+      <image src='/images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无关注</view>
+    </view>
+  </view>
+</view>

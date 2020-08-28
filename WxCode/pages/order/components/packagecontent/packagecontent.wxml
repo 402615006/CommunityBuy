@@ -1,0 +1,35 @@
+<scroll-view scroll-y="true" class="scoll-y" enable-back-to-top="true" bindscrolltolower="lower">
+	<view class="li" wx:for="{{list}}" wx:key="index" bindtap="togetail" data-item="{{item}}">
+		<view class="detail">
+			<view class="detail_text">
+				<image src="/images/icon_004_shangpu.png" class="icon_sto"></image>
+				<text>{{item.stoname}}</text>
+			</view>
+			<view class="price">{{item.status==0?'待支付':(item.status==1?'支付成功':(item.status==2?'取消支付':(item.status==3?'退款中':'退款成功')))}}</view>
+		</view>
+		<view class="lcent">
+			<view class="li_left">
+				<image src="{{item.smallimg}}" class="img"></image>
+			</view>
+			<view class="li_right">
+				<view class="h2">
+					<view class="title">{{item.name}}</view>
+					<view class="tip">￥{{item.price}}</view>
+				</view>
+				<view class="time">X{{item.num}}</view>
+			</view>
+		</view>
+		<view class="footer">
+			<view class="btn">查看详情</view>
+		</view>
+	</view>
+
+	<tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+	<!-- 没有订单信息 -->
+	<view wx:if="{{isno}}">
+		<view class='no_data'>
+			<image src='../../../../images/qt_273.png' class='no_data_icon'></image>
+			<view class='wx_size32 wx_color96 wx_margin_top'>暂无订单信息</view>
+		</view>
+	</view>
+</scroll-view>

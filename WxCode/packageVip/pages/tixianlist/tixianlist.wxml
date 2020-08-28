@@ -1,0 +1,27 @@
+
+<view class="IncomeBreakdown">
+  <view class="ul">
+    <view class="li" wx:for="{{list}}" wx:key="index">
+      <view class="left">
+        <view class="title">{{item.cname}}</view>
+        <view class="times">{{item.ctimestr}}</view>
+      </view>
+      <view class="right">
+        <!-- <view class="price">-{{item.extmoney}}(含手续费{{item.chamoney}})</view>
+        <view class="yue">{{item.realmoney}}</view> -->
+        <view>-{{item.extmoney}}元(含手续费{{item.chamoney}}元)</view>
+      </view>
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+</view>
+
+
+<!-- 没有优惠券信息 -->
+  <view wx:if="{{isno&&list.length==0}}">
+    <view class='no_data'>
+      <image src='../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无数据</view>
+    </view>
+  </view>

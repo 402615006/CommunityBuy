@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "拼团",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "Box1": "./components/box1",
+    "Box2": "./components/box2",
+    "CardsSelect": "../../components/cardsselect/cardsselect",
+    "password": "../../../components/password/password"
+  }
+}

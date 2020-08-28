@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#444653",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "Plus会员卡",
+  "usingComponents": {
+    "wux-slider": "../../components/slider/slider",
+    "show-box":"../../components/showbox/showbox"
+  }
+}

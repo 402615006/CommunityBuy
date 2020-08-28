@@ -1,0 +1,44 @@
+<!-- 引用过滤器 -->
+<wxs src="../../../../utils/filter.wxs" module="filter" />
+<view class="commodity_screen" wx:if="{{show}}" catchtap='hidelogin'>
+</view>
+<view class="commodity_attr_boxcard" wx:if="{{show}}">
+  <view class="head">全部拼团</view>
+
+  <scroll-view scroll-y="true" class="scroll">
+    <view class="box">
+      <block wx:for="{{dataList}}" wx:key="index">
+        <view class="li">
+          <view class="left">
+            <view class="one">
+              <view class="img_view" wx:if="{{item.headimgurl}}">
+                <block wx:for="{{filter.strSplit2(item.headimgurl)}}" wx:for-item="imgItem" wx:key="index">
+                  <image src="{{imgItem}}" class="touxiang" wx:if="{{index==0}}"></image>
+                  <image src="{{imgItem}}" class="touxiang touxiang2" wx:else></image>
+                </block>
+                <block wx:for="{{filter.setIconArr(item.CollDifNum)}}" wx:key="index">
+                  <image src="../../../images/icon_001_tou.png" class="touxiang touxiang2" style='z-index:{{index}};border:none;'></image>
+                </block>
+              </view>
+            </view>
+            <view class="two">
+              <view class="name">{{item.nickname}}</view>
+              <view class="text">
+                <text class='right10'>还差{{item.CollDifNum}}人</text>
+                <text>剩余{{item.countDown}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='right' wx:if="{{item.CollPeople==memcode}}">
+            <button open-type="share" class='right'>去邀请</button>
+          </view>
+          <view class="right" data-list='{{item}}' data-index='{{index}}' catchtap='go_box1' wx:else>去参团</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <image src="../../../images/btn_004_close.png" class="cha" catchtap='hidelogin'></image>
+</view>
+<!-- 弹框1 -->
+<Box1 dataList="{{dataList}}" index="{{currentIndex}}" id="box1" bind:addorder="addorder"></Box1>

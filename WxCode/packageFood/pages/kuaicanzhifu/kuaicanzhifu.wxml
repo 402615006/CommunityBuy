@@ -1,0 +1,90 @@
+<view class="kuaicanzhifu">
+
+  <!-- 桌台信息 -->
+  <view class="head">
+    <view class="head_text">
+      <view class="title">{{bill.StoreName}}</view>
+      <view class="detail margin_top10" wx:if="{{table.TableName}}">
+        <image class="zuoweiimg"></image>
+        <text class="">桌台号</text>
+        <text class="color_eb6c54">{{table.TableName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="warp">
+    <view class="box">
+      <view class="li" wx:for="{{shopcardlist}}" wx:key="{{index}}">
+        <view class="li_left">
+          <view class="name">{{item.disname}}</view>
+          <view class="method" wx:if="{{item.favor||item.cookname}}">
+            <text class="favor">{{item.favor}}</text><text>{{item.cookname}}</text>
+          </view>
+          <view class="pack_li" wx:if="{{item.child}}" wx:for="{{item.child}}" wx:for-item="ctim" wx:for-index="idx" wx:key="{{idx}}">
+            {{ctim.disname}} x{{ctim.disnum}}
+          </view>
+        </view>
+        <view class="li_right">
+          <view class="number">x{{item.disnum}}</view>
+          <view class="price">￥{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <!-- 账单信息 -->
+  <view class="senter">
+    <view class="senter_li">
+        <view class="senter_lileft">账单编号</view>
+        <view class="senter_liright">
+          {{bill.PKCode}}
+        </view>
+    </view>
+    <view class="senter_li">
+        <view class="senter_lileft">下单时间</view>
+        <view class="senter_liright">
+          {{bill.Ctimestr}}
+        </view>
+    </view>
+    <view class="senter_li">
+        <view class="senter_lileft">总价</view>
+        <view class="senter_liright">
+          ￥{{bill.BillMoney}}
+        </view>
+    </view>
+  </view>
+
+  <!-- 优惠 -->
+  <view class="senter">
+    <view class="senter_li" catchtap="go_coupon">
+        <view class="senter_lileft">优惠券</view>
+        <view class=" senter_coupon color_eb6c54">
+          <text>-￥{{bill.CouponMoney}}</text>
+          <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+        </view>
+    </view>
+    <view class="senter_li">
+        <view class="senter_lileft">折扣金额</view>
+        <view class="senter_coupon color_eb6c54">
+          {{bill.DiscountName}}-￥{{bill.DiscountMoney}}
+        </view>
+    </view>
+    <!-- <view class="senter_li">
+        <view class="senter_lileft">付款方式</view>
+        <view class="senter_coupon">
+          一星卡
+        </view>
+    </view> -->
+  </view>
+  <!-- 取消账单按钮 -->
+  <view class="cenbill" catchtap="cen_bill" wx:if="{{bill.PayType==0}}">取消账单</view>
+  <!-- 去办理会员卡 -->
+  <view class="vip_card" bindtap="go_bindcard">
+    <view class="vip_cardleft">
+        <view class="card_text">会员卡即可尊享会员价！办理<text class="color_f42323">立减20</text>,还送大礼包！</view>
+        <view class="card_text">您还没有会员卡,极速办理通道————</view>
+    </view>
+    <view class="bind_card">立刻办理</view>
+  </view>
+  <!-- 底部付款组件 -->
+  <Footer ToPayMoney='{{bill.ToPayMoney}}' bill="{{bill}}" PayMoney="{{bill.PayMoney}}" paylist="{{paylist}}" cardlist="{{cardlist}}" billcode="{{billcode}}" stocode="{{stocode}}" buscode="{{buscode}}" bind:update="update" bind:wx_update="wx_update" bind:go_paymentOK="go_paymentOK"></Footer>
+</view>

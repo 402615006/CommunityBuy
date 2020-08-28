@@ -21,20 +21,13 @@ namespace CommunityBuy.DAL
             SqlParameter[] sqlParameters = 
             {
 				new SqlParameter("@Id", Entity.Id),
-				new SqlParameter("@BusCode", Entity.BusCode),
 				new SqlParameter("@StoCode", Entity.StoCode),
-				new SqlParameter("@CCode", Entity.CCode),
-				new SqlParameter("@CCname", Entity.CCname),
 				new SqlParameter("@OrderCode", Entity.OrderCode),
-				new SqlParameter("@DisTypeCode", Entity.DisTypeCode),
 				new SqlParameter("@DisCode", Entity.DisCode),
 				new SqlParameter("@DisName", Entity.DisName),
-				new SqlParameter("@MemPrice", Entity.MemPrice),
 				new SqlParameter("@Price", Entity.Price),
 				new SqlParameter("@DisUite", Entity.DisUite),
 				new SqlParameter("@DisNum", Entity.DisNum),
-				new SqlParameter("@PDisCode", Entity.PDisCode),
-				new SqlParameter("@Remar", Entity.Remar),
 				new SqlParameter("@PKCode", Entity.PKCode),
 				new SqlParameter("@TotalMoney", Entity.TotalMoney),
              };
@@ -55,20 +48,13 @@ namespace CommunityBuy.DAL
             SqlParameter[] sqlParameters = 
             {
 				new SqlParameter("@Id", Entity.Id),
-				new SqlParameter("@BusCode", Entity.BusCode),
 				new SqlParameter("@StoCode", Entity.StoCode),
-				new SqlParameter("@CCode", Entity.CCode),
-				new SqlParameter("@CCname", Entity.CCname),
 				new SqlParameter("@OrderCode", Entity.OrderCode),
-				new SqlParameter("@DisTypeCode", Entity.DisTypeCode),
 				new SqlParameter("@DisCode", Entity.DisCode),
 				new SqlParameter("@DisName", Entity.DisName),
-				new SqlParameter("@MemPrice", Entity.MemPrice),
 				new SqlParameter("@Price", Entity.Price),
 				new SqlParameter("@DisUite", Entity.DisUite),
 				new SqlParameter("@DisNum", Entity.DisNum),
-				new SqlParameter("@PDisCode", Entity.PDisCode),
-				new SqlParameter("@Remar", Entity.Remar),
 				new SqlParameter("@PKCode", Entity.PKCode),
 				new SqlParameter("@TotalMoney", Entity.TotalMoney),
              };

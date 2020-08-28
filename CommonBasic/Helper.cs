@@ -132,81 +132,6 @@ namespace CommunityBuy.CommonBasic
             return false;
         }
 
-
-        #region 图像获取
-        /// <summary>
-        /// 图像转为字符串
-        /// </summary>
-        /// <param name="img"></param>
-        /// <returns></returns>
-        public static string ImageToString(System.Drawing.Image img)
-        {
-            if (img == null) return string.Empty;
-            string strImg = string.Empty;
-            MemoryStream st = new MemoryStream();
-            img.Save(st, System.Drawing.Imaging.ImageFormat.Jpeg);
-            strImg = Convert.ToBase64String(st.ToArray());
-            return strImg;
-        }
-
-        /// <summary>
-        /// 字符串转换为图像
-        /// </summary>
-        /// <param name="base64Str"></param>
-        /// <returns></returns>
-        public static System.Drawing.Image StringToImage(string base64Str)
-        {
-            System.Drawing.Bitmap bitmap = null;
-            System.Drawing.Image img = null;
-            using (MemoryStream ms = new MemoryStream())
-            {
-                byte[] buffer = Convert.FromBase64String(base64Str);
-                ms.Write(buffer, 0, buffer.Length);
-                try
-                {
-                    img = System.Drawing.Image.FromStream(ms);
-                    if (img != null)
-                    {
-                        bitmap = new System.Drawing.Bitmap(img.Width, img.Height);
-                        using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bitmap))
-                        {
-                            g.DrawImage(img, new System.Drawing.Rectangle(0, 0, bitmap.Width, bitmap.Height));
-                        }
-                    }
-                }
-                catch { }
-            }
-            return bitmap;
-        }
-
-        /// <summary>
-        /// 获取URL链接的图片
-        /// </summary>
-        /// <param name="URL"></param>
-        /// <returns></returns>
-        public static System.Drawing.Image GetImageFromURL(string URL)
-        {
-            System.Drawing.Image image = null;
-            try
-            {
-                Random seed = new Random();
-                WebRequest webreq = WebRequest.Create(URL);
-                WebResponse webres = webreq.GetResponse();
-                Stream stream = webres.GetResponseStream();
-                image = System.Drawing.Image.FromStream(stream);
-                stream.Close();
-            }
-            catch (Exception ex)
-            { }
-            finally
-            {
-            }
-            return image;
-
-        }
-
-        #endregion
-
         /// <summary>
         /// 获取两个时间之间的时长
         /// </summary>
@@ -246,7 +171,6 @@ namespace CommunityBuy.CommonBasic
 
             return strDuration;
         }
-
 
         /// <summary> 
         /// 转换人民币大小金额 
@@ -381,52 +305,6 @@ namespace CommunityBuy.CommonBasic
         }
 
         /// <summary>
-        /// bitmap转换为base64
-        /// </summary>
-        /// <param name="bmp"></param>
-        /// <returns></returns>
-        public static string BitmapToBase64(Bitmap bmp)
-        {
-            try
-            {
-                MemoryStream ms = new MemoryStream();
-                bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                byte[] arr = new byte[ms.Length];
-                ms.Position = 0;
-                ms.Read(arr, 0, (int)ms.Length);
-                ms.Close();
-                String strbaser64 = Convert.ToBase64String(arr);
-                return strbaser64;
-            }
-            catch (Exception ex)
-            {
-                return "";
-            }
-        }
-
-        /// <summary>
-        /// base64转bitmap
-        /// </summary>
-        /// <param name="inputStr"></param>
-        /// <returns></returns>
-        public static Bitmap Base64StringToBitmap(string inputStr)
-        {
-            try
-            {
-                byte[] arr = Convert.FromBase64String(inputStr);
-                MemoryStream ms = new MemoryStream(arr);
-                Bitmap bmp = new Bitmap(ms);
-                ms.Close();
-                return bmp;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-
-
-        /// <summary>
         /// 检查sql注入
         /// </summary>
         /// <param name="inputString"></param>
@@ -454,5 +332,27 @@ namespace CommunityBuy.CommonBasic
             return true;
         }
 
+        /// <summary>
+        /// 计算两点位置的距离，返回两点的距离，单位 米
+        /// 该公式为GOOGLE提供，误差小于0.2米
+        /// </summary>
+        /// <param name="lat1">第一点纬度</param>
+        /// <param name="lng1">第一点经度</param>
+        /// <param name="lat2">第二点纬度</param>
+        /// <param name="lng2">第二点经度</param>
+        /// <returns></returns>
+        public static double GetDistance(double lat1, double lng1, double lat2, double lng2)
+        {
+            double EARTH_RADIUS = 6378137;
+            double radLat1 = (double)lat1 * Math.PI / 180d;
+            double radLng1 = (double)lng1 * Math.PI / 180d;
+            double radLat2 = (double)lat2 * Math.PI / 180d;
+            double radLng2 = (double)lng2 * Math.PI / 180d;
+            double a = radLat1 - radLat2;
+            double b = radLng1 - radLng2;
+            double result = 2 * Math.Asin(Math.Sqrt(Math.Pow(Math.Sin(a / 2), 2) + Math.Cos(radLat1) * Math.Cos(radLat2) * Math.Pow(Math.Sin(b / 2), 2))) * EARTH_RADIUS;
+            return result;
+
+        }
     }
 }

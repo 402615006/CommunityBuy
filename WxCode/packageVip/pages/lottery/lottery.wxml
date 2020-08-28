@@ -1,0 +1,13 @@
+<view class="lottery">
+
+  <!-- 滚动框 -->
+  <view class="swper">
+    <swiper  autoplay="true"  interval="3000" vertical="true" circular="true">
+      <block wx:for="{{list}}" wx:key="{{index}}">
+        <swiper-item>
+          <view class="swiper_li">{{item}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

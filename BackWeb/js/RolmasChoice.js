@@ -94,7 +94,6 @@ function falsecheckbox(pid)
 }
 
 function GetFunIdStr() {
-
     var funId = "";
     var chearr = document.getElementById('MenuList').getElementsByTagName("input");
     for (var k = 0; k < chearr.length; k++) {
@@ -103,7 +102,6 @@ function GetFunIdStr() {
             if (chearr[k].checked) {
                 funId += chearr[k].value + ',';
             }
-
         }
     }
     $("#HidfunIdStr").val(funId);

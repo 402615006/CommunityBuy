@@ -1,0 +1,92 @@
+
+page{
+  background-color: #f2f2f2;
+
+}
+.head{
+  width: 100%;
+  background-color: #fff;
+}
+.title{
+  width: 100%;
+  padding:0 30rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 82rpx;
+  box-sizing: border-box;
+  border-bottom:1rpx solid #e6e6e6;
+}
+.weixin_icon{
+  width: 43rpx;
+  height: 44rpx;
+}
+.title_text{
+  font-size: 28rpx;
+  margin-left:15rpx;
+}
+.head_content{
+  height: 126rpx;
+  width: 690rpx;
+  margin:auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1rpx solid #e6e6e6;
+}
+.head_contentl{
+  height: 126rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.head_contentl input{
+  height: 126rpx;
+  width: 350rpx;
+  margin-left:20rpx;
+}
+.head_contentr{
+  font-size: 26rpx;
+  color:#ec6248;
+}
+.head_footer{
+  height: 70rpx;
+  width: 100%;
+  padding:0 50rpx;
+  box-sizing: border-box;
+  font-size: 22rpx;
+  color:#838383;
+  line-height: 70rpx;
+}
+
+.warp{
+  width: 100%;
+  background-color: #fff;
+  margin-top:30rpx;
+  padding:30rpx 40rpx;
+  box-sizing: border-box;
+}
+.warp_top{
+  font-size: 30rpx;
+}
+.warp_text{
+  font-size: 22rpx;
+  color:#838383;
+  margin-top:26rpx;
+}
+.margin_right30{
+  margin-right:30rpx;
+}
+.btn{
+  width: 666rpx;
+  height: 80rpx;
+  border-radius: 7rpx;
+  background-color: #ee685d;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  color:#fff;
+  font-weight: 600;
+  margin:auto;
+  margin-top:200rpx;
+}

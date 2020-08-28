@@ -14,8 +14,7 @@
     <script src="/js/RolmasChoice.js" type="text/javascript"></script>
     <script src="/js/CWebControl.js" type="text/javascript"></script>
     <script src="/js/xmlhelper.js" type="text/javascript"></script>
-    <script src="/js/layer/layer.js" type="text/javascript"></script>
-    <script src="/js/layerhelper.js" type="text/javascript"></script>
+    <script src="/js/layui/layui.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".savebtn").click(function () {
@@ -31,7 +30,7 @@
                         _btn.click();
                     }
                     //parent.location.reload();
-                    parent.layer.closeAll("iframe");
+                    parent.layui.layer.closeAll("iframe");
                 }
                 //location.href = "rolefunctionlist.aspx";
             });

@@ -1,0 +1,58 @@
+
+
+<view class="yyorder">
+  <block wx:for="{{list}}" wx:key="index" >
+    <view class="li">
+      <view class="box">
+        <view class="head">
+          <view class="head_left">
+            <image src="../../images/icon_027_yuyue.png" class="icon"></image>
+            <view class="title">{{item.StoName}}</view>
+          </view>
+          <view class="status" wx:if="{{item.AStatus==2}}">已到店</view>
+          <view class="status" wx:if="{{item.AStatus==1}}">已确认</view>
+          <view class="status status2" wx:if="{{item.AStatus==0}}">未确认</view>
+          <view class="status status3" wx:if="{{item.AStatus!=0&&item.AStatus!=1&&item.AStatus!=2}}">已取消</view>
+        </view>
+
+        <view class="content">
+          <view class="content_li">
+            <view class="color_9b9a9a">就餐时间</view>
+            <view class="color_ea6248">{{item.DinnerTimestr}}</view>
+          </view>
+          <view class="content_li">
+            <view class="color_9b9a9a">人数</view>
+            <view>{{item.CusNum}}人</view>
+          </view>
+          <view class="content_li">
+            <view class="color_9b9a9a">联系人</view>
+            <view><text class="margin_right50">{{item.CusName}}</text><text>{{item.CusPhone}}</text></view>
+          </view>
+          <view class="content_li">
+            <view class="color_9b9a9a">备注</view>
+            <view>{{item.Remark}}</view>
+          </view>
+          <view class="content_li">
+            <view class="color_9b9a9a">提交时间</view>
+            <view>{{item.CTimestr}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="btn" catchtap='cen_yuyue' data-id="{{item.Id}}" data-stocode="{{item.StoCode}}" data-index="{{index}}" wx:if="{{item.AStatus==0||item.AStatus==1}}">取消预约</view>
+    </view>
+  </block>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+  <tui-nomore wx:if="{{list.length>0&&isnomore}}"></tui-nomore>
+
+  <!-- 没有优惠券信息 -->
+    <view wx:if="{{list.length==0&&flag==true}}">
+      <view class='no_data'>
+        <image src='../../../images/qt_273.png' class='no_data_icon'></image>
+        <view class='wx_size32 wx_color96 wx_margin_top'>暂无预约记录</view>
+      </view>
+    </view>
+
+</view>
+
+

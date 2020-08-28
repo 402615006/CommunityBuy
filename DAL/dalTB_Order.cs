@@ -23,19 +23,17 @@ namespace CommunityBuy.DAL
             {
                 new SqlParameter("@PKCode",SqlDbType.VarChar,32){ Value=Entity.PKCode},
                 new SqlParameter("@Id", Entity.Id),
-				new SqlParameter("@BusCode", Entity.BusCode),
 				new SqlParameter("@StoCode", Entity.StoCode),
 				new SqlParameter("@CCode", Entity.CCode),
 				new SqlParameter("@CCname", Entity.CCname),
-				new SqlParameter("@TStatus", Entity.TStatus),
 				new SqlParameter("@OrderMoney", Entity.OrderMoney),
 				new SqlParameter("@Remar", Entity.Remar),
-				new SqlParameter("@CheckTime", Entity.CheckTime),
-				new SqlParameter("@BillCode", Entity.BillCode),
+                new SqlParameter("@DisNum", Entity.DisNum),
+                new SqlParameter("@OrderType", Entity.OrderType),
              };
             sqlParameters[0].Direction = ParameterDirection.Output;
             intReturn = DBHelper.ExecuteNonQuery("dbo.p_TB_Order_Add", CommandType.StoredProcedure, sqlParameters);
-            if (intReturn == 0)
+            if (intReturn ==1)
             {
                 Entity.PKCode = sqlParameters[0].Value.ToString();
                 int disRel = -1;
@@ -43,11 +41,6 @@ namespace CommunityBuy.DAL
                 {
                     //解析json拼接SQL
                     DataTable dtDish = JsonHelper.ToDataTable(DishListJson);
-                    decimal DishTotalMoney = 0;
-                    if (!dtDish.Columns.Contains("checkcode"))
-                    {
-                        dtDish.Columns.Add("checkcode");
-                    }
                     string dishSql = " declare @odiscode varchar(32);";
                     dishSql += " declare @podiscode varchar(32);";
                     dishSql += " set @podiscode='';";
@@ -55,89 +48,20 @@ namespace CommunityBuy.DAL
                     checkmoneySql += " set @allmoney=0; ";
                     if (dtDish != null && dtDish.Rows.Count > 0)
                     {
-                        string dislist = "";
                         foreach (DataRow dr in dtDish.Rows)
                         {
-                            dislist += "'" + dr["discode"].ToString() + "',";
-                            string disPrice = "[Price]";
-                            string discountPrice = "[Price]";
-                            string discountType = "";
-                            string IsMp = "0";
-                            //时价特价
-                            if (dr["IsSecPrice"].ToString() == "1")
-                            {
-                                disPrice = dr["SecPrice"].ToString();
-                                discountPrice = dr["SecPrice"].ToString();
-                                discountType = "5";
-                            }
-
-                            if (!string.IsNullOrWhiteSpace(dr["checkcode"].ToString()))
-                            {
-                                IsMp = "1";
-                            }
-
+                            string disPrice = dr["price"].ToString();
                             string totalmoney = "0";
-                            if (StringHelper.StringToDecimal(dr["itemnum"].ToString()) > 0)
-                            {
-                                totalmoney = dr["itemnum"].ToString() + "*" + dr["itemprice"].ToString() + "+" + dr["cookmoney"].ToString();
-                            }
-                            else
-                            {
-                                totalmoney = disPrice + "*" + dr["disnum"].ToString() + "+" + dr["cookmoney"].ToString();
-                            }
-
-                            string tempSql = " exec[dbo].[p_GetOrderCode] '" + Entity.StoCode + "',@odiscode output;";
-                            if (dr["ispackage"].ToString() == "1")
-                            {
-                                tempSql += " set @podiscode=@odiscode;";
-                            }
-                            else if (dr["ispackage"].ToString() != "2")
-                            {
-                                tempSql += " set @podiscode='';";
-                            }
-                            if (dr["ispackage"].ToString() != "2")
-                            {
-                                checkmoneySql += string.Format(" select @allmoney=@allmoney+" + totalmoney + " from TB_Dish where DisCode='{0}' and StoCode='{1}';", dr["discode"], Entity.StoCode);
-                            }
-
-                            tempSql += string.Format(" insert into TB_OrderDish( [BusCode],[StoCode],[CCode] ,[CCname] ,[CTime],[OrderCode],[FinCode],[DisTypeCode],[DisCode],[DisName],[MemPrice],[Price],[DisUite],[DisNum],[ReturnNum],[IsPackage],[PDisCode],[Remar],[PKCode],[DiscountPrice],[DiscountRemark],[DiscountType],[DisCase], [Favor],[ItemNum],[ItemPrice],[CookName],[CookMoney],[TotalMoney],[UpType],[IsMp],[MpCheckCode])");
-                            tempSql += string.Format(" select [BusCode],[StoCode],'{1}','{2}',getdate(),'{3}',[FinCode],[TypeCode] ,[DisCode] ,[DisName] ,[MemPrice] ,{16} ,[Unit] ,{4} ,0 ,'{5}',{6},'{7}',@odiscode,{17} ,'','{18}','{8}','{9}',{10},{11},'{12}',{13},{15},'{14}','{20}','{21}' from TB_Dish where DisCode='{0}' and StoCode='{19}';"
-                           , dr["discode"], Entity.CCode, Entity.CCname, Entity.PKCode, dr["disnum"], dr["ispackage"], "@podiscode", dr["remark"], dr["discase"], dr["favor"], string.IsNullOrWhiteSpace(dr["itemnum"].ToString())?0:dr["itemnum"], string.IsNullOrWhiteSpace(dr["itemprice"].ToString())?0:dr["itemprice"], dr["cookname"], dr["cookmoney"], dr["UpType"], totalmoney, disPrice, discountPrice, discountType, Entity.StoCode, IsMp, dr["checkcode"]);
+                            totalmoney = disPrice + "*" + dr["disnum"].ToString() + "+" + dr["cookmoney"].ToString();
+                            string tempSql = " exec[dbo].[p_GetOrderCode] @odiscode output;";
+                            tempSql += " insert into TB_OrderDish([StoCode],[OrderCode],[DisCode],[DisName],[Price],[DisNum],[PKCode],[CookName],[CookMoney],[TotalMoney]) ";
+                            tempSql += " values('"+Entity.StoCode+ "','" + Entity.PKCode + "','" + dr["discode"] + "','" + dr["disname"] + "',"+dr["price"]+ "," + dr["disnum"] + ",@odiscode,'"+dr["cookname"]+"',"+dr["cookmoney"]+","+ totalmoney + ");";
                             dishSql += tempSql;
-
-                        }
-                        checkmoneySql += "select @allmoney;";
-                        try
-                        {
-                            DishTotalMoney = StringHelper.StringToDecimal(DBHelper.ExecuteScalar(checkmoneySql).ToString());
-                        }
-                        catch (Exception)
-                        {
-                        }
-                        if (DishTotalMoney != Entity.OrderMoney)
-                        {
-                            Entity.Remar = "";
-                            //删除订单信息
-                            string mescode = "";
-                            Delete(Entity.PKCode, Entity.StoCode, ref mescode);
-                            intReturn = 6;
-                            return intReturn;
                         }
                         disRel = DBHelper.ExecuteNonQuery(dishSql, CommandType.Text, new SqlParameter[] { });
                     }
-                    else
-                    {
-                        //零元结账
-                        disRel = 0;
-                    }
-                    
-
                 }
-                catch (Exception ex)
-                {
-
-                }
-
+                catch (Exception ex){}
                 if (disRel != 0)
                 {
                     //删除订单信息，返回失败
@@ -157,7 +81,6 @@ namespace CommunityBuy.DAL
             SqlParameter[] sqlParameters = 
             {
 				new SqlParameter("@Id", Entity.Id),
-				new SqlParameter("@BusCode", Entity.BusCode),
 				new SqlParameter("@StoCode", Entity.StoCode),
 				new SqlParameter("@CCode", Entity.CCode),
 				new SqlParameter("@CCname", Entity.CCname),
@@ -166,7 +89,12 @@ namespace CommunityBuy.DAL
 				new SqlParameter("@OrderMoney", Entity.OrderMoney),
 				new SqlParameter("@Remar", Entity.Remar),
 				new SqlParameter("@CheckTime", Entity.CheckTime),
-				new SqlParameter("@BillCode", Entity.BillCode),
+                new SqlParameter("@OrderType", Entity.OrderType),
+                new SqlParameter("@PayMoney", Entity.PayMoney),
+                new SqlParameter("@CouponMoney", Entity.CouponMoney),
+                new SqlParameter("@WxBillCode", Entity.WxBillCode),
+                new SqlParameter("@CouponCode", Entity.CouponCode),
+                new SqlParameter("@FTime", Entity.FTime),
              };
             return DBHelper.ExecuteNonQuery("dbo.p_TB_Order_Update", CommandType.StoredProcedure, sqlParameters); 
         }
@@ -203,7 +131,11 @@ namespace CommunityBuy.DAL
              };
 			sqlParameters[2].Direction = ParameterDirection.Output;
             intReturn = DBHelper.ExecuteNonQuery("dbo.p_TB_Order_Delete", CommandType.StoredProcedure, sqlParameters);
-            mescode = sqlParameters[2].Value.ToString();
+            if (intReturn >= 0)
+            {
+                mescode = sqlParameters[2].Value.ToString();
+            }
+            
             return intReturn;
         }
     }

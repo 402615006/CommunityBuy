@@ -1,0 +1,58 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<!-- 底部购物车栏 -->
+<view class="footer">
+  <view class="img_view" catchtap='showbox'>
+    <image src="../../images/btn_019_gouwuchedi_n.png" class="bg_img" wx:if="{{number>0}}"></image>
+    <image src="../../images/btn_018_gouwuchedi_d.png" class="bg_img" wx:else></image>
+    <image src="../../images/btn_014_gouwuche.png" class="img"></image>
+    <view class="yuan" wx:if="{{number>0}}">{{number}}</view>
+  </view>
+  <view class="text" wx:if="{{number>0}}">合计<text class="number">{{Tprice}}</text>元</view>
+   <view class="text"wx:else>未选购商品</view>
+  <view class="btn" wx:if="{{number>0}}" catchtap="addorder" hover-class="hove_classopacity07">去下单</view>
+  <view class="btn2" wx:if="{{number<=0}}">去下单</view>
+  <!-- <view class="btn" wx:if="{{number>0&&isbtn}}" catchtap="topay">确认支付</view> -->
+
+</view>
+
+<!-- 购物车列表框框 -->
+<view class="commodity_screen" wx:if="{{show}}" catchtap='hide_box'></view>
+<view animation="{{animationData}}" class="commodity_attr_boxcard" wx:if="{{show}}">
+  <view class="header">
+    <view class="left">已选商品</view>
+    <view class="right" bindtap="shopcordclear">
+      <image src="../../images/cen.png" class="icon"></image>
+      <view >清空</view>
+    </view>
+  </view>
+  <scroll-view class="scroll" scroll-y="true">
+    <block wx:for="{{shopcardlist}}" wx:key="index">
+      <view class="li">
+        <view class="li_left">
+          <view class="name">{{item.disname}}</view>
+          <view class="method" wx:if="{{item.cookname||item.favor}}">
+            <text class="favor">{{item.favor}}</text><text>{{item.cookname}}</text>
+          </view>
+          <view class="pack_li" wx:if="{{item.child}}" wx:for="{{item.child}}" wx:for-index="idx" wx:key="idx" wx:for-item="ctim">
+            {{ctim.disname}}
+          </view>
+          <!-- <view class="detail">{{item.detail}}</view> -->
+        </view>
+        <view class="li_right">
+          <view class="number_price">￥{{filter.calculation(item.disnum,item.price,item.cookmoney)}}</view>
+          <view class="component">
+            <!-- <ADD_prev bottom="0" right="0" num="{{item.disnum}}" data-price='{{item.price}}' bind:myevent="onMyEvent" bindnumChange="numChange"></ADD_prev> -->
+            <view class="img_views" catchtap='shopcardprev' data-index="{{index}}">
+              <image class="imgs" src="../../images/btn_002_-_n.png"></image>
+            </view>
+            <view class="numbers" >{{item.disnum}}</view>
+            <view class="img_views" catchtap='shopcardadd' data-index="{{index}}">
+              <image class="imgs" src="../../images/btn_001_+_n.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

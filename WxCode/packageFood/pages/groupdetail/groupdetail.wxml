@@ -1,0 +1,138 @@
+<!-- 引用过滤器 -->
+<wxs src="../../../utils/filter.wxs" module="filter" />
+<view class="groupdetail" wx:if="{{successData}}">
+  <view class="head">
+    <view class="status">
+      <view class="title">{{proinfo.collname}}</view>
+      <view class="right price">￥{{proinfo.costprice}}
+        <text class='numb'>x1</text>
+      </view>
+    </view>
+    <view class="status">
+      <view class="left">
+        <view class="number_tuan" wx:if="{{proinfo.collnum}}">{{proinfo.collnum}}人拼团</view>
+        <image src="../../images/icon_020_biaoqian.png" class="gou"></image>
+        <text class="margin_left5">免预约</text>
+        <!-- <image src="../../images/icon_020_biaoqian.png" class="gou margin_left10"></image>
+        <text class="margin_left5">随时退</text> -->
+      </view>
+      <view class="right">月售{{proinfo.collordernum}}</view>
+    </view>
+    <view class="banner">
+      <swiper indicator-dots="true" indicator-color="" indicator-active-color="#fff" interval="3000" duration="500" circular="true" autoplay="true">
+        <block wx:for="{{bannerlist}}" wx:for-item="bannerItem" wx:key="banner">
+          <swiper-item bindtap="bannerimgdetail" data-i="{{index}}">
+            <image src="{{baserURLcard+bannerItem}}" class="banner-item"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <!-- <view class='price'>
+      <text>￥{{proinfo.costprice}}</text>
+      <text class='margin_left50'>x1</text>
+    </view> -->
+
+    <view class="box" wx:if="{{disInfo.iscombo==1}}">
+      <view class="ul">
+        <view class="name">套餐</view>
+        <block wx:for="{{dishescombo}}" wx:key="index">
+          <view class="li">
+            <view>•{{item.disname}}
+              <text class="number">({{filter.pf(item.defnum)}}份)</text>
+            </view>
+            <view>￥{{item.price}}</view>
+          </view>
+        </block>
+      </view>
+      <view class="ul">
+        <view class="name">饮品
+          <text class="number">({{dishesoptional.length}}选{{dishesoptional[0].maxoptnum}})</text>
+        </view>
+        <block wx:for="{{dishesoptional}}" wx:key="index">
+          <view class="li">
+            <view>•{{item.disname}}
+              <text class="number">({{filter.pf(item.defnum)}}份)</text>
+            </view>
+            <view>￥{{item.price}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="content" wx:if="{{collorder.length>0}}">
+    <view class="header" catchtap='go_box2'>
+      <view>已有
+        <text class="number">{{collorder.length}}</text>人参加开团</view>
+      <image src="../../images/btn_004_enter.png" class="jiantou"></image>
+    </view>
+    <view class="content_li" wx:for="{{newcollorder}}" wx:key="index">
+      <view class="content_lil">
+        <view class="img_view" wx:if="{{item.headimgurl}}">
+          <block wx:for="{{filter.strSplit2(item.headimgurl)}}" wx:for-item="imgItem" wx:key="index">
+            <image src="{{imgItem}}" class="touxiang" wx:if="{{index==0}}"></image>
+            <image src="{{imgItem}}" class="touxiang touxiang2" wx:else></image>
+          </block>
+          <block wx:for="{{filter.setIconArr(item.CollDifNum)}}" wx:for-item="imgItem" wx:key="index">
+            <image src="../../images/icon_001_tou.png" class="touxiang touxiang2" style='z-index:{{index}};border:none;'></image>
+          </block>
+        </view>
+        <view class="text_view">
+          <view class="user_name">{{item.nickname}}</view>
+          <view class="time">还差{{item.CollDifNum}}人
+            <text class='left10'>剩余{{item.countDown}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="content_lir">
+        <button open-type="share" class='btn' wx:if="{{item.CollPeople==memcode}}">去邀请</button>
+        <view class="btn" data-list='{{item}}' data-index='{{index}}' catchtap='go_box1' wx:else>去参团</view>
+      </view>
+    </view>
+  </view>
+  <!-- 说明 -->
+  <view class="description">
+    <view class="header">购买须知</view>
+    <view class="title_name">有效期：</view>
+    <view class="text">• {{proinfo.collstartdate}}-{{proinfo.collenddate}}</view>
+    <view class="title_name">使用时间：</view>
+    <view class="text">• 门店营业日内可用</view>
+    <view class="title_name">使用规则：</view>
+    <!-- <view class="text">• {{proinfo.collrule}}</view> -->
+    <rich-text class="text" nodes="{{proinfo.collrule}}"></rich-text>
+  </view>
+
+  <view class="footer">
+    <view class="footer_l">
+      <!-- <image src="../../images/btn_002_kefu.png" class="kefuimg"></image>
+      <view class="kefu_text">客服</view> -->
+    </view>
+    <view class="footer_r" wx:if="{{!btnIsTrue}}">
+      <view class="footer_btn color_eaab48" bindtap='tobuy'>
+        <view class="font_size30 margin_top10">￥{{proinfo.costprice}}</view>
+        <view class="font_size24 margin_top10">单独购买</view>
+      </view>
+      <view class="footer_btn color_ea6248" bindtap='kaituan'>
+        <view class="font_size30 margin_top10">￥{{proinfo.collprice}}</view>
+        <view class="font_size24 margin_top10">我要开团</view>
+      </view>
+    </view>
+    <view class="footer_r" wx:if="{{btnIsTrue}}">
+      <view class="footer_btn color_ea6248" bindtap='zhifu'>
+        <view class="font_size30 margin_top10">￥{{paymoney}}</view>
+        <view class="font_size24 margin_top10">确认支付</view>
+      </view>
+    </view>
+  </view>
+  <!-- 弹框1 -->
+  <Box1 dataList="{{collorder}}" index="{{currentIndex}}" id="box1" bind:addorder="cantuan"></Box1>
+  <!-- 弹框2 -->
+  <Box2 dataList="{{collorder}}" id="box2" memcode="{{memcode}}" bind:addorder="cantuan"></Box2>
+  <!-- 会员卡 -->
+  <CardsSelect id="CardsSelect" cardslist="{{cardsList}}" cardindex="{{defaultIndex}}" bind:unclickCard="unclickCard" bind:setCardcode="setCardcode"></CardsSelect>
+</view>
+<!-- 密码输入框  -->
+<password id="password" bind:myevent="get_number_ok"></password>
+<!-- 分享图 -->
+<canvas style="position: absolute; top: -1000px; left: -1000px; width: 640px; height: 640px; background: #000" canvas-id="canvas"></canvas>

@@ -1,0 +1,46 @@
+<!-- 引用过滤器 -->
+<wxs src="../../../../utils/filter.wxs" module="filter" />
+<view class="commodity_screen" wx:if="{{show}}" catchtap='hidelogin'></view>
+<view class="commodity_attr_boxcard" wx:if="{{show}}">
+  <view class="head">参与拼团</view>
+  <view class="text">
+    还差
+    <text class="color_ea6248">{{dataList[index].CollDifNum}}人</text>拼团成功,还剩
+    <!-- <text class="h">{{filter.strSplit(dataList[index].countDown)[0]}}</text> -->
+    <text class="h">{{filter.split_tian(dataList[index].countDown)[0]}}</text>
+    <text class="color_ea6248 margin_lr">:</text>
+    <text class="m" wx:if="{{filter.split_tian(dataList[index].countDown)[1]}}">{{filter.split_tian(dataList[index].countDown)[1]}}</text>
+    <text class="color_ea6248 margin_lr" wx:if="{{filter.split_tian(dataList[index].countDown)[1]}}">:</text>
+    <text class="m">{{filter.strSplit(dataList[index].countDown)[1]}}</text>
+    <text class="color_ea6248 margin_lr">:</text>
+    <text class="s">{{filter.strSplit(dataList[index].countDown)[2]}}</text>
+  </view>
+  <view class="avatar">
+    <!-- <block wx:for="{{avatarlist}}" wx:key="index">
+      <view class="img_block">
+        <view class="tip" wx:if="{{index==0}}">团长</view>
+      </view>
+    </block> -->
+    <view class="img_view" wx:if="{{dataList[index].headimgurl}}">
+      <block wx:for="{{filter.strSplit2(dataList[index].headimgurl)}}" wx:for-item="imgItem" wx:key="index">
+        <view class="img_block" wx:if="{{index==0}}">
+          <image src="{{imgItem}}" class="touxiang"></image>
+          <view class="tip">团长</view>
+        </view>
+          <image src="{{imgItem}}" class="touxiang touxiang2" wx:if="{{index!=0}}"></image>
+
+      </block>
+      <block wx:for="{{filter.setIconArr(dataList[index].CollDifNum)}}" wx:key="index">
+        <image src="../../../images/icon_001_tou.png" class="touxiang touxiang2" style='z-index:{{index}};border:none;'></image>
+      </block>
+    </view>
+    <view class="img_view" wx:if="{{!dataList[index].headimgurl}}">
+      <block wx:for="{{iconNum}}" wx:for-item="imgItem" wx:key="index">
+        <image src="../../../images/icon_001_tou.png" class="touxiang" wx:if="{{index==0}}"></image>
+        <image src="../../../images/icon_001_tou.png" class="touxiang touxiang2" wx:else></image>
+      </block>
+    </view>
+  </view>
+  <view class="btn" catchtap='addorder'>我要参团</view>
+  <image src="../../../images/btn_004_close.png" class="cha" catchtap='hidelogin'></image>
+</view>

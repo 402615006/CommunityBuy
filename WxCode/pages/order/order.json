@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的订单",
+  "usingComponents": {
+    "Foodbox": "./components/foodbox/foodbox",
+    "Packagebox":"./components/Packagebox/Packagebox",
+    "Giftpackagebox":"./components/Giftpackagebox/Giftpackagebox"
+  }
+}

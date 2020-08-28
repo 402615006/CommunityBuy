@@ -1,0 +1,12 @@
+
+.shoppingCart{
+  width: 96rpx;
+  height: 96rpx;
+  position: fixed;
+  bottom:20rpx;
+  right:20rpx;
+}
+.shoppingCartimg{
+  width: 96rpx;
+  height: 96rpx;
+}

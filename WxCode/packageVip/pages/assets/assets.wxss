@@ -1,0 +1,72 @@
+
+page{
+  background-color: #f7f7f7;
+}
+
+.head{
+  width: 100%;
+  height: 286rpx;
+  background-color: #fff;
+  text-align: center;
+  padding-top:80rpx;
+  box-sizing: border-box;
+
+}
+.head .num{
+  font-size: 72rpx;
+  color:#ee685d;
+}
+.head .head_text{
+  font-size: 24rpx;
+  color:#a2a1a1;
+  margin-top:28rpx;
+}
+
+.content{
+  background-color: #fff;
+  margin-top:20rpx;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+.title{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  color:#9b9a9a;
+  padding-right:60rpx;
+  box-sizing: border-box;
+}
+.li{
+  width: 100%;
+  height: 146rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1rpx solid #e6e6e6;
+}
+.li:last-child{
+  border:none;
+}
+.left{
+  width: 450rpx;
+  height: 146rpx;
+  font-size: 30rpx;
+  color:#838383;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.right{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 146rpx;
+  font-size: 34rpx;
+}
+.jiantou{
+  width: 50rpx;
+  height: 50rpx;
+}

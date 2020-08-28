@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "ADD_prev": "../../components/add_prev/add_prev"
+  }
+}

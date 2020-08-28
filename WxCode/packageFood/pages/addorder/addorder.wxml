@@ -1,0 +1,39 @@
+
+<wxs src="../../../utils/filter.wxs" module="filter" />
+<view class="submitorder">
+  <view class="warp">
+    <view class="title">{{stoname}}</view>
+    <view class="box">
+
+      <view class="li" wx:for="{{shopcardlist}}" wx:key="index">
+          <view class="img">
+              <image src="{{item.images?item.images:'../../../images/kong.png'}}" bindtap='previewImg' lazy-load="true" data-item="{{item}}"></image>
+          </view>
+        <view class="li_left">
+          <view class="name">{{item.disname}}</view>
+          <view class="method" wx:if="{{item.cookname}}">
+            <text class="favor">{{item.cookname}}</text>
+          </view>
+        </view>
+        <view class="li_right">
+          <view class="number">x{{item.disnum}}</view>
+          <view class="price">￥{{item.price}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="xiaoji">
+      <view>小计:<text style="color:#ea6248;font-weight:bold;">￥{{Tprice}}</text></view>
+    </view>
+    <view class="remark">
+      <view>备注:<input  bindinput="get_Remark" class="weui-input" maxlength="50" placeholder="最大输入长度为50" /></view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <view class="footer_left">
+      <text class="font_size30" wx:if="{{Tprice>0}}">￥{{Tprice}}</text>
+    </view>
+    <view class="footer_right" catchtap='set_addOrders' hover-class='hove_classopacity07'>确认下单</view>
+  </view>
+</view>

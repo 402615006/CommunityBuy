@@ -14,7 +14,7 @@
     <script src="/js/xmlhelper.js"></script>
     <script src="/js/CWebControl.js" type="text/javascript"></script>
     <script src="/js/listeditjs.js" type="text/javascript"></script>
-    <script src="/js/layer/layer.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
     <script src="/js/layerhelper.js"></script>
     <script src="/js/MY97DATE/WdatePicker.js"></script>
     <script src="/js/datehelper.js"></script>
@@ -24,7 +24,7 @@
     <script src="../js/Pinyin/pinyinUtil.js"></script>
     <!--图片上传控件-->
     <link rel="stylesheet" type="text/css" href="/js/webuploader/webuploader.css"/>
-    <script type="text/javascript" src="/js/webuploader/webuploader.min.js"></script>
+    <script type="text/javascript" src="/js/webuploader/webuploader.html5only.min.js"></script>
     <style>
         .resizeminwidth {
             width: 155px;
@@ -103,8 +103,55 @@
             if ($("#hid_backgroundimg").val()) {
                 $("#backgroundimg").attr("src", $("#hid_backgroundimg").val());
             }
+            //初始化文件上传
+            layui.use('upload', function () {
+                var upload = layui.upload;
 
-            InitalImagUploader();
+                //执行上传
+                var uploadInst = upload.render({
+                    elem: '#upload' //绑定元素
+                  , url: '/ajax/UploadFile.ashx'//上传接口
+                   , method: 'POST'
+                   // , accept: 'file'
+                   // , size: 50
+                    , data: { filetype:'storelogo',pwd:'combuy'}
+                    , bindAction: '#btn_uploadlogo'
+                    ,auto: false
+                    , before: function (obj) {
+                        layui.layer.load();
+                    }
+                    , choose: function (obj) {
+                        //将每次选择的文件追加到文件队列
+                        //var files = obj.pushFile();
+
+                        //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+                        obj.preview(function (index, file, result) {
+                            //console.log(index); //得到文件索引
+                            //console.log(file); //得到文件对象
+                            //console.log(result); //得到文件base64编码，比如图片
+                            $('#img_logo').attr('src', result);
+                            //obj.resetFile(index, file, '123.jpg'); //重命名文件名，layui 2.3.0 开始新增
+
+                            //这里还可以做一些 append 文件列表 DOM 的操作
+
+                            //obj.upload(index, file); //对上传失败的单个文件重新上传，一般在某个事件中使用
+                            //delete files[index]; //删除列表中对应的文件，一般在某个事件中使用
+                        });
+                    }
+                    , done: function (res) {//上传完毕回调
+                        if (res.name) {
+                            layui.layer.msg('图片上传成功');
+                            $('#hid_logo').val(res.name);
+                        }
+
+                        layui.layer.closeAll('loading');
+                    }
+                    , error: function () {//请求异常回调
+                        layui.layer.closeAll('loading');
+                        layui.layer.msg('网络异常，请稍后重试！');
+                    }
+                });
+            });
         });
 
         function getPinyin() {
@@ -152,23 +199,6 @@
                 }
                 $("#cbAll").attr("checked", false);
             }
-        }
-
-        function InitalImagUploader() {
-            var uploader = WebUploader.create({
-                auto: true,
-                // swf文件路径
-                swf: '/js/webuploader/Uploader.swf',
-                //formData: { 'filetype': 'storelogo', 'pwd':'combuy'},
-                // 文件接收服务端。
-                server: '/ajax/UploadFile.ashx',
-                // 选择文件的按钮。可选。
-                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-                pick: '#logopicker',
-
-                // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-                resize: false
-            });
         }
 
         function addclick() {
@@ -469,14 +499,14 @@
                     </tr>
                     <tr>
                         <td class="lefttd">所属行业：</td>
-                        <td>
+                        <td colspan="5">
                             <cc1:CDropDownList ID="ddl_storetype" data-code="storetype_placeholder" Descr="所属行业" CssClass="selstyle" TextType="Normal" runat="server">
                             </cc1:CDropDownList>
                         </td>
-                        <td class="lefttd">人均消费：</td>
+<%--                        <td class="lefttd">人均消费：</td>
                         <td>
                             <cc1:CTextBox ID="txt_jprice" data-code="jprice_placeholder" CssClass="txtstyle" MaxLength="8" IsRequired="true" TextType="Decimal" placeholder="" runat="server"></cc1:CTextBox>
-                        </td>
+                        </td>--%>
                     </tr>
                     <tr>
                         <td data-code="span_recommended" class="lefttd">推荐：</td>
@@ -487,23 +517,19 @@
                     <tr>
                         <td data-code="span_logo" class="lefttd">门店Logo：</td>
                         <td colspan="5">
-                            <div>
-                                <div style="padding-top: 10px; float: left">
-                                    <img runat="server" id="logo" width="200" height="200" style="float: left" />
-                                </div>
-                                <div style="padding-top: 50px; float: left; padding-left: 20px">
-                                    <div id="thelist" class="uploader-list"></div>
-                                    <div id="logopicker">选择文件</div>
-                                    <button id="ctlBtn" class="btn btn-default">开始上传</button>
-                                    <input type="hidden" id="hid_logo" runat="server" />
-                                </div>
-                                <div style="float: left; padding-top: 50px">
-                                    <span data-code="span_logoinfo" class="lefttd"></span>
-                                </div>
-                            </div>
+                            <img runat="server" id="img_logo" width="200" height="200" style="float: left" />
                         </td>
                     </tr>
                     <tr>
+                        <td></td>
+                         <td>
+                             <button type="button" class="layui-btn" id="upload"></button>
+                        </td>
+                        <td>
+                              <input class="addbtn" type="button" id="btn_uploadlogo" value="上传"/>
+                         </td>
+                    </tr>
+<%--                    <tr>
                         <td data-code="span_stopath" class="lefttd">轮翻图：</td>
                         <td colspan="5">
                             <div class="container">
@@ -511,12 +537,12 @@
 
                                 </div>
                                 <div class="buttons lefttd" id="buttons">
-   
+
                                 </div>
                             </div>
                         </td>
-                    </tr>
-                    <tr>
+                    </tr>--%>
+<%--                    <tr>
                         <td></td>
                         <td colspan="5">
                             <input type="file" name="upimage" id="upimage" style="visibility: hidden" class="lefttd" />
@@ -534,7 +560,7 @@
                                 <div id="div_upimage"></div>
                             </div>
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr>
                         <td data-code="span_descr" class="lefttd">门店描述：</td>
                         <td colspan="5">
@@ -576,6 +602,7 @@
                 <table>
                     <tr>
                         <td>
+                             <input type="hidden" id="hid_logo" runat="server" />
                             <input type="hidden" id="hidId" runat="server" />
                             <input type="hidden" id="hidstopath" runat="server" />
                             <input type="hidden" id="hidLvData" runat="server" />

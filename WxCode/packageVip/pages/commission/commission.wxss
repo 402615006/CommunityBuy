@@ -1,0 +1,239 @@
+
+page{
+  background-color: #f2f2f2;
+  padding-bottom:50rpx;
+  box-sizing: border-box;
+}
+.bg{
+  width: 750rpx;
+  height: 512rpx;
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: -1;
+}
+.head{
+  width: 100%;
+  height: 512rpx;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  padding-top:190rpx;
+}
+.h2{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head_title{
+  font-size: 22rpx;
+  color:#f9d8d1;
+}
+.head_price{
+  font-size: 42rpx;
+  color:#fff;
+  font-weight: bold;
+  margin-top:28rpx;
+}
+.btn_tixian{
+  width: 150rpx;
+  height: 64rpx;
+  background-color: #fff;
+  border-radius: 32rpx;
+  text-align: center;
+  line-height: 64rpx;
+  font-size: 28rpx;
+  color:#e96147;
+  font-weight: bold;
+}
+.head_box{
+  width: 100%;
+  height: 144rpx;
+  border-radius: 18rpx;
+  background-color: #fdece5;
+  margin-top:40rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.sm_box{
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+}
+.sm_price{
+  font-size: 32rpx;
+  color:#3d3c41;
+  font-weight: bold;
+}
+.sm_text{
+  font-size: 24rpx;
+  color:#848283;
+  margin-top:20rpx;
+}
+
+.content_box{
+  width: 706rpx;
+  height: 180rpx;
+  border-radius: 12rpx;
+  background-color: #fff;
+  margin:auto;
+  margin-top:23rpx;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+.sm_price2{
+  font-size: 32rpx;
+  color:#3d3c41;
+  font-weight: bold;
+  margin-top:40rpx;
+}
+.sm_text2{
+  font-size: 24rpx;
+  color:#848283;
+}
+.gang{
+  height: 74rpx;
+  width: 2rpx;
+  background-color: #cfcfcf;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translateY(-50%);
+}
+.content_text{
+  width: 706rpx;
+  height: 54rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+  margin-top:20rpx;
+}
+.icon_lingdang{
+  width: 28rpx;
+  height: 32rpx;
+  margin-right:20rpx;
+}
+.icon_wenhao{
+  width: 28rpx;
+  height: 28rpx;
+  margin-left:20rpx;
+}
+.font_size22{
+  font-size: 22rpx;
+}
+.tab{
+  width: 100%;
+  height: 98rpx;
+  background-color: #fff;
+  margin-top:20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0 60rpx;
+  box-sizing: border-box;
+}
+.li{
+  width: 25%;
+  height: 98rpx;
+  position: relative;
+}
+.select_box{
+  width: 90rpx;
+  height: 6rpx;
+  background-color: #e9634a;
+  position: absolute;
+  left:50%;
+  bottom:10rpx;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+.item{
+  width: 100%;
+  height: 98rpx;
+  position: absolute;
+  left:0;
+  right:0;
+  z-index: 1;
+  text-align: center;
+  line-height: 98rpx;
+  font-size: 30rpx;
+}
+
+.footer_box{
+  width: 706rpx;
+  border-radius: 8rpx;
+  background-color: #fff;
+  margin:auto;
+  margin-top:18rpx;
+  overflow: hidden;
+  margin-bottom:20rpx;
+}
+.tab_box{
+  width: 33%;
+  height: 200rpx;
+  float: left;
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  text-align: center;
+  position: relative;
+}
+.footer_boxt{
+  font-size: 24rpx;
+  color:#828282;
+}
+.footer_price{
+  font-size: 32rpx;
+  color:#3e3d43;
+  margin-top:45rpx;
+  font-weight: bold;
+}
+/* .tab_box:after{
+  position: absolute;
+  height: 74rpx;
+  right:0;
+  top: 50%;
+  display: block;
+  border: 1rpx solid #cfcfcf;
+  content: ' ';
+  transform: translateY(-50%);
+} */
+.shugang{
+  position: absolute;
+  height: 74rpx;
+  right:0;
+  top: 50%;
+  display: block;
+  border: 1rpx solid #cfcfcf;
+  transform: translateY(-50%);
+}
+.footer_li{
+  width: 100%;
+  height: 98rpx;
+  border-bottom:1rpx solid #f2f2f2;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left:70rpx;
+  box-sizing: border-box;
+}
+.jiantou{
+  width: 50rpx;
+  height: 50rpx;
+}
+.content_title{
+  max-width: 550rpx;
+  overflow: hidden;  /*超出部分隐藏*/
+  white-space: nowrap;  /*禁止换行*/
+  text-overflow: ellipsis; /*省略号*/
+}
+.font_size26{
+  font-size: 26rpx;
+}

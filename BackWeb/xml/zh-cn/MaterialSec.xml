@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Pages>
-  <PageTitle>物料收发余按物料汇总</PageTitle>
-  <MainMenu>报表统计</MainMenu>
-  <SubMenu>物料收发余物料汇总</SubMenu>
-  <Menu>物料收发余物料汇总</Menu>
-  <data_show>查看物料收发余物料明细</data_show>
-</Pages>

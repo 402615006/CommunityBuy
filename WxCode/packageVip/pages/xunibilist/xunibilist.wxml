@@ -1,0 +1,20 @@
+
+<view class="xunibilist">
+  <view class="top">
+    <view class="number">500</view>
+    <view class="type">永久有效</view>
+    <view class="top_button">
+      <view class="icon_text">使用指南</view>
+      <image src="../../images/bangzhu.png" class="icon"></image>
+    </view>
+  </view>
+
+  <view class="ul">
+    <view class="ul_head">收支明细</view>
+    <view class="li" wx:for="{{list}}" wx:key="{{index}}">
+      <view>{{item.name}}</view>
+      <view class="color_ee685d" wx:if="{{item.status==0}}"><text>+</text>{{item.price}}</view>
+      <view class="color_62d084" wx:if="{{item.status==1}}"><text >-</text>{{item.price}}</view>
+    </view>
+  </view>
+</view>

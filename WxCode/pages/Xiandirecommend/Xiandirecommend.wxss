@@ -1,0 +1,52 @@
+
+page{
+  background-color: #f7f7f7;
+  height: 100%;
+}
+.signup{
+  width: 100%;
+  height: 100%;
+}
+.head{
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  top:0;
+  left:0;
+}
+.tab_bar{
+  width: 100%;
+  height: 80rpx;
+  border-bottom:1rpx solid #e6e6e6;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.tab_block{
+  font-size: 30rpx;
+  color:#3d3c42;
+  height: 100%;
+  line-height: 80rpx;
+  transition: .3s;
+  box-sizing: border-box;
+}
+.act_tab{
+  font-size: 32rpx;
+  color:#ea6248;
+  font-weight: 600;
+  border-bottom:4rpx solid #ea6248;
+}
+
+swiper{
+  width: 100%;
+  height: 100%;
+  /* padding-top:80rpx; */
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}

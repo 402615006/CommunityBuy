@@ -1,0 +1,154 @@
+/* packageVip/pages/timscarddetail/timscarddetail.wxss */
+page{
+  background-color: #f7f7f7;
+  padding-bottom:50rpx;
+  box-sizing: border-box;
+}
+.bindcard{
+  width: 100%;
+  
+}
+.box{
+  width:628rpx;
+  height:310rpx;
+  border-radius:15rpx;
+  overflow:hidden;
+  margin:auto;
+  padding:25rpx;
+  box-sizing:border-box;
+  margin-bottom:40rpx;
+  position:relative;
+  color:#fff;
+  box-shadow:0 0 10px #e7e2d5;
+}
+.top_text{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color:#fff;
+}
+.bg_img{
+  width:628rpx;
+  height:310rpx;
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: -1;
+}
+.icon_logoimg{
+  width: 100rpx;
+  height: 100rpx;
+  margin-right:20rpx;
+}
+.content_text{
+  font-size: 36rpx;
+  width: 100%;
+  text-align: center;
+  margin-top:50rpx;
+  color:#66593b;
+}
+.content{
+  width: 100%;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.footer_text{
+  font-size: 18rpx;
+  color:#a29d92;
+
+  text-align: right;
+  position: absolute;
+  right:20rpx;
+  bottom:20rpx;
+}
+
+.head{
+  width: 100%;
+  height: 410rpx;
+  padding-top:50rpx;
+  box-sizing: border-box;
+}
+
+
+.li{
+  width: 100%;
+  height: 130rpx;
+  border-bottom:1rpx solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.li:last-child{
+  border: none;
+}
+.li .text{
+  font-size: 28rpx;
+}
+.rigth{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.jiantou{
+  width: 50rpx;
+  height: 50rpx;
+}
+.icon_btn{
+  width: 76rpx;
+  height: 43rpx;
+}
+
+.box1{
+  width: 100rpx;
+  height: 50rpx;
+  border: 1rpx solid #dedede;
+  border-radius: 25rpx;
+  position: relative;
+}
+.box2{
+  width: 50rpx;
+  height: 50rpx;
+  border: 1rpx solid #dedede;
+  border-radius: 25rpx;
+  position: absolute;
+  top:0;
+  left:0;
+  transition: .3s;
+  background-color: #fff;
+}
+.act_box{
+  left:50rpx;
+}
+.act_bg{
+  background-color: #ee685d;
+}
+
+
+.warp{
+  font-size: 24rpx;
+  margin-top:30rpx;
+}
+.number{
+  margin-left:20rpx;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  margin-top:38rpx;
+  height: 70rpx;
+  align-items: center;
+}
+.footer_left{
+  font-size: 18rpx;
+  height: 70rpx;
+  padding-top:30rpx;
+  box-sizing: border-box;
+}
+
+
+.price{
+  font-size: 28rpx;
+  font-weight: 600;
+}

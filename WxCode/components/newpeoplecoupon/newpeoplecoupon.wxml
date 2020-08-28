@@ -1,0 +1,50 @@
+<wxs src="../../utils/filter.wxs" module="filter" />
+
+<!--屏幕背景变暗的背景  catchtouchmove='true'-->
+<view class="red_screen" catchtouchmove="preventTouchMove" wx:if="{{show}}">
+
+</view>
+
+<!--弹出框  -->
+<view class="red_content {{show?'red_contenthide':''}}" catchtouchmove="preventTouchMove">
+  <image src="../../images/xr_001_di.png" class="bg_img"></image>
+  <image src="../../images/xr_003_wenzi.png" class="title_img"></image>
+  <view class="top_text">
+    <view>新人有礼</view>
+    <view>进店必得</view>
+  </view>
+  <view class="content_box">
+    <text class="content_price">{{filter.pf(couponinfo.preamount)}}</text><text>元</text>
+  </view>
+  <!-- <view class="text">
+    恭喜您
+  </view> -->
+  <!-- <view class="text text2">
+    成功领取到优惠券!
+  </view> -->
+
+  <!-- <view class="card">
+
+    <view class="test">
+      <view class="price">
+        <text class="p1">{{dicname}}</text>
+        <text class="p2">{{dicname}}</text>
+      </view>
+      <view class="title">
+        {{couname}}
+      </view>
+    </view>
+  </view> -->
+  <!-- <view class="tip">
+    请到钱包查看我的优惠券使用情况
+  </view> -->
+  <!-- <view class="btn" catchtap='go_coupon'>查看我的优惠券</view> -->
+  <!-- 右上角叉叉 -->
+  <!-- <view class="bg" catchtap="hide">x</view> -->
+  <view class="button">
+    <image src="../../images/xr_002_btn.png" class="btn_bg"></image>
+    <view class="btn_text" catchtap='go_newpeoplecoupon'>立即领取</view>
+  </view>
+
+  <view class="cha" catchtap="hide">x</view>
+</view>

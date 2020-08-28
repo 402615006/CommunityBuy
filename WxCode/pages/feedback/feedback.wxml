@@ -1,0 +1,41 @@
+
+
+<view class="feedback">
+<!-- 头部 -->
+  <view class="top">
+    <view class="title">请选择反馈的类型</view>
+    <view wx:for="{{type}}" wx:key="index" class="li">
+      <view class="type_text">{{item}}</view>
+      <view class="img_box" catchtap='btn_type' data-index="{{index}}">
+        <image src="../../images/btn_005_xuanzhong.png" wx:if="{{type_index==index}}"></image>
+        <image src="../../images/btn_006_xuanzhe.png" wx:else></image>
+      </view>
+    </view>
+  </view>
+
+<!-- 中间内容 -->
+  <view class="content">
+    <view class="contnet_top">请描述您的问题,以便我们尽力为您处理(必填)</view>
+    <image src="{{img1}}" class="img_block" wx:if="{{img1}}"></image>
+    <view class="jia" catchtap='click_btn' wx:if="{{!img1}}">
+      <view class="column"></view>
+      <view class="row"></view>
+    </view>
+    <view>
+      <textarea class="mark" maxlength="500"  bindinput='input_mark' placeholder="请输入您的遇到的问题或建议..."></textarea>
+    </view>
+  </view>
+
+<!-- 输入框内容 -->
+  <view class="warp">
+    <view class="warp_title">请输入联系信息(必填)</view>
+    <view class="warp_li">
+      <input placeholder='输入联系人' bindinput='input_name' maxlength='10'></input>
+    </view>
+    <view class="warp_li">
+      <input placeholder='输入联系人电话' type="number" bindinput='input_tel' maxlength='11'></input>
+    </view>
+  </view>
+
+  <view class="btn" catchtap='btn'>提交反馈</view>
+</view>

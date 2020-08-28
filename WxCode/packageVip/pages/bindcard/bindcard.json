@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "绑定会员卡",
+  "usingComponents": {
+    "show-box": "../../components/showbox/showbox"
+  }
+}

@@ -1,0 +1,130 @@
+
+<view class="submitorder">
+  <view class="head">
+    <view class="bg_img">
+      <image src="http://img1.soufunimg.com/viewimage/zxb/2014_04/25/73/95/pic/009657283300/640x1500.jpg" class="bg_images"></image>
+      <view class="logo">
+       <image src="http://img1.juimg.com/141122/330743-141122122G778.jpg" class="logo_img"></image>
+      </view>
+    </view>
+    <view class="head_text">
+      <view class="title">恩佐的餐厅</view>
+      <view class="detail margin_top10">
+        <image class="zuoweiimg"></image>
+        <text class="">桌台号</text>
+        <text class="color_eb6c54">A区21</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="warp">
+    <view class="box">
+      <view class="yuan_l"></view>
+      <view class="yuan_r"></view>
+
+      <view class="box_head">
+        <image src="" class="icon"></image>
+        <view>2019-07-08 11:45:12</view>
+      </view>
+
+      <view class="li">
+        <view class="li_left">
+          <view class="name">培根蔬菜水果沙拉</view>
+        </view>
+        <view class="li_right">
+          <view class="number">x1</view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="li_left">
+          <view class="name">培根蔬菜水果沙拉</view>
+        </view>
+        <view class="li_right">
+          <view class="number">x1</view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="li_left">
+          <view class="name">培根蔬菜水果沙拉</view>
+        </view>
+        <view class="li_right">
+          <view class="number">x1</view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="li_left">
+          <view class="name">培根蔬菜水果沙拉</view>
+        </view>
+        <view class="li_right">
+          <view class="number">x1</view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="xiaoji">
+      <view class="font_weight">小计</view>
+      <view class="color_eb6c54">￥109</view>
+    </view>
+
+    <view class="box box2">
+      <view class="yuan_l"></view>
+      <view class="yuan_r"></view>
+
+      <view class="box_head">
+        <image src="" class="icon"></image>
+        <view>2019-07-08 11:45:12</view>
+      </view>
+
+      <view class="li">
+        <view class="li_left">
+          <view class="name">培根蔬菜水果沙拉</view>
+        </view>
+        <view class="li_right">
+          <view class="number">x1</view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="li_left">
+          <view class="name">培根蔬菜水果沙拉</view>
+        </view>
+        <view class="li_right">
+          <view class="number">x1</view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="li_left">
+          <view class="name">培根蔬菜水果沙拉</view>
+        </view>
+        <view class="li_right">
+          <view class="number">x1</view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="li_left">
+          <view class="name">培根蔬菜水果沙拉</view>
+        </view>
+        <view class="li_right">
+          <view class="number">x1</view>
+          <view class="price">￥109</view>
+        </view>
+      </view>
+    </view>  
+
+  </view>
+
+  <view class="footer">
+    <view class="footer_left">
+      <text>￥206</text>
+      <!-- <text class="gang color_a0a0a0">|</text>
+      <text class="font_size28 color_a0a0a0">立减￥104</text> -->
+    </view>
+    <view class="footer_right" catchtap='go_order'>确认订单</view>
+  </view>
+</view>

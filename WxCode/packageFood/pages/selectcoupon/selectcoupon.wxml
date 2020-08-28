@@ -1,0 +1,40 @@
+
+
+<!-- 引用过滤器 -->
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view wx:for="{{list}}"   wx:key="index" catchtap='select_img' data-item="{{item}}" data-index="{{index}}">
+  <view class="yhqli">
+      <image src="../../images/qt_07.png" class='yy_img'></image>      
+      <view class="yhq_content wx_colorff">
+      <view class='wx_size32'>{{item.couname}}</view>
+      <view class='content_bottom'>
+      <view class='wx_size24' wx:if="{{item.btime&&item.etime}}">有效期：<text>{{item.btime}}-{{item.etime}}</text></view>
+      <!-- <view class='wx_size24 wx_margin_top10' bindtap='toyhqxq' data-id="{{item.checkcode}}">查看详情>></view> -->
+      </view>
+      </view>
+      <view class="tag_right" >
+        <view class="icon_size"  >
+          <image src="../../images/222_256.png" class='icon_img' wx:if="{{item.checked}}"></image>
+        </view>
+      </view>
+  </view>
+</view>
+
+<view class='tc_bottom' >
+  <view class='tcxq wx_border_top '>
+    <text class=' wx_color00 wx_size30'>已选优惠：<text class='wx_coloree'>{{filter.moneyFormat(couponmoney)}}</text>元</text>
+    <text class="tc_right wx_colorff btn_buy wx_size36" bindtap='submit'>确定</text>
+  </view>
+</view>
+
+
+
+<view wx:if="{{list.length==0&&isreq==true}}">
+  <view class='no_data'>
+    <image src='../../images/qt_273.png' class='no_data_icon'></image>
+    <view class='wx_size32 wx_color96 wx_margin_top'>暂无满足条件的优惠券</view>
+  </view>
+</view>
+
+

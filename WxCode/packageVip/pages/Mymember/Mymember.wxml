@@ -1,0 +1,72 @@
+<view class="Mymember">
+  <view class="head">
+    <image src="../../images/qb_019_banner.png" class="bg_img"></image>
+    <view class="right_btn" catchtap="show_myprev" data-memcode="{{pmemcode}}" wx:if="{{pmemcode}}">查看我的邀请人</view>
+  </view>
+  <view class="warp">
+    <view class="box">
+      <view class="sm_box">
+        <view class="box_title">会员总数</view>
+        <view class="box_num">{{count}}</view>
+        <view class="shugang"></view>
+      </view>
+      <view class="sm_box">
+        <view class="box_title">专属会员</view>
+        <view class="box_num">{{zscount}}</view>
+        <view class="shugang"></view>
+      </view>
+      <view class="sm_box">
+        <view class="box_title">普通会员</view>
+        <view class="box_num">{{ptcount}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="content">
+    <view class="tab">
+      <view class="tab_li {{tab_index==index?'select':''}}" wx:for="{{tab}}" wx:key="index" catchtap="btn_tab" data-index="{{index}}">
+        {{item}}
+        <view class="di_block" wx:if="{{tab_index==index}}"></view>
+      </view>
+    </view>
+    <view class="search">
+      <input type="text" placeholder="搜索用户" bindinput="input_value" bindconfirm="btn_search" confirm-type="search"></input>
+    </view>
+
+    <view class="ul">
+      <view class="ul_li" wx:for="{{list}}" wx:key="index" catchtap="btn_detail" data-memcode="{{item.memcode}}">
+        <view class="ul_left">
+          <view class="img_box">
+            <image src="{{item.headurl}}" class="img_url"></image>
+          </view>
+          <view class="text_box">
+            <view class="h2">
+              <view>{{item.nickname}}</view>
+              <image src="/images/zj_008_nv.png" class="sex_icon" wx:if="{{item.sex==2}}"></image>
+              <image src="/images/zj_009_nan.png" class="sex_icon" wx:if="{{item.sex==1}}"></image>
+            </view>
+            <view class="time">{{item.ctimestr}}</view>
+          </view>
+        </view>
+        <view class="ul_right">
+          <view class="right_box">会员数：<text class="color_eb6049">{{item.tgnum}}</text></view>
+          <image src="/images/btn_004_enter.png" class="jiantou"></image>
+        </view>
+      </view>
+    </view>
+    
+    <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+
+    <!-- 没有信息 -->
+    <view wx:if="{{list.length==0&&isloadmore==false}}">
+      <view class='no_data'>
+        <image src='/images/qt_273.png' class='no_data_icon'></image>
+        <view class='wx_size32 wx_color96 wx_margin_top'>暂无数据</view>
+      </view>
+    </view>
+
+  </view>
+
+  <Box id="box"></Box>
+</view>

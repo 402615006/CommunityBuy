@@ -12,7 +12,7 @@
     <link href="../css/liststyle.css" rel="stylesheet" />
     <script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="../js/xmlhelper.js"></script>
-    <script src="../js/layer/layer.js"></script>
+    <script src="../js/layui/layui.js"></script>
     <script src="../js/default.js" type="text/javascript"></script>
     <script src="../js/listeditjs.js" type="text/javascript"></script>
     <script src="../js/layerhelper.js"></script>

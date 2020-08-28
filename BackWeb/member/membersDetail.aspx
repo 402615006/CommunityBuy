@@ -12,7 +12,7 @@
     <script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="/js/CWebControl.js" type="text/javascript"></script>
     <script src="/js/listeditjs.js" type="text/javascript"></script>
-    <script src="/js/layer/layer.js"></script>
+    <script src="/js/layui/layui.all.js"></script>
     <script src="/js/layerhelper.js"></script>
     <script src="/js/xmlhelper.js"></script>
     <style type="text/css">
@@ -58,7 +58,7 @@
         }
 
         function showpage(title, linkstr) {
-            var index = layer.open({
+            var index = layui.layer.open({
                 title: title,
                 type: 2,
                 area: ['100%', '100%'],
@@ -66,7 +66,7 @@
                 maxmin: false,
                 content: linkstr
             });
-            layer.full(index);
+            layui.layer.full(index);
         }
     </script>
 </head>

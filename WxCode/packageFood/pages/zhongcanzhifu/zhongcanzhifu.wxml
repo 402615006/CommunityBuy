@@ -1,0 +1,54 @@
+
+<view class="zhongcanzhifu">
+  <view class="head">
+    <view class="head_text">
+      <view class="title">{{stoname}}</view>
+      <view class="detail margin_top10">
+        <image class="zuoweiimg"></image>
+        <text class="">桌台号</text>
+        <text class="color_eb6c54">{{table.TableTypeName}}{{table.TableName}}</text>
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <view class="senter">
+    <view class="senter_li">
+        <view class="senter_lileft">订单编号</view>
+        <view class="senter_liright">
+          20192574455
+        </view>
+    </view>
+    <view class="senter_li">
+        <view class="senter_lileft">下单时间</view>
+        <view class="senter_liright">
+          2019-07-08 14:25
+        </view>
+    </view>
+  </view>
+
+  <view class="senter">
+    <view class="senter_li">
+        <view class="senter_lileft">优惠</view>
+        <view class="senter_liright">
+          -50
+        </view>
+    </view>
+    <view class="senter_li">
+        <view class="senter_lileft">折扣方式</view>
+        <view class="senter_liright">
+          普通会员  -50
+        </view>
+    </view>
+    <view class="senter_li">
+        <view class="senter_lileft">付款方式</view>
+        <view class="senter_liright">
+          一星卡
+        </view>
+    </view>
+  </view>
+
+  <Footer></Footer>
+</view>

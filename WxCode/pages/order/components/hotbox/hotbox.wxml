@@ -1,0 +1,14 @@
+<!--pages/order/components/hotbox/hotbox.wxml-->
+<view class="foodbox" wx:if="{{show}}">
+  <view class="head">
+    <view class="tab_btn {{index==foodbox_index?'act_color':''}}" wx:for="{{foodbox_text}}" wx:key="index" catchtap='btn_tab' data-index="{{index}}">{{item}}</view>
+  </view>
+
+  <swiper skip-hidden-item-layout="true" bindchange="swiperChange" current="{{foodbox_index}}">
+    <block wx:for="{{foodbox_text}}" wx:key="index">
+      <swiper-item>
+        <Text id="text{{index}}"  status="{{index==0?'6':index==1?'0':index==2?'1':'4'}}"></Text>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "收入明细",
+  "usingComponents": {
+    "tui-loadmore": "/components/loadmore/loadmore"
+  }
+}

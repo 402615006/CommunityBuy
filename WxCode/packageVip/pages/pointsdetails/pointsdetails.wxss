@@ -1,0 +1,39 @@
+
+.pointsdetails{
+
+}
+.head{
+  height: 100rpx;
+  font-size: 26rpx;
+  color:#838383;
+  padding-left:30rpx;
+  box-sizing: border-box;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+}
+.content{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.li{
+  padding:30rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1rpx solid #e6e6e6;
+}
+.name{
+  font-size: 30rpx;
+  color:#3d3c42;
+}
+.time{
+  font-size: 24rpx;
+  color:#838383;
+  margin-top:20rpx;
+}
+.number{
+  font-size: 34rpx;
+  color:#ea6248;
+}

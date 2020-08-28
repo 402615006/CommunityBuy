@@ -95,6 +95,8 @@ namespace CommunityBuy.BackWeb
                 this.ddl_cityid.SelectedValue = dr["cityid"].ToString();
                 ddl_cityid_SelectedIndexChanged(null, null);
                 this.ddl_areaid.SelectedValue = dr["areaid"].ToString();
+                ddl_areaid_SelectedIndexChanged(null, null);
+                ddl_sq.SelectedValue = dr["sqid"].ToString();
                 txt_address.Text = dr["address"].ToString();
                 txt_stoprincipal.Text = dr["stoprincipal"].ToString();
                 txt_stoprincipaltel.Text = dr["stoprincipaltel"].ToString();
@@ -104,21 +106,13 @@ namespace CommunityBuy.BackWeb
                 txt_stourl.Text = dr["stourl"].ToString();
                 txt_stocoordx.Text = dr["stocoordx"].ToString();
                 txt_stocoordy.Text = dr["stocoordy"].ToString();
-                txt_jprice.Text = dr["stocoordy"].ToString();
+                //txt_jprice.Text = dr["jprice"].ToString();
                 ddl_status.SelectedValue = dr["status"].ToString();
-                logo.Src = dr["logo"].ToString();
+                img_logo.Src = "/UploadFiles"+dr["logo"].ToString();
                 hid_logo.Value = dr["logo"].ToString();
                 txt_btime.Text = dr["btime"].ToString();
                 txt_etime.Text = dr["etime"].ToString();
-  
-                DataTable dtgx = new bllPaging().GetDataTableInfoBySQL("select top 1 jprice,firtype,ptype,sqcode,stopath from storegx where stocode='" + txt_stocode.Text + "';");
-                if (dtgx != null && dtgx.Rows.Count > 0)
-                {
-                    txt_jprice.Text = dtgx.Rows[0]["jprice"].ToString();
-                    ddl_storetype.SelectedValue = dtgx.Rows[0]["firtype"].ToString();
-                    ddl_sq.SelectedValue = dtgx.Rows[0]["sqcode"].ToString();
-                    hidstopath.Value = dtgx.Rows[0]["stopath"].ToString();
-                }
+ 
             }
         }
 
@@ -152,7 +146,7 @@ namespace CommunityBuy.BackWeb
             string btime = txt_btime.Text;
             string etime = txt_etime.Text;
             string recommended =txt_recommended.Text;
-            string jprice = txt_jprice.Text;
+            string jprice = "";
             if (hidId.Value.Length == 0|| hidId.Value=="0")//添加信息
             {
                 bll.Add("0", "0", stoid, stocode, cname, sname, bcode, indcode, provinceid, cityid, areaid, address, stoprincipal, stoprincipaltel, tel, logo, "", stopath, services, descr, stourl, stocoordx, stocoordy,

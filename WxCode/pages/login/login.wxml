@@ -1,0 +1,11 @@
+
+
+<view class="login">
+  <view class="top">
+    <image src="/images/icon.png" class="icon"></image>
+  </view>
+  <button  class='user_btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录，安全方便</button>
+  <view class="footer">
+    <text>登录代表您已同意</text><text class="color_ef973a" catchtap="go_detailxy">闲弟用户服务协议、</text><text class="color_ef973a" catchtap="go_detailys">隐私政策</text>
+  </view>
+</view>

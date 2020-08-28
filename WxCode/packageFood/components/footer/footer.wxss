@@ -1,0 +1,259 @@
+
+.footer{
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 20rpx 0 180rpx;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 4;
+  bottom:0;
+  left:0;
+  background-color: #333333;
+  padding-bottom: constant(safe-area-inset-bottom);
+}
+.img_view{
+  position: fixed;
+  z-index: 5;
+  bottom:0;
+  left:34rpx;
+  width: 138rpx;
+  height: 138rpx;
+}
+.bg_img{
+  width: 138rpx;
+  height: 138rpx;
+}
+.img{
+  width: 62rpx;
+  height: 62rpx;
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%)
+}
+.text{
+  font-size: 24rpx;
+  color:#fff;
+}
+.number{
+  font-size: 32rpx;
+  margin-left:10rpx;
+  margin-right:6rpx;
+}
+.btn{
+  width: 216rpx;
+  height: 78rpx;
+  text-align: center;
+  line-height: 78rpx;
+  font-size: 32rpx;
+  color:#fff;
+  font-weight: 600;
+  background-color: #ea6248;
+  border-radius: 10rpx;
+}
+.btn2{
+    width: 216rpx;
+  height: 78rpx;
+  text-align: center;
+  line-height: 78rpx;
+  font-size: 32rpx;
+  color:#a9a9a9;
+  font-weight: 600;
+  border-radius: 10rpx;
+  background-color: #767676;
+}
+
+
+
+
+
+/* 购物车弹框 */
+.commodity_screen{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+  color: #fff;
+  background-color:rgba(0,0,0,0.7);
+  /* opacity: 0.1; */
+}
+.commodity_attr_boxcard{
+  position: fixed;
+  z-index: 2;
+  bottom:110rpx;
+  left:0;
+  background-color: #fff;
+  width: 100%;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.header{
+  width: 100%;
+  height: 100rpx;
+  padding:0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left{
+  font-size: 20rpx;
+  color:#9b9a9a;
+}
+.right{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 24rpx;
+}
+.icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right:5rpx;
+}
+
+.scroll{
+  max-height: 800rpx;
+  box-sizing: border-box;
+  padding-bottom:30rpx;
+}
+/* ::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+} */
+.li{
+  padding:20rpx 20rpx 0 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.li_left{
+  width: 55%;
+}
+.li_left .name{
+  font-size: 30rpx;
+}
+.li_left .detail{
+  font-size: 22rpx;
+  color:#8b8b8b;
+  margin-top:16rpx;
+}
+.li_left .method{
+  font-size: 22rpx;
+  color:#8b8b8b;
+}
+.method .favor{
+  margin-right:10rpx;
+}
+.li_left .pack_li{
+  width: 100%;
+  padding-left:20rpx;
+  font-size: 22rpx;
+  color:#8b8b8b;
+  box-sizing: border-box;
+  line-height: 28rpx;
+  margin-top:5rpx;
+}
+.li_right{
+  display: flex;
+  width: 45%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color:#ea6248;
+  position: relative;
+}
+.number_price{
+  /* position: absolute;
+  right:210rpx;
+  bottom:0; */
+  
+}
+.component{
+  width: 180rpx;
+  height: 50rpx;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.component .numbers{
+  padding:0 20rpx;
+}
+.component .img_views{
+  width: 50rpx;
+  height: 50rpx;
+}
+.component .imgs{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+
+/* .yuan{
+  position:absolute;
+  transform:translateX(50%);
+  height:38rpx;
+  border-radius:18rpx;
+  min-width:38rpx;
+  background:#e60012;
+
+  color:#fff;
+  line-height:38rpx;
+  text-align:center;
+  padding:0 10rpx;
+  font-size:18rpx;
+  white-space:nowrap;
+  transform-origin:-10% center;
+  z-index:1000;
+  box-sizing:border-box;
+  text-rendering:optimizeLegibility;
+} */
+.yuan{
+  height:38rpx;
+  min-width:38rpx;
+  background-color: #ee685d;
+  position: absolute;
+  z-index: 10;
+  top:0;
+  right:0;
+  color:#fff;
+  border-radius:19rpx;
+  text-align:center;
+  line-height:38rpx;
+  white-space:nowrap;
+  font-size:18rpx;
+  padding:0 10rpx;
+  box-sizing:border-box;
+}
+
+
+
+.classshow{
+    -webkit-animation: free_download 0.5s linear alternate infinite;
+    animation: free_download 0.5s linear alternate infinite;
+}
+@-webkit-keyframes free_download{
+    0%{-webkit-transform:scale(1.3);}
+    100%{-webkit-transform:scale(1);}
+}
+@keyframes free_download{
+    0%{transform:scale(1.3);}
+    100%{transform:scale(1);}
+}
+
+.hove_classopacity07{
+  opacity: 0.7;
+}

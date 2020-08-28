@@ -1,0 +1,26 @@
+
+<view class="withdraw">
+  <view class="head">
+    <view class="title">
+      <image src="../../images/zj_011_wx.png" class="weixin_icon"></image>
+      <view class="title_text">微信账户{{tel}}</view>
+    </view>
+    <view class="head_content">
+      <view class="head_contentl">
+        <view>￥</view>
+        <input type="digit" placeholder="最低提现金额100" value="{{input_money}}" bindinput="bindinput"></input>
+      </view>
+      <view class="head_contentr" catchtap="btn_all">全部提现</view>
+    </view>
+    <view class="head_footer">可提现金{{money}}元</view>
+  </view>
+
+  <view class="warp">
+    <view class="warp_top">
+      <text class="margin_right30">普通提现</text><text>下个工作日到账</text>
+    </view>
+    <view class="warp_text">手续费 {{fprice}}元</view>
+  </view>
+
+  <view class="btn" catchtap="go_WithdrawalSuccess">提交申请</view>
+</view>

@@ -1,0 +1,23 @@
+<!-- 单品选择框 -->
+<view class="commodity_screen" wx:if="{{show}}" catchtap='hidelogin'></view>
+<view animation="{{animationData}}" class="commodity_attr_boxcard" wx:if="{{show}}">
+  <view class="head">选择支付方式</view>
+  <scroll-view class="scroll" scroll-y="true">
+    <view class="box">
+      <block wx:for="{{cardslist}}" wx:key="index">
+        <view class="li" catchtap='btncards' data-index="{{index}}">
+          <view class="left">
+            <image src="../../images/icon_022_weixin.png" class="cards_icon" wx:if="{{item.cardCode=='wx'}}"></image>
+            <image src="../../images/icon_021_huiyuanka.png" class="cards_icon" wx:else></image>
+            <view>{{item.levelname}}</view>
+          </view>
+          <view class="right">
+            <view wx:if="{{cardindex==index}}">
+              <image src="../../images/222_256.png" class="icon"></image>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

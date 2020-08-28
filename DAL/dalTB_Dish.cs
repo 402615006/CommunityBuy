@@ -19,50 +19,29 @@ namespace CommunityBuy.DAL
         /// </summary>
         public int Add(ref TB_DishEntity Entity)
         {
-            DataSet dtStructure = DBHelper.ExecuteDataSet("select top 0 * from TB_Dish;select top 0 * from TR_DishesMethods;select top 0 * from TR_DisForCombo;select top 0 * from TR_DishImage;select top 0 * from TR_ComboInfo;");
             StringBuilder sql = new StringBuilder();
             sql.Append(" declare @ID int;");
             sql.Append(" declare @returnval int;");
             sql.Append(" set @returnval=0;");
-            sql.Append("declare @DisCode varchar(32)");
-            sql.Append("declare @DisMethodCode varchar(32)");
-            sql.Append("exec [dbo].[p_GetbaseCode] @DisCode output");
-            sql.Append(" if exists(select 1 from TB_Dish where BusCode='" + Entity.BusCode + "' and StoCode='" + Entity.StoCode + "' and DisName='" + Entity.DisName + "' and Unit='" + Entity.Unit + "' and StoCode='" + Entity.StoCode + "') begin set @returnval=1; end ");
-            sql.Append(" else if exists(select 1 from TB_Dish where BusCode='" + Entity.BusCode + "' and StoCode='" + Entity.StoCode + "' and QRCode='" + Entity.QRCode + "' and '" + Entity.QRCode + "'<>'') begin set @returnval=7; end ");
-            sql.Append(" else begin BEGIN TRANSACTION tan1");
-
-            Entity.CTime = System.DateTime.Now;
-            List<string> lstExcludeFilds = new List<string>();
-            Dictionary<string, string> dicAttachFilds = new Dictionary<string, string>();
-            lstExcludeFilds.Clear();
-            lstExcludeFilds.Add("Id");
-            lstExcludeFilds.Add("DisCode");
-            lstExcludeFilds.Add("CTime");
-            lstExcludeFilds.Add("UTime");
-            dicAttachFilds.Clear();
-            dicAttachFilds.Add("DisCode", "@DisCode");
-            dicAttachFilds.Add("CTime", "getdate()");
-            dicAttachFilds.Add("UTime", "getdate()");
-           
-            string InsertSql = EntityHelper.GenerateSqlByDE<TB_DishEntity>(dtStructure.Tables[0], Entity, lstExcludeFilds, dicAttachFilds, EntityHelper.eSqlType.insert);
+            sql.Append("declare @DisCode varchar(32);");
+            sql.Append("declare @DisMethodCode varchar(32);");
+            sql.Append("exec [dbo].[p_GetbaseCode] @DisCode output;");
+            sql.Append(" if exists(select 1 from TB_Dish where StoCode='" + Entity.StoCode + "' and DisName='" + Entity.DisName + "') set @returnval=1;");
+            sql.Append("BEGIN TRANSACTION tan1");
+            string InsertSql = " values('{0}',getdate(),'1',@DisCode,'{1}','{2}','{3}','{4}','{5}',{6},{7},'{8}','{9}')";
+            InsertSql = string.Format(InsertSql, Entity.StoCode, Entity.DisName, Entity.OtherName, Entity.TypeCode, Entity.QuickCode, Entity.Unit, Entity.Price, Entity.CostPrice, Entity.QRCode, Entity.Descript);
             sql.AppendFormat(" INSERT INTO TB_Dish " + InsertSql + " ;");
-            sql.AppendLine(" exec dbo.p_uploaddata_isSync '" + Entity.BusCode + "','" + Entity.StoCode + "','TB_Dish','DisCode',@DisCode,'add'");
-
-
             #region 菜品图片
             if (!string.IsNullOrEmpty(Entity.ImageName))
             {
                 string[] ins = Entity.ImageName.Split(',');
                 foreach (string name in ins)
                 {
-                    sql.AppendFormat(" INSERT INTO TR_DishImage(BusCode,StoCode,DisCode,ImgUrl) values(@BusCode,@StoCode,@DisCode,'/uploads/UpDishImages/" + name + "');");
-                    sql.AppendLine(" exec dbo.p_uploaddata_isSync '" + Entity.BusCode + "','" + Entity.StoCode + "','TR_DishImage','DisCode',@DisCode,'add'");
+                    sql.AppendFormat(" INSERT INTO TR_DishImage(DisCode,ImgUrl) values(@DisCode,'/uploads/UpDishImages/" + name + "');");
                 }
             }
             #endregion
-
             sql.AppendLine(" if(@@error=0) begin set @returnval=0; commit TRANSACTION tan1; end else begin rollback TRANSACTION tran1;set @returnval=1; end");
-            sql.AppendLine(" end");
             sql.AppendLine(" select @returnval;");
             DataTable dt = DBHelper.ExecuteDataTable(sql.ToString());
             if (dt != null && dt.Rows.Count > 0)
@@ -80,48 +59,32 @@ namespace CommunityBuy.DAL
         /// </summary>
         public int Update(TB_DishEntity Entity)
         {
-            DataSet dtStructure = DBHelper.ExecuteDataSet("select top 0 * from TB_Dish;select top 0 * from TR_DishesMethods;select top 0 * from TR_DisForCombo;select top 0 * from TR_DishImage;select top 0 * from TR_ComboInfo;");
             StringBuilder sql = new StringBuilder();
             sql.Append(" declare @ID int;");
             sql.Append(" declare @returnval int;");
             sql.Append(" set @returnval=0;");
             sql.Append(" declare @DisCode varchar(32);");
-            sql.Append("declare @DisMethodCode varchar(32)");
-            sql.Append(" if not exists(select 1 from TB_Dish where BusCode='" + Entity.BusCode + "' and StoCode='" + Entity.StoCode + "' and DisCode='" + Entity.DisCode + "') begin set @returnval=2; end ");
-            sql.Append(" else if exists(select 1 from TB_Dish where BusCode='" + Entity.BusCode + "' and StoCode='" + Entity.StoCode + "' and DisCode<>'" + Entity.DisCode + "'  and ((QRCode='" + Entity.QRCode + "' and '" + Entity.QRCode + "'<>'') or DisName='"+Entity.DisName+"')) begin set @returnval=7; end ");
-            sql.Append(" else begin BEGIN TRANSACTION tan1");
-            Entity.CTime = System.DateTime.Now;
-            List<string> lstExcludeFilds = new List<string>();
-            Dictionary<string, string> dicAttachFilds = new Dictionary<string, string>();
-            lstExcludeFilds.Clear();
-            lstExcludeFilds.Add("Id");
-            lstExcludeFilds.Add("DisCode");
-            lstExcludeFilds.Add("CTime");
-            lstExcludeFilds.Add("UTime");
-            dicAttachFilds.Clear();
-            dicAttachFilds.Add("CTime", "getdate()");
-            dicAttachFilds.Add("UTime", "getdate()");
-            string InsertSql = EntityHelper.GenerateSqlByDE<TB_DishEntity>(dtStructure.Tables[0], Entity, lstExcludeFilds, dicAttachFilds, EntityHelper.eSqlType.update);
-            sql.AppendFormat(" UPDATE TB_Dish SET " + InsertSql + " where BusCode='" + Entity.BusCode + "' and DisCode='" + Entity.DisCode + "' and StoCode='"+Entity.StoCode+"' ;");
             sql.Append(" set @DisCode='" + Entity.DisCode + "';");
-            sql.AppendLine(" DECLARE @BusCode varchar(16); DECLARE @StoCode varchar(16); ");
-            sql.AppendLine(" SET @BusCode='" + Entity.BusCode + "';");
-            sql.AppendLine(" SET @StoCode='" + Entity.StoCode + "';");
-            sql.AppendLine(" exec dbo.p_uploaddata_isSync  @BusCode,@StoCode,'TB_Dish','DisCode',@DisCode,'update';	 ");
+            sql.Append("declare @DisMethodCode varchar(32)");
+            sql.Append(" if not exists(select 1 from TB_Dish where StoCode='" + Entity.StoCode + "' and DisCode='" + Entity.DisCode + "')  set @returnval=2;  ");
+            sql.Append(" if exists(select 1 from TB_Dish where StoCode='" + Entity.StoCode + "' and DisCode<>'" + Entity.DisCode + "'  and ((QRCode='" + Entity.QRCode + "' and '" + Entity.QRCode + "'<>'') or DisName='"+Entity.DisName+"'))  set @returnval=7;  ");
+            sql.Append(" if @returnval=0 begin");
 
+            string InsertSql = "[StoCode] ='{0}',[DisName] ='{1}',[OtherName] ='{2}',[TypeCode] ='{3}',[QuickCode] ='{4}',[Unit] ='{5}',[Price] ={6},[CostPrice] ={7} ,[QRCode] ='{8}' ,[Descript] ='{9}'";
+            InsertSql = string.Format(InsertSql, Entity.StoCode, Entity.DisName, Entity.OtherName, Entity.TypeCode, Entity.QuickCode, Entity.Unit, Entity.Price, Entity.CostPrice, Entity.QRCode, Entity.Descript);
+            sql.AppendFormat(" UPDATE TB_Dish SET " + InsertSql + " where DisCode='" + Entity.DisCode + "' and StoCode='"+Entity.StoCode+"' ;");
             #region 菜品图片
             if (!string.IsNullOrEmpty(Entity.ImageName))
             {
-                sql.AppendLine(" delete TR_DishImage where BusCode=@BusCode and StoCode=@StoCode and DisCode=@DisCode;");
-                string[] ins = Entity.ImageName.Split(',');
+                sql.AppendLine(" delete TR_DishImage where DisCode=@DisCode;");
+                string[] ins = Entity.ImageName.TrimEnd(',').Split(',');
                 foreach (string name in ins)
                 {
-                    sql.AppendFormat(" INSERT INTO TR_DishImage(BusCode,StoCode,DisCode,ImgUrl) values(@BusCode,@StoCode,@DisCode,'"+name+"');");
-                    sql.AppendLine(" exec dbo.p_uploaddata_isSync '" + Entity.BusCode + "','" + Entity.StoCode + "','TR_DishImage','DisCode',@StoCode,'add'");
+                    sql.AppendFormat(" INSERT INTO TR_DishImage(DisCode,ImgUrl) values(@DisCode,'"+name+"');");
                 }
             }
             #endregion
-            sql.AppendLine(" if(@@error=0) begin commit TRANSACTION tan1; end else begin rollback TRANSACTION tran1;set @returnval=1; end");
+            sql.AppendFormat(" set @returnval=1;");
             sql.AppendLine(" end");
             sql.AppendLine(" select @returnval;");
             DataTable dt = DBHelper.ExecuteDataTable(sql.ToString());
@@ -169,38 +132,6 @@ namespace CommunityBuy.DAL
             return intReturn;
         }
 
-        /// <summary>
-        /// 获取指定菜品的做法加价信息
-        /// </summary>
-        /// <param name="disCode"></param>
-        /// <returns></returns>
-        public DataTable GetDisMethods(string busCode, string stoCode, string disCode)
-        {
-            string sql = "select dm.*,dms.MetName from TR_DishesMethods dm inner join [dbo].[TB_DishMethods] dms on dm.pkcode=dms.pkcode and dm.stocode=dms.stocode where dm.DisCode='" + disCode + "' and dm.BusCode='" + busCode + "' and dm.stoCode='" + stoCode + "'";
-            return DBHelper.ExecuteDataTable(sql, CommandType.Text, null);
-        }
-
-        /// <summary>
-        ///  获取指定套餐的套餐内菜品信息
-        /// </summary>
-        /// <param name="disCode"></param>
-        /// <returns></returns>
-        public DataTable GetDisForCombo(string busCode, string stoCode, string disCode)
-        {
-            string sql = "select fc.*,cg.GroupName,[dbo].[fn_GetDisTypeToTypeName](dis.TypeCode,dis.stocode) as TypeName,dis.DisName,dis.Price from TR_DisForCombo fc inner join (select * from TB_Dish d where discode in(SELECT [DisCode] FROM [dbo].[TR_DisForCombo] c where c.PDisCode='"+ disCode + "' and stocode='"+stoCode+ "')) dis on fc.DisCode=dis.DisCode and dis.StoCode='" + stoCode + "' left join TR_ComboInfo ci on fc.PPKCode=ci.PKCode and ci.StoCode=fc.StoCode left join TB_DisComGroup cg on ci.ComGroupCode=cg.PKCode and cg.StoCode=ci.StoCode where fc.PDisCode='"+ disCode + "' and fc.BusCode='"+busCode+"' and fc.StoCode='"+stoCode+"'";
-            return DBHelper.ExecuteDataTable(sql, CommandType.Text, null);
-        }
-
-        /// <summary>
-        ///  获取指定套餐的套餐组别信息
-        /// </summary>
-        /// <param name="disCode"></param>
-        /// <returns></returns>
-        public DataTable GetDisForComboInfo(string busCode, string stoCode, string disCode)
-        {
-            string sql = "select ci.*,cg.GroupName from TR_ComboInfo ci left join TB_DisComGroup cg on ci.ComGroupCode=cg.PKCode  and cg.StoCode=ci.StoCode where ci.PDisCode='" + disCode + "' and ci.BusCode='" + busCode + "' and ci.StoCode='" + stoCode + "'";
-            return DBHelper.ExecuteDataTable(sql, CommandType.Text, null);
-        }
 
         /// <summary>
         ///  获取菜品的图片信息

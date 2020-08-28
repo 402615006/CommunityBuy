@@ -1,0 +1,37 @@
+<wxs src="../../../utils/filter.wxs" module="filter" />
+
+<view class="MemberBenefits">
+	<view class="head">
+		<image src="../../images/hy_016_banner.png" class="bg" catchtap="go_Myrank"></image>
+	</view>
+	<view class="ul">
+		<block wx:for="{{list}}" wx:key="index">
+			<view class="li" bindtap="todetail" data-code="{{item.procode}}">
+				<view class="img_box">
+					<image src="{{item.smallimg}}" class="img" mode="aspectFill"></image>
+				</view>
+				<view class="right">
+					<view class="right_name">{{item.name}}</view>
+					<view class="two">
+						<text>剩余{{item.procount}}</text><text class="fr">{{item.enddate}}截止</text>
+					</view>
+					<view class="price">
+						<text class="font_size20">￥</text><text>{{filter.splitpriceOne(item.price)}}</text><text class="money2">{{filter.splitpriceTwo(item.price)}}</text><text class="font_size20 price2">￥{{item.costprice}}</text>
+            
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+  <!-- 没有信息 -->
+  <view wx:if="{{isno&&list.length==0}}">
+    <view class='no_data'>
+      <image src='/images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂时还没有商品~</view>
+    </view>
+  </view>
+
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+	<view class='noMore' wx:if="{{list.length>4&&isnextpage==0}}">没有更多了~~</view>
+</view>

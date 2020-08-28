@@ -1,0 +1,145 @@
+
+page{
+  background-color: #f7f7f7;
+}
+.home{
+  width:100%;
+  box-sizing: border-box;
+}
+
+/* 轮播图 */
+.head{
+  width: 100%;
+  /* padding:0 18rpx; */
+  box-sizing: border-box;
+}
+.banner{
+  width: 100%;
+  height: 328rpx;
+}
+
+.banner-item{
+  width: 100%;
+  height: 328rpx;
+}
+
+/* 中间图标 */
+.top_tab{
+  width: 100%;
+  overflow: hidden;
+  padding:0 20rpx;
+  box-sizing: border-box;
+}
+.top_tab2{
+  display: flex ;
+  justify-content : space-around;
+}
+
+.tab_li{
+  /* width: 119rpx; */
+  width: 20%;
+  text-align: center;
+  /* margin-right:25rpx; */
+  float: left;
+  margin-top:15rpx;
+}
+.tab_li:last-child{
+  margin-right:0;
+}
+
+.tab_img{
+  width: 90rpx;
+  height: 90rpx;
+}
+.tab_title{
+  font-size: 24rpx;
+  color:#3d3c42;
+}
+/* 待领取优惠券 */
+.box{
+  width: 714rpx;
+  height: 160rpx;
+  margin:auto;
+  border-radius: 8rpx;
+  background-color: #ffffff;
+  margin-top:20rpx;
+  display: flex;
+  justify-content: space-between;
+  padding:0 34rpx 0 24rpx;
+  box-sizing: border-box;
+  align-items:center;
+  box-shadow: 0 0 10px #f0f0f0;
+}
+.couponimg{
+  width: 267rpx;
+  height: 103rpx;
+  margin-top:-10rpx;
+}
+
+.coupontitle{
+  font-size: 32rpx;
+  color:#13161a;
+  font-weight: 600;
+}
+.coupongo{
+  font-size: 24rpx;
+  color:#ee685d;
+  margin-top:18rpx;
+}
+
+
+/* 下方类容 */
+.content{
+  width: 100%;
+  margin-top:10rpx;
+}
+.content_top{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  color:#3d3c42;
+  justify-content: center;
+  position: relative;
+}
+.actclass{
+  color:#ee685d;
+}
+.huakuai{
+  width: 69rpx;
+  height: 5rpx;
+  background-color: #ee685d;
+  position: absolute;
+  bottom:0;
+  left:240rpx;
+  transition: 0.3s;
+}
+.act_huakuai{
+  left:475rpx;
+}
+.content_top .top_li{
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-weight: 600;
+  font-size: 36rpx;
+}
+.content_top .top_li:first-child{
+  margin-right:130rpx;
+}
+.content_ul{
+  width: 100%;
+  border-top:1rpx solid #e6e6e6;
+}
+
+.right_box{
+  position: fixed;
+  z-index: 1;
+  /* bottom:0;
+  right:0; */
+  width: 55px;
+}
+
+.but_img{
+  width: 55px;
+  height: 60px;
+}

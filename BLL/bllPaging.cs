@@ -49,7 +49,7 @@ namespace CommunityBuy.BLL
                 sqlParameters[8].Direction = ParameterDirection.Output;
                 sqlParameters[9].Direction = ParameterDirection.Output;
                 //只读服务器
-                Obj = new MSSqlDataAccess("DBConnectionStringR");
+                Obj = new MSSqlDataAccess("DBConnectionString");
                 Dt = Obj.ExecuteDataTable("dbo.pPagingLarge", CommandType.StoredProcedure, sqlParameters);
                 recnums = StringHelper.StringToInt(sqlParameters[8].Value.ToString());
                 pagenums = StringHelper.StringToInt(sqlParameters[9].Value.ToString());

@@ -1,0 +1,212 @@
+//格式化日期dd/dd/dd 00:00:00显示dd/dd/dd
+var dataday = function(date) {
+  var detes = date.split(' ');
+  return detes[0];
+}
+//格式化dd-dd-dd 00:00:00显示00:00:00
+var dateday2 = function(date) {
+  console.log(date)
+  var dates = date.split(' ');
+  return dates[1]
+}
+//格式化日期显示几月几日
+var dateFormat = function(date) {
+  var dates = date.split('/');
+  return dates[1] + "月" + dates[2] + "日";
+}
+//保留两位小数
+var moneyFormat = function(money) {
+  if (money){
+    return Number(money).toFixed(2);
+  }else{
+    return money
+  }
+}
+
+
+
+
+
+var split = function(s) {
+  return t = s.split(',');
+}
+
+var get_hour = function(date) {
+  var dates = date;
+  var hour = dates.split(' ')[1];
+  var hours = hour.split(':');
+  return hours[0] + ":" + hours[1];
+}
+
+var starring = function(starring) {
+  var name = starring;
+  name = name.replace("，", ",");
+  var name_list = name.split(",");
+  return name_list[0] + "," + name_list[1];
+}
+//计算价格数量相乘的总价
+var computed = function(num, price) {
+  var toa = num * price;
+  return toa.toFixed(2);
+}
+//分割座位
+var seat = function(e) {
+  var s = e.split('|');
+  return s[2] + ' ' + s[3];
+}
+var seat2 = function(e) {
+  var s = e.split('|');
+  return s[1];
+}
+//格式化时间显示年月日时分秒
+var day_split = function(e) {
+  var s = e;
+  s = s.split(':');
+  return s[0] + ':' + s[1]
+}
+//格式化小数点后面0
+var pf = function(e) {
+  var s = e;
+  if(s){
+    s = parseFloat(s)
+    return s
+  }else{
+    return '0'
+  }
+}
+
+var pffix1 = function(e) {
+  // var s = e.toFixed(2);
+  var s = Math.floor(e * 10) / 10
+  s = parseFloat(s)
+  return s
+}
+
+//返回绝对值
+var abs = function(e) {
+  var s = e;
+  console.log(e)
+  s = Math.abs(s);
+  return s
+}
+
+
+//把手机号中间变成*号
+var replace_tel = function(e) {
+  var s = e;
+  if(s){
+    s = s.substring(0, 3) + '****' + s.substring(7);
+  }
+  return s
+}
+//把身份证中间变成*号
+var replace_card = function(e) {
+  var s = e;
+  if(s){
+    s = s.substring(0, 3) + '***********' + s.substring(14);
+  }
+  return s
+}
+
+var strSplit = function(e) {
+  var s = [];
+  s = e.split(':');
+  return s
+}
+
+var strSplit2 = function(e) {
+  var s = [];
+  s = e.split(',');
+  return s
+}
+
+var setIconArr = function(e) {
+  var s = parseInt(e);
+  var a = [];
+  for (var i = 0; i < s; i++) {
+    a.push(i);
+  }
+  return a
+}
+// 计算菜的价格
+var calculation=function(disnum,price,addprice){
+  var toprice = disnum * price + disnum * addprice;
+  toprice = toprice.toFixed(2);
+  return toprice
+  // return Number(disnum * price) + Number(disnum * addprice);
+
+}
+
+var split_tian = function (s) {
+  var t = s.split(':')[0];
+  return t.split('天');
+}
+var split_images0 = function (s) {
+  var t = s.split(',')[0];
+  return t
+}
+
+var split_times00 = function(s){
+  if(s){
+    var t=s.split('-');
+    var tims='';
+    t.map(function(item,index){
+      if(tims){
+        tims = tims + '-' + item.split(':')[0] + ':' + item.split(':')[1];
+      }else{
+        tims = item.split(':')[0] + ':' + item.split(':')[1];
+      }
+    })
+    return tims
+  }else{
+    return s
+  }
+}
+
+
+var splitpriceOne=function(money){
+  money=Number(money).toFixed(2);
+  money = money.toString();
+  var s = money.split('.')[0];
+  return s
+}
+
+var splitpriceTwo=function(money){
+  money = Number(money).toFixed(2);
+  money = money.toString();
+  var s = money.split('.')[1];
+  if(s){
+    return '.' + s
+  }else{
+    return '.00'
+  }
+}
+
+
+module.exports = {
+  dateFormat: dateFormat,
+  moneyFormat: moneyFormat,
+  dataday: dataday,
+  dateday2: dateday2,
+  get_hour: get_hour,
+  starring: starring,
+  computed: computed,
+  seat: seat,
+  seat2: seat2,
+  split: split,
+  day_split: day_split,
+  pf: pf,
+  pffix1: pffix1,
+  replace_tel: replace_tel,
+  abs: abs,
+  replace_card: replace_card,
+  strSplit: strSplit,
+  strSplit2: strSplit2,
+  setIconArr:setIconArr,
+  calculation: calculation,
+  split_tian: split_tian,
+  split_images0: split_images0,
+  split_times00: split_times00,
+  splitpriceOne: splitpriceOne,
+  splitpriceTwo: splitpriceTwo
+}

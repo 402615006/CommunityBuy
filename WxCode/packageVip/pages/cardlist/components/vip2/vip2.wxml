@@ -1,0 +1,53 @@
+
+<scroll-view  scroll-y="true" class="scoll-y" >
+  <view class="content">
+    <view class="header">
+      <view class="sl {{index<3?'selectsl':''}}" wx:for="{{sldata}}" wx:key="index">
+        <image wx:if="{{index==3}}" src="../../../../images/hyk_020_jindu.png" class="feiji"></image>
+      </view>
+      
+    </view>
+    <view wx:if="{{discard.length>0}}" class="li" wx:for="{{discard}}" wx:key="index" catchtap='go_openvipcard' data-cardcode="{{item.levelcode}}">
+      <image class="li_bgimg" src="../../../../../images/hyk_024_lingka.png"></image>
+
+      <view class="head">
+        <view class="left font_size30">{{item.levelname}}</view>
+        <view class="right">
+          <view>详情</view>
+          <image src="../../../../images/btn_004_enter.png" class="icon"></image>
+        </view>
+      </view>
+ 
+        <!-- <scroll-view scroll-x="true" class="warp">
+          <view class="block">
+            <view class="title">年卡</view>
+            <view class="price">￥<text class="number">{{item.price1}}</text>/年</view>
+            <view class="text tip">低至￥38/季</view>
+          </view>
+          <view class="block">
+            <view class="title">季卡</view>
+            <view class="price">￥<text class="number">{{item.price2}}</text>/年</view>
+            <view class="text">低至￥38/季</view>
+          </view>
+          <view class="block">
+            <view class="title">月卡</view>
+            <view class="price">￥<text class="number">{{item.price3}}</text>/年</view>
+            <view class="text">低至￥38/月</view>
+          </view>
+        </scroll-view> -->
+
+      <view class="footer">
+        <view class="btn">立即开卡</view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 没有卡信息 -->
+  <view wx:if="{{discard.length==0&&onLoad}}">
+    <view class='no_data'>
+      <image src='../../../../../images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>暂无会员卡信息</view>
+    </view>
+  </view>
+</scroll-view>

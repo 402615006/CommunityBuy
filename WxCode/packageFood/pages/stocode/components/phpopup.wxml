@@ -1,0 +1,23 @@
+<!--屏幕背景变暗的背景  catchtouchmove='true'-->
+<view class="commodity_screen" catchtouchmove="preventTouchMove" bindtap="center" wx:if="{{show}}"></view>
+<!--弹出框-->
+<view animation="{{animationData}}" catchtouchmove="preventTouchMove" class="commodity_attr_boxcard" wx:if="{{show}}">
+  <view class="box">
+    <view class="head">
+      就餐人数
+      <image src="../../../images/btn_004_close.png" class="cen_img" catchtap='center'></image>
+    </view>
+    <view class="content">
+      <scroll-view scroll-x="true" class="scroll">
+        <view class="smbox {{numindex==index?'actsmbox':''}}" catchtap='btnnumber' wx:for="{{numberlist}}" wx:key="index" data-index="{{index}}">{{item.Column1}}</view>
+      </scroll-view>
+    </view>
+    <!-- 就餐时段 -->
+    <!-- <view class="times">
+      <view class="times_text">就餐时段</view>
+      <view class="times_name">午餐</view>
+    </view> -->
+    
+    <view class="button" catchtap='btn_quhao'>取号</view>
+  </view>
+</view>

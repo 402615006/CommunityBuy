@@ -1,0 +1,79 @@
+
+
+<view class="menberNum" wx:if="{{info}}">
+  <view class="ul">
+    <view class="ul_li">
+      <view class="ul_left">
+        <view class="img_box">
+          <image src="{{info.headimgurl}}" class="img_url"></image>
+        </view>
+        <view class="text_box">
+          <view class="h2">
+            <view>{{info.nickname}}</view>
+            <image src="/images/zj_008_nv.png" class="sex_icon" wx:if="{{info.sex==2}}"></image>
+            <image src="/images/zj_009_nan.png" class="sex_icon" wx:if="{{info.sex==1}}"></image>
+          </view>
+          <view class="time">信用分 {{info.creditno}}</view>
+        </view>
+      </view>
+      <view class="ul_right" catchtap="cen_gaunzhu" data-memcode="{{info.memcode}}">取消关注</view>
+    </view>
+  </view>
+
+  <view class="warp" wx:if="{{list.length>0}}">
+    <view class="warp_title">正在参局</view>
+    <block wx:for="{{list}}" wx:key="index" >
+      <view class="li" catchtap="go_detail" data-collcode="{{item.collcode}}">
+        <view class="left">
+          <view class="imgbox">
+            <image src="{{baserURLOrganization+item.smallimg}}" class="icon" mode="aspectFill"></image>
+            <image src="/images/sy_010_aa.png" class="po_icon" wx:if="{{item.colltype==1}}"></image>
+            <image src="/images/sy_011_fenzi.png" class="po_icon" wx:if="{{item.colltype==2}}"></image>
+            <image src="/images/sy_009_dage.png" class="po_icon" wx:if="{{item.colltype==3}}"></image>
+          </view>
+        </view>
+
+        <view class="right">
+          <view class="h2">
+            <view class="title">{{item.stoname}}</view>
+            <view class="right_text color707070 font_size24">{{item.collremark}}</view>
+          </view>
+          <view class="heng">
+            <view class="hong" style="width:{{item.schedule}}"></view>
+          </view>
+          <view class="h2">
+            <view class="color707070 font_size20">共{{item.collcount}}人,{{item.cjnum}}人已参与</view>
+            <view class="color707070 font_size20">参与进度{{item.schedule}}</view>
+          </view>
+          <view class="number">
+            <block wx:for="{{item.imgaug}}" wx:key="index" >
+              <view class="touxiangbox" wx:if="{{index<5}}">
+                <image src="{{item}}" class="icontou"></image>
+                <image class="icon_home" src="/images/sy_017_jjr.png" wx:if="{{index==0}}"></image>
+              </view>
+            </block>
+            <view class="slbox">
+              <view class="dian"></view>
+              <view class="dian"></view>
+              <view class="dian"></view>
+            </view>
+            <view class="ctype">{{item.ctype}}</view>
+          </view>
+          <view class="h2 ">
+            <view class="time2">{{item.date}}</view>
+            <view class="price">￥{{item.price}}/已付{{item.payprice}}元</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <tui-loadmore wx:if="{{isloadmore}}"></tui-loadmore>
+
+  <!-- 没有信息 -->
+  <view wx:if="{{isno&&list.length==0}}">
+    <view class='no_data'>
+      <image src='/images/qt_273.png' class='no_data_icon'></image>
+      <view class='wx_size32 wx_color96 wx_margin_top'>该用户还没有参局信息~</view>
+    </view>
+  </view>
+</view>

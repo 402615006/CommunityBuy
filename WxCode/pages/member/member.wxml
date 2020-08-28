@@ -1,0 +1,162 @@
+
+<wxs src="../../utils/filter.wxs" module="filter" />
+
+<view class="member">
+  <!-- 上方大盒子类容 -->
+  <view class="member_on">
+    <view class="head">
+      <image src="../../images/qb_001_di.png" class="bgc"></image>
+      
+      <view class="head_box">
+        <view class="top_left" hidden="{{!memcode}}">
+          <view class="images_box">
+            <open-data type="userAvatarUrl"></open-data>
+          </view>
+          <view class="top_text" catchtap="go_vip">
+            <view class="name">
+              <open-data type="userNickName" lang="zh_CN"></open-data>
+              <!-- <image src="/images/hy_010_hy.png" class="icon_img"></image> -->
+            </view>
+            <view class="type">
+              <text class="tip" wx:if="{{memlevel==0}}">普通会员</text>
+              <text class="tip" wx:if="{{memlevel==1}}">vip会员</text>
+              <text class="tip" wx:if="{{memlevel==2}}">服务商</text>
+              <text class="time" wx:if="{{memlevel==1||memlevel==2}}">{{expdate}}到期</text>
+            </view>
+          </view>
+        </view>
+        <view class="top_left" hidden="{{memcode}}">
+          <view class="images_box">
+            <image src="../../images/001_toux.png" class="no_log" catchtap='btn_denglu'></image>
+          </view>
+          <view class="top_text">
+            <view class='wx_colorff' catchtap='btn_denglu'>
+              立即登录
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 邀请码 -->
+      <view class="head_right">
+        <view class="img_box" catchtap="go_yaoqing">
+          <image src="../../images/qb_002_qy.png" class="code_img"></image>
+          <view class="fukuanma_text color_fcf2b7">邀请码</view>
+        </view>
+        <!-- <view class="but" catchtap="go_tuiguanggognlue">推广攻略</view> -->
+      </view>
+    </view>
+    <!-- 佣金 -->
+    <view class="commission_box" catchtap="go_commission">
+      <view class="commission_head">
+        <image src="../../images/qb_005_tixian.png" class="icon_money"></image>
+        <view class="commission_title">我的奖励金</view>
+      </view>
+      <view class="commission_number" wx:if="{{list.ktyj}}">
+        <text>{{filter.splitpriceOne(list.ktyj)}}</text><text class="commission_number2">{{filter.splitpriceTwo(list.ktyj)}}</text>
+      </view>
+      <view class="commission_number" wx:else>0.00</view>
+      <view class="commission_bottom">
+        <!-- <view class="one">
+          <view class="font_size24">待确认佣金</view>
+          <view class="price font_size32 color_3d3c42 font_weight" wx:if="{{list.dqryj}}">
+            <text>{{filter.splitpriceOne(list.dqryj)}}</text>
+            <text class="font_size24">{{filter.splitpriceTwo(list.dqryj)}}</text>
+          </view>
+          <view class="price font_size32 color_3d3c42 font_weight" wx:else>0.00</view>
+        </view>
+        <view class="two">
+          <view class="font_size24">已确认佣金</view>
+          <view class="price font_size32 color_3d3c42 font_weight" wx:if="{{list.yqryj}}">
+            <text>{{filter.splitpriceOne(list.yqryj)}}</text>
+            <text class="font_size24">{{filter.splitpriceTwo(list.yqryj)}}</text>
+          </view>
+          <view class="price font_size32 color_3d3c42 font_weight" wx:else>0.00</view>
+        </view> -->
+      </view>
+      <!-- <view class="bun_ti">
+        <image src="../../images/zj_014_fw.png" class="icon_li"></image>
+        <view>立即提现</view>
+      </view> -->
+    </view>
+
+
+
+
+    <!-- <view class="Title">
+      <image src="../../images/hy_002_zs.png" class="icon_tubiao"></image>
+      <view class="mar_lr">邀粉活动专区</view>
+      <image src="../../images/hy_002_zs.png" class="icon_tubiao trrotate180"></image>
+    </view> -->
+
+
+    <view class="warp">
+      <view class="box" catchtap="go_card">
+        <image src="/images/qb_007_kb.png" class="icon_right"></image>
+        <view class="warp_name">卡券包</view>
+      </view>
+      <!-- <view class="box" catchtap="go_NewcomerExclusive">
+        <image src="../../images/hy_003_ico1.png" class="icon_right"></image>
+        <view class="warp_name">新人专享</view>
+      </view> -->
+      <!-- <view class="box" catchtap="go_Xiandirecommend">
+        <image src="../../images/hy_004_ico2.png" class="icon_right"></image>
+        <view class="warp_name">闲弟推荐</view>
+        <view class="warp_text">员工推荐</view>
+      </view> -->
+      <view class="box" catchtap="go_jifen">
+        <image src="../../images/hy_006_ico4.png" class="icon_right"></image>
+        <view class="warp_name">金币商城</view>
+        <!-- <view class="warp_text">积分兑换商品</view> -->
+      </view>
+    </view>
+
+    <view class="Title">
+      <image src="../../images/hy_002_zs.png" class="icon_tubiao"></image>
+      <view class="mar_lr">我的会员权益</view>
+      <image src="../../images/hy_002_zs.png" class="icon_tubiao trrotate180"></image>
+    </view>
+    <view class="warp2" scroll-x="true" catchtap="go_OrganizationDescription">
+      <view class="box2">
+        <image src="../../images/hy_007_ico5.png" class="warp2_icon"></image>
+        <view class="warp2_text1">分享得奖励</view>
+        <view class="warp2_text2">分享奖得奖励金</view>
+      </view>
+      <view class="box2">
+        <image src="../../images/hy_008_ico6.png" class="warp2_icon"></image>
+        <view class="warp2_text1">会员专属商品</view>
+        <view class="warp2_text2">会员专享超值优惠</view>
+      </view>
+      <view class="box2">
+        <image src="../../images/hy_009_ico7.png" class="warp2_icon"></image>
+        <view class="warp2_text1">会员福利</view>
+        <view class="warp2_text2">会员专属礼包</view>
+      </view>
+      <!-- <view class="box2">
+        <image src="../../images/hy_007_ico5.png" class="warp2_icon"></image>
+        <view class="warp2_text1">推广奖励</view>
+        <view class="warp2_text2">推广奖励礼包</view>
+      </view> -->
+    </view>
+  </view>
+  
+  <!-- 下方礼包的类容 -->
+  <view class="footer">
+    <view class="Title">
+      <image src="../../images/hy_002_zs.png" class="icon_tubiao"></image>
+      <view class="mar_lr">会员特惠专区</view>
+      <image src="../../images/hy_002_zs.png" class="icon_tubiao trrotate180"></image>
+    </view>
+
+    <!-- <view class="tab_bar">
+      <view class="tab_li {{tab_index==index?'select':''}}" wx:for="{{tab}}" wx:key="index" catchtap="click_tab" data-index="{{index}}">
+        {{item}}
+        <view class="select_box" wx:if="{{tab_index==index}}"></view>
+      </view>
+    </view> -->
+  </view>  
+  <block wx:for="{{tab}}" wx:key="index">
+      <Text id="text{{index}}" bind:todetail="todetail" bind:fxjd="fxjd" idx="{{index}}" tab_index="{{tab_index}}" status="{{index==0?'':index==1?'1':'2'}}"></Text>
+  </block>
+  
+</view>

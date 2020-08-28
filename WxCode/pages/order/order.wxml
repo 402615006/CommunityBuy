@@ -1,0 +1,21 @@
+
+<!-- 订单页面最外层 -->
+<view class="order">
+  <view class="head">
+    <view class="box">
+      <view class="tabli {{tabindex==index?'act_tab':''}}" wx:for="{{tablist}}" wx:key="index" catchtap='btn_tab' data-index="{{index}}">{{item}}</view>
+    </view>
+  </view>
+  <!-- 下方内容 -->
+  <view class="content">
+    <Moviebox id="box0" ></Moviebox>
+    <Foodbox id="box1" ></Foodbox>
+    <Organizationbox id="box2"></Organizationbox>
+    <Packagebox id="box3"></Packagebox>
+    <Giftpackagebox id="box4"></Giftpackagebox>
+
+    <!-- <Hotbox id="box2" ></Hotbox>
+    <Groupbox id="box3" ></Groupbox>    -->
+  </view>
+</view>
+
